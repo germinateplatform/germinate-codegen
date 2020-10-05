@@ -13,8 +13,8 @@ import org.jooq.Schema;
 
 // @formatter:off
 /**
- * Defines the data type of the phenotype. This can be of float, int or char 
- * types.
+ * Defines the data type of the phenotype. This can be of numeric, text, date 
+ * or categorical types.
  */
 @Generated(
     value = {
@@ -26,13 +26,13 @@ import org.jooq.Schema;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public enum PhenotypesDatatype implements EnumType {
 
-    float_("float"),
+    categorical("categorical"),
 
-    int_("int"),
+    numeric("numeric"),
 
-    char_("char"),
+    text("text"),
 
-    categorical("categorical");
+    date("date");
 
     private final String literal;
 

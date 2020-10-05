@@ -29,7 +29,7 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasetAttributesRecord extends TableRecordImpl<ViewTableDatasetAttributesRecord> implements Record10<Integer, String, String, Integer, String, String, ViewTableDatasetAttributesAttributeType, String, Integer, String> {
 
-    private static final long serialVersionUID = 624978723;
+    private static final long serialVersionUID = -1621871229;
 
     /**
      * Setter for <code>germinate_db.view_table_dataset_attributes.dataset_id</code>. Primary id for this table. This uniquely identifies the row.
@@ -116,14 +116,14 @@ public class ViewTableDatasetAttributesRecord extends TableRecordImpl<ViewTableD
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_dataset_attributes.attribute_type</code>. Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.
+     * Setter for <code>germinate_db.view_table_dataset_attributes.attribute_type</code>. Defines the data type of the attribute. This can be of numeric, text, date or categorical types.
      */
     public void setAttributeType(ViewTableDatasetAttributesAttributeType value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_dataset_attributes.attribute_type</code>. Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.
+     * Getter for <code>germinate_db.view_table_dataset_attributes.attribute_type</code>. Defines the data type of the attribute. This can be of numeric, text, date or categorical types.
      */
     public ViewTableDatasetAttributesAttributeType getAttributeType() {
         return (ViewTableDatasetAttributesAttributeType) get(6);

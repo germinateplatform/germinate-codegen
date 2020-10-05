@@ -36,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
 
-    private static final long serialVersionUID = -258224624;
+    private static final long serialVersionUID = 877149290;
 
     /**
      * The reference instance of <code>germinate_db.view_table_traits</code>
@@ -72,9 +72,9 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     public final TableField<ViewTableTraitsRecord, String> TRAIT_DESCRIPTION = createField("trait_description", org.jooq.impl.SQLDataType.CLOB, this, "Full description of the phenotype. This should contain enough infomation to accurately identify the phenoytpe and how it was recorded.");
 
     /**
-     * The column <code>germinate_db.view_table_traits.data_type</code>. Defines the data type of the phenotype. This can be of float, int or char types.
+     * The column <code>germinate_db.view_table_traits.data_type</code>. Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.
      */
-    public final TableField<ViewTableTraitsRecord, ViewTableTraitsDataType> DATA_TYPE = createField("data_type", org.jooq.impl.SQLDataType.VARCHAR(11).nullable(false).defaultValue(org.jooq.impl.DSL.inline("int", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType.class), this, "Defines the data type of the phenotype. This can be of float, int or char types.");
+    public final TableField<ViewTableTraitsRecord, ViewTableTraitsDataType> DATA_TYPE = createField("data_type", org.jooq.impl.SQLDataType.VARCHAR(11).nullable(false).defaultValue(org.jooq.impl.DSL.inline("text", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType.class), this, "Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.");
 
     /**
      * @deprecated Unknown data type. Please define an explicit {@link org.jooq.Binding} to specify how this type should be handled. Deprecation can be turned off using {@literal <deprecationOnUnknownTypes/>} in your code generator configuration.

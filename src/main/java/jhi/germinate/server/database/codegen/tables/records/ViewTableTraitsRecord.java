@@ -31,7 +31,7 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord> implements Record12<Integer, String, String, String, ViewTableTraitsDataType, Object, Integer, String, String, String, JsonArray, Long> {
 
-    private static final long serialVersionUID = 1126526826;
+    private static final long serialVersionUID = -1084206070;
 
     /**
      * Setter for <code>germinate_db.view_table_traits.trait_id</code>. Primary id for this table. This uniquely identifies the row.
@@ -90,14 +90,14 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_traits.data_type</code>. Defines the data type of the phenotype. This can be of float, int or char types.
+     * Setter for <code>germinate_db.view_table_traits.data_type</code>. Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.
      */
     public void setDataType(ViewTableTraitsDataType value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_traits.data_type</code>. Defines the data type of the phenotype. This can be of float, int or char types.
+     * Getter for <code>germinate_db.view_table_traits.data_type</code>. Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.
      */
     public ViewTableTraitsDataType getDataType() {
         return (ViewTableTraitsDataType) get(4);

@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableGermplasmAttributes extends TableImpl<ViewTableGermplasmAttributesRecord> {
 
-    private static final long serialVersionUID = 702532018;
+    private static final long serialVersionUID = 856647929;
 
     /**
      * The reference instance of <code>germinate_db.view_table_germplasm_attributes</code>
@@ -86,9 +86,9 @@ public class ViewTableGermplasmAttributes extends TableImpl<ViewTableGermplasmAt
     public final TableField<ViewTableGermplasmAttributesRecord, String> ATTRIBUTE_DESCRIPTION = createField("attribute_description", org.jooq.impl.SQLDataType.VARCHAR(255), this, "Describes the attribute. This should expand on the name to make it clear what the attribute actually is.");
 
     /**
-     * The column <code>germinate_db.view_table_germplasm_attributes.attribute_type</code>. Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.
+     * The column <code>germinate_db.view_table_germplasm_attributes.attribute_type</code>. Defines the data type of the attribute. This can be of numeric, text, date or categorical types.
      */
-    public final TableField<ViewTableGermplasmAttributesRecord, ViewTableGermplasmAttributesAttributeType> ATTRIBUTE_TYPE = createField("attribute_type", org.jooq.impl.SQLDataType.VARCHAR(5).defaultValue(org.jooq.impl.DSL.inline("int", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableGermplasmAttributesAttributeType.class), this, "Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.");
+    public final TableField<ViewTableGermplasmAttributesRecord, ViewTableGermplasmAttributesAttributeType> ATTRIBUTE_TYPE = createField("attribute_type", org.jooq.impl.SQLDataType.VARCHAR(11).defaultValue(org.jooq.impl.DSL.inline("text", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableGermplasmAttributesAttributeType.class), this, "Defines the data type of the attribute. This can be of numeric, text, date or categorical types.");
 
     /**
      * The column <code>germinate_db.view_table_germplasm_attributes.target_table</code>.

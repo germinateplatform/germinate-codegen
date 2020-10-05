@@ -33,7 +33,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> implements Record9<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Timestamp, Timestamp> {
 
-    private static final long serialVersionUID = -1087292205;
+    private static final long serialVersionUID = 1580681489;
 
     /**
      * Setter for <code>germinate_db.phenotypes.id</code>. Primary id for this table. This uniquely identifies the row.
@@ -92,14 +92,14 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
     }
 
     /**
-     * Setter for <code>germinate_db.phenotypes.datatype</code>. Defines the data type of the phenotype. This can be of float, int or char types.
+     * Setter for <code>germinate_db.phenotypes.datatype</code>. Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.
      */
     public void setDatatype(PhenotypesDatatype value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>germinate_db.phenotypes.datatype</code>. Defines the data type of the phenotype. This can be of float, int or char types.
+     * Getter for <code>germinate_db.phenotypes.datatype</code>. Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.
      */
     public PhenotypesDatatype getDatatype() {
         return (PhenotypesDatatype) get(4);

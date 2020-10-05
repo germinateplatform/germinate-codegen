@@ -31,7 +31,7 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTableGermplasmAttributesRecord> implements Record12<Integer, Integer, String, String, Integer, String, String, ViewTableGermplasmAttributesAttributeType, String, Integer, Timestamp, String> {
 
-    private static final long serialVersionUID = 805073874;
+    private static final long serialVersionUID = 2070262578;
 
     /**
      * Setter for <code>germinate_db.view_table_germplasm_attributes.attribute_value_id</code>. Primary id for this table. This uniquely identifies the row.
@@ -132,14 +132,14 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_germplasm_attributes.attribute_type</code>. Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.
+     * Setter for <code>germinate_db.view_table_germplasm_attributes.attribute_type</code>. Defines the data type of the attribute. This can be of numeric, text, date or categorical types.
      */
     public void setAttributeType(ViewTableGermplasmAttributesAttributeType value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_germplasm_attributes.attribute_type</code>. Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.
+     * Getter for <code>germinate_db.view_table_germplasm_attributes.attribute_type</code>. Defines the data type of the attribute. This can be of numeric, text, date or categorical types.
      */
     public ViewTableGermplasmAttributesAttributeType getAttributeType() {
         return (ViewTableGermplasmAttributesAttributeType) get(7);

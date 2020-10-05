@@ -42,7 +42,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Phenotypes extends TableImpl<PhenotypesRecord> {
 
-    private static final long serialVersionUID = -345819108;
+    private static final long serialVersionUID = -1821749930;
 
     /**
      * The reference instance of <code>germinate_db.phenotypes</code>
@@ -78,9 +78,9 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
     public final TableField<PhenotypesRecord, String> DESCRIPTION = createField("description", org.jooq.impl.SQLDataType.CLOB, this, "Full description of the phenotype. This should contain enough infomation to accurately identify the phenoytpe and how it was recorded.");
 
     /**
-     * The column <code>germinate_db.phenotypes.datatype</code>. Defines the data type of the phenotype. This can be of float, int or char types.
+     * The column <code>germinate_db.phenotypes.datatype</code>. Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.
      */
-    public final TableField<PhenotypesRecord, PhenotypesDatatype> DATATYPE = createField("datatype", org.jooq.impl.SQLDataType.VARCHAR(11).nullable(false).defaultValue(org.jooq.impl.DSL.inline("int", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.PhenotypesDatatype.class), this, "Defines the data type of the phenotype. This can be of float, int or char types.");
+    public final TableField<PhenotypesRecord, PhenotypesDatatype> DATATYPE = createField("datatype", org.jooq.impl.SQLDataType.VARCHAR(11).nullable(false).defaultValue(org.jooq.impl.DSL.inline("text", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.PhenotypesDatatype.class), this, "Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.");
 
     /**
      * The column <code>germinate_db.phenotypes.restrictions</code>. A json object describing the restrictions placed on this trait. It is an object containing a field called "categories" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are "min" and "max" to specify upper and lower limits for numeric traits.

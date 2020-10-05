@@ -1,5 +1,7 @@
 package jhi.germinate.server.database.pojo;
 
+import java.util.Arrays;
+
 public class TraitRestrictions
 {
 	private TraitCategory[] categories;
@@ -34,5 +36,15 @@ public class TraitRestrictions
 	public void setMax(Double max)
 	{
 		this.max = max;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "TraitRestrictions{" +
+			"categories=" + Arrays.toString(categories) +
+			", min=" + min +
+			", max=" + max +
+			'}';
 	}
 }

@@ -35,7 +35,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AttributesRecord extends UpdatableRecordImpl<AttributesRecord> implements Record7<Integer, String, String, AttributesDatatype, String, Timestamp, Timestamp> {
 
-    private static final long serialVersionUID = 895934412;
+    private static final long serialVersionUID = 1275356574;
 
     /**
      * Setter for <code>germinate_db.attributes.id</code>. Primary id for this table. This uniquely identifies the row.
@@ -80,14 +80,14 @@ public class AttributesRecord extends UpdatableRecordImpl<AttributesRecord> impl
     }
 
     /**
-     * Setter for <code>germinate_db.attributes.datatype</code>. Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.
+     * Setter for <code>germinate_db.attributes.datatype</code>. Defines the data type of the attribute. This can be of numeric, text, date or categorical types.
      */
     public void setDatatype(AttributesDatatype value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>germinate_db.attributes.datatype</code>. Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.
+     * Getter for <code>germinate_db.attributes.datatype</code>. Defines the data type of the attribute. This can be of numeric, text, date or categorical types.
      */
     public AttributesDatatype getDatatype() {
         return (AttributesDatatype) get(3);

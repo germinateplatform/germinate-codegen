@@ -13,8 +13,8 @@ import org.jooq.Schema;
 
 // @formatter:off
 /**
- * Describes the data type of the attribute. This can be INT, FLOAT or CHAR 
- * type.
+ * Defines the data type of the attribute. This can be of numeric, text, date 
+ * or categorical types.
  */
 @Generated(
     value = {
@@ -26,11 +26,13 @@ import org.jooq.Schema;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public enum ViewTableDatasetAttributesAttributeType implements EnumType {
 
-    int_("int"),
+    categorical("categorical"),
 
-    float_("float"),
+    numeric("numeric"),
 
-    char_("char");
+    text("text"),
+
+    date("date");
 
     private final String literal;
 

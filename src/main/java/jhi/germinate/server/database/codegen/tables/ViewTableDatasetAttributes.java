@@ -33,7 +33,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasetAttributes extends TableImpl<ViewTableDatasetAttributesRecord> {
 
-    private static final long serialVersionUID = -1764442309;
+    private static final long serialVersionUID = -130973438;
 
     /**
      * The reference instance of <code>germinate_db.view_table_dataset_attributes</code>
@@ -79,9 +79,9 @@ public class ViewTableDatasetAttributes extends TableImpl<ViewTableDatasetAttrib
     public final TableField<ViewTableDatasetAttributesRecord, String> ATTRIBUTE_DESCRIPTION = createField("attribute_description", org.jooq.impl.SQLDataType.VARCHAR(255), this, "Describes the attribute. This should expand on the name to make it clear what the attribute actually is.");
 
     /**
-     * The column <code>germinate_db.view_table_dataset_attributes.attribute_type</code>. Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.
+     * The column <code>germinate_db.view_table_dataset_attributes.attribute_type</code>. Defines the data type of the attribute. This can be of numeric, text, date or categorical types.
      */
-    public final TableField<ViewTableDatasetAttributesRecord, ViewTableDatasetAttributesAttributeType> ATTRIBUTE_TYPE = createField("attribute_type", org.jooq.impl.SQLDataType.VARCHAR(5).defaultValue(org.jooq.impl.DSL.inline("int", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableDatasetAttributesAttributeType.class), this, "Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.");
+    public final TableField<ViewTableDatasetAttributesRecord, ViewTableDatasetAttributesAttributeType> ATTRIBUTE_TYPE = createField("attribute_type", org.jooq.impl.SQLDataType.VARCHAR(11).defaultValue(org.jooq.impl.DSL.inline("text", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableDatasetAttributesAttributeType.class), this, "Defines the data type of the attribute. This can be of numeric, text, date or categorical types.");
 
     /**
      * The column <code>germinate_db.view_table_dataset_attributes.target_table</code>.

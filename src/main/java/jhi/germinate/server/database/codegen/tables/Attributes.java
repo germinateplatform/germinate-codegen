@@ -43,7 +43,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Attributes extends TableImpl<AttributesRecord> {
 
-    private static final long serialVersionUID = 797470698;
+    private static final long serialVersionUID = -1960383967;
 
     /**
      * The reference instance of <code>germinate_db.attributes</code>
@@ -74,9 +74,9 @@ public class Attributes extends TableImpl<AttributesRecord> {
     public final TableField<AttributesRecord, String> DESCRIPTION = createField("description", org.jooq.impl.SQLDataType.VARCHAR(255), this, "Describes the attribute. This should expand on the name to make it clear what the attribute actually is.");
 
     /**
-     * The column <code>germinate_db.attributes.datatype</code>. Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.
+     * The column <code>germinate_db.attributes.datatype</code>. Defines the data type of the attribute. This can be of numeric, text, date or categorical types.
      */
-    public final TableField<AttributesRecord, AttributesDatatype> DATATYPE = createField("datatype", org.jooq.impl.SQLDataType.VARCHAR(5).nullable(false).defaultValue(org.jooq.impl.DSL.inline("int", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.AttributesDatatype.class), this, "Describes the data type of the attribute. This can be INT, FLOAT or CHAR type.");
+    public final TableField<AttributesRecord, AttributesDatatype> DATATYPE = createField("datatype", org.jooq.impl.SQLDataType.VARCHAR(11).nullable(false).defaultValue(org.jooq.impl.DSL.inline("text", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.AttributesDatatype.class), this, "Defines the data type of the attribute. This can be of numeric, text, date or categorical types.");
 
     /**
      * The column <code>germinate_db.attributes.target_table</code>.

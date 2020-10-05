@@ -1,5 +1,7 @@
 package jhi.germinate.server.database.pojo;
 
+import java.util.Arrays;
+
 public class TraitCategory
 {
 	private String[] categories;
@@ -12,5 +14,13 @@ public class TraitCategory
 	public void setCategories(String[] categories)
 	{
 		this.categories = categories;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "TraitCategory{" +
+			"categories=" + Arrays.toString(categories) +
+			'}';
 	}
 }
