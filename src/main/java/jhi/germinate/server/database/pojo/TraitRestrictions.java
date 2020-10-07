@@ -4,16 +4,16 @@ import java.util.Arrays;
 
 public class TraitRestrictions
 {
-	private TraitCategory[] categories;
-	private Double min;
-	private Double max;
+	private String[][] categories;
+	private Double     min;
+	private Double     max;
 
-	public TraitCategory[] getCategories()
+	public String[][] getCategories()
 	{
 		return categories;
 	}
 
-	public void setCategories(TraitCategory[] categories)
+	public void setCategories(String[][] categories)
 	{
 		this.categories = categories;
 	}
