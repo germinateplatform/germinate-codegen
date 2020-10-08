@@ -9,6 +9,8 @@ import java.sql.Timestamp;
 
 import javax.annotation.Generated;
 
+import jhi.germinate.server.database.pojo.TraitRestrictions;
+
 
 // @formatter:off
 /**
@@ -24,28 +26,28 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTrialsData implements Serializable {
 
-    private static final long serialVersionUID = 1276913007;
+    private static final long serialVersionUID = -1524528527;
 
-    private Integer   germplasmId;
-    private String    germplasmGid;
-    private String    germplasmName;
-    private String    entityParentName;
-    private String    entityParentGeneralIdentifier;
-    private String    entityType;
-    private Integer   datasetId;
-    private String    datasetName;
-    private String    datasetDescription;
-    private String    locationName;
-    private String    countryName;
-    private String    countryCode2;
-    private Integer   traitId;
-    private String    traitName;
-    private String    traitNameShort;
-    private Object    traitRestrictions;
-    private String    unitName;
-    private String    treatment;
-    private Timestamp recordingDate;
-    private String    traitValue;
+    private Integer           germplasmId;
+    private String            germplasmGid;
+    private String            germplasmName;
+    private String            entityParentName;
+    private String            entityParentGeneralIdentifier;
+    private String            entityType;
+    private Integer           datasetId;
+    private String            datasetName;
+    private String            datasetDescription;
+    private String            locationName;
+    private String            countryName;
+    private String            countryCode2;
+    private Integer           traitId;
+    private String            traitName;
+    private String            traitNameShort;
+    private TraitRestrictions traitRestrictions;
+    private String            unitName;
+    private String            treatment;
+    private Timestamp         recordingDate;
+    private String            traitValue;
 
     public ViewTableTrialsData() {}
 
@@ -73,26 +75,26 @@ public class ViewTableTrialsData implements Serializable {
     }
 
     public ViewTableTrialsData(
-        Integer   germplasmId,
-        String    germplasmGid,
-        String    germplasmName,
-        String    entityParentName,
-        String    entityParentGeneralIdentifier,
-        String    entityType,
-        Integer   datasetId,
-        String    datasetName,
-        String    datasetDescription,
-        String    locationName,
-        String    countryName,
-        String    countryCode2,
-        Integer   traitId,
-        String    traitName,
-        String    traitNameShort,
-        Object    traitRestrictions,
-        String    unitName,
-        String    treatment,
-        Timestamp recordingDate,
-        String    traitValue
+        Integer           germplasmId,
+        String            germplasmGid,
+        String            germplasmName,
+        String            entityParentName,
+        String            entityParentGeneralIdentifier,
+        String            entityType,
+        Integer           datasetId,
+        String            datasetName,
+        String            datasetDescription,
+        String            locationName,
+        String            countryName,
+        String            countryCode2,
+        Integer           traitId,
+        String            traitName,
+        String            traitNameShort,
+        TraitRestrictions traitRestrictions,
+        String            unitName,
+        String            treatment,
+        Timestamp         recordingDate,
+        String            traitValue
     ) {
         this.germplasmId = germplasmId;
         this.germplasmGid = germplasmGid;
@@ -236,21 +238,11 @@ public class ViewTableTrialsData implements Serializable {
         this.traitNameShort = traitNameShort;
     }
 
-
-    /**
-     * @deprecated Unknown data type. Please define an explicit {@link org.jooq.Binding} to specify how this type should be handled. Deprecation can be turned off using {@literal <deprecationOnUnknownTypes/>} in your code generator configuration.
-     */
-    @java.lang.Deprecated
-    public Object getTraitRestrictions() {
+    public TraitRestrictions getTraitRestrictions() {
         return this.traitRestrictions;
     }
 
-
-    /**
-     * @deprecated Unknown data type. Please define an explicit {@link org.jooq.Binding} to specify how this type should be handled. Deprecation can be turned off using {@literal <deprecationOnUnknownTypes/>} in your code generator configuration.
-     */
-    @java.lang.Deprecated
-    public void setTraitRestrictions(Object traitRestrictions) {
+    public void setTraitRestrictions(TraitRestrictions traitRestrictions) {
         this.traitRestrictions = traitRestrictions;
     }
 

@@ -11,6 +11,7 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType;
+import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 
 // @formatter:off
@@ -27,14 +28,14 @@ import jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTraits implements Serializable {
 
-    private static final long serialVersionUID = -1635686416;
+    private static final long serialVersionUID = 1422897042;
 
     private Integer                 traitId;
     private String                  traitName;
     private String                  traitNameShort;
     private String                  traitDescription;
     private ViewTableTraitsDataType dataType;
-    private Object                  traitRestrictions;
+    private TraitRestrictions       traitRestrictions;
     private Integer                 unitId;
     private String                  unitName;
     private String                  unitDescription;
@@ -65,7 +66,7 @@ public class ViewTableTraits implements Serializable {
         String                  traitNameShort,
         String                  traitDescription,
         ViewTableTraitsDataType dataType,
-        Object                  traitRestrictions,
+        TraitRestrictions       traitRestrictions,
         Integer                 unitId,
         String                  unitName,
         String                  unitDescription,
@@ -127,21 +128,11 @@ public class ViewTableTraits implements Serializable {
         this.dataType = dataType;
     }
 
-
-    /**
-     * @deprecated Unknown data type. Please define an explicit {@link org.jooq.Binding} to specify how this type should be handled. Deprecation can be turned off using {@literal <deprecationOnUnknownTypes/>} in your code generator configuration.
-     */
-    @java.lang.Deprecated
-    public Object getTraitRestrictions() {
+    public TraitRestrictions getTraitRestrictions() {
         return this.traitRestrictions;
     }
 
-
-    /**
-     * @deprecated Unknown data type. Please define an explicit {@link org.jooq.Binding} to specify how this type should be handled. Deprecation can be turned off using {@literal <deprecationOnUnknownTypes/>} in your code generator configuration.
-     */
-    @java.lang.Deprecated
-    public void setTraitRestrictions(Object traitRestrictions) {
+    public void setTraitRestrictions(TraitRestrictions traitRestrictions) {
         this.traitRestrictions = traitRestrictions;
     }
 

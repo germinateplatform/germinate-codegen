@@ -9,9 +9,11 @@ import com.google.gson.JsonArray;
 import javax.annotation.Generated;
 
 import jhi.germinate.server.database.binding.SynonymBinding;
+import jhi.germinate.server.database.binding.TraitRestrictionBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableTraitsRecord;
+import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 import org.jooq.Field;
 import org.jooq.Name;
@@ -36,7 +38,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
 
-    private static final long serialVersionUID = 877149290;
+    private static final long serialVersionUID = -995669163;
 
     /**
      * The reference instance of <code>germinate_db.view_table_traits</code>
@@ -77,10 +79,9 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     public final TableField<ViewTableTraitsRecord, ViewTableTraitsDataType> DATA_TYPE = createField("data_type", org.jooq.impl.SQLDataType.VARCHAR(11).nullable(false).defaultValue(org.jooq.impl.DSL.inline("text", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType.class), this, "Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.");
 
     /**
-     * @deprecated Unknown data type. Please define an explicit {@link org.jooq.Binding} to specify how this type should be handled. Deprecation can be turned off using {@literal <deprecationOnUnknownTypes/>} in your code generator configuration.
+     * The column <code>germinate_db.view_table_traits.trait_restrictions</code>. A json object describing the restrictions placed on this trait. It is an object containing a field called "categories" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are "min" and "max" to specify upper and lower limits for numeric traits.
      */
-    @java.lang.Deprecated
-    public final TableField<ViewTableTraitsRecord, Object> TRAIT_RESTRICTIONS = createField("trait_restrictions", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_02\".\"view_table_traits_trait_restrictions\""), this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.");
+    public final TableField<ViewTableTraitsRecord, TraitRestrictions> TRAIT_RESTRICTIONS = createField("trait_restrictions", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_02\".\"view_table_traits_trait_restrictions\""), this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.", new TraitRestrictionBinding());
 
     /**
      * The column <code>germinate_db.view_table_traits.unit_id</code>. Primary id for this table. This uniquely identifies the row.

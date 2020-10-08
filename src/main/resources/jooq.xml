@@ -85,6 +85,12 @@
 					<userType>jhi.germinate.server.database.pojo.TraitRestrictions</userType>
 				</forcedType>
 				<forcedType>
+					<binding>jhi.germinate.server.database.binding.TraitRestrictionBinding</binding>
+					<expression>.*(view_).*\.(trait_restrictions)</expression>
+					<types>.*json.*</types>
+					<userType>jhi.germinate.server.database.pojo.TraitRestrictions</userType>
+				</forcedType>
+				<forcedType>
 					<expression>.*</expression>
 					<name>BOOLEAN</name>
 					<types>.*tinyint.*</types>
