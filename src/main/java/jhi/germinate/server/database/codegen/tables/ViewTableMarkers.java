@@ -37,7 +37,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableMarkers extends TableImpl<ViewTableMarkersRecord> {
 
-    private static final long serialVersionUID = 1332427523;
+    private static final long serialVersionUID = -827916920;
 
     /**
      * The reference instance of <code>germinate_db.view_table_markers</code>
@@ -70,7 +70,7 @@ public class ViewTableMarkers extends TableImpl<ViewTableMarkersRecord> {
     /**
      * The column <code>germinate_db.view_table_markers.marker_synonyms</code>. The synonyms as a json array.
      */
-    public final TableField<ViewTableMarkersRecord, JsonArray> MARKER_SYNONYMS = createField("marker_synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_02\".\"view_table_markers_marker_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<ViewTableMarkersRecord, JsonArray> MARKER_SYNONYMS = createField("marker_synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_markers_marker_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_markers.created_on</code>. When the record was created.

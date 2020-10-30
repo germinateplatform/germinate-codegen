@@ -43,7 +43,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasets extends TableImpl<ViewTableDatasetsRecord> {
 
-    private static final long serialVersionUID = 11189715;
+    private static final long serialVersionUID = -762578440;
 
     /**
      * The reference instance of <code>germinate_db.view_table_datasets</code>
@@ -121,7 +121,7 @@ public class ViewTableDatasets extends TableImpl<ViewTableDatasetsRecord> {
     /**
      * The column <code>germinate_db.view_table_datasets.locations</code>.
      */
-    public final TableField<ViewTableDatasetsRecord, DatasetLocation[]> LOCATIONS = createField("locations", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_02\".\"view_table_datasets_locations\""), this, "", new DatasetLocationBinding());
+    public final TableField<ViewTableDatasetsRecord, DatasetLocation[]> LOCATIONS = createField("locations", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_datasets_locations\""), this, "", new DatasetLocationBinding());
 
     /**
      * The column <code>germinate_db.view_table_datasets.license_id</code>.
@@ -151,7 +151,7 @@ public class ViewTableDatasets extends TableImpl<ViewTableDatasetsRecord> {
     /**
      * The column <code>germinate_db.view_table_datasets.dublin_core</code>.
      */
-    public final TableField<ViewTableDatasetsRecord, DublinCore> DUBLIN_CORE = createField("dublin_core", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_02\".\"view_table_datasets_dublin_core\""), this, "", new DublinCoreBinding());
+    public final TableField<ViewTableDatasetsRecord, DublinCore> DUBLIN_CORE = createField("dublin_core", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_datasets_dublin_core\""), this, "", new DublinCoreBinding());
 
     /**
      * The column <code>germinate_db.view_table_datasets.updated_on</code>. When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.
@@ -186,7 +186,7 @@ public class ViewTableDatasets extends TableImpl<ViewTableDatasetsRecord> {
     /**
      * The column <code>germinate_db.view_table_datasets.accepted_by</code>.
      */
-    public final TableField<ViewTableDatasetsRecord, JsonArray> ACCEPTED_BY = createField("accepted_by", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_02\".\"view_table_datasets_accepted_by\""), this, "", new SynonymBinding());
+    public final TableField<ViewTableDatasetsRecord, JsonArray> ACCEPTED_BY = createField("accepted_by", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_datasets_accepted_by\""), this, "", new SynonymBinding());
 
     /**
      * Create a <code>germinate_db.view_table_datasets</code> table reference

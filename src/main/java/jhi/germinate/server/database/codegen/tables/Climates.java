@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Climates extends TableImpl<ClimatesRecord> {
 
-    private static final long serialVersionUID = 328159360;
+    private static final long serialVersionUID = 2068481641;
 
     /**
      * The reference instance of <code>germinate_db.climates</code>
@@ -77,9 +77,9 @@ public class Climates extends TableImpl<ClimatesRecord> {
     public final TableField<ClimatesRecord, String> DESCRIPTION = createField("description", org.jooq.impl.SQLDataType.CLOB, this, "A longer description of the climate.");
 
     /**
-     * The column <code>germinate_db.climates.datatype</code>. Defines the datatype which can be FLOAT, INT or CHAR type.
+     * The column <code>germinate_db.climates.datatype</code>. Defines the data type of the climate. This can be of numeric, text, date or categorical types.
      */
-    public final TableField<ClimatesRecord, ClimatesDatatype> DATATYPE = createField("datatype", org.jooq.impl.SQLDataType.VARCHAR(5).nullable(false).defaultValue(org.jooq.impl.DSL.inline("int", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ClimatesDatatype.class), this, "Defines the datatype which can be FLOAT, INT or CHAR type.");
+    public final TableField<ClimatesRecord, ClimatesDatatype> DATATYPE = createField("datatype", org.jooq.impl.SQLDataType.VARCHAR(11).nullable(false).defaultValue(org.jooq.impl.DSL.inline("text", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ClimatesDatatype.class), this, "Defines the data type of the climate. This can be of numeric, text, date or categorical types.");
 
     /**
      * The column <code>germinate_db.climates.unit_id</code>. Foreign key to units (units.id).

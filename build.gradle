@@ -42,4 +42,5 @@ task codegen (type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'org.jooq.codegen.GenerationTool'
     args 'jooq.xml'
+    finalizedBy build
 }

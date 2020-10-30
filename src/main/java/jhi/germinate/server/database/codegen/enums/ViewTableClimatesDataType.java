@@ -13,7 +13,8 @@ import org.jooq.Schema;
 
 // @formatter:off
 /**
- * Defines the datatype which can be FLOAT, INT or CHAR type.
+ * Defines the data type of the climate. This can be of numeric, text, date 
+ * or categorical types.
  */
 @Generated(
     value = {
@@ -25,11 +26,13 @@ import org.jooq.Schema;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public enum ViewTableClimatesDataType implements EnumType {
 
-    float_("float"),
+    categorical("categorical"),
 
-    int_("int"),
+    numeric("numeric"),
 
-    char_("char");
+    text("text"),
+
+    date("date");
 
     private final String literal;
 

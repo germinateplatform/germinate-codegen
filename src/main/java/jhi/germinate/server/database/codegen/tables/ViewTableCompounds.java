@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableCompounds extends TableImpl<ViewTableCompoundsRecord> {
 
-    private static final long serialVersionUID = 70206247;
+    private static final long serialVersionUID = -56189438;
 
     /**
      * The reference instance of <code>germinate_db.view_table_compounds</code>
@@ -88,7 +88,7 @@ public class ViewTableCompounds extends TableImpl<ViewTableCompoundsRecord> {
     /**
      * The column <code>germinate_db.view_table_compounds.synonyms</code>. The synonyms as a json array.
      */
-    public final TableField<ViewTableCompoundsRecord, JsonArray> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_02\".\"view_table_compounds_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<ViewTableCompoundsRecord, JsonArray> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_compounds_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_compounds.count</code>.

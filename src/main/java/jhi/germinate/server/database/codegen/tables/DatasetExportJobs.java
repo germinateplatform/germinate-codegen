@@ -43,7 +43,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DatasetExportJobs extends TableImpl<DatasetExportJobsRecord> {
 
-    private static final long serialVersionUID = -1653724104;
+    private static final long serialVersionUID = 328008083;
 
     /**
      * The reference instance of <code>germinate_db.dataset_export_jobs</code>
@@ -96,7 +96,7 @@ public class DatasetExportJobs extends TableImpl<DatasetExportJobsRecord> {
     /**
      * The column <code>germinate_db.dataset_export_jobs.dataset_ids</code>.
      */
-    public final TableField<DatasetExportJobsRecord, JsonArray> DATASET_IDS = createField("dataset_ids", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_02\".\"dataset_export_jobs_dataset_ids\""), this, "", new SynonymBinding());
+    public final TableField<DatasetExportJobsRecord, JsonArray> DATASET_IDS = createField("dataset_ids", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"dataset_export_jobs_dataset_ids\""), this, "", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.dataset_export_jobs.result_size</code>.

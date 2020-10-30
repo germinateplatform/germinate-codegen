@@ -33,7 +33,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ClimatesRecord extends UpdatableRecordImpl<ClimatesRecord> implements Record8<Integer, String, String, String, ClimatesDatatype, Integer, Timestamp, Timestamp> {
 
-    private static final long serialVersionUID = 648836436;
+    private static final long serialVersionUID = 342683478;
 
     /**
      * Setter for <code>germinate_db.climates.id</code>. Primary id for this table. This uniquely identifies the row.
@@ -92,14 +92,14 @@ public class ClimatesRecord extends UpdatableRecordImpl<ClimatesRecord> implemen
     }
 
     /**
-     * Setter for <code>germinate_db.climates.datatype</code>. Defines the datatype which can be FLOAT, INT or CHAR type.
+     * Setter for <code>germinate_db.climates.datatype</code>. Defines the data type of the climate. This can be of numeric, text, date or categorical types.
      */
     public void setDatatype(ClimatesDatatype value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>germinate_db.climates.datatype</code>. Defines the datatype which can be FLOAT, INT or CHAR type.
+     * Getter for <code>germinate_db.climates.datatype</code>. Defines the data type of the climate. This can be of numeric, text, date or categorical types.
      */
     public ClimatesDatatype getDatatype() {
         return (ClimatesDatatype) get(4);

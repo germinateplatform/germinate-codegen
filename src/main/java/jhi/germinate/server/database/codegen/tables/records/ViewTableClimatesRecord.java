@@ -29,7 +29,7 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableClimatesRecord extends TableRecordImpl<ViewTableClimatesRecord> implements Record11<Integer, String, String, String, ViewTableClimatesDataType, Integer, String, String, Long, String, Long> {
 
-    private static final long serialVersionUID = -679414758;
+    private static final long serialVersionUID = -802285830;
 
     /**
      * Setter for <code>germinate_db.view_table_climates.climate_id</code>. Primary id for this table. This uniquely identifies the row.
@@ -88,14 +88,14 @@ public class ViewTableClimatesRecord extends TableRecordImpl<ViewTableClimatesRe
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_climates.data_type</code>. Defines the datatype which can be FLOAT, INT or CHAR type.
+     * Setter for <code>germinate_db.view_table_climates.data_type</code>. Defines the data type of the climate. This can be of numeric, text, date or categorical types.
      */
     public void setDataType(ViewTableClimatesDataType value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_climates.data_type</code>. Defines the datatype which can be FLOAT, INT or CHAR type.
+     * Getter for <code>germinate_db.view_table_climates.data_type</code>. Defines the data type of the climate. This can be of numeric, text, date or categorical types.
      */
     public ViewTableClimatesDataType getDataType() {
         return (ViewTableClimatesDataType) get(4);

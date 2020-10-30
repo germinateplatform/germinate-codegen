@@ -19,7 +19,7 @@
 			<excludes>
 			</excludes>
 			<includes>.*</includes>
-			<inputSchema>germinate_template_4_20_10_02</inputSchema>
+			<inputSchema>germinate_template_4_20_10_30</inputSchema>
 			<outputSchema>germinate_db</outputSchema>
 			<name>org.jooq.meta.mysql.MySQLDatabase</name>
 

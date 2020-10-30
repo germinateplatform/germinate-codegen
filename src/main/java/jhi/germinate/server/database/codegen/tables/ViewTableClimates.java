@@ -33,7 +33,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableClimates extends TableImpl<ViewTableClimatesRecord> {
 
-    private static final long serialVersionUID = 1581023090;
+    private static final long serialVersionUID = -1207011509;
 
     /**
      * The reference instance of <code>germinate_db.view_table_climates</code>
@@ -69,9 +69,9 @@ public class ViewTableClimates extends TableImpl<ViewTableClimatesRecord> {
     public final TableField<ViewTableClimatesRecord, String> CLIMATE_DESCRIPTION = createField("climate_description", org.jooq.impl.SQLDataType.CLOB, this, "A longer description of the climate.");
 
     /**
-     * The column <code>germinate_db.view_table_climates.data_type</code>. Defines the datatype which can be FLOAT, INT or CHAR type.
+     * The column <code>germinate_db.view_table_climates.data_type</code>. Defines the data type of the climate. This can be of numeric, text, date or categorical types.
      */
-    public final TableField<ViewTableClimatesRecord, ViewTableClimatesDataType> DATA_TYPE = createField("data_type", org.jooq.impl.SQLDataType.VARCHAR(5).nullable(false).defaultValue(org.jooq.impl.DSL.inline("int", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableClimatesDataType.class), this, "Defines the datatype which can be FLOAT, INT or CHAR type.");
+    public final TableField<ViewTableClimatesRecord, ViewTableClimatesDataType> DATA_TYPE = createField("data_type", org.jooq.impl.SQLDataType.VARCHAR(11).nullable(false).defaultValue(org.jooq.impl.DSL.inline("text", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableClimatesDataType.class), this, "Defines the data type of the climate. This can be of numeric, text, date or categorical types.");
 
     /**
      * The column <code>germinate_db.view_table_climates.unit_id</code>. Primary id for this table. This uniquely identifies the row.
