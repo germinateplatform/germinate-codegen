@@ -15,8 +15,8 @@ import jhi.germinate.server.database.binding.DatasetLocationBinding;
 import jhi.germinate.server.database.binding.DublinCoreBinding;
 import jhi.germinate.server.database.binding.SynonymBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.tables.pojos.ViewTableLocations;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableDatasetsRecord;
-import jhi.germinate.server.database.pojo.DatasetLocation;
 import jhi.germinate.server.database.pojo.DublinCore;
 
 import org.jooq.Field;
@@ -43,7 +43,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasets extends TableImpl<ViewTableDatasetsRecord> {
 
-    private static final long serialVersionUID = -762578440;
+    private static final long serialVersionUID = -1372209689;
 
     /**
      * The reference instance of <code>germinate_db.view_table_datasets</code>
@@ -121,7 +121,7 @@ public class ViewTableDatasets extends TableImpl<ViewTableDatasetsRecord> {
     /**
      * The column <code>germinate_db.view_table_datasets.locations</code>.
      */
-    public final TableField<ViewTableDatasetsRecord, DatasetLocation[]> LOCATIONS = createField("locations", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_datasets_locations\""), this, "", new DatasetLocationBinding());
+    public final TableField<ViewTableDatasetsRecord, ViewTableLocations[]> LOCATIONS = createField("locations", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_datasets_locations\""), this, "", new DatasetLocationBinding());
 
     /**
      * The column <code>germinate_db.view_table_datasets.license_id</code>.
