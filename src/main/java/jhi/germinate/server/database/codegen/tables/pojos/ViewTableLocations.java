@@ -24,7 +24,7 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableLocations implements Serializable {
 
-    private static final long serialVersionUID = -838696460;
+    private static final long serialVersionUID = -623094097;
 
     private Integer    locationId;
     private String     locationName;
@@ -36,6 +36,7 @@ public class ViewTableLocations implements Serializable {
     private BigDecimal locationLongitude;
     private BigDecimal locationElevation;
     private Integer    locationCoordinateUncertainty;
+    private Integer    countryId;
     private String     countryName;
     private String     countryCode2;
     private String     countryCode3;
@@ -53,6 +54,7 @@ public class ViewTableLocations implements Serializable {
         this.locationLongitude = value.locationLongitude;
         this.locationElevation = value.locationElevation;
         this.locationCoordinateUncertainty = value.locationCoordinateUncertainty;
+        this.countryId = value.countryId;
         this.countryName = value.countryName;
         this.countryCode2 = value.countryCode2;
         this.countryCode3 = value.countryCode3;
@@ -69,6 +71,7 @@ public class ViewTableLocations implements Serializable {
         BigDecimal locationLongitude,
         BigDecimal locationElevation,
         Integer    locationCoordinateUncertainty,
+        Integer    countryId,
         String     countryName,
         String     countryCode2,
         String     countryCode3
@@ -83,6 +86,7 @@ public class ViewTableLocations implements Serializable {
         this.locationLongitude = locationLongitude;
         this.locationElevation = locationElevation;
         this.locationCoordinateUncertainty = locationCoordinateUncertainty;
+        this.countryId = countryId;
         this.countryName = countryName;
         this.countryCode2 = countryCode2;
         this.countryCode3 = countryCode3;
@@ -168,6 +172,14 @@ public class ViewTableLocations implements Serializable {
         this.locationCoordinateUncertainty = locationCoordinateUncertainty;
     }
 
+    public Integer getCountryId() {
+        return this.countryId;
+    }
+
+    public void setCountryId(Integer countryId) {
+        this.countryId = countryId;
+    }
+
     public String getCountryName() {
         return this.countryName;
     }
@@ -206,6 +218,7 @@ public class ViewTableLocations implements Serializable {
         sb.append(", ").append(locationLongitude);
         sb.append(", ").append(locationElevation);
         sb.append(", ").append(locationCoordinateUncertainty);
+        sb.append(", ").append(countryId);
         sb.append(", ").append(countryName);
         sb.append(", ").append(countryCode2);
         sb.append(", ").append(countryCode3);

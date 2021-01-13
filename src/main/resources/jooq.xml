@@ -28,7 +28,7 @@
 					<binding>jhi.germinate.server.database.binding.DatasetLocationBinding</binding>
 					<expression>.*(view_table_datasets)\.(locations)</expression>
 					<types>.*</types>
-					<userType>jhi.germinate.server.database.pojo.DatasetLocation[]</userType>
+					<userType>jhi.germinate.server.database.codegen.tables.pojos.ViewTableLocations[]</userType>
 				</forcedType>
 				<forcedType>
 					<binding>jhi.germinate.server.database.binding.ImageTagBinding</binding>

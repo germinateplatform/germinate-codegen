@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableLocations extends TableImpl<ViewTableLocationsRecord> {
 
-    private static final long serialVersionUID = 120665085;
+    private static final long serialVersionUID = -1251871660;
 
     /**
      * The reference instance of <code>germinate_db.view_table_locations</code>
@@ -98,6 +98,11 @@ public class ViewTableLocations extends TableImpl<ViewTableLocationsRecord> {
      * The column <code>germinate_db.view_table_locations.location_coordinate_uncertainty</code>. Uncertainty associated with the coordinates in metres. Leave the value empty if the uncertainty is unknown. 
      */
     public final TableField<ViewTableLocationsRecord, Integer> LOCATION_COORDINATE_UNCERTAINTY = createField("location_coordinate_uncertainty", org.jooq.impl.SQLDataType.INTEGER, this, "Uncertainty associated with the coordinates in metres. Leave the value empty if the uncertainty is unknown. ");
+
+    /**
+     * The column <code>germinate_db.view_table_locations.country_id</code>. Primary id for this table. This uniquely identifies the row.
+     */
+    public final TableField<ViewTableLocationsRecord, Integer> COUNTRY_ID = createField("country_id", org.jooq.impl.SQLDataType.INTEGER.defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.INTEGER)), this, "Primary id for this table. This uniquely identifies the row.");
 
     /**
      * The column <code>germinate_db.view_table_locations.country_name</code>. Country name.

@@ -38,7 +38,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
 
-    private static final long serialVersionUID = -335632437;
+    private static final long serialVersionUID = 947759959;
 
     /**
      * The reference instance of <code>germinate_db.view_table_traits</code>
@@ -107,6 +107,11 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
      * The column <code>germinate_db.view_table_traits.synonyms</code>. The synonyms as a json array.
      */
     public final TableField<ViewTableTraitsRecord, JsonArray> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_traits_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+
+    /**
+     * The column <code>germinate_db.view_table_traits.dataset_ids</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, JsonArray> DATASET_IDS = createField("dataset_ids", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_traits_dataset_ids\""), this, "", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_traits.count</code>.

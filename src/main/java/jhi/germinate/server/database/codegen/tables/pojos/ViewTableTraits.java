@@ -28,7 +28,7 @@ import jhi.germinate.server.database.pojo.TraitRestrictions;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTraits implements Serializable {
 
-    private static final long serialVersionUID = 1422897042;
+    private static final long serialVersionUID = -923220514;
 
     private Integer                 traitId;
     private String                  traitName;
@@ -41,6 +41,7 @@ public class ViewTableTraits implements Serializable {
     private String                  unitDescription;
     private String                  unitAbbreviation;
     private JsonArray               synonyms;
+    private JsonArray               datasetIds;
     private Long                    count;
 
     public ViewTableTraits() {}
@@ -57,6 +58,7 @@ public class ViewTableTraits implements Serializable {
         this.unitDescription = value.unitDescription;
         this.unitAbbreviation = value.unitAbbreviation;
         this.synonyms = value.synonyms;
+        this.datasetIds = value.datasetIds;
         this.count = value.count;
     }
 
@@ -72,6 +74,7 @@ public class ViewTableTraits implements Serializable {
         String                  unitDescription,
         String                  unitAbbreviation,
         JsonArray               synonyms,
+        JsonArray               datasetIds,
         Long                    count
     ) {
         this.traitId = traitId;
@@ -85,6 +88,7 @@ public class ViewTableTraits implements Serializable {
         this.unitDescription = unitDescription;
         this.unitAbbreviation = unitAbbreviation;
         this.synonyms = synonyms;
+        this.datasetIds = datasetIds;
         this.count = count;
     }
 
@@ -176,6 +180,14 @@ public class ViewTableTraits implements Serializable {
         this.synonyms = synonyms;
     }
 
+    public JsonArray getDatasetIds() {
+        return this.datasetIds;
+    }
+
+    public void setDatasetIds(JsonArray datasetIds) {
+        this.datasetIds = datasetIds;
+    }
+
     public Long getCount() {
         return this.count;
     }
@@ -199,6 +211,7 @@ public class ViewTableTraits implements Serializable {
         sb.append(", ").append(unitDescription);
         sb.append(", ").append(unitAbbreviation);
         sb.append(", ").append(synonyms);
+        sb.append(", ").append(datasetIds);
         sb.append(", ").append(count);
 
         sb.append(")");

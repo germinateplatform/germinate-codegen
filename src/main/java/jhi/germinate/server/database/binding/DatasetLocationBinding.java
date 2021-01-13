@@ -1,7 +1,7 @@
 package jhi.germinate.server.database.binding;
 
 import com.google.gson.*;
-import jhi.germinate.server.database.pojo.DatasetLocation;
+import jhi.germinate.server.database.codegen.tables.pojos.ViewTableLocations;
 import org.jooq.*;
 import org.jooq.conf.ParamType;
 import org.jooq.impl.DSL;
@@ -12,22 +12,22 @@ import java.util.Objects;
 /**
  * @author Sebastian Raubach
  */
-public class DatasetLocationBinding implements Binding<Object, DatasetLocation[]>
+public class DatasetLocationBinding implements Binding<Object, ViewTableLocations[]>
 {
 	@Override
-	public Converter<Object, DatasetLocation[]> converter()
+	public Converter<Object, ViewTableLocations[]> converter()
 	{
 		Gson gson = new Gson();
 		return new Converter<>()
 		{
 			@Override
-			public DatasetLocation[] from(Object o)
+			public ViewTableLocations[] from(Object o)
 			{
-				return o == null ? null : gson.fromJson(Objects.toString(o), DatasetLocation[].class);
+				return o == null ? null : gson.fromJson(Objects.toString(o), ViewTableLocations[].class);
 			}
 
 			@Override
-			public Object to(DatasetLocation[] o)
+			public Object to(ViewTableLocations[] o)
 			{
 				return o == null ? null : gson.toJson(o);
 			}
@@ -39,15 +39,15 @@ public class DatasetLocationBinding implements Binding<Object, DatasetLocation[]
 			}
 
 			@Override
-			public Class<DatasetLocation[]> toType()
+			public Class<ViewTableLocations[]> toType()
 			{
-				return DatasetLocation[].class;
+				return ViewTableLocations[].class;
 			}
 		};
 	}
 
 	@Override
-	public void sql(BindingSQLContext<DatasetLocation[]> ctx)
+	public void sql(BindingSQLContext<ViewTableLocations[]> ctx)
 		throws SQLException
 	{
 		// Depending on how you generate your SQL, you may need to explicitly distinguish
@@ -59,42 +59,42 @@ public class DatasetLocationBinding implements Binding<Object, DatasetLocation[]
 	}
 
 	@Override
-	public void register(BindingRegisterContext<DatasetLocation[]> ctx)
+	public void register(BindingRegisterContext<ViewTableLocations[]> ctx)
 		throws SQLException
 	{
 		ctx.statement().registerOutParameter(ctx.index(), Types.VARCHAR);
 	}
 
 	@Override
-	public void set(BindingSetStatementContext<DatasetLocation[]> ctx)
+	public void set(BindingSetStatementContext<ViewTableLocations[]> ctx)
 		throws SQLException
 	{
 		ctx.statement().setString(ctx.index(), Objects.toString(ctx.convert(converter()).value(), null));
 	}
 
 	@Override
-	public void set(BindingSetSQLOutputContext<DatasetLocation[]> ctx)
+	public void set(BindingSetSQLOutputContext<ViewTableLocations[]> ctx)
 		throws SQLException
 	{
 		throw new SQLFeatureNotSupportedException();
 	}
 
 	@Override
-	public void get(BindingGetResultSetContext<DatasetLocation[]> ctx)
+	public void get(BindingGetResultSetContext<ViewTableLocations[]> ctx)
 		throws SQLException
 	{
 		ctx.convert(converter()).value(ctx.resultSet().getString(ctx.index()));
 	}
 
 	@Override
-	public void get(BindingGetStatementContext<DatasetLocation[]> ctx)
+	public void get(BindingGetStatementContext<ViewTableLocations[]> ctx)
 		throws SQLException
 	{
 		ctx.convert(converter()).value(ctx.statement().getString(ctx.index()));
 	}
 
 	@Override
-	public void get(BindingGetSQLInputContext<DatasetLocation[]> ctx)
+	public void get(BindingGetSQLInputContext<ViewTableLocations[]> ctx)
 		throws SQLException
 	{
 		throw new SQLFeatureNotSupportedException();
