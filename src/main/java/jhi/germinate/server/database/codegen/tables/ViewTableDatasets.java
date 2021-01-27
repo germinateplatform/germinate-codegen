@@ -43,7 +43,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasets extends TableImpl<ViewTableDatasetsRecord> {
 
-    private static final long serialVersionUID = -1372209689;
+    private static final long serialVersionUID = 550446950;
 
     /**
      * The reference instance of <code>germinate_db.view_table_datasets</code>
@@ -152,6 +152,12 @@ public class ViewTableDatasets extends TableImpl<ViewTableDatasetsRecord> {
      * The column <code>germinate_db.view_table_datasets.dublin_core</code>.
      */
     public final TableField<ViewTableDatasetsRecord, DublinCore> DUBLIN_CORE = createField("dublin_core", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_datasets_dublin_core\""), this, "", new DublinCoreBinding());
+
+    /**
+     * The column <code>germinate_db.view_table_datasets.created_on</code>. When the record was created.
+
+     */
+    public final TableField<ViewTableDatasetsRecord, Timestamp> CREATED_ON = createField("created_on", org.jooq.impl.SQLDataType.TIMESTAMP, this, "When the record was created.\n");
 
     /**
      * The column <code>germinate_db.view_table_datasets.updated_on</code>. When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.

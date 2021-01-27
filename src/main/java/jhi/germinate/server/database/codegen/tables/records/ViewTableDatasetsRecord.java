@@ -33,7 +33,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRecord> {
 
-    private static final long serialVersionUID = -29076542;
+    private static final long serialVersionUID = -2143890803;
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.dataset_id</code>. Primary id for this table. This uniquely identifies the row.
@@ -302,101 +302,117 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_datasets.created_on</code>. When the record was created.
+
+     */
+    public void setCreatedOn(Timestamp value) {
+        set(19, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_datasets.created_on</code>. When the record was created.
+
+     */
+    public Timestamp getCreatedOn() {
+        return (Timestamp) get(19);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_datasets.updated_on</code>. When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(19, value);
+        set(20, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.updated_on</code>. When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(19);
+        return (Timestamp) get(20);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.data_object_count</code>. The number of data objects contained in this dataset.
      */
     public void setDataObjectCount(ULong value) {
-        set(20, value);
+        set(21, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.data_object_count</code>. The number of data objects contained in this dataset.
      */
     public ULong getDataObjectCount() {
-        return (ULong) get(20);
+        return (ULong) get(21);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.data_point_count</code>. The number of individual data points contained in this dataset.
      */
     public void setDataPointCount(ULong value) {
-        set(21, value);
+        set(22, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.data_point_count</code>. The number of individual data points contained in this dataset.
      */
     public ULong getDataPointCount() {
-        return (ULong) get(21);
+        return (ULong) get(22);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.is_external</code>. Defines if the dataset is contained within Germinate or from an external source and not stored in the database.
      */
     public void setIsExternal(Boolean value) {
-        set(22, value);
+        set(23, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.is_external</code>. Defines if the dataset is contained within Germinate or from an external source and not stored in the database.
      */
     public Boolean getIsExternal() {
-        return (Boolean) get(22);
+        return (Boolean) get(23);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.collaborators</code>.
      */
     public void setCollaborators(Long value) {
-        set(23, value);
+        set(24, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.collaborators</code>.
      */
     public Long getCollaborators() {
-        return (Long) get(23);
+        return (Long) get(24);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.attributes</code>.
      */
     public void setAttributes(Long value) {
-        set(24, value);
+        set(25, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.attributes</code>.
      */
     public Long getAttributes() {
-        return (Long) get(24);
+        return (Long) get(25);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.accepted_by</code>.
      */
     public void setAcceptedBy(JsonArray value) {
-        set(25, value);
+        set(26, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.accepted_by</code>.
      */
     public JsonArray getAcceptedBy() {
-        return (JsonArray) get(25);
+        return (JsonArray) get(26);
     }
 
     // -------------------------------------------------------------------------
@@ -413,7 +429,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     /**
      * Create a detached, initialised ViewTableDatasetsRecord
      */
-    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, String datatype, String datasetState, ViewTableLocations[] locations, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long collaborators, Long attributes, JsonArray acceptedBy) {
+    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, String datatype, String datasetState, ViewTableLocations[] locations, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Timestamp createdOn, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long collaborators, Long attributes, JsonArray acceptedBy) {
         super(ViewTableDatasets.VIEW_TABLE_DATASETS);
 
         set(0, datasetId);
@@ -435,13 +451,14 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
         set(16, startDate);
         set(17, endDate);
         set(18, dublinCore);
-        set(19, updatedOn);
-        set(20, dataObjectCount);
-        set(21, dataPointCount);
-        set(22, isExternal);
-        set(23, collaborators);
-        set(24, attributes);
-        set(25, acceptedBy);
+        set(19, createdOn);
+        set(20, updatedOn);
+        set(21, dataObjectCount);
+        set(22, dataPointCount);
+        set(23, isExternal);
+        set(24, collaborators);
+        set(25, attributes);
+        set(26, acceptedBy);
     }
 // @formatter:on
 }

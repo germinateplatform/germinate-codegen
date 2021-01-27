@@ -32,7 +32,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasets implements Serializable {
 
-    private static final long serialVersionUID = -1716362508;
+    private static final long serialVersionUID = 1704733265;
 
     private Integer              datasetId;
     private String               datasetName;
@@ -53,6 +53,7 @@ public class ViewTableDatasets implements Serializable {
     private Date                 startDate;
     private Date                 endDate;
     private DublinCore           dublinCore;
+    private Timestamp            createdOn;
     private Timestamp            updatedOn;
     private ULong                dataObjectCount;
     private ULong                dataPointCount;
@@ -83,6 +84,7 @@ public class ViewTableDatasets implements Serializable {
         this.startDate = value.startDate;
         this.endDate = value.endDate;
         this.dublinCore = value.dublinCore;
+        this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
         this.dataObjectCount = value.dataObjectCount;
         this.dataPointCount = value.dataPointCount;
@@ -112,6 +114,7 @@ public class ViewTableDatasets implements Serializable {
         Date                 startDate,
         Date                 endDate,
         DublinCore           dublinCore,
+        Timestamp            createdOn,
         Timestamp            updatedOn,
         ULong                dataObjectCount,
         ULong                dataPointCount,
@@ -139,6 +142,7 @@ public class ViewTableDatasets implements Serializable {
         this.startDate = startDate;
         this.endDate = endDate;
         this.dublinCore = dublinCore;
+        this.createdOn = createdOn;
         this.updatedOn = updatedOn;
         this.dataObjectCount = dataObjectCount;
         this.dataPointCount = dataPointCount;
@@ -300,6 +304,14 @@ public class ViewTableDatasets implements Serializable {
         this.dublinCore = dublinCore;
     }
 
+    public Timestamp getCreatedOn() {
+        return this.createdOn;
+    }
+
+    public void setCreatedOn(Timestamp createdOn) {
+        this.createdOn = createdOn;
+    }
+
     public Timestamp getUpdatedOn() {
         return this.updatedOn;
     }
@@ -379,6 +391,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(startDate);
         sb.append(", ").append(endDate);
         sb.append(", ").append(dublinCore);
+        sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
         sb.append(", ").append(dataObjectCount);
         sb.append(", ").append(dataPointCount);
