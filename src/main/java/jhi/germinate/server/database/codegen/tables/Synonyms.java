@@ -4,8 +4,6 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import com.google.gson.JsonArray;
-
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Synonyms extends TableImpl<SynonymsRecord> {
 
-    private static final long serialVersionUID = 705540203;
+    private static final long serialVersionUID = -626724341;
 
     /**
      * The reference instance of <code>germinate_db.synonyms</code>
@@ -77,7 +75,7 @@ public class Synonyms extends TableImpl<SynonymsRecord> {
     /**
      * The column <code>germinate_db.synonyms.synonyms</code>. The synonyms as a json array.
      */
-    public final TableField<SynonymsRecord, JsonArray> SYNONYMS_ = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"synonyms_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<SynonymsRecord, String[]> SYNONYMS_ = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_04_09\".\"synonyms_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.synonyms.created_on</code>. When the record was created.
