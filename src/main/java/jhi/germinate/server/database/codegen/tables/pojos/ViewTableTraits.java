@@ -4,9 +4,8 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import com.google.gson.JsonArray;
-
 import java.io.Serializable;
+import java.util.Arrays;
 
 import javax.annotation.Generated;
 
@@ -28,7 +27,7 @@ import jhi.germinate.server.database.pojo.TraitRestrictions;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTraits implements Serializable {
 
-    private static final long serialVersionUID = -923220514;
+    private static final long serialVersionUID = 613254744;
 
     private Integer                 traitId;
     private String                  traitName;
@@ -40,8 +39,8 @@ public class ViewTableTraits implements Serializable {
     private String                  unitName;
     private String                  unitDescription;
     private String                  unitAbbreviation;
-    private JsonArray               synonyms;
-    private JsonArray               datasetIds;
+    private String[]                synonyms;
+    private Integer[]               datasetIds;
     private Long                    count;
 
     public ViewTableTraits() {}
@@ -73,8 +72,8 @@ public class ViewTableTraits implements Serializable {
         String                  unitName,
         String                  unitDescription,
         String                  unitAbbreviation,
-        JsonArray               synonyms,
-        JsonArray               datasetIds,
+        String[]                synonyms,
+        Integer[]               datasetIds,
         Long                    count
     ) {
         this.traitId = traitId;
@@ -172,19 +171,19 @@ public class ViewTableTraits implements Serializable {
         this.unitAbbreviation = unitAbbreviation;
     }
 
-    public JsonArray getSynonyms() {
+    public String[] getSynonyms() {
         return this.synonyms;
     }
 
-    public void setSynonyms(JsonArray synonyms) {
+    public void setSynonyms(String... synonyms) {
         this.synonyms = synonyms;
     }
 
-    public JsonArray getDatasetIds() {
+    public Integer[] getDatasetIds() {
         return this.datasetIds;
     }
 
-    public void setDatasetIds(JsonArray datasetIds) {
+    public void setDatasetIds(Integer... datasetIds) {
         this.datasetIds = datasetIds;
     }
 
@@ -210,8 +209,8 @@ public class ViewTableTraits implements Serializable {
         sb.append(", ").append(unitName);
         sb.append(", ").append(unitDescription);
         sb.append(", ").append(unitAbbreviation);
-        sb.append(", ").append(synonyms);
-        sb.append(", ").append(datasetIds);
+        sb.append(", ").append(Arrays.toString(synonyms));
+        sb.append(", ").append(Arrays.toString(datasetIds));
         sb.append(", ").append(count);
 
         sb.append(")");

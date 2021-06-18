@@ -4,10 +4,9 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import com.google.gson.JsonArray;
-
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 import javax.annotation.Generated;
 
@@ -28,7 +27,7 @@ import jhi.germinate.server.database.codegen.enums.DatasetExportJobsStatus;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DatasetExportJobs implements Serializable {
 
-    private static final long serialVersionUID = -1824969625;
+    private static final long serialVersionUID = 1644139180;
 
     private Integer                 id;
     private String                  uuid;
@@ -37,7 +36,7 @@ public class DatasetExportJobs implements Serializable {
     private DatasetExportJobsStatus status;
     private Boolean                 visibility;
     private Integer                 datasettypeId;
-    private JsonArray               datasetIds;
+    private Integer[]               datasetIds;
     private Long                    resultSize;
     private Timestamp               createdOn;
     private Timestamp               updatedOn;
@@ -66,7 +65,7 @@ public class DatasetExportJobs implements Serializable {
         DatasetExportJobsStatus status,
         Boolean                 visibility,
         Integer                 datasettypeId,
-        JsonArray               datasetIds,
+        Integer[]               datasetIds,
         Long                    resultSize,
         Timestamp               createdOn,
         Timestamp               updatedOn
@@ -140,11 +139,11 @@ public class DatasetExportJobs implements Serializable {
         this.datasettypeId = datasettypeId;
     }
 
-    public JsonArray getDatasetIds() {
+    public Integer[] getDatasetIds() {
         return this.datasetIds;
     }
 
-    public void setDatasetIds(JsonArray datasetIds) {
+    public void setDatasetIds(Integer... datasetIds) {
         this.datasetIds = datasetIds;
     }
 
@@ -183,7 +182,7 @@ public class DatasetExportJobs implements Serializable {
         sb.append(", ").append(status);
         sb.append(", ").append(visibility);
         sb.append(", ").append(datasettypeId);
-        sb.append(", ").append(datasetIds);
+        sb.append(", ").append(Arrays.toString(datasetIds));
         sb.append(", ").append(resultSize);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);

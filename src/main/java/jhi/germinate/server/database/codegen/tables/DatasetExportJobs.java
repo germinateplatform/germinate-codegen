@@ -4,15 +4,13 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import com.google.gson.JsonArray;
-
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Generated;
 
-import jhi.germinate.server.database.binding.SynonymBinding;
+import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.DatasetExportJobsStatus;
 import jhi.germinate.server.database.codegen.tables.records.DatasetExportJobsRecord;
@@ -43,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DatasetExportJobs extends TableImpl<DatasetExportJobsRecord> {
 
-    private static final long serialVersionUID = 328008083;
+    private static final long serialVersionUID = 56712590;
 
     /**
      * The reference instance of <code>germinate_db.dataset_export_jobs</code>
@@ -96,7 +94,7 @@ public class DatasetExportJobs extends TableImpl<DatasetExportJobsRecord> {
     /**
      * The column <code>germinate_db.dataset_export_jobs.dataset_ids</code>.
      */
-    public final TableField<DatasetExportJobsRecord, JsonArray> DATASET_IDS = createField("dataset_ids", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"dataset_export_jobs_dataset_ids\""), this, "", new SynonymBinding());
+    public final TableField<DatasetExportJobsRecord, Integer[]> DATASET_IDS = createField("dataset_ids", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_04_09\".\"dataset_export_jobs_dataset_ids\""), this, "", new IntArrayBinding());
 
     /**
      * The column <code>germinate_db.dataset_export_jobs.result_size</code>.

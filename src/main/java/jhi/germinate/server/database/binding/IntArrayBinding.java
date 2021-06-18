@@ -1,6 +1,6 @@
 package jhi.germinate.server.database.binding;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
 import org.jooq.*;
 import org.jooq.conf.ParamType;
 import org.jooq.impl.DSL;
@@ -8,25 +8,22 @@ import org.jooq.impl.DSL;
 import java.sql.*;
 import java.util.Objects;
 
-/**
- * @author Sebastian Raubach
- */
-public class SynonymBinding implements Binding<Object, String[]>
+public class IntArrayBinding implements Binding<Object, Integer[]>
 {
 	@Override
-	public Converter<Object, String[]> converter()
+	public Converter<Object, Integer[]> converter()
 	{
 		Gson gson = new Gson();
 		return new Converter<>()
 		{
 			@Override
-			public String[] from(Object o)
+			public Integer[] from(Object o)
 			{
-				return o == null ? null : gson.fromJson(Objects.toString(o), String[].class);
+				return o == null ? null : gson.fromJson(Objects.toString(o), Integer[].class);
 			}
 
 			@Override
-			public Object to(String[] o)
+			public Object to(Integer[] o)
 			{
 				return o == null ? null : gson.toJson(o);
 			}
@@ -38,15 +35,15 @@ public class SynonymBinding implements Binding<Object, String[]>
 			}
 
 			@Override
-			public Class<String[]> toType()
+			public Class<Integer[]> toType()
 			{
-				return String[].class;
+				return Integer[].class;
 			}
 		};
 	}
 
 	@Override
-	public void sql(BindingSQLContext<String[]> ctx)
+	public void sql(BindingSQLContext<Integer[]> ctx)
 		throws SQLException
 	{
 		// Depending on how you generate your SQL, you may need to explicitly distinguish
@@ -54,46 +51,46 @@ public class SynonymBinding implements Binding<Object, String[]>
 		if (ctx.render().paramType() == ParamType.INLINED)
 			ctx.render().visit(DSL.inline(ctx.convert(converter()).value())).sql("");
 		else
-			ctx.render().sql("?");
+			ctx.render().visit(DSL.sql("?"));
 	}
 
 	@Override
-	public void register(BindingRegisterContext<String[]> ctx)
+	public void register(BindingRegisterContext<Integer[]> ctx)
 		throws SQLException
 	{
 		ctx.statement().registerOutParameter(ctx.index(), Types.VARCHAR);
 	}
 
 	@Override
-	public void set(BindingSetStatementContext<String[]> ctx)
+	public void set(BindingSetStatementContext<Integer[]> ctx)
 		throws SQLException
 	{
 		ctx.statement().setString(ctx.index(), Objects.toString(ctx.convert(converter()).value(), null));
 	}
 
 	@Override
-	public void set(BindingSetSQLOutputContext<String[]> ctx)
+	public void set(BindingSetSQLOutputContext<Integer[]> ctx)
 		throws SQLException
 	{
 		throw new SQLFeatureNotSupportedException();
 	}
 
 	@Override
-	public void get(BindingGetResultSetContext<String[]> ctx)
+	public void get(BindingGetResultSetContext<Integer[]> ctx)
 		throws SQLException
 	{
 		ctx.convert(converter()).value(ctx.resultSet().getString(ctx.index()));
 	}
 
 	@Override
-	public void get(BindingGetStatementContext<String[]> ctx)
+	public void get(BindingGetStatementContext<Integer[]> ctx)
 		throws SQLException
 	{
 		ctx.convert(converter()).value(ctx.statement().getString(ctx.index()));
 	}
 
 	@Override
-	public void get(BindingGetSQLInputContext<String[]> ctx)
+	public void get(BindingGetSQLInputContext<Integer[]> ctx)
 		throws SQLException
 	{
 		throw new SQLFeatureNotSupportedException();

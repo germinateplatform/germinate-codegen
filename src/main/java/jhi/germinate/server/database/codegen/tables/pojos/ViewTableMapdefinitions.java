@@ -4,9 +4,8 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import com.google.gson.JsonArray;
-
 import java.io.Serializable;
+import java.util.Arrays;
 
 import javax.annotation.Generated;
 
@@ -25,18 +24,18 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableMapdefinitions implements Serializable {
 
-    private static final long serialVersionUID = 806038284;
+    private static final long serialVersionUID = 390803829;
 
-    private Integer   markerId;
-    private String    markerName;
-    private JsonArray synonyms;
-    private String    mapFeatureType;
-    private Integer   mapId;
-    private Integer   userId;
-    private Boolean   visibility;
-    private String    mapName;
-    private String    chromosome;
-    private Double    position;
+    private Integer  markerId;
+    private String   markerName;
+    private String[] synonyms;
+    private String   mapFeatureType;
+    private Integer  mapId;
+    private Integer  userId;
+    private Boolean  visibility;
+    private String   mapName;
+    private String   chromosome;
+    private Double   position;
 
     public ViewTableMapdefinitions() {}
 
@@ -54,16 +53,16 @@ public class ViewTableMapdefinitions implements Serializable {
     }
 
     public ViewTableMapdefinitions(
-        Integer   markerId,
-        String    markerName,
-        JsonArray synonyms,
-        String    mapFeatureType,
-        Integer   mapId,
-        Integer   userId,
-        Boolean   visibility,
-        String    mapName,
-        String    chromosome,
-        Double    position
+        Integer  markerId,
+        String   markerName,
+        String[] synonyms,
+        String   mapFeatureType,
+        Integer  mapId,
+        Integer  userId,
+        Boolean  visibility,
+        String   mapName,
+        String   chromosome,
+        Double   position
     ) {
         this.markerId = markerId;
         this.markerName = markerName;
@@ -93,11 +92,11 @@ public class ViewTableMapdefinitions implements Serializable {
         this.markerName = markerName;
     }
 
-    public JsonArray getSynonyms() {
+    public String[] getSynonyms() {
         return this.synonyms;
     }
 
-    public void setSynonyms(JsonArray synonyms) {
+    public void setSynonyms(String... synonyms) {
         this.synonyms = synonyms;
     }
 
@@ -163,7 +162,7 @@ public class ViewTableMapdefinitions implements Serializable {
 
         sb.append(markerId);
         sb.append(", ").append(markerName);
-        sb.append(", ").append(synonyms);
+        sb.append(", ").append(Arrays.toString(synonyms));
         sb.append(", ").append(mapFeatureType);
         sb.append(", ").append(mapId);
         sb.append(", ").append(userId);

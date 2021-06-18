@@ -4,11 +4,9 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import com.google.gson.JsonArray;
-
 import javax.annotation.Generated;
 
-import jhi.germinate.server.database.binding.SynonymBinding;
+import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableLicensesRecord;
 
@@ -35,7 +33,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableLicenses extends TableImpl<ViewTableLicensesRecord> {
 
-    private static final long serialVersionUID = 1002069770;
+    private static final long serialVersionUID = 1222335903;
 
     /**
      * The reference instance of <code>germinate_db.view_table_licenses</code>
@@ -88,7 +86,7 @@ public class ViewTableLicenses extends TableImpl<ViewTableLicensesRecord> {
     /**
      * The column <code>germinate_db.view_table_licenses.accepted_by</code>.
      */
-    public final TableField<ViewTableLicensesRecord, JsonArray> ACCEPTED_BY = createField("accepted_by", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_licenses_accepted_by\""), this, "", new SynonymBinding());
+    public final TableField<ViewTableLicensesRecord, Integer[]> ACCEPTED_BY = createField("accepted_by", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_04_09\".\"view_table_licenses_accepted_by\""), this, "", new IntArrayBinding());
 
     /**
      * Create a <code>germinate_db.view_table_licenses</code> table reference

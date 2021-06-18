@@ -4,8 +4,6 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import com.google.gson.JsonArray;
-
 import javax.annotation.Generated;
 
 import jhi.germinate.server.database.binding.SynonymBinding;
@@ -35,7 +33,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableCompounds extends TableImpl<ViewTableCompoundsRecord> {
 
-    private static final long serialVersionUID = -56189438;
+    private static final long serialVersionUID = -303182180;
 
     /**
      * The reference instance of <code>germinate_db.view_table_compounds</code>
@@ -88,7 +86,7 @@ public class ViewTableCompounds extends TableImpl<ViewTableCompoundsRecord> {
     /**
      * The column <code>germinate_db.view_table_compounds.synonyms</code>. The synonyms as a json array.
      */
-    public final TableField<ViewTableCompoundsRecord, JsonArray> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_20_10_30\".\"view_table_compounds_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<ViewTableCompoundsRecord, String[]> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_04_09\".\"view_table_compounds_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_compounds.count</code>.

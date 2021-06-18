@@ -4,10 +4,9 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import com.google.gson.JsonArray;
-
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 import javax.annotation.Generated;
 
@@ -27,12 +26,12 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Synonyms implements Serializable {
 
-    private static final long serialVersionUID = 1054640952;
+    private static final long serialVersionUID = 1624081305;
 
     private Integer   id;
     private Integer   foreignId;
     private Integer   synonymtypeId;
-    private JsonArray synonyms;
+    private String[]  synonyms;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -51,7 +50,7 @@ public class Synonyms implements Serializable {
         Integer   id,
         Integer   foreignId,
         Integer   synonymtypeId,
-        JsonArray synonyms,
+        String[]  synonyms,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -87,11 +86,11 @@ public class Synonyms implements Serializable {
         this.synonymtypeId = synonymtypeId;
     }
 
-    public JsonArray getSynonyms() {
+    public String[] getSynonyms() {
         return this.synonyms;
     }
 
-    public void setSynonyms(JsonArray synonyms) {
+    public void setSynonyms(String... synonyms) {
         this.synonyms = synonyms;
     }
 
@@ -118,7 +117,7 @@ public class Synonyms implements Serializable {
         sb.append(id);
         sb.append(", ").append(foreignId);
         sb.append(", ").append(synonymtypeId);
-        sb.append(", ").append(synonyms);
+        sb.append(", ").append(Arrays.toString(synonyms));
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

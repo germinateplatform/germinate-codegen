@@ -4,8 +4,6 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import com.google.gson.JsonArray;
-
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -32,7 +30,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasets implements Serializable {
 
-    private static final long serialVersionUID = 1704733265;
+    private static final long serialVersionUID = 249499348;
 
     private Integer              datasetId;
     private String               datasetName;
@@ -60,7 +58,7 @@ public class ViewTableDatasets implements Serializable {
     private Boolean              isExternal;
     private Long                 collaborators;
     private Long                 attributes;
-    private JsonArray            acceptedBy;
+    private Integer[]            acceptedBy;
 
     public ViewTableDatasets() {}
 
@@ -121,7 +119,7 @@ public class ViewTableDatasets implements Serializable {
         Boolean              isExternal,
         Long                 collaborators,
         Long                 attributes,
-        JsonArray            acceptedBy
+        Integer[]            acceptedBy
     ) {
         this.datasetId = datasetId;
         this.datasetName = datasetName;
@@ -360,11 +358,11 @@ public class ViewTableDatasets implements Serializable {
         this.attributes = attributes;
     }
 
-    public JsonArray getAcceptedBy() {
+    public Integer[] getAcceptedBy() {
         return this.acceptedBy;
     }
 
-    public void setAcceptedBy(JsonArray acceptedBy) {
+    public void setAcceptedBy(Integer... acceptedBy) {
         this.acceptedBy = acceptedBy;
     }
 
@@ -398,7 +396,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(isExternal);
         sb.append(", ").append(collaborators);
         sb.append(", ").append(attributes);
-        sb.append(", ").append(acceptedBy);
+        sb.append(", ").append(Arrays.toString(acceptedBy));
 
         sb.append(")");
         return sb.toString();

@@ -4,10 +4,9 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import com.google.gson.JsonArray;
-
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 import javax.annotation.Generated;
 
@@ -26,12 +25,12 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableMarkers implements Serializable {
 
-    private static final long serialVersionUID = -1217835040;
+    private static final long serialVersionUID = -902339327;
 
     private Integer   markerId;
     private String    markerName;
     private String    markerType;
-    private JsonArray markerSynonyms;
+    private String[]  markerSynonyms;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -50,7 +49,7 @@ public class ViewTableMarkers implements Serializable {
         Integer   markerId,
         String    markerName,
         String    markerType,
-        JsonArray markerSynonyms,
+        String[]  markerSynonyms,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -86,11 +85,11 @@ public class ViewTableMarkers implements Serializable {
         this.markerType = markerType;
     }
 
-    public JsonArray getMarkerSynonyms() {
+    public String[] getMarkerSynonyms() {
         return this.markerSynonyms;
     }
 
-    public void setMarkerSynonyms(JsonArray markerSynonyms) {
+    public void setMarkerSynonyms(String... markerSynonyms) {
         this.markerSynonyms = markerSynonyms;
     }
 
@@ -117,7 +116,7 @@ public class ViewTableMarkers implements Serializable {
         sb.append(markerId);
         sb.append(", ").append(markerName);
         sb.append(", ").append(markerType);
-        sb.append(", ").append(markerSynonyms);
+        sb.append(", ").append(Arrays.toString(markerSynonyms));
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

@@ -4,9 +4,8 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import com.google.gson.JsonArray;
-
 import java.io.Serializable;
+import java.util.Arrays;
 
 import javax.annotation.Generated;
 
@@ -25,7 +24,7 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableLicenses implements Serializable {
 
-    private static final long serialVersionUID = -450113432;
+    private static final long serialVersionUID = 1427954905;
 
     private Integer   licenseId;
     private String    licenseName;
@@ -34,7 +33,7 @@ public class ViewTableLicenses implements Serializable {
     private String    localeName;
     private String    localeDescription;
     private Integer   datasetId;
-    private JsonArray acceptedBy;
+    private Integer[] acceptedBy;
 
     public ViewTableLicenses() {}
 
@@ -57,7 +56,7 @@ public class ViewTableLicenses implements Serializable {
         String    localeName,
         String    localeDescription,
         Integer   datasetId,
-        JsonArray acceptedBy
+        Integer[] acceptedBy
     ) {
         this.licenseId = licenseId;
         this.licenseName = licenseName;
@@ -125,11 +124,11 @@ public class ViewTableLicenses implements Serializable {
         this.datasetId = datasetId;
     }
 
-    public JsonArray getAcceptedBy() {
+    public Integer[] getAcceptedBy() {
         return this.acceptedBy;
     }
 
-    public void setAcceptedBy(JsonArray acceptedBy) {
+    public void setAcceptedBy(Integer... acceptedBy) {
         this.acceptedBy = acceptedBy;
     }
 
@@ -144,7 +143,7 @@ public class ViewTableLicenses implements Serializable {
         sb.append(", ").append(localeName);
         sb.append(", ").append(localeDescription);
         sb.append(", ").append(datasetId);
-        sb.append(", ").append(acceptedBy);
+        sb.append(", ").append(Arrays.toString(acceptedBy));
 
         sb.append(")");
         return sb.toString();

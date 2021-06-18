@@ -4,9 +4,8 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import com.google.gson.JsonArray;
-
 import java.io.Serializable;
+import java.util.Arrays;
 
 import javax.annotation.Generated;
 
@@ -25,17 +24,17 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableCompounds implements Serializable {
 
-    private static final long serialVersionUID = 1270112023;
+    private static final long serialVersionUID = 2143182480;
 
-    private Integer   compoundId;
-    private String    compoundName;
-    private String    compoundDescription;
-    private Integer   unitId;
-    private String    unitName;
-    private String    unitDescription;
-    private String    unitAbbreviation;
-    private JsonArray synonyms;
-    private Long      count;
+    private Integer  compoundId;
+    private String   compoundName;
+    private String   compoundDescription;
+    private Integer  unitId;
+    private String   unitName;
+    private String   unitDescription;
+    private String   unitAbbreviation;
+    private String[] synonyms;
+    private Long     count;
 
     public ViewTableCompounds() {}
 
@@ -52,15 +51,15 @@ public class ViewTableCompounds implements Serializable {
     }
 
     public ViewTableCompounds(
-        Integer   compoundId,
-        String    compoundName,
-        String    compoundDescription,
-        Integer   unitId,
-        String    unitName,
-        String    unitDescription,
-        String    unitAbbreviation,
-        JsonArray synonyms,
-        Long      count
+        Integer  compoundId,
+        String   compoundName,
+        String   compoundDescription,
+        Integer  unitId,
+        String   unitName,
+        String   unitDescription,
+        String   unitAbbreviation,
+        String[] synonyms,
+        Long     count
     ) {
         this.compoundId = compoundId;
         this.compoundName = compoundName;
@@ -129,11 +128,11 @@ public class ViewTableCompounds implements Serializable {
         this.unitAbbreviation = unitAbbreviation;
     }
 
-    public JsonArray getSynonyms() {
+    public String[] getSynonyms() {
         return this.synonyms;
     }
 
-    public void setSynonyms(JsonArray synonyms) {
+    public void setSynonyms(String... synonyms) {
         this.synonyms = synonyms;
     }
 
@@ -156,7 +155,7 @@ public class ViewTableCompounds implements Serializable {
         sb.append(", ").append(unitName);
         sb.append(", ").append(unitDescription);
         sb.append(", ").append(unitAbbreviation);
-        sb.append(", ").append(synonyms);
+        sb.append(", ").append(Arrays.toString(synonyms));
         sb.append(", ").append(count);
 
         sb.append(")");
