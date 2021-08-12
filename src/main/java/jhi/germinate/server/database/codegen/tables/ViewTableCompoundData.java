@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 
 import javax.annotation.Generated;
 
+import jhi.germinate.server.database.binding.SynonymBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableCompoundDataRecord;
 
@@ -35,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableCompoundData extends TableImpl<ViewTableCompoundDataRecord> {
 
-    private static final long serialVersionUID = 1585054365;
+    private static final long serialVersionUID = -3219326;
 
     /**
      * The reference instance of <code>germinate_db.view_table_compound_data</code>
@@ -64,6 +65,11 @@ public class ViewTableCompoundData extends TableImpl<ViewTableCompoundDataRecord
      * The column <code>germinate_db.view_table_compound_data.germplasm_name</code>. A unique name which defines an entry in the germinatbase table.
      */
     public final TableField<ViewTableCompoundDataRecord, String> GERMPLASM_NAME = createField("germplasm_name", org.jooq.impl.SQLDataType.VARCHAR(255), this, "A unique name which defines an entry in the germinatbase table.");
+
+    /**
+     * The column <code>germinate_db.view_table_compound_data.germplasm_synonyms</code>. The synonyms as a json array.
+     */
+    public final TableField<ViewTableCompoundDataRecord, String[]> GERMPLASM_SYNONYMS = createField("germplasm_synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_11\".\"view_table_compound_data_germplasm_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_compound_data.entity_parent_name</code>. A unique name which defines an entry in the germinatbase table.

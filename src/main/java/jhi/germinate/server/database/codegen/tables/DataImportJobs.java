@@ -43,7 +43,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DataImportJobs extends TableImpl<DataImportJobsRecord> {
 
-    private static final long serialVersionUID = 2111657099;
+    private static final long serialVersionUID = -316704994;
 
     /**
      * The reference instance of <code>germinate_db.data_import_jobs</code>
@@ -89,6 +89,11 @@ public class DataImportJobs extends TableImpl<DataImportJobsRecord> {
     public final TableField<DataImportJobsRecord, Boolean> IS_UPDATE = createField("is_update", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
 
     /**
+     * The column <code>germinate_db.data_import_jobs.datasetstate_id</code>.
+     */
+    public final TableField<DataImportJobsRecord, Integer> DATASETSTATE_ID = createField("datasetstate_id", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.inline("1", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+
+    /**
      * The column <code>germinate_db.data_import_jobs.datatype</code>.
      */
     public final TableField<DataImportJobsRecord, DataImportJobsDatatype> DATATYPE = createField("datatype", org.jooq.impl.SQLDataType.VARCHAR(8).nullable(false).defaultValue(org.jooq.impl.DSL.inline("mcpd", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.DataImportJobsDatatype.class), this, "");
@@ -111,7 +116,7 @@ public class DataImportJobs extends TableImpl<DataImportJobsRecord> {
     /**
      * The column <code>germinate_db.data_import_jobs.feedback</code>.
      */
-    public final TableField<DataImportJobsRecord, ImportResult[]> FEEDBACK = createField("feedback", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_04_09\".\"data_import_jobs_feedback\""), this, "", new ImportResultBinding());
+    public final TableField<DataImportJobsRecord, ImportResult[]> FEEDBACK = createField("feedback", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_11\".\"data_import_jobs_feedback\""), this, "", new ImportResultBinding());
 
     /**
      * The column <code>germinate_db.data_import_jobs.created_on</code>.

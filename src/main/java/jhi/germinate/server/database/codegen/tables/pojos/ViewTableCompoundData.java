@@ -7,6 +7,7 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 import javax.annotation.Generated;
 
@@ -25,11 +26,12 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableCompoundData implements Serializable {
 
-    private static final long serialVersionUID = -894645803;
+    private static final long serialVersionUID = -1213871414;
 
     private Integer    germplasmId;
     private String     germplasmGid;
     private String     germplasmName;
+    private String[]   germplasmSynonyms;
     private String     entityParentName;
     private String     entityParentGeneralIdentifier;
     private String     entityType;
@@ -48,6 +50,7 @@ public class ViewTableCompoundData implements Serializable {
         this.germplasmId = value.germplasmId;
         this.germplasmGid = value.germplasmGid;
         this.germplasmName = value.germplasmName;
+        this.germplasmSynonyms = value.germplasmSynonyms;
         this.entityParentName = value.entityParentName;
         this.entityParentGeneralIdentifier = value.entityParentGeneralIdentifier;
         this.entityType = value.entityType;
@@ -65,6 +68,7 @@ public class ViewTableCompoundData implements Serializable {
         Integer    germplasmId,
         String     germplasmGid,
         String     germplasmName,
+        String[]   germplasmSynonyms,
         String     entityParentName,
         String     entityParentGeneralIdentifier,
         String     entityType,
@@ -80,6 +84,7 @@ public class ViewTableCompoundData implements Serializable {
         this.germplasmId = germplasmId;
         this.germplasmGid = germplasmGid;
         this.germplasmName = germplasmName;
+        this.germplasmSynonyms = germplasmSynonyms;
         this.entityParentName = entityParentName;
         this.entityParentGeneralIdentifier = entityParentGeneralIdentifier;
         this.entityType = entityType;
@@ -115,6 +120,14 @@ public class ViewTableCompoundData implements Serializable {
 
     public void setGermplasmName(String germplasmName) {
         this.germplasmName = germplasmName;
+    }
+
+    public String[] getGermplasmSynonyms() {
+        return this.germplasmSynonyms;
+    }
+
+    public void setGermplasmSynonyms(String... germplasmSynonyms) {
+        this.germplasmSynonyms = germplasmSynonyms;
     }
 
     public String getEntityParentName() {
@@ -212,6 +225,7 @@ public class ViewTableCompoundData implements Serializable {
         sb.append(germplasmId);
         sb.append(", ").append(germplasmGid);
         sb.append(", ").append(germplasmName);
+        sb.append(", ").append(Arrays.toString(germplasmSynonyms));
         sb.append(", ").append(entityParentName);
         sb.append(", ").append(entityParentGeneralIdentifier);
         sb.append(", ").append(entityType);

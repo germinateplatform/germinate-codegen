@@ -29,7 +29,7 @@ import jhi.germinate.server.database.pojo.ImportResult;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DataImportJobs implements Serializable {
 
-    private static final long serialVersionUID = -323134140;
+    private static final long serialVersionUID = 1462410018;
 
     private Integer                id;
     private String                 uuid;
@@ -37,6 +37,7 @@ public class DataImportJobs implements Serializable {
     private Integer                userId;
     private String                 originalFilename;
     private Boolean                isUpdate;
+    private Integer                datasetstateId;
     private DataImportJobsDatatype datatype;
     private DataImportJobsStatus   status;
     private Boolean                imported;
@@ -54,6 +55,7 @@ public class DataImportJobs implements Serializable {
         this.userId = value.userId;
         this.originalFilename = value.originalFilename;
         this.isUpdate = value.isUpdate;
+        this.datasetstateId = value.datasetstateId;
         this.datatype = value.datatype;
         this.status = value.status;
         this.imported = value.imported;
@@ -70,6 +72,7 @@ public class DataImportJobs implements Serializable {
         Integer                userId,
         String                 originalFilename,
         Boolean                isUpdate,
+        Integer                datasetstateId,
         DataImportJobsDatatype datatype,
         DataImportJobsStatus   status,
         Boolean                imported,
@@ -84,6 +87,7 @@ public class DataImportJobs implements Serializable {
         this.userId = userId;
         this.originalFilename = originalFilename;
         this.isUpdate = isUpdate;
+        this.datasetstateId = datasetstateId;
         this.datatype = datatype;
         this.status = status;
         this.imported = imported;
@@ -139,6 +143,14 @@ public class DataImportJobs implements Serializable {
 
     public void setIsUpdate(Boolean isUpdate) {
         this.isUpdate = isUpdate;
+    }
+
+    public Integer getDatasetstateId() {
+        return this.datasetstateId;
+    }
+
+    public void setDatasetstateId(Integer datasetstateId) {
+        this.datasetstateId = datasetstateId;
     }
 
     public DataImportJobsDatatype getDatatype() {
@@ -207,6 +219,7 @@ public class DataImportJobs implements Serializable {
         sb.append(", ").append(userId);
         sb.append(", ").append(originalFilename);
         sb.append(", ").append(isUpdate);
+        sb.append(", ").append(datasetstateId);
         sb.append(", ").append(datatype);
         sb.append(", ").append(status);
         sb.append(", ").append(imported);
