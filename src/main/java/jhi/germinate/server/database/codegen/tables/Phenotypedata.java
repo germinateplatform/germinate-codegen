@@ -39,7 +39,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
 
-    private static final long serialVersionUID = 533927426;
+    private static final long serialVersionUID = 455741175;
 
     /**
      * The reference instance of <code>germinate_db.phenotypedata</code>
@@ -68,6 +68,11 @@ public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
      * The column <code>germinate_db.phenotypedata.germinatebase_id</code>. Foreign key germinatebase (germinatebase.id).
      */
     public final TableField<PhenotypedataRecord, Integer> GERMINATEBASE_ID = createField("germinatebase_id", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.INTEGER)), this, "Foreign key germinatebase (germinatebase.id).");
+
+    /**
+     * The column <code>germinate_db.phenotypedata.rep</code>.
+     */
+    public final TableField<PhenotypedataRecord, String> REP = createField("rep", org.jooq.impl.SQLDataType.VARCHAR(10).nullable(false).defaultValue(org.jooq.impl.DSL.inline("1", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>germinate_db.phenotypedata.phenotype_value</code>. The phenotype value for this phenotype_id and germinatebase_id combination.

@@ -36,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableImages extends TableImpl<ViewTableImagesRecord> {
 
-    private static final long serialVersionUID = 1232890154;
+    private static final long serialVersionUID = 132828194;
 
     /**
      * The reference instance of <code>germinate_db.view_table_images</code>
@@ -94,7 +94,7 @@ public class ViewTableImages extends TableImpl<ViewTableImagesRecord> {
     /**
      * The column <code>germinate_db.view_table_images.tags</code>.
      */
-    public final TableField<ViewTableImagesRecord, ImageTag[]> TAGS = createField("tags", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_11\".\"view_table_images_tags\""), this, "", new ImageTagBinding());
+    public final TableField<ViewTableImagesRecord, ImageTag[]> TAGS = createField("tags", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_19\".\"view_table_images_tags\""), this, "", new ImageTagBinding());
 
     /**
      * Create a <code>germinate_db.view_table_images</code> table reference

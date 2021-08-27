@@ -33,7 +33,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableLicenses extends TableImpl<ViewTableLicensesRecord> {
 
-    private static final long serialVersionUID = -540747022;
+    private static final long serialVersionUID = 193250554;
 
     /**
      * The reference instance of <code>germinate_db.view_table_licenses</code>
@@ -86,7 +86,7 @@ public class ViewTableLicenses extends TableImpl<ViewTableLicensesRecord> {
     /**
      * The column <code>germinate_db.view_table_licenses.accepted_by</code>.
      */
-    public final TableField<ViewTableLicensesRecord, Integer[]> ACCEPTED_BY = createField("accepted_by", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_11\".\"view_table_licenses_accepted_by\""), this, "", new IntArrayBinding());
+    public final TableField<ViewTableLicensesRecord, Integer[]> ACCEPTED_BY = createField("accepted_by", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_19\".\"view_table_licenses_accepted_by\""), this, "", new IntArrayBinding());
 
     /**
      * Create a <code>germinate_db.view_table_licenses</code> table reference

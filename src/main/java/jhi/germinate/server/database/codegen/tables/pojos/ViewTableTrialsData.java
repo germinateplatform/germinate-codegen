@@ -27,7 +27,7 @@ import jhi.germinate.server.database.pojo.TraitRestrictions;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTrialsData implements Serializable {
 
-    private static final long serialVersionUID = -1650570554;
+    private static final long serialVersionUID = 1166097425;
 
     private Integer           germplasmId;
     private String            germplasmGid;
@@ -48,6 +48,7 @@ public class ViewTableTrialsData implements Serializable {
     private TraitRestrictions traitRestrictions;
     private String            unitName;
     private String            treatment;
+    private String            rep;
     private Timestamp         recordingDate;
     private String            traitValue;
 
@@ -73,6 +74,7 @@ public class ViewTableTrialsData implements Serializable {
         this.traitRestrictions = value.traitRestrictions;
         this.unitName = value.unitName;
         this.treatment = value.treatment;
+        this.rep = value.rep;
         this.recordingDate = value.recordingDate;
         this.traitValue = value.traitValue;
     }
@@ -97,6 +99,7 @@ public class ViewTableTrialsData implements Serializable {
         TraitRestrictions traitRestrictions,
         String            unitName,
         String            treatment,
+        String            rep,
         Timestamp         recordingDate,
         String            traitValue
     ) {
@@ -119,6 +122,7 @@ public class ViewTableTrialsData implements Serializable {
         this.traitRestrictions = traitRestrictions;
         this.unitName = unitName;
         this.treatment = treatment;
+        this.rep = rep;
         this.recordingDate = recordingDate;
         this.traitValue = traitValue;
     }
@@ -275,6 +279,14 @@ public class ViewTableTrialsData implements Serializable {
         this.treatment = treatment;
     }
 
+    public String getRep() {
+        return this.rep;
+    }
+
+    public void setRep(String rep) {
+        this.rep = rep;
+    }
+
     public Timestamp getRecordingDate() {
         return this.recordingDate;
     }
@@ -314,6 +326,7 @@ public class ViewTableTrialsData implements Serializable {
         sb.append(", ").append(traitRestrictions);
         sb.append(", ").append(unitName);
         sb.append(", ").append(treatment);
+        sb.append(", ").append(rep);
         sb.append(", ").append(recordingDate);
         sb.append(", ").append(traitValue);
 

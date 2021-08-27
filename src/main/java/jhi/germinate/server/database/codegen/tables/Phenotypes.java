@@ -42,7 +42,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Phenotypes extends TableImpl<PhenotypesRecord> {
 
-    private static final long serialVersionUID = -881344468;
+    private static final long serialVersionUID = -1960325068;
 
     /**
      * The reference instance of <code>germinate_db.phenotypes</code>
@@ -85,7 +85,7 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
     /**
      * The column <code>germinate_db.phenotypes.restrictions</code>. A json object describing the restrictions placed on this trait. It is an object containing a field called "categories" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are "min" and "max" to specify upper and lower limits for numeric traits.
      */
-    public final TableField<PhenotypesRecord, TraitRestrictions> RESTRICTIONS = createField("restrictions", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_11\".\"phenotypes_restrictions\""), this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.", new TraitRestrictionBinding());
+    public final TableField<PhenotypesRecord, TraitRestrictions> RESTRICTIONS = createField("restrictions", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_19\".\"phenotypes_restrictions\""), this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.", new TraitRestrictionBinding());
 
     /**
      * The column <code>germinate_db.phenotypes.unit_id</code>. Foreign Key to units (units.id).

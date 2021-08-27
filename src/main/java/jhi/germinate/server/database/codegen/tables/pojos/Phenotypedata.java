@@ -24,11 +24,12 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Phenotypedata implements Serializable {
 
-    private static final long serialVersionUID = 967077165;
+    private static final long serialVersionUID = -619280632;
 
     private Integer   id;
     private Integer   phenotypeId;
     private Integer   germinatebaseId;
+    private String    rep;
     private String    phenotypeValue;
     private Integer   datasetId;
     private Timestamp recordingDate;
@@ -44,6 +45,7 @@ public class Phenotypedata implements Serializable {
         this.id = value.id;
         this.phenotypeId = value.phenotypeId;
         this.germinatebaseId = value.germinatebaseId;
+        this.rep = value.rep;
         this.phenotypeValue = value.phenotypeValue;
         this.datasetId = value.datasetId;
         this.recordingDate = value.recordingDate;
@@ -58,6 +60,7 @@ public class Phenotypedata implements Serializable {
         Integer   id,
         Integer   phenotypeId,
         Integer   germinatebaseId,
+        String    rep,
         String    phenotypeValue,
         Integer   datasetId,
         Timestamp recordingDate,
@@ -70,6 +73,7 @@ public class Phenotypedata implements Serializable {
         this.id = id;
         this.phenotypeId = phenotypeId;
         this.germinatebaseId = germinatebaseId;
+        this.rep = rep;
         this.phenotypeValue = phenotypeValue;
         this.datasetId = datasetId;
         this.recordingDate = recordingDate;
@@ -102,6 +106,14 @@ public class Phenotypedata implements Serializable {
 
     public void setGerminatebaseId(Integer germinatebaseId) {
         this.germinatebaseId = germinatebaseId;
+    }
+
+    public String getRep() {
+        return this.rep;
+    }
+
+    public void setRep(String rep) {
+        this.rep = rep;
     }
 
     public String getPhenotypeValue() {
@@ -175,6 +187,7 @@ public class Phenotypedata implements Serializable {
         sb.append(id);
         sb.append(", ").append(phenotypeId);
         sb.append(", ").append(germinatebaseId);
+        sb.append(", ").append(rep);
         sb.append(", ").append(phenotypeValue);
         sb.append(", ").append(datasetId);
         sb.append(", ").append(recordingDate);

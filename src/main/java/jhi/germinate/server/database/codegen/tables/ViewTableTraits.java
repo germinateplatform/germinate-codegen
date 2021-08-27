@@ -37,7 +37,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
 
-    private static final long serialVersionUID = -123497229;
+    private static final long serialVersionUID = 314655979;
 
     /**
      * The reference instance of <code>germinate_db.view_table_traits</code>
@@ -80,7 +80,7 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     /**
      * The column <code>germinate_db.view_table_traits.trait_restrictions</code>. A json object describing the restrictions placed on this trait. It is an object containing a field called "categories" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are "min" and "max" to specify upper and lower limits for numeric traits.
      */
-    public final TableField<ViewTableTraitsRecord, TraitRestrictions> TRAIT_RESTRICTIONS = createField("trait_restrictions", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_11\".\"view_table_traits_trait_restrictions\""), this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.", new TraitRestrictionBinding());
+    public final TableField<ViewTableTraitsRecord, TraitRestrictions> TRAIT_RESTRICTIONS = createField("trait_restrictions", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_19\".\"view_table_traits_trait_restrictions\""), this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.", new TraitRestrictionBinding());
 
     /**
      * The column <code>germinate_db.view_table_traits.unit_id</code>. Primary id for this table. This uniquely identifies the row.
@@ -105,12 +105,12 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     /**
      * The column <code>germinate_db.view_table_traits.synonyms</code>. The synonyms as a json array.
      */
-    public final TableField<ViewTableTraitsRecord, String[]> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_11\".\"view_table_traits_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<ViewTableTraitsRecord, String[]> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_19\".\"view_table_traits_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_traits.dataset_ids</code>.
      */
-    public final TableField<ViewTableTraitsRecord, Integer[]> DATASET_IDS = createField("dataset_ids", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_11\".\"view_table_traits_dataset_ids\""), this, "", new IntArrayBinding());
+    public final TableField<ViewTableTraitsRecord, Integer[]> DATASET_IDS = createField("dataset_ids", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_19\".\"view_table_traits_dataset_ids\""), this, "", new IntArrayBinding());
 
     /**
      * The column <code>germinate_db.view_table_traits.count</code>.
