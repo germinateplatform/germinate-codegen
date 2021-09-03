@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableInstitutions extends TableImpl<ViewTableInstitutionsRecord> {
 
-    private static final long serialVersionUID = -587842258;
+    private static final long serialVersionUID = -480648692;
 
     /**
      * The reference instance of <code>germinate_db.view_table_institutions</code>
@@ -56,6 +56,11 @@ public class ViewTableInstitutions extends TableImpl<ViewTableInstitutionsRecord
      * The column <code>germinate_db.view_table_institutions.institution_name</code>. The institute name.
      */
     public final TableField<ViewTableInstitutionsRecord, String> INSTITUTION_NAME = createField("institution_name", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "The institute name.");
+
+    /**
+     * The column <code>germinate_db.view_table_institutions.institution_code</code>. If there is a defined ISO code for the institute this should be used here.
+     */
+    public final TableField<ViewTableInstitutionsRecord, String> INSTITUTION_CODE = createField("institution_code", org.jooq.impl.SQLDataType.VARCHAR(255), this, "If there is a defined ISO code for the institute this should be used here.");
 
     /**
      * The column <code>germinate_db.view_table_institutions.institution_acronym</code>. If there is an acronym for the institute.

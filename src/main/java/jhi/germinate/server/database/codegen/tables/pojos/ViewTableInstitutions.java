@@ -23,10 +23,11 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableInstitutions implements Serializable {
 
-    private static final long serialVersionUID = -273537379;
+    private static final long serialVersionUID = 146528580;
 
     private Integer institutionId;
     private String  institutionName;
+    private String  institutionCode;
     private String  institutionAcronym;
     private String  institutionAddress;
     private String  institutionEmail;
@@ -41,6 +42,7 @@ public class ViewTableInstitutions implements Serializable {
     public ViewTableInstitutions(ViewTableInstitutions value) {
         this.institutionId = value.institutionId;
         this.institutionName = value.institutionName;
+        this.institutionCode = value.institutionCode;
         this.institutionAcronym = value.institutionAcronym;
         this.institutionAddress = value.institutionAddress;
         this.institutionEmail = value.institutionEmail;
@@ -54,6 +56,7 @@ public class ViewTableInstitutions implements Serializable {
     public ViewTableInstitutions(
         Integer institutionId,
         String  institutionName,
+        String  institutionCode,
         String  institutionAcronym,
         String  institutionAddress,
         String  institutionEmail,
@@ -65,6 +68,7 @@ public class ViewTableInstitutions implements Serializable {
     ) {
         this.institutionId = institutionId;
         this.institutionName = institutionName;
+        this.institutionCode = institutionCode;
         this.institutionAcronym = institutionAcronym;
         this.institutionAddress = institutionAddress;
         this.institutionEmail = institutionEmail;
@@ -89,6 +93,14 @@ public class ViewTableInstitutions implements Serializable {
 
     public void setInstitutionName(String institutionName) {
         this.institutionName = institutionName;
+    }
+
+    public String getInstitutionCode() {
+        return this.institutionCode;
+    }
+
+    public void setInstitutionCode(String institutionCode) {
+        this.institutionCode = institutionCode;
     }
 
     public String getInstitutionAcronym() {
@@ -161,6 +173,7 @@ public class ViewTableInstitutions implements Serializable {
 
         sb.append(institutionId);
         sb.append(", ").append(institutionName);
+        sb.append(", ").append(institutionCode);
         sb.append(", ").append(institutionAcronym);
         sb.append(", ").append(institutionAddress);
         sb.append(", ").append(institutionEmail);
