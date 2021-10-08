@@ -30,7 +30,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasets implements Serializable {
 
-    private static final long serialVersionUID = 249499348;
+    private static final long serialVersionUID = 1963816603;
 
     private Integer              datasetId;
     private String               datasetName;
@@ -56,6 +56,7 @@ public class ViewTableDatasets implements Serializable {
     private ULong                dataObjectCount;
     private ULong                dataPointCount;
     private Boolean              isExternal;
+    private Long                 publications;
     private Long                 collaborators;
     private Long                 attributes;
     private Integer[]            acceptedBy;
@@ -87,6 +88,7 @@ public class ViewTableDatasets implements Serializable {
         this.dataObjectCount = value.dataObjectCount;
         this.dataPointCount = value.dataPointCount;
         this.isExternal = value.isExternal;
+        this.publications = value.publications;
         this.collaborators = value.collaborators;
         this.attributes = value.attributes;
         this.acceptedBy = value.acceptedBy;
@@ -117,6 +119,7 @@ public class ViewTableDatasets implements Serializable {
         ULong                dataObjectCount,
         ULong                dataPointCount,
         Boolean              isExternal,
+        Long                 publications,
         Long                 collaborators,
         Long                 attributes,
         Integer[]            acceptedBy
@@ -145,6 +148,7 @@ public class ViewTableDatasets implements Serializable {
         this.dataObjectCount = dataObjectCount;
         this.dataPointCount = dataPointCount;
         this.isExternal = isExternal;
+        this.publications = publications;
         this.collaborators = collaborators;
         this.attributes = attributes;
         this.acceptedBy = acceptedBy;
@@ -342,6 +346,14 @@ public class ViewTableDatasets implements Serializable {
         this.isExternal = isExternal;
     }
 
+    public Long getPublications() {
+        return this.publications;
+    }
+
+    public void setPublications(Long publications) {
+        this.publications = publications;
+    }
+
     public Long getCollaborators() {
         return this.collaborators;
     }
@@ -394,6 +406,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(dataObjectCount);
         sb.append(", ").append(dataPointCount);
         sb.append(", ").append(isExternal);
+        sb.append(", ").append(publications);
         sb.append(", ").append(collaborators);
         sb.append(", ").append(attributes);
         sb.append(", ").append(Arrays.toString(acceptedBy));

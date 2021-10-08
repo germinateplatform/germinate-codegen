@@ -36,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableCompoundData extends TableImpl<ViewTableCompoundDataRecord> {
 
-    private static final long serialVersionUID = 531115146;
+    private static final long serialVersionUID = -476894736;
 
     /**
      * The reference instance of <code>germinate_db.view_table_compound_data</code>
@@ -69,7 +69,7 @@ public class ViewTableCompoundData extends TableImpl<ViewTableCompoundDataRecord
     /**
      * The column <code>germinate_db.view_table_compound_data.germplasm_synonyms</code>. The synonyms as a json array.
      */
-    public final TableField<ViewTableCompoundDataRecord, String[]> GERMPLASM_SYNONYMS = createField("germplasm_synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_08_19\".\"view_table_compound_data_germplasm_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<ViewTableCompoundDataRecord, String[]> GERMPLASM_SYNONYMS = createField("germplasm_synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_10_05\".\"view_table_compound_data_germplasm_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_compound_data.entity_parent_name</code>. A unique name which defines an entry in the germinatbase table.

@@ -31,7 +31,7 @@ import org.jooq.types.ULong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRecord> {
 
-    private static final long serialVersionUID = 718326333;
+    private static final long serialVersionUID = 2036080617;
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.dataset_id</code>. Primary id for this table. This uniquely identifies the row.
@@ -372,45 +372,59 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_datasets.publications</code>.
+     */
+    public void setPublications(Long value) {
+        set(24, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_datasets.publications</code>.
+     */
+    public Long getPublications() {
+        return (Long) get(24);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_datasets.collaborators</code>.
      */
     public void setCollaborators(Long value) {
-        set(24, value);
+        set(25, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.collaborators</code>.
      */
     public Long getCollaborators() {
-        return (Long) get(24);
+        return (Long) get(25);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.attributes</code>.
      */
     public void setAttributes(Long value) {
-        set(25, value);
+        set(26, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.attributes</code>.
      */
     public Long getAttributes() {
-        return (Long) get(25);
+        return (Long) get(26);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.accepted_by</code>.
      */
     public void setAcceptedBy(Integer... value) {
-        set(26, value);
+        set(27, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.accepted_by</code>.
      */
     public Integer[] getAcceptedBy() {
-        return (Integer[]) get(26);
+        return (Integer[]) get(27);
     }
 
     // -------------------------------------------------------------------------
@@ -427,7 +441,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     /**
      * Create a detached, initialised ViewTableDatasetsRecord
      */
-    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, String datatype, String datasetState, ViewTableLocations[] locations, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Timestamp createdOn, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long collaborators, Long attributes, Integer[] acceptedBy) {
+    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, String datatype, String datasetState, ViewTableLocations[] locations, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Timestamp createdOn, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long publications, Long collaborators, Long attributes, Integer[] acceptedBy) {
         super(ViewTableDatasets.VIEW_TABLE_DATASETS);
 
         set(0, datasetId);
@@ -454,9 +468,10 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
         set(21, dataObjectCount);
         set(22, dataPointCount);
         set(23, isExternal);
-        set(24, collaborators);
-        set(25, attributes);
-        set(26, acceptedBy);
+        set(24, publications);
+        set(25, collaborators);
+        set(26, attributes);
+        set(27, acceptedBy);
     }
 // @formatter:on
 }
