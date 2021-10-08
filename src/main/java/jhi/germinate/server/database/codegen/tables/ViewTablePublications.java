@@ -36,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTablePublications extends TableImpl<ViewTablePublicationsRecord> {
 
-    private static final long serialVersionUID = -1713737167;
+    private static final long serialVersionUID = -1958621117;
 
     /**
      * The reference instance of <code>germinate_db.view_table_publications</code>
@@ -75,6 +75,11 @@ public class ViewTablePublications extends TableImpl<ViewTablePublicationsRecord
      * The column <code>germinate_db.view_table_publications.referencing_ids</code>.
      */
     public final TableField<ViewTablePublicationsRecord, Integer[]> REFERENCING_IDS = createField("referencing_ids", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_10_05\".\"view_table_publications_referencing_ids\""), this, "", new IntArrayBinding());
+
+    /**
+     * The column <code>germinate_db.view_table_publications.created_on</code>.
+     */
+    public final TableField<ViewTablePublicationsRecord, Timestamp> CREATED_ON = createField("created_on", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0000-00-00 00:00:00", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
      * The column <code>germinate_db.view_table_publications.updated_on</code>.

@@ -27,13 +27,14 @@ import jhi.germinate.server.database.codegen.enums.ViewTablePublicationsReferenc
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTablePublications implements Serializable {
 
-    private static final long serialVersionUID = 736924161;
+    private static final long serialVersionUID = 1107277860;
 
     private Integer                            publicationId;
     private String                             publicationDoi;
     private String                             publicationFallbackCache;
     private ViewTablePublicationsReferenceType referenceType;
     private Integer[]                          referencingIds;
+    private Timestamp                          createdOn;
     private Timestamp                          updatedOn;
 
     public ViewTablePublications() {}
@@ -44,6 +45,7 @@ public class ViewTablePublications implements Serializable {
         this.publicationFallbackCache = value.publicationFallbackCache;
         this.referenceType = value.referenceType;
         this.referencingIds = value.referencingIds;
+        this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
 
@@ -53,6 +55,7 @@ public class ViewTablePublications implements Serializable {
         String                             publicationFallbackCache,
         ViewTablePublicationsReferenceType referenceType,
         Integer[]                          referencingIds,
+        Timestamp                          createdOn,
         Timestamp                          updatedOn
     ) {
         this.publicationId = publicationId;
@@ -60,6 +63,7 @@ public class ViewTablePublications implements Serializable {
         this.publicationFallbackCache = publicationFallbackCache;
         this.referenceType = referenceType;
         this.referencingIds = referencingIds;
+        this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
 
@@ -103,6 +107,14 @@ public class ViewTablePublications implements Serializable {
         this.referencingIds = referencingIds;
     }
 
+    public Timestamp getCreatedOn() {
+        return this.createdOn;
+    }
+
+    public void setCreatedOn(Timestamp createdOn) {
+        this.createdOn = createdOn;
+    }
+
     public Timestamp getUpdatedOn() {
         return this.updatedOn;
     }
@@ -120,6 +132,7 @@ public class ViewTablePublications implements Serializable {
         sb.append(", ").append(publicationFallbackCache);
         sb.append(", ").append(referenceType);
         sb.append(", ").append(Arrays.toString(referencingIds));
+        sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 
         sb.append(")");
