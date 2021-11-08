@@ -37,7 +37,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTrialsData extends TableImpl<ViewTableTrialsDataRecord> {
 
-    private static final long serialVersionUID = 3399968;
+    private static final long serialVersionUID = 814930144;
 
     /**
      * The reference instance of <code>germinate_db.view_table_trials_data</code>
@@ -70,7 +70,7 @@ public class ViewTableTrialsData extends TableImpl<ViewTableTrialsDataRecord> {
     /**
      * The column <code>germinate_db.view_table_trials_data.germplasm_synonyms</code>. The synonyms as a json array.
      */
-    public final TableField<ViewTableTrialsDataRecord, String[]> GERMPLASM_SYNONYMS = createField("germplasm_synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_10_05\".\"view_table_trials_data_germplasm_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<ViewTableTrialsDataRecord, String[]> GERMPLASM_SYNONYMS = createField("germplasm_synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_11_08\".\"view_table_trials_data_germplasm_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_trials_data.entity_parent_name</code>. A unique name which defines an entry in the germinatbase table.
@@ -135,7 +135,7 @@ public class ViewTableTrialsData extends TableImpl<ViewTableTrialsDataRecord> {
     /**
      * The column <code>germinate_db.view_table_trials_data.trait_restrictions</code>. A json object describing the restrictions placed on this trait. It is an object containing a field called "categories" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are "min" and "max" to specify upper and lower limits for numeric traits.
      */
-    public final TableField<ViewTableTrialsDataRecord, TraitRestrictions> TRAIT_RESTRICTIONS = createField("trait_restrictions", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_10_05\".\"view_table_trials_data_trait_restrictions\""), this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.", new TraitRestrictionBinding());
+    public final TableField<ViewTableTrialsDataRecord, TraitRestrictions> TRAIT_RESTRICTIONS = createField("trait_restrictions", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_11_08\".\"view_table_trials_data_trait_restrictions\""), this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.", new TraitRestrictionBinding());
 
     /**
      * The column <code>germinate_db.view_table_trials_data.unit_name</code>. The name of the unit. This should be the name of the unit in full.

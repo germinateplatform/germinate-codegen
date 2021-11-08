@@ -44,7 +44,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Datasets extends TableImpl<DatasetsRecord> {
 
-    private static final long serialVersionUID = 915951412;
+    private static final long serialVersionUID = -1619446382;
 
     /**
      * The reference instance of <code>germinate_db.datasets</code>
@@ -107,7 +107,7 @@ public class Datasets extends TableImpl<DatasetsRecord> {
     /**
      * The column <code>germinate_db.datasets.dublin_core</code>.
      */
-    public final TableField<DatasetsRecord, DublinCore> DUBLIN_CORE = createField("dublin_core", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_10_05\".\"datasets_dublin_core\""), this, "", new DublinCoreBinding());
+    public final TableField<DatasetsRecord, DublinCore> DUBLIN_CORE = createField("dublin_core", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_11_08\".\"datasets_dublin_core\""), this, "", new DublinCoreBinding());
 
     /**
      * The column <code>germinate_db.datasets.version</code>. Dataset version if this exists.

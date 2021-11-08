@@ -33,7 +33,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableMapdefinitions extends TableImpl<ViewTableMapdefinitionsRecord> {
 
-    private static final long serialVersionUID = 1798793046;
+    private static final long serialVersionUID = 135585332;
 
     /**
      * The reference instance of <code>germinate_db.view_table_mapdefinitions</code>
@@ -61,7 +61,7 @@ public class ViewTableMapdefinitions extends TableImpl<ViewTableMapdefinitionsRe
     /**
      * The column <code>germinate_db.view_table_mapdefinitions.synonyms</code>. The synonyms as a json array.
      */
-    public final TableField<ViewTableMapdefinitionsRecord, String[]> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_10_05\".\"view_table_mapdefinitions_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<ViewTableMapdefinitionsRecord, String[]> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_21_11_08\".\"view_table_mapdefinitions_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_mapdefinitions.map_feature_type</code>. Description of the feature type. This could include a definition of the marker type such as 'SNP', 'KASP' or 'AFLP'.
