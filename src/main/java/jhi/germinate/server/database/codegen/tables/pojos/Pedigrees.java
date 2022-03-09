@@ -29,9 +29,10 @@ import jhi.germinate.server.database.codegen.enums.PedigreesRelationshipType;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Pedigrees implements Serializable {
 
-    private static final long serialVersionUID = 1204967364;
+    private static final long serialVersionUID = -337721465;
 
     private Integer                   id;
+    private Integer                   datasetId;
     private Integer                   germinatebaseId;
     private Integer                   parentId;
     private PedigreesRelationshipType relationshipType;
@@ -44,6 +45,7 @@ public class Pedigrees implements Serializable {
 
     public Pedigrees(Pedigrees value) {
         this.id = value.id;
+        this.datasetId = value.datasetId;
         this.germinatebaseId = value.germinatebaseId;
         this.parentId = value.parentId;
         this.relationshipType = value.relationshipType;
@@ -55,6 +57,7 @@ public class Pedigrees implements Serializable {
 
     public Pedigrees(
         Integer                   id,
+        Integer                   datasetId,
         Integer                   germinatebaseId,
         Integer                   parentId,
         PedigreesRelationshipType relationshipType,
@@ -64,6 +67,7 @@ public class Pedigrees implements Serializable {
         Timestamp                 updatedOn
     ) {
         this.id = id;
+        this.datasetId = datasetId;
         this.germinatebaseId = germinatebaseId;
         this.parentId = parentId;
         this.relationshipType = relationshipType;
@@ -79,6 +83,14 @@ public class Pedigrees implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getDatasetId() {
+        return this.datasetId;
+    }
+
+    public void setDatasetId(Integer datasetId) {
+        this.datasetId = datasetId;
     }
 
     public Integer getGerminatebaseId() {
@@ -142,6 +154,7 @@ public class Pedigrees implements Serializable {
         StringBuilder sb = new StringBuilder("Pedigrees (");
 
         sb.append(id);
+        sb.append(", ").append(datasetId);
         sb.append(", ").append(germinatebaseId);
         sb.append(", ").append(parentId);
         sb.append(", ").append(relationshipType);

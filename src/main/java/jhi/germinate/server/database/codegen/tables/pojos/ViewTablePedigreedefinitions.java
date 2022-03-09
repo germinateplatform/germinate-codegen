@@ -24,13 +24,15 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTablePedigreedefinitions implements Serializable {
 
-    private static final long serialVersionUID = -535855997;
+    private static final long serialVersionUID = 1471703603;
 
     private Integer   germplasmId;
     private String    germplasmName;
     private String    pedigreeNotationName;
     private String    pedigreeNotationDescription;
     private String    pedigreeNotationUrl;
+    private Integer   datasetId;
+    private String    datasetName;
     private Integer   definitionId;
     private String    definition;
     private String    pedigreeDescriptionName;
@@ -46,6 +48,8 @@ public class ViewTablePedigreedefinitions implements Serializable {
         this.pedigreeNotationName = value.pedigreeNotationName;
         this.pedigreeNotationDescription = value.pedigreeNotationDescription;
         this.pedigreeNotationUrl = value.pedigreeNotationUrl;
+        this.datasetId = value.datasetId;
+        this.datasetName = value.datasetName;
         this.definitionId = value.definitionId;
         this.definition = value.definition;
         this.pedigreeDescriptionName = value.pedigreeDescriptionName;
@@ -60,6 +64,8 @@ public class ViewTablePedigreedefinitions implements Serializable {
         String    pedigreeNotationName,
         String    pedigreeNotationDescription,
         String    pedigreeNotationUrl,
+        Integer   datasetId,
+        String    datasetName,
         Integer   definitionId,
         String    definition,
         String    pedigreeDescriptionName,
@@ -72,6 +78,8 @@ public class ViewTablePedigreedefinitions implements Serializable {
         this.pedigreeNotationName = pedigreeNotationName;
         this.pedigreeNotationDescription = pedigreeNotationDescription;
         this.pedigreeNotationUrl = pedigreeNotationUrl;
+        this.datasetId = datasetId;
+        this.datasetName = datasetName;
         this.definitionId = definitionId;
         this.definition = definition;
         this.pedigreeDescriptionName = pedigreeDescriptionName;
@@ -118,6 +126,22 @@ public class ViewTablePedigreedefinitions implements Serializable {
 
     public void setPedigreeNotationUrl(String pedigreeNotationUrl) {
         this.pedigreeNotationUrl = pedigreeNotationUrl;
+    }
+
+    public Integer getDatasetId() {
+        return this.datasetId;
+    }
+
+    public void setDatasetId(Integer datasetId) {
+        this.datasetId = datasetId;
+    }
+
+    public String getDatasetName() {
+        return this.datasetName;
+    }
+
+    public void setDatasetName(String datasetName) {
+        this.datasetName = datasetName;
     }
 
     public Integer getDefinitionId() {
@@ -177,6 +201,8 @@ public class ViewTablePedigreedefinitions implements Serializable {
         sb.append(", ").append(pedigreeNotationName);
         sb.append(", ").append(pedigreeNotationDescription);
         sb.append(", ").append(pedigreeNotationUrl);
+        sb.append(", ").append(datasetId);
+        sb.append(", ").append(datasetName);
         sb.append(", ").append(definitionId);
         sb.append(", ").append(definition);
         sb.append(", ").append(pedigreeDescriptionName);

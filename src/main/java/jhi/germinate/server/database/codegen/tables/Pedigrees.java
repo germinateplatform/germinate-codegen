@@ -43,7 +43,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Pedigrees extends TableImpl<PedigreesRecord> {
 
-    private static final long serialVersionUID = -500817933;
+    private static final long serialVersionUID = 1492951623;
 
     /**
      * The reference instance of <code>germinate_db.pedigrees</code>
@@ -62,6 +62,11 @@ public class Pedigrees extends TableImpl<PedigreesRecord> {
      * The column <code>germinate_db.pedigrees.id</code>. Primary id for this table. This uniquely identifies the row.
      */
     public final TableField<PedigreesRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "Primary id for this table. This uniquely identifies the row.");
+
+    /**
+     * The column <code>germinate_db.pedigrees.dataset_id</code>.
+     */
+    public final TableField<PedigreesRecord, Integer> DATASET_ID = createField("dataset_id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>germinate_db.pedigrees.germinatebase_id</code>. Foreign key germinatebase (germinatebase.id).

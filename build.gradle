@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -16,7 +16,6 @@ version '4.2.0'
 sourceCompatibility = 11
 
 repositories {
-    jcenter()
     mavenCentral()
 }
 

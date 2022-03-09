@@ -25,7 +25,7 @@ import jhi.germinate.server.database.codegen.enums.ViewTablePedigreesRelationshi
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTablePedigrees implements Serializable {
 
-    private static final long serialVersionUID = -775463121;
+    private static final long serialVersionUID = -295554361;
 
     private Integer                            parentId;
     private String                             parentGid;
@@ -33,6 +33,8 @@ public class ViewTablePedigrees implements Serializable {
     private Integer                            childId;
     private String                             childGid;
     private String                             childName;
+    private Integer                            datasetId;
+    private String                             datasetName;
     private ViewTablePedigreesRelationshipType relationshipType;
     private String                             relationshipDescription;
     private String                             pedigreeDescription;
@@ -47,6 +49,8 @@ public class ViewTablePedigrees implements Serializable {
         this.childId = value.childId;
         this.childGid = value.childGid;
         this.childName = value.childName;
+        this.datasetId = value.datasetId;
+        this.datasetName = value.datasetName;
         this.relationshipType = value.relationshipType;
         this.relationshipDescription = value.relationshipDescription;
         this.pedigreeDescription = value.pedigreeDescription;
@@ -60,6 +64,8 @@ public class ViewTablePedigrees implements Serializable {
         Integer                            childId,
         String                             childGid,
         String                             childName,
+        Integer                            datasetId,
+        String                             datasetName,
         ViewTablePedigreesRelationshipType relationshipType,
         String                             relationshipDescription,
         String                             pedigreeDescription,
@@ -71,6 +77,8 @@ public class ViewTablePedigrees implements Serializable {
         this.childId = childId;
         this.childGid = childGid;
         this.childName = childName;
+        this.datasetId = datasetId;
+        this.datasetName = datasetName;
         this.relationshipType = relationshipType;
         this.relationshipDescription = relationshipDescription;
         this.pedigreeDescription = pedigreeDescription;
@@ -125,6 +133,22 @@ public class ViewTablePedigrees implements Serializable {
         this.childName = childName;
     }
 
+    public Integer getDatasetId() {
+        return this.datasetId;
+    }
+
+    public void setDatasetId(Integer datasetId) {
+        this.datasetId = datasetId;
+    }
+
+    public String getDatasetName() {
+        return this.datasetName;
+    }
+
+    public void setDatasetName(String datasetName) {
+        this.datasetName = datasetName;
+    }
+
     public ViewTablePedigreesRelationshipType getRelationshipType() {
         return this.relationshipType;
     }
@@ -167,6 +191,8 @@ public class ViewTablePedigrees implements Serializable {
         sb.append(", ").append(childId);
         sb.append(", ").append(childGid);
         sb.append(", ").append(childName);
+        sb.append(", ").append(datasetId);
+        sb.append(", ").append(datasetName);
         sb.append(", ").append(relationshipType);
         sb.append(", ").append(relationshipDescription);
         sb.append(", ").append(pedigreeDescription);

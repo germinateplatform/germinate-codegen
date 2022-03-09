@@ -24,9 +24,10 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Pedigreedefinitions implements Serializable {
 
-    private static final long serialVersionUID = 297848294;
+    private static final long serialVersionUID = -1182574195;
 
     private Integer   id;
+    private Integer   datasetId;
     private Integer   germinatebaseId;
     private Integer   pedigreenotationId;
     private Integer   pedigreedescriptionId;
@@ -38,6 +39,7 @@ public class Pedigreedefinitions implements Serializable {
 
     public Pedigreedefinitions(Pedigreedefinitions value) {
         this.id = value.id;
+        this.datasetId = value.datasetId;
         this.germinatebaseId = value.germinatebaseId;
         this.pedigreenotationId = value.pedigreenotationId;
         this.pedigreedescriptionId = value.pedigreedescriptionId;
@@ -48,6 +50,7 @@ public class Pedigreedefinitions implements Serializable {
 
     public Pedigreedefinitions(
         Integer   id,
+        Integer   datasetId,
         Integer   germinatebaseId,
         Integer   pedigreenotationId,
         Integer   pedigreedescriptionId,
@@ -56,6 +59,7 @@ public class Pedigreedefinitions implements Serializable {
         Timestamp updatedOn
     ) {
         this.id = id;
+        this.datasetId = datasetId;
         this.germinatebaseId = germinatebaseId;
         this.pedigreenotationId = pedigreenotationId;
         this.pedigreedescriptionId = pedigreedescriptionId;
@@ -70,6 +74,14 @@ public class Pedigreedefinitions implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getDatasetId() {
+        return this.datasetId;
+    }
+
+    public void setDatasetId(Integer datasetId) {
+        this.datasetId = datasetId;
     }
 
     public Integer getGerminatebaseId() {
@@ -125,6 +137,7 @@ public class Pedigreedefinitions implements Serializable {
         StringBuilder sb = new StringBuilder("Pedigreedefinitions (");
 
         sb.append(id);
+        sb.append(", ").append(datasetId);
         sb.append(", ").append(germinatebaseId);
         sb.append(", ").append(pedigreenotationId);
         sb.append(", ").append(pedigreedescriptionId);

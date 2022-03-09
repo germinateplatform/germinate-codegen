@@ -34,7 +34,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTablePedigreedefinitions extends TableImpl<ViewTablePedigreedefinitionsRecord> {
 
-    private static final long serialVersionUID = -1617374260;
+    private static final long serialVersionUID = 701302541;
 
     /**
      * The reference instance of <code>germinate_db.view_table_pedigreedefinitions</code>
@@ -73,6 +73,16 @@ public class ViewTablePedigreedefinitions extends TableImpl<ViewTablePedigreedef
      * The column <code>germinate_db.view_table_pedigreedefinitions.pedigree_notation_url</code>. Hyperlink to the notation source.
      */
     public final TableField<ViewTablePedigreedefinitionsRecord, String> PEDIGREE_NOTATION_URL = createField("pedigree_notation_url", org.jooq.impl.SQLDataType.VARCHAR(255), this, "Hyperlink to the notation source.");
+
+    /**
+     * The column <code>germinate_db.view_table_pedigreedefinitions.dataset_id</code>. Primary id for this table. This uniquely identifies the row.
+     */
+    public final TableField<ViewTablePedigreedefinitionsRecord, Integer> DATASET_ID = createField("dataset_id", org.jooq.impl.SQLDataType.INTEGER.defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.INTEGER)), this, "Primary id for this table. This uniquely identifies the row.");
+
+    /**
+     * The column <code>germinate_db.view_table_pedigreedefinitions.dataset_name</code>. Describes the dataset.
+     */
+    public final TableField<ViewTablePedigreedefinitionsRecord, String> DATASET_NAME = createField("dataset_name", org.jooq.impl.SQLDataType.CLOB, this, "Describes the dataset.");
 
     /**
      * The column <code>germinate_db.view_table_pedigreedefinitions.definition_id</code>. Primary id for this table. This uniquely identifies the row.

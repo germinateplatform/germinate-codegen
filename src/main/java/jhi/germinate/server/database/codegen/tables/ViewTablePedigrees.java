@@ -33,7 +33,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
 
-    private static final long serialVersionUID = -764404523;
+    private static final long serialVersionUID = 1444855386;
 
     /**
      * The reference instance of <code>germinate_db.view_table_pedigrees</code>
@@ -77,6 +77,16 @@ public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
      * The column <code>germinate_db.view_table_pedigrees.child_name</code>. A unique name which defines an entry in the germinatbase table.
      */
     public final TableField<ViewTablePedigreesRecord, String> CHILD_NAME = createField("child_name", org.jooq.impl.SQLDataType.VARCHAR(255), this, "A unique name which defines an entry in the germinatbase table.");
+
+    /**
+     * The column <code>germinate_db.view_table_pedigrees.dataset_id</code>. Primary id for this table. This uniquely identifies the row.
+     */
+    public final TableField<ViewTablePedigreesRecord, Integer> DATASET_ID = createField("dataset_id", org.jooq.impl.SQLDataType.INTEGER.defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.INTEGER)), this, "Primary id for this table. This uniquely identifies the row.");
+
+    /**
+     * The column <code>germinate_db.view_table_pedigrees.dataset_name</code>. Describes the dataset.
+     */
+    public final TableField<ViewTablePedigreesRecord, String> DATASET_NAME = createField("dataset_name", org.jooq.impl.SQLDataType.CLOB, this, "Describes the dataset.");
 
     /**
      * The column <code>germinate_db.view_table_pedigrees.relationship_type</code>. Male or Female parent. Should be recorded as 'M' (male) or 'F' (female).
