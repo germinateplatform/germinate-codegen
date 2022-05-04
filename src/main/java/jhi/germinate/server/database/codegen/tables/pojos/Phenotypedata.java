@@ -5,6 +5,7 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import javax.annotation.Generated;
@@ -24,20 +25,24 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Phenotypedata implements Serializable {
 
-    private static final long serialVersionUID = -619280632;
+    private static final long serialVersionUID = -1201726944;
 
-    private Integer   id;
-    private Integer   phenotypeId;
-    private Integer   germinatebaseId;
-    private String    rep;
-    private String    phenotypeValue;
-    private Integer   datasetId;
-    private Timestamp recordingDate;
-    private Timestamp createdOn;
-    private Timestamp updatedOn;
-    private Integer   locationId;
-    private Integer   treatmentId;
-    private Integer   trialseriesId;
+    private Integer    id;
+    private Integer    phenotypeId;
+    private Integer    germinatebaseId;
+    private String     rep;
+    private String     block;
+    private BigDecimal latitude;
+    private BigDecimal longitude;
+    private BigDecimal elevation;
+    private String     phenotypeValue;
+    private Integer    datasetId;
+    private Timestamp  recordingDate;
+    private Timestamp  createdOn;
+    private Timestamp  updatedOn;
+    private Integer    locationId;
+    private Integer    treatmentId;
+    private Integer    trialseriesId;
 
     public Phenotypedata() {}
 
@@ -46,6 +51,10 @@ public class Phenotypedata implements Serializable {
         this.phenotypeId = value.phenotypeId;
         this.germinatebaseId = value.germinatebaseId;
         this.rep = value.rep;
+        this.block = value.block;
+        this.latitude = value.latitude;
+        this.longitude = value.longitude;
+        this.elevation = value.elevation;
         this.phenotypeValue = value.phenotypeValue;
         this.datasetId = value.datasetId;
         this.recordingDate = value.recordingDate;
@@ -57,23 +66,31 @@ public class Phenotypedata implements Serializable {
     }
 
     public Phenotypedata(
-        Integer   id,
-        Integer   phenotypeId,
-        Integer   germinatebaseId,
-        String    rep,
-        String    phenotypeValue,
-        Integer   datasetId,
-        Timestamp recordingDate,
-        Timestamp createdOn,
-        Timestamp updatedOn,
-        Integer   locationId,
-        Integer   treatmentId,
-        Integer   trialseriesId
+        Integer    id,
+        Integer    phenotypeId,
+        Integer    germinatebaseId,
+        String     rep,
+        String     block,
+        BigDecimal latitude,
+        BigDecimal longitude,
+        BigDecimal elevation,
+        String     phenotypeValue,
+        Integer    datasetId,
+        Timestamp  recordingDate,
+        Timestamp  createdOn,
+        Timestamp  updatedOn,
+        Integer    locationId,
+        Integer    treatmentId,
+        Integer    trialseriesId
     ) {
         this.id = id;
         this.phenotypeId = phenotypeId;
         this.germinatebaseId = germinatebaseId;
         this.rep = rep;
+        this.block = block;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.elevation = elevation;
         this.phenotypeValue = phenotypeValue;
         this.datasetId = datasetId;
         this.recordingDate = recordingDate;
@@ -114,6 +131,38 @@ public class Phenotypedata implements Serializable {
 
     public void setRep(String rep) {
         this.rep = rep;
+    }
+
+    public String getBlock() {
+        return this.block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+
+    public BigDecimal getLatitude() {
+        return this.latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public BigDecimal getLongitude() {
+        return this.longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public BigDecimal getElevation() {
+        return this.elevation;
+    }
+
+    public void setElevation(BigDecimal elevation) {
+        this.elevation = elevation;
     }
 
     public String getPhenotypeValue() {
@@ -188,6 +237,10 @@ public class Phenotypedata implements Serializable {
         sb.append(", ").append(phenotypeId);
         sb.append(", ").append(germinatebaseId);
         sb.append(", ").append(rep);
+        sb.append(", ").append(block);
+        sb.append(", ").append(latitude);
+        sb.append(", ").append(longitude);
+        sb.append(", ").append(elevation);
         sb.append(", ").append(phenotypeValue);
         sb.append(", ").append(datasetId);
         sb.append(", ").append(recordingDate);

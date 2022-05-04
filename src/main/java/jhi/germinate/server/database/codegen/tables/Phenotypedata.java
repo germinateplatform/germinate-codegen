@@ -4,6 +4,7 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
@@ -39,7 +40,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
 
-    private static final long serialVersionUID = 455741175;
+    private static final long serialVersionUID = 1852594752;
 
     /**
      * The reference instance of <code>germinate_db.phenotypedata</code>
@@ -73,6 +74,26 @@ public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
      * The column <code>germinate_db.phenotypedata.rep</code>.
      */
     public final TableField<PhenotypedataRecord, String> REP = createField("rep", org.jooq.impl.SQLDataType.VARCHAR(10).nullable(false).defaultValue(org.jooq.impl.DSL.inline("1", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>germinate_db.phenotypedata.block</code>.
+     */
+    public final TableField<PhenotypedataRecord, String> BLOCK = createField("block", org.jooq.impl.SQLDataType.VARCHAR(10).nullable(false).defaultValue(org.jooq.impl.DSL.inline("1", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>germinate_db.phenotypedata.latitude</code>.
+     */
+    public final TableField<PhenotypedataRecord, BigDecimal> LATITUDE = createField("latitude", org.jooq.impl.SQLDataType.DECIMAL(64, 10), this, "");
+
+    /**
+     * The column <code>germinate_db.phenotypedata.longitude</code>.
+     */
+    public final TableField<PhenotypedataRecord, BigDecimal> LONGITUDE = createField("longitude", org.jooq.impl.SQLDataType.DECIMAL(64, 10), this, "");
+
+    /**
+     * The column <code>germinate_db.phenotypedata.elevation</code>.
+     */
+    public final TableField<PhenotypedataRecord, BigDecimal> ELEVATION = createField("elevation", org.jooq.impl.SQLDataType.DECIMAL(64, 10), this, "");
 
     /**
      * The column <code>germinate_db.phenotypedata.phenotype_value</code>. The phenotype value for this phenotype_id and germinatebase_id combination.

@@ -39,7 +39,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Datasetcollaborators extends TableImpl<DatasetcollaboratorsRecord> {
 
-    private static final long serialVersionUID = 2043159194;
+    private static final long serialVersionUID = -204895922;
 
     /**
      * The reference instance of <code>germinate_db.datasetcollaborators</code>
@@ -68,6 +68,11 @@ public class Datasetcollaborators extends TableImpl<DatasetcollaboratorsRecord> 
      * The column <code>germinate_db.datasetcollaborators.collaborator_id</code>.
      */
     public final TableField<DatasetcollaboratorsRecord, Integer> COLLABORATOR_ID = createField("collaborator_id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>germinate_db.datasetcollaborators.collaborator_roles</code>. Type of contribution of the person to the investigation (e.g. data submitter; author; corresponding author)
+     */
+    public final TableField<DatasetcollaboratorsRecord, String> COLLABORATOR_ROLES = createField("collaborator_roles", org.jooq.impl.SQLDataType.VARCHAR(255), this, "Type of contribution of the person to the investigation (e.g. data submitter; author; corresponding author)");
 
     /**
      * The column <code>germinate_db.datasetcollaborators.created_on</code>. When the record was created.

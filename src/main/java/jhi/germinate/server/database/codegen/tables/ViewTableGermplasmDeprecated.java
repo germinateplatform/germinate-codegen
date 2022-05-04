@@ -36,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableGermplasmDeprecated extends TableImpl<ViewTableGermplasmDeprecatedRecord> {
 
-    private static final long serialVersionUID = -847499799;
+    private static final long serialVersionUID = -883753309;
 
     /**
      * The reference instance of <code>germinate_db.view_table_germplasm_deprecated</code>
@@ -115,7 +115,7 @@ entered into the genebank collection (e.g. ‘PI 113869’).
     /**
      * The column <code>germinate_db.view_table_germplasm_deprecated.synonyms</code>. The synonyms as a json array.
      */
-    public final TableField<ViewTableGermplasmDeprecatedRecord, String[]> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_22_03_08\".\"view_table_germplasm_deprecated_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<ViewTableGermplasmDeprecatedRecord, String[]> SYNONYMS = createField("synonyms", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_22_05_04\".\"view_table_germplasm_deprecated_synonyms\""), this, "The synonyms as a json array.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.view_table_germplasm_deprecated.collector_number</code>. Original identifier assigned by the collector(s) of the sample, normally composed of the name or

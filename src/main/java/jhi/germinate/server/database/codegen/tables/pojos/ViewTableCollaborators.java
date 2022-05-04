@@ -23,13 +23,15 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableCollaborators implements Serializable {
 
-    private static final long serialVersionUID = 967575880;
+    private static final long serialVersionUID = 821407409;
 
     private Integer collaboratorId;
     private String  collaboratorFirstName;
     private String  collaboratorLastName;
+    private String  collaboratorExternalId;
     private String  collaboratorEmail;
     private String  collaboratorPhone;
+    private String  collaboratorRoles;
     private Integer institutionId;
     private String  institutionName;
     private String  institutionAddress;
@@ -45,8 +47,10 @@ public class ViewTableCollaborators implements Serializable {
         this.collaboratorId = value.collaboratorId;
         this.collaboratorFirstName = value.collaboratorFirstName;
         this.collaboratorLastName = value.collaboratorLastName;
+        this.collaboratorExternalId = value.collaboratorExternalId;
         this.collaboratorEmail = value.collaboratorEmail;
         this.collaboratorPhone = value.collaboratorPhone;
+        this.collaboratorRoles = value.collaboratorRoles;
         this.institutionId = value.institutionId;
         this.institutionName = value.institutionName;
         this.institutionAddress = value.institutionAddress;
@@ -61,8 +65,10 @@ public class ViewTableCollaborators implements Serializable {
         Integer collaboratorId,
         String  collaboratorFirstName,
         String  collaboratorLastName,
+        String  collaboratorExternalId,
         String  collaboratorEmail,
         String  collaboratorPhone,
+        String  collaboratorRoles,
         Integer institutionId,
         String  institutionName,
         String  institutionAddress,
@@ -75,8 +81,10 @@ public class ViewTableCollaborators implements Serializable {
         this.collaboratorId = collaboratorId;
         this.collaboratorFirstName = collaboratorFirstName;
         this.collaboratorLastName = collaboratorLastName;
+        this.collaboratorExternalId = collaboratorExternalId;
         this.collaboratorEmail = collaboratorEmail;
         this.collaboratorPhone = collaboratorPhone;
+        this.collaboratorRoles = collaboratorRoles;
         this.institutionId = institutionId;
         this.institutionName = institutionName;
         this.institutionAddress = institutionAddress;
@@ -111,6 +119,14 @@ public class ViewTableCollaborators implements Serializable {
         this.collaboratorLastName = collaboratorLastName;
     }
 
+    public String getCollaboratorExternalId() {
+        return this.collaboratorExternalId;
+    }
+
+    public void setCollaboratorExternalId(String collaboratorExternalId) {
+        this.collaboratorExternalId = collaboratorExternalId;
+    }
+
     public String getCollaboratorEmail() {
         return this.collaboratorEmail;
     }
@@ -125,6 +141,14 @@ public class ViewTableCollaborators implements Serializable {
 
     public void setCollaboratorPhone(String collaboratorPhone) {
         this.collaboratorPhone = collaboratorPhone;
+    }
+
+    public String getCollaboratorRoles() {
+        return this.collaboratorRoles;
+    }
+
+    public void setCollaboratorRoles(String collaboratorRoles) {
+        this.collaboratorRoles = collaboratorRoles;
     }
 
     public Integer getInstitutionId() {
@@ -198,8 +222,10 @@ public class ViewTableCollaborators implements Serializable {
         sb.append(collaboratorId);
         sb.append(", ").append(collaboratorFirstName);
         sb.append(", ").append(collaboratorLastName);
+        sb.append(", ").append(collaboratorExternalId);
         sb.append(", ").append(collaboratorEmail);
         sb.append(", ").append(collaboratorPhone);
+        sb.append(", ").append(collaboratorRoles);
         sb.append(", ").append(institutionId);
         sb.append(", ").append(institutionName);
         sb.append(", ").append(institutionAddress);

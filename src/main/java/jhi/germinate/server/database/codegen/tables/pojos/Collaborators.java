@@ -24,13 +24,14 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Collaborators implements Serializable {
 
-    private static final long serialVersionUID = -981880434;
+    private static final long serialVersionUID = -1590267470;
 
     private Integer   id;
     private String    firstName;
     private String    lastName;
     private String    email;
     private String    phone;
+    private String    externalId;
     private Integer   institutionId;
     private Timestamp createdOn;
     private Timestamp updatedOn;
@@ -43,6 +44,7 @@ public class Collaborators implements Serializable {
         this.lastName = value.lastName;
         this.email = value.email;
         this.phone = value.phone;
+        this.externalId = value.externalId;
         this.institutionId = value.institutionId;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
@@ -54,6 +56,7 @@ public class Collaborators implements Serializable {
         String    lastName,
         String    email,
         String    phone,
+        String    externalId,
         Integer   institutionId,
         Timestamp createdOn,
         Timestamp updatedOn
@@ -63,6 +66,7 @@ public class Collaborators implements Serializable {
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+        this.externalId = externalId;
         this.institutionId = institutionId;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
@@ -108,6 +112,14 @@ public class Collaborators implements Serializable {
         this.phone = phone;
     }
 
+    public String getExternalId() {
+        return this.externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
     public Integer getInstitutionId() {
         return this.institutionId;
     }
@@ -141,6 +153,7 @@ public class Collaborators implements Serializable {
         sb.append(", ").append(lastName);
         sb.append(", ").append(email);
         sb.append(", ").append(phone);
+        sb.append(", ").append(externalId);
         sb.append(", ").append(institutionId);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);

@@ -39,7 +39,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Collaborators extends TableImpl<CollaboratorsRecord> {
 
-    private static final long serialVersionUID = -139859315;
+    private static final long serialVersionUID = -1957464762;
 
     /**
      * The reference instance of <code>germinate_db.collaborators</code>
@@ -78,6 +78,11 @@ public class Collaborators extends TableImpl<CollaboratorsRecord> {
      * The column <code>germinate_db.collaborators.phone</code>. Phone number of the author(s), researcher(s), scientist(s), student(s) responsible for producing the information product.
      */
     public final TableField<CollaboratorsRecord, String> PHONE = createField("phone", org.jooq.impl.SQLDataType.VARCHAR(255), this, "Phone number of the author(s), researcher(s), scientist(s), student(s) responsible for producing the information product.");
+
+    /**
+     * The column <code>germinate_db.collaborators.external_id</code>. An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
+     */
+    public final TableField<CollaboratorsRecord, String> EXTERNAL_ID = createField("external_id", org.jooq.impl.SQLDataType.VARCHAR(255), this, "An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.");
 
     /**
      * The column <code>germinate_db.collaborators.institution_id</code>. Author's affiliation when the resource was created. Foreign key to 'institutions'

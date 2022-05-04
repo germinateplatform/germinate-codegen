@@ -43,7 +43,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DataImportJobs extends TableImpl<DataImportJobsRecord> {
 
-    private static final long serialVersionUID = 1242761744;
+    private static final long serialVersionUID = -1889349610;
 
     /**
      * The reference instance of <code>germinate_db.data_import_jobs</code>
@@ -116,7 +116,7 @@ public class DataImportJobs extends TableImpl<DataImportJobsRecord> {
     /**
      * The column <code>germinate_db.data_import_jobs.feedback</code>.
      */
-    public final TableField<DataImportJobsRecord, ImportResult[]> FEEDBACK = createField("feedback", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_22_03_08\".\"data_import_jobs_feedback\""), this, "", new ImportResultBinding());
+    public final TableField<DataImportJobsRecord, ImportResult[]> FEEDBACK = createField("feedback", org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_22_05_04\".\"data_import_jobs_feedback\""), this, "", new ImportResultBinding());
 
     /**
      * The column <code>germinate_db.data_import_jobs.created_on</code>.

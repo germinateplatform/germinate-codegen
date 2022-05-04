@@ -24,11 +24,12 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Datasetcollaborators implements Serializable {
 
-    private static final long serialVersionUID = -346067153;
+    private static final long serialVersionUID = 1344651708;
 
     private Integer   id;
     private Integer   datasetId;
     private Integer   collaboratorId;
+    private String    collaboratorRoles;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -38,6 +39,7 @@ public class Datasetcollaborators implements Serializable {
         this.id = value.id;
         this.datasetId = value.datasetId;
         this.collaboratorId = value.collaboratorId;
+        this.collaboratorRoles = value.collaboratorRoles;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
@@ -46,12 +48,14 @@ public class Datasetcollaborators implements Serializable {
         Integer   id,
         Integer   datasetId,
         Integer   collaboratorId,
+        String    collaboratorRoles,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
         this.id = id;
         this.datasetId = datasetId;
         this.collaboratorId = collaboratorId;
+        this.collaboratorRoles = collaboratorRoles;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -80,6 +84,14 @@ public class Datasetcollaborators implements Serializable {
         this.collaboratorId = collaboratorId;
     }
 
+    public String getCollaboratorRoles() {
+        return this.collaboratorRoles;
+    }
+
+    public void setCollaboratorRoles(String collaboratorRoles) {
+        this.collaboratorRoles = collaboratorRoles;
+    }
+
     public Timestamp getCreatedOn() {
         return this.createdOn;
     }
@@ -103,6 +115,7 @@ public class Datasetcollaborators implements Serializable {
         sb.append(id);
         sb.append(", ").append(datasetId);
         sb.append(", ").append(collaboratorId);
+        sb.append(", ").append(collaboratorRoles);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

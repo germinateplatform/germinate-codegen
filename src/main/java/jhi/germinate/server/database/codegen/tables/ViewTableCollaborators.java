@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableCollaborators extends TableImpl<ViewTableCollaboratorsRecord> {
 
-    private static final long serialVersionUID = 1327057143;
+    private static final long serialVersionUID = -2013883961;
 
     /**
      * The reference instance of <code>germinate_db.view_table_collaborators</code>
@@ -63,6 +63,11 @@ public class ViewTableCollaborators extends TableImpl<ViewTableCollaboratorsReco
     public final TableField<ViewTableCollaboratorsRecord, String> COLLABORATOR_LAST_NAME = createField("collaborator_last_name", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "First name (and middle name if available) of the author(s), researcher(s), scientist(s), student(s) responsible for producing the information product.");
 
     /**
+     * The column <code>germinate_db.view_table_collaborators.collaborator_external_id</code>. An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
+     */
+    public final TableField<ViewTableCollaboratorsRecord, String> COLLABORATOR_EXTERNAL_ID = createField("collaborator_external_id", org.jooq.impl.SQLDataType.VARCHAR(255), this, "An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.");
+
+    /**
      * The column <code>germinate_db.view_table_collaborators.collaborator_email</code>. E-mail address of the author(s), researcher(s), scientist(s), student(s) responsible for producing the information product.
      */
     public final TableField<ViewTableCollaboratorsRecord, String> COLLABORATOR_EMAIL = createField("collaborator_email", org.jooq.impl.SQLDataType.VARCHAR(255), this, "E-mail address of the author(s), researcher(s), scientist(s), student(s) responsible for producing the information product.");
@@ -71,6 +76,11 @@ public class ViewTableCollaborators extends TableImpl<ViewTableCollaboratorsReco
      * The column <code>germinate_db.view_table_collaborators.collaborator_phone</code>. Phone number of the author(s), researcher(s), scientist(s), student(s) responsible for producing the information product.
      */
     public final TableField<ViewTableCollaboratorsRecord, String> COLLABORATOR_PHONE = createField("collaborator_phone", org.jooq.impl.SQLDataType.VARCHAR(255), this, "Phone number of the author(s), researcher(s), scientist(s), student(s) responsible for producing the information product.");
+
+    /**
+     * The column <code>germinate_db.view_table_collaborators.collaborator_roles</code>. Type of contribution of the person to the investigation (e.g. data submitter; author; corresponding author)
+     */
+    public final TableField<ViewTableCollaboratorsRecord, String> COLLABORATOR_ROLES = createField("collaborator_roles", org.jooq.impl.SQLDataType.VARCHAR(255), this, "Type of contribution of the person to the investigation (e.g. data submitter; author; corresponding author)");
 
     /**
      * The column <code>germinate_db.view_table_collaborators.institution_id</code>. Primary id for this table. This uniquely identifies the row.
