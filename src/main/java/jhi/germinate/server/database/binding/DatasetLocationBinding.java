@@ -12,30 +12,30 @@ import java.util.Objects;
 /**
  * @author Sebastian Raubach
  */
-public class DatasetLocationBinding implements Binding<Object, ViewTableLocations[]>
+public class DatasetLocationBinding implements Binding<JSON, ViewTableLocations[]>
 {
 	@Override
-	public Converter<Object, ViewTableLocations[]> converter()
+	public Converter<JSON, ViewTableLocations[]> converter()
 	{
 		Gson gson = new Gson();
 		return new Converter<>()
 		{
 			@Override
-			public ViewTableLocations[] from(Object o)
+			public ViewTableLocations[] from(JSON o)
 			{
 				return o == null ? null : gson.fromJson(Objects.toString(o), ViewTableLocations[].class);
 			}
 
 			@Override
-			public Object to(ViewTableLocations[] o)
+			public JSON to(ViewTableLocations[] o)
 			{
-				return o == null ? null : gson.toJson(o);
+				return o == null ? null : JSON.json(gson.toJson(o));
 			}
 
 			@Override
-			public Class<Object> fromType()
+			public Class<JSON> fromType()
 			{
-				return Object.class;
+				return JSON.class;
 			}
 
 			@Override
@@ -83,14 +83,14 @@ public class DatasetLocationBinding implements Binding<Object, ViewTableLocation
 	public void get(BindingGetResultSetContext<ViewTableLocations[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.resultSet().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.resultSet().getString(ctx.index())));
 	}
 
 	@Override
 	public void get(BindingGetStatementContext<ViewTableLocations[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.statement().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.statement().getString(ctx.index())));
 	}
 
 	@Override

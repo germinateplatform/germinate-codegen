@@ -8,30 +8,30 @@ import org.jooq.impl.DSL;
 import java.sql.*;
 import java.util.Objects;
 
-public class IntArrayBinding implements Binding<Object, Integer[]>
+public class IntArrayBinding implements Binding<JSON, Integer[]>
 {
 	@Override
-	public Converter<Object, Integer[]> converter()
+	public Converter<JSON, Integer[]> converter()
 	{
 		Gson gson = new Gson();
 		return new Converter<>()
 		{
 			@Override
-			public Integer[] from(Object o)
+			public Integer[] from(JSON o)
 			{
 				return o == null ? null : gson.fromJson(Objects.toString(o), Integer[].class);
 			}
 
 			@Override
-			public Object to(Integer[] o)
+			public JSON to(Integer[] o)
 			{
-				return o == null ? null : gson.toJson(o);
+				return o == null ? null : JSON.json(gson.toJson(o));
 			}
 
 			@Override
-			public Class<Object> fromType()
+			public Class<JSON> fromType()
 			{
-				return Object.class;
+				return JSON.class;
 			}
 
 			@Override
@@ -79,14 +79,14 @@ public class IntArrayBinding implements Binding<Object, Integer[]>
 	public void get(BindingGetResultSetContext<Integer[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.resultSet().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.resultSet().getString(ctx.index())));
 	}
 
 	@Override
 	public void get(BindingGetStatementContext<Integer[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.statement().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.statement().getString(ctx.index())));
 	}
 
 	@Override

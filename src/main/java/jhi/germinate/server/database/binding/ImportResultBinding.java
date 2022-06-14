@@ -12,30 +12,30 @@ import java.util.Objects;
 /**
  * @author Sebastian Raubach
  */
-public class ImportResultBinding implements Binding<Object, ImportResult[]>
+public class ImportResultBinding implements Binding<JSON, ImportResult[]>
 {
 	@Override
-	public Converter<Object, ImportResult[]> converter()
+	public Converter<JSON, ImportResult[]> converter()
 	{
 		Gson gson = new Gson();
 		return new Converter<>()
 		{
 			@Override
-			public ImportResult[] from(Object o)
+			public ImportResult[] from(JSON o)
 			{
 				return o == null ? null : gson.fromJson(Objects.toString(o), ImportResult[].class);
 			}
 
 			@Override
-			public Object to(ImportResult[] o)
+			public JSON to(ImportResult[] o)
 			{
-				return o == null ? null : gson.toJson(o);
+				return o == null ? null : JSON.json(gson.toJson(o));
 			}
 
 			@Override
-			public Class<Object> fromType()
+			public Class<JSON> fromType()
 			{
-				return Object.class;
+				return JSON.class;
 			}
 
 			@Override
@@ -83,14 +83,14 @@ public class ImportResultBinding implements Binding<Object, ImportResult[]>
 	public void get(BindingGetResultSetContext<ImportResult[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.resultSet().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.resultSet().getString(ctx.index())));
 	}
 
 	@Override
 	public void get(BindingGetStatementContext<ImportResult[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.statement().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.statement().getString(ctx.index())));
 	}
 
 	@Override

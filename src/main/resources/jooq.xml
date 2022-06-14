@@ -13,6 +13,7 @@
 			<globalSequenceReferences>false</globalSequenceReferences>
 			<globalTableReferences>false</globalTableReferences>
 			<globalUDTReferences>false</globalUDTReferences>
+			<javaTimeTypes>false</javaTimeTypes>
 		</generate>
 
 		<database>
@@ -22,23 +23,29 @@
 			<inputSchema>germinate_template_4_22_05_04</inputSchema>
 			<outputSchema>germinate_db</outputSchema>
 			<name>org.jooq.meta.mysql.MySQLDatabase</name>
+			<comments>
+				<comment>
+					<expression>.*</expression>
+					<includeSchemaComment>false</includeSchemaComment>
+				</comment>
+			</comments>
 
 			<forcedTypes>
-<!--				<forcedType>-->
-<!--					<binding>jhi.germinate.server.database.binding.TimestampBinding</binding>-->
-<!--					<types>.*timestamp.*</types>-->
-<!--					<userType>java.sql.Timestamp</userType>-->
-<!--				</forcedType>-->
-<!--				<forcedType>-->
-<!--					<binding>jhi.germinate.server.database.binding.TimestampBinding</binding>-->
-<!--					<types>.*datetime.*</types>-->
-<!--					<userType>java.sql.Timestamp</userType>-->
-<!--				</forcedType>-->
-<!--				<forcedType>-->
-<!--					<binding>jhi.germinate.server.database.binding.DateBinding</binding>-->
-<!--					<types>date</types>-->
-<!--					<userType>java.sql.Date</userType>-->
-<!--				</forcedType>-->
+				<!--				<forcedType>-->
+				<!--					<binding>jhi.germinate.server.database.binding.TimestampBinding</binding>-->
+				<!--					<types>.*timestamp.*</types>-->
+				<!--					<userType>java.sql.Timestamp</userType>-->
+				<!--				</forcedType>-->
+				<!--				<forcedType>-->
+				<!--					<binding>jhi.germinate.server.database.binding.TimestampBinding</binding>-->
+				<!--					<types>.*datetime.*</types>-->
+				<!--					<userType>java.sql.Timestamp</userType>-->
+				<!--				</forcedType>-->
+				<!--				<forcedType>-->
+				<!--					<binding>jhi.germinate.server.database.binding.DateBinding</binding>-->
+				<!--					<types>date</types>-->
+				<!--					<userType>java.sql.Date</userType>-->
+				<!--				</forcedType>-->
 
 				<forcedType>
 					<binding>jhi.germinate.server.database.binding.DatasetLocationBinding</binding>

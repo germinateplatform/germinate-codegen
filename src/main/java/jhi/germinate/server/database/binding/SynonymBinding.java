@@ -11,30 +11,30 @@ import java.util.Objects;
 /**
  * @author Sebastian Raubach
  */
-public class SynonymBinding implements Binding<Object, String[]>
+public class SynonymBinding implements Binding<JSON, String[]>
 {
 	@Override
-	public Converter<Object, String[]> converter()
+	public Converter<JSON, String[]> converter()
 	{
 		Gson gson = new Gson();
 		return new Converter<>()
 		{
 			@Override
-			public String[] from(Object o)
+			public String[] from(JSON o)
 			{
 				return o == null ? null : gson.fromJson(Objects.toString(o), String[].class);
 			}
 
 			@Override
-			public Object to(String[] o)
+			public JSON to(String[] o)
 			{
-				return o == null ? null : gson.toJson(o);
+				return o == null ? null : JSON.json(gson.toJson(o));
 			}
 
 			@Override
-			public Class<Object> fromType()
+			public Class<JSON> fromType()
 			{
-				return Object.class;
+				return JSON.class;
 			}
 
 			@Override
@@ -82,14 +82,14 @@ public class SynonymBinding implements Binding<Object, String[]>
 	public void get(BindingGetResultSetContext<String[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.resultSet().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.resultSet().getString(ctx.index())));
 	}
 
 	@Override
 	public void get(BindingGetStatementContext<String[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.statement().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.statement().getString(ctx.index())));
 	}
 
 	@Override

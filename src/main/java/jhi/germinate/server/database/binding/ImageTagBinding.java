@@ -12,30 +12,30 @@ import java.util.Objects;
 /**
  * @author Sebastian Raubach
  */
-public class ImageTagBinding implements Binding<Object, ImageTag[]>
+public class ImageTagBinding implements Binding<JSON, ImageTag[]>
 {
 	@Override
-	public Converter<Object, ImageTag[]> converter()
+	public Converter<JSON, ImageTag[]> converter()
 	{
 		Gson gson = new Gson();
 		return new Converter<>()
 		{
 			@Override
-			public ImageTag[] from(Object o)
+			public ImageTag[] from(JSON o)
 			{
 				return o == null ? null : gson.fromJson(Objects.toString(o), ImageTag[].class);
 			}
 
 			@Override
-			public Object to(ImageTag[] o)
+			public JSON to(ImageTag[] o)
 			{
-				return o == null ? null : gson.toJson(o);
+				return o == null ? null : JSON.json(gson.toJson(o));
 			}
 
 			@Override
-			public Class<Object> fromType()
+			public Class<JSON> fromType()
 			{
-				return Object.class;
+				return JSON.class;
 			}
 
 			@Override
@@ -83,14 +83,14 @@ public class ImageTagBinding implements Binding<Object, ImageTag[]>
 	public void get(BindingGetResultSetContext<ImageTag[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.resultSet().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.resultSet().getString(ctx.index())));
 	}
 
 	@Override
 	public void get(BindingGetStatementContext<ImageTag[]> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.statement().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.statement().getString(ctx.index())));
 	}
 
 	@Override

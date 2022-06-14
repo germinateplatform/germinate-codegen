@@ -12,30 +12,30 @@ import java.util.Objects;
 /**
  * @author Sebastian Raubach
  */
-public class TraitRestrictionBinding implements Binding<Object, TraitRestrictions>
+public class TraitRestrictionBinding implements Binding<JSON, TraitRestrictions>
 {
 	@Override
-	public Converter<Object, TraitRestrictions> converter()
+	public Converter<JSON, TraitRestrictions> converter()
 	{
 		Gson gson = new Gson();
 		return new Converter<>()
 		{
 			@Override
-			public TraitRestrictions from(Object o)
+			public TraitRestrictions from(JSON o)
 			{
 				return o == null ? null : gson.fromJson(Objects.toString(o), TraitRestrictions.class);
 			}
 
 			@Override
-			public Object to(TraitRestrictions traitRestrictions)
+			public JSON to(TraitRestrictions traitRestrictions)
 			{
-				return traitRestrictions == null ? null : gson.toJson(traitRestrictions);
+				return traitRestrictions == null ? null : JSON.json(gson.toJson(traitRestrictions));
 			}
 
 			@Override
-			public Class<Object> fromType()
+			public Class<JSON> fromType()
 			{
-				return Object.class;
+				return JSON.class;
 			}
 
 			@Override
@@ -83,14 +83,14 @@ public class TraitRestrictionBinding implements Binding<Object, TraitRestriction
 	public void get(BindingGetResultSetContext<TraitRestrictions> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.resultSet().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.resultSet().getString(ctx.index())));
 	}
 
 	@Override
 	public void get(BindingGetStatementContext<TraitRestrictions> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.statement().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.statement().getString(ctx.index())));
 	}
 
 	@Override

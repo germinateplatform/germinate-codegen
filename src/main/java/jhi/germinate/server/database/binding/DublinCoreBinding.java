@@ -12,30 +12,30 @@ import java.util.Objects;
 /**
  * @author Sebastian Raubach
  */
-public class DublinCoreBinding implements Binding<Object, DublinCore>
+public class DublinCoreBinding implements Binding<JSON, DublinCore>
 {
 	@Override
-	public Converter<Object, DublinCore> converter()
+	public Converter<JSON, DublinCore> converter()
 	{
 		Gson gson = new Gson();
 		return new Converter<>()
 		{
 			@Override
-			public DublinCore from(Object o)
+			public DublinCore from(JSON o)
 			{
 				return o == null ? null : gson.fromJson(Objects.toString(o), DublinCore.class);
 			}
 
 			@Override
-			public Object to(DublinCore dublinCore)
+			public JSON to(DublinCore dublinCore)
 			{
-				return dublinCore == null ? null : gson.toJson(dublinCore);
+				return dublinCore == null ? null : JSON.json(gson.toJson(dublinCore));
 			}
 
 			@Override
-			public Class<Object> fromType()
+			public Class<JSON> fromType()
 			{
-				return Object.class;
+				return JSON.class;
 			}
 
 			@Override
@@ -83,14 +83,14 @@ public class DublinCoreBinding implements Binding<Object, DublinCore>
 	public void get(BindingGetResultSetContext<DublinCore> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.resultSet().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.resultSet().getString(ctx.index())));
 	}
 
 	@Override
 	public void get(BindingGetStatementContext<DublinCore> ctx)
 		throws SQLException
 	{
-		ctx.convert(converter()).value(ctx.statement().getString(ctx.index()));
+		ctx.convert(converter()).value(JSON.json(ctx.statement().getString(ctx.index())));
 	}
 
 	@Override
