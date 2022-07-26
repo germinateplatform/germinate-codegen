@@ -8,8 +8,8 @@ import jhi.germinate.server.database.codegen.enums.ViewTablePedigreesRelationshi
 import jhi.germinate.server.database.codegen.tables.ViewTablePedigrees;
 
 import org.jooq.Field;
-import org.jooq.Record12;
-import org.jooq.Row12;
+import org.jooq.Record14;
+import org.jooq.Row14;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -18,7 +18,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigreesRecord> implements Record12<Integer, String, String, Integer, String, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> {
+public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigreesRecord> implements Record14<Integer, String, String, Integer, String, String, Integer, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> {
 
     private static final long serialVersionUID = 1L;
 
@@ -151,12 +151,46 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_pedigrees.experiment_id</code>.
+     * Primary id for this table. This uniquely identifies the row.
+     */
+    public void setExperimentId(Integer value) {
+        set(8, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_pedigrees.experiment_id</code>.
+     * Primary id for this table. This uniquely identifies the row.
+     */
+    public Integer getExperimentId() {
+        return (Integer) get(8);
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_pedigrees.experiment_name</code>. The name
+     * of the experiment.
+     */
+    public void setExperimentName(String value) {
+        set(9, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_pedigrees.experiment_name</code>. The name
+     * of the experiment.
+     */
+    public String getExperimentName() {
+        return (String) get(9);
+    }
+
+    /**
      * Setter for
      * <code>germinate_db.view_table_pedigrees.relationship_type</code>. Male or
      * Female parent. Should be recorded as 'M' (male) or 'F' (female).
      */
     public void setRelationshipType(ViewTablePedigreesRelationshipType value) {
-        set(8, value);
+        set(10, value);
     }
 
     /**
@@ -165,7 +199,7 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
      * Female parent. Should be recorded as 'M' (male) or 'F' (female).
      */
     public ViewTablePedigreesRelationshipType getRelationshipType() {
-        return (ViewTablePedigreesRelationshipType) get(8);
+        return (ViewTablePedigreesRelationshipType) get(10);
     }
 
     /**
@@ -177,7 +211,7 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
      * pedigree visualiztion tool.
      */
     public void setRelationshipDescription(String value) {
-        set(9, value);
+        set(11, value);
     }
 
     /**
@@ -189,7 +223,7 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
      * pedigree visualiztion tool.
      */
     public String getRelationshipDescription() {
-        return (String) get(9);
+        return (String) get(11);
     }
 
     /**
@@ -198,7 +232,7 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
      * name of the pedigree.
      */
     public void setPedigreeDescription(String value) {
-        set(10, value);
+        set(12, value);
     }
 
     /**
@@ -207,7 +241,7 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
      * name of the pedigree.
      */
     public String getPedigreeDescription() {
-        return (String) get(10);
+        return (String) get(12);
     }
 
     /**
@@ -217,7 +251,7 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
      * included in here for pedigree sources.
      */
     public void setPedigreeAuthor(String value) {
-        set(11, value);
+        set(13, value);
     }
 
     /**
@@ -227,21 +261,21 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
      * included in here for pedigree sources.
      */
     public String getPedigreeAuthor() {
-        return (String) get(11);
+        return (String) get(13);
     }
 
     // -------------------------------------------------------------------------
-    // Record12 type implementation
+    // Record14 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row12<Integer, String, String, Integer, String, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> fieldsRow() {
-        return (Row12) super.fieldsRow();
+    public Row14<Integer, String, String, Integer, String, String, Integer, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> fieldsRow() {
+        return (Row14) super.fieldsRow();
     }
 
     @Override
-    public Row12<Integer, String, String, Integer, String, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> valuesRow() {
-        return (Row12) super.valuesRow();
+    public Row14<Integer, String, String, Integer, String, String, Integer, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> valuesRow() {
+        return (Row14) super.valuesRow();
     }
 
     @Override
@@ -285,22 +319,32 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
     }
 
     @Override
-    public Field<ViewTablePedigreesRelationshipType> field9() {
-        return ViewTablePedigrees.VIEW_TABLE_PEDIGREES.RELATIONSHIP_TYPE;
+    public Field<Integer> field9() {
+        return ViewTablePedigrees.VIEW_TABLE_PEDIGREES.EXPERIMENT_ID;
     }
 
     @Override
     public Field<String> field10() {
-        return ViewTablePedigrees.VIEW_TABLE_PEDIGREES.RELATIONSHIP_DESCRIPTION;
+        return ViewTablePedigrees.VIEW_TABLE_PEDIGREES.EXPERIMENT_NAME;
     }
 
     @Override
-    public Field<String> field11() {
-        return ViewTablePedigrees.VIEW_TABLE_PEDIGREES.PEDIGREE_DESCRIPTION;
+    public Field<ViewTablePedigreesRelationshipType> field11() {
+        return ViewTablePedigrees.VIEW_TABLE_PEDIGREES.RELATIONSHIP_TYPE;
     }
 
     @Override
     public Field<String> field12() {
+        return ViewTablePedigrees.VIEW_TABLE_PEDIGREES.RELATIONSHIP_DESCRIPTION;
+    }
+
+    @Override
+    public Field<String> field13() {
+        return ViewTablePedigrees.VIEW_TABLE_PEDIGREES.PEDIGREE_DESCRIPTION;
+    }
+
+    @Override
+    public Field<String> field14() {
         return ViewTablePedigrees.VIEW_TABLE_PEDIGREES.PEDIGREE_AUTHOR;
     }
 
@@ -345,22 +389,32 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
     }
 
     @Override
-    public ViewTablePedigreesRelationshipType component9() {
-        return getRelationshipType();
+    public Integer component9() {
+        return getExperimentId();
     }
 
     @Override
     public String component10() {
-        return getRelationshipDescription();
+        return getExperimentName();
     }
 
     @Override
-    public String component11() {
-        return getPedigreeDescription();
+    public ViewTablePedigreesRelationshipType component11() {
+        return getRelationshipType();
     }
 
     @Override
     public String component12() {
+        return getRelationshipDescription();
+    }
+
+    @Override
+    public String component13() {
+        return getPedigreeDescription();
+    }
+
+    @Override
+    public String component14() {
         return getPedigreeAuthor();
     }
 
@@ -405,22 +459,32 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
     }
 
     @Override
-    public ViewTablePedigreesRelationshipType value9() {
-        return getRelationshipType();
+    public Integer value9() {
+        return getExperimentId();
     }
 
     @Override
     public String value10() {
-        return getRelationshipDescription();
+        return getExperimentName();
     }
 
     @Override
-    public String value11() {
-        return getPedigreeDescription();
+    public ViewTablePedigreesRelationshipType value11() {
+        return getRelationshipType();
     }
 
     @Override
     public String value12() {
+        return getRelationshipDescription();
+    }
+
+    @Override
+    public String value13() {
+        return getPedigreeDescription();
+    }
+
+    @Override
+    public String value14() {
         return getPedigreeAuthor();
     }
 
@@ -473,31 +537,43 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
     }
 
     @Override
-    public ViewTablePedigreesRecord value9(ViewTablePedigreesRelationshipType value) {
-        setRelationshipType(value);
+    public ViewTablePedigreesRecord value9(Integer value) {
+        setExperimentId(value);
         return this;
     }
 
     @Override
     public ViewTablePedigreesRecord value10(String value) {
-        setRelationshipDescription(value);
+        setExperimentName(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreesRecord value11(String value) {
-        setPedigreeDescription(value);
+    public ViewTablePedigreesRecord value11(ViewTablePedigreesRelationshipType value) {
+        setRelationshipType(value);
         return this;
     }
 
     @Override
     public ViewTablePedigreesRecord value12(String value) {
+        setRelationshipDescription(value);
+        return this;
+    }
+
+    @Override
+    public ViewTablePedigreesRecord value13(String value) {
+        setPedigreeDescription(value);
+        return this;
+    }
+
+    @Override
+    public ViewTablePedigreesRecord value14(String value) {
         setPedigreeAuthor(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreesRecord values(Integer value1, String value2, String value3, Integer value4, String value5, String value6, Integer value7, String value8, ViewTablePedigreesRelationshipType value9, String value10, String value11, String value12) {
+    public ViewTablePedigreesRecord values(Integer value1, String value2, String value3, Integer value4, String value5, String value6, Integer value7, String value8, Integer value9, String value10, ViewTablePedigreesRelationshipType value11, String value12, String value13, String value14) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -510,6 +586,8 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
         value10(value10);
         value11(value11);
         value12(value12);
+        value13(value13);
+        value14(value14);
         return this;
     }
 
@@ -527,7 +605,7 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
     /**
      * Create a detached, initialised ViewTablePedigreesRecord
      */
-    public ViewTablePedigreesRecord(Integer parentId, String parentGid, String parentName, Integer childId, String childGid, String childName, Integer datasetId, String datasetName, ViewTablePedigreesRelationshipType relationshipType, String relationshipDescription, String pedigreeDescription, String pedigreeAuthor) {
+    public ViewTablePedigreesRecord(Integer parentId, String parentGid, String parentName, Integer childId, String childGid, String childName, Integer datasetId, String datasetName, Integer experimentId, String experimentName, ViewTablePedigreesRelationshipType relationshipType, String relationshipDescription, String pedigreeDescription, String pedigreeAuthor) {
         super(ViewTablePedigrees.VIEW_TABLE_PEDIGREES);
 
         setParentId(parentId);
@@ -538,6 +616,8 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
         setChildName(childName);
         setDatasetId(datasetId);
         setDatasetName(datasetName);
+        setExperimentId(experimentId);
+        setExperimentName(experimentName);
         setRelationshipType(relationshipType);
         setRelationshipDescription(relationshipDescription);
         setPedigreeDescription(pedigreeDescription);
@@ -559,6 +639,8 @@ public class ViewTablePedigreesRecord extends TableRecordImpl<ViewTablePedigrees
             setChildName(value.getChildName());
             setDatasetId(value.getDatasetId());
             setDatasetName(value.getDatasetName());
+            setExperimentId(value.getExperimentId());
+            setExperimentName(value.getExperimentName());
             setRelationshipType(value.getRelationshipType());
             setRelationshipDescription(value.getRelationshipDescription());
             setPedigreeDescription(value.getPedigreeDescription());

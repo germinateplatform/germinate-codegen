@@ -10,7 +10,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewTablePedigreesRe
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row12;
+import org.jooq.Row14;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -91,6 +91,19 @@ public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
     public final TableField<ViewTablePedigreesRecord, String> DATASET_NAME = createField(DSL.name("dataset_name"), SQLDataType.CLOB, this, "Describes the dataset.");
 
     /**
+     * The column <code>germinate_db.view_table_pedigrees.experiment_id</code>.
+     * Primary id for this table. This uniquely identifies the row.
+     */
+    public final TableField<ViewTablePedigreesRecord, Integer> EXPERIMENT_ID = createField(DSL.name("experiment_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Primary id for this table. This uniquely identifies the row.");
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_pedigrees.experiment_name</code>. The name
+     * of the experiment.
+     */
+    public final TableField<ViewTablePedigreesRecord, String> EXPERIMENT_NAME = createField(DSL.name("experiment_name"), SQLDataType.VARCHAR(255), this, "The name of the experiment.");
+
+    /**
      * The column
      * <code>germinate_db.view_table_pedigrees.relationship_type</code>. Male or
      * Female parent. Should be recorded as 'M' (male) or 'F' (female).
@@ -127,7 +140,7 @@ public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
     }
 
     private ViewTablePedigrees(Name alias, Table<ViewTablePedigreesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_pedigrees` as select `parent`.`id` AS `parent_id`,`parent`.`general_identifier` AS `parent_gid`,`parent`.`name` AS `parent_name`,`child`.`id` AS `child_id`,`child`.`general_identifier` AS `child_gid`,`child`.`name` AS `child_name`,`germinate_template_4_22_05_04`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_22_05_04`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_22_05_04`.`pedigrees`.`relationship_type` AS `relationship_type`,`germinate_template_4_22_05_04`.`pedigrees`.`relationship_description` AS `relationship_description`,`germinate_template_4_22_05_04`.`pedigreedescriptions`.`name` AS `pedigree_description`,`germinate_template_4_22_05_04`.`pedigreedescriptions`.`author` AS `pedigree_author` from ((((`germinate_template_4_22_05_04`.`pedigrees` left join `germinate_template_4_22_05_04`.`germinatebase` `parent` on((`parent`.`id` = `germinate_template_4_22_05_04`.`pedigrees`.`parent_id`))) left join `germinate_template_4_22_05_04`.`germinatebase` `child` on((`child`.`id` = `germinate_template_4_22_05_04`.`pedigrees`.`germinatebase_id`))) left join `germinate_template_4_22_05_04`.`pedigreedescriptions` on((`germinate_template_4_22_05_04`.`pedigreedescriptions`.`id` = `germinate_template_4_22_05_04`.`pedigrees`.`pedigreedescription_id`))) left join `germinate_template_4_22_05_04`.`datasets` on((`germinate_template_4_22_05_04`.`datasets`.`id` = `germinate_template_4_22_05_04`.`pedigrees`.`dataset_id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_pedigrees` as select `parent`.`id` AS `parent_id`,`parent`.`general_identifier` AS `parent_gid`,`parent`.`name` AS `parent_name`,`child`.`id` AS `child_id`,`child`.`general_identifier` AS `child_gid`,`child`.`name` AS `child_name`,`germinate_template_4_22_05_04`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_22_05_04`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_22_05_04`.`experiments`.`id` AS `experiment_id`,`germinate_template_4_22_05_04`.`experiments`.`experiment_name` AS `experiment_name`,`germinate_template_4_22_05_04`.`pedigrees`.`relationship_type` AS `relationship_type`,`germinate_template_4_22_05_04`.`pedigrees`.`relationship_description` AS `relationship_description`,`germinate_template_4_22_05_04`.`pedigreedescriptions`.`name` AS `pedigree_description`,`germinate_template_4_22_05_04`.`pedigreedescriptions`.`author` AS `pedigree_author` from (((((`germinate_template_4_22_05_04`.`pedigrees` left join `germinate_template_4_22_05_04`.`germinatebase` `parent` on((`parent`.`id` = `germinate_template_4_22_05_04`.`pedigrees`.`parent_id`))) left join `germinate_template_4_22_05_04`.`germinatebase` `child` on((`child`.`id` = `germinate_template_4_22_05_04`.`pedigrees`.`germinatebase_id`))) left join `germinate_template_4_22_05_04`.`pedigreedescriptions` on((`germinate_template_4_22_05_04`.`pedigreedescriptions`.`id` = `germinate_template_4_22_05_04`.`pedigrees`.`pedigreedescription_id`))) left join `germinate_template_4_22_05_04`.`datasets` on((`germinate_template_4_22_05_04`.`datasets`.`id` = `germinate_template_4_22_05_04`.`pedigrees`.`dataset_id`))) left join `germinate_template_4_22_05_04`.`experiments` on((`germinate_template_4_22_05_04`.`experiments`.`id` = `germinate_template_4_22_05_04`.`datasets`.`experiment_id`)))"));
     }
 
     /**
@@ -185,12 +198,12 @@ public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row12 type methods
+    // Row14 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row12<Integer, String, String, Integer, String, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> fieldsRow() {
-        return (Row12) super.fieldsRow();
+    public Row14<Integer, String, String, Integer, String, String, Integer, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> fieldsRow() {
+        return (Row14) super.fieldsRow();
     }
     // @formatter:on
 }

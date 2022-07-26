@@ -11,7 +11,7 @@ plugins {
 compileJava.options.encoding = 'UTF-8'
 
 group 'uk.ac.hutton.germinate'
-version '4.3.0'
+version '4.3.3'
 
 sourceCompatibility = 11
 

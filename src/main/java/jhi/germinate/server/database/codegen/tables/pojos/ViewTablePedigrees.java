@@ -26,6 +26,8 @@ public class ViewTablePedigrees implements Serializable {
     private String                             childName;
     private Integer                            datasetId;
     private String                             datasetName;
+    private Integer                            experimentId;
+    private String                             experimentName;
     private ViewTablePedigreesRelationshipType relationshipType;
     private String                             relationshipDescription;
     private String                             pedigreeDescription;
@@ -42,6 +44,8 @@ public class ViewTablePedigrees implements Serializable {
         this.childName = value.childName;
         this.datasetId = value.datasetId;
         this.datasetName = value.datasetName;
+        this.experimentId = value.experimentId;
+        this.experimentName = value.experimentName;
         this.relationshipType = value.relationshipType;
         this.relationshipDescription = value.relationshipDescription;
         this.pedigreeDescription = value.pedigreeDescription;
@@ -57,6 +61,8 @@ public class ViewTablePedigrees implements Serializable {
         String                             childName,
         Integer                            datasetId,
         String                             datasetName,
+        Integer                            experimentId,
+        String                             experimentName,
         ViewTablePedigreesRelationshipType relationshipType,
         String                             relationshipDescription,
         String                             pedigreeDescription,
@@ -70,6 +76,8 @@ public class ViewTablePedigrees implements Serializable {
         this.childName = childName;
         this.datasetId = datasetId;
         this.datasetName = datasetName;
+        this.experimentId = experimentId;
+        this.experimentName = experimentName;
         this.relationshipType = relationshipType;
         this.relationshipDescription = relationshipDescription;
         this.pedigreeDescription = pedigreeDescription;
@@ -205,6 +213,40 @@ public class ViewTablePedigrees implements Serializable {
     }
 
     /**
+     * Getter for <code>germinate_db.view_table_pedigrees.experiment_id</code>.
+     * Primary id for this table. This uniquely identifies the row.
+     */
+    public Integer getExperimentId() {
+        return this.experimentId;
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_pedigrees.experiment_id</code>.
+     * Primary id for this table. This uniquely identifies the row.
+     */
+    public void setExperimentId(Integer experimentId) {
+        this.experimentId = experimentId;
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_pedigrees.experiment_name</code>. The name
+     * of the experiment.
+     */
+    public String getExperimentName() {
+        return this.experimentName;
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_pedigrees.experiment_name</code>. The name
+     * of the experiment.
+     */
+    public void setExperimentName(String experimentName) {
+        this.experimentName = experimentName;
+    }
+
+    /**
      * Getter for
      * <code>germinate_db.view_table_pedigrees.relationship_type</code>. Male or
      * Female parent. Should be recorded as 'M' (male) or 'F' (female).
@@ -296,6 +338,8 @@ public class ViewTablePedigrees implements Serializable {
         sb.append(", ").append(childName);
         sb.append(", ").append(datasetId);
         sb.append(", ").append(datasetName);
+        sb.append(", ").append(experimentId);
+        sb.append(", ").append(experimentName);
         sb.append(", ").append(relationshipType);
         sb.append(", ").append(relationshipDescription);
         sb.append(", ").append(pedigreeDescription);
