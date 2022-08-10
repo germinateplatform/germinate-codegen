@@ -25,6 +25,7 @@ import jhi.germinate.server.database.codegen.tables.DataImportJobs;
 import jhi.germinate.server.database.codegen.tables.DatasetExportJobs;
 import jhi.germinate.server.database.codegen.tables.Datasetaccesslogs;
 import jhi.germinate.server.database.codegen.tables.Datasetcollaborators;
+import jhi.germinate.server.database.codegen.tables.Datasetfileresources;
 import jhi.germinate.server.database.codegen.tables.Datasetlocations;
 import jhi.germinate.server.database.codegen.tables.Datasetmembers;
 import jhi.germinate.server.database.codegen.tables.Datasetmembertypes;
@@ -168,6 +169,7 @@ public class GerminateDb extends SchemaImpl {
             DatasetExportJobs.DATASET_EXPORT_JOBS,
             Datasetaccesslogs.DATASETACCESSLOGS,
             Datasetcollaborators.DATASETCOLLABORATORS,
+            Datasetfileresources.DATASETFILERESOURCES,
             Datasetlocations.DATASETLOCATIONS,
             Datasetmembers.DATASETMEMBERS,
             Datasetmembertypes.DATASETMEMBERTYPES,

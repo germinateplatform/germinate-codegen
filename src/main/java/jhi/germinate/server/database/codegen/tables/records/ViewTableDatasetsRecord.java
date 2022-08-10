@@ -429,45 +429,59 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_datasets.fileresources</code>.
+     */
+    public void setFileresources(Long value) {
+        set(25, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_datasets.fileresources</code>.
+     */
+    public Long getFileresources() {
+        return (Long) get(25);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_datasets.collaborators</code>.
      */
     public void setCollaborators(Long value) {
-        set(25, value);
+        set(26, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.collaborators</code>.
      */
     public Long getCollaborators() {
-        return (Long) get(25);
+        return (Long) get(26);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.attributes</code>.
      */
     public void setAttributes(Long value) {
-        set(26, value);
+        set(27, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.attributes</code>.
      */
     public Long getAttributes() {
-        return (Long) get(26);
+        return (Long) get(27);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.accepted_by</code>.
      */
     public void setAcceptedBy(Integer[] value) {
-        set(27, value);
+        set(28, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.accepted_by</code>.
      */
     public Integer[] getAcceptedBy() {
-        return (Integer[]) get(27);
+        return (Integer[]) get(28);
     }
 
     // -------------------------------------------------------------------------
@@ -484,7 +498,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     /**
      * Create a detached, initialised ViewTableDatasetsRecord
      */
-    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, String datatype, String datasetState, ViewTableLocations[] locations, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Timestamp createdOn, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long publications, Long collaborators, Long attributes, Integer[] acceptedBy) {
+    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, String datatype, String datasetState, ViewTableLocations[] locations, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Timestamp createdOn, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long publications, Long fileresources, Long collaborators, Long attributes, Integer[] acceptedBy) {
         super(ViewTableDatasets.VIEW_TABLE_DATASETS);
 
         setDatasetId(datasetId);
@@ -512,6 +526,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
         setDataPointCount(dataPointCount);
         setIsExternal(isExternal);
         setPublications(publications);
+        setFileresources(fileresources);
         setCollaborators(collaborators);
         setAttributes(attributes);
         setAcceptedBy(acceptedBy);
@@ -549,6 +564,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
             setDataPointCount(value.getDataPointCount());
             setIsExternal(value.getIsExternal());
             setPublications(value.getPublications());
+            setFileresources(value.getFileresources());
             setCollaborators(value.getCollaborators());
             setAttributes(value.getAttributes());
             setAcceptedBy(value.getAcceptedBy());

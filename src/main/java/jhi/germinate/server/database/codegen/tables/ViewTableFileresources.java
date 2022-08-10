@@ -11,7 +11,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewTableFileresourc
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row10;
+import org.jooq.Row11;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -114,12 +114,17 @@ public class ViewTableFileresources extends TableImpl<ViewTableFileresourcesReco
      */
     public final TableField<ViewTableFileresourcesRecord, String> FILERESOURCETYPE_DESCRIPTION = createField(DSL.name("fileresourcetype_description"), SQLDataType.CLOB, this, "The description of the file type.");
 
+    /**
+     * The column <code>germinate_db.view_table_fileresources.datasets</code>.
+     */
+    public final TableField<ViewTableFileresourcesRecord, Long> DATASETS = createField(DSL.name("datasets"), SQLDataType.BIGINT, this, "");
+
     private ViewTableFileresources(Name alias, Table<ViewTableFileresourcesRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private ViewTableFileresources(Name alias, Table<ViewTableFileresourcesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresources` as select `germinate_template_4_22_05_04`.`fileresources`.`id` AS `fileresource_id`,`germinate_template_4_22_05_04`.`fileresources`.`name` AS `fileresource_name`,`germinate_template_4_22_05_04`.`fileresources`.`path` AS `fileresource_path`,`germinate_template_4_22_05_04`.`fileresources`.`description` AS `fileresource_description`,`germinate_template_4_22_05_04`.`fileresources`.`filesize` AS `fileresource_size`,`germinate_template_4_22_05_04`.`fileresources`.`created_on` AS `fileresource_created_on`,`germinate_template_4_22_05_04`.`fileresources`.`updated_on` AS `fileresource_updated_on`,`germinate_template_4_22_05_04`.`fileresourcetypes`.`id` AS `fileresourcetype_id`,`germinate_template_4_22_05_04`.`fileresourcetypes`.`name` AS `fileresourcetype_name`,`germinate_template_4_22_05_04`.`fileresourcetypes`.`description` AS `fileresourcetype_description` from (`germinate_template_4_22_05_04`.`fileresources` left join `germinate_template_4_22_05_04`.`fileresourcetypes` on((`germinate_template_4_22_05_04`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_22_05_04`.`fileresourcetypes`.`id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresources` as select `germinate_template_4_22_08_10`.`fileresources`.`id` AS `fileresource_id`,`germinate_template_4_22_08_10`.`fileresources`.`name` AS `fileresource_name`,`germinate_template_4_22_08_10`.`fileresources`.`path` AS `fileresource_path`,`germinate_template_4_22_08_10`.`fileresources`.`description` AS `fileresource_description`,`germinate_template_4_22_08_10`.`fileresources`.`filesize` AS `fileresource_size`,`germinate_template_4_22_08_10`.`fileresources`.`created_on` AS `fileresource_created_on`,`germinate_template_4_22_08_10`.`fileresources`.`updated_on` AS `fileresource_updated_on`,`germinate_template_4_22_08_10`.`fileresourcetypes`.`id` AS `fileresourcetype_id`,`germinate_template_4_22_08_10`.`fileresourcetypes`.`name` AS `fileresourcetype_name`,`germinate_template_4_22_08_10`.`fileresourcetypes`.`description` AS `fileresourcetype_description`,(select count(1) from `germinate_template_4_22_08_10`.`datasetfileresources` where (`germinate_template_4_22_08_10`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_22_08_10`.`fileresources`.`id`)) AS `datasets` from (`germinate_template_4_22_08_10`.`fileresources` left join `germinate_template_4_22_08_10`.`fileresourcetypes` on((`germinate_template_4_22_08_10`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_22_08_10`.`fileresourcetypes`.`id`)))"));
     }
 
     /**
@@ -178,12 +183,12 @@ public class ViewTableFileresources extends TableImpl<ViewTableFileresourcesReco
     }
 
     // -------------------------------------------------------------------------
-    // Row10 type methods
+    // Row11 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Long> fieldsRow() {
+        return (Row11) super.fieldsRow();
     }
     // @formatter:on
 }

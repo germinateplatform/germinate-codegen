@@ -9,8 +9,8 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.tables.ViewTableFileresources;
 
 import org.jooq.Field;
-import org.jooq.Record10;
-import org.jooq.Row10;
+import org.jooq.Record11;
+import org.jooq.Row11;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFileresourcesRecord> implements Record10<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String> {
+public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFileresourcesRecord> implements Record11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Long> {
 
     private static final long serialVersionUID = 1L;
 
@@ -203,18 +203,32 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
         return (String) get(9);
     }
 
+    /**
+     * Setter for <code>germinate_db.view_table_fileresources.datasets</code>.
+     */
+    public void setDatasets(Long value) {
+        set(10, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_fileresources.datasets</code>.
+     */
+    public Long getDatasets() {
+        return (Long) get(10);
+    }
+
     // -------------------------------------------------------------------------
-    // Record10 type implementation
+    // Record11 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Long> fieldsRow() {
+        return (Row11) super.fieldsRow();
     }
 
     @Override
-    public Row10<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String> valuesRow() {
-        return (Row10) super.valuesRow();
+    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Long> valuesRow() {
+        return (Row11) super.valuesRow();
     }
 
     @Override
@@ -268,6 +282,11 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     }
 
     @Override
+    public Field<Long> field11() {
+        return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.DATASETS;
+    }
+
+    @Override
     public Integer component1() {
         return getFileresourceId();
     }
@@ -318,6 +337,11 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     }
 
     @Override
+    public Long component11() {
+        return getDatasets();
+    }
+
+    @Override
     public Integer value1() {
         return getFileresourceId();
     }
@@ -365,6 +389,11 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     @Override
     public String value10() {
         return getFileresourcetypeDescription();
+    }
+
+    @Override
+    public Long value11() {
+        return getDatasets();
     }
 
     @Override
@@ -428,7 +457,13 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     }
 
     @Override
-    public ViewTableFileresourcesRecord values(Integer value1, String value2, String value3, String value4, Long value5, Timestamp value6, Timestamp value7, Integer value8, String value9, String value10) {
+    public ViewTableFileresourcesRecord value11(Long value) {
+        setDatasets(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableFileresourcesRecord values(Integer value1, String value2, String value3, String value4, Long value5, Timestamp value6, Timestamp value7, Integer value8, String value9, String value10, Long value11) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -439,6 +474,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
         value8(value8);
         value9(value9);
         value10(value10);
+        value11(value11);
         return this;
     }
 
@@ -456,7 +492,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     /**
      * Create a detached, initialised ViewTableFileresourcesRecord
      */
-    public ViewTableFileresourcesRecord(Integer fileresourceId, String fileresourceName, String fileresourcePath, String fileresourceDescription, Long fileresourceSize, Timestamp fileresourceCreatedOn, Timestamp fileresourceUpdatedOn, Integer fileresourcetypeId, String fileresourcetypeName, String fileresourcetypeDescription) {
+    public ViewTableFileresourcesRecord(Integer fileresourceId, String fileresourceName, String fileresourcePath, String fileresourceDescription, Long fileresourceSize, Timestamp fileresourceCreatedOn, Timestamp fileresourceUpdatedOn, Integer fileresourcetypeId, String fileresourcetypeName, String fileresourcetypeDescription, Long datasets) {
         super(ViewTableFileresources.VIEW_TABLE_FILERESOURCES);
 
         setFileresourceId(fileresourceId);
@@ -469,6 +505,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
         setFileresourcetypeId(fileresourcetypeId);
         setFileresourcetypeName(fileresourcetypeName);
         setFileresourcetypeDescription(fileresourcetypeDescription);
+        setDatasets(datasets);
     }
 
     /**
@@ -488,6 +525,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
             setFileresourcetypeId(value.getFileresourcetypeId());
             setFileresourcetypeName(value.getFileresourcetypeName());
             setFileresourcetypeDescription(value.getFileresourcetypeDescription());
+            setDatasets(value.getDatasets());
         }
     }
     // @formatter:on

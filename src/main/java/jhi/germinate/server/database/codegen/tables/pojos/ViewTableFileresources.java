@@ -27,6 +27,7 @@ public class ViewTableFileresources implements Serializable {
     private Integer   fileresourcetypeId;
     private String    fileresourcetypeName;
     private String    fileresourcetypeDescription;
+    private Long      datasets;
 
     public ViewTableFileresources() {}
 
@@ -41,6 +42,7 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourcetypeId = value.fileresourcetypeId;
         this.fileresourcetypeName = value.fileresourcetypeName;
         this.fileresourcetypeDescription = value.fileresourcetypeDescription;
+        this.datasets = value.datasets;
     }
 
     public ViewTableFileresources(
@@ -53,7 +55,8 @@ public class ViewTableFileresources implements Serializable {
         Timestamp fileresourceUpdatedOn,
         Integer   fileresourcetypeId,
         String    fileresourcetypeName,
-        String    fileresourcetypeDescription
+        String    fileresourcetypeDescription,
+        Long      datasets
     ) {
         this.fileresourceId = fileresourceId;
         this.fileresourceName = fileresourceName;
@@ -65,6 +68,7 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourcetypeId = fileresourcetypeId;
         this.fileresourcetypeName = fileresourcetypeName;
         this.fileresourcetypeDescription = fileresourcetypeDescription;
+        this.datasets = datasets;
     }
 
     /**
@@ -247,6 +251,20 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourcetypeDescription = fileresourcetypeDescription;
     }
 
+    /**
+     * Getter for <code>germinate_db.view_table_fileresources.datasets</code>.
+     */
+    public Long getDatasets() {
+        return this.datasets;
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_fileresources.datasets</code>.
+     */
+    public void setDatasets(Long datasets) {
+        this.datasets = datasets;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("ViewTableFileresources (");
@@ -261,6 +279,7 @@ public class ViewTableFileresources implements Serializable {
         sb.append(", ").append(fileresourcetypeId);
         sb.append(", ").append(fileresourcetypeName);
         sb.append(", ").append(fileresourcetypeDescription);
+        sb.append(", ").append(datasets);
 
         sb.append(")");
         return sb.toString();
