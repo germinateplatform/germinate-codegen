@@ -6,15 +6,17 @@ package jhi.germinate.server.database.codegen.tables;
 
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.binding.ExportJobDetailsBinding;
 import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.DatasetExportJobsStatus;
 import jhi.germinate.server.database.codegen.tables.records.DatasetExportJobsRecord;
+import jhi.germinate.server.database.pojo.ExportJobDetails;
 
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row11;
+import org.jooq.Row12;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -62,6 +64,11 @@ public class DatasetExportJobs extends TableImpl<DatasetExportJobsRecord> {
      * The column <code>germinate_db.dataset_export_jobs.job_id</code>.
      */
     public final TableField<DatasetExportJobsRecord, String> JOB_ID = createField(DSL.name("job_id"), SQLDataType.CLOB.nullable(false), this, "");
+
+    /**
+     * The column <code>germinate_db.dataset_export_jobs.job_config</code>.
+     */
+    public final TableField<DatasetExportJobsRecord, ExportJobDetails> JOB_CONFIG = createField(DSL.name("job_config"), SQLDataType.JSON, this, "", new ExportJobDetailsBinding());
 
     /**
      * The column <code>germinate_db.dataset_export_jobs.user_id</code>.
@@ -176,12 +183,12 @@ public class DatasetExportJobs extends TableImpl<DatasetExportJobsRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row11 type methods
+    // Row12 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, Integer, DatasetExportJobsStatus, Boolean, Integer, Integer[], Long, Timestamp, Timestamp> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row12<Integer, String, String, ExportJobDetails, Integer, DatasetExportJobsStatus, Boolean, Integer, Integer[], Long, Timestamp, Timestamp> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
     // @formatter:on
 }

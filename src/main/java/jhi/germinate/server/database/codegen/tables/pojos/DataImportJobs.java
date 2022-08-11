@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 import jhi.germinate.server.database.codegen.enums.DataImportJobsDatatype;
 import jhi.germinate.server.database.codegen.enums.DataImportJobsStatus;
+import jhi.germinate.server.database.pojo.ImportJobDetails;
 import jhi.germinate.server.database.pojo.ImportResult;
 
 
@@ -25,6 +26,7 @@ public class DataImportJobs implements Serializable {
     private Integer                id;
     private String                 uuid;
     private String                 jobId;
+    private ImportJobDetails       jobConfig;
     private Integer                userId;
     private String                 originalFilename;
     private Boolean                isUpdate;
@@ -43,6 +45,7 @@ public class DataImportJobs implements Serializable {
         this.id = value.id;
         this.uuid = value.uuid;
         this.jobId = value.jobId;
+        this.jobConfig = value.jobConfig;
         this.userId = value.userId;
         this.originalFilename = value.originalFilename;
         this.isUpdate = value.isUpdate;
@@ -60,6 +63,7 @@ public class DataImportJobs implements Serializable {
         Integer                id,
         String                 uuid,
         String                 jobId,
+        ImportJobDetails       jobConfig,
         Integer                userId,
         String                 originalFilename,
         Boolean                isUpdate,
@@ -75,6 +79,7 @@ public class DataImportJobs implements Serializable {
         this.id = id;
         this.uuid = uuid;
         this.jobId = jobId;
+        this.jobConfig = jobConfig;
         this.userId = userId;
         this.originalFilename = originalFilename;
         this.isUpdate = isUpdate;
@@ -128,6 +133,20 @@ public class DataImportJobs implements Serializable {
      */
     public void setJobId(String jobId) {
         this.jobId = jobId;
+    }
+
+    /**
+     * Getter for <code>germinate_db.data_import_jobs.job_config</code>.
+     */
+    public ImportJobDetails getJobConfig() {
+        return this.jobConfig;
+    }
+
+    /**
+     * Setter for <code>germinate_db.data_import_jobs.job_config</code>.
+     */
+    public void setJobConfig(ImportJobDetails jobConfig) {
+        this.jobConfig = jobConfig;
     }
 
     /**
@@ -291,6 +310,7 @@ public class DataImportJobs implements Serializable {
         sb.append(id);
         sb.append(", ").append(uuid);
         sb.append(", ").append(jobId);
+        sb.append(", ").append(jobConfig);
         sb.append(", ").append(userId);
         sb.append(", ").append(originalFilename);
         sb.append(", ").append(isUpdate);

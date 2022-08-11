@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 
 import jhi.germinate.server.database.codegen.enums.DatasetExportJobsStatus;
+import jhi.germinate.server.database.pojo.ExportJobDetails;
 
 
 // @formatter:off
@@ -23,6 +24,7 @@ public class DatasetExportJobs implements Serializable {
     private Integer                 id;
     private String                  uuid;
     private String                  jobId;
+    private ExportJobDetails        jobConfig;
     private Integer                 userId;
     private DatasetExportJobsStatus status;
     private Boolean                 visibility;
@@ -38,6 +40,7 @@ public class DatasetExportJobs implements Serializable {
         this.id = value.id;
         this.uuid = value.uuid;
         this.jobId = value.jobId;
+        this.jobConfig = value.jobConfig;
         this.userId = value.userId;
         this.status = value.status;
         this.visibility = value.visibility;
@@ -52,6 +55,7 @@ public class DatasetExportJobs implements Serializable {
         Integer                 id,
         String                  uuid,
         String                  jobId,
+        ExportJobDetails        jobConfig,
         Integer                 userId,
         DatasetExportJobsStatus status,
         Boolean                 visibility,
@@ -64,6 +68,7 @@ public class DatasetExportJobs implements Serializable {
         this.id = id;
         this.uuid = uuid;
         this.jobId = jobId;
+        this.jobConfig = jobConfig;
         this.userId = userId;
         this.status = status;
         this.visibility = visibility;
@@ -114,6 +119,20 @@ public class DatasetExportJobs implements Serializable {
      */
     public void setJobId(String jobId) {
         this.jobId = jobId;
+    }
+
+    /**
+     * Getter for <code>germinate_db.dataset_export_jobs.job_config</code>.
+     */
+    public ExportJobDetails getJobConfig() {
+        return this.jobConfig;
+    }
+
+    /**
+     * Setter for <code>germinate_db.dataset_export_jobs.job_config</code>.
+     */
+    public void setJobConfig(ExportJobDetails jobConfig) {
+        this.jobConfig = jobConfig;
     }
 
     /**
@@ -235,6 +254,7 @@ public class DatasetExportJobs implements Serializable {
         sb.append(id);
         sb.append(", ").append(uuid);
         sb.append(", ").append(jobId);
+        sb.append(", ").append(jobConfig);
         sb.append(", ").append(userId);
         sb.append(", ").append(status);
         sb.append(", ").append(visibility);

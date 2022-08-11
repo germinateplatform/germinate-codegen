@@ -1,150 +1,162 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.11.0.xsd">
-	<!-- Configure the database connection here -->
-	<generator>
-		<generate>
-			<pojos>true</pojos>
-			<globalCatalogReferences>false</globalCatalogReferences>
-			<globalKeyReferences>false</globalKeyReferences>
-			<globalLinkReferences>false</globalLinkReferences>>
-			<globalQueueReferences>false</globalQueueReferences>
-			<globalRoutineReferences>false</globalRoutineReferences>
-			<globalSchemaReferences>false</globalSchemaReferences>
-			<globalSequenceReferences>false</globalSequenceReferences>
-			<globalTableReferences>false</globalTableReferences>
-			<globalUDTReferences>false</globalUDTReferences>
-			<javaTimeTypes>false</javaTimeTypes>
-		</generate>
+    <!-- Configure the database connection here -->
+    <generator>
+        <generate>
+            <pojos>true</pojos>
+            <globalCatalogReferences>false</globalCatalogReferences>
+            <globalKeyReferences>false</globalKeyReferences>
+            <globalLinkReferences>false</globalLinkReferences>>
+            <globalQueueReferences>false</globalQueueReferences>
+            <globalRoutineReferences>false</globalRoutineReferences>
+            <globalSchemaReferences>false</globalSchemaReferences>
+            <globalSequenceReferences>false</globalSequenceReferences>
+            <globalTableReferences>false</globalTableReferences>
+            <globalUDTReferences>false</globalUDTReferences>
+            <javaTimeTypes>false</javaTimeTypes>
+        </generate>
 
-		<database>
-			<excludes>
-			</excludes>
-			<includes>.*</includes>
-			<inputSchema>germinate_template_4_22_08_10</inputSchema>
-			<outputSchema>germinate_db</outputSchema>
-			<name>org.jooq.meta.mysql.MySQLDatabase</name>
-			<comments>
-				<comment>
-					<expression>.*</expression>
-					<includeSchemaComment>false</includeSchemaComment>
-				</comment>
-			</comments>
+        <database>
+            <excludes>
+            </excludes>
+            <includes>.*</includes>
+            <inputSchema>germinate_template_4_22_08_10</inputSchema>
+            <outputSchema>germinate_db</outputSchema>
+            <name>org.jooq.meta.mysql.MySQLDatabase</name>
+            <comments>
+                <comment>
+                    <expression>.*</expression>
+                    <includeSchemaComment>false</includeSchemaComment>
+                </comment>
+            </comments>
 
-			<forcedTypes>
-				<!--				<forcedType>-->
-				<!--					<binding>jhi.germinate.server.database.binding.TimestampBinding</binding>-->
-				<!--					<types>.*timestamp.*</types>-->
-				<!--					<userType>java.sql.Timestamp</userType>-->
-				<!--				</forcedType>-->
-				<!--				<forcedType>-->
-				<!--					<binding>jhi.germinate.server.database.binding.TimestampBinding</binding>-->
-				<!--					<types>.*datetime.*</types>-->
-				<!--					<userType>java.sql.Timestamp</userType>-->
-				<!--				</forcedType>-->
-				<!--				<forcedType>-->
-				<!--					<binding>jhi.germinate.server.database.binding.DateBinding</binding>-->
-				<!--					<types>date</types>-->
-				<!--					<userType>java.sql.Date</userType>-->
-				<!--				</forcedType>-->
+            <forcedTypes>
+                <!--				<forcedType>-->
+                <!--					<binding>jhi.germinate.server.database.binding.TimestampBinding</binding>-->
+                <!--					<types>.*timestamp.*</types>-->
+                <!--					<userType>java.sql.Timestamp</userType>-->
+                <!--				</forcedType>-->
+                <!--				<forcedType>-->
+                <!--					<binding>jhi.germinate.server.database.binding.TimestampBinding</binding>-->
+                <!--					<types>.*datetime.*</types>-->
+                <!--					<userType>java.sql.Timestamp</userType>-->
+                <!--				</forcedType>-->
+                <!--				<forcedType>-->
+                <!--					<binding>jhi.germinate.server.database.binding.DateBinding</binding>-->
+                <!--					<types>date</types>-->
+                <!--					<userType>java.sql.Date</userType>-->
+                <!--				</forcedType>-->
 
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.DatasetLocationBinding</binding>
-					<expression>.*(view_table_datasets)\.(locations)</expression>
-					<types>.*</types>
-					<userType>jhi.germinate.server.database.codegen.tables.pojos.ViewTableLocations[]</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.ImageTagBinding</binding>
-					<expression>.*(view_table_images)\.(tags)</expression>
-					<types>.*</types>
-					<userType>jhi.germinate.server.database.pojo.ImageTag[]</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.ImportResultBinding</binding>
-					<expression>.*(data_import_jobs)\.(feedback)</expression>
-					<types>.*json.*</types>
-					<userType>jhi.germinate.server.database.pojo.ImportResult[]</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.IntArrayBinding</binding>
-					<expression>.*(view_table_).*\..*(accepted_by).*</expression>
-					<types>.*json.*</types>
-					<userType>Integer[]</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.SynonymBinding</binding>
-					<expression>.*(view_table_datasets)\.(country_codes)</expression>
-					<types>.*json.*</types>
-					<userType>String[]</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.IntArrayBinding</binding>
-					<expression>.*\..*(dataset_ids).*</expression>
-					<types>.*json.*</types>
-					<userType>Integer[]</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.SynonymBinding</binding>
-					<expression>.*\..*(synonym).*</expression>
-					<types>.*json.*</types>
-					<userType>String[]</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.IntArrayBinding</binding>
-					<expression>.*(view_table_).*\..*(_ids).*</expression>
-					<types>.*json.*</types>
-					<userType>Integer[]</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.DublinCoreBinding</binding>
-					<expression>.*\..*(dublin_core).*</expression>
-					<types>.*json.*</types>
-					<userType>jhi.germinate.server.database.pojo.DublinCore</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.TraitRestrictionBinding</binding>
-					<expression>.*(phenotypes)\.(restrictions)</expression>
-					<types>.*json.*</types>
-					<userType>jhi.germinate.server.database.pojo.TraitRestrictions</userType>
-				</forcedType>
-				<forcedType>
-					<binding>jhi.germinate.server.database.binding.TraitRestrictionBinding</binding>
-					<expression>.*(view_).*\.(trait_restrictions)</expression>
-					<types>.*json.*</types>
-					<userType>jhi.germinate.server.database.pojo.TraitRestrictions</userType>
-				</forcedType>
-				<forcedType>
-					<expression>.*</expression>
-					<name>BOOLEAN</name>
-					<types>.*tinyint.*</types>
-				</forcedType>
-			</forcedTypes>
-		</database>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.DatasetLocationBinding</binding>
+                    <expression>.*(view_table_datasets)\.(locations)</expression>
+                    <types>.*</types>
+                    <userType>jhi.germinate.server.database.codegen.tables.pojos.ViewTableLocations[]</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.ImageTagBinding</binding>
+                    <expression>.*(view_table_images)\.(tags)</expression>
+                    <types>.*</types>
+                    <userType>jhi.germinate.server.database.pojo.ImageTag[]</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.ImportResultBinding</binding>
+                    <expression>.*(data_import_jobs)\.(feedback)</expression>
+                    <types>.*json.*</types>
+                    <userType>jhi.germinate.server.database.pojo.ImportResult[]</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.ImportJobDetailsBinding</binding>
+                    <expression>.*(data_import_jobs)\.(job_config)</expression>
+                    <types>.*json.*</types>
+                    <userType>jhi.germinate.server.database.pojo.ImportJobDetails</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.ExportJobDetailsBinding</binding>
+                    <expression>.*(dataset_export_jobs)\.(job_config)</expression>
+                    <types>.*json.*</types>
+                    <userType>jhi.germinate.server.database.pojo.ExportJobDetails</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.IntArrayBinding</binding>
+                    <expression>.*(view_table_).*\..*(accepted_by).*</expression>
+                    <types>.*json.*</types>
+                    <userType>Integer[]</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.SynonymBinding</binding>
+                    <expression>.*(view_table_datasets)\.(country_codes)</expression>
+                    <types>.*json.*</types>
+                    <userType>String[]</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.IntArrayBinding</binding>
+                    <expression>.*\..*(dataset_ids).*</expression>
+                    <types>.*json.*</types>
+                    <userType>Integer[]</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.SynonymBinding</binding>
+                    <expression>.*\..*(synonym).*</expression>
+                    <types>.*json.*</types>
+                    <userType>String[]</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.IntArrayBinding</binding>
+                    <expression>.*(view_table_).*\..*(_ids).*</expression>
+                    <types>.*json.*</types>
+                    <userType>Integer[]</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.DublinCoreBinding</binding>
+                    <expression>.*\..*(dublin_core).*</expression>
+                    <types>.*json.*</types>
+                    <userType>jhi.germinate.server.database.pojo.DublinCore</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.TraitRestrictionBinding</binding>
+                    <expression>.*(phenotypes)\.(restrictions)</expression>
+                    <types>.*json.*</types>
+                    <userType>jhi.germinate.server.database.pojo.TraitRestrictions</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.TraitRestrictionBinding</binding>
+                    <expression>.*(view_).*\.(trait_restrictions)</expression>
+                    <types>.*json.*</types>
+                    <userType>jhi.germinate.server.database.pojo.TraitRestrictions</userType>
+                </forcedType>
+                <forcedType>
+                    <expression>.*</expression>
+                    <name>BOOLEAN</name>
+                    <types>.*tinyint.*</types>
+                </forcedType>
+            </forcedTypes>
+        </database>
 
-		<name>jhi.germinate.server.database.CustomCodegen</name>
+        <name>jhi.germinate.server.database.CustomCodegen</name>
 
-		<target>
-			<directory>src/main/java/</directory>
-			<packageName>jhi.germinate.server.database.codegen</packageName>
-		</target>
-	</generator>
+        <target>
+            <directory>src/main/java/</directory>
+            <packageName>jhi.germinate.server.database.codegen</packageName>
+        </target>
+    </generator>
 
-	<jdbc>
-		<driver>com.mysql.cj.jdbc.Driver</driver>
-		<password></password>
-		<properties>
-			<property>
-				<key>user</key>
-				<value>root</value>
-			</property>
-			<property>
-				<key>password</key>
-				<value></value>
-			</property>
-		</properties>
-		<url>jdbc:mysql://localhost/germinate_template_4_22_08_10?serverTimezone=UTC</url>
+    <jdbc>
+        <driver>com.mysql.cj.jdbc.Driver</driver>
+        <password></password>
+        <properties>
+            <property>
+                <key>user</key>
+                <value>root</value>
+            </property>
+            <property>
+                <key>password</key>
+                <value></value>
+            </property>
+        </properties>
+        <url>jdbc:mysql://localhost/germinate_template_4_22_08_10?serverTimezone=UTC</url>
 
-		<!-- You can also pass user/password and other JDBC properties in the optional properties tag: -->
-		<user>root</user>
-	</jdbc>
+        <!-- You can also pass user/password and other JDBC properties in the optional properties tag: -->
+        <user>root</user>
+    </jdbc>
 </configuration>
