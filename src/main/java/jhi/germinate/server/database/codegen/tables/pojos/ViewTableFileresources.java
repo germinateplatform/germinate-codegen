@@ -6,6 +6,7 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 
 // @formatter:off
@@ -27,7 +28,7 @@ public class ViewTableFileresources implements Serializable {
     private Integer   fileresourcetypeId;
     private String    fileresourcetypeName;
     private String    fileresourcetypeDescription;
-    private Long      datasets;
+    private Integer[] datasetIds;
 
     public ViewTableFileresources() {}
 
@@ -42,7 +43,7 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourcetypeId = value.fileresourcetypeId;
         this.fileresourcetypeName = value.fileresourcetypeName;
         this.fileresourcetypeDescription = value.fileresourcetypeDescription;
-        this.datasets = value.datasets;
+        this.datasetIds = value.datasetIds;
     }
 
     public ViewTableFileresources(
@@ -56,7 +57,7 @@ public class ViewTableFileresources implements Serializable {
         Integer   fileresourcetypeId,
         String    fileresourcetypeName,
         String    fileresourcetypeDescription,
-        Long      datasets
+        Integer[] datasetIds
     ) {
         this.fileresourceId = fileresourceId;
         this.fileresourceName = fileresourceName;
@@ -68,7 +69,7 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourcetypeId = fileresourcetypeId;
         this.fileresourcetypeName = fileresourcetypeName;
         this.fileresourcetypeDescription = fileresourcetypeDescription;
-        this.datasets = datasets;
+        this.datasetIds = datasetIds;
     }
 
     /**
@@ -252,17 +253,19 @@ public class ViewTableFileresources implements Serializable {
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_fileresources.datasets</code>.
+     * Getter for
+     * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
      */
-    public Long getDatasets() {
-        return this.datasets;
+    public Integer[] getDatasetIds() {
+        return this.datasetIds;
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_fileresources.datasets</code>.
+     * Setter for
+     * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
      */
-    public void setDatasets(Long datasets) {
-        this.datasets = datasets;
+    public void setDatasetIds(Integer[] datasetIds) {
+        this.datasetIds = datasetIds;
     }
 
     @Override
@@ -279,7 +282,7 @@ public class ViewTableFileresources implements Serializable {
         sb.append(", ").append(fileresourcetypeId);
         sb.append(", ").append(fileresourcetypeName);
         sb.append(", ").append(fileresourcetypeDescription);
-        sb.append(", ").append(datasets);
+        sb.append(", ").append(Arrays.toString(datasetIds));
 
         sb.append(")");
         return sb.toString();

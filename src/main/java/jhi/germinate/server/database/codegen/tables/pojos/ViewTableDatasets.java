@@ -48,7 +48,7 @@ public class ViewTableDatasets implements Serializable {
     private ULong                dataPointCount;
     private Boolean              isExternal;
     private Long                 publications;
-    private Long                 fileresources;
+    private Integer[]            fileresourceIds;
     private Long                 collaborators;
     private Long                 attributes;
     private Integer[]            acceptedBy;
@@ -81,7 +81,7 @@ public class ViewTableDatasets implements Serializable {
         this.dataPointCount = value.dataPointCount;
         this.isExternal = value.isExternal;
         this.publications = value.publications;
-        this.fileresources = value.fileresources;
+        this.fileresourceIds = value.fileresourceIds;
         this.collaborators = value.collaborators;
         this.attributes = value.attributes;
         this.acceptedBy = value.acceptedBy;
@@ -113,7 +113,7 @@ public class ViewTableDatasets implements Serializable {
         ULong                dataPointCount,
         Boolean              isExternal,
         Long                 publications,
-        Long                 fileresources,
+        Integer[]            fileresourceIds,
         Long                 collaborators,
         Long                 attributes,
         Integer[]            acceptedBy
@@ -143,7 +143,7 @@ public class ViewTableDatasets implements Serializable {
         this.dataPointCount = dataPointCount;
         this.isExternal = isExternal;
         this.publications = publications;
-        this.fileresources = fileresources;
+        this.fileresourceIds = fileresourceIds;
         this.collaborators = collaborators;
         this.attributes = attributes;
         this.acceptedBy = acceptedBy;
@@ -554,17 +554,19 @@ public class ViewTableDatasets implements Serializable {
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_datasets.fileresources</code>.
+     * Getter for
+     * <code>germinate_db.view_table_datasets.fileresource_ids</code>.
      */
-    public Long getFileresources() {
-        return this.fileresources;
+    public Integer[] getFileresourceIds() {
+        return this.fileresourceIds;
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_datasets.fileresources</code>.
+     * Setter for
+     * <code>germinate_db.view_table_datasets.fileresource_ids</code>.
      */
-    public void setFileresources(Long fileresources) {
-        this.fileresources = fileresources;
+    public void setFileresourceIds(Integer[] fileresourceIds) {
+        this.fileresourceIds = fileresourceIds;
     }
 
     /**
@@ -638,7 +640,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(dataPointCount);
         sb.append(", ").append(isExternal);
         sb.append(", ").append(publications);
-        sb.append(", ").append(fileresources);
+        sb.append(", ").append(Arrays.toString(fileresourceIds));
         sb.append(", ").append(collaborators);
         sb.append(", ").append(attributes);
         sb.append(", ").append(Arrays.toString(acceptedBy));

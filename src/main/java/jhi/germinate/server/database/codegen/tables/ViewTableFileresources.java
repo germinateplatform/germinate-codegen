@@ -6,6 +6,7 @@ package jhi.germinate.server.database.codegen.tables;
 
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableFileresourcesRecord;
 
@@ -115,16 +116,17 @@ public class ViewTableFileresources extends TableImpl<ViewTableFileresourcesReco
     public final TableField<ViewTableFileresourcesRecord, String> FILERESOURCETYPE_DESCRIPTION = createField(DSL.name("fileresourcetype_description"), SQLDataType.CLOB, this, "The description of the file type.");
 
     /**
-     * The column <code>germinate_db.view_table_fileresources.datasets</code>.
+     * The column
+     * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
      */
-    public final TableField<ViewTableFileresourcesRecord, Long> DATASETS = createField(DSL.name("datasets"), SQLDataType.BIGINT, this, "");
+    public final TableField<ViewTableFileresourcesRecord, Integer[]> DATASET_IDS = createField(DSL.name("dataset_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
 
     private ViewTableFileresources(Name alias, Table<ViewTableFileresourcesRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private ViewTableFileresources(Name alias, Table<ViewTableFileresourcesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresources` as select `germinate_template_4_22_08_10`.`fileresources`.`id` AS `fileresource_id`,`germinate_template_4_22_08_10`.`fileresources`.`name` AS `fileresource_name`,`germinate_template_4_22_08_10`.`fileresources`.`path` AS `fileresource_path`,`germinate_template_4_22_08_10`.`fileresources`.`description` AS `fileresource_description`,`germinate_template_4_22_08_10`.`fileresources`.`filesize` AS `fileresource_size`,`germinate_template_4_22_08_10`.`fileresources`.`created_on` AS `fileresource_created_on`,`germinate_template_4_22_08_10`.`fileresources`.`updated_on` AS `fileresource_updated_on`,`germinate_template_4_22_08_10`.`fileresourcetypes`.`id` AS `fileresourcetype_id`,`germinate_template_4_22_08_10`.`fileresourcetypes`.`name` AS `fileresourcetype_name`,`germinate_template_4_22_08_10`.`fileresourcetypes`.`description` AS `fileresourcetype_description`,(select count(1) from `germinate_template_4_22_08_10`.`datasetfileresources` where (`germinate_template_4_22_08_10`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_22_08_10`.`fileresources`.`id`)) AS `datasets` from (`germinate_template_4_22_08_10`.`fileresources` left join `germinate_template_4_22_08_10`.`fileresourcetypes` on((`germinate_template_4_22_08_10`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_22_08_10`.`fileresourcetypes`.`id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresources` as select `germinate_template_4_22_08_10`.`fileresources`.`id` AS `fileresource_id`,`germinate_template_4_22_08_10`.`fileresources`.`name` AS `fileresource_name`,`germinate_template_4_22_08_10`.`fileresources`.`path` AS `fileresource_path`,`germinate_template_4_22_08_10`.`fileresources`.`description` AS `fileresource_description`,`germinate_template_4_22_08_10`.`fileresources`.`filesize` AS `fileresource_size`,`germinate_template_4_22_08_10`.`fileresources`.`created_on` AS `fileresource_created_on`,`germinate_template_4_22_08_10`.`fileresources`.`updated_on` AS `fileresource_updated_on`,`germinate_template_4_22_08_10`.`fileresourcetypes`.`id` AS `fileresourcetype_id`,`germinate_template_4_22_08_10`.`fileresourcetypes`.`name` AS `fileresourcetype_name`,`germinate_template_4_22_08_10`.`fileresourcetypes`.`description` AS `fileresourcetype_description`,json_arrayagg(`germinate_template_4_22_08_10`.`datasetfileresources`.`dataset_id`) AS `dataset_ids` from ((`germinate_template_4_22_08_10`.`fileresources` left join `germinate_template_4_22_08_10`.`fileresourcetypes` on((`germinate_template_4_22_08_10`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_22_08_10`.`fileresourcetypes`.`id`))) left join `germinate_template_4_22_08_10`.`datasetfileresources` on((`germinate_template_4_22_08_10`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_22_08_10`.`fileresources`.`id`))) group by `germinate_template_4_22_08_10`.`fileresources`.`id`"));
     }
 
     /**
@@ -187,7 +189,7 @@ public class ViewTableFileresources extends TableImpl<ViewTableFileresourcesReco
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Long> fieldsRow() {
+    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer[]> fieldsRow() {
         return (Row11) super.fieldsRow();
     }
     // @formatter:on

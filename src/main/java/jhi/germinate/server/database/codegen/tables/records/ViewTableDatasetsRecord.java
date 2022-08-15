@@ -429,17 +429,19 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_datasets.fileresources</code>.
+     * Setter for
+     * <code>germinate_db.view_table_datasets.fileresource_ids</code>.
      */
-    public void setFileresources(Long value) {
+    public void setFileresourceIds(Integer[] value) {
         set(25, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_datasets.fileresources</code>.
+     * Getter for
+     * <code>germinate_db.view_table_datasets.fileresource_ids</code>.
      */
-    public Long getFileresources() {
-        return (Long) get(25);
+    public Integer[] getFileresourceIds() {
+        return (Integer[]) get(25);
     }
 
     /**
@@ -498,7 +500,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     /**
      * Create a detached, initialised ViewTableDatasetsRecord
      */
-    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, String datatype, String datasetState, ViewTableLocations[] locations, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Timestamp createdOn, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long publications, Long fileresources, Long collaborators, Long attributes, Integer[] acceptedBy) {
+    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, String datatype, String datasetState, ViewTableLocations[] locations, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Timestamp createdOn, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long publications, Integer[] fileresourceIds, Long collaborators, Long attributes, Integer[] acceptedBy) {
         super(ViewTableDatasets.VIEW_TABLE_DATASETS);
 
         setDatasetId(datasetId);
@@ -526,7 +528,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
         setDataPointCount(dataPointCount);
         setIsExternal(isExternal);
         setPublications(publications);
-        setFileresources(fileresources);
+        setFileresourceIds(fileresourceIds);
         setCollaborators(collaborators);
         setAttributes(attributes);
         setAcceptedBy(acceptedBy);
@@ -564,7 +566,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
             setDataPointCount(value.getDataPointCount());
             setIsExternal(value.getIsExternal());
             setPublications(value.getPublications());
-            setFileresources(value.getFileresources());
+            setFileresourceIds(value.getFileresourceIds());
             setCollaborators(value.getCollaborators());
             setAttributes(value.getAttributes());
             setAcceptedBy(value.getAcceptedBy());
