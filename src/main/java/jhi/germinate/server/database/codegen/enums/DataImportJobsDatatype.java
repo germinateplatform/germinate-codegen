@@ -28,7 +28,9 @@ public enum DataImportJobsDatatype implements EnumType {
 
     groups("groups"),
 
-    climate("climate");
+    climate("climate"),
+
+    images("images");
 
     private final String literal;
 
