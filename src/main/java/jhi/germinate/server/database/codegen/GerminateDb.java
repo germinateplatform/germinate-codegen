@@ -21,8 +21,8 @@ import jhi.germinate.server.database.codegen.tables.Commenttypes;
 import jhi.germinate.server.database.codegen.tables.Compounddata;
 import jhi.germinate.server.database.codegen.tables.Compounds;
 import jhi.germinate.server.database.codegen.tables.Countries;
+import jhi.germinate.server.database.codegen.tables.DataExportJobs;
 import jhi.germinate.server.database.codegen.tables.DataImportJobs;
-import jhi.germinate.server.database.codegen.tables.DatasetExportJobs;
 import jhi.germinate.server.database.codegen.tables.Datasetaccesslogs;
 import jhi.germinate.server.database.codegen.tables.Datasetcollaborators;
 import jhi.germinate.server.database.codegen.tables.Datasetfileresources;
@@ -165,8 +165,8 @@ public class GerminateDb extends SchemaImpl {
             Compounddata.COMPOUNDDATA,
             Compounds.COMPOUNDS,
             Countries.COUNTRIES,
+            DataExportJobs.DATA_EXPORT_JOBS,
             DataImportJobs.DATA_IMPORT_JOBS,
-            DatasetExportJobs.DATASET_EXPORT_JOBS,
             Datasetaccesslogs.DATASETACCESSLOGS,
             Datasetcollaborators.DATASETCOLLABORATORS,
             Datasetfileresources.DATASETFILERESOURCES,
