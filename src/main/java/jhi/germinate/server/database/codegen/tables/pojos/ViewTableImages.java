@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
+import jhi.germinate.server.database.pojo.Exif;
 import jhi.germinate.server.database.pojo.ImageTag;
 
 
@@ -24,6 +25,7 @@ public class ViewTableImages implements Serializable {
     private String     imageDescription;
     private Integer    imageForeignId;
     private String     imagePath;
+    private Exif       imageExif;
     private String     imageType;
     private String     imageRefTable;
     private String     referenceName;
@@ -37,6 +39,7 @@ public class ViewTableImages implements Serializable {
         this.imageDescription = value.imageDescription;
         this.imageForeignId = value.imageForeignId;
         this.imagePath = value.imagePath;
+        this.imageExif = value.imageExif;
         this.imageType = value.imageType;
         this.imageRefTable = value.imageRefTable;
         this.referenceName = value.referenceName;
@@ -49,6 +52,7 @@ public class ViewTableImages implements Serializable {
         String     imageDescription,
         Integer    imageForeignId,
         String     imagePath,
+        Exif       imageExif,
         String     imageType,
         String     imageRefTable,
         String     referenceName,
@@ -59,6 +63,7 @@ public class ViewTableImages implements Serializable {
         this.imageDescription = imageDescription;
         this.imageForeignId = imageForeignId;
         this.imagePath = imagePath;
+        this.imageExif = imageExif;
         this.imageType = imageType;
         this.imageRefTable = imageRefTable;
         this.referenceName = referenceName;
@@ -120,6 +125,20 @@ public class ViewTableImages implements Serializable {
      */
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_images.image_exif</code>.
+     */
+    public Exif getImageExif() {
+        return this.imageExif;
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_images.image_exif</code>.
+     */
+    public void setImageExif(Exif imageExif) {
+        this.imageExif = imageExif;
     }
 
     /**
@@ -200,6 +219,7 @@ public class ViewTableImages implements Serializable {
         sb.append(", ").append(imageDescription);
         sb.append(", ").append(imageForeignId);
         sb.append(", ").append(imagePath);
+        sb.append(", ").append(imageExif);
         sb.append(", ").append(imageType);
         sb.append(", ").append(imageRefTable);
         sb.append(", ").append(referenceName);

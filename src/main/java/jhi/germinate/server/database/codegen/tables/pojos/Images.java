@@ -7,6 +7,8 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.pojo.Exif;
+
 
 // @formatter:off
 /**
@@ -22,6 +24,7 @@ public class Images implements Serializable {
     private String    description;
     private Integer   foreignId;
     private String    path;
+    private Exif      exif;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -33,6 +36,7 @@ public class Images implements Serializable {
         this.description = value.description;
         this.foreignId = value.foreignId;
         this.path = value.path;
+        this.exif = value.exif;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
@@ -43,6 +47,7 @@ public class Images implements Serializable {
         String    description,
         Integer   foreignId,
         String    path,
+        Exif      exif,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -51,6 +56,7 @@ public class Images implements Serializable {
         this.description = description;
         this.foreignId = foreignId;
         this.path = path;
+        this.exif = exif;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -136,6 +142,20 @@ public class Images implements Serializable {
     }
 
     /**
+     * Getter for <code>germinate_db.images.exif</code>.
+     */
+    public Exif getExif() {
+        return this.exif;
+    }
+
+    /**
+     * Setter for <code>germinate_db.images.exif</code>.
+     */
+    public void setExif(Exif exif) {
+        this.exif = exif;
+    }
+
+    /**
      * Getter for <code>germinate_db.images.created_on</code>. When the record
      * was created.
      */
@@ -178,6 +198,7 @@ public class Images implements Serializable {
         sb.append(", ").append(description);
         sb.append(", ").append(foreignId);
         sb.append(", ").append(path);
+        sb.append(", ").append(exif);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

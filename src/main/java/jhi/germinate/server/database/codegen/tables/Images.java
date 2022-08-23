@@ -6,13 +6,15 @@ package jhi.germinate.server.database.codegen.tables;
 
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.binding.ExifBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ImagesRecord;
+import jhi.germinate.server.database.pojo.Exif;
 
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row7;
+import org.jooq.Row8;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -75,6 +77,11 @@ public class Images extends TableImpl<ImagesRecord> {
      * the image.
      */
     public final TableField<ImagesRecord, String> PATH = createField(DSL.name("path"), SQLDataType.CLOB.nullable(false), this, "The file system path to the image.");
+
+    /**
+     * The column <code>germinate_db.images.exif</code>.
+     */
+    public final TableField<ImagesRecord, Exif> EXIF = createField(DSL.name("exif"), SQLDataType.JSON, this, "", new ExifBinding());
 
     /**
      * The column <code>germinate_db.images.created_on</code>. When the record
@@ -160,12 +167,12 @@ public class Images extends TableImpl<ImagesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row7 type methods
+    // Row8 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Integer, Integer, String, Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row7) super.fieldsRow();
+    public Row8<Integer, Integer, String, Integer, String, Exif, Timestamp, Timestamp> fieldsRow() {
+        return (Row8) super.fieldsRow();
     }
     // @formatter:on
 }
