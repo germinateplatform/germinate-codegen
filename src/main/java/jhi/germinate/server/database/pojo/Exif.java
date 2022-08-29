@@ -41,6 +41,7 @@ public class Exif
 	private String lensModel;
 	private String meteringMode;
 	private String orientation;
+	private Integer orientationCode;
 	private String photometricInterpretation;
 	private String samplesPerPixel;
 	private String saturation;
@@ -426,6 +427,17 @@ public class Exif
 	public Exif setOrientation(String orientation)
 	{
 		this.orientation = orientation;
+		return this;
+	}
+
+	public Integer getOrientationCode()
+	{
+		return orientationCode;
+	}
+
+	public Exif setOrientationCode(Integer orientationCode)
+	{
+		this.orientationCode = orientationCode;
 		return this;
 	}
 
