@@ -5,9 +5,9 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 
 import java.math.BigDecimal;
-import java.sql.Date;
 
 import jhi.germinate.server.database.codegen.tables.ViewTableGermplasmDeprecated;
+import jhi.germinate.server.database.pojo.GermplasmInstitution;
 
 import org.jooq.impl.TableRecordImpl;
 
@@ -99,25 +99,25 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_germplasm_deprecated.germplasm_puid</code>.
+     * <code>germinate_db.view_table_germplasm_deprecated.gerplasm_puid</code>.
      * Any persistent, unique identifier assigned to the accession so it can be
      * unambiguously referenced at the global level and the information
      * associated with it harvested through automated means. Report one PUID for
      * each accession.
      */
-    public void setGermplasmPuid(String value) {
+    public void setGerplasmPuid(String value) {
         set(4, value);
     }
 
     /**
      * Getter for
-     * <code>germinate_db.view_table_germplasm_deprecated.germplasm_puid</code>.
+     * <code>germinate_db.view_table_germplasm_deprecated.gerplasm_puid</code>.
      * Any persistent, unique identifier assigned to the accession so it can be
      * unambiguously referenced at the global level and the information
      * associated with it harvested through automated means. Report one PUID for
      * each accession.
      */
-    public String getGermplasmPuid() {
+    public String getGerplasmPuid() {
         return (String) get(4);
     }
 
@@ -269,10 +269,9 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * Setter for
      * <code>germinate_db.view_table_germplasm_deprecated.collector_number</code>.
      * Original identifier assigned by the collector(s) of the sample, normally
-     * composed of the name or
-     * initials of the collector(s) followed by a number (e.g. ‘FM9909’). This
-     * identifier is essential for
-     * identifying duplicates held in different collections.
+     * composed of the name or initials of the collector(s) followed by a number
+     * (e.g. 'FM9909'). This identifier is essential for identifying duplicates
+     * held in different collections.
      */
     public void setCollectorNumber(String value) {
         set(13, value);
@@ -282,10 +281,9 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * Getter for
      * <code>germinate_db.view_table_germplasm_deprecated.collector_number</code>.
      * Original identifier assigned by the collector(s) of the sample, normally
-     * composed of the name or
-     * initials of the collector(s) followed by a number (e.g. ‘FM9909’). This
-     * identifier is essential for
-     * identifying duplicates held in different collections.
+     * composed of the name or initials of the collector(s) followed by a number
+     * (e.g. 'FM9909'). This identifier is essential for identifying duplicates
+     * held in different collections.
      */
     public String getCollectorNumber() {
         return (String) get(13);
@@ -347,38 +345,18 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_germplasm_deprecated.institution_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
+     * <code>germinate_db.view_table_germplasm_deprecated.institutions</code>.
      */
-    public void setInstitutionId(Integer value) {
+    public void setInstitutions(GermplasmInstitution[] value) {
         set(17, value);
     }
 
     /**
      * Getter for
-     * <code>germinate_db.view_table_germplasm_deprecated.institution_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
+     * <code>germinate_db.view_table_germplasm_deprecated.institutions</code>.
      */
-    public Integer getInstitutionId() {
-        return (Integer) get(17);
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_germplasm_deprecated.institution_name</code>.
-     * The institute name.
-     */
-    public void setInstitutionName(String value) {
-        set(18, value);
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_germplasm_deprecated.institution_name</code>.
-     * The institute name.
-     */
-    public String getInstitutionName() {
-        return (String) get(18);
+    public GermplasmInstitution[] getInstitutions() {
+        return (GermplasmInstitution[]) get(17);
     }
 
     /**
@@ -387,7 +365,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * site name where the location is.
      */
     public void setLocation(String value) {
-        set(19, value);
+        set(18, value);
     }
 
     /**
@@ -396,7 +374,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * site name where the location is.
      */
     public String getLocation() {
-        return (String) get(19);
+        return (String) get(18);
     }
 
     /**
@@ -405,7 +383,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * Latitude of the location.
      */
     public void setLatitude(BigDecimal value) {
-        set(20, value);
+        set(19, value);
     }
 
     /**
@@ -414,7 +392,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * Latitude of the location.
      */
     public BigDecimal getLatitude() {
-        return (BigDecimal) get(20);
+        return (BigDecimal) get(19);
     }
 
     /**
@@ -423,7 +401,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * Longitude of the location.
      */
     public void setLongitude(BigDecimal value) {
-        set(21, value);
+        set(20, value);
     }
 
     /**
@@ -432,7 +410,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * Longitude of the location.
      */
     public BigDecimal getLongitude() {
-        return (BigDecimal) get(21);
+        return (BigDecimal) get(20);
     }
 
     /**
@@ -441,7 +419,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * elevation of the site in metres.
      */
     public void setElevation(BigDecimal value) {
-        set(22, value);
+        set(21, value);
     }
 
     /**
@@ -450,7 +428,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * elevation of the site in metres.
      */
     public BigDecimal getElevation() {
-        return (BigDecimal) get(22);
+        return (BigDecimal) get(21);
     }
 
     /**
@@ -459,7 +437,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * Country name.
      */
     public void setCountryName(String value) {
-        set(23, value);
+        set(22, value);
     }
 
     /**
@@ -468,7 +446,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * Country name.
      */
     public String getCountryName() {
-        return (String) get(23);
+        return (String) get(22);
     }
 
     /**
@@ -477,7 +455,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * ISO 2 Code for country.
      */
     public void setCountryCode(String value) {
-        set(24, value);
+        set(23, value);
     }
 
     /**
@@ -486,31 +464,29 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * ISO 2 Code for country.
      */
     public String getCountryCode() {
-        return (String) get(24);
+        return (String) get(23);
     }
 
     /**
      * Setter for
      * <code>germinate_db.view_table_germplasm_deprecated.coll_date</code>.
      * Collecting date of the sample, where YYYY is the year, MM is the month
-     * and DD is the day.
-     * Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double
-     * zero]. 
+     * and DD is the day. Missing data (MM or DD) should be indicated with
+     * hyphens or '00' [double zero].
      */
-    public void setCollDate(Date value) {
-        set(25, value);
+    public void setCollDate(String value) {
+        set(24, value);
     }
 
     /**
      * Getter for
      * <code>germinate_db.view_table_germplasm_deprecated.coll_date</code>.
      * Collecting date of the sample, where YYYY is the year, MM is the month
-     * and DD is the day.
-     * Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double
-     * zero]. 
+     * and DD is the day. Missing data (MM or DD) should be indicated with
+     * hyphens or '00' [double zero].
      */
-    public Date getCollDate() {
-        return (Date) get(25);
+    public String getCollDate() {
+        return (String) get(24);
     }
 
     /**
@@ -520,7 +496,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * of this field will be overwritten.
      */
     public void setPdci(Double value) {
-        set(26, value);
+        set(25, value);
     }
 
     /**
@@ -530,7 +506,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * of this field will be overwritten.
      */
     public Double getPdci() {
-        return (Double) get(26);
+        return (Double) get(25);
     }
 
     /**
@@ -538,7 +514,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.image_count</code>.
      */
     public void setImageCount(Long value) {
-        set(27, value);
+        set(26, value);
     }
 
     /**
@@ -546,7 +522,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.image_count</code>.
      */
     public Long getImageCount() {
-        return (Long) get(27);
+        return (Long) get(26);
     }
 
     /**
@@ -554,7 +530,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.first_image_path</code>.
      */
     public void setFirstImagePath(String value) {
-        set(28, value);
+        set(27, value);
     }
 
     /**
@@ -562,7 +538,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.first_image_path</code>.
      */
     public String getFirstImagePath() {
-        return (String) get(28);
+        return (String) get(27);
     }
 
     /**
@@ -570,7 +546,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.has_trials_data</code>.
      */
     public void setHasTrialsData(Integer value) {
-        set(29, value);
+        set(28, value);
     }
 
     /**
@@ -578,7 +554,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.has_trials_data</code>.
      */
     public Integer getHasTrialsData() {
-        return (Integer) get(29);
+        return (Integer) get(28);
     }
 
     /**
@@ -586,7 +562,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.has_genotypic_data</code>.
      */
     public void setHasGenotypicData(Integer value) {
-        set(30, value);
+        set(29, value);
     }
 
     /**
@@ -594,7 +570,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.has_genotypic_data</code>.
      */
     public Integer getHasGenotypicData() {
-        return (Integer) get(30);
+        return (Integer) get(29);
     }
 
     /**
@@ -602,7 +578,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.has_allelefreq_data</code>.
      */
     public void setHasAllelefreqData(Integer value) {
-        set(31, value);
+        set(30, value);
     }
 
     /**
@@ -610,7 +586,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.has_allelefreq_data</code>.
      */
     public Integer getHasAllelefreqData() {
-        return (Integer) get(31);
+        return (Integer) get(30);
     }
 
     /**
@@ -618,7 +594,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.has_compound_data</code>.
      */
     public void setHasCompoundData(Integer value) {
-        set(32, value);
+        set(31, value);
     }
 
     /**
@@ -626,7 +602,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_deprecated.has_compound_data</code>.
      */
     public Integer getHasCompoundData() {
-        return (Integer) get(32);
+        return (Integer) get(31);
     }
 
     // -------------------------------------------------------------------------
@@ -643,14 +619,14 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
     /**
      * Create a detached, initialised ViewTableGermplasmDeprecatedRecord
      */
-    public ViewTableGermplasmDeprecatedRecord(String germplasmName, Integer germplasmId, String germplasmGid, String germplasmNumber, String germplasmPuid, Integer entityTypeId, String entityTypeName, Integer entityParentId, String entityParentName, String entityParentGeneralIdentifier, Integer biologicalStatusId, String biologicalStatusName, String[] synonyms, String collectorNumber, String genus, String species, String subtaxa, Integer institutionId, String institutionName, String location, BigDecimal latitude, BigDecimal longitude, BigDecimal elevation, String countryName, String countryCode, Date collDate, Double pdci, Long imageCount, String firstImagePath, Integer hasTrialsData, Integer hasGenotypicData, Integer hasAllelefreqData, Integer hasCompoundData) {
+    public ViewTableGermplasmDeprecatedRecord(String germplasmName, Integer germplasmId, String germplasmGid, String germplasmNumber, String gerplasmPuid, Integer entityTypeId, String entityTypeName, Integer entityParentId, String entityParentName, String entityParentGeneralIdentifier, Integer biologicalStatusId, String biologicalStatusName, String[] synonyms, String collectorNumber, String genus, String species, String subtaxa, GermplasmInstitution[] institutions, String location, BigDecimal latitude, BigDecimal longitude, BigDecimal elevation, String countryName, String countryCode, String collDate, Double pdci, Long imageCount, String firstImagePath, Integer hasTrialsData, Integer hasGenotypicData, Integer hasAllelefreqData, Integer hasCompoundData) {
         super(ViewTableGermplasmDeprecated.VIEW_TABLE_GERMPLASM_DEPRECATED);
 
         setGermplasmName(germplasmName);
         setGermplasmId(germplasmId);
         setGermplasmGid(germplasmGid);
         setGermplasmNumber(germplasmNumber);
-        setGermplasmPuid(germplasmPuid);
+        setGerplasmPuid(gerplasmPuid);
         setEntityTypeId(entityTypeId);
         setEntityTypeName(entityTypeName);
         setEntityParentId(entityParentId);
@@ -663,8 +639,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
         setGenus(genus);
         setSpecies(species);
         setSubtaxa(subtaxa);
-        setInstitutionId(institutionId);
-        setInstitutionName(institutionName);
+        setInstitutions(institutions);
         setLocation(location);
         setLatitude(latitude);
         setLongitude(longitude);
@@ -692,7 +667,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
             setGermplasmId(value.getGermplasmId());
             setGermplasmGid(value.getGermplasmGid());
             setGermplasmNumber(value.getGermplasmNumber());
-            setGermplasmPuid(value.getGermplasmPuid());
+            setGerplasmPuid(value.getGerplasmPuid());
             setEntityTypeId(value.getEntityTypeId());
             setEntityTypeName(value.getEntityTypeName());
             setEntityParentId(value.getEntityParentId());
@@ -705,8 +680,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
             setGenus(value.getGenus());
             setSpecies(value.getSpecies());
             setSubtaxa(value.getSubtaxa());
-            setInstitutionId(value.getInstitutionId());
-            setInstitutionName(value.getInstitutionName());
+            setInstitutions(value.getInstitutions());
             setLocation(value.getLocation());
             setLatitude(value.getLatitude());
             setLongitude(value.getLongitude());

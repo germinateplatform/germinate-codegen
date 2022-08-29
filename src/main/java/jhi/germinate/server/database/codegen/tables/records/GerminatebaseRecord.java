@@ -4,12 +4,14 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import jhi.germinate.server.database.codegen.tables.Germinatebase;
 
+import org.jooq.Field;
 import org.jooq.Record1;
+import org.jooq.Record13;
+import org.jooq.Row13;
 import org.jooq.impl.UpdatableRecordImpl;
 
 
@@ -19,7 +21,7 @@ import org.jooq.impl.UpdatableRecordImpl;
  * germplasm definition data.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord> {
+public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord> implements Record13<Integer, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -108,57 +110,11 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
     }
 
     /**
-     * Setter for <code>germinate_db.germinatebase.breeders_code</code>. FAO
-     * WIEWS code of the institute that has bred the material. If the holding
-     * institute has bred the material, the breeding institute code (BREDCODE)
-     * should be the same as the holding institute code (INSTCODE). Follows
-     * INSTCODE standard. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public void setBreedersCode(String value) {
-        set(5, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.breeders_code</code>. FAO
-     * WIEWS code of the institute that has bred the material. If the holding
-     * institute has bred the material, the breeding institute code (BREDCODE)
-     * should be the same as the holding institute code (INSTCODE). Follows
-     * INSTCODE standard. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public String getBreedersCode() {
-        return (String) get(5);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.breeders_name</code>. Name of
-     * the institute (or person) that bred the material. This descriptor should
-     * be used only if BREDCODE cannot be filled because the FAO WIEWS code for
-     * this institute is not available. Multiple names are separated by a
-     * semicolon without space.
-     */
-    public void setBreedersName(String value) {
-        set(6, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.breeders_name</code>. Name of
-     * the institute (or person) that bred the material. This descriptor should
-     * be used only if BREDCODE cannot be filled because the FAO WIEWS code for
-     * this institute is not available. Multiple names are separated by a
-     * semicolon without space.
-     */
-    public String getBreedersName() {
-        return (String) get(6);
-    }
-
-    /**
      * Setter for <code>germinate_db.germinatebase.taxonomy_id</code>. Foreign
      * key to taxonomies (taxonomies.id).
      */
     public void setTaxonomyId(Integer value) {
-        set(7, value);
+        set(5, value);
     }
 
     /**
@@ -166,23 +122,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to taxonomies (taxonomies.id).
      */
     public Integer getTaxonomyId() {
-        return (Integer) get(7);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.institution_id</code>.
-     * Foreign key to institutions (institutions.id).
-     */
-    public void setInstitutionId(Integer value) {
-        set(8, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.institution_id</code>.
-     * Foreign key to institutions (institutions.id).
-     */
-    public Integer getInstitutionId() {
-        return (Integer) get(8);
+        return (Integer) get(5);
     }
 
     /**
@@ -190,7 +130,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * if the entry has a plant passport.
      */
     public void setPlantPassport(String value) {
-        set(9, value);
+        set(6, value);
     }
 
     /**
@@ -198,329 +138,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * if the entry has a plant passport.
      */
     public String getPlantPassport() {
-        return (String) get(9);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.donor_code</code>. FAO WIEWS
-     * code of the donor institute. Follows INSTCODE standard.
-     */
-    public void setDonorCode(String value) {
-        set(10, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.donor_code</code>. FAO WIEWS
-     * code of the donor institute. Follows INSTCODE standard.
-     */
-    public String getDonorCode() {
-        return (String) get(10);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.donor_name</code>. Name of
-     * the donor institute (or person). This descriptor should be used only if
-     * DONORCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available.
-     */
-    public void setDonorName(String value) {
-        set(11, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.donor_name</code>. Name of
-     * the donor institute (or person). This descriptor should be used only if
-     * DONORCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available.
-     */
-    public String getDonorName() {
-        return (String) get(11);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.donor_number</code>.
-     * Identifier assigned to an accession by the donor. Follows ACCENUMB
-     * standard.
-     */
-    public void setDonorNumber(String value) {
-        set(12, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.donor_number</code>.
-     * Identifier assigned to an accession by the donor. Follows ACCENUMB
-     * standard.
-     */
-    public String getDonorNumber() {
-        return (String) get(12);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.acqdate</code>. Date on which
-     * the accession entered the collection where YYYY is the year, MM is the
-     * month and
-     * DD is the day. Missing data (MM or DD) should be indicated with hyphens
-     * or ‘00’ [double zero].
-     */
-    public void setAcqdate(String value) {
-        set(13, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.acqdate</code>. Date on which
-     * the accession entered the collection where YYYY is the year, MM is the
-     * month and
-     * DD is the day. Missing data (MM or DD) should be indicated with hyphens
-     * or ‘00’ [double zero].
-     */
-    public String getAcqdate() {
-        return (String) get(13);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collnumb</code>. Original
-     * identifier assigned by the collector(s) of the sample, normally composed
-     * of the name or
-     * initials of the collector(s) followed by a number (e.g. ‘FM9909’). This
-     * identifier is essential for
-     * identifying duplicates held in different collections.
-     */
-    public void setCollnumb(String value) {
-        set(14, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collnumb</code>. Original
-     * identifier assigned by the collector(s) of the sample, normally composed
-     * of the name or
-     * initials of the collector(s) followed by a number (e.g. ‘FM9909’). This
-     * identifier is essential for
-     * identifying duplicates held in different collections.
-     */
-    public String getCollnumb() {
-        return (String) get(14);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.colldate</code>. Collecting
-     * date of the sample, where YYYY is the year, MM is the month and DD is the
-     * day.
-     * Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double
-     * zero]. 
-     */
-    public void setColldate(Date value) {
-        set(15, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.colldate</code>. Collecting
-     * date of the sample, where YYYY is the year, MM is the month and DD is the
-     * day.
-     * Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double
-     * zero]. 
-     */
-    public Date getColldate() {
-        return (Date) get(15);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collcode</code>. FAO WIEWS
-     * code of the institute collecting the sample. If the holding institute has
-     * collected the
-     * material, the collecting institute code (COLLCODE) should be the same as
-     * the holding institute
-     * code (INSTCODE). Follows INSTCODE standard. Multiple values are separated
-     * by a semicolon
-     * without space.
-     */
-    public void setCollcode(String value) {
-        set(16, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collcode</code>. FAO WIEWS
-     * code of the institute collecting the sample. If the holding institute has
-     * collected the
-     * material, the collecting institute code (COLLCODE) should be the same as
-     * the holding institute
-     * code (INSTCODE). Follows INSTCODE standard. Multiple values are separated
-     * by a semicolon
-     * without space.
-     */
-    public String getCollcode() {
-        return (String) get(16);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collname</code>. Name of the
-     * institute collecting the sample. This descriptor should be used only if
-     * COLLCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public void setCollname(String value) {
-        set(17, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collname</code>. Name of the
-     * institute collecting the sample. This descriptor should be used only if
-     * COLLCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public String getCollname() {
-        return (String) get(17);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collmissid</code>. Identifier
-     * of the collecting mission used by the Collecting Institute (4 or 4.1)
-     * (e.g. 'CIATFOR-052', 'CN426').
-     */
-    public void setCollmissid(String value) {
-        set(18, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collmissid</code>. Identifier
-     * of the collecting mission used by the Collecting Institute (4 or 4.1)
-     * (e.g. 'CIATFOR-052', 'CN426').
-     */
-    public String getCollmissid() {
-        return (String) get(18);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.othernumb</code>. Any other
-     * identifiers known to exist in other collections for this accession. Use
-     * the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;… INSTCODE
-     * and identifier are separated by a colon without space. Pairs of INSTCODE
-     * and identifier are separated by a semicolon without space. When the
-     * institute is not known, the identifier should be preceded by a colon.
-     */
-    public void setOthernumb(String value) {
-        set(19, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.othernumb</code>. Any other
-     * identifiers known to exist in other collections for this accession. Use
-     * the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;… INSTCODE
-     * and identifier are separated by a colon without space. Pairs of INSTCODE
-     * and identifier are separated by a semicolon without space. When the
-     * institute is not known, the identifier should be preceded by a colon.
-     */
-    public String getOthernumb() {
-        return (String) get(19);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.duplsite</code>. FAO WIEWS
-     * code of the institute(s) where a safety duplicate of the accession is
-     * maintained.
-     * Multiple values are separated by a semicolon without space. Follows
-     * INSTCODE standard.
-     */
-    public void setDuplsite(String value) {
-        set(20, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.duplsite</code>. FAO WIEWS
-     * code of the institute(s) where a safety duplicate of the accession is
-     * maintained.
-     * Multiple values are separated by a semicolon without space. Follows
-     * INSTCODE standard.
-     */
-    public String getDuplsite() {
-        return (String) get(20);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.duplinstname</code>. Name of
-     * the institute where a safety duplicate of the accession is maintained.
-     * Multiple values are separated by a semicolon without space.
-     */
-    public void setDuplinstname(String value) {
-        set(21, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.duplinstname</code>. Name of
-     * the institute where a safety duplicate of the accession is maintained.
-     * Multiple values are separated by a semicolon without space.
-     */
-    public String getDuplinstname() {
-        return (String) get(21);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.mlsstatus_id</code>. Foreign
-     * key to mlsstatus (mlsstatus.id).
-     */
-    public void setMlsstatusId(Integer value) {
-        set(22, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.mlsstatus_id</code>. Foreign
-     * key to mlsstatus (mlsstatus.id).
-     */
-    public Integer getMlsstatusId() {
-        return (Integer) get(22);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.puid</code>. Any persistent,
-     * unique identifier assigned to the accession so it can be unambiguously
-     * referenced at the global level and the information associated with it
-     * harvested through automated means. Report one PUID for each accession.
-     */
-    public void setPuid(String value) {
-        set(23, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.puid</code>. Any persistent,
-     * unique identifier assigned to the accession so it can be unambiguously
-     * referenced at the global level and the information associated with it
-     * harvested through automated means. Report one PUID for each accession.
-     */
-    public String getPuid() {
-        return (String) get(23);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.biologicalstatus_id</code>.
-     * Foreign key to biologicalstatus (biologicalstaus.id).
-     */
-    public void setBiologicalstatusId(Integer value) {
-        set(24, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.biologicalstatus_id</code>.
-     * Foreign key to biologicalstatus (biologicalstaus.id).
-     */
-    public Integer getBiologicalstatusId() {
-        return (Integer) get(24);
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collsrc_id</code>. Foreign
-     * key to collectionsources (collectionsources.id).
-     */
-    public void setCollsrcId(Integer value) {
-        set(25, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collsrc_id</code>. Foreign
-     * key to collectionsources (collectionsources.id).
-     */
-    public Integer getCollsrcId() {
-        return (Integer) get(25);
+        return (String) get(6);
     }
 
     /**
@@ -528,7 +146,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to locations (locations.id).
      */
     public void setLocationId(Integer value) {
-        set(26, value);
+        set(7, value);
     }
 
     /**
@@ -536,7 +154,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to locations (locations.id).
      */
     public Integer getLocationId() {
-        return (Integer) get(26);
+        return (Integer) get(7);
     }
 
     /**
@@ -544,7 +162,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to entitytypes (entitytypes.id).
      */
     public void setEntitytypeId(Integer value) {
-        set(27, value);
+        set(8, value);
     }
 
     /**
@@ -552,7 +170,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to entitytypes (entitytypes.id).
      */
     public Integer getEntitytypeId() {
-        return (Integer) get(27);
+        return (Integer) get(8);
     }
 
     /**
@@ -560,7 +178,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * Foreign key to germinatebase (germinatebase.id).
      */
     public void setEntityparentId(Integer value) {
-        set(28, value);
+        set(9, value);
     }
 
     /**
@@ -568,7 +186,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * Foreign key to germinatebase (germinatebase.id).
      */
     public Integer getEntityparentId() {
-        return (Integer) get(28);
+        return (Integer) get(9);
     }
 
     /**
@@ -577,7 +195,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * this field will be overwritten.
      */
     public void setPdci(Double value) {
-        set(29, value);
+        set(10, value);
     }
 
     /**
@@ -586,7 +204,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * this field will be overwritten.
      */
     public Double getPdci() {
-        return (Double) get(29);
+        return (Double) get(10);
     }
 
     /**
@@ -594,7 +212,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * record was created.
      */
     public void setCreatedOn(Timestamp value) {
-        set(30, value);
+        set(11, value);
     }
 
     /**
@@ -602,7 +220,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * record was created.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(30);
+        return (Timestamp) get(11);
     }
 
     /**
@@ -611,7 +229,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * subsequent changes have been made to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(31, value);
+        set(12, value);
     }
 
     /**
@@ -620,7 +238,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * subsequent changes have been made to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(31);
+        return (Timestamp) get(12);
     }
 
     // -------------------------------------------------------------------------
@@ -630,6 +248,311 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
     @Override
     public Record1<Integer> key() {
         return (Record1) super.key();
+    }
+
+    // -------------------------------------------------------------------------
+    // Record13 type implementation
+    // -------------------------------------------------------------------------
+
+    @Override
+    public Row13<Integer, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> fieldsRow() {
+        return (Row13) super.fieldsRow();
+    }
+
+    @Override
+    public Row13<Integer, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> valuesRow() {
+        return (Row13) super.valuesRow();
+    }
+
+    @Override
+    public Field<Integer> field1() {
+        return Germinatebase.GERMINATEBASE.ID;
+    }
+
+    @Override
+    public Field<String> field2() {
+        return Germinatebase.GERMINATEBASE.GENERAL_IDENTIFIER;
+    }
+
+    @Override
+    public Field<String> field3() {
+        return Germinatebase.GERMINATEBASE.NUMBER;
+    }
+
+    @Override
+    public Field<String> field4() {
+        return Germinatebase.GERMINATEBASE.NAME;
+    }
+
+    @Override
+    public Field<String> field5() {
+        return Germinatebase.GERMINATEBASE.BANK_NUMBER;
+    }
+
+    @Override
+    public Field<Integer> field6() {
+        return Germinatebase.GERMINATEBASE.TAXONOMY_ID;
+    }
+
+    @Override
+    public Field<String> field7() {
+        return Germinatebase.GERMINATEBASE.PLANT_PASSPORT;
+    }
+
+    @Override
+    public Field<Integer> field8() {
+        return Germinatebase.GERMINATEBASE.LOCATION_ID;
+    }
+
+    @Override
+    public Field<Integer> field9() {
+        return Germinatebase.GERMINATEBASE.ENTITYTYPE_ID;
+    }
+
+    @Override
+    public Field<Integer> field10() {
+        return Germinatebase.GERMINATEBASE.ENTITYPARENT_ID;
+    }
+
+    @Override
+    public Field<Double> field11() {
+        return Germinatebase.GERMINATEBASE.PDCI;
+    }
+
+    @Override
+    public Field<Timestamp> field12() {
+        return Germinatebase.GERMINATEBASE.CREATED_ON;
+    }
+
+    @Override
+    public Field<Timestamp> field13() {
+        return Germinatebase.GERMINATEBASE.UPDATED_ON;
+    }
+
+    @Override
+    public Integer component1() {
+        return getId();
+    }
+
+    @Override
+    public String component2() {
+        return getGeneralIdentifier();
+    }
+
+    @Override
+    public String component3() {
+        return getNumber();
+    }
+
+    @Override
+    public String component4() {
+        return getName();
+    }
+
+    @Override
+    public String component5() {
+        return getBankNumber();
+    }
+
+    @Override
+    public Integer component6() {
+        return getTaxonomyId();
+    }
+
+    @Override
+    public String component7() {
+        return getPlantPassport();
+    }
+
+    @Override
+    public Integer component8() {
+        return getLocationId();
+    }
+
+    @Override
+    public Integer component9() {
+        return getEntitytypeId();
+    }
+
+    @Override
+    public Integer component10() {
+        return getEntityparentId();
+    }
+
+    @Override
+    public Double component11() {
+        return getPdci();
+    }
+
+    @Override
+    public Timestamp component12() {
+        return getCreatedOn();
+    }
+
+    @Override
+    public Timestamp component13() {
+        return getUpdatedOn();
+    }
+
+    @Override
+    public Integer value1() {
+        return getId();
+    }
+
+    @Override
+    public String value2() {
+        return getGeneralIdentifier();
+    }
+
+    @Override
+    public String value3() {
+        return getNumber();
+    }
+
+    @Override
+    public String value4() {
+        return getName();
+    }
+
+    @Override
+    public String value5() {
+        return getBankNumber();
+    }
+
+    @Override
+    public Integer value6() {
+        return getTaxonomyId();
+    }
+
+    @Override
+    public String value7() {
+        return getPlantPassport();
+    }
+
+    @Override
+    public Integer value8() {
+        return getLocationId();
+    }
+
+    @Override
+    public Integer value9() {
+        return getEntitytypeId();
+    }
+
+    @Override
+    public Integer value10() {
+        return getEntityparentId();
+    }
+
+    @Override
+    public Double value11() {
+        return getPdci();
+    }
+
+    @Override
+    public Timestamp value12() {
+        return getCreatedOn();
+    }
+
+    @Override
+    public Timestamp value13() {
+        return getUpdatedOn();
+    }
+
+    @Override
+    public GerminatebaseRecord value1(Integer value) {
+        setId(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value2(String value) {
+        setGeneralIdentifier(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value3(String value) {
+        setNumber(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value4(String value) {
+        setName(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value5(String value) {
+        setBankNumber(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value6(Integer value) {
+        setTaxonomyId(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value7(String value) {
+        setPlantPassport(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value8(Integer value) {
+        setLocationId(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value9(Integer value) {
+        setEntitytypeId(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value10(Integer value) {
+        setEntityparentId(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value11(Double value) {
+        setPdci(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value12(Timestamp value) {
+        setCreatedOn(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value13(Timestamp value) {
+        setUpdatedOn(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord values(Integer value1, String value2, String value3, String value4, String value5, Integer value6, String value7, Integer value8, Integer value9, Integer value10, Double value11, Timestamp value12, Timestamp value13) {
+        value1(value1);
+        value2(value2);
+        value3(value3);
+        value4(value4);
+        value5(value5);
+        value6(value6);
+        value7(value7);
+        value8(value8);
+        value9(value9);
+        value10(value10);
+        value11(value11);
+        value12(value12);
+        value13(value13);
+        return this;
     }
 
     // -------------------------------------------------------------------------
@@ -646,7 +569,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
     /**
      * Create a detached, initialised GerminatebaseRecord
      */
-    public GerminatebaseRecord(Integer id, String generalIdentifier, String number, String name, String bankNumber, String breedersCode, String breedersName, Integer taxonomyId, Integer institutionId, String plantPassport, String donorCode, String donorName, String donorNumber, String acqdate, String collnumb, Date colldate, String collcode, String collname, String collmissid, String othernumb, String duplsite, String duplinstname, Integer mlsstatusId, String puid, Integer biologicalstatusId, Integer collsrcId, Integer locationId, Integer entitytypeId, Integer entityparentId, Double pdci, Timestamp createdOn, Timestamp updatedOn) {
+    public GerminatebaseRecord(Integer id, String generalIdentifier, String number, String name, String bankNumber, Integer taxonomyId, String plantPassport, Integer locationId, Integer entitytypeId, Integer entityparentId, Double pdci, Timestamp createdOn, Timestamp updatedOn) {
         super(Germinatebase.GERMINATEBASE);
 
         setId(id);
@@ -654,27 +577,8 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
         setNumber(number);
         setName(name);
         setBankNumber(bankNumber);
-        setBreedersCode(breedersCode);
-        setBreedersName(breedersName);
         setTaxonomyId(taxonomyId);
-        setInstitutionId(institutionId);
         setPlantPassport(plantPassport);
-        setDonorCode(donorCode);
-        setDonorName(donorName);
-        setDonorNumber(donorNumber);
-        setAcqdate(acqdate);
-        setCollnumb(collnumb);
-        setColldate(colldate);
-        setCollcode(collcode);
-        setCollname(collname);
-        setCollmissid(collmissid);
-        setOthernumb(othernumb);
-        setDuplsite(duplsite);
-        setDuplinstname(duplinstname);
-        setMlsstatusId(mlsstatusId);
-        setPuid(puid);
-        setBiologicalstatusId(biologicalstatusId);
-        setCollsrcId(collsrcId);
         setLocationId(locationId);
         setEntitytypeId(entitytypeId);
         setEntityparentId(entityparentId);
@@ -695,27 +599,8 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
             setNumber(value.getNumber());
             setName(value.getName());
             setBankNumber(value.getBankNumber());
-            setBreedersCode(value.getBreedersCode());
-            setBreedersName(value.getBreedersName());
             setTaxonomyId(value.getTaxonomyId());
-            setInstitutionId(value.getInstitutionId());
             setPlantPassport(value.getPlantPassport());
-            setDonorCode(value.getDonorCode());
-            setDonorName(value.getDonorName());
-            setDonorNumber(value.getDonorNumber());
-            setAcqdate(value.getAcqdate());
-            setCollnumb(value.getCollnumb());
-            setColldate(value.getColldate());
-            setCollcode(value.getCollcode());
-            setCollname(value.getCollname());
-            setCollmissid(value.getCollmissid());
-            setOthernumb(value.getOthernumb());
-            setDuplsite(value.getDuplsite());
-            setDuplinstname(value.getDuplinstname());
-            setMlsstatusId(value.getMlsstatusId());
-            setPuid(value.getPuid());
-            setBiologicalstatusId(value.getBiologicalstatusId());
-            setCollsrcId(value.getCollsrcId());
             setLocationId(value.getLocationId());
             setEntitytypeId(value.getEntitytypeId());
             setEntityparentId(value.getEntityparentId());

@@ -20,7 +20,7 @@
             <excludes>
             </excludes>
             <includes>.*</includes>
-            <inputSchema>germinate_template_4_22_08_23</inputSchema>
+            <inputSchema>germinate_template_4_22_08_24</inputSchema>
             <outputSchema>germinate_db</outputSchema>
             <name>org.jooq.meta.mysql.MySQLDatabase</name>
             <comments>
@@ -52,6 +52,12 @@
                     <expression>.*(view_table_datasets)\.(locations)</expression>
                     <types>.*</types>
                     <userType>jhi.germinate.server.database.codegen.tables.pojos.ViewTableLocations[]</userType>
+                </forcedType>
+                <forcedType>
+                    <binding>jhi.germinate.server.database.binding.GermplasmInstitutionBinding</binding>
+                    <expression>.*(view_table_germplasm_deprecated)\.(institutions)</expression>
+                    <types>.*</types>
+                    <userType>jhi.germinate.server.database.pojo.GermplasmInstitution[]</userType>
                 </forcedType>
                 <forcedType>
                     <binding>jhi.germinate.server.database.binding.ImageTagBinding</binding>
@@ -166,7 +172,7 @@
                 <value></value>
             </property>
         </properties>
-        <url>jdbc:mysql://localhost/germinate_template_4_22_08_23?serverTimezone=UTC</url>
+        <url>jdbc:mysql://localhost/germinate_template_4_22_08_24?serverTimezone=UTC</url>
 
         <!-- You can also pass user/password and other JDBC properties in the optional properties tag: -->
         <user>root</user>

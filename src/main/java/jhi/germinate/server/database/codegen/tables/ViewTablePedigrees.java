@@ -10,7 +10,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewTablePedigreesRe
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row14;
+import org.jooq.Row16;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -61,6 +61,14 @@ public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
     public final TableField<ViewTablePedigreesRecord, String> PARENT_NAME = createField(DSL.name("parent_name"), SQLDataType.VARCHAR(255), this, "A unique name which defines an entry in the germinatbase table.");
 
     /**
+     * The column <code>germinate_db.view_table_pedigrees.parent_number</code>.
+     * This is the unique identifier for accessions within a genebank, and is
+     * assigned when a sample is
+     * entered into the genebank collection (e.g. ‘PI 113869’).
+     */
+    public final TableField<ViewTablePedigreesRecord, String> PARENT_NUMBER = createField(DSL.name("parent_number"), SQLDataType.VARCHAR(255), this, "This is the unique identifier for accessions within a genebank, and is assigned when a sample is\nentered into the genebank collection (e.g. ‘PI 113869’).");
+
+    /**
      * The column <code>germinate_db.view_table_pedigrees.child_id</code>.
      * Primary id for this table. This uniquely identifies the row.
      */
@@ -77,6 +85,14 @@ public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
      * unique name which defines an entry in the germinatbase table.
      */
     public final TableField<ViewTablePedigreesRecord, String> CHILD_NAME = createField(DSL.name("child_name"), SQLDataType.VARCHAR(255), this, "A unique name which defines an entry in the germinatbase table.");
+
+    /**
+     * The column <code>germinate_db.view_table_pedigrees.child_number</code>.
+     * This is the unique identifier for accessions within a genebank, and is
+     * assigned when a sample is
+     * entered into the genebank collection (e.g. ‘PI 113869’).
+     */
+    public final TableField<ViewTablePedigreesRecord, String> CHILD_NUMBER = createField(DSL.name("child_number"), SQLDataType.VARCHAR(255), this, "This is the unique identifier for accessions within a genebank, and is assigned when a sample is\nentered into the genebank collection (e.g. ‘PI 113869’).");
 
     /**
      * The column <code>germinate_db.view_table_pedigrees.dataset_id</code>.
@@ -140,7 +156,7 @@ public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
     }
 
     private ViewTablePedigrees(Name alias, Table<ViewTablePedigreesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_pedigrees` as select `parent`.`id` AS `parent_id`,`parent`.`general_identifier` AS `parent_gid`,`parent`.`name` AS `parent_name`,`child`.`id` AS `child_id`,`child`.`general_identifier` AS `child_gid`,`child`.`name` AS `child_name`,`germinate_template_4_22_08_23`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_22_08_23`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_22_08_23`.`experiments`.`id` AS `experiment_id`,`germinate_template_4_22_08_23`.`experiments`.`experiment_name` AS `experiment_name`,`germinate_template_4_22_08_23`.`pedigrees`.`relationship_type` AS `relationship_type`,`germinate_template_4_22_08_23`.`pedigrees`.`relationship_description` AS `relationship_description`,`germinate_template_4_22_08_23`.`pedigreedescriptions`.`name` AS `pedigree_description`,`germinate_template_4_22_08_23`.`pedigreedescriptions`.`author` AS `pedigree_author` from (((((`germinate_template_4_22_08_23`.`pedigrees` left join `germinate_template_4_22_08_23`.`germinatebase` `parent` on((`parent`.`id` = `germinate_template_4_22_08_23`.`pedigrees`.`parent_id`))) left join `germinate_template_4_22_08_23`.`germinatebase` `child` on((`child`.`id` = `germinate_template_4_22_08_23`.`pedigrees`.`germinatebase_id`))) left join `germinate_template_4_22_08_23`.`pedigreedescriptions` on((`germinate_template_4_22_08_23`.`pedigreedescriptions`.`id` = `germinate_template_4_22_08_23`.`pedigrees`.`pedigreedescription_id`))) left join `germinate_template_4_22_08_23`.`datasets` on((`germinate_template_4_22_08_23`.`datasets`.`id` = `germinate_template_4_22_08_23`.`pedigrees`.`dataset_id`))) left join `germinate_template_4_22_08_23`.`experiments` on((`germinate_template_4_22_08_23`.`experiments`.`id` = `germinate_template_4_22_08_23`.`datasets`.`experiment_id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_pedigrees` as select `parent`.`id` AS `parent_id`,`parent`.`general_identifier` AS `parent_gid`,`parent`.`name` AS `parent_name`,`parent`.`number` AS `parent_number`,`child`.`id` AS `child_id`,`child`.`general_identifier` AS `child_gid`,`child`.`name` AS `child_name`,`child`.`number` AS `child_number`,`germinate_template_4_22_08_24`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_22_08_24`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_22_08_24`.`experiments`.`id` AS `experiment_id`,`germinate_template_4_22_08_24`.`experiments`.`experiment_name` AS `experiment_name`,`germinate_template_4_22_08_24`.`pedigrees`.`relationship_type` AS `relationship_type`,`germinate_template_4_22_08_24`.`pedigrees`.`relationship_description` AS `relationship_description`,`germinate_template_4_22_08_24`.`pedigreedescriptions`.`name` AS `pedigree_description`,`germinate_template_4_22_08_24`.`pedigreedescriptions`.`author` AS `pedigree_author` from (((((`germinate_template_4_22_08_24`.`pedigrees` left join `germinate_template_4_22_08_24`.`germinatebase` `parent` on((`parent`.`id` = `germinate_template_4_22_08_24`.`pedigrees`.`parent_id`))) left join `germinate_template_4_22_08_24`.`germinatebase` `child` on((`child`.`id` = `germinate_template_4_22_08_24`.`pedigrees`.`germinatebase_id`))) left join `germinate_template_4_22_08_24`.`pedigreedescriptions` on((`germinate_template_4_22_08_24`.`pedigreedescriptions`.`id` = `germinate_template_4_22_08_24`.`pedigrees`.`pedigreedescription_id`))) left join `germinate_template_4_22_08_24`.`datasets` on((`germinate_template_4_22_08_24`.`datasets`.`id` = `germinate_template_4_22_08_24`.`pedigrees`.`dataset_id`))) left join `germinate_template_4_22_08_24`.`experiments` on((`germinate_template_4_22_08_24`.`experiments`.`id` = `germinate_template_4_22_08_24`.`datasets`.`experiment_id`)))"));
     }
 
     /**
@@ -198,12 +214,12 @@ public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row14 type methods
+    // Row16 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row14<Integer, String, String, Integer, String, String, Integer, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> fieldsRow() {
-        return (Row14) super.fieldsRow();
+    public Row16<Integer, String, String, String, Integer, String, String, String, Integer, String, Integer, String, ViewTablePedigreesRelationshipType, String, String, String> fieldsRow() {
+        return (Row16) super.fieldsRow();
     }
     // @formatter:on
 }

@@ -7,8 +7,8 @@ package jhi.germinate.server.database.codegen.tables.records;
 import jhi.germinate.server.database.codegen.tables.ViewTableInstitutions;
 
 import org.jooq.Field;
-import org.jooq.Record11;
-import org.jooq.Row11;
+import org.jooq.Record12;
+import org.jooq.Row12;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -17,7 +17,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstitutionsRecord> implements Record11<Integer, String, String, String, String, String, String, String, Integer, String, String> {
+public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstitutionsRecord> implements Record12<Integer, String, String, String, String, String, String, String, Integer, String, String, String> {
 
     private static final long serialVersionUID = 1L;
 
@@ -217,18 +217,34 @@ public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstit
         return (String) get(10);
     }
 
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_institutions.institution_type</code>.
+     */
+    public void setInstitutionType(String value) {
+        set(11, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_institutions.institution_type</code>.
+     */
+    public String getInstitutionType() {
+        return (String) get(11);
+    }
+
     // -------------------------------------------------------------------------
-    // Record11 type implementation
+    // Record12 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, String, String, String, String, String, Integer, String, String> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row12<Integer, String, String, String, String, String, String, String, Integer, String, String, String> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
 
     @Override
-    public Row11<Integer, String, String, String, String, String, String, String, Integer, String, String> valuesRow() {
-        return (Row11) super.valuesRow();
+    public Row12<Integer, String, String, String, String, String, String, String, Integer, String, String, String> valuesRow() {
+        return (Row12) super.valuesRow();
     }
 
     @Override
@@ -287,6 +303,11 @@ public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstit
     }
 
     @Override
+    public Field<String> field12() {
+        return ViewTableInstitutions.VIEW_TABLE_INSTITUTIONS.INSTITUTION_TYPE;
+    }
+
+    @Override
     public Integer component1() {
         return getInstitutionId();
     }
@@ -342,6 +363,11 @@ public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstit
     }
 
     @Override
+    public String component12() {
+        return getInstitutionType();
+    }
+
+    @Override
     public Integer value1() {
         return getInstitutionId();
     }
@@ -394,6 +420,11 @@ public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstit
     @Override
     public String value11() {
         return getCountryCode();
+    }
+
+    @Override
+    public String value12() {
+        return getInstitutionType();
     }
 
     @Override
@@ -463,7 +494,13 @@ public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstit
     }
 
     @Override
-    public ViewTableInstitutionsRecord values(Integer value1, String value2, String value3, String value4, String value5, String value6, String value7, String value8, Integer value9, String value10, String value11) {
+    public ViewTableInstitutionsRecord value12(String value) {
+        setInstitutionType(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableInstitutionsRecord values(Integer value1, String value2, String value3, String value4, String value5, String value6, String value7, String value8, Integer value9, String value10, String value11, String value12) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -475,6 +512,7 @@ public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstit
         value9(value9);
         value10(value10);
         value11(value11);
+        value12(value12);
         return this;
     }
 
@@ -492,7 +530,7 @@ public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstit
     /**
      * Create a detached, initialised ViewTableInstitutionsRecord
      */
-    public ViewTableInstitutionsRecord(Integer institutionId, String institutionName, String institutionCode, String institutionAcronym, String institutionAddress, String institutionEmail, String institutionContact, String institutionPhone, Integer countryId, String countryName, String countryCode) {
+    public ViewTableInstitutionsRecord(Integer institutionId, String institutionName, String institutionCode, String institutionAcronym, String institutionAddress, String institutionEmail, String institutionContact, String institutionPhone, Integer countryId, String countryName, String countryCode, String institutionType) {
         super(ViewTableInstitutions.VIEW_TABLE_INSTITUTIONS);
 
         setInstitutionId(institutionId);
@@ -506,6 +544,7 @@ public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstit
         setCountryId(countryId);
         setCountryName(countryName);
         setCountryCode(countryCode);
+        setInstitutionType(institutionType);
     }
 
     /**
@@ -526,6 +565,7 @@ public class ViewTableInstitutionsRecord extends TableRecordImpl<ViewTableInstit
             setCountryId(value.getCountryId());
             setCountryName(value.getCountryName());
             setCountryCode(value.getCountryCode());
+            setInstitutionType(value.getInstitutionType());
         }
     }
     // @formatter:on

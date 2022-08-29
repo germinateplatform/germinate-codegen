@@ -21,9 +21,11 @@ public class ViewTablePedigrees implements Serializable {
     private Integer                            parentId;
     private String                             parentGid;
     private String                             parentName;
+    private String                             parentNumber;
     private Integer                            childId;
     private String                             childGid;
     private String                             childName;
+    private String                             childNumber;
     private Integer                            datasetId;
     private String                             datasetName;
     private Integer                            experimentId;
@@ -39,9 +41,11 @@ public class ViewTablePedigrees implements Serializable {
         this.parentId = value.parentId;
         this.parentGid = value.parentGid;
         this.parentName = value.parentName;
+        this.parentNumber = value.parentNumber;
         this.childId = value.childId;
         this.childGid = value.childGid;
         this.childName = value.childName;
+        this.childNumber = value.childNumber;
         this.datasetId = value.datasetId;
         this.datasetName = value.datasetName;
         this.experimentId = value.experimentId;
@@ -56,9 +60,11 @@ public class ViewTablePedigrees implements Serializable {
         Integer                            parentId,
         String                             parentGid,
         String                             parentName,
+        String                             parentNumber,
         Integer                            childId,
         String                             childGid,
         String                             childName,
+        String                             childNumber,
         Integer                            datasetId,
         String                             datasetName,
         Integer                            experimentId,
@@ -71,9 +77,11 @@ public class ViewTablePedigrees implements Serializable {
         this.parentId = parentId;
         this.parentGid = parentGid;
         this.parentName = parentName;
+        this.parentNumber = parentNumber;
         this.childId = childId;
         this.childGid = childGid;
         this.childName = childName;
+        this.childNumber = childNumber;
         this.datasetId = datasetId;
         this.datasetName = datasetName;
         this.experimentId = experimentId;
@@ -133,6 +141,26 @@ public class ViewTablePedigrees implements Serializable {
     }
 
     /**
+     * Getter for <code>germinate_db.view_table_pedigrees.parent_number</code>.
+     * This is the unique identifier for accessions within a genebank, and is
+     * assigned when a sample is
+     * entered into the genebank collection (e.g. ‘PI 113869’).
+     */
+    public String getParentNumber() {
+        return this.parentNumber;
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_pedigrees.parent_number</code>.
+     * This is the unique identifier for accessions within a genebank, and is
+     * assigned when a sample is
+     * entered into the genebank collection (e.g. ‘PI 113869’).
+     */
+    public void setParentNumber(String parentNumber) {
+        this.parentNumber = parentNumber;
+    }
+
+    /**
      * Getter for <code>germinate_db.view_table_pedigrees.child_id</code>.
      * Primary id for this table. This uniquely identifies the row.
      */
@@ -178,6 +206,26 @@ public class ViewTablePedigrees implements Serializable {
      */
     public void setChildName(String childName) {
         this.childName = childName;
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_pedigrees.child_number</code>.
+     * This is the unique identifier for accessions within a genebank, and is
+     * assigned when a sample is
+     * entered into the genebank collection (e.g. ‘PI 113869’).
+     */
+    public String getChildNumber() {
+        return this.childNumber;
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_pedigrees.child_number</code>.
+     * This is the unique identifier for accessions within a genebank, and is
+     * assigned when a sample is
+     * entered into the genebank collection (e.g. ‘PI 113869’).
+     */
+    public void setChildNumber(String childNumber) {
+        this.childNumber = childNumber;
     }
 
     /**
@@ -333,9 +381,11 @@ public class ViewTablePedigrees implements Serializable {
         sb.append(parentId);
         sb.append(", ").append(parentGid);
         sb.append(", ").append(parentName);
+        sb.append(", ").append(parentNumber);
         sb.append(", ").append(childId);
         sb.append(", ").append(childGid);
         sb.append(", ").append(childName);
+        sb.append(", ").append(childNumber);
         sb.append(", ").append(datasetId);
         sb.append(", ").append(datasetName);
         sb.append(", ").append(experimentId);

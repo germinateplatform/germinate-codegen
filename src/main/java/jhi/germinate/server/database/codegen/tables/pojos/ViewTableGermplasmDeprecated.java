@@ -6,8 +6,9 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.util.Arrays;
+
+import jhi.germinate.server.database.pojo.GermplasmInstitution;
 
 
 // @formatter:off
@@ -19,39 +20,38 @@ public class ViewTableGermplasmDeprecated implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String     germplasmName;
-    private Integer    germplasmId;
-    private String     germplasmGid;
-    private String     germplasmNumber;
-    private String     germplasmPuid;
-    private Integer    entityTypeId;
-    private String     entityTypeName;
-    private Integer    entityParentId;
-    private String     entityParentName;
-    private String     entityParentGeneralIdentifier;
-    private Integer    biologicalStatusId;
-    private String     biologicalStatusName;
-    private String[]   synonyms;
-    private String     collectorNumber;
-    private String     genus;
-    private String     species;
-    private String     subtaxa;
-    private Integer    institutionId;
-    private String     institutionName;
-    private String     location;
-    private BigDecimal latitude;
-    private BigDecimal longitude;
-    private BigDecimal elevation;
-    private String     countryName;
-    private String     countryCode;
-    private Date       collDate;
-    private Double     pdci;
-    private Long       imageCount;
-    private String     firstImagePath;
-    private Integer    hasTrialsData;
-    private Integer    hasGenotypicData;
-    private Integer    hasAllelefreqData;
-    private Integer    hasCompoundData;
+    private String                 germplasmName;
+    private Integer                germplasmId;
+    private String                 germplasmGid;
+    private String                 germplasmNumber;
+    private String                 gerplasmPuid;
+    private Integer                entityTypeId;
+    private String                 entityTypeName;
+    private Integer                entityParentId;
+    private String                 entityParentName;
+    private String                 entityParentGeneralIdentifier;
+    private Integer                biologicalStatusId;
+    private String                 biologicalStatusName;
+    private String[]               synonyms;
+    private String                 collectorNumber;
+    private String                 genus;
+    private String                 species;
+    private String                 subtaxa;
+    private GermplasmInstitution[] institutions;
+    private String                 location;
+    private BigDecimal             latitude;
+    private BigDecimal             longitude;
+    private BigDecimal             elevation;
+    private String                 countryName;
+    private String                 countryCode;
+    private String                 collDate;
+    private Double                 pdci;
+    private Long                   imageCount;
+    private String                 firstImagePath;
+    private Integer                hasTrialsData;
+    private Integer                hasGenotypicData;
+    private Integer                hasAllelefreqData;
+    private Integer                hasCompoundData;
 
     public ViewTableGermplasmDeprecated() {}
 
@@ -60,7 +60,7 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         this.germplasmId = value.germplasmId;
         this.germplasmGid = value.germplasmGid;
         this.germplasmNumber = value.germplasmNumber;
-        this.germplasmPuid = value.germplasmPuid;
+        this.gerplasmPuid = value.gerplasmPuid;
         this.entityTypeId = value.entityTypeId;
         this.entityTypeName = value.entityTypeName;
         this.entityParentId = value.entityParentId;
@@ -73,8 +73,7 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         this.genus = value.genus;
         this.species = value.species;
         this.subtaxa = value.subtaxa;
-        this.institutionId = value.institutionId;
-        this.institutionName = value.institutionName;
+        this.institutions = value.institutions;
         this.location = value.location;
         this.latitude = value.latitude;
         this.longitude = value.longitude;
@@ -92,45 +91,44 @@ public class ViewTableGermplasmDeprecated implements Serializable {
     }
 
     public ViewTableGermplasmDeprecated(
-        String     germplasmName,
-        Integer    germplasmId,
-        String     germplasmGid,
-        String     germplasmNumber,
-        String     germplasmPuid,
-        Integer    entityTypeId,
-        String     entityTypeName,
-        Integer    entityParentId,
-        String     entityParentName,
-        String     entityParentGeneralIdentifier,
-        Integer    biologicalStatusId,
-        String     biologicalStatusName,
-        String[]   synonyms,
-        String     collectorNumber,
-        String     genus,
-        String     species,
-        String     subtaxa,
-        Integer    institutionId,
-        String     institutionName,
-        String     location,
-        BigDecimal latitude,
-        BigDecimal longitude,
-        BigDecimal elevation,
-        String     countryName,
-        String     countryCode,
-        Date       collDate,
-        Double     pdci,
-        Long       imageCount,
-        String     firstImagePath,
-        Integer    hasTrialsData,
-        Integer    hasGenotypicData,
-        Integer    hasAllelefreqData,
-        Integer    hasCompoundData
+        String                 germplasmName,
+        Integer                germplasmId,
+        String                 germplasmGid,
+        String                 germplasmNumber,
+        String                 gerplasmPuid,
+        Integer                entityTypeId,
+        String                 entityTypeName,
+        Integer                entityParentId,
+        String                 entityParentName,
+        String                 entityParentGeneralIdentifier,
+        Integer                biologicalStatusId,
+        String                 biologicalStatusName,
+        String[]               synonyms,
+        String                 collectorNumber,
+        String                 genus,
+        String                 species,
+        String                 subtaxa,
+        GermplasmInstitution[] institutions,
+        String                 location,
+        BigDecimal             latitude,
+        BigDecimal             longitude,
+        BigDecimal             elevation,
+        String                 countryName,
+        String                 countryCode,
+        String                 collDate,
+        Double                 pdci,
+        Long                   imageCount,
+        String                 firstImagePath,
+        Integer                hasTrialsData,
+        Integer                hasGenotypicData,
+        Integer                hasAllelefreqData,
+        Integer                hasCompoundData
     ) {
         this.germplasmName = germplasmName;
         this.germplasmId = germplasmId;
         this.germplasmGid = germplasmGid;
         this.germplasmNumber = germplasmNumber;
-        this.germplasmPuid = germplasmPuid;
+        this.gerplasmPuid = gerplasmPuid;
         this.entityTypeId = entityTypeId;
         this.entityTypeName = entityTypeName;
         this.entityParentId = entityParentId;
@@ -143,8 +141,7 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         this.genus = genus;
         this.species = species;
         this.subtaxa = subtaxa;
-        this.institutionId = institutionId;
-        this.institutionName = institutionName;
+        this.institutions = institutions;
         this.location = location;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -239,26 +236,26 @@ public class ViewTableGermplasmDeprecated implements Serializable {
 
     /**
      * Getter for
-     * <code>germinate_db.view_table_germplasm_deprecated.germplasm_puid</code>.
+     * <code>germinate_db.view_table_germplasm_deprecated.gerplasm_puid</code>.
      * Any persistent, unique identifier assigned to the accession so it can be
      * unambiguously referenced at the global level and the information
      * associated with it harvested through automated means. Report one PUID for
      * each accession.
      */
-    public String getGermplasmPuid() {
-        return this.germplasmPuid;
+    public String getGerplasmPuid() {
+        return this.gerplasmPuid;
     }
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_germplasm_deprecated.germplasm_puid</code>.
+     * <code>germinate_db.view_table_germplasm_deprecated.gerplasm_puid</code>.
      * Any persistent, unique identifier assigned to the accession so it can be
      * unambiguously referenced at the global level and the information
      * associated with it harvested through automated means. Report one PUID for
      * each accession.
      */
-    public void setGermplasmPuid(String germplasmPuid) {
-        this.germplasmPuid = germplasmPuid;
+    public void setGerplasmPuid(String gerplasmPuid) {
+        this.gerplasmPuid = gerplasmPuid;
     }
 
     /**
@@ -409,10 +406,9 @@ public class ViewTableGermplasmDeprecated implements Serializable {
      * Getter for
      * <code>germinate_db.view_table_germplasm_deprecated.collector_number</code>.
      * Original identifier assigned by the collector(s) of the sample, normally
-     * composed of the name or
-     * initials of the collector(s) followed by a number (e.g. ‘FM9909’). This
-     * identifier is essential for
-     * identifying duplicates held in different collections.
+     * composed of the name or initials of the collector(s) followed by a number
+     * (e.g. 'FM9909'). This identifier is essential for identifying duplicates
+     * held in different collections.
      */
     public String getCollectorNumber() {
         return this.collectorNumber;
@@ -422,10 +418,9 @@ public class ViewTableGermplasmDeprecated implements Serializable {
      * Setter for
      * <code>germinate_db.view_table_germplasm_deprecated.collector_number</code>.
      * Original identifier assigned by the collector(s) of the sample, normally
-     * composed of the name or
-     * initials of the collector(s) followed by a number (e.g. ‘FM9909’). This
-     * identifier is essential for
-     * identifying duplicates held in different collections.
+     * composed of the name or initials of the collector(s) followed by a number
+     * (e.g. 'FM9909'). This identifier is essential for identifying duplicates
+     * held in different collections.
      */
     public void setCollectorNumber(String collectorNumber) {
         this.collectorNumber = collectorNumber;
@@ -487,38 +482,18 @@ public class ViewTableGermplasmDeprecated implements Serializable {
 
     /**
      * Getter for
-     * <code>germinate_db.view_table_germplasm_deprecated.institution_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
+     * <code>germinate_db.view_table_germplasm_deprecated.institutions</code>.
      */
-    public Integer getInstitutionId() {
-        return this.institutionId;
+    public GermplasmInstitution[] getInstitutions() {
+        return this.institutions;
     }
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_germplasm_deprecated.institution_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
+     * <code>germinate_db.view_table_germplasm_deprecated.institutions</code>.
      */
-    public void setInstitutionId(Integer institutionId) {
-        this.institutionId = institutionId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_germplasm_deprecated.institution_name</code>.
-     * The institute name.
-     */
-    public String getInstitutionName() {
-        return this.institutionName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_germplasm_deprecated.institution_name</code>.
-     * The institute name.
-     */
-    public void setInstitutionName(String institutionName) {
-        this.institutionName = institutionName;
+    public void setInstitutions(GermplasmInstitution[] institutions) {
+        this.institutions = institutions;
     }
 
     /**
@@ -633,11 +608,10 @@ public class ViewTableGermplasmDeprecated implements Serializable {
      * Getter for
      * <code>germinate_db.view_table_germplasm_deprecated.coll_date</code>.
      * Collecting date of the sample, where YYYY is the year, MM is the month
-     * and DD is the day.
-     * Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double
-     * zero]. 
+     * and DD is the day. Missing data (MM or DD) should be indicated with
+     * hyphens or '00' [double zero].
      */
-    public Date getCollDate() {
+    public String getCollDate() {
         return this.collDate;
     }
 
@@ -645,11 +619,10 @@ public class ViewTableGermplasmDeprecated implements Serializable {
      * Setter for
      * <code>germinate_db.view_table_germplasm_deprecated.coll_date</code>.
      * Collecting date of the sample, where YYYY is the year, MM is the month
-     * and DD is the day.
-     * Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double
-     * zero]. 
+     * and DD is the day. Missing data (MM or DD) should be indicated with
+     * hyphens or '00' [double zero].
      */
-    public void setCollDate(Date collDate) {
+    public void setCollDate(String collDate) {
         this.collDate = collDate;
     }
 
@@ -777,7 +750,7 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         sb.append(", ").append(germplasmId);
         sb.append(", ").append(germplasmGid);
         sb.append(", ").append(germplasmNumber);
-        sb.append(", ").append(germplasmPuid);
+        sb.append(", ").append(gerplasmPuid);
         sb.append(", ").append(entityTypeId);
         sb.append(", ").append(entityTypeName);
         sb.append(", ").append(entityParentId);
@@ -790,8 +763,7 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         sb.append(", ").append(genus);
         sb.append(", ").append(species);
         sb.append(", ").append(subtaxa);
-        sb.append(", ").append(institutionId);
-        sb.append(", ").append(institutionName);
+        sb.append(", ").append(Arrays.toString(institutions));
         sb.append(", ").append(location);
         sb.append(", ").append(latitude);
         sb.append(", ").append(longitude);

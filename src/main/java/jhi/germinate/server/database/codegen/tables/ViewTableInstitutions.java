@@ -9,7 +9,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewTableInstitution
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row11;
+import org.jooq.Row12;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -118,12 +118,18 @@ public class ViewTableInstitutions extends TableImpl<ViewTableInstitutionsRecord
      */
     public final TableField<ViewTableInstitutionsRecord, String> COUNTRY_CODE = createField(DSL.name("country_code"), SQLDataType.CHAR(2).defaultValue(DSL.inline("", SQLDataType.CHAR)), this, "ISO 2 Code for country.");
 
+    /**
+     * The column
+     * <code>germinate_db.view_table_institutions.institution_type</code>.
+     */
+    public final TableField<ViewTableInstitutionsRecord, String> INSTITUTION_TYPE = createField(DSL.name("institution_type"), SQLDataType.CHAR, this, "");
+
     private ViewTableInstitutions(Name alias, Table<ViewTableInstitutionsRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private ViewTableInstitutions(Name alias, Table<ViewTableInstitutionsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_institutions` as select `germinate_template_4_22_08_23`.`institutions`.`id` AS `institution_id`,`germinate_template_4_22_08_23`.`institutions`.`name` AS `institution_name`,`germinate_template_4_22_08_23`.`institutions`.`code` AS `institution_code`,`germinate_template_4_22_08_23`.`institutions`.`acronym` AS `institution_acronym`,`germinate_template_4_22_08_23`.`institutions`.`address` AS `institution_address`,`germinate_template_4_22_08_23`.`institutions`.`email` AS `institution_email`,`germinate_template_4_22_08_23`.`institutions`.`contact` AS `institution_contact`,`germinate_template_4_22_08_23`.`institutions`.`phone` AS `institution_phone`,`germinate_template_4_22_08_23`.`countries`.`id` AS `country_id`,`germinate_template_4_22_08_23`.`countries`.`country_name` AS `country_name`,`germinate_template_4_22_08_23`.`countries`.`country_code2` AS `country_code` from (`germinate_template_4_22_08_23`.`institutions` left join `germinate_template_4_22_08_23`.`countries` on((`germinate_template_4_22_08_23`.`countries`.`id` = `germinate_template_4_22_08_23`.`institutions`.`country_id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_institutions` as select `germinate_template_4_22_08_24`.`institutions`.`id` AS `institution_id`,`germinate_template_4_22_08_24`.`institutions`.`name` AS `institution_name`,`germinate_template_4_22_08_24`.`institutions`.`code` AS `institution_code`,`germinate_template_4_22_08_24`.`institutions`.`acronym` AS `institution_acronym`,`germinate_template_4_22_08_24`.`institutions`.`address` AS `institution_address`,`germinate_template_4_22_08_24`.`institutions`.`email` AS `institution_email`,`germinate_template_4_22_08_24`.`institutions`.`contact` AS `institution_contact`,`germinate_template_4_22_08_24`.`institutions`.`phone` AS `institution_phone`,`germinate_template_4_22_08_24`.`countries`.`id` AS `country_id`,`germinate_template_4_22_08_24`.`countries`.`country_name` AS `country_name`,`germinate_template_4_22_08_24`.`countries`.`country_code2` AS `country_code`,cast(NULL as char charset utf8mb4) AS `institution_type` from (`germinate_template_4_22_08_24`.`institutions` left join `germinate_template_4_22_08_24`.`countries` on((`germinate_template_4_22_08_24`.`countries`.`id` = `germinate_template_4_22_08_24`.`institutions`.`country_id`)))"));
     }
 
     /**
@@ -182,12 +188,12 @@ public class ViewTableInstitutions extends TableImpl<ViewTableInstitutionsRecord
     }
 
     // -------------------------------------------------------------------------
-    // Row11 type methods
+    // Row12 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, String, String, String, String, String, Integer, String, String> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row12<Integer, String, String, String, String, String, String, String, Integer, String, String, String> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
     // @formatter:on
 }

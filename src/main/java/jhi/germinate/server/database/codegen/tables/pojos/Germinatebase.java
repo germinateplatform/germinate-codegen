@@ -5,7 +5,6 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 
@@ -24,27 +23,8 @@ public class Germinatebase implements Serializable {
     private String    number;
     private String    name;
     private String    bankNumber;
-    private String    breedersCode;
-    private String    breedersName;
     private Integer   taxonomyId;
-    private Integer   institutionId;
     private String    plantPassport;
-    private String    donorCode;
-    private String    donorName;
-    private String    donorNumber;
-    private String    acqdate;
-    private String    collnumb;
-    private Date      colldate;
-    private String    collcode;
-    private String    collname;
-    private String    collmissid;
-    private String    othernumb;
-    private String    duplsite;
-    private String    duplinstname;
-    private Integer   mlsstatusId;
-    private String    puid;
-    private Integer   biologicalstatusId;
-    private Integer   collsrcId;
     private Integer   locationId;
     private Integer   entitytypeId;
     private Integer   entityparentId;
@@ -60,27 +40,8 @@ public class Germinatebase implements Serializable {
         this.number = value.number;
         this.name = value.name;
         this.bankNumber = value.bankNumber;
-        this.breedersCode = value.breedersCode;
-        this.breedersName = value.breedersName;
         this.taxonomyId = value.taxonomyId;
-        this.institutionId = value.institutionId;
         this.plantPassport = value.plantPassport;
-        this.donorCode = value.donorCode;
-        this.donorName = value.donorName;
-        this.donorNumber = value.donorNumber;
-        this.acqdate = value.acqdate;
-        this.collnumb = value.collnumb;
-        this.colldate = value.colldate;
-        this.collcode = value.collcode;
-        this.collname = value.collname;
-        this.collmissid = value.collmissid;
-        this.othernumb = value.othernumb;
-        this.duplsite = value.duplsite;
-        this.duplinstname = value.duplinstname;
-        this.mlsstatusId = value.mlsstatusId;
-        this.puid = value.puid;
-        this.biologicalstatusId = value.biologicalstatusId;
-        this.collsrcId = value.collsrcId;
         this.locationId = value.locationId;
         this.entitytypeId = value.entitytypeId;
         this.entityparentId = value.entityparentId;
@@ -95,27 +56,8 @@ public class Germinatebase implements Serializable {
         String    number,
         String    name,
         String    bankNumber,
-        String    breedersCode,
-        String    breedersName,
         Integer   taxonomyId,
-        Integer   institutionId,
         String    plantPassport,
-        String    donorCode,
-        String    donorName,
-        String    donorNumber,
-        String    acqdate,
-        String    collnumb,
-        Date      colldate,
-        String    collcode,
-        String    collname,
-        String    collmissid,
-        String    othernumb,
-        String    duplsite,
-        String    duplinstname,
-        Integer   mlsstatusId,
-        String    puid,
-        Integer   biologicalstatusId,
-        Integer   collsrcId,
         Integer   locationId,
         Integer   entitytypeId,
         Integer   entityparentId,
@@ -128,27 +70,8 @@ public class Germinatebase implements Serializable {
         this.number = number;
         this.name = name;
         this.bankNumber = bankNumber;
-        this.breedersCode = breedersCode;
-        this.breedersName = breedersName;
         this.taxonomyId = taxonomyId;
-        this.institutionId = institutionId;
         this.plantPassport = plantPassport;
-        this.donorCode = donorCode;
-        this.donorName = donorName;
-        this.donorNumber = donorNumber;
-        this.acqdate = acqdate;
-        this.collnumb = collnumb;
-        this.colldate = colldate;
-        this.collcode = collcode;
-        this.collname = collname;
-        this.collmissid = collmissid;
-        this.othernumb = othernumb;
-        this.duplsite = duplsite;
-        this.duplinstname = duplinstname;
-        this.mlsstatusId = mlsstatusId;
-        this.puid = puid;
-        this.biologicalstatusId = biologicalstatusId;
-        this.collsrcId = collsrcId;
         this.locationId = locationId;
         this.entitytypeId = entitytypeId;
         this.entityparentId = entityparentId;
@@ -242,52 +165,6 @@ public class Germinatebase implements Serializable {
     }
 
     /**
-     * Getter for <code>germinate_db.germinatebase.breeders_code</code>. FAO
-     * WIEWS code of the institute that has bred the material. If the holding
-     * institute has bred the material, the breeding institute code (BREDCODE)
-     * should be the same as the holding institute code (INSTCODE). Follows
-     * INSTCODE standard. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public String getBreedersCode() {
-        return this.breedersCode;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.breeders_code</code>. FAO
-     * WIEWS code of the institute that has bred the material. If the holding
-     * institute has bred the material, the breeding institute code (BREDCODE)
-     * should be the same as the holding institute code (INSTCODE). Follows
-     * INSTCODE standard. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public void setBreedersCode(String breedersCode) {
-        this.breedersCode = breedersCode;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.breeders_name</code>. Name of
-     * the institute (or person) that bred the material. This descriptor should
-     * be used only if BREDCODE cannot be filled because the FAO WIEWS code for
-     * this institute is not available. Multiple names are separated by a
-     * semicolon without space.
-     */
-    public String getBreedersName() {
-        return this.breedersName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.breeders_name</code>. Name of
-     * the institute (or person) that bred the material. This descriptor should
-     * be used only if BREDCODE cannot be filled because the FAO WIEWS code for
-     * this institute is not available. Multiple names are separated by a
-     * semicolon without space.
-     */
-    public void setBreedersName(String breedersName) {
-        this.breedersName = breedersName;
-    }
-
-    /**
      * Getter for <code>germinate_db.germinatebase.taxonomy_id</code>. Foreign
      * key to taxonomies (taxonomies.id).
      */
@@ -304,22 +181,6 @@ public class Germinatebase implements Serializable {
     }
 
     /**
-     * Getter for <code>germinate_db.germinatebase.institution_id</code>.
-     * Foreign key to institutions (institutions.id).
-     */
-    public Integer getInstitutionId() {
-        return this.institutionId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.institution_id</code>.
-     * Foreign key to institutions (institutions.id).
-     */
-    public void setInstitutionId(Integer institutionId) {
-        this.institutionId = institutionId;
-    }
-
-    /**
      * Getter for <code>germinate_db.germinatebase.plant_passport</code>. Record
      * if the entry has a plant passport.
      */
@@ -333,328 +194,6 @@ public class Germinatebase implements Serializable {
      */
     public void setPlantPassport(String plantPassport) {
         this.plantPassport = plantPassport;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.donor_code</code>. FAO WIEWS
-     * code of the donor institute. Follows INSTCODE standard.
-     */
-    public String getDonorCode() {
-        return this.donorCode;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.donor_code</code>. FAO WIEWS
-     * code of the donor institute. Follows INSTCODE standard.
-     */
-    public void setDonorCode(String donorCode) {
-        this.donorCode = donorCode;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.donor_name</code>. Name of
-     * the donor institute (or person). This descriptor should be used only if
-     * DONORCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available.
-     */
-    public String getDonorName() {
-        return this.donorName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.donor_name</code>. Name of
-     * the donor institute (or person). This descriptor should be used only if
-     * DONORCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available.
-     */
-    public void setDonorName(String donorName) {
-        this.donorName = donorName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.donor_number</code>.
-     * Identifier assigned to an accession by the donor. Follows ACCENUMB
-     * standard.
-     */
-    public String getDonorNumber() {
-        return this.donorNumber;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.donor_number</code>.
-     * Identifier assigned to an accession by the donor. Follows ACCENUMB
-     * standard.
-     */
-    public void setDonorNumber(String donorNumber) {
-        this.donorNumber = donorNumber;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.acqdate</code>. Date on which
-     * the accession entered the collection where YYYY is the year, MM is the
-     * month and
-     * DD is the day. Missing data (MM or DD) should be indicated with hyphens
-     * or ‘00’ [double zero].
-     */
-    public String getAcqdate() {
-        return this.acqdate;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.acqdate</code>. Date on which
-     * the accession entered the collection where YYYY is the year, MM is the
-     * month and
-     * DD is the day. Missing data (MM or DD) should be indicated with hyphens
-     * or ‘00’ [double zero].
-     */
-    public void setAcqdate(String acqdate) {
-        this.acqdate = acqdate;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collnumb</code>. Original
-     * identifier assigned by the collector(s) of the sample, normally composed
-     * of the name or
-     * initials of the collector(s) followed by a number (e.g. ‘FM9909’). This
-     * identifier is essential for
-     * identifying duplicates held in different collections.
-     */
-    public String getCollnumb() {
-        return this.collnumb;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collnumb</code>. Original
-     * identifier assigned by the collector(s) of the sample, normally composed
-     * of the name or
-     * initials of the collector(s) followed by a number (e.g. ‘FM9909’). This
-     * identifier is essential for
-     * identifying duplicates held in different collections.
-     */
-    public void setCollnumb(String collnumb) {
-        this.collnumb = collnumb;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.colldate</code>. Collecting
-     * date of the sample, where YYYY is the year, MM is the month and DD is the
-     * day.
-     * Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double
-     * zero]. 
-     */
-    public Date getColldate() {
-        return this.colldate;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.colldate</code>. Collecting
-     * date of the sample, where YYYY is the year, MM is the month and DD is the
-     * day.
-     * Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double
-     * zero]. 
-     */
-    public void setColldate(Date colldate) {
-        this.colldate = colldate;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collcode</code>. FAO WIEWS
-     * code of the institute collecting the sample. If the holding institute has
-     * collected the
-     * material, the collecting institute code (COLLCODE) should be the same as
-     * the holding institute
-     * code (INSTCODE). Follows INSTCODE standard. Multiple values are separated
-     * by a semicolon
-     * without space.
-     */
-    public String getCollcode() {
-        return this.collcode;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collcode</code>. FAO WIEWS
-     * code of the institute collecting the sample. If the holding institute has
-     * collected the
-     * material, the collecting institute code (COLLCODE) should be the same as
-     * the holding institute
-     * code (INSTCODE). Follows INSTCODE standard. Multiple values are separated
-     * by a semicolon
-     * without space.
-     */
-    public void setCollcode(String collcode) {
-        this.collcode = collcode;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collname</code>. Name of the
-     * institute collecting the sample. This descriptor should be used only if
-     * COLLCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public String getCollname() {
-        return this.collname;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collname</code>. Name of the
-     * institute collecting the sample. This descriptor should be used only if
-     * COLLCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public void setCollname(String collname) {
-        this.collname = collname;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collmissid</code>. Identifier
-     * of the collecting mission used by the Collecting Institute (4 or 4.1)
-     * (e.g. 'CIATFOR-052', 'CN426').
-     */
-    public String getCollmissid() {
-        return this.collmissid;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collmissid</code>. Identifier
-     * of the collecting mission used by the Collecting Institute (4 or 4.1)
-     * (e.g. 'CIATFOR-052', 'CN426').
-     */
-    public void setCollmissid(String collmissid) {
-        this.collmissid = collmissid;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.othernumb</code>. Any other
-     * identifiers known to exist in other collections for this accession. Use
-     * the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;… INSTCODE
-     * and identifier are separated by a colon without space. Pairs of INSTCODE
-     * and identifier are separated by a semicolon without space. When the
-     * institute is not known, the identifier should be preceded by a colon.
-     */
-    public String getOthernumb() {
-        return this.othernumb;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.othernumb</code>. Any other
-     * identifiers known to exist in other collections for this accession. Use
-     * the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;… INSTCODE
-     * and identifier are separated by a colon without space. Pairs of INSTCODE
-     * and identifier are separated by a semicolon without space. When the
-     * institute is not known, the identifier should be preceded by a colon.
-     */
-    public void setOthernumb(String othernumb) {
-        this.othernumb = othernumb;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.duplsite</code>. FAO WIEWS
-     * code of the institute(s) where a safety duplicate of the accession is
-     * maintained.
-     * Multiple values are separated by a semicolon without space. Follows
-     * INSTCODE standard.
-     */
-    public String getDuplsite() {
-        return this.duplsite;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.duplsite</code>. FAO WIEWS
-     * code of the institute(s) where a safety duplicate of the accession is
-     * maintained.
-     * Multiple values are separated by a semicolon without space. Follows
-     * INSTCODE standard.
-     */
-    public void setDuplsite(String duplsite) {
-        this.duplsite = duplsite;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.duplinstname</code>. Name of
-     * the institute where a safety duplicate of the accession is maintained.
-     * Multiple values are separated by a semicolon without space.
-     */
-    public String getDuplinstname() {
-        return this.duplinstname;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.duplinstname</code>. Name of
-     * the institute where a safety duplicate of the accession is maintained.
-     * Multiple values are separated by a semicolon without space.
-     */
-    public void setDuplinstname(String duplinstname) {
-        this.duplinstname = duplinstname;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.mlsstatus_id</code>. Foreign
-     * key to mlsstatus (mlsstatus.id).
-     */
-    public Integer getMlsstatusId() {
-        return this.mlsstatusId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.mlsstatus_id</code>. Foreign
-     * key to mlsstatus (mlsstatus.id).
-     */
-    public void setMlsstatusId(Integer mlsstatusId) {
-        this.mlsstatusId = mlsstatusId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.puid</code>. Any persistent,
-     * unique identifier assigned to the accession so it can be unambiguously
-     * referenced at the global level and the information associated with it
-     * harvested through automated means. Report one PUID for each accession.
-     */
-    public String getPuid() {
-        return this.puid;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.puid</code>. Any persistent,
-     * unique identifier assigned to the accession so it can be unambiguously
-     * referenced at the global level and the information associated with it
-     * harvested through automated means. Report one PUID for each accession.
-     */
-    public void setPuid(String puid) {
-        this.puid = puid;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.biologicalstatus_id</code>.
-     * Foreign key to biologicalstatus (biologicalstaus.id).
-     */
-    public Integer getBiologicalstatusId() {
-        return this.biologicalstatusId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.biologicalstatus_id</code>.
-     * Foreign key to biologicalstatus (biologicalstaus.id).
-     */
-    public void setBiologicalstatusId(Integer biologicalstatusId) {
-        this.biologicalstatusId = biologicalstatusId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.collsrc_id</code>. Foreign
-     * key to collectionsources (collectionsources.id).
-     */
-    public Integer getCollsrcId() {
-        return this.collsrcId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.collsrc_id</code>. Foreign
-     * key to collectionsources (collectionsources.id).
-     */
-    public void setCollsrcId(Integer collsrcId) {
-        this.collsrcId = collsrcId;
     }
 
     /**
@@ -766,27 +305,8 @@ public class Germinatebase implements Serializable {
         sb.append(", ").append(number);
         sb.append(", ").append(name);
         sb.append(", ").append(bankNumber);
-        sb.append(", ").append(breedersCode);
-        sb.append(", ").append(breedersName);
         sb.append(", ").append(taxonomyId);
-        sb.append(", ").append(institutionId);
         sb.append(", ").append(plantPassport);
-        sb.append(", ").append(donorCode);
-        sb.append(", ").append(donorName);
-        sb.append(", ").append(donorNumber);
-        sb.append(", ").append(acqdate);
-        sb.append(", ").append(collnumb);
-        sb.append(", ").append(colldate);
-        sb.append(", ").append(collcode);
-        sb.append(", ").append(collname);
-        sb.append(", ").append(collmissid);
-        sb.append(", ").append(othernumb);
-        sb.append(", ").append(duplsite);
-        sb.append(", ").append(duplinstname);
-        sb.append(", ").append(mlsstatusId);
-        sb.append(", ").append(puid);
-        sb.append(", ").append(biologicalstatusId);
-        sb.append(", ").append(collsrcId);
         sb.append(", ").append(locationId);
         sb.append(", ").append(entitytypeId);
         sb.append(", ").append(entityparentId);

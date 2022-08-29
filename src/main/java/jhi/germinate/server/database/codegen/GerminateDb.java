@@ -39,6 +39,7 @@ import jhi.germinate.server.database.codegen.tables.Experiments;
 import jhi.germinate.server.database.codegen.tables.Fileresources;
 import jhi.germinate.server.database.codegen.tables.Fileresourcetypes;
 import jhi.germinate.server.database.codegen.tables.Germinatebase;
+import jhi.germinate.server.database.codegen.tables.Germplasminstitutions;
 import jhi.germinate.server.database.codegen.tables.Groupmembers;
 import jhi.germinate.server.database.codegen.tables.Groups;
 import jhi.germinate.server.database.codegen.tables.Grouptypes;
@@ -60,6 +61,7 @@ import jhi.germinate.server.database.codegen.tables.Mapfeaturetypes;
 import jhi.germinate.server.database.codegen.tables.Maps;
 import jhi.germinate.server.database.codegen.tables.Markers;
 import jhi.germinate.server.database.codegen.tables.Markertypes;
+import jhi.germinate.server.database.codegen.tables.Mcpd;
 import jhi.germinate.server.database.codegen.tables.Mlsstatus;
 import jhi.germinate.server.database.codegen.tables.News;
 import jhi.germinate.server.database.codegen.tables.Newstypes;
@@ -72,8 +74,6 @@ import jhi.germinate.server.database.codegen.tables.Phenotypes;
 import jhi.germinate.server.database.codegen.tables.Publicationdata;
 import jhi.germinate.server.database.codegen.tables.Publications;
 import jhi.germinate.server.database.codegen.tables.SchemaVersion;
-import jhi.germinate.server.database.codegen.tables.Storage;
-import jhi.germinate.server.database.codegen.tables.Storagedata;
 import jhi.germinate.server.database.codegen.tables.Synonyms;
 import jhi.germinate.server.database.codegen.tables.Synonymtypes;
 import jhi.germinate.server.database.codegen.tables.Taxonomies;
@@ -183,6 +183,7 @@ public class GerminateDb extends SchemaImpl {
             Fileresources.FILERESOURCES,
             Fileresourcetypes.FILERESOURCETYPES,
             Germinatebase.GERMINATEBASE,
+            Germplasminstitutions.GERMPLASMINSTITUTIONS,
             Groupmembers.GROUPMEMBERS,
             Groups.GROUPS,
             Grouptypes.GROUPTYPES,
@@ -204,6 +205,7 @@ public class GerminateDb extends SchemaImpl {
             Maps.MAPS,
             Markers.MARKERS,
             Markertypes.MARKERTYPES,
+            Mcpd.MCPD,
             Mlsstatus.MLSSTATUS,
             News.NEWS,
             Newstypes.NEWSTYPES,
@@ -216,8 +218,6 @@ public class GerminateDb extends SchemaImpl {
             Publicationdata.PUBLICATIONDATA,
             Publications.PUBLICATIONS,
             SchemaVersion.SCHEMA_VERSION,
-            Storage.STORAGE,
-            Storagedata.STORAGEDATA,
             Synonyms.SYNONYMS,
             Synonymtypes.SYNONYMTYPES,
             Taxonomies.TAXONOMIES,

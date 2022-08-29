@@ -27,6 +27,7 @@ public class ViewTableInstitutions implements Serializable {
     private Integer countryId;
     private String  countryName;
     private String  countryCode;
+    private String  institutionType;
 
     public ViewTableInstitutions() {}
 
@@ -42,6 +43,7 @@ public class ViewTableInstitutions implements Serializable {
         this.countryId = value.countryId;
         this.countryName = value.countryName;
         this.countryCode = value.countryCode;
+        this.institutionType = value.institutionType;
     }
 
     public ViewTableInstitutions(
@@ -55,7 +57,8 @@ public class ViewTableInstitutions implements Serializable {
         String  institutionPhone,
         Integer countryId,
         String  countryName,
-        String  countryCode
+        String  countryCode,
+        String  institutionType
     ) {
         this.institutionId = institutionId;
         this.institutionName = institutionName;
@@ -68,6 +71,7 @@ public class ViewTableInstitutions implements Serializable {
         this.countryId = countryId;
         this.countryName = countryName;
         this.countryCode = countryCode;
+        this.institutionType = institutionType;
     }
 
     /**
@@ -266,6 +270,22 @@ public class ViewTableInstitutions implements Serializable {
         this.countryCode = countryCode;
     }
 
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_institutions.institution_type</code>.
+     */
+    public String getInstitutionType() {
+        return this.institutionType;
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_institutions.institution_type</code>.
+     */
+    public void setInstitutionType(String institutionType) {
+        this.institutionType = institutionType;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("ViewTableInstitutions (");
@@ -281,6 +301,7 @@ public class ViewTableInstitutions implements Serializable {
         sb.append(", ").append(countryId);
         sb.append(", ").append(countryName);
         sb.append(", ").append(countryCode);
+        sb.append(", ").append(institutionType);
 
         sb.append(")");
         return sb.toString();

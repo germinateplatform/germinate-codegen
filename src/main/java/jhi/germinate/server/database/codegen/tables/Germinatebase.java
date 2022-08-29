@@ -4,7 +4,6 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import jhi.germinate.server.database.codegen.GerminateDb;
@@ -13,6 +12,7 @@ import jhi.germinate.server.database.codegen.tables.records.GerminatebaseRecord;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
+import org.jooq.Row13;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -80,170 +80,16 @@ public class Germinatebase extends TableImpl<GerminatebaseRecord> {
     public final TableField<GerminatebaseRecord, String> BANK_NUMBER = createField(DSL.name("bank_number"), SQLDataType.VARCHAR(255), this, "Alternative genebank number.");
 
     /**
-     * The column <code>germinate_db.germinatebase.breeders_code</code>. FAO
-     * WIEWS code of the institute that has bred the material. If the holding
-     * institute has bred the material, the breeding institute code (BREDCODE)
-     * should be the same as the holding institute code (INSTCODE). Follows
-     * INSTCODE standard. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public final TableField<GerminatebaseRecord, String> BREEDERS_CODE = createField(DSL.name("breeders_code"), SQLDataType.CHAR(50), this, "FAO WIEWS code of the institute that has bred the material. If the holding institute has bred the material, the breeding institute code (BREDCODE) should be the same as the holding institute code (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon without space.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.breeders_name</code>. Name of
-     * the institute (or person) that bred the material. This descriptor should
-     * be used only if BREDCODE cannot be filled because the FAO WIEWS code for
-     * this institute is not available. Multiple names are separated by a
-     * semicolon without space.
-     */
-    public final TableField<GerminatebaseRecord, String> BREEDERS_NAME = createField(DSL.name("breeders_name"), SQLDataType.VARCHAR(255), this, "Name of the institute (or person) that bred the material. This descriptor should be used only if BREDCODE cannot be filled because the FAO WIEWS code for this institute is not available. Multiple names are separated by a semicolon without space.");
-
-    /**
      * The column <code>germinate_db.germinatebase.taxonomy_id</code>. Foreign
      * key to taxonomies (taxonomies.id).
      */
     public final TableField<GerminatebaseRecord, Integer> TAXONOMY_ID = createField(DSL.name("taxonomy_id"), SQLDataType.INTEGER, this, "Foreign key to taxonomies (taxonomies.id).");
 
     /**
-     * The column <code>germinate_db.germinatebase.institution_id</code>.
-     * Foreign key to institutions (institutions.id).
-     */
-    public final TableField<GerminatebaseRecord, Integer> INSTITUTION_ID = createField(DSL.name("institution_id"), SQLDataType.INTEGER, this, "Foreign key to institutions (institutions.id).");
-
-    /**
      * The column <code>germinate_db.germinatebase.plant_passport</code>. Record
      * if the entry has a plant passport.
      */
     public final TableField<GerminatebaseRecord, String> PLANT_PASSPORT = createField(DSL.name("plant_passport"), SQLDataType.VARCHAR(255), this, "Record if the entry has a plant passport.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.donor_code</code>. FAO WIEWS
-     * code of the donor institute. Follows INSTCODE standard.
-     */
-    public final TableField<GerminatebaseRecord, String> DONOR_CODE = createField(DSL.name("donor_code"), SQLDataType.VARCHAR(255), this, "FAO WIEWS code of the donor institute. Follows INSTCODE standard.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.donor_name</code>. Name of
-     * the donor institute (or person). This descriptor should be used only if
-     * DONORCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available.
-     */
-    public final TableField<GerminatebaseRecord, String> DONOR_NAME = createField(DSL.name("donor_name"), SQLDataType.VARCHAR(255), this, "Name of the donor institute (or person). This descriptor should be used only if DONORCODE cannot be filled because the FAO WIEWS code for this institute is not available.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.donor_number</code>.
-     * Identifier assigned to an accession by the donor. Follows ACCENUMB
-     * standard.
-     */
-    public final TableField<GerminatebaseRecord, String> DONOR_NUMBER = createField(DSL.name("donor_number"), SQLDataType.VARCHAR(255), this, "Identifier assigned to an accession by the donor. Follows ACCENUMB standard.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.acqdate</code>. Date on which
-     * the accession entered the collection where YYYY is the year, MM is the
-     * month and
-     * DD is the day. Missing data (MM or DD) should be indicated with hyphens
-     * or ‘00’ [double zero].
-     */
-    public final TableField<GerminatebaseRecord, String> ACQDATE = createField(DSL.name("acqdate"), SQLDataType.VARCHAR(255), this, "Date on which the accession entered the collection where YYYY is the year, MM is the month and\nDD is the day. Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double zero].");
-
-    /**
-     * The column <code>germinate_db.germinatebase.collnumb</code>. Original
-     * identifier assigned by the collector(s) of the sample, normally composed
-     * of the name or
-     * initials of the collector(s) followed by a number (e.g. ‘FM9909’). This
-     * identifier is essential for
-     * identifying duplicates held in different collections.
-     */
-    public final TableField<GerminatebaseRecord, String> COLLNUMB = createField(DSL.name("collnumb"), SQLDataType.VARCHAR(255), this, "Original identifier assigned by the collector(s) of the sample, normally composed of the name or\ninitials of the collector(s) followed by a number (e.g. ‘FM9909’). This identifier is essential for\nidentifying duplicates held in different collections.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.colldate</code>. Collecting
-     * date of the sample, where YYYY is the year, MM is the month and DD is the
-     * day.
-     * Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double
-     * zero]. 
-     */
-    public final TableField<GerminatebaseRecord, Date> COLLDATE = createField(DSL.name("colldate"), SQLDataType.DATE, this, "Collecting date of the sample, where YYYY is the year, MM is the month and DD is the day.\nMissing data (MM or DD) should be indicated with hyphens or ‘00’ [double zero]. ");
-
-    /**
-     * The column <code>germinate_db.germinatebase.collcode</code>. FAO WIEWS
-     * code of the institute collecting the sample. If the holding institute has
-     * collected the
-     * material, the collecting institute code (COLLCODE) should be the same as
-     * the holding institute
-     * code (INSTCODE). Follows INSTCODE standard. Multiple values are separated
-     * by a semicolon
-     * without space.
-     */
-    public final TableField<GerminatebaseRecord, String> COLLCODE = createField(DSL.name("collcode"), SQLDataType.VARCHAR(255), this, "FAO WIEWS code of the institute collecting the sample. If the holding institute has collected the\nmaterial, the collecting institute code (COLLCODE) should be the same as the holding institute\ncode (INSTCODE). Follows INSTCODE standard. Multiple values are separated by a semicolon\nwithout space.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.collname</code>. Name of the
-     * institute collecting the sample. This descriptor should be used only if
-     * COLLCODE cannot be filled because the FAO WIEWS code for this institute
-     * is not available. Multiple values are separated by a semicolon without
-     * space.
-     */
-    public final TableField<GerminatebaseRecord, String> COLLNAME = createField(DSL.name("collname"), SQLDataType.VARCHAR(255), this, "Name of the institute collecting the sample. This descriptor should be used only if COLLCODE cannot be filled because the FAO WIEWS code for this institute is not available. Multiple values are separated by a semicolon without space.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.collmissid</code>. Identifier
-     * of the collecting mission used by the Collecting Institute (4 or 4.1)
-     * (e.g. 'CIATFOR-052', 'CN426').
-     */
-    public final TableField<GerminatebaseRecord, String> COLLMISSID = createField(DSL.name("collmissid"), SQLDataType.VARCHAR(255), this, "Identifier of the collecting mission used by the Collecting Institute (4 or 4.1) (e.g. 'CIATFOR-052', 'CN426').");
-
-    /**
-     * The column <code>germinate_db.germinatebase.othernumb</code>. Any other
-     * identifiers known to exist in other collections for this accession. Use
-     * the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;… INSTCODE
-     * and identifier are separated by a colon without space. Pairs of INSTCODE
-     * and identifier are separated by a semicolon without space. When the
-     * institute is not known, the identifier should be preceded by a colon.
-     */
-    public final TableField<GerminatebaseRecord, String> OTHERNUMB = createField(DSL.name("othernumb"), SQLDataType.CLOB, this, "Any other identifiers known to exist in other collections for this accession. Use the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;… INSTCODE and identifier are separated by a colon without space. Pairs of INSTCODE and identifier are separated by a semicolon without space. When the institute is not known, the identifier should be preceded by a colon.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.duplsite</code>. FAO WIEWS
-     * code of the institute(s) where a safety duplicate of the accession is
-     * maintained.
-     * Multiple values are separated by a semicolon without space. Follows
-     * INSTCODE standard.
-     */
-    public final TableField<GerminatebaseRecord, String> DUPLSITE = createField(DSL.name("duplsite"), SQLDataType.VARCHAR(255), this, "FAO WIEWS code of the institute(s) where a safety duplicate of the accession is maintained.\nMultiple values are separated by a semicolon without space. Follows INSTCODE standard.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.duplinstname</code>. Name of
-     * the institute where a safety duplicate of the accession is maintained.
-     * Multiple values are separated by a semicolon without space.
-     */
-    public final TableField<GerminatebaseRecord, String> DUPLINSTNAME = createField(DSL.name("duplinstname"), SQLDataType.VARCHAR(255), this, "Name of the institute where a safety duplicate of the accession is maintained. Multiple values are separated by a semicolon without space.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.mlsstatus_id</code>. Foreign
-     * key to mlsstatus (mlsstatus.id).
-     */
-    public final TableField<GerminatebaseRecord, Integer> MLSSTATUS_ID = createField(DSL.name("mlsstatus_id"), SQLDataType.INTEGER, this, "Foreign key to mlsstatus (mlsstatus.id).");
-
-    /**
-     * The column <code>germinate_db.germinatebase.puid</code>. Any persistent,
-     * unique identifier assigned to the accession so it can be unambiguously
-     * referenced at the global level and the information associated with it
-     * harvested through automated means. Report one PUID for each accession.
-     */
-    public final TableField<GerminatebaseRecord, String> PUID = createField(DSL.name("puid"), SQLDataType.VARCHAR(255), this, "Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession.");
-
-    /**
-     * The column <code>germinate_db.germinatebase.biologicalstatus_id</code>.
-     * Foreign key to biologicalstatus (biologicalstaus.id).
-     */
-    public final TableField<GerminatebaseRecord, Integer> BIOLOGICALSTATUS_ID = createField(DSL.name("biologicalstatus_id"), SQLDataType.INTEGER, this, "Foreign key to biologicalstatus (biologicalstaus.id).");
-
-    /**
-     * The column <code>germinate_db.germinatebase.collsrc_id</code>. Foreign
-     * key to collectionsources (collectionsources.id).
-     */
-    public final TableField<GerminatebaseRecord, Integer> COLLSRC_ID = createField(DSL.name("collsrc_id"), SQLDataType.INTEGER, this, "Foreign key to collectionsources (collectionsources.id).");
 
     /**
      * The column <code>germinate_db.germinatebase.location_id</code>. Foreign
@@ -351,6 +197,15 @@ public class Germinatebase extends TableImpl<GerminatebaseRecord> {
     @Override
     public Germinatebase rename(Name name) {
         return new Germinatebase(name, null);
+    }
+
+    // -------------------------------------------------------------------------
+    // Row13 type methods
+    // -------------------------------------------------------------------------
+
+    @Override
+    public Row13<Integer, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> fieldsRow() {
+        return (Row13) super.fieldsRow();
     }
     // @formatter:on
 }
