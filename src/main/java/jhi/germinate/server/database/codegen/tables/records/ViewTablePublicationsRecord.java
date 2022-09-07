@@ -6,12 +6,11 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 import java.sql.Timestamp;
 
-import jhi.germinate.server.database.codegen.enums.ViewTablePublicationsReferenceType;
 import jhi.germinate.server.database.codegen.tables.ViewTablePublications;
 
 import org.jooq.Field;
-import org.jooq.Record7;
-import org.jooq.Row7;
+import org.jooq.Record10;
+import org.jooq.Row10;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -20,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublicationsRecord> implements Record7<Integer, String, String, ViewTablePublicationsReferenceType, Integer[], Timestamp, Timestamp> {
+public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublicationsRecord> implements Record10<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -74,76 +73,120 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_publications.reference_type</code>.
+     * <code>germinate_db.view_table_publications.is_database_pub</code>.
      */
-    public void setReferenceType(ViewTablePublicationsReferenceType value) {
+    public void setIsDatabasePub(Integer value) {
         set(3, value);
     }
 
     /**
      * Getter for
-     * <code>germinate_db.view_table_publications.reference_type</code>.
+     * <code>germinate_db.view_table_publications.is_database_pub</code>.
      */
-    public ViewTablePublicationsReferenceType getReferenceType() {
-        return (ViewTablePublicationsReferenceType) get(3);
+    public Integer getIsDatabasePub() {
+        return (Integer) get(3);
     }
 
     /**
-     * Setter for
-     * <code>germinate_db.view_table_publications.referencing_ids</code>.
+     * Setter for <code>germinate_db.view_table_publications.dataset_ids</code>.
      */
-    public void setReferencingIds(Integer[] value) {
+    public void setDatasetIds(Integer[] value) {
         set(4, value);
     }
 
     /**
-     * Getter for
-     * <code>germinate_db.view_table_publications.referencing_ids</code>.
+     * Getter for <code>germinate_db.view_table_publications.dataset_ids</code>.
      */
-    public Integer[] getReferencingIds() {
+    public Integer[] getDatasetIds() {
         return (Integer[]) get(4);
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_publications.germplasm_ids</code>.
+     */
+    public void setGermplasmIds(Integer[] value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_publications.germplasm_ids</code>.
+     */
+    public Integer[] getGermplasmIds() {
+        return (Integer[]) get(5);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_publications.group_ids</code>.
+     */
+    public void setGroupIds(Integer[] value) {
+        set(6, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_publications.group_ids</code>.
+     */
+    public Integer[] getGroupIds() {
+        return (Integer[]) get(6);
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_publications.experiment_ids</code>.
+     */
+    public void setExperimentIds(Integer[] value) {
+        set(7, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_publications.experiment_ids</code>.
+     */
+    public Integer[] getExperimentIds() {
+        return (Integer[]) get(7);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_publications.created_on</code>.
      */
     public void setCreatedOn(Timestamp value) {
-        set(5, value);
+        set(8, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_publications.created_on</code>.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(5);
+        return (Timestamp) get(8);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_publications.updated_on</code>.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(6, value);
+        set(9, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_publications.updated_on</code>.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(6);
+        return (Timestamp) get(9);
     }
 
     // -------------------------------------------------------------------------
-    // Record7 type implementation
+    // Record10 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Integer, String, String, ViewTablePublicationsReferenceType, Integer[], Timestamp, Timestamp> fieldsRow() {
-        return (Row7) super.fieldsRow();
+    public Row10<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
 
     @Override
-    public Row7<Integer, String, String, ViewTablePublicationsReferenceType, Integer[], Timestamp, Timestamp> valuesRow() {
-        return (Row7) super.valuesRow();
+    public Row10<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> valuesRow() {
+        return (Row10) super.valuesRow();
     }
 
     @Override
@@ -162,22 +205,37 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     }
 
     @Override
-    public Field<ViewTablePublicationsReferenceType> field4() {
-        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.REFERENCE_TYPE;
+    public Field<Integer> field4() {
+        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.IS_DATABASE_PUB;
     }
 
     @Override
     public Field<Integer[]> field5() {
-        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.REFERENCING_IDS;
+        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.DATASET_IDS;
     }
 
     @Override
-    public Field<Timestamp> field6() {
+    public Field<Integer[]> field6() {
+        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.GERMPLASM_IDS;
+    }
+
+    @Override
+    public Field<Integer[]> field7() {
+        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.GROUP_IDS;
+    }
+
+    @Override
+    public Field<Integer[]> field8() {
+        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.EXPERIMENT_IDS;
+    }
+
+    @Override
+    public Field<Timestamp> field9() {
         return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.CREATED_ON;
     }
 
     @Override
-    public Field<Timestamp> field7() {
+    public Field<Timestamp> field10() {
         return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.UPDATED_ON;
     }
 
@@ -197,22 +255,37 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     }
 
     @Override
-    public ViewTablePublicationsReferenceType component4() {
-        return getReferenceType();
+    public Integer component4() {
+        return getIsDatabasePub();
     }
 
     @Override
     public Integer[] component5() {
-        return getReferencingIds();
+        return getDatasetIds();
     }
 
     @Override
-    public Timestamp component6() {
+    public Integer[] component6() {
+        return getGermplasmIds();
+    }
+
+    @Override
+    public Integer[] component7() {
+        return getGroupIds();
+    }
+
+    @Override
+    public Integer[] component8() {
+        return getExperimentIds();
+    }
+
+    @Override
+    public Timestamp component9() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp component7() {
+    public Timestamp component10() {
         return getUpdatedOn();
     }
 
@@ -232,22 +305,37 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     }
 
     @Override
-    public ViewTablePublicationsReferenceType value4() {
-        return getReferenceType();
+    public Integer value4() {
+        return getIsDatabasePub();
     }
 
     @Override
     public Integer[] value5() {
-        return getReferencingIds();
+        return getDatasetIds();
     }
 
     @Override
-    public Timestamp value6() {
+    public Integer[] value6() {
+        return getGermplasmIds();
+    }
+
+    @Override
+    public Integer[] value7() {
+        return getGroupIds();
+    }
+
+    @Override
+    public Integer[] value8() {
+        return getExperimentIds();
+    }
+
+    @Override
+    public Timestamp value9() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp value7() {
+    public Timestamp value10() {
         return getUpdatedOn();
     }
 
@@ -270,31 +358,49 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     }
 
     @Override
-    public ViewTablePublicationsRecord value4(ViewTablePublicationsReferenceType value) {
-        setReferenceType(value);
+    public ViewTablePublicationsRecord value4(Integer value) {
+        setIsDatabasePub(value);
         return this;
     }
 
     @Override
     public ViewTablePublicationsRecord value5(Integer[] value) {
-        setReferencingIds(value);
+        setDatasetIds(value);
         return this;
     }
 
     @Override
-    public ViewTablePublicationsRecord value6(Timestamp value) {
+    public ViewTablePublicationsRecord value6(Integer[] value) {
+        setGermplasmIds(value);
+        return this;
+    }
+
+    @Override
+    public ViewTablePublicationsRecord value7(Integer[] value) {
+        setGroupIds(value);
+        return this;
+    }
+
+    @Override
+    public ViewTablePublicationsRecord value8(Integer[] value) {
+        setExperimentIds(value);
+        return this;
+    }
+
+    @Override
+    public ViewTablePublicationsRecord value9(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTablePublicationsRecord value7(Timestamp value) {
+    public ViewTablePublicationsRecord value10(Timestamp value) {
         setUpdatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTablePublicationsRecord values(Integer value1, String value2, String value3, ViewTablePublicationsReferenceType value4, Integer[] value5, Timestamp value6, Timestamp value7) {
+    public ViewTablePublicationsRecord values(Integer value1, String value2, String value3, Integer value4, Integer[] value5, Integer[] value6, Integer[] value7, Integer[] value8, Timestamp value9, Timestamp value10) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -302,6 +408,9 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
         value5(value5);
         value6(value6);
         value7(value7);
+        value8(value8);
+        value9(value9);
+        value10(value10);
         return this;
     }
 
@@ -319,14 +428,17 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     /**
      * Create a detached, initialised ViewTablePublicationsRecord
      */
-    public ViewTablePublicationsRecord(Integer publicationId, String publicationDoi, String publicationFallbackCache, ViewTablePublicationsReferenceType referenceType, Integer[] referencingIds, Timestamp createdOn, Timestamp updatedOn) {
+    public ViewTablePublicationsRecord(Integer publicationId, String publicationDoi, String publicationFallbackCache, Integer isDatabasePub, Integer[] datasetIds, Integer[] germplasmIds, Integer[] groupIds, Integer[] experimentIds, Timestamp createdOn, Timestamp updatedOn) {
         super(ViewTablePublications.VIEW_TABLE_PUBLICATIONS);
 
         setPublicationId(publicationId);
         setPublicationDoi(publicationDoi);
         setPublicationFallbackCache(publicationFallbackCache);
-        setReferenceType(referenceType);
-        setReferencingIds(referencingIds);
+        setIsDatabasePub(isDatabasePub);
+        setDatasetIds(datasetIds);
+        setGermplasmIds(germplasmIds);
+        setGroupIds(groupIds);
+        setExperimentIds(experimentIds);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
     }
@@ -341,8 +453,11 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
             setPublicationId(value.getPublicationId());
             setPublicationDoi(value.getPublicationDoi());
             setPublicationFallbackCache(value.getPublicationFallbackCache());
-            setReferenceType(value.getReferenceType());
-            setReferencingIds(value.getReferencingIds());
+            setIsDatabasePub(value.getIsDatabasePub());
+            setDatasetIds(value.getDatasetIds());
+            setGermplasmIds(value.getGermplasmIds());
+            setGroupIds(value.getGroupIds());
+            setExperimentIds(value.getExperimentIds());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
         }

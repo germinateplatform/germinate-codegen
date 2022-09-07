@@ -8,12 +8,11 @@ import java.sql.Timestamp;
 
 import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.enums.ViewTablePublicationsReferenceType;
 import jhi.germinate.server.database.codegen.tables.records.ViewTablePublicationsRecord;
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row7;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -66,15 +65,31 @@ public class ViewTablePublications extends TableImpl<ViewTablePublicationsRecord
 
     /**
      * The column
-     * <code>germinate_db.view_table_publications.reference_type</code>.
+     * <code>germinate_db.view_table_publications.is_database_pub</code>.
      */
-    public final TableField<ViewTablePublicationsRecord, ViewTablePublicationsReferenceType> REFERENCE_TYPE = createField(DSL.name("reference_type"), SQLDataType.VARCHAR(10).defaultValue(DSL.inline("database", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTablePublicationsReferenceType.class), this, "");
+    public final TableField<ViewTablePublicationsRecord, Integer> IS_DATABASE_PUB = createField(DSL.name("is_database_pub"), SQLDataType.INTEGER, this, "");
+
+    /**
+     * The column <code>germinate_db.view_table_publications.dataset_ids</code>.
+     */
+    public final TableField<ViewTablePublicationsRecord, Integer[]> DATASET_IDS = createField(DSL.name("dataset_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
 
     /**
      * The column
-     * <code>germinate_db.view_table_publications.referencing_ids</code>.
+     * <code>germinate_db.view_table_publications.germplasm_ids</code>.
      */
-    public final TableField<ViewTablePublicationsRecord, Integer[]> REFERENCING_IDS = createField(DSL.name("referencing_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
+    public final TableField<ViewTablePublicationsRecord, Integer[]> GERMPLASM_IDS = createField(DSL.name("germplasm_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
+
+    /**
+     * The column <code>germinate_db.view_table_publications.group_ids</code>.
+     */
+    public final TableField<ViewTablePublicationsRecord, Integer[]> GROUP_IDS = createField(DSL.name("group_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_publications.experiment_ids</code>.
+     */
+    public final TableField<ViewTablePublicationsRecord, Integer[]> EXPERIMENT_IDS = createField(DSL.name("experiment_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
 
     /**
      * The column <code>germinate_db.view_table_publications.created_on</code>.
@@ -91,7 +106,7 @@ public class ViewTablePublications extends TableImpl<ViewTablePublicationsRecord
     }
 
     private ViewTablePublications(Name alias, Table<ViewTablePublicationsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_publications` as select `germinate_template_4_22_08_24`.`publications`.`id` AS `publication_id`,`germinate_template_4_22_08_24`.`publications`.`doi` AS `publication_doi`,`germinate_template_4_22_08_24`.`publications`.`fallback_cache` AS `publication_fallback_cache`,`germinate_template_4_22_08_24`.`publicationdata`.`reference_type` AS `reference_type`,json_arrayagg(`germinate_template_4_22_08_24`.`publicationdata`.`foreign_id`) AS `referencing_ids`,`germinate_template_4_22_08_24`.`publications`.`created_on` AS `created_on`,`germinate_template_4_22_08_24`.`publications`.`updated_on` AS `updated_on` from (`germinate_template_4_22_08_24`.`publications` left join `germinate_template_4_22_08_24`.`publicationdata` on((`germinate_template_4_22_08_24`.`publicationdata`.`publication_id` = `germinate_template_4_22_08_24`.`publications`.`id`))) group by `germinate_template_4_22_08_24`.`publications`.`id`,`germinate_template_4_22_08_24`.`publicationdata`.`reference_type`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_publications` as select `germinate_template_4_22_09_02`.`publications`.`id` AS `publication_id`,`germinate_template_4_22_09_02`.`publications`.`doi` AS `publication_doi`,`germinate_template_4_22_09_02`.`publications`.`fallback_cache` AS `publication_fallback_cache`,(select TRUE from `germinate_template_4_22_09_02`.`publicationdata` where ((`germinate_template_4_22_09_02`.`publicationdata`.`reference_type` = 'database') and (`germinate_template_4_22_09_02`.`publicationdata`.`publication_id` = `germinate_template_4_22_09_02`.`publications`.`id`))) AS `is_database_pub`,(select json_arrayagg(`germinate_template_4_22_09_02`.`publicationdata`.`foreign_id`) from `germinate_template_4_22_09_02`.`publicationdata` where ((`germinate_template_4_22_09_02`.`publicationdata`.`reference_type` = 'dataset') and (`germinate_template_4_22_09_02`.`publicationdata`.`publication_id` = `germinate_template_4_22_09_02`.`publications`.`id`)) group by `germinate_template_4_22_09_02`.`publicationdata`.`publication_id`) AS `dataset_ids`,(select json_arrayagg(`germinate_template_4_22_09_02`.`publicationdata`.`foreign_id`) from `germinate_template_4_22_09_02`.`publicationdata` where ((`germinate_template_4_22_09_02`.`publicationdata`.`reference_type` = 'germplasm') and (`germinate_template_4_22_09_02`.`publicationdata`.`publication_id` = `germinate_template_4_22_09_02`.`publications`.`id`)) group by `germinate_template_4_22_09_02`.`publicationdata`.`publication_id`) AS `germplasm_ids`,(select json_arrayagg(`germinate_template_4_22_09_02`.`publicationdata`.`foreign_id`) from `germinate_template_4_22_09_02`.`publicationdata` where ((`germinate_template_4_22_09_02`.`publicationdata`.`reference_type` = 'group') and (`germinate_template_4_22_09_02`.`publicationdata`.`publication_id` = `germinate_template_4_22_09_02`.`publications`.`id`)) group by `germinate_template_4_22_09_02`.`publicationdata`.`publication_id`) AS `group_ids`,(select json_arrayagg(`germinate_template_4_22_09_02`.`publicationdata`.`foreign_id`) from `germinate_template_4_22_09_02`.`publicationdata` where ((`germinate_template_4_22_09_02`.`publicationdata`.`reference_type` = 'experiment') and (`germinate_template_4_22_09_02`.`publicationdata`.`publication_id` = `germinate_template_4_22_09_02`.`publications`.`id`)) group by `germinate_template_4_22_09_02`.`publicationdata`.`publication_id`) AS `experiment_ids`,`germinate_template_4_22_09_02`.`publications`.`created_on` AS `created_on`,`germinate_template_4_22_09_02`.`publications`.`updated_on` AS `updated_on` from `germinate_template_4_22_09_02`.`publications`"));
     }
 
     /**
@@ -150,12 +165,12 @@ public class ViewTablePublications extends TableImpl<ViewTablePublicationsRecord
     }
 
     // -------------------------------------------------------------------------
-    // Row7 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Integer, String, String, ViewTablePublicationsReferenceType, Integer[], Timestamp, Timestamp> fieldsRow() {
-        return (Row7) super.fieldsRow();
+    public Row10<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
     // @formatter:on
 }

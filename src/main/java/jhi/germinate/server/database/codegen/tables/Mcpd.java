@@ -356,7 +356,7 @@ public class Mcpd extends TableImpl<McpdRecord> {
      * allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI
      * Genebank Standards 1994 for details on storage type.)
      */
-    public final TableField<McpdRecord, String> STORAGE = createField(DSL.name("storage"), SQLDataType.VARCHAR(255), this, "If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)");
+    public final TableField<McpdRecord, String> STORAGE = createField(DSL.name("storage"), SQLDataType.CLOB, this, "If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)");
 
     /**
      * The column <code>germinate_db.mcpd.mlsstat</code>. The status of an

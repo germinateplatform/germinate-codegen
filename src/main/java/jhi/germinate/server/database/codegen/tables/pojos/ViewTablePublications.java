@@ -8,8 +8,6 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
-import jhi.germinate.server.database.codegen.enums.ViewTablePublicationsReferenceType;
-
 
 // @formatter:off
 /**
@@ -20,13 +18,16 @@ public class ViewTablePublications implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer                            publicationId;
-    private String                             publicationDoi;
-    private String                             publicationFallbackCache;
-    private ViewTablePublicationsReferenceType referenceType;
-    private Integer[]                          referencingIds;
-    private Timestamp                          createdOn;
-    private Timestamp                          updatedOn;
+    private Integer   publicationId;
+    private String    publicationDoi;
+    private String    publicationFallbackCache;
+    private Integer   isDatabasePub;
+    private Integer[] datasetIds;
+    private Integer[] germplasmIds;
+    private Integer[] groupIds;
+    private Integer[] experimentIds;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public ViewTablePublications() {}
 
@@ -34,26 +35,35 @@ public class ViewTablePublications implements Serializable {
         this.publicationId = value.publicationId;
         this.publicationDoi = value.publicationDoi;
         this.publicationFallbackCache = value.publicationFallbackCache;
-        this.referenceType = value.referenceType;
-        this.referencingIds = value.referencingIds;
+        this.isDatabasePub = value.isDatabasePub;
+        this.datasetIds = value.datasetIds;
+        this.germplasmIds = value.germplasmIds;
+        this.groupIds = value.groupIds;
+        this.experimentIds = value.experimentIds;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
 
     public ViewTablePublications(
-        Integer                            publicationId,
-        String                             publicationDoi,
-        String                             publicationFallbackCache,
-        ViewTablePublicationsReferenceType referenceType,
-        Integer[]                          referencingIds,
-        Timestamp                          createdOn,
-        Timestamp                          updatedOn
+        Integer   publicationId,
+        String    publicationDoi,
+        String    publicationFallbackCache,
+        Integer   isDatabasePub,
+        Integer[] datasetIds,
+        Integer[] germplasmIds,
+        Integer[] groupIds,
+        Integer[] experimentIds,
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.publicationId = publicationId;
         this.publicationDoi = publicationDoi;
         this.publicationFallbackCache = publicationFallbackCache;
-        this.referenceType = referenceType;
-        this.referencingIds = referencingIds;
+        this.isDatabasePub = isDatabasePub;
+        this.datasetIds = datasetIds;
+        this.germplasmIds = germplasmIds;
+        this.groupIds = groupIds;
+        this.experimentIds = experimentIds;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -108,34 +118,78 @@ public class ViewTablePublications implements Serializable {
 
     /**
      * Getter for
-     * <code>germinate_db.view_table_publications.reference_type</code>.
+     * <code>germinate_db.view_table_publications.is_database_pub</code>.
      */
-    public ViewTablePublicationsReferenceType getReferenceType() {
-        return this.referenceType;
+    public Integer getIsDatabasePub() {
+        return this.isDatabasePub;
     }
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_publications.reference_type</code>.
+     * <code>germinate_db.view_table_publications.is_database_pub</code>.
      */
-    public void setReferenceType(ViewTablePublicationsReferenceType referenceType) {
-        this.referenceType = referenceType;
+    public void setIsDatabasePub(Integer isDatabasePub) {
+        this.isDatabasePub = isDatabasePub;
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_publications.dataset_ids</code>.
+     */
+    public Integer[] getDatasetIds() {
+        return this.datasetIds;
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_publications.dataset_ids</code>.
+     */
+    public void setDatasetIds(Integer[] datasetIds) {
+        this.datasetIds = datasetIds;
     }
 
     /**
      * Getter for
-     * <code>germinate_db.view_table_publications.referencing_ids</code>.
+     * <code>germinate_db.view_table_publications.germplasm_ids</code>.
      */
-    public Integer[] getReferencingIds() {
-        return this.referencingIds;
+    public Integer[] getGermplasmIds() {
+        return this.germplasmIds;
     }
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_publications.referencing_ids</code>.
+     * <code>germinate_db.view_table_publications.germplasm_ids</code>.
      */
-    public void setReferencingIds(Integer[] referencingIds) {
-        this.referencingIds = referencingIds;
+    public void setGermplasmIds(Integer[] germplasmIds) {
+        this.germplasmIds = germplasmIds;
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_publications.group_ids</code>.
+     */
+    public Integer[] getGroupIds() {
+        return this.groupIds;
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_publications.group_ids</code>.
+     */
+    public void setGroupIds(Integer[] groupIds) {
+        this.groupIds = groupIds;
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_publications.experiment_ids</code>.
+     */
+    public Integer[] getExperimentIds() {
+        return this.experimentIds;
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_publications.experiment_ids</code>.
+     */
+    public void setExperimentIds(Integer[] experimentIds) {
+        this.experimentIds = experimentIds;
     }
 
     /**
@@ -173,8 +227,11 @@ public class ViewTablePublications implements Serializable {
         sb.append(publicationId);
         sb.append(", ").append(publicationDoi);
         sb.append(", ").append(publicationFallbackCache);
-        sb.append(", ").append(referenceType);
-        sb.append(", ").append(Arrays.toString(referencingIds));
+        sb.append(", ").append(isDatabasePub);
+        sb.append(", ").append(Arrays.toString(datasetIds));
+        sb.append(", ").append(Arrays.toString(germplasmIds));
+        sb.append(", ").append(Arrays.toString(groupIds));
+        sb.append(", ").append(Arrays.toString(experimentIds));
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 
