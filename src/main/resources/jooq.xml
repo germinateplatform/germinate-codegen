@@ -108,6 +108,12 @@
                     <userType>String[]</userType>
                 </forcedType>
                 <forcedType>
+                    <binding>jhi.germinate.server.database.binding.LicenseContentBinding</binding>
+                    <expression>.*(view_table_license_definitions)\.(license_data)</expression>
+                    <types>.*json.*</types>
+                    <userType>java.util.Map&lt;String,String&gt;</userType>
+                </forcedType>
+                <forcedType>
                     <binding>jhi.germinate.server.database.binding.IntArrayBinding</binding>
                     <expression>.*\..*(dataset_ids).*</expression>
                     <types>.*json.*</types>

@@ -103,6 +103,7 @@ import jhi.germinate.server.database.codegen.tables.ViewTableGermplasmDeprecated
 import jhi.germinate.server.database.codegen.tables.ViewTableGroups;
 import jhi.germinate.server.database.codegen.tables.ViewTableImages;
 import jhi.germinate.server.database.codegen.tables.ViewTableInstitutions;
+import jhi.germinate.server.database.codegen.tables.ViewTableLicenseDefinitions;
 import jhi.germinate.server.database.codegen.tables.ViewTableLicenses;
 import jhi.germinate.server.database.codegen.tables.ViewTableLinks;
 import jhi.germinate.server.database.codegen.tables.ViewTableLocations;
@@ -247,6 +248,7 @@ public class GerminateDb extends SchemaImpl {
             ViewTableGroups.VIEW_TABLE_GROUPS,
             ViewTableImages.VIEW_TABLE_IMAGES,
             ViewTableInstitutions.VIEW_TABLE_INSTITUTIONS,
+            ViewTableLicenseDefinitions.VIEW_TABLE_LICENSE_DEFINITIONS,
             ViewTableLicenses.VIEW_TABLE_LICENSES,
             ViewTableLinks.VIEW_TABLE_LINKS,
             ViewTableLocations.VIEW_TABLE_LOCATIONS,
