@@ -4,13 +4,16 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.util.Map;
+
 import jhi.germinate.server.database.binding.IntArrayBinding;
+import jhi.germinate.server.database.binding.LicenseContentBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableLicensesRecord;
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row8;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -61,18 +64,7 @@ public class ViewTableLicenses extends TableImpl<ViewTableLicensesRecord> {
     /**
      * The column <code>germinate_db.view_table_licenses.license_content</code>.
      */
-    public final TableField<ViewTableLicensesRecord, String> LICENSE_CONTENT = createField(DSL.name("license_content"), SQLDataType.CLOB, this, "");
-
-    /**
-     * The column <code>germinate_db.view_table_licenses.locale_name</code>.
-     */
-    public final TableField<ViewTableLicensesRecord, String> LOCALE_NAME = createField(DSL.name("locale_name"), SQLDataType.VARCHAR(255), this, "");
-
-    /**
-     * The column
-     * <code>germinate_db.view_table_licenses.locale_description</code>.
-     */
-    public final TableField<ViewTableLicensesRecord, String> LOCALE_DESCRIPTION = createField(DSL.name("locale_description"), SQLDataType.CLOB, this, "");
+    public final TableField<ViewTableLicensesRecord, Map<String,String>> LICENSE_CONTENT = createField(DSL.name("license_content"), SQLDataType.JSON, this, "", new LicenseContentBinding());
 
     /**
      * The column <code>germinate_db.view_table_licenses.dataset_id</code>.
@@ -90,7 +82,7 @@ public class ViewTableLicenses extends TableImpl<ViewTableLicensesRecord> {
     }
 
     private ViewTableLicenses(Name alias, Table<ViewTableLicensesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_licenses` as select `germinate_template_4_22_09_02`.`licenses`.`id` AS `license_id`,`germinate_template_4_22_09_02`.`licenses`.`name` AS `license_name`,`germinate_template_4_22_09_02`.`licenses`.`description` AS `license_description`,`germinate_template_4_22_09_02`.`licensedata`.`content` AS `license_content`,`germinate_template_4_22_09_02`.`locales`.`name` AS `locale_name`,`germinate_template_4_22_09_02`.`locales`.`description` AS `locale_description`,`germinate_template_4_22_09_02`.`datasets`.`id` AS `dataset_id`,json_arrayagg(`germinate_template_4_22_09_02`.`licenselogs`.`user_id`) AS `accepted_by` from ((((`germinate_template_4_22_09_02`.`licenses` left join `germinate_template_4_22_09_02`.`licensedata` on((`germinate_template_4_22_09_02`.`licensedata`.`license_id` = `germinate_template_4_22_09_02`.`licenses`.`id`))) left join `germinate_template_4_22_09_02`.`locales` on((`germinate_template_4_22_09_02`.`locales`.`id` = `germinate_template_4_22_09_02`.`licensedata`.`locale_id`))) left join `germinate_template_4_22_09_02`.`datasets` on((`germinate_template_4_22_09_02`.`datasets`.`license_id` = `germinate_template_4_22_09_02`.`licenses`.`id`))) left join `germinate_template_4_22_09_02`.`licenselogs` on((`germinate_template_4_22_09_02`.`licenselogs`.`license_id` = `germinate_template_4_22_09_02`.`licenses`.`id`))) group by `germinate_template_4_22_09_02`.`licenses`.`id`,`germinate_template_4_22_09_02`.`locales`.`id`,`germinate_template_4_22_09_02`.`licensedata`.`id`,`germinate_template_4_22_09_02`.`datasets`.`id`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_licenses` as select `germinate_template_4_22_09_26`.`licenses`.`id` AS `license_id`,`germinate_template_4_22_09_26`.`licenses`.`name` AS `license_name`,`germinate_template_4_22_09_26`.`licenses`.`description` AS `license_description`,json_objectagg(`germinate_template_4_22_09_26`.`locales`.`name`,`germinate_template_4_22_09_26`.`licensedata`.`content`) AS `license_content`,`germinate_template_4_22_09_26`.`datasets`.`id` AS `dataset_id`,json_arrayagg(`germinate_template_4_22_09_26`.`licenselogs`.`user_id`) AS `accepted_by` from ((((`germinate_template_4_22_09_26`.`licenses` left join `germinate_template_4_22_09_26`.`licensedata` on((`germinate_template_4_22_09_26`.`licensedata`.`license_id` = `germinate_template_4_22_09_26`.`licenses`.`id`))) left join `germinate_template_4_22_09_26`.`locales` on((`germinate_template_4_22_09_26`.`locales`.`id` = `germinate_template_4_22_09_26`.`licensedata`.`locale_id`))) left join `germinate_template_4_22_09_26`.`datasets` on((`germinate_template_4_22_09_26`.`datasets`.`license_id` = `germinate_template_4_22_09_26`.`licenses`.`id`))) left join `germinate_template_4_22_09_26`.`licenselogs` on((`germinate_template_4_22_09_26`.`licenselogs`.`license_id` = `germinate_template_4_22_09_26`.`licenses`.`id`))) group by `germinate_template_4_22_09_26`.`licenses`.`id`,`germinate_template_4_22_09_26`.`locales`.`id`,`germinate_template_4_22_09_26`.`licensedata`.`id`,`germinate_template_4_22_09_26`.`datasets`.`id`"));
     }
 
     /**
@@ -148,12 +140,12 @@ public class ViewTableLicenses extends TableImpl<ViewTableLicensesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, String, String, String, String, String, Integer, Integer[]> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row6<Integer, String, String, Map<String,String>, Integer, Integer[]> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
     // @formatter:on
 }

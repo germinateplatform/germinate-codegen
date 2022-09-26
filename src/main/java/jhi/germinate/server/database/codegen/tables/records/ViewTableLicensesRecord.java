@@ -4,11 +4,13 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
+import java.util.Map;
+
 import jhi.germinate.server.database.codegen.tables.ViewTableLicenses;
 
 import org.jooq.Field;
-import org.jooq.Record8;
-import org.jooq.Row8;
+import org.jooq.Record6;
+import org.jooq.Row6;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -17,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRecord> implements Record8<Integer, String, String, String, String, String, Integer, Integer[]> {
+public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRecord> implements Record6<Integer, String, String, Map<String,String>, Integer, Integer[]> {
 
     private static final long serialVersionUID = 1L;
 
@@ -68,45 +70,15 @@ public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRe
     /**
      * Setter for <code>germinate_db.view_table_licenses.license_content</code>.
      */
-    public void setLicenseContent(String value) {
+    public void setLicenseContent(Map<String,String> value) {
         set(3, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_licenses.license_content</code>.
      */
-    public String getLicenseContent() {
-        return (String) get(3);
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_licenses.locale_name</code>.
-     */
-    public void setLocaleName(String value) {
-        set(4, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_licenses.locale_name</code>.
-     */
-    public String getLocaleName() {
-        return (String) get(4);
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_licenses.locale_description</code>.
-     */
-    public void setLocaleDescription(String value) {
-        set(5, value);
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_licenses.locale_description</code>.
-     */
-    public String getLocaleDescription() {
-        return (String) get(5);
+    public Map<String,String> getLicenseContent() {
+        return (Map<String,String>) get(3);
     }
 
     /**
@@ -114,7 +86,7 @@ public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRe
      * Primary id for this table. This uniquely identifies the row.
      */
     public void setDatasetId(Integer value) {
-        set(6, value);
+        set(4, value);
     }
 
     /**
@@ -122,35 +94,35 @@ public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRe
      * Primary id for this table. This uniquely identifies the row.
      */
     public Integer getDatasetId() {
-        return (Integer) get(6);
+        return (Integer) get(4);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_licenses.accepted_by</code>.
      */
     public void setAcceptedBy(Integer[] value) {
-        set(7, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_licenses.accepted_by</code>.
      */
     public Integer[] getAcceptedBy() {
-        return (Integer[]) get(7);
+        return (Integer[]) get(5);
     }
 
     // -------------------------------------------------------------------------
-    // Record8 type implementation
+    // Record6 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, String, String, String, String, String, Integer, Integer[]> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row6<Integer, String, String, Map<String,String>, Integer, Integer[]> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 
     @Override
-    public Row8<Integer, String, String, String, String, String, Integer, Integer[]> valuesRow() {
-        return (Row8) super.valuesRow();
+    public Row6<Integer, String, String, Map<String,String>, Integer, Integer[]> valuesRow() {
+        return (Row6) super.valuesRow();
     }
 
     @Override
@@ -169,27 +141,17 @@ public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRe
     }
 
     @Override
-    public Field<String> field4() {
+    public Field<Map<String,String>> field4() {
         return ViewTableLicenses.VIEW_TABLE_LICENSES.LICENSE_CONTENT;
     }
 
     @Override
-    public Field<String> field5() {
-        return ViewTableLicenses.VIEW_TABLE_LICENSES.LOCALE_NAME;
-    }
-
-    @Override
-    public Field<String> field6() {
-        return ViewTableLicenses.VIEW_TABLE_LICENSES.LOCALE_DESCRIPTION;
-    }
-
-    @Override
-    public Field<Integer> field7() {
+    public Field<Integer> field5() {
         return ViewTableLicenses.VIEW_TABLE_LICENSES.DATASET_ID;
     }
 
     @Override
-    public Field<Integer[]> field8() {
+    public Field<Integer[]> field6() {
         return ViewTableLicenses.VIEW_TABLE_LICENSES.ACCEPTED_BY;
     }
 
@@ -209,27 +171,17 @@ public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRe
     }
 
     @Override
-    public String component4() {
+    public Map<String,String> component4() {
         return getLicenseContent();
     }
 
     @Override
-    public String component5() {
-        return getLocaleName();
-    }
-
-    @Override
-    public String component6() {
-        return getLocaleDescription();
-    }
-
-    @Override
-    public Integer component7() {
+    public Integer component5() {
         return getDatasetId();
     }
 
     @Override
-    public Integer[] component8() {
+    public Integer[] component6() {
         return getAcceptedBy();
     }
 
@@ -249,27 +201,17 @@ public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRe
     }
 
     @Override
-    public String value4() {
+    public Map<String,String> value4() {
         return getLicenseContent();
     }
 
     @Override
-    public String value5() {
-        return getLocaleName();
-    }
-
-    @Override
-    public String value6() {
-        return getLocaleDescription();
-    }
-
-    @Override
-    public Integer value7() {
+    public Integer value5() {
         return getDatasetId();
     }
 
     @Override
-    public Integer[] value8() {
+    public Integer[] value6() {
         return getAcceptedBy();
     }
 
@@ -292,45 +234,31 @@ public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRe
     }
 
     @Override
-    public ViewTableLicensesRecord value4(String value) {
+    public ViewTableLicensesRecord value4(Map<String,String> value) {
         setLicenseContent(value);
         return this;
     }
 
     @Override
-    public ViewTableLicensesRecord value5(String value) {
-        setLocaleName(value);
-        return this;
-    }
-
-    @Override
-    public ViewTableLicensesRecord value6(String value) {
-        setLocaleDescription(value);
-        return this;
-    }
-
-    @Override
-    public ViewTableLicensesRecord value7(Integer value) {
+    public ViewTableLicensesRecord value5(Integer value) {
         setDatasetId(value);
         return this;
     }
 
     @Override
-    public ViewTableLicensesRecord value8(Integer[] value) {
+    public ViewTableLicensesRecord value6(Integer[] value) {
         setAcceptedBy(value);
         return this;
     }
 
     @Override
-    public ViewTableLicensesRecord values(Integer value1, String value2, String value3, String value4, String value5, String value6, Integer value7, Integer[] value8) {
+    public ViewTableLicensesRecord values(Integer value1, String value2, String value3, Map<String,String> value4, Integer value5, Integer[] value6) {
         value1(value1);
         value2(value2);
         value3(value3);
         value4(value4);
         value5(value5);
         value6(value6);
-        value7(value7);
-        value8(value8);
         return this;
     }
 
@@ -348,15 +276,13 @@ public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRe
     /**
      * Create a detached, initialised ViewTableLicensesRecord
      */
-    public ViewTableLicensesRecord(Integer licenseId, String licenseName, String licenseDescription, String licenseContent, String localeName, String localeDescription, Integer datasetId, Integer[] acceptedBy) {
+    public ViewTableLicensesRecord(Integer licenseId, String licenseName, String licenseDescription, Map<String,String> licenseContent, Integer datasetId, Integer[] acceptedBy) {
         super(ViewTableLicenses.VIEW_TABLE_LICENSES);
 
         setLicenseId(licenseId);
         setLicenseName(licenseName);
         setLicenseDescription(licenseDescription);
         setLicenseContent(licenseContent);
-        setLocaleName(localeName);
-        setLocaleDescription(localeDescription);
         setDatasetId(datasetId);
         setAcceptedBy(acceptedBy);
     }
@@ -372,8 +298,6 @@ public class ViewTableLicensesRecord extends TableRecordImpl<ViewTableLicensesRe
             setLicenseName(value.getLicenseName());
             setLicenseDescription(value.getLicenseDescription());
             setLicenseContent(value.getLicenseContent());
-            setLocaleName(value.getLocaleName());
-            setLocaleDescription(value.getLocaleDescription());
             setDatasetId(value.getDatasetId());
             setAcceptedBy(value.getAcceptedBy());
         }

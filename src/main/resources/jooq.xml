@@ -20,7 +20,7 @@
             <excludes>
             </excludes>
             <includes>.*</includes>
-            <inputSchema>germinate_template_4_22_09_02</inputSchema>
+            <inputSchema>germinate_template_4_22_09_26</inputSchema>
             <outputSchema>germinate_db</outputSchema>
             <name>org.jooq.meta.mysql.MySQLDatabase</name>
             <comments>
@@ -109,7 +109,7 @@
                 </forcedType>
                 <forcedType>
                     <binding>jhi.germinate.server.database.binding.LicenseContentBinding</binding>
-                    <expression>.*(view_table_license_definitions)\.(license_data)</expression>
+                    <expression>.*(view_table_license).*\.(license_data|license_content)</expression>
                     <types>.*json.*</types>
                     <userType>java.util.Map&lt;String,String&gt;</userType>
                 </forcedType>
@@ -178,7 +178,7 @@
                 <value></value>
             </property>
         </properties>
-        <url>jdbc:mysql://localhost/germinate_template_4_22_09_02?serverTimezone=UTC</url>
+        <url>jdbc:mysql://localhost/germinate_template_4_22_09_26?serverTimezone=UTC</url>
 
         <!-- You can also pass user/password and other JDBC properties in the optional properties tag: -->
         <user>root</user>

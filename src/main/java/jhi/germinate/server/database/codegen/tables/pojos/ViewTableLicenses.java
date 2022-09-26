@@ -6,6 +6,7 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Map;
 
 
 // @formatter:off
@@ -17,14 +18,12 @@ public class ViewTableLicenses implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   licenseId;
-    private String    licenseName;
-    private String    licenseDescription;
-    private String    licenseContent;
-    private String    localeName;
-    private String    localeDescription;
-    private Integer   datasetId;
-    private Integer[] acceptedBy;
+    private Integer            licenseId;
+    private String             licenseName;
+    private String             licenseDescription;
+    private Map<String,String> licenseContent;
+    private Integer            datasetId;
+    private Integer[]          acceptedBy;
 
     public ViewTableLicenses() {}
 
@@ -33,28 +32,22 @@ public class ViewTableLicenses implements Serializable {
         this.licenseName = value.licenseName;
         this.licenseDescription = value.licenseDescription;
         this.licenseContent = value.licenseContent;
-        this.localeName = value.localeName;
-        this.localeDescription = value.localeDescription;
         this.datasetId = value.datasetId;
         this.acceptedBy = value.acceptedBy;
     }
 
     public ViewTableLicenses(
-        Integer   licenseId,
-        String    licenseName,
-        String    licenseDescription,
-        String    licenseContent,
-        String    localeName,
-        String    localeDescription,
-        Integer   datasetId,
-        Integer[] acceptedBy
+        Integer            licenseId,
+        String             licenseName,
+        String             licenseDescription,
+        Map<String,String> licenseContent,
+        Integer            datasetId,
+        Integer[]          acceptedBy
     ) {
         this.licenseId = licenseId;
         this.licenseName = licenseName;
         this.licenseDescription = licenseDescription;
         this.licenseContent = licenseContent;
-        this.localeName = localeName;
-        this.localeDescription = localeDescription;
         this.datasetId = datasetId;
         this.acceptedBy = acceptedBy;
     }
@@ -106,45 +99,15 @@ public class ViewTableLicenses implements Serializable {
     /**
      * Getter for <code>germinate_db.view_table_licenses.license_content</code>.
      */
-    public String getLicenseContent() {
+    public Map<String,String> getLicenseContent() {
         return this.licenseContent;
     }
 
     /**
      * Setter for <code>germinate_db.view_table_licenses.license_content</code>.
      */
-    public void setLicenseContent(String licenseContent) {
+    public void setLicenseContent(Map<String,String> licenseContent) {
         this.licenseContent = licenseContent;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_licenses.locale_name</code>.
-     */
-    public String getLocaleName() {
-        return this.localeName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_licenses.locale_name</code>.
-     */
-    public void setLocaleName(String localeName) {
-        this.localeName = localeName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_licenses.locale_description</code>.
-     */
-    public String getLocaleDescription() {
-        return this.localeDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_licenses.locale_description</code>.
-     */
-    public void setLocaleDescription(String localeDescription) {
-        this.localeDescription = localeDescription;
     }
 
     /**
@@ -185,8 +148,6 @@ public class ViewTableLicenses implements Serializable {
         sb.append(", ").append(licenseName);
         sb.append(", ").append(licenseDescription);
         sb.append(", ").append(licenseContent);
-        sb.append(", ").append(localeName);
-        sb.append(", ").append(localeDescription);
         sb.append(", ").append(datasetId);
         sb.append(", ").append(Arrays.toString(acceptedBy));
 
