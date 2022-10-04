@@ -58,7 +58,7 @@ public class ViewStatsBiologicalstatus extends TableImpl<ViewStatsBiologicalstat
     }
 
     private ViewStatsBiologicalstatus(Name alias, Table<ViewStatsBiologicalstatusRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_stats_biologicalstatus` as select substring_index(`germinate_template_4_22_09_26`.`biologicalstatus`.`sampstat`,' (',1) AS `biologicalstatus`,(select count(1) from `germinate_template_4_22_09_26`.`mcpd` where (`germinate_template_4_22_09_26`.`mcpd`.`sampstat` = `germinate_template_4_22_09_26`.`biologicalstatus`.`id`)) AS `count` from `germinate_template_4_22_09_26`.`biologicalstatus` order by `count` desc"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_stats_biologicalstatus` as select substring_index(`germinate_template_4_22_10_03`.`biologicalstatus`.`sampstat`,' (',1) AS `biologicalstatus`,(select count(1) from `germinate_template_4_22_10_03`.`mcpd` where (`germinate_template_4_22_10_03`.`mcpd`.`sampstat` = `germinate_template_4_22_10_03`.`biologicalstatus`.`id`)) AS `count` from `germinate_template_4_22_10_03`.`biologicalstatus` order by `count` desc"));
     }
 
     /**

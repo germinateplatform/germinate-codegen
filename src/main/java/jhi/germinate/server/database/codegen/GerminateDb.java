@@ -7,7 +7,6 @@ package jhi.germinate.server.database.codegen;
 import java.util.Arrays;
 import java.util.List;
 
-import jhi.germinate.server.database.codegen.tables.Analysismethods;
 import jhi.germinate.server.database.codegen.tables.Attributedata;
 import jhi.germinate.server.database.codegen.tables.Attributes;
 import jhi.germinate.server.database.codegen.tables.Biologicalstatus;
@@ -18,8 +17,6 @@ import jhi.germinate.server.database.codegen.tables.Collaborators;
 import jhi.germinate.server.database.codegen.tables.Collectingsources;
 import jhi.germinate.server.database.codegen.tables.Comments;
 import jhi.germinate.server.database.codegen.tables.Commenttypes;
-import jhi.germinate.server.database.codegen.tables.Compounddata;
-import jhi.germinate.server.database.codegen.tables.Compounds;
 import jhi.germinate.server.database.codegen.tables.Countries;
 import jhi.germinate.server.database.codegen.tables.DataExportJobs;
 import jhi.germinate.server.database.codegen.tables.DataImportJobs;
@@ -91,8 +88,6 @@ import jhi.germinate.server.database.codegen.tables.ViewTableClimateoverlays;
 import jhi.germinate.server.database.codegen.tables.ViewTableClimates;
 import jhi.germinate.server.database.codegen.tables.ViewTableCollaborators;
 import jhi.germinate.server.database.codegen.tables.ViewTableComments;
-import jhi.germinate.server.database.codegen.tables.ViewTableCompoundData;
-import jhi.germinate.server.database.codegen.tables.ViewTableCompounds;
 import jhi.germinate.server.database.codegen.tables.ViewTableDatasetAttributes;
 import jhi.germinate.server.database.codegen.tables.ViewTableDatasets;
 import jhi.germinate.server.database.codegen.tables.ViewTableEntities;
@@ -114,6 +109,7 @@ import jhi.germinate.server.database.codegen.tables.ViewTableNews;
 import jhi.germinate.server.database.codegen.tables.ViewTablePedigreedefinitions;
 import jhi.germinate.server.database.codegen.tables.ViewTablePedigrees;
 import jhi.germinate.server.database.codegen.tables.ViewTablePublications;
+import jhi.germinate.server.database.codegen.tables.ViewTableTraitAttributes;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraits;
 import jhi.germinate.server.database.codegen.tables.ViewTableUsergroups;
 
@@ -152,7 +148,6 @@ public class GerminateDb extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
-            Analysismethods.ANALYSISMETHODS,
             Attributedata.ATTRIBUTEDATA,
             Attributes.ATTRIBUTES,
             Biologicalstatus.BIOLOGICALSTATUS,
@@ -163,8 +158,6 @@ public class GerminateDb extends SchemaImpl {
             Collectingsources.COLLECTINGSOURCES,
             Comments.COMMENTS,
             Commenttypes.COMMENTTYPES,
-            Compounddata.COMPOUNDDATA,
-            Compounds.COMPOUNDS,
             Countries.COUNTRIES,
             DataExportJobs.DATA_EXPORT_JOBS,
             DataImportJobs.DATA_IMPORT_JOBS,
@@ -236,8 +229,6 @@ public class GerminateDb extends SchemaImpl {
             ViewTableClimates.VIEW_TABLE_CLIMATES,
             ViewTableCollaborators.VIEW_TABLE_COLLABORATORS,
             ViewTableComments.VIEW_TABLE_COMMENTS,
-            ViewTableCompoundData.VIEW_TABLE_COMPOUND_DATA,
-            ViewTableCompounds.VIEW_TABLE_COMPOUNDS,
             ViewTableDatasetAttributes.VIEW_TABLE_DATASET_ATTRIBUTES,
             ViewTableDatasets.VIEW_TABLE_DATASETS,
             ViewTableEntities.VIEW_TABLE_ENTITIES,
@@ -259,6 +250,7 @@ public class GerminateDb extends SchemaImpl {
             ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS,
             ViewTablePedigrees.VIEW_TABLE_PEDIGREES,
             ViewTablePublications.VIEW_TABLE_PUBLICATIONS,
+            ViewTableTraitAttributes.VIEW_TABLE_TRAIT_ATTRIBUTES,
             ViewTableTraits.VIEW_TABLE_TRAITS,
             ViewTableUsergroups.VIEW_TABLE_USERGROUPS
         );

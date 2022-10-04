@@ -51,7 +51,6 @@ public class ViewTableGermplasmDeprecated implements Serializable {
     private Integer                hasTrialsData;
     private Integer                hasGenotypicData;
     private Integer                hasAllelefreqData;
-    private Integer                hasCompoundData;
 
     public ViewTableGermplasmDeprecated() {}
 
@@ -87,7 +86,6 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         this.hasTrialsData = value.hasTrialsData;
         this.hasGenotypicData = value.hasGenotypicData;
         this.hasAllelefreqData = value.hasAllelefreqData;
-        this.hasCompoundData = value.hasCompoundData;
     }
 
     public ViewTableGermplasmDeprecated(
@@ -121,8 +119,7 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         String                 firstImagePath,
         Integer                hasTrialsData,
         Integer                hasGenotypicData,
-        Integer                hasAllelefreqData,
-        Integer                hasCompoundData
+        Integer                hasAllelefreqData
     ) {
         this.germplasmName = germplasmName;
         this.germplasmId = germplasmId;
@@ -155,7 +152,6 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         this.hasTrialsData = hasTrialsData;
         this.hasGenotypicData = hasGenotypicData;
         this.hasAllelefreqData = hasAllelefreqData;
-        this.hasCompoundData = hasCompoundData;
     }
 
     /**
@@ -726,22 +722,6 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         this.hasAllelefreqData = hasAllelefreqData;
     }
 
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_germplasm_deprecated.has_compound_data</code>.
-     */
-    public Integer getHasCompoundData() {
-        return this.hasCompoundData;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_germplasm_deprecated.has_compound_data</code>.
-     */
-    public void setHasCompoundData(Integer hasCompoundData) {
-        this.hasCompoundData = hasCompoundData;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("ViewTableGermplasmDeprecated (");
@@ -777,7 +757,6 @@ public class ViewTableGermplasmDeprecated implements Serializable {
         sb.append(", ").append(hasTrialsData);
         sb.append(", ").append(hasGenotypicData);
         sb.append(", ").append(hasAllelefreqData);
-        sb.append(", ").append(hasCompoundData);
 
         sb.append(")");
         return sb.toString();

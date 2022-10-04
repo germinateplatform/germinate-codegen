@@ -589,22 +589,6 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
         return (Integer) get(30);
     }
 
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_germplasm_deprecated.has_compound_data</code>.
-     */
-    public void setHasCompoundData(Integer value) {
-        set(31, value);
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_germplasm_deprecated.has_compound_data</code>.
-     */
-    public Integer getHasCompoundData() {
-        return (Integer) get(31);
-    }
-
     // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
@@ -619,7 +603,7 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
     /**
      * Create a detached, initialised ViewTableGermplasmDeprecatedRecord
      */
-    public ViewTableGermplasmDeprecatedRecord(String germplasmName, Integer germplasmId, String germplasmGid, String germplasmNumber, String gerplasmPuid, Integer entityTypeId, String entityTypeName, Integer entityParentId, String entityParentName, String entityParentGeneralIdentifier, Integer biologicalStatusId, String biologicalStatusName, String[] synonyms, String collectorNumber, String genus, String species, String subtaxa, GermplasmInstitution[] institutions, String location, BigDecimal latitude, BigDecimal longitude, BigDecimal elevation, String countryName, String countryCode, String collDate, Double pdci, Long imageCount, String firstImagePath, Integer hasTrialsData, Integer hasGenotypicData, Integer hasAllelefreqData, Integer hasCompoundData) {
+    public ViewTableGermplasmDeprecatedRecord(String germplasmName, Integer germplasmId, String germplasmGid, String germplasmNumber, String gerplasmPuid, Integer entityTypeId, String entityTypeName, Integer entityParentId, String entityParentName, String entityParentGeneralIdentifier, Integer biologicalStatusId, String biologicalStatusName, String[] synonyms, String collectorNumber, String genus, String species, String subtaxa, GermplasmInstitution[] institutions, String location, BigDecimal latitude, BigDecimal longitude, BigDecimal elevation, String countryName, String countryCode, String collDate, Double pdci, Long imageCount, String firstImagePath, Integer hasTrialsData, Integer hasGenotypicData, Integer hasAllelefreqData) {
         super(ViewTableGermplasmDeprecated.VIEW_TABLE_GERMPLASM_DEPRECATED);
 
         setGermplasmName(germplasmName);
@@ -653,7 +637,6 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
         setHasTrialsData(hasTrialsData);
         setHasGenotypicData(hasGenotypicData);
         setHasAllelefreqData(hasAllelefreqData);
-        setHasCompoundData(hasCompoundData);
     }
 
     /**
@@ -694,7 +677,6 @@ public class ViewTableGermplasmDeprecatedRecord extends TableRecordImpl<ViewTabl
             setHasTrialsData(value.getHasTrialsData());
             setHasGenotypicData(value.getHasGenotypicData());
             setHasAllelefreqData(value.getHasAllelefreqData());
-            setHasCompoundData(value.getHasCompoundData());
         }
     }
     // @formatter:on
