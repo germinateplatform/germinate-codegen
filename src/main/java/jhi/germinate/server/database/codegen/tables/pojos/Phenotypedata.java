@@ -23,6 +23,8 @@ public class Phenotypedata implements Serializable {
     private Integer    germinatebaseId;
     private String     rep;
     private String     block;
+    private Short      trialRow;
+    private Short      trialColumn;
     private BigDecimal latitude;
     private BigDecimal longitude;
     private BigDecimal elevation;
@@ -43,6 +45,8 @@ public class Phenotypedata implements Serializable {
         this.germinatebaseId = value.germinatebaseId;
         this.rep = value.rep;
         this.block = value.block;
+        this.trialRow = value.trialRow;
+        this.trialColumn = value.trialColumn;
         this.latitude = value.latitude;
         this.longitude = value.longitude;
         this.elevation = value.elevation;
@@ -62,6 +66,8 @@ public class Phenotypedata implements Serializable {
         Integer    germinatebaseId,
         String     rep,
         String     block,
+        Short      trialRow,
+        Short      trialColumn,
         BigDecimal latitude,
         BigDecimal longitude,
         BigDecimal elevation,
@@ -79,6 +85,8 @@ public class Phenotypedata implements Serializable {
         this.germinatebaseId = germinatebaseId;
         this.rep = rep;
         this.block = block;
+        this.trialRow = trialRow;
+        this.trialColumn = trialColumn;
         this.latitude = latitude;
         this.longitude = longitude;
         this.elevation = elevation;
@@ -166,6 +174,38 @@ public class Phenotypedata implements Serializable {
      */
     public void setBlock(String block) {
         this.block = block;
+    }
+
+    /**
+     * Getter for <code>germinate_db.phenotypedata.trial_row</code>. The row
+     * number in the trial layout.
+     */
+    public Short getTrialRow() {
+        return this.trialRow;
+    }
+
+    /**
+     * Setter for <code>germinate_db.phenotypedata.trial_row</code>. The row
+     * number in the trial layout.
+     */
+    public void setTrialRow(Short trialRow) {
+        this.trialRow = trialRow;
+    }
+
+    /**
+     * Getter for <code>germinate_db.phenotypedata.trial_column</code>. The
+     * column number in the trial layout.
+     */
+    public Short getTrialColumn() {
+        return this.trialColumn;
+    }
+
+    /**
+     * Setter for <code>germinate_db.phenotypedata.trial_column</code>. The
+     * column number in the trial layout.
+     */
+    public void setTrialColumn(Short trialColumn) {
+        this.trialColumn = trialColumn;
     }
 
     /**
@@ -351,6 +391,8 @@ public class Phenotypedata implements Serializable {
         sb.append(", ").append(germinatebaseId);
         sb.append(", ").append(rep);
         sb.append(", ").append(block);
+        sb.append(", ").append(trialRow);
+        sb.append(", ").append(trialColumn);
         sb.append(", ").append(latitude);
         sb.append(", ").append(longitude);
         sb.append(", ").append(elevation);
