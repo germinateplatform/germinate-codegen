@@ -9,8 +9,8 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.tables.ViewTableFileresources;
 
 import org.jooq.Field;
-import org.jooq.Record11;
-import org.jooq.Row11;
+import org.jooq.Record12;
+import org.jooq.Row12;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFileresourcesRecord> implements Record11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer[]> {
+public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFileresourcesRecord> implements Record12<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Boolean, Integer[]> {
 
     private static final long serialVersionUID = 1L;
 
@@ -205,10 +205,28 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
 
     /**
      * Setter for
+     * <code>germinate_db.view_table_fileresources.public_visibility</code>.
+     * Determines whether this type is visible to non-admins.
+     */
+    public void setPublicVisibility(Boolean value) {
+        set(10, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_fileresources.public_visibility</code>.
+     * Determines whether this type is visible to non-admins.
+     */
+    public Boolean getPublicVisibility() {
+        return (Boolean) get(10);
+    }
+
+    /**
+     * Setter for
      * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
      */
     public void setDatasetIds(Integer[] value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
@@ -216,21 +234,21 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
      * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
      */
     public Integer[] getDatasetIds() {
-        return (Integer[]) get(10);
+        return (Integer[]) get(11);
     }
 
     // -------------------------------------------------------------------------
-    // Record11 type implementation
+    // Record12 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer[]> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row12<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Boolean, Integer[]> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
 
     @Override
-    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer[]> valuesRow() {
-        return (Row11) super.valuesRow();
+    public Row12<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Boolean, Integer[]> valuesRow() {
+        return (Row12) super.valuesRow();
     }
 
     @Override
@@ -284,7 +302,12 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     }
 
     @Override
-    public Field<Integer[]> field11() {
+    public Field<Boolean> field11() {
+        return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.PUBLIC_VISIBILITY;
+    }
+
+    @Override
+    public Field<Integer[]> field12() {
         return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.DATASET_IDS;
     }
 
@@ -339,7 +362,12 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     }
 
     @Override
-    public Integer[] component11() {
+    public Boolean component11() {
+        return getPublicVisibility();
+    }
+
+    @Override
+    public Integer[] component12() {
         return getDatasetIds();
     }
 
@@ -394,7 +422,12 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     }
 
     @Override
-    public Integer[] value11() {
+    public Boolean value11() {
+        return getPublicVisibility();
+    }
+
+    @Override
+    public Integer[] value12() {
         return getDatasetIds();
     }
 
@@ -459,13 +492,19 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     }
 
     @Override
-    public ViewTableFileresourcesRecord value11(Integer[] value) {
+    public ViewTableFileresourcesRecord value11(Boolean value) {
+        setPublicVisibility(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableFileresourcesRecord value12(Integer[] value) {
         setDatasetIds(value);
         return this;
     }
 
     @Override
-    public ViewTableFileresourcesRecord values(Integer value1, String value2, String value3, String value4, Long value5, Timestamp value6, Timestamp value7, Integer value8, String value9, String value10, Integer[] value11) {
+    public ViewTableFileresourcesRecord values(Integer value1, String value2, String value3, String value4, Long value5, Timestamp value6, Timestamp value7, Integer value8, String value9, String value10, Boolean value11, Integer[] value12) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -477,6 +516,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
         value9(value9);
         value10(value10);
         value11(value11);
+        value12(value12);
         return this;
     }
 
@@ -494,7 +534,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     /**
      * Create a detached, initialised ViewTableFileresourcesRecord
      */
-    public ViewTableFileresourcesRecord(Integer fileresourceId, String fileresourceName, String fileresourcePath, String fileresourceDescription, Long fileresourceSize, Timestamp fileresourceCreatedOn, Timestamp fileresourceUpdatedOn, Integer fileresourcetypeId, String fileresourcetypeName, String fileresourcetypeDescription, Integer[] datasetIds) {
+    public ViewTableFileresourcesRecord(Integer fileresourceId, String fileresourceName, String fileresourcePath, String fileresourceDescription, Long fileresourceSize, Timestamp fileresourceCreatedOn, Timestamp fileresourceUpdatedOn, Integer fileresourcetypeId, String fileresourcetypeName, String fileresourcetypeDescription, Boolean publicVisibility, Integer[] datasetIds) {
         super(ViewTableFileresources.VIEW_TABLE_FILERESOURCES);
 
         setFileresourceId(fileresourceId);
@@ -507,6 +547,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
         setFileresourcetypeId(fileresourcetypeId);
         setFileresourcetypeName(fileresourcetypeName);
         setFileresourcetypeDescription(fileresourcetypeDescription);
+        setPublicVisibility(publicVisibility);
         setDatasetIds(datasetIds);
     }
 
@@ -527,6 +568,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
             setFileresourcetypeId(value.getFileresourcetypeId());
             setFileresourcetypeName(value.getFileresourcetypeName());
             setFileresourcetypeDescription(value.getFileresourcetypeDescription());
+            setPublicVisibility(value.getPublicVisibility());
             setDatasetIds(value.getDatasetIds());
         }
     }

@@ -12,7 +12,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewTableFileresourc
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row11;
+import org.jooq.Row12;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -117,6 +117,13 @@ public class ViewTableFileresources extends TableImpl<ViewTableFileresourcesReco
 
     /**
      * The column
+     * <code>germinate_db.view_table_fileresources.public_visibility</code>.
+     * Determines whether this type is visible to non-admins.
+     */
+    public final TableField<ViewTableFileresourcesRecord, Boolean> PUBLIC_VISIBILITY = createField(DSL.name("public_visibility"), SQLDataType.BOOLEAN.defaultValue(DSL.inline("1", SQLDataType.BOOLEAN)), this, "Determines whether this type is visible to non-admins.");
+
+    /**
+     * The column
      * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
      */
     public final TableField<ViewTableFileresourcesRecord, Integer[]> DATASET_IDS = createField(DSL.name("dataset_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
@@ -126,7 +133,7 @@ public class ViewTableFileresources extends TableImpl<ViewTableFileresourcesReco
     }
 
     private ViewTableFileresources(Name alias, Table<ViewTableFileresourcesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresources` as select `germinate_template_4_22_10_12`.`fileresources`.`id` AS `fileresource_id`,`germinate_template_4_22_10_12`.`fileresources`.`name` AS `fileresource_name`,`germinate_template_4_22_10_12`.`fileresources`.`path` AS `fileresource_path`,`germinate_template_4_22_10_12`.`fileresources`.`description` AS `fileresource_description`,`germinate_template_4_22_10_12`.`fileresources`.`filesize` AS `fileresource_size`,`germinate_template_4_22_10_12`.`fileresources`.`created_on` AS `fileresource_created_on`,`germinate_template_4_22_10_12`.`fileresources`.`updated_on` AS `fileresource_updated_on`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`id` AS `fileresourcetype_id`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`name` AS `fileresourcetype_name`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`description` AS `fileresourcetype_description`,(select json_arrayagg(`germinate_template_4_22_10_12`.`datasetfileresources`.`dataset_id`) from `germinate_template_4_22_10_12`.`datasetfileresources` where (`germinate_template_4_22_10_12`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_22_10_12`.`fileresources`.`id`)) AS `dataset_ids` from ((`germinate_template_4_22_10_12`.`fileresources` left join `germinate_template_4_22_10_12`.`fileresourcetypes` on((`germinate_template_4_22_10_12`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_22_10_12`.`fileresourcetypes`.`id`))) left join `germinate_template_4_22_10_12`.`datasetfileresources` on((`germinate_template_4_22_10_12`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_22_10_12`.`fileresources`.`id`))) group by `germinate_template_4_22_10_12`.`fileresources`.`id`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresources` as select `germinate_template_4_22_10_12`.`fileresources`.`id` AS `fileresource_id`,`germinate_template_4_22_10_12`.`fileresources`.`name` AS `fileresource_name`,`germinate_template_4_22_10_12`.`fileresources`.`path` AS `fileresource_path`,`germinate_template_4_22_10_12`.`fileresources`.`description` AS `fileresource_description`,`germinate_template_4_22_10_12`.`fileresources`.`filesize` AS `fileresource_size`,`germinate_template_4_22_10_12`.`fileresources`.`created_on` AS `fileresource_created_on`,`germinate_template_4_22_10_12`.`fileresources`.`updated_on` AS `fileresource_updated_on`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`id` AS `fileresourcetype_id`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`name` AS `fileresourcetype_name`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`description` AS `fileresourcetype_description`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`public_visibility` AS `public_visibility`,(select json_arrayagg(`germinate_template_4_22_10_12`.`datasetfileresources`.`dataset_id`) from `germinate_template_4_22_10_12`.`datasetfileresources` where (`germinate_template_4_22_10_12`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_22_10_12`.`fileresources`.`id`)) AS `dataset_ids` from ((`germinate_template_4_22_10_12`.`fileresources` left join `germinate_template_4_22_10_12`.`fileresourcetypes` on((`germinate_template_4_22_10_12`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_22_10_12`.`fileresourcetypes`.`id`))) left join `germinate_template_4_22_10_12`.`datasetfileresources` on((`germinate_template_4_22_10_12`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_22_10_12`.`fileresources`.`id`))) group by `germinate_template_4_22_10_12`.`fileresources`.`id`"));
     }
 
     /**
@@ -185,12 +192,12 @@ public class ViewTableFileresources extends TableImpl<ViewTableFileresourcesReco
     }
 
     // -------------------------------------------------------------------------
-    // Row11 type methods
+    // Row12 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer[]> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row12<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Boolean, Integer[]> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
     // @formatter:on
 }

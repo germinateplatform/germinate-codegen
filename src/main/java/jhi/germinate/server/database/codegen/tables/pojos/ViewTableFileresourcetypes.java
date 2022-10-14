@@ -20,6 +20,7 @@ public class ViewTableFileresourcetypes implements Serializable {
     private Integer   id;
     private String    name;
     private String    description;
+    private Boolean   publicVisibility;
     private Timestamp createdOn;
     private Timestamp updatedOn;
     private Long      count;
@@ -30,6 +31,7 @@ public class ViewTableFileresourcetypes implements Serializable {
         this.id = value.id;
         this.name = value.name;
         this.description = value.description;
+        this.publicVisibility = value.publicVisibility;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
         this.count = value.count;
@@ -39,6 +41,7 @@ public class ViewTableFileresourcetypes implements Serializable {
         Integer   id,
         String    name,
         String    description,
+        Boolean   publicVisibility,
         Timestamp createdOn,
         Timestamp updatedOn,
         Long      count
@@ -46,6 +49,7 @@ public class ViewTableFileresourcetypes implements Serializable {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.publicVisibility = publicVisibility;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
         this.count = count;
@@ -99,6 +103,24 @@ public class ViewTableFileresourcetypes implements Serializable {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_fileresourcetypes.public_visibility</code>.
+     * Determines whether this type is visible to non-admins.
+     */
+    public Boolean getPublicVisibility() {
+        return this.publicVisibility;
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_fileresourcetypes.public_visibility</code>.
+     * Determines whether this type is visible to non-admins.
+     */
+    public void setPublicVisibility(Boolean publicVisibility) {
+        this.publicVisibility = publicVisibility;
     }
 
     /**
@@ -158,6 +180,7 @@ public class ViewTableFileresourcetypes implements Serializable {
         sb.append(id);
         sb.append(", ").append(name);
         sb.append(", ").append(description);
+        sb.append(", ").append(publicVisibility);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
         sb.append(", ").append(count);

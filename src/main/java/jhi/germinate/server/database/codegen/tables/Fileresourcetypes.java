@@ -12,7 +12,7 @@ import jhi.germinate.server.database.codegen.tables.records.FileresourcetypesRec
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -63,6 +63,12 @@ public class Fileresourcetypes extends TableImpl<FileresourcetypesRecord> {
      * description of the file type.
      */
     public final TableField<FileresourcetypesRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB, this, "The description of the file type.");
+
+    /**
+     * The column <code>germinate_db.fileresourcetypes.public_visibility</code>.
+     * Determines whether this type is visible to non-admins.
+     */
+    public final TableField<FileresourcetypesRecord, Boolean> PUBLIC_VISIBILITY = createField(DSL.name("public_visibility"), SQLDataType.BOOLEAN.nullable(false).defaultValue(DSL.inline("1", SQLDataType.BOOLEAN)), this, "Determines whether this type is visible to non-admins.");
 
     /**
      * The column <code>germinate_db.fileresourcetypes.created_on</code>. When
@@ -149,12 +155,12 @@ public class Fileresourcetypes extends TableImpl<FileresourcetypesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Integer, String, String, Boolean, Timestamp, Timestamp> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
     // @formatter:on
 }
