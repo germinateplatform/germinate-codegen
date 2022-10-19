@@ -30,7 +30,11 @@ public enum DataImportJobsDatatype implements EnumType {
 
     climate("climate"),
 
-    images("images");
+    images("images"),
+
+    shapefile("shapefile"),
+
+    geotiff("geotiff");
 
     private final String literal;
 
