@@ -25,8 +25,8 @@ public class Mapoverlays implements Serializable {
     private String                    description;
     private BigDecimal                bottomLeftLat;
     private BigDecimal                bottomLeftLng;
-    private Object                    topRightLat;
-    private Object                    topRightLng;
+    private BigDecimal                topRightLat;
+    private BigDecimal                topRightLng;
     private Boolean                   isLegend;
     private MapoverlaysReferenceTable referenceTable;
     private Integer                   foreignId;
@@ -60,8 +60,8 @@ public class Mapoverlays implements Serializable {
         String                    description,
         BigDecimal                bottomLeftLat,
         BigDecimal                bottomLeftLng,
-        Object                    topRightLat,
-        Object                    topRightLng,
+        BigDecimal                topRightLat,
+        BigDecimal                topRightLng,
         Boolean                   isLegend,
         MapoverlaysReferenceTable referenceTable,
         Integer                   foreignId,
@@ -171,54 +171,34 @@ public class Mapoverlays implements Serializable {
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Getter for <code>germinate_db.mapoverlays.top_right_lat</code>. The top
+     * right latitude coordinates in decimal degrees for anchoring on the map.
      */
-    @Deprecated
-    public Object getTopRightLat() {
+    public BigDecimal getTopRightLat() {
         return this.topRightLat;
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Setter for <code>germinate_db.mapoverlays.top_right_lat</code>. The top
+     * right latitude coordinates in decimal degrees for anchoring on the map.
      */
-    @Deprecated
-    public void setTopRightLat(Object topRightLat) {
+    public void setTopRightLat(BigDecimal topRightLat) {
         this.topRightLat = topRightLat;
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Getter for <code>germinate_db.mapoverlays.top_right_lng</code>. The top
+     * right longitude coordinates in decimal degrees for anchoring on the map.
      */
-    @Deprecated
-    public Object getTopRightLng() {
+    public BigDecimal getTopRightLng() {
         return this.topRightLng;
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Setter for <code>germinate_db.mapoverlays.top_right_lng</code>. The top
+     * right longitude coordinates in decimal degrees for anchoring on the map.
      */
-    @Deprecated
-    public void setTopRightLng(Object topRightLng) {
+    public void setTopRightLng(BigDecimal topRightLng) {
         this.topRightLng = topRightLng;
     }
 

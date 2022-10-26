@@ -21,7 +21,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapoverlaysRecord> implements Record17<Integer, String, String, BigDecimal, BigDecimal, Object, Object, Boolean, ViewTableMapoverlaysReferenceTable, Integer, Integer, String, String, String, Timestamp, Timestamp, Timestamp> {
+public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapoverlaysRecord> implements Record17<Integer, String, String, BigDecimal, BigDecimal, BigDecimal, BigDecimal, Boolean, ViewTableMapoverlaysReferenceTable, Integer, Integer, String, String, String, Timestamp, Timestamp, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -120,55 +120,43 @@ public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapover
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Setter for
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lat</code>.
+     * The top right latitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public void setMapoverlayTopRightLat(Object value) {
+    public void setMapoverlayTopRightLat(BigDecimal value) {
         set(5, value);
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Getter for
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lat</code>.
+     * The top right latitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public Object getMapoverlayTopRightLat() {
-        return get(5);
+    public BigDecimal getMapoverlayTopRightLat() {
+        return (BigDecimal) get(5);
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Setter for
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lng</code>.
+     * The top right longitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public void setMapoverlayTopRightLng(Object value) {
+    public void setMapoverlayTopRightLng(BigDecimal value) {
         set(6, value);
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Getter for
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lng</code>.
+     * The top right longitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public Object getMapoverlayTopRightLng() {
-        return get(6);
+    public BigDecimal getMapoverlayTopRightLng() {
+        return (BigDecimal) get(6);
     }
 
     /**
@@ -346,12 +334,12 @@ public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapover
     // -------------------------------------------------------------------------
 
     @Override
-    public Row17<Integer, String, String, BigDecimal, BigDecimal, Object, Object, Boolean, ViewTableMapoverlaysReferenceTable, Integer, Integer, String, String, String, Timestamp, Timestamp, Timestamp> fieldsRow() {
+    public Row17<Integer, String, String, BigDecimal, BigDecimal, BigDecimal, BigDecimal, Boolean, ViewTableMapoverlaysReferenceTable, Integer, Integer, String, String, String, Timestamp, Timestamp, Timestamp> fieldsRow() {
         return (Row17) super.fieldsRow();
     }
 
     @Override
-    public Row17<Integer, String, String, BigDecimal, BigDecimal, Object, Object, Boolean, ViewTableMapoverlaysReferenceTable, Integer, Integer, String, String, String, Timestamp, Timestamp, Timestamp> valuesRow() {
+    public Row17<Integer, String, String, BigDecimal, BigDecimal, BigDecimal, BigDecimal, Boolean, ViewTableMapoverlaysReferenceTable, Integer, Integer, String, String, String, Timestamp, Timestamp, Timestamp> valuesRow() {
         return (Row17) super.valuesRow();
     }
 
@@ -380,31 +368,13 @@ public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapover
         return ViewTableMapoverlays.VIEW_TABLE_MAPOVERLAYS.MAPOVERLAY_BOTTOM_LEFT_LNG;
     }
 
-    /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
-     */
-    @Deprecated
     @Override
-    public Field<Object> field6() {
+    public Field<BigDecimal> field6() {
         return ViewTableMapoverlays.VIEW_TABLE_MAPOVERLAYS.MAPOVERLAY_TOP_RIGHT_LAT;
     }
 
-    /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
-     */
-    @Deprecated
     @Override
-    public Field<Object> field7() {
+    public Field<BigDecimal> field7() {
         return ViewTableMapoverlays.VIEW_TABLE_MAPOVERLAYS.MAPOVERLAY_TOP_RIGHT_LNG;
     }
 
@@ -483,31 +453,13 @@ public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapover
         return getMapoverlayBottomLeftLng();
     }
 
-    /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
-     */
-    @Deprecated
     @Override
-    public Object component6() {
+    public BigDecimal component6() {
         return getMapoverlayTopRightLat();
     }
 
-    /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
-     */
-    @Deprecated
     @Override
-    public Object component7() {
+    public BigDecimal component7() {
         return getMapoverlayTopRightLng();
     }
 
@@ -586,31 +538,13 @@ public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapover
         return getMapoverlayBottomLeftLng();
     }
 
-    /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
-     */
-    @Deprecated
     @Override
-    public Object value6() {
+    public BigDecimal value6() {
         return getMapoverlayTopRightLat();
     }
 
-    /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
-     */
-    @Deprecated
     @Override
-    public Object value7() {
+    public BigDecimal value7() {
         return getMapoverlayTopRightLng();
     }
 
@@ -694,32 +628,14 @@ public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapover
         return this;
     }
 
-    /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
-     */
-    @Deprecated
     @Override
-    public ViewTableMapoverlaysRecord value6(Object value) {
+    public ViewTableMapoverlaysRecord value6(BigDecimal value) {
         setMapoverlayTopRightLat(value);
         return this;
     }
 
-    /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
-     */
-    @Deprecated
     @Override
-    public ViewTableMapoverlaysRecord value7(Object value) {
+    public ViewTableMapoverlaysRecord value7(BigDecimal value) {
         setMapoverlayTopRightLng(value);
         return this;
     }
@@ -785,7 +701,7 @@ public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapover
     }
 
     @Override
-    public ViewTableMapoverlaysRecord values(Integer value1, String value2, String value3, BigDecimal value4, BigDecimal value5, Object value6, Object value7, Boolean value8, ViewTableMapoverlaysReferenceTable value9, Integer value10, Integer value11, String value12, String value13, String value14, Timestamp value15, Timestamp value16, Timestamp value17) {
+    public ViewTableMapoverlaysRecord values(Integer value1, String value2, String value3, BigDecimal value4, BigDecimal value5, BigDecimal value6, BigDecimal value7, Boolean value8, ViewTableMapoverlaysReferenceTable value9, Integer value10, Integer value11, String value12, String value13, String value14, Timestamp value15, Timestamp value16, Timestamp value17) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -820,7 +736,7 @@ public class ViewTableMapoverlaysRecord extends TableRecordImpl<ViewTableMapover
     /**
      * Create a detached, initialised ViewTableMapoverlaysRecord
      */
-    public ViewTableMapoverlaysRecord(Integer mapoverlayId, String mapoverlayName, String mapoverlayDescription, BigDecimal mapoverlayBottomLeftLat, BigDecimal mapoverlayBottomLeftLng, Object mapoverlayTopRightLat, Object mapoverlayTopRightLng, Boolean mapoverlaysIsLegend, ViewTableMapoverlaysReferenceTable referenceTable, Integer foreignId, Integer datasetId, String datasetName, String datasetDescription, String datasetType, Timestamp recordingDate, Timestamp createdOn, Timestamp updatedOn) {
+    public ViewTableMapoverlaysRecord(Integer mapoverlayId, String mapoverlayName, String mapoverlayDescription, BigDecimal mapoverlayBottomLeftLat, BigDecimal mapoverlayBottomLeftLng, BigDecimal mapoverlayTopRightLat, BigDecimal mapoverlayTopRightLng, Boolean mapoverlaysIsLegend, ViewTableMapoverlaysReferenceTable referenceTable, Integer foreignId, Integer datasetId, String datasetName, String datasetDescription, String datasetType, Timestamp recordingDate, Timestamp createdOn, Timestamp updatedOn) {
         super(ViewTableMapoverlays.VIEW_TABLE_MAPOVERLAYS);
 
         setMapoverlayId(mapoverlayId);

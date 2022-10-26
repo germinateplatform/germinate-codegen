@@ -25,8 +25,8 @@ public class ViewTableMapoverlays implements Serializable {
     private String                             mapoverlayDescription;
     private BigDecimal                         mapoverlayBottomLeftLat;
     private BigDecimal                         mapoverlayBottomLeftLng;
-    private Object                             mapoverlayTopRightLat;
-    private Object                             mapoverlayTopRightLng;
+    private BigDecimal                         mapoverlayTopRightLat;
+    private BigDecimal                         mapoverlayTopRightLng;
     private Boolean                            mapoverlaysIsLegend;
     private ViewTableMapoverlaysReferenceTable referenceTable;
     private Integer                            foreignId;
@@ -66,8 +66,8 @@ public class ViewTableMapoverlays implements Serializable {
         String                             mapoverlayDescription,
         BigDecimal                         mapoverlayBottomLeftLat,
         BigDecimal                         mapoverlayBottomLeftLng,
-        Object                             mapoverlayTopRightLat,
-        Object                             mapoverlayTopRightLng,
+        BigDecimal                         mapoverlayTopRightLat,
+        BigDecimal                         mapoverlayTopRightLng,
         Boolean                            mapoverlaysIsLegend,
         ViewTableMapoverlaysReferenceTable referenceTable,
         Integer                            foreignId,
@@ -193,54 +193,42 @@ public class ViewTableMapoverlays implements Serializable {
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Getter for
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lat</code>.
+     * The top right latitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public Object getMapoverlayTopRightLat() {
+    public BigDecimal getMapoverlayTopRightLat() {
         return this.mapoverlayTopRightLat;
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Setter for
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lat</code>.
+     * The top right latitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public void setMapoverlayTopRightLat(Object mapoverlayTopRightLat) {
+    public void setMapoverlayTopRightLat(BigDecimal mapoverlayTopRightLat) {
         this.mapoverlayTopRightLat = mapoverlayTopRightLat;
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Getter for
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lng</code>.
+     * The top right longitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public Object getMapoverlayTopRightLng() {
+    public BigDecimal getMapoverlayTopRightLng() {
         return this.mapoverlayTopRightLng;
     }
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * Setter for
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lng</code>.
+     * The top right longitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public void setMapoverlayTopRightLng(Object mapoverlayTopRightLng) {
+    public void setMapoverlayTopRightLng(BigDecimal mapoverlayTopRightLng) {
         this.mapoverlayTopRightLng = mapoverlayTopRightLng;
     }
 

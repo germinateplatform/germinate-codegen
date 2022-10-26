@@ -84,26 +84,20 @@ public class ViewTableMapoverlays extends TableImpl<ViewTableMapoverlaysRecord> 
     public final TableField<ViewTableMapoverlaysRecord, BigDecimal> MAPOVERLAY_BOTTOM_LEFT_LNG = createField(DSL.name("mapoverlay_bottom_left_lng"), SQLDataType.DECIMAL(64, 10), this, "The bottom left longitude coordinates in decimal degrees for anchoring on the map.");
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * The column
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lat</code>.
+     * The top right latitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public final TableField<ViewTableMapoverlaysRecord, Object> MAPOVERLAY_TOP_RIGHT_LAT = createField(DSL.name("mapoverlay_top_right_lat"), org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_22_10_12\".\"view_table_mapoverlays_mapoverlay_top_right_lat\""), this, "The top right latitude coordinates in decimal degrees for anchoring on the map.");
+    public final TableField<ViewTableMapoverlaysRecord, BigDecimal> MAPOVERLAY_TOP_RIGHT_LAT = createField(DSL.name("mapoverlay_top_right_lat"), SQLDataType.DECIMAL(64, 10), this, "The top right latitude coordinates in decimal degrees for anchoring on the map.");
 
     /**
-     * @deprecated Unknown data type. If this is a qualified, user-defined type,
-     * it may have been excluded from code generation. If this is a built-in
-     * type, you can define an explicit {@link org.jooq.Binding} to specify how
-     * this type should be handled. Deprecation can be turned off using
-     * {@literal <deprecationOnUnknownTypes/>} in your code generator
-     * configuration.
+     * The column
+     * <code>germinate_db.view_table_mapoverlays.mapoverlay_top_right_lng</code>.
+     * The top right longitude coordinates in decimal degrees for anchoring on
+     * the map.
      */
-    @Deprecated
-    public final TableField<ViewTableMapoverlaysRecord, Object> MAPOVERLAY_TOP_RIGHT_LNG = createField(DSL.name("mapoverlay_top_right_lng"), org.jooq.impl.DefaultDataType.getDefaultDataType("\"germinate_template_4_22_10_12\".\"view_table_mapoverlays_mapoverlay_top_right_lng\""), this, "The top right longitude coordinates in decimal degrees for anchoring on the map.");
+    public final TableField<ViewTableMapoverlaysRecord, BigDecimal> MAPOVERLAY_TOP_RIGHT_LNG = createField(DSL.name("mapoverlay_top_right_lng"), SQLDataType.DECIMAL(64, 10), this, "The top right longitude coordinates in decimal degrees for anchoring on the map.");
 
     /**
      * The column
@@ -237,7 +231,7 @@ public class ViewTableMapoverlays extends TableImpl<ViewTableMapoverlaysRecord> 
     // -------------------------------------------------------------------------
 
     @Override
-    public Row17<Integer, String, String, BigDecimal, BigDecimal, Object, Object, Boolean, ViewTableMapoverlaysReferenceTable, Integer, Integer, String, String, String, Timestamp, Timestamp, Timestamp> fieldsRow() {
+    public Row17<Integer, String, String, BigDecimal, BigDecimal, BigDecimal, BigDecimal, Boolean, ViewTableMapoverlaysReferenceTable, Integer, Integer, String, String, String, Timestamp, Timestamp, Timestamp> fieldsRow() {
         return (Row17) super.fieldsRow();
     }
     // @formatter:on
