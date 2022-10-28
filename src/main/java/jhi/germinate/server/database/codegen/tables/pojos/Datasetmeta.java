@@ -10,11 +10,17 @@ import java.sql.Timestamp;
 import org.jooq.types.ULong;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Defines dataset sizes for the items in the datasets table. This table is
  * automatically updated every hour.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Datasetmeta implements Serializable {
 
@@ -51,104 +57,6 @@ public class Datasetmeta implements Serializable {
         this.nrOfDataObjects = nrOfDataObjects;
         this.nrOfDataPoints = nrOfDataPoints;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetmeta.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetmeta.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetmeta.dataset_id</code>. Foreign key
-     * to [datasets] ([datasets].id).
-     */
-    public Integer getDatasetId() {
-        return this.datasetId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetmeta.dataset_id</code>. Foreign key
-     * to [datasets] ([datasets].id).
-     */
-    public void setDatasetId(Integer datasetId) {
-        this.datasetId = datasetId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetmeta.nr_of_data_objects</code>. The
-     * number of data objects contained in this dataset.
-     */
-    public ULong getNrOfDataObjects() {
-        return this.nrOfDataObjects;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetmeta.nr_of_data_objects</code>. The
-     * number of data objects contained in this dataset.
-     */
-    public void setNrOfDataObjects(ULong nrOfDataObjects) {
-        this.nrOfDataObjects = nrOfDataObjects;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetmeta.nr_of_data_points</code>. The
-     * number of individual data points contained in this dataset.
-     */
-    public ULong getNrOfDataPoints() {
-        return this.nrOfDataPoints;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetmeta.nr_of_data_points</code>. The
-     * number of individual data points contained in this dataset.
-     */
-    public void setNrOfDataPoints(ULong nrOfDataPoints) {
-        this.nrOfDataPoints = nrOfDataPoints;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetmeta.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetmeta.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetmeta.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetmeta.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

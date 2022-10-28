@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableGroups implements Serializable {
 
@@ -68,180 +74,6 @@ public class ViewTableGroups implements Serializable {
         this.groupVisibility = groupVisibility;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
-        this.count = count;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.group_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public Integer getGroupId() {
-        return this.groupId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.group_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.group_name</code>. The
-     * name of the group which can be used to identify it.
-     */
-    public String getGroupName() {
-        return this.groupName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.group_name</code>. The
-     * name of the group which can be used to identify it.
-     */
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.group_description</code>.
-     * A free text description of the group. This has no length limitations.
-     */
-    public String getGroupDescription() {
-        return this.groupDescription;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.group_description</code>.
-     * A free text description of the group. This has no length limitations.
-     */
-    public void setGroupDescription(String groupDescription) {
-        this.groupDescription = groupDescription;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.group_type_id</code>.
-     */
-    public Integer getGroupTypeId() {
-        return this.groupTypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.group_type_id</code>.
-     */
-    public void setGroupTypeId(Integer groupTypeId) {
-        this.groupTypeId = groupTypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.group_type</code>.
-     */
-    public String getGroupType() {
-        return this.groupType;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.group_type</code>.
-     */
-    public void setGroupType(String groupType) {
-        this.groupType = groupType;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.user_name</code>.
-     */
-    public String getUserName() {
-        return this.userName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.user_name</code>.
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.user_id</code>. Defines
-     * who created the group. Foreign key to Gatekeeper users (Gatekeeper
-     * users.id).
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.user_id</code>. Defines
-     * who created the group. Foreign key to Gatekeeper users (Gatekeeper
-     * users.id).
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.group_visibility</code>.
-     * Defines if the group is visuble or hidden from the Germinate user
-     * interface.
-     */
-    public Boolean getGroupVisibility() {
-        return this.groupVisibility;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.group_visibility</code>.
-     * Defines if the group is visuble or hidden from the Germinate user
-     * interface.
-     */
-    public void setGroupVisibility(Boolean groupVisibility) {
-        this.groupVisibility = groupVisibility;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.created_on</code>.
-     * Foreign key to locations (locations.id).
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.created_on</code>.
-     * Foreign key to locations (locations.id).
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_groups.count</code>.
-     */
-    public Long getCount() {
-        return this.count;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_groups.count</code>.
-     */
-    public void setCount(Long count) {
         this.count = count;
     }
 

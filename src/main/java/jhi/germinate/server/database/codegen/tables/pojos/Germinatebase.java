@@ -8,11 +8,17 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Germinatebase is the Germinate base table which contains passport and other
  * germplasm definition data.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Germinatebase implements Serializable {
 
@@ -77,222 +83,6 @@ public class Germinatebase implements Serializable {
         this.entityparentId = entityparentId;
         this.pdci = pdci;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.general_identifier</code>. A
-     * unique identifier.
-     */
-    public String getGeneralIdentifier() {
-        return this.generalIdentifier;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.general_identifier</code>. A
-     * unique identifier.
-     */
-    public void setGeneralIdentifier(String generalIdentifier) {
-        this.generalIdentifier = generalIdentifier;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.number</code>. This is the
-     * unique identifier for accessions within a genebank, and is assigned when
-     * a sample is
-     * entered into the genebank collection (e.g. ‘PI 113869’).
-     */
-    public String getNumber() {
-        return this.number;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.number</code>. This is the
-     * unique identifier for accessions within a genebank, and is assigned when
-     * a sample is
-     * entered into the genebank collection (e.g. ‘PI 113869’).
-     */
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.name</code>. A unique name
-     * which defines an entry in the germinatbase table.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.name</code>. A unique name
-     * which defines an entry in the germinatbase table.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.bank_number</code>.
-     * Alternative genebank number.
-     */
-    public String getBankNumber() {
-        return this.bankNumber;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.bank_number</code>.
-     * Alternative genebank number.
-     */
-    public void setBankNumber(String bankNumber) {
-        this.bankNumber = bankNumber;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.taxonomy_id</code>. Foreign
-     * key to taxonomies (taxonomies.id).
-     */
-    public Integer getTaxonomyId() {
-        return this.taxonomyId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.taxonomy_id</code>. Foreign
-     * key to taxonomies (taxonomies.id).
-     */
-    public void setTaxonomyId(Integer taxonomyId) {
-        this.taxonomyId = taxonomyId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.plant_passport</code>. Record
-     * if the entry has a plant passport.
-     */
-    public String getPlantPassport() {
-        return this.plantPassport;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.plant_passport</code>. Record
-     * if the entry has a plant passport.
-     */
-    public void setPlantPassport(String plantPassport) {
-        this.plantPassport = plantPassport;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.location_id</code>. Foreign
-     * key to locations (locations.id).
-     */
-    public Integer getLocationId() {
-        return this.locationId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.location_id</code>. Foreign
-     * key to locations (locations.id).
-     */
-    public void setLocationId(Integer locationId) {
-        this.locationId = locationId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.entitytype_id</code>. Foreign
-     * key to entitytypes (entitytypes.id).
-     */
-    public Integer getEntitytypeId() {
-        return this.entitytypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.entitytype_id</code>. Foreign
-     * key to entitytypes (entitytypes.id).
-     */
-    public void setEntitytypeId(Integer entitytypeId) {
-        this.entitytypeId = entitytypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.entityparent_id</code>.
-     * Foreign key to germinatebase (germinatebase.id).
-     */
-    public Integer getEntityparentId() {
-        return this.entityparentId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.entityparent_id</code>.
-     * Foreign key to germinatebase (germinatebase.id).
-     */
-    public void setEntityparentId(Integer entityparentId) {
-        this.entityparentId = entityparentId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.pdci</code>. Passport Data
-     * Completeness Index. This is calculated by Germinate. Manual editing of
-     * this field will be overwritten.
-     */
-    public Double getPdci() {
-        return this.pdci;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.pdci</code>. Passport Data
-     * Completeness Index. This is calculated by Germinate. Manual editing of
-     * this field will be overwritten.
-     */
-    public void setPdci(Double pdci) {
-        this.pdci = pdci;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.germinatebase.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.germinatebase.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

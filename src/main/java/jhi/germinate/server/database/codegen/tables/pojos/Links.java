@@ -8,12 +8,18 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Germinate allows to define external links for different types of data. With
  * this feature you can
  * define links to external resources.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Links implements Serializable {
 
@@ -58,134 +64,6 @@ public class Links implements Serializable {
         this.description = description;
         this.visibility = visibility;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.links.id</code>. Primary id for this table.
-     * This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.links.id</code>. Primary id for this table.
-     * This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.links.linktype_id</code>. Foreign key to
-     * linktypes (linktypes.id).
-     */
-    public Integer getLinktypeId() {
-        return this.linktypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.links.linktype_id</code>. Foreign key to
-     * linktypes (linktypes.id).
-     */
-    public void setLinktypeId(Integer linktypeId) {
-        this.linktypeId = linktypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.links.foreign_id</code>.
-     */
-    public Integer getForeignId() {
-        return this.foreignId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.links.foreign_id</code>.
-     */
-    public void setForeignId(Integer foreignId) {
-        this.foreignId = foreignId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.links.hyperlink</code>. The actual
-     * hyperlink.
-     */
-    public String getHyperlink() {
-        return this.hyperlink;
-    }
-
-    /**
-     * Setter for <code>germinate_db.links.hyperlink</code>. The actual
-     * hyperlink.
-     */
-    public void setHyperlink(String hyperlink) {
-        this.hyperlink = hyperlink;
-    }
-
-    /**
-     * Getter for <code>germinate_db.links.description</code>. A description of
-     * the link.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.links.description</code>. A description of
-     * the link.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.links.visibility</code>. Determines if the
-     * link is visible or not: {0, 1}
-     */
-    public Boolean getVisibility() {
-        return this.visibility;
-    }
-
-    /**
-     * Setter for <code>germinate_db.links.visibility</code>. Determines if the
-     * link is visible or not: {0, 1}
-     */
-    public void setVisibility(Boolean visibility) {
-        this.visibility = visibility;
-    }
-
-    /**
-     * Getter for <code>germinate_db.links.created_on</code>. When the record
-     * was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.links.created_on</code>. When the record
-     * was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.links.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.links.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

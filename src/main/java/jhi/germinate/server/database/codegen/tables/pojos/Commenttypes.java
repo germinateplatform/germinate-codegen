@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Defines the comment type.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Commenttypes implements Serializable {
 
@@ -44,90 +50,6 @@ public class Commenttypes implements Serializable {
         this.description = description;
         this.referenceTable = referenceTable;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.commenttypes.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.commenttypes.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.commenttypes.description</code>. Describes
-     * the comment type.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.commenttypes.description</code>. Describes
-     * the comment type.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.commenttypes.reference_table</code>. This
-     * could include 'germinatebase' or 'markers' to define the table that the
-     * comment relates to.
-     */
-    public String getReferenceTable() {
-        return this.referenceTable;
-    }
-
-    /**
-     * Setter for <code>germinate_db.commenttypes.reference_table</code>. This
-     * could include 'germinatebase' or 'markers' to define the table that the
-     * comment relates to.
-     */
-    public void setReferenceTable(String referenceTable) {
-        this.referenceTable = referenceTable;
-    }
-
-    /**
-     * Getter for <code>germinate_db.commenttypes.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.commenttypes.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.commenttypes.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.commenttypes.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

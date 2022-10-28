@@ -10,6 +10,9 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.enums.PedigreesRelationshipType;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Holds pedigree definitions. A pedigree is constructed from a series of
@@ -17,6 +20,9 @@ import jhi.germinate.server.database.codegen.enums.PedigreesRelationshipType;
  * pedigree networks can be constructed. This table is required for operation
  * with the Helium pedigree viewer.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Pedigrees implements Serializable {
 
@@ -65,158 +71,6 @@ public class Pedigrees implements Serializable {
         this.pedigreedescriptionId = pedigreedescriptionId;
         this.relationshipDescription = relationshipDescription;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigrees.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigrees.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigrees.dataset_id</code>.
-     */
-    public Integer getDatasetId() {
-        return this.datasetId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigrees.dataset_id</code>.
-     */
-    public void setDatasetId(Integer datasetId) {
-        this.datasetId = datasetId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigrees.germinatebase_id</code>. Foreign
-     * key germinatebase (germinatebase.id).
-     */
-    public Integer getGerminatebaseId() {
-        return this.germinatebaseId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigrees.germinatebase_id</code>. Foreign
-     * key germinatebase (germinatebase.id).
-     */
-    public void setGerminatebaseId(Integer germinatebaseId) {
-        this.germinatebaseId = germinatebaseId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigrees.parent_id</code>. Foreign key
-     * germinatebase (germinatebase.id). This is the parrent of the individual
-     * identified in the germinatebase_id column.
-     */
-    public Integer getParentId() {
-        return this.parentId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigrees.parent_id</code>. Foreign key
-     * germinatebase (germinatebase.id). This is the parrent of the individual
-     * identified in the germinatebase_id column.
-     */
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigrees.relationship_type</code>. Male or
-     * Female parent. Should be recorded as 'M' (male) or 'F' (female).
-     */
-    public PedigreesRelationshipType getRelationshipType() {
-        return this.relationshipType;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigrees.relationship_type</code>. Male or
-     * Female parent. Should be recorded as 'M' (male) or 'F' (female).
-     */
-    public void setRelationshipType(PedigreesRelationshipType relationshipType) {
-        this.relationshipType = relationshipType;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigrees.pedigreedescription_id</code>.
-     * Foreign key pedigreedescriptions (pedigreedescriptions.id).
-     */
-    public Integer getPedigreedescriptionId() {
-        return this.pedigreedescriptionId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigrees.pedigreedescription_id</code>.
-     * Foreign key pedigreedescriptions (pedigreedescriptions.id).
-     */
-    public void setPedigreedescriptionId(Integer pedigreedescriptionId) {
-        this.pedigreedescriptionId = pedigreedescriptionId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigrees.relationship_description</code>.
-     * Can be used as a meta-data field to describe the relationships if a
-     * complex rellationship is required. Examples may include, 'is a complex
-     * cross containing', 'F4 generation' and so on. This is used by the Helium
-     * pedigree visualiztion tool.
-     */
-    public String getRelationshipDescription() {
-        return this.relationshipDescription;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigrees.relationship_description</code>.
-     * Can be used as a meta-data field to describe the relationships if a
-     * complex rellationship is required. Examples may include, 'is a complex
-     * cross containing', 'F4 generation' and so on. This is used by the Helium
-     * pedigree visualiztion tool.
-     */
-    public void setRelationshipDescription(String relationshipDescription) {
-        this.relationshipDescription = relationshipDescription;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigrees.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigrees.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigrees.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigrees.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

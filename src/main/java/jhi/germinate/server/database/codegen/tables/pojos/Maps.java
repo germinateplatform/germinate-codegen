@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Describes genetic maps that have been defined within Germinate.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Maps implements Serializable {
 
@@ -52,118 +58,6 @@ public class Maps implements Serializable {
         this.visibility = visibility;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.maps.id</code>. Primary id for this table.
-     * This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.maps.id</code>. Primary id for this table.
-     * This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.maps.name</code>. Describes the map.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.maps.name</code>. Describes the map.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for <code>germinate_db.maps.description</code>. The name of this
-     * map.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.maps.description</code>. The name of this
-     * map.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.maps.visibility</code>. Determines if the
-     * map is visible to the Germinate interface or hidden.
-     */
-    public Boolean getVisibility() {
-        return this.visibility;
-    }
-
-    /**
-     * Setter for <code>germinate_db.maps.visibility</code>. Determines if the
-     * map is visible to the Germinate interface or hidden.
-     */
-    public void setVisibility(Boolean visibility) {
-        this.visibility = visibility;
-    }
-
-    /**
-     * Getter for <code>germinate_db.maps.created_on</code>. When the record was
-     * created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.maps.created_on</code>. When the record was
-     * created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.maps.updated_on</code>. When the record was
-     * updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.maps.updated_on</code>. When the record was
-     * updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.maps.user_id</code>. Foreign key to
-     * Gatekeeper users (Gatekeeper users.id).
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.maps.user_id</code>. Foreign key to
-     * Gatekeeper users (Gatekeeper users.id).
-     */
-    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

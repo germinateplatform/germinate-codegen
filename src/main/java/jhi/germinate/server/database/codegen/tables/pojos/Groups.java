@@ -8,12 +8,18 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Allows the definition of groups within Germinate. Germinate supports a number
  * of different group types such as germinatebase accesion groups and marker
  * groups.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Groups implements Serializable {
 
@@ -58,136 +64,6 @@ public class Groups implements Serializable {
         this.visibility = visibility;
         this.createdBy = createdBy;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groups.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groups.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groups.grouptype_id</code>. Foreign key to
-     * grouptypes (grouptypes.id).
-     */
-    public Integer getGrouptypeId() {
-        return this.grouptypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groups.grouptype_id</code>. Foreign key to
-     * grouptypes (grouptypes.id).
-     */
-    public void setGrouptypeId(Integer grouptypeId) {
-        this.grouptypeId = grouptypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groups.name</code>. The name of the group
-     * which can be used to identify it.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groups.name</code>. The name of the group
-     * which can be used to identify it.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groups.description</code>. A free text
-     * description of the group. This has no length limitations.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groups.description</code>. A free text
-     * description of the group. This has no length limitations.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groups.visibility</code>. Defines if the
-     * group is visuble or hidden from the Germinate user interface.
-     */
-    public Boolean getVisibility() {
-        return this.visibility;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groups.visibility</code>. Defines if the
-     * group is visuble or hidden from the Germinate user interface.
-     */
-    public void setVisibility(Boolean visibility) {
-        this.visibility = visibility;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groups.created_by</code>. Defines who
-     * created the group. Foreign key to Gatekeeper users (Gatekeeper users.id).
-     */
-    public Integer getCreatedBy() {
-        return this.createdBy;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groups.created_by</code>. Defines who
-     * created the group. Foreign key to Gatekeeper users (Gatekeeper users.id).
-     */
-    public void setCreatedBy(Integer createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groups.created_on</code>. Foreign key to
-     * locations (locations.id).
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groups.created_on</code>. Foreign key to
-     * locations (locations.id).
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groups.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groups.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

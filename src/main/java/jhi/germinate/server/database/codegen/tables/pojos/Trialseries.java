@@ -8,12 +8,18 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Holds the names of trial series. Trial series define the name of the trial to
  * which trials data is associated. Examples would include the overarching
  * project.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Trialseries implements Serializable {
 
@@ -42,72 +48,6 @@ public class Trialseries implements Serializable {
         this.id = id;
         this.seriesname = seriesname;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.trialseries.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.trialseries.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.trialseries.seriesname</code>. The
-     * description of the trial series name.
-     */
-    public String getSeriesname() {
-        return this.seriesname;
-    }
-
-    /**
-     * Setter for <code>germinate_db.trialseries.seriesname</code>. The
-     * description of the trial series name.
-     */
-    public void setSeriesname(String seriesname) {
-        this.seriesname = seriesname;
-    }
-
-    /**
-     * Getter for <code>germinate_db.trialseries.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.trialseries.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.trialseries.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * changes have been made subsequently to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.trialseries.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * changes have been made subsequently to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

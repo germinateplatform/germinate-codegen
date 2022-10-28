@@ -9,10 +9,16 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Defines ecperiments that are held in Germinate.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Experiments implements Serializable {
 
@@ -53,122 +59,6 @@ public class Experiments implements Serializable {
         this.description = description;
         this.experimentDate = experimentDate;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.experiments.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.experiments.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.experiments.experiment_name</code>. The
-     * name of the experiment.
-     */
-    public String getExperimentName() {
-        return this.experimentName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.experiments.experiment_name</code>. The
-     * name of the experiment.
-     */
-    public void setExperimentName(String experimentName) {
-        this.experimentName = experimentName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.experiments.user_id</code>. Foreign key to
-     * Gatekeeper users (Gatekeeper users.id).
-
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.experiments.user_id</code>. Foreign key to
-     * Gatekeeper users (Gatekeeper users.id).
-
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.experiments.description</code>. Describes
-     * the experiment.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.experiments.description</code>. Describes
-     * the experiment.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.experiments.experiment_date</code>. The
-     * date that the experiment was carried out.
-     */
-    public Date getExperimentDate() {
-        return this.experimentDate;
-    }
-
-    /**
-     * Setter for <code>germinate_db.experiments.experiment_date</code>. The
-     * date that the experiment was carried out.
-     */
-    public void setExperimentDate(Date experimentDate) {
-        this.experimentDate = experimentDate;
-    }
-
-    /**
-     * Getter for <code>germinate_db.experiments.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.experiments.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.experiments.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.experiments.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

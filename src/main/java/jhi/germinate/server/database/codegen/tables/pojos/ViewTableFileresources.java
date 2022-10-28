@@ -9,10 +9,16 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableFileresources implements Serializable {
 
@@ -73,220 +79,6 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourcetypeName = fileresourcetypeName;
         this.fileresourcetypeDescription = fileresourcetypeDescription;
         this.publicVisibility = publicVisibility;
-        this.datasetIds = datasetIds;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresource_id</code>. The
-     * primary id.
-     */
-    public Integer getFileresourceId() {
-        return this.fileresourceId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresource_id</code>. The
-     * primary id.
-     */
-    public void setFileresourceId(Integer fileresourceId) {
-        this.fileresourceId = fileresourceId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresource_name</code>. The
-     * name of the file resource.
-     */
-    public String getFileresourceName() {
-        return this.fileresourceName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresource_name</code>. The
-     * name of the file resource.
-     */
-    public void setFileresourceName(String fileresourceName) {
-        this.fileresourceName = fileresourceName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresource_path</code>. The
-     * file name of the actual data file.
-     */
-    public String getFileresourcePath() {
-        return this.fileresourcePath;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresource_path</code>. The
-     * file name of the actual data file.
-     */
-    public void setFileresourcePath(String fileresourcePath) {
-        this.fileresourcePath = fileresourcePath;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresource_description</code>.
-     * A description of the file contents.
-     */
-    public String getFileresourceDescription() {
-        return this.fileresourceDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresource_description</code>.
-     * A description of the file contents.
-     */
-    public void setFileresourceDescription(String fileresourceDescription) {
-        this.fileresourceDescription = fileresourceDescription;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresource_size</code>. The
-     * file size in bytes.
-     */
-    public Long getFileresourceSize() {
-        return this.fileresourceSize;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresource_size</code>. The
-     * file size in bytes.
-     */
-    public void setFileresourceSize(Long fileresourceSize) {
-        this.fileresourceSize = fileresourceSize;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresource_created_on</code>.
-     * When this record was created.
-     */
-    public Timestamp getFileresourceCreatedOn() {
-        return this.fileresourceCreatedOn;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresource_created_on</code>.
-     * When this record was created.
-     */
-    public void setFileresourceCreatedOn(Timestamp fileresourceCreatedOn) {
-        this.fileresourceCreatedOn = fileresourceCreatedOn;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresource_updated_on</code>.
-     * When this record was last updated.
-     */
-    public Timestamp getFileresourceUpdatedOn() {
-        return this.fileresourceUpdatedOn;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresource_updated_on</code>.
-     * When this record was last updated.
-     */
-    public void setFileresourceUpdatedOn(Timestamp fileresourceUpdatedOn) {
-        this.fileresourceUpdatedOn = fileresourceUpdatedOn;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresourcetype_id</code>.
-     * The primary id.
-     */
-    public Integer getFileresourcetypeId() {
-        return this.fileresourcetypeId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresourcetype_id</code>.
-     * The primary id.
-     */
-    public void setFileresourcetypeId(Integer fileresourcetypeId) {
-        this.fileresourcetypeId = fileresourcetypeId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresourcetype_name</code>.
-     * The name of the file type.
-     */
-    public String getFileresourcetypeName() {
-        return this.fileresourcetypeName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresourcetype_name</code>.
-     * The name of the file type.
-     */
-    public void setFileresourcetypeName(String fileresourcetypeName) {
-        this.fileresourcetypeName = fileresourcetypeName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.fileresourcetype_description</code>.
-     * The description of the file type.
-     */
-    public String getFileresourcetypeDescription() {
-        return this.fileresourcetypeDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.fileresourcetype_description</code>.
-     * The description of the file type.
-     */
-    public void setFileresourcetypeDescription(String fileresourcetypeDescription) {
-        this.fileresourcetypeDescription = fileresourcetypeDescription;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.public_visibility</code>.
-     * Determines whether this type is visible to non-admins.
-     */
-    public Boolean getPublicVisibility() {
-        return this.publicVisibility;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.public_visibility</code>.
-     * Determines whether this type is visible to non-admins.
-     */
-    public void setPublicVisibility(Boolean publicVisibility) {
-        this.publicVisibility = publicVisibility;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
-     */
-    public Integer[] getDatasetIds() {
-        return this.datasetIds;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
-     */
-    public void setDatasetIds(Integer[] datasetIds) {
         this.datasetIds = datasetIds;
     }
 

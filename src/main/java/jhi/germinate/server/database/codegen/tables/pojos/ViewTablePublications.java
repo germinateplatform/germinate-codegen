@@ -9,10 +9,16 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTablePublications implements Serializable {
 
@@ -65,158 +71,6 @@ public class ViewTablePublications implements Serializable {
         this.groupIds = groupIds;
         this.experimentIds = experimentIds;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_publications.publication_id</code>.
-     */
-    public Integer getPublicationId() {
-        return this.publicationId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_publications.publication_id</code>.
-     */
-    public void setPublicationId(Integer publicationId) {
-        this.publicationId = publicationId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_publications.publication_doi</code>.
-     */
-    public String getPublicationDoi() {
-        return this.publicationDoi;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_publications.publication_doi</code>.
-     */
-    public void setPublicationDoi(String publicationDoi) {
-        this.publicationDoi = publicationDoi;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_publications.publication_fallback_cache</code>.
-     */
-    public String getPublicationFallbackCache() {
-        return this.publicationFallbackCache;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_publications.publication_fallback_cache</code>.
-     */
-    public void setPublicationFallbackCache(String publicationFallbackCache) {
-        this.publicationFallbackCache = publicationFallbackCache;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_publications.is_database_pub</code>.
-     */
-    public Integer getIsDatabasePub() {
-        return this.isDatabasePub;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_publications.is_database_pub</code>.
-     */
-    public void setIsDatabasePub(Integer isDatabasePub) {
-        this.isDatabasePub = isDatabasePub;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_publications.dataset_ids</code>.
-     */
-    public Integer[] getDatasetIds() {
-        return this.datasetIds;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_publications.dataset_ids</code>.
-     */
-    public void setDatasetIds(Integer[] datasetIds) {
-        this.datasetIds = datasetIds;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_publications.germplasm_ids</code>.
-     */
-    public Integer[] getGermplasmIds() {
-        return this.germplasmIds;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_publications.germplasm_ids</code>.
-     */
-    public void setGermplasmIds(Integer[] germplasmIds) {
-        this.germplasmIds = germplasmIds;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_publications.group_ids</code>.
-     */
-    public Integer[] getGroupIds() {
-        return this.groupIds;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_publications.group_ids</code>.
-     */
-    public void setGroupIds(Integer[] groupIds) {
-        this.groupIds = groupIds;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_publications.experiment_ids</code>.
-     */
-    public Integer[] getExperimentIds() {
-        return this.experimentIds;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_publications.experiment_ids</code>.
-     */
-    public void setExperimentIds(Integer[] experimentIds) {
-        this.experimentIds = experimentIds;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_publications.created_on</code>.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_publications.created_on</code>.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_publications.updated_on</code>.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_publications.updated_on</code>.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

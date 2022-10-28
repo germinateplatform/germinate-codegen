@@ -9,10 +9,16 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableLicenses implements Serializable {
 
@@ -49,94 +55,6 @@ public class ViewTableLicenses implements Serializable {
         this.licenseDescription = licenseDescription;
         this.licenseContent = licenseContent;
         this.datasetId = datasetId;
-        this.acceptedBy = acceptedBy;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_licenses.license_id</code>.
-     */
-    public Integer getLicenseId() {
-        return this.licenseId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_licenses.license_id</code>.
-     */
-    public void setLicenseId(Integer licenseId) {
-        this.licenseId = licenseId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_licenses.license_name</code>.
-     */
-    public String getLicenseName() {
-        return this.licenseName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_licenses.license_name</code>.
-     */
-    public void setLicenseName(String licenseName) {
-        this.licenseName = licenseName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_licenses.license_description</code>.
-     */
-    public String getLicenseDescription() {
-        return this.licenseDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_licenses.license_description</code>.
-     */
-    public void setLicenseDescription(String licenseDescription) {
-        this.licenseDescription = licenseDescription;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_licenses.license_content</code>.
-     */
-    public Map<String,String> getLicenseContent() {
-        return this.licenseContent;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_licenses.license_content</code>.
-     */
-    public void setLicenseContent(Map<String,String> licenseContent) {
-        this.licenseContent = licenseContent;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_licenses.dataset_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getDatasetId() {
-        return this.datasetId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_licenses.dataset_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setDatasetId(Integer datasetId) {
-        this.datasetId = datasetId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_licenses.accepted_by</code>.
-     */
-    public Integer[] getAcceptedBy() {
-        return this.acceptedBy;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_licenses.accepted_by</code>.
-     */
-    public void setAcceptedBy(Integer[] acceptedBy) {
         this.acceptedBy = acceptedBy;
     }
 

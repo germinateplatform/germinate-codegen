@@ -8,11 +8,17 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Countries that are used in the locations type tables in Germinate. These are
  * the ISO codes for countries.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Countries implements Serializable {
 
@@ -49,104 +55,6 @@ public class Countries implements Serializable {
         this.countryCode3 = countryCode3;
         this.countryName = countryName;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.countries.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.countries.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.countries.country_code2</code>. ISO 2 Code
-     * for country.
-     */
-    public String getCountryCode2() {
-        return this.countryCode2;
-    }
-
-    /**
-     * Setter for <code>germinate_db.countries.country_code2</code>. ISO 2 Code
-     * for country.
-     */
-    public void setCountryCode2(String countryCode2) {
-        this.countryCode2 = countryCode2;
-    }
-
-    /**
-     * Getter for <code>germinate_db.countries.country_code3</code>. ISO 3 Code
-     * for country.
-     */
-    public String getCountryCode3() {
-        return this.countryCode3;
-    }
-
-    /**
-     * Setter for <code>germinate_db.countries.country_code3</code>. ISO 3 Code
-     * for country.
-     */
-    public void setCountryCode3(String countryCode3) {
-        this.countryCode3 = countryCode3;
-    }
-
-    /**
-     * Getter for <code>germinate_db.countries.country_name</code>. Country
-     * name.
-     */
-    public String getCountryName() {
-        return this.countryName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.countries.country_name</code>. Country
-     * name.
-     */
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.countries.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.countries.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.countries.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.countries.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

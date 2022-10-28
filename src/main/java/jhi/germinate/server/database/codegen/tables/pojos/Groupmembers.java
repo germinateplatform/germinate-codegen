@@ -8,11 +8,17 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Defines which entities are contained within a group. These can be the primary
  * key from any table.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Groupmembers implements Serializable {
 
@@ -45,88 +51,6 @@ public class Groupmembers implements Serializable {
         this.foreignId = foreignId;
         this.groupId = groupId;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groupmembers.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groupmembers.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groupmembers.foreign_id</code>. Foreign key
-     * to [table] ([table].id).
-     */
-    public Integer getForeignId() {
-        return this.foreignId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groupmembers.foreign_id</code>. Foreign key
-     * to [table] ([table].id).
-     */
-    public void setForeignId(Integer foreignId) {
-        this.foreignId = foreignId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groupmembers.group_id</code>. Foreign key
-     * to groups (groups.id).
-     */
-    public Integer getGroupId() {
-        return this.groupId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groupmembers.group_id</code>. Foreign key
-     * to groups (groups.id).
-     */
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groupmembers.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groupmembers.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.groupmembers.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.groupmembers.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableFileresourcetypes implements Serializable {
 
@@ -52,124 +58,6 @@ public class ViewTableFileresourcetypes implements Serializable {
         this.publicVisibility = publicVisibility;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
-        this.count = count;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_fileresourcetypes.id</code>. The
-     * primary id.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_fileresourcetypes.id</code>. The
-     * primary id.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_fileresourcetypes.name</code>.
-     * The name of the file type.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_fileresourcetypes.name</code>.
-     * The name of the file type.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresourcetypes.description</code>. The
-     * description of the file type.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresourcetypes.description</code>. The
-     * description of the file type.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresourcetypes.public_visibility</code>.
-     * Determines whether this type is visible to non-admins.
-     */
-    public Boolean getPublicVisibility() {
-        return this.publicVisibility;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresourcetypes.public_visibility</code>.
-     * Determines whether this type is visible to non-admins.
-     */
-    public void setPublicVisibility(Boolean publicVisibility) {
-        this.publicVisibility = publicVisibility;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresourcetypes.created_on</code>. When
-     * this record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresourcetypes.created_on</code>. When
-     * this record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresourcetypes.updated_on</code>. When
-     * this record was last updated.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresourcetypes.updated_on</code>. When
-     * this record was last updated.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_fileresourcetypes.count</code>.
-     */
-    public Long getCount() {
-        return this.count;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_fileresourcetypes.count</code>.
-     */
-    public void setCount(Long count) {
         this.count = count;
     }
 

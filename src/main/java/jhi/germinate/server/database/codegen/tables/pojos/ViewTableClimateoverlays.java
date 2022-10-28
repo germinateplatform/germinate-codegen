@@ -7,10 +7,16 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableClimateoverlays implements Serializable {
 
@@ -59,170 +65,6 @@ public class ViewTableClimateoverlays implements Serializable {
         this.bottomLeftLongitude = bottomLeftLongitude;
         this.topRightLatitude = topRightLatitude;
         this.topRightLongitude = topRightLongitude;
-        this.filename = filename;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climateoverlays.climate_overlay_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getClimateOverlayId() {
-        return this.climateOverlayId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climateoverlays.climate_overlay_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setClimateOverlayId(Integer climateOverlayId) {
-        this.climateOverlayId = climateOverlayId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climateoverlays.climate_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public Integer getClimateId() {
-        return this.climateId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climateoverlays.climate_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public void setClimateId(Integer climateId) {
-        this.climateId = climateId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climateoverlays.climate_name</code>.
-     * Describes the climate.
-     */
-    public String getClimateName() {
-        return this.climateName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climateoverlays.climate_name</code>.
-     * Describes the climate.
-     */
-    public void setClimateName(String climateName) {
-        this.climateName = climateName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climateoverlays.is_legend</code>. The
-     * legend for the image. What colours represent in the overlays. This is not
-     * required but used if present. 
-     */
-    public Boolean getIsLegend() {
-        return this.isLegend;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climateoverlays.is_legend</code>. The
-     * legend for the image. What colours represent in the overlays. This is not
-     * required but used if present. 
-     */
-    public void setIsLegend(Boolean isLegend) {
-        this.isLegend = isLegend;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climateoverlays.bottom_left_latitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public Double getBottomLeftLatitude() {
-        return this.bottomLeftLatitude;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climateoverlays.bottom_left_latitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public void setBottomLeftLatitude(Double bottomLeftLatitude) {
-        this.bottomLeftLatitude = bottomLeftLatitude;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climateoverlays.bottom_left_longitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public Double getBottomLeftLongitude() {
-        return this.bottomLeftLongitude;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climateoverlays.bottom_left_longitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public void setBottomLeftLongitude(Double bottomLeftLongitude) {
-        this.bottomLeftLongitude = bottomLeftLongitude;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climateoverlays.top_right_latitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public Double getTopRightLatitude() {
-        return this.topRightLatitude;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climateoverlays.top_right_latitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public void setTopRightLatitude(Double topRightLatitude) {
-        this.topRightLatitude = topRightLatitude;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climateoverlays.top_right_longitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public Double getTopRightLongitude() {
-        return this.topRightLongitude;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climateoverlays.top_right_longitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public void setTopRightLongitude(Double topRightLongitude) {
-        this.topRightLongitude = topRightLongitude;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_climateoverlays.filename</code>.
-     * This is the path for holding images which can be used as overlays for the
-     * Google Maps representation in Germinate. The path is relative.
-     */
-    public String getFilename() {
-        return this.filename;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_climateoverlays.filename</code>.
-     * This is the path for holding images which can be used as overlays for the
-     * Google Maps representation in Germinate. The path is relative.
-     */
-    public void setFilename(String filename) {
         this.filename = filename;
     }
 

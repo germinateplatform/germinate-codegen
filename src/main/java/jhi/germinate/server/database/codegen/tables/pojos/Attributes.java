@@ -10,6 +10,9 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.enums.AttributesDatatype;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Describes attributes. Attributes are bits of information that can be joined
@@ -17,6 +20,9 @@ import jhi.germinate.server.database.codegen.enums.AttributesDatatype;
  * important do not warrant adding additional columns in the other tables.
  * Examples would be using this to define ecotypes for germinatebase entries.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Attributes implements Serializable {
 
@@ -57,122 +63,6 @@ public class Attributes implements Serializable {
         this.datatype = datatype;
         this.targetTable = targetTable;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.attributes.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.attributes.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.attributes.name</code>. Defines the name of
-     * the attribute.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.attributes.name</code>. Defines the name of
-     * the attribute.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for <code>germinate_db.attributes.description</code>. Describes
-     * the attribute. This should expand on the name to make it clear what the
-     * attribute actually is.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.attributes.description</code>. Describes
-     * the attribute. This should expand on the name to make it clear what the
-     * attribute actually is.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.attributes.datatype</code>. Defines the
-     * data type of the attribute. This can be of numeric, text, date or
-     * categorical types.
-     */
-    public AttributesDatatype getDatatype() {
-        return this.datatype;
-    }
-
-    /**
-     * Setter for <code>germinate_db.attributes.datatype</code>. Defines the
-     * data type of the attribute. This can be of numeric, text, date or
-     * categorical types.
-     */
-    public void setDatatype(AttributesDatatype datatype) {
-        this.datatype = datatype;
-    }
-
-    /**
-     * Getter for <code>germinate_db.attributes.target_table</code>.
-     */
-    public String getTargetTable() {
-        return this.targetTable;
-    }
-
-    /**
-     * Setter for <code>germinate_db.attributes.target_table</code>.
-     */
-    public void setTargetTable(String targetTable) {
-        this.targetTable = targetTable;
-    }
-
-    /**
-     * Getter for <code>germinate_db.attributes.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.attributes.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.attributes.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.attributes.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableComments implements Serializable {
 
@@ -56,138 +62,6 @@ public class ViewTableComments implements Serializable {
         this.userId = userId;
         this.userName = userName;
         this.commentContent = commentContent;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_comments.comment_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getCommentId() {
-        return this.commentId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_comments.comment_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setCommentId(Integer commentId) {
-        this.commentId = commentId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_comments.comment_type_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getCommentTypeId() {
-        return this.commentTypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_comments.comment_type_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setCommentTypeId(Integer commentTypeId) {
-        this.commentTypeId = commentTypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_comments.comment_type</code>.
-     * This could include 'germinatebase' or 'markers' to define the table that
-     * the comment relates to.
-     */
-    public String getCommentType() {
-        return this.commentType;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_comments.comment_type</code>.
-     * This could include 'germinatebase' or 'markers' to define the table that
-     * the comment relates to.
-     */
-    public void setCommentType(String commentType) {
-        this.commentType = commentType;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_comments.comment_foreign_id</code>. Relates
-     * to the UID of the table to which the comment relates
-     */
-    public Integer getCommentForeignId() {
-        return this.commentForeignId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_comments.comment_foreign_id</code>. Relates
-     * to the UID of the table to which the comment relates
-     */
-    public void setCommentForeignId(Integer commentForeignId) {
-        this.commentForeignId = commentForeignId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_comments.user_id</code>. Foreign
-     * key to Gatekeeper users (Gatekeeper users.id).
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_comments.user_id</code>. Foreign
-     * key to Gatekeeper users (Gatekeeper users.id).
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_comments.user_name</code>.
-     */
-    public String getUserName() {
-        return this.userName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_comments.user_name</code>.
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_comments.comment_content</code>.
-     * The comment content.
-     */
-    public String getCommentContent() {
-        return this.commentContent;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_comments.comment_content</code>.
-     * The comment content.
-     */
-    public void setCommentContent(String commentContent) {
-        this.commentContent = commentContent;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_comments.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_comments.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

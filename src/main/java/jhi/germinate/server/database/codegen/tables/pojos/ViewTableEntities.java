@@ -7,10 +7,16 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableEntities implements Serializable {
 
@@ -55,148 +61,6 @@ public class ViewTableEntities implements Serializable {
         this.entityChildId = entityChildId;
         this.entityChildGid = entityChildGid;
         this.entityChildName = entityChildName;
-        this.entityChildType = entityChildType;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_entities.entity_parent_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public Integer getEntityParentId() {
-        return this.entityParentId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_entities.entity_parent_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public void setEntityParentId(Integer entityParentId) {
-        this.entityParentId = entityParentId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_entities.entity_parent_gid</code>. A unique
-     * identifier.
-     */
-    public String getEntityParentGid() {
-        return this.entityParentGid;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_entities.entity_parent_gid</code>. A unique
-     * identifier.
-     */
-    public void setEntityParentGid(String entityParentGid) {
-        this.entityParentGid = entityParentGid;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_entities.entity_parent_name</code>. A
-     * unique name which defines an entry in the germinatbase table.
-     */
-    public String getEntityParentName() {
-        return this.entityParentName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_entities.entity_parent_name</code>. A
-     * unique name which defines an entry in the germinatbase table.
-     */
-    public void setEntityParentName(String entityParentName) {
-        this.entityParentName = entityParentName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_entities.entity_parent_type</code>. The
-     * name of the entity type.
-     */
-    public String getEntityParentType() {
-        return this.entityParentType;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_entities.entity_parent_type</code>. The
-     * name of the entity type.
-     */
-    public void setEntityParentType(String entityParentType) {
-        this.entityParentType = entityParentType;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_entities.entity_child_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getEntityChildId() {
-        return this.entityChildId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_entities.entity_child_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setEntityChildId(Integer entityChildId) {
-        this.entityChildId = entityChildId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_entities.entity_child_gid</code>. A unique
-     * identifier.
-     */
-    public String getEntityChildGid() {
-        return this.entityChildGid;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_entities.entity_child_gid</code>. A unique
-     * identifier.
-     */
-    public void setEntityChildGid(String entityChildGid) {
-        this.entityChildGid = entityChildGid;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_entities.entity_child_name</code>. A unique
-     * name which defines an entry in the germinatbase table.
-     */
-    public String getEntityChildName() {
-        return this.entityChildName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_entities.entity_child_name</code>. A unique
-     * name which defines an entry in the germinatbase table.
-     */
-    public void setEntityChildName(String entityChildName) {
-        this.entityChildName = entityChildName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_entities.entity_child_type</code>. The name
-     * of the entity type.
-     */
-    public String getEntityChildType() {
-        return this.entityChildType;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_entities.entity_child_type</code>. The name
-     * of the entity type.
-     */
-    public void setEntityChildType(String entityChildType) {
         this.entityChildType = entityChildType;
     }
 

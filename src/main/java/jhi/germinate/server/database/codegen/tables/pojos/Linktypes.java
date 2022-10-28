@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * The link type determines which database table and column are used to
@@ -16,6 +19,9 @@ import java.sql.Timestamp;
  * by the value of the
  * ”target column” in the ”target table”
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Linktypes implements Serializable {
 
@@ -56,120 +62,6 @@ public class Linktypes implements Serializable {
         this.targetColumn = targetColumn;
         this.placeholder = placeholder;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.linktypes.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.linktypes.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.linktypes.description</code>. A description
-     * of the link.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.linktypes.description</code>. A description
-     * of the link.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.linktypes.target_table</code>. This is the
-     * table that the link links to.
-     */
-    public String getTargetTable() {
-        return this.targetTable;
-    }
-
-    /**
-     * Setter for <code>germinate_db.linktypes.target_table</code>. This is the
-     * table that the link links to.
-     */
-    public void setTargetTable(String targetTable) {
-        this.targetTable = targetTable;
-    }
-
-    /**
-     * Getter for <code>germinate_db.linktypes.target_column</code>. This is the
-     * column that is used to generate the link.
-     */
-    public String getTargetColumn() {
-        return this.targetColumn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.linktypes.target_column</code>. This is the
-     * column that is used to generate the link.
-     */
-    public void setTargetColumn(String targetColumn) {
-        this.targetColumn = targetColumn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.linktypes.placeholder</code>. The part of
-     * the link that will be replaced by the value of the target column.
-     */
-    public String getPlaceholder() {
-        return this.placeholder;
-    }
-
-    /**
-     * Setter for <code>germinate_db.linktypes.placeholder</code>. The part of
-     * the link that will be replaced by the value of the target column.
-     */
-    public void setPlaceholder(String placeholder) {
-        this.placeholder = placeholder;
-    }
-
-    /**
-     * Getter for <code>germinate_db.linktypes.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.linktypes.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.linktypes.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.linktypes.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

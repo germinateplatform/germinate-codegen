@@ -9,10 +9,16 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableMarkers implements Serializable {
 
@@ -49,110 +55,6 @@ public class ViewTableMarkers implements Serializable {
         this.markerType = markerType;
         this.markerSynonyms = markerSynonyms;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_markers.marker_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getMarkerId() {
-        return this.markerId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_markers.marker_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setMarkerId(Integer markerId) {
-        this.markerId = markerId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_markers.marker_name</code>. The
-     * name of the marker. This should be a unique name which identifies the
-     * marker.
-     */
-    public String getMarkerName() {
-        return this.markerName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_markers.marker_name</code>. The
-     * name of the marker. This should be a unique name which identifies the
-     * marker.
-     */
-    public void setMarkerName(String markerName) {
-        this.markerName = markerName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_markers.marker_type</code>.
-     * Describes the marker type. Markers (markers) have a defined type. This
-     * could be AFLP, MicroSat, SNP and so on.
-     */
-    public String getMarkerType() {
-        return this.markerType;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_markers.marker_type</code>.
-     * Describes the marker type. Markers (markers) have a defined type. This
-     * could be AFLP, MicroSat, SNP and so on.
-     */
-    public void setMarkerType(String markerType) {
-        this.markerType = markerType;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_markers.marker_synonyms</code>.
-     * The synonyms as a json array.
-     */
-    public String[] getMarkerSynonyms() {
-        return this.markerSynonyms;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_markers.marker_synonyms</code>.
-     * The synonyms as a json array.
-     */
-    public void setMarkerSynonyms(String[] markerSynonyms) {
-        this.markerSynonyms = markerSynonyms;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_markers.created_on</code>. When
-     * the record was created.
-
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_markers.created_on</code>. When
-     * the record was created.
-
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_markers.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_markers.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

@@ -8,12 +8,18 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Holds montly average climate data such as rainfall, temperature or cloud
  * cover. This is based on locations rather than accessions like most of the
  * other tables in Germinate.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Climatedata implements Serializable {
 
@@ -62,158 +68,6 @@ public class Climatedata implements Serializable {
         this.recordingDate = recordingDate;
         this.oldRecordingDate = oldRecordingDate;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climatedata.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climatedata.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climatedata.climate_id</code>. Foreign key
-     * to climates (climates.id).
-     */
-    public Integer getClimateId() {
-        return this.climateId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climatedata.climate_id</code>. Foreign key
-     * to climates (climates.id).
-     */
-    public void setClimateId(Integer climateId) {
-        this.climateId = climateId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climatedata.location_id</code>. Foreign key
-     * to locations (locations.id).
-     */
-    public Integer getLocationId() {
-        return this.locationId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climatedata.location_id</code>. Foreign key
-     * to locations (locations.id).
-     */
-    public void setLocationId(Integer locationId) {
-        this.locationId = locationId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climatedata.climate_value</code>. Value for
-     * the specific climate attribute. These are monthly averages and not daily.
-     * Monthly data is required for the current Germinate climate
-     * viisualizations and interface.
-     */
-    public Double getClimateValue() {
-        return this.climateValue;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climatedata.climate_value</code>. Value for
-     * the specific climate attribute. These are monthly averages and not daily.
-     * Monthly data is required for the current Germinate climate
-     * viisualizations and interface.
-     */
-    public void setClimateValue(Double climateValue) {
-        this.climateValue = climateValue;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climatedata.dataset_id</code>. Foreign key
-     * to datasets (datasets.id).
-     */
-    public Integer getDatasetId() {
-        return this.datasetId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climatedata.dataset_id</code>. Foreign key
-     * to datasets (datasets.id).
-     */
-    public void setDatasetId(Integer datasetId) {
-        this.datasetId = datasetId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climatedata.recording_date</code>. The date
-     * at which this data point was recorded.
-     */
-    public Timestamp getRecordingDate() {
-        return this.recordingDate;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climatedata.recording_date</code>. The date
-     * at which this data point was recorded.
-     */
-    public void setRecordingDate(Timestamp recordingDate) {
-        this.recordingDate = recordingDate;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climatedata.old_recording_date</code>. The
-     * month that the data was recorded. This uses an integer to represent the
-     * month (1-12).
-     */
-    public String getOldRecordingDate() {
-        return this.oldRecordingDate;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climatedata.old_recording_date</code>. The
-     * month that the data was recorded. This uses an integer to represent the
-     * month (1-12).
-     */
-    public void setOldRecordingDate(String oldRecordingDate) {
-        this.oldRecordingDate = oldRecordingDate;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climatedata.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climatedata.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climatedata.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climatedata.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 
