@@ -10,11 +10,17 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.enums.ClimatesDatatype;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Defines climates. Climates are measureable weather type characteristics such
  * as temperature or cloud cover.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Climates implements Serializable {
 
@@ -59,140 +65,6 @@ public class Climates implements Serializable {
         this.datatype = datatype;
         this.unitId = unitId;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climates.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climates.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climates.name</code>. Describes the
-     * climate.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climates.name</code>. Describes the
-     * climate.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climates.short_name</code>. Shortened
-     * version of the climate name which is used in some table headers.
-     */
-    public String getShortName() {
-        return this.shortName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climates.short_name</code>. Shortened
-     * version of the climate name which is used in some table headers.
-     */
-    public void setShortName(String shortName) {
-        this.shortName = shortName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climates.description</code>. A longer
-     * description of the climate.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climates.description</code>. A longer
-     * description of the climate.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climates.datatype</code>. Defines the data
-     * type of the climate. This can be of numeric, text, date or categorical
-     * types.
-     */
-    public ClimatesDatatype getDatatype() {
-        return this.datatype;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climates.datatype</code>. Defines the data
-     * type of the climate. This can be of numeric, text, date or categorical
-     * types.
-     */
-    public void setDatatype(ClimatesDatatype datatype) {
-        this.datatype = datatype;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climates.unit_id</code>. Foreign key to
-     * units (units.id).
-
-     */
-    public Integer getUnitId() {
-        return this.unitId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climates.unit_id</code>. Foreign key to
-     * units (units.id).
-
-     */
-    public void setUnitId(Integer unitId) {
-        this.unitId = unitId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climates.created_on</code>. When the record
-     * was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climates.created_on</code>. When the record
-     * was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climates.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climates.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

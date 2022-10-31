@@ -8,11 +8,17 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Allows additional supporting data to be associated with a pedigree definition
  * such as the contributing data source.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Pedigreenotations implements Serializable {
 
@@ -49,104 +55,6 @@ public class Pedigreenotations implements Serializable {
         this.description = description;
         this.referenceUrl = referenceUrl;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreenotations.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreenotations.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreenotations.name</code>. Name of the
-     * reference notation source.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreenotations.name</code>. Name of the
-     * reference notation source.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreenotations.description</code>. A
-     * longer description about the reference notation source.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreenotations.description</code>. A
-     * longer description about the reference notation source.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreenotations.reference_url</code>.
-     * Hyperlink to the notation source.
-     */
-    public String getReferenceUrl() {
-        return this.referenceUrl;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreenotations.reference_url</code>.
-     * Hyperlink to the notation source.
-     */
-    public void setReferenceUrl(String referenceUrl) {
-        this.referenceUrl = referenceUrl;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreenotations.created_on</code>. When
-     * the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreenotations.created_on</code>. When
-     * the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreenotations.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreenotations.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

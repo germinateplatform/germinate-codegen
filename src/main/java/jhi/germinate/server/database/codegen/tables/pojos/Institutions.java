@@ -8,11 +8,17 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Defines institutions within Germinate. Accessions may be associated with an
  * institute and this can be defined here.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Institutions implements Serializable {
 
@@ -69,184 +75,6 @@ public class Institutions implements Serializable {
         this.email = email;
         this.address = address;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.code</code>. If there is a
-     * defined ISO code for the institute this should be used here.
-     */
-    public String getCode() {
-        return this.code;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.code</code>. If there is a
-     * defined ISO code for the institute this should be used here.
-     */
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.name</code>. The institute
-     * name.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.name</code>. The institute
-     * name.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.acronym</code>. If there is an
-     * acronym for the institute.
-     */
-    public String getAcronym() {
-        return this.acronym;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.acronym</code>. If there is an
-     * acronym for the institute.
-     */
-    public void setAcronym(String acronym) {
-        this.acronym = acronym;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.country_id</code>. Foreign key
-     * to countries.id.
-     */
-    public Integer getCountryId() {
-        return this.countryId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.country_id</code>. Foreign key
-     * to countries.id.
-     */
-    public void setCountryId(Integer countryId) {
-        this.countryId = countryId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.contact</code>. The contact at
-     * the institute which should be used for correspondence.
-     */
-    public String getContact() {
-        return this.contact;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.contact</code>. The contact at
-     * the institute which should be used for correspondence.
-     */
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.phone</code>. The telephone
-     * number for the institute.
-     */
-    public String getPhone() {
-        return this.phone;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.phone</code>. The telephone
-     * number for the institute.
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.email</code>. The email
-     * address to contact the institute.
-     */
-    public String getEmail() {
-        return this.email;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.email</code>. The email
-     * address to contact the institute.
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.address</code>. The postal
-     * address of the institute.
-     */
-    public String getAddress() {
-        return this.address;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.address</code>. The postal
-     * address of the institute.
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.institutions.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.institutions.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

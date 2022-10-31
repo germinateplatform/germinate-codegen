@@ -8,11 +8,17 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * This defines which users can view which datasets. Requires Germinate
  * Gatekeeper. This overrides the datasets state.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Datasetpermissions implements Serializable {
 
@@ -49,104 +55,6 @@ public class Datasetpermissions implements Serializable {
         this.userId = userId;
         this.groupId = groupId;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetpermissions.id</code>. Primary id
-     * for this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetpermissions.id</code>. Primary id
-     * for this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetpermissions.dataset_id</code>.
-     * Foreign key to datasets (datasets.id).
-     */
-    public Integer getDatasetId() {
-        return this.datasetId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetpermissions.dataset_id</code>.
-     * Foreign key to datasets (datasets.id).
-     */
-    public void setDatasetId(Integer datasetId) {
-        this.datasetId = datasetId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetpermissions.user_id</code>. Foreign
-     * key to Gatekeeper users (Gatekeeper usersid).
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetpermissions.user_id</code>. Foreign
-     * key to Gatekeeper users (Gatekeeper usersid).
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetpermissions.group_id</code>. Foreign
-     * key to usergroups table.
-     */
-    public Integer getGroupId() {
-        return this.groupId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetpermissions.group_id</code>. Foreign
-     * key to usergroups table.
-     */
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetpermissions.created_on</code>. When
-     * the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetpermissions.created_on</code>. When
-     * the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetpermissions.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetpermissions.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

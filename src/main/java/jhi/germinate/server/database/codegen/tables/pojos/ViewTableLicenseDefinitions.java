@@ -9,10 +9,16 @@ import java.sql.Timestamp;
 import java.util.Map;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableLicenseDefinitions implements Serializable {
 
@@ -45,88 +51,6 @@ public class ViewTableLicenseDefinitions implements Serializable {
         this.licenseName = licenseName;
         this.licenseDescription = licenseDescription;
         this.createdOn = createdOn;
-        this.licenseData = licenseData;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_license_definitions.license_id</code>.
-     */
-    public Integer getLicenseId() {
-        return this.licenseId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_license_definitions.license_id</code>.
-     */
-    public void setLicenseId(Integer licenseId) {
-        this.licenseId = licenseId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_license_definitions.license_name</code>.
-     */
-    public String getLicenseName() {
-        return this.licenseName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_license_definitions.license_name</code>.
-     */
-    public void setLicenseName(String licenseName) {
-        this.licenseName = licenseName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_license_definitions.license_description</code>.
-     */
-    public String getLicenseDescription() {
-        return this.licenseDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_license_definitions.license_description</code>.
-     */
-    public void setLicenseDescription(String licenseDescription) {
-        this.licenseDescription = licenseDescription;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_license_definitions.created_on</code>. When
-     * the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_license_definitions.created_on</code>. When
-     * the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_license_definitions.license_data</code>.
-     */
-    public Map<String,String> getLicenseData() {
-        return this.licenseData;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_license_definitions.license_data</code>.
-     */
-    public void setLicenseData(Map<String,String> licenseData) {
         this.licenseData = licenseData;
     }
 

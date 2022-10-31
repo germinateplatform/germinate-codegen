@@ -95,7 +95,7 @@ public class DataImportJobs extends TableImpl<DataImportJobsRecord> {
     /**
      * The column <code>germinate_db.data_import_jobs.datatype</code>.
      */
-    public final TableField<DataImportJobsRecord, DataImportJobsDatatype> DATATYPE = createField(DSL.name("datatype"), SQLDataType.VARCHAR(8).nullable(false).defaultValue(DSL.inline("mcpd", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.DataImportJobsDatatype.class), this, "");
+    public final TableField<DataImportJobsRecord, DataImportJobsDatatype> DATATYPE = createField(DSL.name("datatype"), SQLDataType.VARCHAR(9).nullable(false).defaultValue(DSL.inline("mcpd", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.DataImportJobsDatatype.class), this, "");
 
     /**
      * The column <code>germinate_db.data_import_jobs.status</code>.

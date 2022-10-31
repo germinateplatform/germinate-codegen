@@ -9,10 +9,16 @@ import java.io.Serializable;
 import jhi.germinate.server.database.codegen.enums.ViewTableDatasetAttributesAttributeType;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableDatasetAttributes implements Serializable {
 
@@ -65,188 +71,6 @@ public class ViewTableDatasetAttributes implements Serializable {
         this.attributeType = attributeType;
         this.targetTable = targetTable;
         this.foreignId = foreignId;
-        this.attributeValue = attributeValue;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.dataset_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getDatasetId() {
-        return this.datasetId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.dataset_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setDatasetId(Integer datasetId) {
-        this.datasetId = datasetId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.dataset_name</code>.
-     * Describes the dataset.
-     */
-    public String getDatasetName() {
-        return this.datasetName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.dataset_name</code>.
-     * Describes the dataset.
-     */
-    public void setDatasetName(String datasetName) {
-        this.datasetName = datasetName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.dataset_description</code>.
-     * The name of this dataset.
-     */
-    public String getDatasetDescription() {
-        return this.datasetDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.dataset_description</code>.
-     * The name of this dataset.
-     */
-    public void setDatasetDescription(String datasetDescription) {
-        this.datasetDescription = datasetDescription;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getAttributeId() {
-        return this.attributeId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setAttributeId(Integer attributeId) {
-        this.attributeId = attributeId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_name</code>.
-     * Defines the name of the attribute.
-     */
-    public String getAttributeName() {
-        return this.attributeName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_name</code>.
-     * Defines the name of the attribute.
-     */
-    public void setAttributeName(String attributeName) {
-        this.attributeName = attributeName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_description</code>.
-     * Describes the attribute. This should expand on the name to make it clear
-     * what the attribute actually is.
-     */
-    public String getAttributeDescription() {
-        return this.attributeDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_description</code>.
-     * Describes the attribute. This should expand on the name to make it clear
-     * what the attribute actually is.
-     */
-    public void setAttributeDescription(String attributeDescription) {
-        this.attributeDescription = attributeDescription;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_type</code>.
-     * Defines the data type of the attribute. This can be of numeric, text,
-     * date or categorical types.
-     */
-    public ViewTableDatasetAttributesAttributeType getAttributeType() {
-        return this.attributeType;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_type</code>.
-     * Defines the data type of the attribute. This can be of numeric, text,
-     * date or categorical types.
-     */
-    public void setAttributeType(ViewTableDatasetAttributesAttributeType attributeType) {
-        this.attributeType = attributeType;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.target_table</code>.
-     */
-    public String getTargetTable() {
-        return this.targetTable;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.target_table</code>.
-     */
-    public void setTargetTable(String targetTable) {
-        this.targetTable = targetTable;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.foreign_id</code>.
-     * Foreign key to germinatebase (germinatebase.id).
-     */
-    public Integer getForeignId() {
-        return this.foreignId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.foreign_id</code>.
-     * Foreign key to germinatebase (germinatebase.id).
-     */
-    public void setForeignId(Integer foreignId) {
-        this.foreignId = foreignId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_value</code>.
-     * The value of the attribute.
-     */
-    public String getAttributeValue() {
-        return this.attributeValue;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_dataset_attributes.attribute_value</code>.
-     * The value of the attribute.
-     */
-    public void setAttributeValue(String attributeValue) {
         this.attributeValue = attributeValue;
     }
 

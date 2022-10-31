@@ -10,10 +10,16 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitAttributesAttributeType;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableTraitAttributes implements Serializable {
 
@@ -70,206 +76,6 @@ public class ViewTableTraitAttributes implements Serializable {
         this.targetTable = targetTable;
         this.foreignId = foreignId;
         this.createdOn = createdOn;
-        this.attributeValue = attributeValue;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_value_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getAttributeValueId() {
-        return this.attributeValueId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_value_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setAttributeValueId(Integer attributeValueId) {
-        this.attributeValueId = attributeValueId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.trait_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public Integer getTraitId() {
-        return this.traitId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.trait_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public void setTraitId(Integer traitId) {
-        this.traitId = traitId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.trait_name</code>.
-     * Phenotype full name.
-     */
-    public String getTraitName() {
-        return this.traitName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.trait_name</code>.
-     * Phenotype full name.
-     */
-    public void setTraitName(String traitName) {
-        this.traitName = traitName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getAttributeId() {
-        return this.attributeId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setAttributeId(Integer attributeId) {
-        this.attributeId = attributeId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_name</code>.
-     * Defines the name of the attribute.
-     */
-    public String getAttributeName() {
-        return this.attributeName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_name</code>.
-     * Defines the name of the attribute.
-     */
-    public void setAttributeName(String attributeName) {
-        this.attributeName = attributeName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_description</code>.
-     * Describes the attribute. This should expand on the name to make it clear
-     * what the attribute actually is.
-     */
-    public String getAttributeDescription() {
-        return this.attributeDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_description</code>.
-     * Describes the attribute. This should expand on the name to make it clear
-     * what the attribute actually is.
-     */
-    public void setAttributeDescription(String attributeDescription) {
-        this.attributeDescription = attributeDescription;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_type</code>.
-     * Defines the data type of the attribute. This can be of numeric, text,
-     * date or categorical types.
-     */
-    public ViewTableTraitAttributesAttributeType getAttributeType() {
-        return this.attributeType;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_type</code>.
-     * Defines the data type of the attribute. This can be of numeric, text,
-     * date or categorical types.
-     */
-    public void setAttributeType(ViewTableTraitAttributesAttributeType attributeType) {
-        this.attributeType = attributeType;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.target_table</code>.
-     */
-    public String getTargetTable() {
-        return this.targetTable;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.target_table</code>.
-     */
-    public void setTargetTable(String targetTable) {
-        this.targetTable = targetTable;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.foreign_id</code>. Foreign
-     * key to germinatebase (germinatebase.id).
-     */
-    public Integer getForeignId() {
-        return this.foreignId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.foreign_id</code>. Foreign
-     * key to germinatebase (germinatebase.id).
-     */
-    public void setForeignId(Integer foreignId) {
-        this.foreignId = foreignId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.created_on</code>. When
-     * the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.created_on</code>. When
-     * the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_value</code>.
-     * The value of the attribute.
-     */
-    public String getAttributeValue() {
-        return this.attributeValue;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_trait_attributes.attribute_value</code>.
-     * The value of the attribute.
-     */
-    public void setAttributeValue(String attributeValue) {
         this.attributeValue = attributeValue;
     }
 

@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * The coding scheme proposed can be used at 2 different levels of detail:
@@ -17,6 +20,9 @@ import java.sql.Timestamp;
  * such as 11, 12, etc. See Multi Crop Passport Descriptors (MCPD V2 2012) for
  * further definitions.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Collectingsources implements Serializable {
 
@@ -45,74 +51,6 @@ public class Collectingsources implements Serializable {
         this.id = id;
         this.collsrc = collsrc;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.collectingsources.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.collectingsources.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.collectingsources.collsrc</code>. collsrc
-     * in the Multi Crop Passport Descriptors (MCPD V2 2012)
-
-     */
-    public String getCollsrc() {
-        return this.collsrc;
-    }
-
-    /**
-     * Setter for <code>germinate_db.collectingsources.collsrc</code>. collsrc
-     * in the Multi Crop Passport Descriptors (MCPD V2 2012)
-
-     */
-    public void setCollsrc(String collsrc) {
-        this.collsrc = collsrc;
-    }
-
-    /**
-     * Getter for <code>germinate_db.collectingsources.created_on</code>. When
-     * the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.collectingsources.created_on</code>. When
-     * the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.collectingsources.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.collectingsources.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

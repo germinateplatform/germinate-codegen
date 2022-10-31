@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * If enabled, tracks which user accessed which datasets.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Datasetaccesslogs implements Serializable {
 
@@ -60,140 +66,6 @@ public class Datasetaccesslogs implements Serializable {
         this.datasetId = datasetId;
         this.reason = reason;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetaccesslogs.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetaccesslogs.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetaccesslogs.user_id</code>.
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetaccesslogs.user_id</code>.
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetaccesslogs.user_name</code>.
-     */
-    public String getUserName() {
-        return this.userName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetaccesslogs.user_name</code>.
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetaccesslogs.user_email</code>.
-     */
-    public String getUserEmail() {
-        return this.userEmail;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetaccesslogs.user_email</code>.
-     */
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetaccesslogs.user_institution</code>.
-     */
-    public String getUserInstitution() {
-        return this.userInstitution;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetaccesslogs.user_institution</code>.
-     */
-    public void setUserInstitution(String userInstitution) {
-        this.userInstitution = userInstitution;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetaccesslogs.dataset_id</code>.
-     */
-    public Integer getDatasetId() {
-        return this.datasetId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetaccesslogs.dataset_id</code>.
-     */
-    public void setDatasetId(Integer datasetId) {
-        this.datasetId = datasetId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetaccesslogs.reason</code>.
-     */
-    public String getReason() {
-        return this.reason;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetaccesslogs.reason</code>.
-     */
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetaccesslogs.created_on</code>. When
-     * the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetaccesslogs.created_on</code>. When
-     * the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.datasetaccesslogs.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.datasetaccesslogs.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

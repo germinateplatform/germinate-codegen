@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * This table holds the actual pedigree definition data.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Pedigreedefinitions implements Serializable {
 
@@ -56,138 +62,6 @@ public class Pedigreedefinitions implements Serializable {
         this.pedigreedescriptionId = pedigreedescriptionId;
         this.definition = definition;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedefinitions.id</code>. Primary id
-     * for this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedefinitions.id</code>. Primary id
-     * for this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedefinitions.dataset_id</code>.
-     */
-    public Integer getDatasetId() {
-        return this.datasetId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedefinitions.dataset_id</code>.
-     */
-    public void setDatasetId(Integer datasetId) {
-        this.datasetId = datasetId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.pedigreedefinitions.germinatebase_id</code>. Foreign
-     * key to germinatebase (germinatebase.id).
-     */
-    public Integer getGerminatebaseId() {
-        return this.germinatebaseId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.pedigreedefinitions.germinatebase_id</code>. Foreign
-     * key to germinatebase (germinatebase.id).
-     */
-    public void setGerminatebaseId(Integer germinatebaseId) {
-        this.germinatebaseId = germinatebaseId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.pedigreedefinitions.pedigreenotation_id</code>.
-     * Foreign key to pedigreenotations (pedigreenotations.id).
-     */
-    public Integer getPedigreenotationId() {
-        return this.pedigreenotationId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.pedigreedefinitions.pedigreenotation_id</code>.
-     * Foreign key to pedigreenotations (pedigreenotations.id).
-     */
-    public void setPedigreenotationId(Integer pedigreenotationId) {
-        this.pedigreenotationId = pedigreenotationId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.pedigreedefinitions.pedigreedescription_id</code>.
-     */
-    public Integer getPedigreedescriptionId() {
-        return this.pedigreedescriptionId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.pedigreedefinitions.pedigreedescription_id</code>.
-     */
-    public void setPedigreedescriptionId(Integer pedigreedescriptionId) {
-        this.pedigreedescriptionId = pedigreedescriptionId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedefinitions.definition</code>. The
-     * pedigree string which is used to represent the germinatebase entry.
-     */
-    public String getDefinition() {
-        return this.definition;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedefinitions.definition</code>. The
-     * pedigree string which is used to represent the germinatebase entry.
-     */
-    public void setDefinition(String definition) {
-        this.definition = definition;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedefinitions.created_on</code>. When
-     * the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedefinitions.created_on</code>. When
-     * the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedefinitions.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedefinitions.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

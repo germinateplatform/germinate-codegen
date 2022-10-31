@@ -11,8 +11,8 @@ import jhi.germinate.server.database.codegen.tables.Phenotypedata;
 
 import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record16;
-import org.jooq.Row16;
+import org.jooq.Record18;
+import org.jooq.Row18;
 import org.jooq.impl.UpdatableRecordImpl;
 
 
@@ -21,7 +21,7 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Contains phenotypic data which has been collected.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord> implements Record16<Integer, Integer, Integer, String, String, BigDecimal, BigDecimal, BigDecimal, String, Integer, Timestamp, Timestamp, Timestamp, Integer, Integer, Integer> {
+public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord> implements Record18<Integer, Integer, Integer, String, String, Short, Short, BigDecimal, BigDecimal, BigDecimal, String, Integer, Timestamp, Timestamp, Timestamp, Integer, Integer, Integer> {
 
     private static final long serialVersionUID = 1L;
 
@@ -102,45 +102,77 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     }
 
     /**
+     * Setter for <code>germinate_db.phenotypedata.trial_row</code>. The row
+     * number in the trial layout.
+     */
+    public void setTrialRow(Short value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.phenotypedata.trial_row</code>. The row
+     * number in the trial layout.
+     */
+    public Short getTrialRow() {
+        return (Short) get(5);
+    }
+
+    /**
+     * Setter for <code>germinate_db.phenotypedata.trial_column</code>. The
+     * column number in the trial layout.
+     */
+    public void setTrialColumn(Short value) {
+        set(6, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.phenotypedata.trial_column</code>. The
+     * column number in the trial layout.
+     */
+    public Short getTrialColumn() {
+        return (Short) get(6);
+    }
+
+    /**
      * Setter for <code>germinate_db.phenotypedata.latitude</code>.
      */
     public void setLatitude(BigDecimal value) {
-        set(5, value);
+        set(7, value);
     }
 
     /**
      * Getter for <code>germinate_db.phenotypedata.latitude</code>.
      */
     public BigDecimal getLatitude() {
-        return (BigDecimal) get(5);
+        return (BigDecimal) get(7);
     }
 
     /**
      * Setter for <code>germinate_db.phenotypedata.longitude</code>.
      */
     public void setLongitude(BigDecimal value) {
-        set(6, value);
+        set(8, value);
     }
 
     /**
      * Getter for <code>germinate_db.phenotypedata.longitude</code>.
      */
     public BigDecimal getLongitude() {
-        return (BigDecimal) get(6);
+        return (BigDecimal) get(8);
     }
 
     /**
      * Setter for <code>germinate_db.phenotypedata.elevation</code>.
      */
     public void setElevation(BigDecimal value) {
-        set(7, value);
+        set(9, value);
     }
 
     /**
      * Getter for <code>germinate_db.phenotypedata.elevation</code>.
      */
     public BigDecimal getElevation() {
-        return (BigDecimal) get(7);
+        return (BigDecimal) get(9);
     }
 
     /**
@@ -148,7 +180,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * phenotype value for this phenotype_id and germinatebase_id combination.
      */
     public void setPhenotypeValue(String value) {
-        set(8, value);
+        set(10, value);
     }
 
     /**
@@ -156,7 +188,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * phenotype value for this phenotype_id and germinatebase_id combination.
      */
     public String getPhenotypeValue() {
-        return (String) get(8);
+        return (String) get(10);
     }
 
     /**
@@ -164,7 +196,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * key datasets (datasets.id).
      */
     public void setDatasetId(Integer value) {
-        set(9, value);
+        set(11, value);
     }
 
     /**
@@ -172,7 +204,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * key datasets (datasets.id).
      */
     public Integer getDatasetId() {
-        return (Integer) get(9);
+        return (Integer) get(11);
     }
 
     /**
@@ -181,7 +213,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * HH:MM:SS' or just 'YYYY-MM-DD' where a timestamp is not available.
      */
     public void setRecordingDate(Timestamp value) {
-        set(10, value);
+        set(12, value);
     }
 
     /**
@@ -190,7 +222,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * HH:MM:SS' or just 'YYYY-MM-DD' where a timestamp is not available.
      */
     public Timestamp getRecordingDate() {
-        return (Timestamp) get(10);
+        return (Timestamp) get(12);
     }
 
     /**
@@ -198,7 +230,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * record was created.
      */
     public void setCreatedOn(Timestamp value) {
-        set(11, value);
+        set(13, value);
     }
 
     /**
@@ -206,7 +238,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * record was created.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(11);
+        return (Timestamp) get(13);
     }
 
     /**
@@ -215,7 +247,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * subsequent changes have been made to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(12, value);
+        set(14, value);
     }
 
     /**
@@ -224,7 +256,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * subsequent changes have been made to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(12);
+        return (Timestamp) get(14);
     }
 
     /**
@@ -232,7 +264,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * key to locations (locations.id).
      */
     public void setLocationId(Integer value) {
-        set(13, value);
+        set(15, value);
     }
 
     /**
@@ -240,7 +272,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * key to locations (locations.id).
      */
     public Integer getLocationId() {
-        return (Integer) get(13);
+        return (Integer) get(15);
     }
 
     /**
@@ -248,7 +280,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * key to treatments (treatments.id).
      */
     public void setTreatmentId(Integer value) {
-        set(14, value);
+        set(16, value);
     }
 
     /**
@@ -256,7 +288,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * key to treatments (treatments.id).
      */
     public Integer getTreatmentId() {
-        return (Integer) get(14);
+        return (Integer) get(16);
     }
 
     /**
@@ -264,7 +296,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * Foreign key to trialseries (trialseries.id).
      */
     public void setTrialseriesId(Integer value) {
-        set(15, value);
+        set(17, value);
     }
 
     /**
@@ -272,7 +304,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
      * Foreign key to trialseries (trialseries.id).
      */
     public Integer getTrialseriesId() {
-        return (Integer) get(15);
+        return (Integer) get(17);
     }
 
     // -------------------------------------------------------------------------
@@ -285,17 +317,17 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     }
 
     // -------------------------------------------------------------------------
-    // Record16 type implementation
+    // Record18 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row16<Integer, Integer, Integer, String, String, BigDecimal, BigDecimal, BigDecimal, String, Integer, Timestamp, Timestamp, Timestamp, Integer, Integer, Integer> fieldsRow() {
-        return (Row16) super.fieldsRow();
+    public Row18<Integer, Integer, Integer, String, String, Short, Short, BigDecimal, BigDecimal, BigDecimal, String, Integer, Timestamp, Timestamp, Timestamp, Integer, Integer, Integer> fieldsRow() {
+        return (Row18) super.fieldsRow();
     }
 
     @Override
-    public Row16<Integer, Integer, Integer, String, String, BigDecimal, BigDecimal, BigDecimal, String, Integer, Timestamp, Timestamp, Timestamp, Integer, Integer, Integer> valuesRow() {
-        return (Row16) super.valuesRow();
+    public Row18<Integer, Integer, Integer, String, String, Short, Short, BigDecimal, BigDecimal, BigDecimal, String, Integer, Timestamp, Timestamp, Timestamp, Integer, Integer, Integer> valuesRow() {
+        return (Row18) super.valuesRow();
     }
 
     @Override
@@ -324,57 +356,67 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     }
 
     @Override
-    public Field<BigDecimal> field6() {
-        return Phenotypedata.PHENOTYPEDATA.LATITUDE;
+    public Field<Short> field6() {
+        return Phenotypedata.PHENOTYPEDATA.TRIAL_ROW;
     }
 
     @Override
-    public Field<BigDecimal> field7() {
-        return Phenotypedata.PHENOTYPEDATA.LONGITUDE;
+    public Field<Short> field7() {
+        return Phenotypedata.PHENOTYPEDATA.TRIAL_COLUMN;
     }
 
     @Override
     public Field<BigDecimal> field8() {
+        return Phenotypedata.PHENOTYPEDATA.LATITUDE;
+    }
+
+    @Override
+    public Field<BigDecimal> field9() {
+        return Phenotypedata.PHENOTYPEDATA.LONGITUDE;
+    }
+
+    @Override
+    public Field<BigDecimal> field10() {
         return Phenotypedata.PHENOTYPEDATA.ELEVATION;
     }
 
     @Override
-    public Field<String> field9() {
+    public Field<String> field11() {
         return Phenotypedata.PHENOTYPEDATA.PHENOTYPE_VALUE;
     }
 
     @Override
-    public Field<Integer> field10() {
+    public Field<Integer> field12() {
         return Phenotypedata.PHENOTYPEDATA.DATASET_ID;
     }
 
     @Override
-    public Field<Timestamp> field11() {
+    public Field<Timestamp> field13() {
         return Phenotypedata.PHENOTYPEDATA.RECORDING_DATE;
     }
 
     @Override
-    public Field<Timestamp> field12() {
+    public Field<Timestamp> field14() {
         return Phenotypedata.PHENOTYPEDATA.CREATED_ON;
     }
 
     @Override
-    public Field<Timestamp> field13() {
+    public Field<Timestamp> field15() {
         return Phenotypedata.PHENOTYPEDATA.UPDATED_ON;
     }
 
     @Override
-    public Field<Integer> field14() {
+    public Field<Integer> field16() {
         return Phenotypedata.PHENOTYPEDATA.LOCATION_ID;
     }
 
     @Override
-    public Field<Integer> field15() {
+    public Field<Integer> field17() {
         return Phenotypedata.PHENOTYPEDATA.TREATMENT_ID;
     }
 
     @Override
-    public Field<Integer> field16() {
+    public Field<Integer> field18() {
         return Phenotypedata.PHENOTYPEDATA.TRIALSERIES_ID;
     }
 
@@ -404,57 +446,67 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     }
 
     @Override
-    public BigDecimal component6() {
-        return getLatitude();
+    public Short component6() {
+        return getTrialRow();
     }
 
     @Override
-    public BigDecimal component7() {
-        return getLongitude();
+    public Short component7() {
+        return getTrialColumn();
     }
 
     @Override
     public BigDecimal component8() {
+        return getLatitude();
+    }
+
+    @Override
+    public BigDecimal component9() {
+        return getLongitude();
+    }
+
+    @Override
+    public BigDecimal component10() {
         return getElevation();
     }
 
     @Override
-    public String component9() {
+    public String component11() {
         return getPhenotypeValue();
     }
 
     @Override
-    public Integer component10() {
+    public Integer component12() {
         return getDatasetId();
     }
 
     @Override
-    public Timestamp component11() {
+    public Timestamp component13() {
         return getRecordingDate();
     }
 
     @Override
-    public Timestamp component12() {
+    public Timestamp component14() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp component13() {
+    public Timestamp component15() {
         return getUpdatedOn();
     }
 
     @Override
-    public Integer component14() {
+    public Integer component16() {
         return getLocationId();
     }
 
     @Override
-    public Integer component15() {
+    public Integer component17() {
         return getTreatmentId();
     }
 
     @Override
-    public Integer component16() {
+    public Integer component18() {
         return getTrialseriesId();
     }
 
@@ -484,57 +536,67 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     }
 
     @Override
-    public BigDecimal value6() {
-        return getLatitude();
+    public Short value6() {
+        return getTrialRow();
     }
 
     @Override
-    public BigDecimal value7() {
-        return getLongitude();
+    public Short value7() {
+        return getTrialColumn();
     }
 
     @Override
     public BigDecimal value8() {
+        return getLatitude();
+    }
+
+    @Override
+    public BigDecimal value9() {
+        return getLongitude();
+    }
+
+    @Override
+    public BigDecimal value10() {
         return getElevation();
     }
 
     @Override
-    public String value9() {
+    public String value11() {
         return getPhenotypeValue();
     }
 
     @Override
-    public Integer value10() {
+    public Integer value12() {
         return getDatasetId();
     }
 
     @Override
-    public Timestamp value11() {
+    public Timestamp value13() {
         return getRecordingDate();
     }
 
     @Override
-    public Timestamp value12() {
+    public Timestamp value14() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp value13() {
+    public Timestamp value15() {
         return getUpdatedOn();
     }
 
     @Override
-    public Integer value14() {
+    public Integer value16() {
         return getLocationId();
     }
 
     @Override
-    public Integer value15() {
+    public Integer value17() {
         return getTreatmentId();
     }
 
     @Override
-    public Integer value16() {
+    public Integer value18() {
         return getTrialseriesId();
     }
 
@@ -569,73 +631,85 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     }
 
     @Override
-    public PhenotypedataRecord value6(BigDecimal value) {
-        setLatitude(value);
+    public PhenotypedataRecord value6(Short value) {
+        setTrialRow(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord value7(BigDecimal value) {
-        setLongitude(value);
+    public PhenotypedataRecord value7(Short value) {
+        setTrialColumn(value);
         return this;
     }
 
     @Override
     public PhenotypedataRecord value8(BigDecimal value) {
+        setLatitude(value);
+        return this;
+    }
+
+    @Override
+    public PhenotypedataRecord value9(BigDecimal value) {
+        setLongitude(value);
+        return this;
+    }
+
+    @Override
+    public PhenotypedataRecord value10(BigDecimal value) {
         setElevation(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord value9(String value) {
+    public PhenotypedataRecord value11(String value) {
         setPhenotypeValue(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord value10(Integer value) {
+    public PhenotypedataRecord value12(Integer value) {
         setDatasetId(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord value11(Timestamp value) {
+    public PhenotypedataRecord value13(Timestamp value) {
         setRecordingDate(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord value12(Timestamp value) {
+    public PhenotypedataRecord value14(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord value13(Timestamp value) {
+    public PhenotypedataRecord value15(Timestamp value) {
         setUpdatedOn(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord value14(Integer value) {
+    public PhenotypedataRecord value16(Integer value) {
         setLocationId(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord value15(Integer value) {
+    public PhenotypedataRecord value17(Integer value) {
         setTreatmentId(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord value16(Integer value) {
+    public PhenotypedataRecord value18(Integer value) {
         setTrialseriesId(value);
         return this;
     }
 
     @Override
-    public PhenotypedataRecord values(Integer value1, Integer value2, Integer value3, String value4, String value5, BigDecimal value6, BigDecimal value7, BigDecimal value8, String value9, Integer value10, Timestamp value11, Timestamp value12, Timestamp value13, Integer value14, Integer value15, Integer value16) {
+    public PhenotypedataRecord values(Integer value1, Integer value2, Integer value3, String value4, String value5, Short value6, Short value7, BigDecimal value8, BigDecimal value9, BigDecimal value10, String value11, Integer value12, Timestamp value13, Timestamp value14, Timestamp value15, Integer value16, Integer value17, Integer value18) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -652,6 +726,8 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
         value14(value14);
         value15(value15);
         value16(value16);
+        value17(value17);
+        value18(value18);
         return this;
     }
 
@@ -669,7 +745,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     /**
      * Create a detached, initialised PhenotypedataRecord
      */
-    public PhenotypedataRecord(Integer id, Integer phenotypeId, Integer germinatebaseId, String rep, String block, BigDecimal latitude, BigDecimal longitude, BigDecimal elevation, String phenotypeValue, Integer datasetId, Timestamp recordingDate, Timestamp createdOn, Timestamp updatedOn, Integer locationId, Integer treatmentId, Integer trialseriesId) {
+    public PhenotypedataRecord(Integer id, Integer phenotypeId, Integer germinatebaseId, String rep, String block, Short trialRow, Short trialColumn, BigDecimal latitude, BigDecimal longitude, BigDecimal elevation, String phenotypeValue, Integer datasetId, Timestamp recordingDate, Timestamp createdOn, Timestamp updatedOn, Integer locationId, Integer treatmentId, Integer trialseriesId) {
         super(Phenotypedata.PHENOTYPEDATA);
 
         setId(id);
@@ -677,6 +753,8 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
         setGerminatebaseId(germinatebaseId);
         setRep(rep);
         setBlock(block);
+        setTrialRow(trialRow);
+        setTrialColumn(trialColumn);
         setLatitude(latitude);
         setLongitude(longitude);
         setElevation(elevation);
@@ -702,6 +780,8 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
             setGerminatebaseId(value.getGerminatebaseId());
             setRep(value.getRep());
             setBlock(value.getBlock());
+            setTrialRow(value.getTrialRow());
+            setTrialColumn(value.getTrialColumn());
             setLatitude(value.getLatitude());
             setLongitude(value.getLongitude());
             setElevation(value.getElevation());

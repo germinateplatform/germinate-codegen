@@ -7,10 +7,16 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableMaps implements Serializable {
 
@@ -47,100 +53,6 @@ public class ViewTableMaps implements Serializable {
         this.mapDescription = mapDescription;
         this.userId = userId;
         this.visibility = visibility;
-        this.markerCount = markerCount;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_maps.map_id</code>. Primary id
-     * for this table. This uniquely identifies the row.
-     */
-    public Integer getMapId() {
-        return this.mapId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_maps.map_id</code>. Primary id
-     * for this table. This uniquely identifies the row.
-     */
-    public void setMapId(Integer mapId) {
-        this.mapId = mapId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_maps.map_name</code>. Describes
-     * the map.
-     */
-    public String getMapName() {
-        return this.mapName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_maps.map_name</code>. Describes
-     * the map.
-     */
-    public void setMapName(String mapName) {
-        this.mapName = mapName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_maps.map_description</code>. The
-     * name of this map.
-     */
-    public String getMapDescription() {
-        return this.mapDescription;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_maps.map_description</code>. The
-     * name of this map.
-     */
-    public void setMapDescription(String mapDescription) {
-        this.mapDescription = mapDescription;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_maps.user_id</code>. Foreign key
-     * to Gatekeeper users (Gatekeeper users.id).
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_maps.user_id</code>. Foreign key
-     * to Gatekeeper users (Gatekeeper users.id).
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_maps.visibility</code>.
-     * Determines if the map is visible to the Germinate interface or hidden.
-     */
-    public Boolean getVisibility() {
-        return this.visibility;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_maps.visibility</code>.
-     * Determines if the map is visible to the Germinate interface or hidden.
-     */
-    public void setVisibility(Boolean visibility) {
-        this.visibility = visibility;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_maps.marker_count</code>.
-     */
-    public Long getMarkerCount() {
-        return this.markerCount;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_maps.marker_count</code>.
-     */
-    public void setMarkerCount(Long markerCount) {
         this.markerCount = markerCount;
     }
 

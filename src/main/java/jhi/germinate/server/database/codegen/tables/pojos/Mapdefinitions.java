@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Relates genetic markers to a map and assigns a position (if known). Maps are
@@ -16,6 +19,9 @@ import java.sql.Timestamp;
  * definition_start and definition_end columns can be used to specify a range
  * across a linkage group.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Mapdefinitions implements Serializable {
 
@@ -68,172 +74,6 @@ public class Mapdefinitions implements Serializable {
         this.chromosome = chromosome;
         this.armImpute = armImpute;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.mapfeaturetype_id</code>.
-     * Foreign key to mapfeaturetypes (mapfeaturetypes.id).
-     */
-    public Integer getMapfeaturetypeId() {
-        return this.mapfeaturetypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.mapfeaturetype_id</code>.
-     * Foreign key to mapfeaturetypes (mapfeaturetypes.id).
-     */
-    public void setMapfeaturetypeId(Integer mapfeaturetypeId) {
-        this.mapfeaturetypeId = mapfeaturetypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.marker_id</code>. Foreign
-     * key to markers (markers.id).
-     */
-    public Integer getMarkerId() {
-        return this.markerId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.marker_id</code>. Foreign
-     * key to markers (markers.id).
-     */
-    public void setMarkerId(Integer markerId) {
-        this.markerId = markerId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.map_id</code>. Foreign key
-     * to maps (maps.id).
-     */
-    public Integer getMapId() {
-        return this.mapId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.map_id</code>. Foreign key
-     * to maps (maps.id).
-     */
-    public void setMapId(Integer mapId) {
-        this.mapId = mapId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.definition_start</code>.
-     * Used if the markers location spans over an area more than a single point
-     * on the maps. Determines the marker start location.
-     */
-    public Double getDefinitionStart() {
-        return this.definitionStart;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.definition_start</code>.
-     * Used if the markers location spans over an area more than a single point
-     * on the maps. Determines the marker start location.
-     */
-    public void setDefinitionStart(Double definitionStart) {
-        this.definitionStart = definitionStart;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.definition_end</code>. Used
-     * if the markers location spans over an area more than a single point on
-     * the maps. Determines the marker end location.
-     */
-    public Double getDefinitionEnd() {
-        return this.definitionEnd;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.definition_end</code>. Used
-     * if the markers location spans over an area more than a single point on
-     * the maps. Determines the marker end location.
-     */
-    public void setDefinitionEnd(Double definitionEnd) {
-        this.definitionEnd = definitionEnd;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.chromosome</code>. The
-     * chromosome/linkage group that this marker is found on.
-     */
-    public String getChromosome() {
-        return this.chromosome;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.chromosome</code>. The
-     * chromosome/linkage group that this marker is found on.
-     */
-    public void setChromosome(String chromosome) {
-        this.chromosome = chromosome;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.arm_impute</code>. If a
-     * chromosome arm is available then this can be entered here.
-     */
-    public String getArmImpute() {
-        return this.armImpute;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.arm_impute</code>. If a
-     * chromosome arm is available then this can be entered here.
-     */
-    public void setArmImpute(String armImpute) {
-        this.armImpute = armImpute;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.mapdefinitions.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.mapdefinitions.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

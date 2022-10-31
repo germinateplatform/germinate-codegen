@@ -11,7 +11,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewTableFileresourc
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row6;
+import org.jooq.Row7;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -65,6 +65,13 @@ public class ViewTableFileresourcetypes extends TableImpl<ViewTableFileresourcet
 
     /**
      * The column
+     * <code>germinate_db.view_table_fileresourcetypes.public_visibility</code>.
+     * Determines whether this type is visible to non-admins.
+     */
+    public final TableField<ViewTableFileresourcetypesRecord, Boolean> PUBLIC_VISIBILITY = createField(DSL.name("public_visibility"), SQLDataType.BOOLEAN.nullable(false).defaultValue(DSL.inline("1", SQLDataType.BOOLEAN)), this, "Determines whether this type is visible to non-admins.");
+
+    /**
+     * The column
      * <code>germinate_db.view_table_fileresourcetypes.created_on</code>. When
      * this record was created.
      */
@@ -87,7 +94,7 @@ public class ViewTableFileresourcetypes extends TableImpl<ViewTableFileresourcet
     }
 
     private ViewTableFileresourcetypes(Name alias, Table<ViewTableFileresourcetypesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresourcetypes` as select `germinate_template_4_22_10_03`.`fileresourcetypes`.`id` AS `id`,`germinate_template_4_22_10_03`.`fileresourcetypes`.`name` AS `name`,`germinate_template_4_22_10_03`.`fileresourcetypes`.`description` AS `description`,`germinate_template_4_22_10_03`.`fileresourcetypes`.`created_on` AS `created_on`,`germinate_template_4_22_10_03`.`fileresourcetypes`.`updated_on` AS `updated_on`,(select count(1) from `germinate_template_4_22_10_03`.`fileresources` where (`germinate_template_4_22_10_03`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_22_10_03`.`fileresourcetypes`.`id`)) AS `count` from `germinate_template_4_22_10_03`.`fileresourcetypes`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresourcetypes` as select `germinate_template_4_22_10_12`.`fileresourcetypes`.`id` AS `id`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`name` AS `name`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`description` AS `description`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`public_visibility` AS `public_visibility`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`created_on` AS `created_on`,`germinate_template_4_22_10_12`.`fileresourcetypes`.`updated_on` AS `updated_on`,(select count(1) from `germinate_template_4_22_10_12`.`fileresources` where (`germinate_template_4_22_10_12`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_22_10_12`.`fileresourcetypes`.`id`)) AS `count` from `germinate_template_4_22_10_12`.`fileresourcetypes`"));
     }
 
     /**
@@ -146,12 +153,12 @@ public class ViewTableFileresourcetypes extends TableImpl<ViewTableFileresourcet
     }
 
     // -------------------------------------------------------------------------
-    // Row6 type methods
+    // Row7 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<Integer, String, String, Timestamp, Timestamp, Long> fieldsRow() {
-        return (Row6) super.fieldsRow();
+    public Row7<Integer, String, String, Boolean, Timestamp, Timestamp, Long> fieldsRow() {
+        return (Row7) super.fieldsRow();
     }
     // @formatter:on
 }

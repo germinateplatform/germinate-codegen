@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Based on Multi Crop Passport Descriptors (MCPD V2 2012) - The coding scheme
@@ -38,6 +41,9 @@ import java.sql.Timestamp;
  * 600) GMO (by genetic engineering)
  *  999) Other 
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Biologicalstatus implements Serializable {
 
@@ -66,72 +72,6 @@ public class Biologicalstatus implements Serializable {
         this.id = id;
         this.sampstat = sampstat;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.biologicalstatus.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.biologicalstatus.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.biologicalstatus.sampstat</code>.
-     * Previoulsy known as sampstat.
-     */
-    public String getSampstat() {
-        return this.sampstat;
-    }
-
-    /**
-     * Setter for <code>germinate_db.biologicalstatus.sampstat</code>.
-     * Previoulsy known as sampstat.
-     */
-    public void setSampstat(String sampstat) {
-        this.sampstat = sampstat;
-    }
-
-    /**
-     * Getter for <code>germinate_db.biologicalstatus.created_on</code>. When
-     * the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.biologicalstatus.created_on</code>. When
-     * the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.biologicalstatus.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.biologicalstatus.updated_on</code>. When
-     * the record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

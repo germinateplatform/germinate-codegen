@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * The 'units' table holds descriptions of the various units that are used in
@@ -15,6 +18,9 @@ import java.sql.Timestamp;
  * of Units (SI) base units: kilogram, meter, second, ampere, kelvin, candela
  * and mole but can include any units that are required.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Units implements Serializable {
 
@@ -51,108 +57,6 @@ public class Units implements Serializable {
         this.unitAbbreviation = unitAbbreviation;
         this.unitDescription = unitDescription;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.units.id</code>. Primary id for this table.
-     * This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.units.id</code>. Primary id for this table.
-     * This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.units.unit_name</code>. The name of the
-     * unit. This should be the name of the unit in full.
-     */
-    public String getUnitName() {
-        return this.unitName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.units.unit_name</code>. The name of the
-     * unit. This should be the name of the unit in full.
-     */
-    public void setUnitName(String unitName) {
-        this.unitName = unitName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.units.unit_abbreviation</code>. This should
-     * be the unit abbreviation.
-     */
-    public String getUnitAbbreviation() {
-        return this.unitAbbreviation;
-    }
-
-    /**
-     * Setter for <code>germinate_db.units.unit_abbreviation</code>. This should
-     * be the unit abbreviation.
-     */
-    public void setUnitAbbreviation(String unitAbbreviation) {
-        this.unitAbbreviation = unitAbbreviation;
-    }
-
-    /**
-     * Getter for <code>germinate_db.units.unit_description</code>. A
-     * description of the unit. If the unit is not a standard SI unit then it is
-     * beneficial to have a description which explains what the unit it, how it
-     * is derived and any other information which would help identifiy it.
-     */
-    public String getUnitDescription() {
-        return this.unitDescription;
-    }
-
-    /**
-     * Setter for <code>germinate_db.units.unit_description</code>. A
-     * description of the unit. If the unit is not a standard SI unit then it is
-     * beneficial to have a description which explains what the unit it, how it
-     * is derived and any other information which would help identifiy it.
-     */
-    public void setUnitDescription(String unitDescription) {
-        this.unitDescription = unitDescription;
-    }
-
-    /**
-     * Getter for <code>germinate_db.units.created_on</code>. When the record
-     * was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.units.created_on</code>. When the record
-     * was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.units.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if changes
-     * have been made subsequently to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.units.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if changes
-     * have been made subsequently to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

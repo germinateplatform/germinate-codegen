@@ -12,10 +12,16 @@ import jhi.germinate.server.database.pojo.Exif;
 import jhi.germinate.server.database.pojo.ImageTag;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableImages implements Serializable {
 
@@ -68,146 +74,6 @@ public class ViewTableImages implements Serializable {
         this.imageRefTable = imageRefTable;
         this.referenceName = referenceName;
         this.createdOn = createdOn;
-        this.tags = tags;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.image_id</code>.
-     */
-    public Integer getImageId() {
-        return this.imageId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.image_id</code>.
-     */
-    public void setImageId(Integer imageId) {
-        this.imageId = imageId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.image_description</code>.
-     */
-    public String getImageDescription() {
-        return this.imageDescription;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.image_description</code>.
-     */
-    public void setImageDescription(String imageDescription) {
-        this.imageDescription = imageDescription;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.image_foreign_id</code>.
-     */
-    public Integer getImageForeignId() {
-        return this.imageForeignId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.image_foreign_id</code>.
-     */
-    public void setImageForeignId(Integer imageForeignId) {
-        this.imageForeignId = imageForeignId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.image_path</code>.
-     */
-    public String getImagePath() {
-        return this.imagePath;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.image_path</code>.
-     */
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.image_exif</code>.
-     */
-    public Exif getImageExif() {
-        return this.imageExif;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.image_exif</code>.
-     */
-    public void setImageExif(Exif imageExif) {
-        this.imageExif = imageExif;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.image_type</code>.
-     */
-    public String getImageType() {
-        return this.imageType;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.image_type</code>.
-     */
-    public void setImageType(String imageType) {
-        this.imageType = imageType;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.image_ref_table</code>.
-     */
-    public String getImageRefTable() {
-        return this.imageRefTable;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.image_ref_table</code>.
-     */
-    public void setImageRefTable(String imageRefTable) {
-        this.imageRefTable = imageRefTable;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.reference_name</code>.
-     */
-    public String getReferenceName() {
-        return this.referenceName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.reference_name</code>.
-     */
-    public void setReferenceName(String referenceName) {
-        this.referenceName = referenceName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.created_on</code>.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.created_on</code>.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_images.tags</code>.
-     */
-    public ImageTag[] getTags() {
-        return this.tags;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_images.tags</code>.
-     */
-    public void setTags(ImageTag[] tags) {
         this.tags = tags;
     }
 

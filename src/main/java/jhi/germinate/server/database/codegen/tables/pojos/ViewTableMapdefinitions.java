@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableMapdefinitions implements Serializable {
 
@@ -64,178 +70,6 @@ public class ViewTableMapdefinitions implements Serializable {
         this.visibility = visibility;
         this.mapName = mapName;
         this.chromosome = chromosome;
-        this.position = position;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_mapdefinitions.marker_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getMarkerId() {
-        return this.markerId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_mapdefinitions.marker_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setMarkerId(Integer markerId) {
-        this.markerId = markerId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_mapdefinitions.marker_name</code>. The name
-     * of the marker. This should be a unique name which identifies the marker.
-     */
-    public String getMarkerName() {
-        return this.markerName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_mapdefinitions.marker_name</code>. The name
-     * of the marker. This should be a unique name which identifies the marker.
-     */
-    public void setMarkerName(String markerName) {
-        this.markerName = markerName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_mapdefinitions.synonyms</code>.
-     * The synonyms as a json array.
-     */
-    public String[] getSynonyms() {
-        return this.synonyms;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_mapdefinitions.synonyms</code>.
-     * The synonyms as a json array.
-     */
-    public void setSynonyms(String[] synonyms) {
-        this.synonyms = synonyms;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_mapdefinitions.map_feature_type</code>.
-     * Description of the feature type. This could include a definition of the
-     * marker type such as 'SNP', 'KASP' or 'AFLP'.
-     */
-    public String getMapFeatureType() {
-        return this.mapFeatureType;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_mapdefinitions.map_feature_type</code>.
-     * Description of the feature type. This could include a definition of the
-     * marker type such as 'SNP', 'KASP' or 'AFLP'.
-     */
-    public void setMapFeatureType(String mapFeatureType) {
-        this.mapFeatureType = mapFeatureType;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_mapdefinitions.map_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getMapId() {
-        return this.mapId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_mapdefinitions.map_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setMapId(Integer mapId) {
-        this.mapId = mapId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_mapdefinitions.user_id</code>.
-     * Foreign key to Gatekeeper users (Gatekeeper users.id).
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_mapdefinitions.user_id</code>.
-     * Foreign key to Gatekeeper users (Gatekeeper users.id).
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_mapdefinitions.visibility</code>.
-     * Determines if the map is visible to the Germinate interface or hidden.
-     */
-    public Boolean getVisibility() {
-        return this.visibility;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_mapdefinitions.visibility</code>.
-     * Determines if the map is visible to the Germinate interface or hidden.
-     */
-    public void setVisibility(Boolean visibility) {
-        this.visibility = visibility;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_mapdefinitions.map_name</code>.
-     * Describes the map.
-     */
-    public String getMapName() {
-        return this.mapName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_mapdefinitions.map_name</code>.
-     * Describes the map.
-     */
-    public void setMapName(String mapName) {
-        this.mapName = mapName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_mapdefinitions.chromosome</code>. The
-     * chromosome/linkage group that this marker is found on.
-     */
-    public String getChromosome() {
-        return this.chromosome;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_mapdefinitions.chromosome</code>. The
-     * chromosome/linkage group that this marker is found on.
-     */
-    public void setChromosome(String chromosome) {
-        this.chromosome = chromosome;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_mapdefinitions.position</code>.
-     * Used if the markers location spans over an area more than a single point
-     * on the maps. Determines the marker start location.
-     */
-    public Double getPosition() {
-        return this.position;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_mapdefinitions.position</code>.
-     * Used if the markers location spans over an area more than a single point
-     * on the maps. Determines the marker start location.
-     */
-    public void setPosition(Double position) {
         this.position = position;
     }
 

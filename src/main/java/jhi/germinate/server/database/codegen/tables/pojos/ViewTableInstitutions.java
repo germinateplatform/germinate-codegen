@@ -7,10 +7,16 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableInstitutions implements Serializable {
 
@@ -71,218 +77,6 @@ public class ViewTableInstitutions implements Serializable {
         this.countryId = countryId;
         this.countryName = countryName;
         this.countryCode = countryCode;
-        this.institutionType = institutionType;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.institution_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public Integer getInstitutionId() {
-        return this.institutionId;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.institution_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public void setInstitutionId(Integer institutionId) {
-        this.institutionId = institutionId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.institution_name</code>. The
-     * institute name.
-     */
-    public String getInstitutionName() {
-        return this.institutionName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.institution_name</code>. The
-     * institute name.
-     */
-    public void setInstitutionName(String institutionName) {
-        this.institutionName = institutionName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.institution_code</code>. If
-     * there is a defined ISO code for the institute this should be used here.
-     */
-    public String getInstitutionCode() {
-        return this.institutionCode;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.institution_code</code>. If
-     * there is a defined ISO code for the institute this should be used here.
-     */
-    public void setInstitutionCode(String institutionCode) {
-        this.institutionCode = institutionCode;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.institution_acronym</code>. If
-     * there is an acronym for the institute.
-     */
-    public String getInstitutionAcronym() {
-        return this.institutionAcronym;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.institution_acronym</code>. If
-     * there is an acronym for the institute.
-     */
-    public void setInstitutionAcronym(String institutionAcronym) {
-        this.institutionAcronym = institutionAcronym;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.institution_address</code>.
-     * The postal address of the institute.
-     */
-    public String getInstitutionAddress() {
-        return this.institutionAddress;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.institution_address</code>.
-     * The postal address of the institute.
-     */
-    public void setInstitutionAddress(String institutionAddress) {
-        this.institutionAddress = institutionAddress;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.institution_email</code>. The
-     * email address to contact the institute.
-     */
-    public String getInstitutionEmail() {
-        return this.institutionEmail;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.institution_email</code>. The
-     * email address to contact the institute.
-     */
-    public void setInstitutionEmail(String institutionEmail) {
-        this.institutionEmail = institutionEmail;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.institution_contact</code>.
-     * The contact at the institute which should be used for correspondence.
-     */
-    public String getInstitutionContact() {
-        return this.institutionContact;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.institution_contact</code>.
-     * The contact at the institute which should be used for correspondence.
-     */
-    public void setInstitutionContact(String institutionContact) {
-        this.institutionContact = institutionContact;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.institution_phone</code>. The
-     * telephone number for the institute.
-     */
-    public String getInstitutionPhone() {
-        return this.institutionPhone;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.institution_phone</code>. The
-     * telephone number for the institute.
-     */
-    public void setInstitutionPhone(String institutionPhone) {
-        this.institutionPhone = institutionPhone;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_institutions.country_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getCountryId() {
-        return this.countryId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_institutions.country_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setCountryId(Integer countryId) {
-        this.countryId = countryId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.country_name</code>. Country
-     * name.
-     */
-    public String getCountryName() {
-        return this.countryName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.country_name</code>. Country
-     * name.
-     */
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.country_code</code>. ISO 2
-     * Code for country.
-     */
-    public String getCountryCode() {
-        return this.countryCode;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.country_code</code>. ISO 2
-     * Code for country.
-     */
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_institutions.institution_type</code>.
-     */
-    public String getInstitutionType() {
-        return this.institutionType;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_institutions.institution_type</code>.
-     */
-    public void setInstitutionType(String institutionType) {
         this.institutionType = institutionType;
     }
 

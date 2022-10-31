@@ -7,10 +7,16 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewStatsTaxonomy implements Serializable {
 
@@ -39,62 +45,6 @@ public class ViewStatsTaxonomy implements Serializable {
         this.genus = genus;
         this.species = species;
         this.subtaxa = subtaxa;
-        this.count = count;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_taxonomy.genus</code>.
-     */
-    public String getGenus() {
-        return this.genus;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_taxonomy.genus</code>.
-     */
-    public void setGenus(String genus) {
-        this.genus = genus;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_taxonomy.species</code>.
-     */
-    public String getSpecies() {
-        return this.species;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_taxonomy.species</code>.
-     */
-    public void setSpecies(String species) {
-        this.species = species;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_taxonomy.subtaxa</code>.
-     */
-    public String getSubtaxa() {
-        return this.subtaxa;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_taxonomy.subtaxa</code>.
-     */
-    public void setSubtaxa(String subtaxa) {
-        this.subtaxa = subtaxa;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_taxonomy.count</code>.
-     */
-    public Long getCount() {
-        return this.count;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_taxonomy.count</code>.
-     */
-    public void setCount(Long count) {
         this.count = count;
     }
 

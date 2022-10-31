@@ -13,7 +13,7 @@ import jhi.germinate.server.database.codegen.tables.records.PhenotypedataRecord;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row16;
+import org.jooq.Row18;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -74,6 +74,18 @@ public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
      * The column <code>germinate_db.phenotypedata.block</code>.
      */
     public final TableField<PhenotypedataRecord, String> BLOCK = createField(DSL.name("block"), SQLDataType.VARCHAR(10).nullable(false).defaultValue(DSL.inline("1", SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>germinate_db.phenotypedata.trial_row</code>. The row
+     * number in the trial layout.
+     */
+    public final TableField<PhenotypedataRecord, Short> TRIAL_ROW = createField(DSL.name("trial_row"), SQLDataType.SMALLINT, this, "The row number in the trial layout.");
+
+    /**
+     * The column <code>germinate_db.phenotypedata.trial_column</code>. The
+     * column number in the trial layout.
+     */
+    public final TableField<PhenotypedataRecord, Short> TRIAL_COLUMN = createField(DSL.name("trial_column"), SQLDataType.SMALLINT, this, "The column number in the trial layout.");
 
     /**
      * The column <code>germinate_db.phenotypedata.latitude</code>.
@@ -211,12 +223,12 @@ public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row16 type methods
+    // Row18 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row16<Integer, Integer, Integer, String, String, BigDecimal, BigDecimal, BigDecimal, String, Integer, Timestamp, Timestamp, Timestamp, Integer, Integer, Integer> fieldsRow() {
-        return (Row16) super.fieldsRow();
+    public Row18<Integer, Integer, Integer, String, String, Short, Short, BigDecimal, BigDecimal, BigDecimal, String, Integer, Timestamp, Timestamp, Timestamp, Integer, Integer, Integer> fieldsRow() {
+        return (Row18) super.fieldsRow();
     }
     // @formatter:on
 }

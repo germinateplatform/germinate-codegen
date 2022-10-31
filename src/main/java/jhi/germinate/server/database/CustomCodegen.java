@@ -9,6 +9,18 @@ import org.jooq.meta.*;
 public class CustomCodegen extends JavaGenerator
 {
 	@Override
+	protected void generatePojoGetter(TypedElementDefinition<?> column, int index, JavaWriter out)
+	{
+		// Don't do anything here, we're using Lombok
+	}
+
+	@Override
+	protected void generatePojoSetter(TypedElementDefinition<?> column, int index, JavaWriter out)
+	{
+		// Don't do anything here, we're using Lombok
+	}
+
+	@Override
 	public boolean generateIndexes()
 	{
 		return false;
@@ -62,6 +74,8 @@ public class CustomCodegen extends JavaGenerator
 		out.println("// @formatter:on");
 	}
 
+
+
 	@Override
 	protected void generateTableClassJavadoc(TableDefinition table, JavaWriter out)
 	{
@@ -97,9 +111,16 @@ public class CustomCodegen extends JavaGenerator
 	@Override
 	protected void generatePojoClassJavadoc(TableDefinition table, JavaWriter out)
 	{
+		out.println("import lombok.*;");
+		out.println("import lombok.experimental.Accessors;");
+		out.println("");
 		out.println("// @formatter:off");
 
 		super.generatePojoClassJavadoc(table, out);
+
+		out.println("@Getter");
+		out.println("@Setter");
+		out.println("@Accessors(chain = true)");
 	}
 
 	@Override

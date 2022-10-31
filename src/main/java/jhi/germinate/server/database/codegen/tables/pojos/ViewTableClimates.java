@@ -9,10 +9,16 @@ import java.io.Serializable;
 import jhi.germinate.server.database.codegen.enums.ViewTableClimatesDataType;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableClimates implements Serializable {
 
@@ -69,194 +75,6 @@ public class ViewTableClimates implements Serializable {
         this.unitDescription = unitDescription;
         this.overlays = overlays;
         this.unitAbbreviation = unitAbbreviation;
-        this.count = count;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_climates.climate_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public Integer getClimateId() {
-        return this.climateId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_climates.climate_id</code>.
-     * Primary id for this table. This uniquely identifies the row.
-     */
-    public void setClimateId(Integer climateId) {
-        this.climateId = climateId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_climates.climate_name</code>.
-     * Describes the climate.
-     */
-    public String getClimateName() {
-        return this.climateName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_climates.climate_name</code>.
-     * Describes the climate.
-     */
-    public void setClimateName(String climateName) {
-        this.climateName = climateName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climates.climate_name_short</code>.
-     * Shortened version of the climate name which is used in some table
-     * headers.
-     */
-    public String getClimateNameShort() {
-        return this.climateNameShort;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climates.climate_name_short</code>.
-     * Shortened version of the climate name which is used in some table
-     * headers.
-     */
-    public void setClimateNameShort(String climateNameShort) {
-        this.climateNameShort = climateNameShort;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climates.climate_description</code>. A
-     * longer description of the climate.
-     */
-    public String getClimateDescription() {
-        return this.climateDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climates.climate_description</code>. A
-     * longer description of the climate.
-     */
-    public void setClimateDescription(String climateDescription) {
-        this.climateDescription = climateDescription;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_climates.data_type</code>.
-     * Defines the data type of the climate. This can be of numeric, text, date
-     * or categorical types.
-     */
-    public ViewTableClimatesDataType getDataType() {
-        return this.dataType;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_climates.data_type</code>.
-     * Defines the data type of the climate. This can be of numeric, text, date
-     * or categorical types.
-     */
-    public void setDataType(ViewTableClimatesDataType dataType) {
-        this.dataType = dataType;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_climates.unit_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public Integer getUnitId() {
-        return this.unitId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_climates.unit_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
-     */
-    public void setUnitId(Integer unitId) {
-        this.unitId = unitId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_climates.unit_name</code>. The
-     * name of the unit. This should be the name of the unit in full.
-     */
-    public String getUnitName() {
-        return this.unitName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_climates.unit_name</code>. The
-     * name of the unit. This should be the name of the unit in full.
-     */
-    public void setUnitName(String unitName) {
-        this.unitName = unitName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climates.unit_description</code>. A
-     * description of the unit. If the unit is not a standard SI unit then it is
-     * beneficial to have a description which explains what the unit it, how it
-     * is derived and any other information which would help identifiy it.
-     */
-    public String getUnitDescription() {
-        return this.unitDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climates.unit_description</code>. A
-     * description of the unit. If the unit is not a standard SI unit then it is
-     * beneficial to have a description which explains what the unit it, how it
-     * is derived and any other information which would help identifiy it.
-     */
-    public void setUnitDescription(String unitDescription) {
-        this.unitDescription = unitDescription;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_climates.overlays</code>.
-     */
-    public Long getOverlays() {
-        return this.overlays;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_climates.overlays</code>.
-     */
-    public void setOverlays(Long overlays) {
-        this.overlays = overlays;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_climates.unit_abbreviation</code>. This
-     * should be the unit abbreviation.
-     */
-    public String getUnitAbbreviation() {
-        return this.unitAbbreviation;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_climates.unit_abbreviation</code>. This
-     * should be the unit abbreviation.
-     */
-    public void setUnitAbbreviation(String unitAbbreviation) {
-        this.unitAbbreviation = unitAbbreviation;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_climates.count</code>.
-     */
-    public Long getCount() {
-        return this.count;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_climates.count</code>.
-     */
-    public void setCount(Long count) {
         this.count = count;
     }
 

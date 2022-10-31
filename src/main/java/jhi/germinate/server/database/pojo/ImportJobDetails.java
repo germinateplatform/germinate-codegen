@@ -5,6 +5,7 @@ public class ImportJobDetails
 	private String  baseFolder;
 	private String  dataFilename;
 	private Boolean deleteOnFail;
+	private Integer targetDatasetId;
 	private RunType runType;
 
 	public String getBaseFolder()
@@ -50,6 +51,17 @@ public class ImportJobDetails
 	public ImportJobDetails setRunType(RunType runType)
 	{
 		this.runType = runType;
+		return this;
+	}
+
+	public Integer getTargetDatasetId()
+	{
+		return targetDatasetId;
+	}
+
+	public ImportJobDetails setTargetDatasetId(Integer targetDatasetId)
+	{
+		this.targetDatasetId = targetDatasetId;
 		return this;
 	}
 }

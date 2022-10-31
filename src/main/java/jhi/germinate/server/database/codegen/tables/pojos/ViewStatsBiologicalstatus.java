@@ -7,10 +7,16 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewStatsBiologicalstatus implements Serializable {
 
@@ -31,36 +37,6 @@ public class ViewStatsBiologicalstatus implements Serializable {
         Long   count
     ) {
         this.biologicalstatus = biologicalstatus;
-        this.count = count;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_stats_biologicalstatus.biologicalstatus</code>.
-     */
-    public String getBiologicalstatus() {
-        return this.biologicalstatus;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_stats_biologicalstatus.biologicalstatus</code>.
-     */
-    public void setBiologicalstatus(String biologicalstatus) {
-        this.biologicalstatus = biologicalstatus;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_biologicalstatus.count</code>.
-     */
-    public Long getCount() {
-        return this.count;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_biologicalstatus.count</code>.
-     */
-    public void setCount(Long count) {
         this.count = count;
     }
 

@@ -7,10 +7,16 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewStatsPdci implements Serializable {
 
@@ -31,34 +37,6 @@ public class ViewStatsPdci implements Serializable {
         Long   count
     ) {
         this.bin = bin;
-        this.count = count;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_pdci.bin</code>.
-     */
-    public String getBin() {
-        return this.bin;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_pdci.bin</code>.
-     */
-    public void setBin(String bin) {
-        this.bin = bin;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_pdci.count</code>.
-     */
-    public Long getCount() {
-        return this.count;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_pdci.count</code>.
-     */
-    public void setCount(Long count) {
         this.count = count;
     }
 

@@ -8,11 +8,17 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Comments can be added to different entries in Germinate such as entries from
  * germinatebase or markers from the markers table.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Comments implements Serializable {
 
@@ -57,136 +63,6 @@ public class Comments implements Serializable {
         this.description = description;
         this.referenceId = referenceId;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.comments.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.comments.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.comments.commenttype_id</code>. Foreign key
-     * to commentypes (commenttypes.id).
-     */
-    public Integer getCommenttypeId() {
-        return this.commenttypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.comments.commenttype_id</code>. Foreign key
-     * to commentypes (commenttypes.id).
-     */
-    public void setCommenttypeId(Integer commenttypeId) {
-        this.commenttypeId = commenttypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.comments.user_id</code>. Foreign key to
-     * Gatekeeper users (Gatekeeper users.id).
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.comments.user_id</code>. Foreign key to
-     * Gatekeeper users (Gatekeeper users.id).
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.comments.visibility</code>. Defines if the
-     * comment is available or masked (hidden) from the interface.
-     */
-    public Boolean getVisibility() {
-        return this.visibility;
-    }
-
-    /**
-     * Setter for <code>germinate_db.comments.visibility</code>. Defines if the
-     * comment is available or masked (hidden) from the interface.
-     */
-    public void setVisibility(Boolean visibility) {
-        this.visibility = visibility;
-    }
-
-    /**
-     * Getter for <code>germinate_db.comments.description</code>. The comment
-     * content.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.comments.description</code>. The comment
-     * content.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.comments.reference_id</code>. Relates to
-     * the UID of the table to which the comment relates
-     */
-    public Integer getReferenceId() {
-        return this.referenceId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.comments.reference_id</code>. Relates to
-     * the UID of the table to which the comment relates
-     */
-    public void setReferenceId(Integer referenceId) {
-        this.referenceId = referenceId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.comments.created_on</code>. When the record
-     * was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.comments.created_on</code>. When the record
-     * was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.comments.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.comments.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableFileresourcetypes implements Serializable {
 
@@ -20,6 +26,7 @@ public class ViewTableFileresourcetypes implements Serializable {
     private Integer   id;
     private String    name;
     private String    description;
+    private Boolean   publicVisibility;
     private Timestamp createdOn;
     private Timestamp updatedOn;
     private Long      count;
@@ -30,6 +37,7 @@ public class ViewTableFileresourcetypes implements Serializable {
         this.id = value.id;
         this.name = value.name;
         this.description = value.description;
+        this.publicVisibility = value.publicVisibility;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
         this.count = value.count;
@@ -39,6 +47,7 @@ public class ViewTableFileresourcetypes implements Serializable {
         Integer   id,
         String    name,
         String    description,
+        Boolean   publicVisibility,
         Timestamp createdOn,
         Timestamp updatedOn,
         Long      count
@@ -46,108 +55,9 @@ public class ViewTableFileresourcetypes implements Serializable {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.publicVisibility = publicVisibility;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
-        this.count = count;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_fileresourcetypes.id</code>. The
-     * primary id.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_fileresourcetypes.id</code>. The
-     * primary id.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_fileresourcetypes.name</code>.
-     * The name of the file type.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_fileresourcetypes.name</code>.
-     * The name of the file type.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresourcetypes.description</code>. The
-     * description of the file type.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresourcetypes.description</code>. The
-     * description of the file type.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresourcetypes.created_on</code>. When
-     * this record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresourcetypes.created_on</code>. When
-     * this record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresourcetypes.updated_on</code>. When
-     * this record was last updated.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_fileresourcetypes.updated_on</code>. When
-     * this record was last updated.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_fileresourcetypes.count</code>.
-     */
-    public Long getCount() {
-        return this.count;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_fileresourcetypes.count</code>.
-     */
-    public void setCount(Long count) {
         this.count = count;
     }
 
@@ -158,6 +68,7 @@ public class ViewTableFileresourcetypes implements Serializable {
         sb.append(id);
         sb.append(", ").append(name);
         sb.append(", ").append(description);
+        sb.append(", ").append(publicVisibility);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
         sb.append(", ").append(count);

@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableUsergroups implements Serializable {
 
@@ -44,86 +50,6 @@ public class ViewTableUsergroups implements Serializable {
         this.userGroupName = userGroupName;
         this.userGroupDescription = userGroupDescription;
         this.createdOn = createdOn;
-        this.count = count;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_usergroups.user_group_id</code>.
-     */
-    public Integer getUserGroupId() {
-        return this.userGroupId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_usergroups.user_group_id</code>.
-     */
-    public void setUserGroupId(Integer userGroupId) {
-        this.userGroupId = userGroupId;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_usergroups.user_group_name</code>. The name
-     * of the user group.
-     */
-    public String getUserGroupName() {
-        return this.userGroupName;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_usergroups.user_group_name</code>. The name
-     * of the user group.
-     */
-    public void setUserGroupName(String userGroupName) {
-        this.userGroupName = userGroupName;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_usergroups.user_group_description</code>. A
-     * description of the user group.
-     */
-    public String getUserGroupDescription() {
-        return this.userGroupDescription;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.view_table_usergroups.user_group_description</code>. A
-     * description of the user group.
-     */
-    public void setUserGroupDescription(String userGroupDescription) {
-        this.userGroupDescription = userGroupDescription;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_usergroups.created_on</code>.
-     * When the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_usergroups.created_on</code>.
-     * When the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_usergroups.count</code>.
-     */
-    public Long getCount() {
-        return this.count;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_usergroups.count</code>.
-     */
-    public void setCount(Long count) {
         this.count = count;
     }
 

@@ -8,11 +8,17 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Climate overlays can be used in conjunction with OpenStreetMap in order to
  * visualize climate data in a geographic context.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Climateoverlays implements Serializable {
 
@@ -69,194 +75,6 @@ public class Climateoverlays implements Serializable {
         this.isLegend = isLegend;
         this.description = description;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climateoverlays.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climateoverlays.id</code>. Primary id for
-     * this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climateoverlays.climate_id</code>. Foreign
-     * key to climates (climates.id).
-     */
-    public Integer getClimateId() {
-        return this.climateId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climateoverlays.climate_id</code>. Foreign
-     * key to climates (climates.id).
-     */
-    public void setClimateId(Integer climateId) {
-        this.climateId = climateId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climateoverlays.path</code>. This is the
-     * path for holding images which can be used as overlays for the Google Maps
-     * representation in Germinate. The path is relative.
-     */
-    public String getPath() {
-        return this.path;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climateoverlays.path</code>. This is the
-     * path for holding images which can be used as overlays for the Google Maps
-     * representation in Germinate. The path is relative.
-     */
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.climateoverlays.bottom_left_longitude</code>. Allows
-     * the allignment of images against OpenStreetMap API.
-     */
-    public Double getBottomLeftLongitude() {
-        return this.bottomLeftLongitude;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.climateoverlays.bottom_left_longitude</code>. Allows
-     * the allignment of images against OpenStreetMap API.
-     */
-    public void setBottomLeftLongitude(Double bottomLeftLongitude) {
-        this.bottomLeftLongitude = bottomLeftLongitude;
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.climateoverlays.bottom_left_latitude</code>. Allows
-     * the allignment of images against OpenStreetMap API.
-     */
-    public Double getBottomLeftLatitude() {
-        return this.bottomLeftLatitude;
-    }
-
-    /**
-     * Setter for
-     * <code>germinate_db.climateoverlays.bottom_left_latitude</code>. Allows
-     * the allignment of images against OpenStreetMap API.
-     */
-    public void setBottomLeftLatitude(Double bottomLeftLatitude) {
-        this.bottomLeftLatitude = bottomLeftLatitude;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climateoverlays.top_right_longitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public Double getTopRightLongitude() {
-        return this.topRightLongitude;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climateoverlays.top_right_longitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public void setTopRightLongitude(Double topRightLongitude) {
-        this.topRightLongitude = topRightLongitude;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climateoverlays.top_right_latitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public Double getTopRightLatitude() {
-        return this.topRightLatitude;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climateoverlays.top_right_latitude</code>.
-     * Allows the allignment of images against OpenStreetMap API.
-     */
-    public void setTopRightLatitude(Double topRightLatitude) {
-        this.topRightLatitude = topRightLatitude;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climateoverlays.is_legend</code>. The
-     * legend for the image. What colours represent in the overlays. This is not
-     * required but used if present. 
-     */
-    public Boolean getIsLegend() {
-        return this.isLegend;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climateoverlays.is_legend</code>. The
-     * legend for the image. What colours represent in the overlays. This is not
-     * required but used if present. 
-     */
-    public void setIsLegend(Boolean isLegend) {
-        this.isLegend = isLegend;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climateoverlays.description</code>.
-     * Describes the climate overlay if additional explanation of  the overlay
-     * image is required.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climateoverlays.description</code>.
-     * Describes the climate overlay if additional explanation of  the overlay
-     * image is required.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climateoverlays.created_on</code>. When the
-     * record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climateoverlays.created_on</code>. When the
-     * record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.climateoverlays.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.climateoverlays.updated_on</code>. When the
-     * record was updated. This may be different from the created on date if
-     * subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

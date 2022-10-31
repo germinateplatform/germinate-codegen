@@ -7,10 +7,16 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * VIEW
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewStatsCountry implements Serializable {
 
@@ -35,48 +41,6 @@ public class ViewStatsCountry implements Serializable {
     ) {
         this.country = country;
         this.code = code;
-        this.count = count;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_country.country</code>.
-     */
-    public String getCountry() {
-        return this.country;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_country.country</code>.
-     */
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_country.code</code>.
-     */
-    public String getCode() {
-        return this.code;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_country.code</code>.
-     */
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_stats_country.count</code>.
-     */
-    public Long getCount() {
-        return this.count;
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_stats_country.count</code>.
-     */
-    public void setCount(Long count) {
         this.count = count;
     }
 

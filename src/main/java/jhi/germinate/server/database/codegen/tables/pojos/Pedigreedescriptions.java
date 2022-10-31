@@ -8,12 +8,18 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Description of pedigrees. Pedigrees can have a description which details
  * additional information about the pedigree, how it was constructed and who the
  * contact is for the pedigree.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Pedigreedescriptions implements Serializable {
 
@@ -50,106 +56,6 @@ public class Pedigreedescriptions implements Serializable {
         this.description = description;
         this.author = author;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedescriptions.id</code>. Primary id
-     * for this table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedescriptions.id</code>. Primary id
-     * for this table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedescriptions.name</code>. The name
-     * of the pedigree.
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedescriptions.name</code>. The name
-     * of the pedigree.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedescriptions.description</code>.
-     * Describes the pedigree in more detail.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedescriptions.description</code>.
-     * Describes the pedigree in more detail.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedescriptions.author</code>. Who is
-     * responsible for the creation of the pedigree. Attribution should be
-     * included in here for pedigree sources.
-     */
-    public String getAuthor() {
-        return this.author;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedescriptions.author</code>. Who is
-     * responsible for the creation of the pedigree. Attribution should be
-     * included in here for pedigree sources.
-     */
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedescriptions.created_on</code>.
-     * When the record was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedescriptions.created_on</code>.
-     * When the record was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.pedigreedescriptions.updated_on</code>.
-     * When the record was updated. This may be different from the created on
-     * date if subsequent changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.pedigreedescriptions.updated_on</code>.
-     * When the record was updated. This may be different from the created on
-     * date if subsequent changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

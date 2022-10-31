@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Defines genetic markers within the database and assigns a type (markertypes).
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Markers implements Serializable {
 
@@ -44,90 +50,6 @@ public class Markers implements Serializable {
         this.markertypeId = markertypeId;
         this.markerName = markerName;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.markers.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.markers.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.markers.markertype_id</code>. Foreign key
-     * to locations (locations.id).
-     */
-    public Integer getMarkertypeId() {
-        return this.markertypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.markers.markertype_id</code>. Foreign key
-     * to locations (locations.id).
-     */
-    public void setMarkertypeId(Integer markertypeId) {
-        this.markertypeId = markertypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.markers.marker_name</code>. The name of the
-     * marker. This should be a unique name which identifies the marker.
-     */
-    public String getMarkerName() {
-        return this.markerName;
-    }
-
-    /**
-     * Setter for <code>germinate_db.markers.marker_name</code>. The name of the
-     * marker. This should be a unique name which identifies the marker.
-     */
-    public void setMarkerName(String markerName) {
-        this.markerName = markerName;
-    }
-
-    /**
-     * Getter for <code>germinate_db.markers.created_on</code>. When the record
-     * was created.
-
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.markers.created_on</code>. When the record
-     * was created.
-
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.markers.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.markers.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

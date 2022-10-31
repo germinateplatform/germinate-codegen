@@ -8,10 +8,16 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Holds news items that are displayed within Germinate.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class News implements Serializable {
 
@@ -60,156 +66,6 @@ public class News implements Serializable {
         this.hyperlink = hyperlink;
         this.userId = userId;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.news.id</code>. Primary id for this table.
-     * This uniquely identifies the row.
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.news.id</code>. Primary id for this table.
-     * This uniquely identifies the row.
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.news.newstype_id</code>. Foreign key
-     * newstypes (newstypes.id).
-     */
-    public Integer getNewstypeId() {
-        return this.newstypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.news.newstype_id</code>. Foreign key
-     * newstypes (newstypes.id).
-     */
-    public void setNewstypeId(Integer newstypeId) {
-        this.newstypeId = newstypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.news.title</code>. A title which is used to
-     * name this news item. This appears in the Germinate user interface if
-     * used.
-     */
-    public String getTitle() {
-        return this.title;
-    }
-
-    /**
-     * Setter for <code>germinate_db.news.title</code>. A title which is used to
-     * name this news item. This appears in the Germinate user interface if
-     * used.
-     */
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    /**
-     * Getter for <code>germinate_db.news.content</code>. The textual content of
-     * this news item.
-     */
-    public String getContent() {
-        return this.content;
-    }
-
-    /**
-     * Setter for <code>germinate_db.news.content</code>. The textual content of
-     * this news item.
-     */
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    /**
-     * Getter for <code>germinate_db.news.image</code>. Image to use with this
-     * news item.
-     */
-    public String getImage() {
-        return this.image;
-    }
-
-    /**
-     * Setter for <code>germinate_db.news.image</code>. Image to use with this
-     * news item.
-     */
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    /**
-     * Getter for <code>germinate_db.news.hyperlink</code>. HTML hyperlink to
-     * use for this news item. This can be a link to another source which
-     * contains more information or a link to the original source.
-     */
-    public String getHyperlink() {
-        return this.hyperlink;
-    }
-
-    /**
-     * Setter for <code>germinate_db.news.hyperlink</code>. HTML hyperlink to
-     * use for this news item. This can be a link to another source which
-     * contains more information or a link to the original source.
-     */
-    public void setHyperlink(String hyperlink) {
-        this.hyperlink = hyperlink;
-    }
-
-    /**
-     * Getter for <code>germinate_db.news.user_id</code>. Foreign key users
-     * (users.id).
-     */
-    public Integer getUserId() {
-        return this.userId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.news.user_id</code>. Foreign key users
-     * (users.id).
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.news.created_on</code>. When the record was
-     * created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.news.created_on</code>. When the record was
-     * created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.news.updated_on</code>. When the record was
-     * updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.news.updated_on</code>. When the record was
-     * updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 

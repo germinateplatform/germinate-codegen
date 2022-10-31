@@ -55,6 +55,7 @@ import jhi.germinate.server.database.codegen.tables.Locations;
 import jhi.germinate.server.database.codegen.tables.Locationtypes;
 import jhi.germinate.server.database.codegen.tables.Mapdefinitions;
 import jhi.germinate.server.database.codegen.tables.Mapfeaturetypes;
+import jhi.germinate.server.database.codegen.tables.Mapoverlays;
 import jhi.germinate.server.database.codegen.tables.Maps;
 import jhi.germinate.server.database.codegen.tables.Markers;
 import jhi.germinate.server.database.codegen.tables.Markertypes;
@@ -103,6 +104,7 @@ import jhi.germinate.server.database.codegen.tables.ViewTableLicenses;
 import jhi.germinate.server.database.codegen.tables.ViewTableLinks;
 import jhi.germinate.server.database.codegen.tables.ViewTableLocations;
 import jhi.germinate.server.database.codegen.tables.ViewTableMapdefinitions;
+import jhi.germinate.server.database.codegen.tables.ViewTableMapoverlays;
 import jhi.germinate.server.database.codegen.tables.ViewTableMaps;
 import jhi.germinate.server.database.codegen.tables.ViewTableMarkers;
 import jhi.germinate.server.database.codegen.tables.ViewTableNews;
@@ -196,6 +198,7 @@ public class GerminateDb extends SchemaImpl {
             Locationtypes.LOCATIONTYPES,
             Mapdefinitions.MAPDEFINITIONS,
             Mapfeaturetypes.MAPFEATURETYPES,
+            Mapoverlays.MAPOVERLAYS,
             Maps.MAPS,
             Markers.MARKERS,
             Markertypes.MARKERTYPES,
@@ -244,6 +247,7 @@ public class GerminateDb extends SchemaImpl {
             ViewTableLinks.VIEW_TABLE_LINKS,
             ViewTableLocations.VIEW_TABLE_LOCATIONS,
             ViewTableMapdefinitions.VIEW_TABLE_MAPDEFINITIONS,
+            ViewTableMapoverlays.VIEW_TABLE_MAPOVERLAYS,
             ViewTableMaps.VIEW_TABLE_MAPS,
             ViewTableMarkers.VIEW_TABLE_MARKERS,
             ViewTableNews.VIEW_TABLE_NEWS,

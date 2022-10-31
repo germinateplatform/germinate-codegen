@@ -9,11 +9,17 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 // @formatter:off
 /**
  * Allows the definition of synonyms for entries such as germinatebase entries
  * or marker names.
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Synonyms implements Serializable {
 
@@ -50,106 +56,6 @@ public class Synonyms implements Serializable {
         this.synonymtypeId = synonymtypeId;
         this.synonyms = synonyms;
         this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.synonyms.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-
-     */
-    public Integer getId() {
-        return this.id;
-    }
-
-    /**
-     * Setter for <code>germinate_db.synonyms.id</code>. Primary id for this
-     * table. This uniquely identifies the row.
-
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Getter for <code>germinate_db.synonyms.foreign_id</code>. Foreign key to
-     * target table (l[targettable].id).
-     */
-    public Integer getForeignId() {
-        return this.foreignId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.synonyms.foreign_id</code>. Foreign key to
-     * target table (l[targettable].id).
-     */
-    public void setForeignId(Integer foreignId) {
-        this.foreignId = foreignId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.synonyms.synonymtype_id</code>. Foreign key
-     * to synonymtypes (synonymnstypes.id).
-     */
-    public Integer getSynonymtypeId() {
-        return this.synonymtypeId;
-    }
-
-    /**
-     * Setter for <code>germinate_db.synonyms.synonymtype_id</code>. Foreign key
-     * to synonymtypes (synonymnstypes.id).
-     */
-    public void setSynonymtypeId(Integer synonymtypeId) {
-        this.synonymtypeId = synonymtypeId;
-    }
-
-    /**
-     * Getter for <code>germinate_db.synonyms.synonyms</code>. The synonyms as a
-     * json array.
-     */
-    public String[] getSynonyms() {
-        return this.synonyms;
-    }
-
-    /**
-     * Setter for <code>germinate_db.synonyms.synonyms</code>. The synonyms as a
-     * json array.
-     */
-    public void setSynonyms(String[] synonyms) {
-        this.synonyms = synonyms;
-    }
-
-    /**
-     * Getter for <code>germinate_db.synonyms.created_on</code>. When the record
-     * was created.
-     */
-    public Timestamp getCreatedOn() {
-        return this.createdOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.synonyms.created_on</code>. When the record
-     * was created.
-     */
-    public void setCreatedOn(Timestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    /**
-     * Getter for <code>germinate_db.synonyms.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public Timestamp getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    /**
-     * Setter for <code>germinate_db.synonyms.updated_on</code>. When the record
-     * was updated. This may be different from the created on date if subsequent
-     * changes have been made to the underlying record.
-     */
-    public void setUpdatedOn(Timestamp updatedOn) {
         this.updatedOn = updatedOn;
     }
 
