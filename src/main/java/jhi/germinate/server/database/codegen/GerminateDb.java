@@ -11,7 +11,6 @@ import jhi.germinate.server.database.codegen.tables.Attributedata;
 import jhi.germinate.server.database.codegen.tables.Attributes;
 import jhi.germinate.server.database.codegen.tables.Biologicalstatus;
 import jhi.germinate.server.database.codegen.tables.Climatedata;
-import jhi.germinate.server.database.codegen.tables.Climateoverlays;
 import jhi.germinate.server.database.codegen.tables.Climates;
 import jhi.germinate.server.database.codegen.tables.Collaborators;
 import jhi.germinate.server.database.codegen.tables.Collectingsources;
@@ -78,6 +77,7 @@ import jhi.germinate.server.database.codegen.tables.Taxonomies;
 import jhi.germinate.server.database.codegen.tables.Treatments;
 import jhi.germinate.server.database.codegen.tables.Trialseries;
 import jhi.germinate.server.database.codegen.tables.Units;
+import jhi.germinate.server.database.codegen.tables.Userfeedback;
 import jhi.germinate.server.database.codegen.tables.Usergroupmembers;
 import jhi.germinate.server.database.codegen.tables.Usergroups;
 import jhi.germinate.server.database.codegen.tables.ViewStatsBiologicalstatus;
@@ -85,7 +85,6 @@ import jhi.germinate.server.database.codegen.tables.ViewStatsCountry;
 import jhi.germinate.server.database.codegen.tables.ViewStatsPdci;
 import jhi.germinate.server.database.codegen.tables.ViewStatsTaxonomy;
 import jhi.germinate.server.database.codegen.tables.ViewTableClimateData;
-import jhi.germinate.server.database.codegen.tables.ViewTableClimateoverlays;
 import jhi.germinate.server.database.codegen.tables.ViewTableClimates;
 import jhi.germinate.server.database.codegen.tables.ViewTableCollaborators;
 import jhi.germinate.server.database.codegen.tables.ViewTableComments;
@@ -98,6 +97,7 @@ import jhi.germinate.server.database.codegen.tables.ViewTableGermplasmAttributes
 import jhi.germinate.server.database.codegen.tables.ViewTableGermplasmDeprecated;
 import jhi.germinate.server.database.codegen.tables.ViewTableGroups;
 import jhi.germinate.server.database.codegen.tables.ViewTableImages;
+import jhi.germinate.server.database.codegen.tables.ViewTableImportJobs;
 import jhi.germinate.server.database.codegen.tables.ViewTableInstitutions;
 import jhi.germinate.server.database.codegen.tables.ViewTableLicenseDefinitions;
 import jhi.germinate.server.database.codegen.tables.ViewTableLicenses;
@@ -154,7 +154,6 @@ public class GerminateDb extends SchemaImpl {
             Attributes.ATTRIBUTES,
             Biologicalstatus.BIOLOGICALSTATUS,
             Climatedata.CLIMATEDATA,
-            Climateoverlays.CLIMATEOVERLAYS,
             Climates.CLIMATES,
             Collaborators.COLLABORATORS,
             Collectingsources.COLLECTINGSOURCES,
@@ -221,6 +220,7 @@ public class GerminateDb extends SchemaImpl {
             Treatments.TREATMENTS,
             Trialseries.TRIALSERIES,
             Units.UNITS,
+            Userfeedback.USERFEEDBACK,
             Usergroupmembers.USERGROUPMEMBERS,
             Usergroups.USERGROUPS,
             ViewStatsBiologicalstatus.VIEW_STATS_BIOLOGICALSTATUS,
@@ -228,7 +228,6 @@ public class GerminateDb extends SchemaImpl {
             ViewStatsPdci.VIEW_STATS_PDCI,
             ViewStatsTaxonomy.VIEW_STATS_TAXONOMY,
             ViewTableClimateData.VIEW_TABLE_CLIMATE_DATA,
-            ViewTableClimateoverlays.VIEW_TABLE_CLIMATEOVERLAYS,
             ViewTableClimates.VIEW_TABLE_CLIMATES,
             ViewTableCollaborators.VIEW_TABLE_COLLABORATORS,
             ViewTableComments.VIEW_TABLE_COMMENTS,
@@ -241,6 +240,7 @@ public class GerminateDb extends SchemaImpl {
             ViewTableGermplasmDeprecated.VIEW_TABLE_GERMPLASM_DEPRECATED,
             ViewTableGroups.VIEW_TABLE_GROUPS,
             ViewTableImages.VIEW_TABLE_IMAGES,
+            ViewTableImportJobs.VIEW_TABLE_IMPORT_JOBS,
             ViewTableInstitutions.VIEW_TABLE_INSTITUTIONS,
             ViewTableLicenseDefinitions.VIEW_TABLE_LICENSE_DEFINITIONS,
             ViewTableLicenses.VIEW_TABLE_LICENSES,

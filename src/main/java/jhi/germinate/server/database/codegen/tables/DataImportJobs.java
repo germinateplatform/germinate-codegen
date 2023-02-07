@@ -7,18 +7,20 @@ package jhi.germinate.server.database.codegen.tables;
 import java.sql.Timestamp;
 
 import jhi.germinate.server.database.binding.ImportJobDetailsBinding;
+import jhi.germinate.server.database.binding.ImportJobStatsBinding;
 import jhi.germinate.server.database.binding.ImportResultBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.DataImportJobsDatatype;
 import jhi.germinate.server.database.codegen.enums.DataImportJobsStatus;
 import jhi.germinate.server.database.codegen.tables.records.DataImportJobsRecord;
 import jhi.germinate.server.database.pojo.ImportJobDetails;
+import jhi.germinate.server.database.pojo.ImportJobStats;
 import jhi.germinate.server.database.pojo.ImportResult;
 
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row15;
+import org.jooq.Row16;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -118,6 +120,11 @@ public class DataImportJobs extends TableImpl<DataImportJobsRecord> {
     public final TableField<DataImportJobsRecord, ImportResult[]> FEEDBACK = createField(DSL.name("feedback"), SQLDataType.JSON, this, "", new ImportResultBinding());
 
     /**
+     * The column <code>germinate_db.data_import_jobs.stats</code>.
+     */
+    public final TableField<DataImportJobsRecord, ImportJobStats> STATS = createField(DSL.name("stats"), SQLDataType.JSON, this, "", new ImportJobStatsBinding());
+
+    /**
      * The column <code>germinate_db.data_import_jobs.created_on</code>.
      */
     public final TableField<DataImportJobsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "");
@@ -200,12 +207,12 @@ public class DataImportJobs extends TableImpl<DataImportJobsRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row15 type methods
+    // Row16 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row15<Integer, String, String, ImportJobDetails, Integer, String, Boolean, Integer, DataImportJobsDatatype, DataImportJobsStatus, Boolean, Boolean, ImportResult[], Timestamp, Timestamp> fieldsRow() {
-        return (Row15) super.fieldsRow();
+    public Row16<Integer, String, String, ImportJobDetails, Integer, String, Boolean, Integer, DataImportJobsDatatype, DataImportJobsStatus, Boolean, Boolean, ImportResult[], ImportJobStats, Timestamp, Timestamp> fieldsRow() {
+        return (Row16) super.fieldsRow();
     }
     // @formatter:on
 }

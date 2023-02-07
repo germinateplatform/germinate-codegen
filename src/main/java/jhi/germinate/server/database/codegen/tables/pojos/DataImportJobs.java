@@ -11,6 +11,7 @@ import java.util.Arrays;
 import jhi.germinate.server.database.codegen.enums.DataImportJobsDatatype;
 import jhi.germinate.server.database.codegen.enums.DataImportJobsStatus;
 import jhi.germinate.server.database.pojo.ImportJobDetails;
+import jhi.germinate.server.database.pojo.ImportJobStats;
 import jhi.germinate.server.database.pojo.ImportResult;
 
 
@@ -42,6 +43,7 @@ public class DataImportJobs implements Serializable {
     private Boolean                imported;
     private Boolean                visibility;
     private ImportResult[]         feedback;
+    private ImportJobStats         stats;
     private Timestamp              createdOn;
     private Timestamp              updatedOn;
 
@@ -61,6 +63,7 @@ public class DataImportJobs implements Serializable {
         this.imported = value.imported;
         this.visibility = value.visibility;
         this.feedback = value.feedback;
+        this.stats = value.stats;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
@@ -79,6 +82,7 @@ public class DataImportJobs implements Serializable {
         Boolean                imported,
         Boolean                visibility,
         ImportResult[]         feedback,
+        ImportJobStats         stats,
         Timestamp              createdOn,
         Timestamp              updatedOn
     ) {
@@ -95,6 +99,7 @@ public class DataImportJobs implements Serializable {
         this.imported = imported;
         this.visibility = visibility;
         this.feedback = feedback;
+        this.stats = stats;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -116,6 +121,7 @@ public class DataImportJobs implements Serializable {
         sb.append(", ").append(imported);
         sb.append(", ").append(visibility);
         sb.append(", ").append(Arrays.toString(feedback));
+        sb.append(", ").append(stats);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 
