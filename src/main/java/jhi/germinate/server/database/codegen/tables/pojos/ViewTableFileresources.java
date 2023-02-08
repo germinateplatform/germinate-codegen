@@ -34,7 +34,6 @@ public class ViewTableFileresources implements Serializable {
     private Integer   fileresourcetypeId;
     private String    fileresourcetypeName;
     private String    fileresourcetypeDescription;
-    private Boolean   publicVisibility;
     private Integer[] datasetIds;
 
     public ViewTableFileresources() {}
@@ -50,7 +49,6 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourcetypeId = value.fileresourcetypeId;
         this.fileresourcetypeName = value.fileresourcetypeName;
         this.fileresourcetypeDescription = value.fileresourcetypeDescription;
-        this.publicVisibility = value.publicVisibility;
         this.datasetIds = value.datasetIds;
     }
 
@@ -65,7 +63,6 @@ public class ViewTableFileresources implements Serializable {
         Integer   fileresourcetypeId,
         String    fileresourcetypeName,
         String    fileresourcetypeDescription,
-        Boolean   publicVisibility,
         Integer[] datasetIds
     ) {
         this.fileresourceId = fileresourceId;
@@ -78,7 +75,6 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourcetypeId = fileresourcetypeId;
         this.fileresourcetypeName = fileresourcetypeName;
         this.fileresourcetypeDescription = fileresourcetypeDescription;
-        this.publicVisibility = publicVisibility;
         this.datasetIds = datasetIds;
     }
 
@@ -96,7 +92,6 @@ public class ViewTableFileresources implements Serializable {
         sb.append(", ").append(fileresourcetypeId);
         sb.append(", ").append(fileresourcetypeName);
         sb.append(", ").append(fileresourcetypeDescription);
-        sb.append(", ").append(publicVisibility);
         sb.append(", ").append(Arrays.toString(datasetIds));
 
         sb.append(")");

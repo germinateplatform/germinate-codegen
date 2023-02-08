@@ -26,7 +26,6 @@ public class Fileresourcetypes implements Serializable {
     private Integer   id;
     private String    name;
     private String    description;
-    private Boolean   publicVisibility;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -36,7 +35,6 @@ public class Fileresourcetypes implements Serializable {
         this.id = value.id;
         this.name = value.name;
         this.description = value.description;
-        this.publicVisibility = value.publicVisibility;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
@@ -45,14 +43,12 @@ public class Fileresourcetypes implements Serializable {
         Integer   id,
         String    name,
         String    description,
-        Boolean   publicVisibility,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.publicVisibility = publicVisibility;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -64,7 +60,6 @@ public class Fileresourcetypes implements Serializable {
         sb.append(id);
         sb.append(", ").append(name);
         sb.append(", ").append(description);
-        sb.append(", ").append(publicVisibility);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

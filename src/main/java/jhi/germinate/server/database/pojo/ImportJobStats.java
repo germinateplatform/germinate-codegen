@@ -10,6 +10,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class ImportJobStats
 {
+	private Integer fileResourceId;
 	private Integer datasetId;
 	private Integer germplasm;
 	private Integer markers;

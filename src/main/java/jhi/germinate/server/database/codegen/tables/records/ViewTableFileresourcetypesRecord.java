@@ -9,8 +9,8 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.tables.ViewTableFileresourcetypes;
 
 import org.jooq.Field;
-import org.jooq.Record7;
-import org.jooq.Row7;
+import org.jooq.Record6;
+import org.jooq.Row6;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableFileresourcetypesRecord> implements Record7<Integer, String, String, Boolean, Timestamp, Timestamp, Long> {
+public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableFileresourcetypesRecord> implements Record6<Integer, String, String, Timestamp, Timestamp, Long> {
 
     private static final long serialVersionUID = 1L;
 
@@ -75,29 +75,11 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_fileresourcetypes.public_visibility</code>.
-     * Determines whether this type is visible to non-admins.
-     */
-    public void setPublicVisibility(Boolean value) {
-        set(3, value);
-    }
-
-    /**
-     * Getter for
-     * <code>germinate_db.view_table_fileresourcetypes.public_visibility</code>.
-     * Determines whether this type is visible to non-admins.
-     */
-    public Boolean getPublicVisibility() {
-        return (Boolean) get(3);
-    }
-
-    /**
-     * Setter for
      * <code>germinate_db.view_table_fileresourcetypes.created_on</code>. When
      * this record was created.
      */
     public void setCreatedOn(Timestamp value) {
-        set(4, value);
+        set(3, value);
     }
 
     /**
@@ -106,7 +88,7 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
      * this record was created.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(4);
+        return (Timestamp) get(3);
     }
 
     /**
@@ -115,7 +97,7 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
      * this record was last updated.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(5, value);
+        set(4, value);
     }
 
     /**
@@ -124,35 +106,35 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
      * this record was last updated.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(5);
+        return (Timestamp) get(4);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_fileresourcetypes.count</code>.
      */
     public void setCount(Long value) {
-        set(6, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_fileresourcetypes.count</code>.
      */
     public Long getCount() {
-        return (Long) get(6);
+        return (Long) get(5);
     }
 
     // -------------------------------------------------------------------------
-    // Record7 type implementation
+    // Record6 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Integer, String, String, Boolean, Timestamp, Timestamp, Long> fieldsRow() {
-        return (Row7) super.fieldsRow();
+    public Row6<Integer, String, String, Timestamp, Timestamp, Long> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 
     @Override
-    public Row7<Integer, String, String, Boolean, Timestamp, Timestamp, Long> valuesRow() {
-        return (Row7) super.valuesRow();
+    public Row6<Integer, String, String, Timestamp, Timestamp, Long> valuesRow() {
+        return (Row6) super.valuesRow();
     }
 
     @Override
@@ -171,22 +153,17 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
     }
 
     @Override
-    public Field<Boolean> field4() {
-        return ViewTableFileresourcetypes.VIEW_TABLE_FILERESOURCETYPES.PUBLIC_VISIBILITY;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
+    public Field<Timestamp> field4() {
         return ViewTableFileresourcetypes.VIEW_TABLE_FILERESOURCETYPES.CREATED_ON;
     }
 
     @Override
-    public Field<Timestamp> field6() {
+    public Field<Timestamp> field5() {
         return ViewTableFileresourcetypes.VIEW_TABLE_FILERESOURCETYPES.UPDATED_ON;
     }
 
     @Override
-    public Field<Long> field7() {
+    public Field<Long> field6() {
         return ViewTableFileresourcetypes.VIEW_TABLE_FILERESOURCETYPES.COUNT;
     }
 
@@ -206,22 +183,17 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
     }
 
     @Override
-    public Boolean component4() {
-        return getPublicVisibility();
-    }
-
-    @Override
-    public Timestamp component5() {
+    public Timestamp component4() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp component6() {
+    public Timestamp component5() {
         return getUpdatedOn();
     }
 
     @Override
-    public Long component7() {
+    public Long component6() {
         return getCount();
     }
 
@@ -241,22 +213,17 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
     }
 
     @Override
-    public Boolean value4() {
-        return getPublicVisibility();
-    }
-
-    @Override
-    public Timestamp value5() {
+    public Timestamp value4() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp value6() {
+    public Timestamp value5() {
         return getUpdatedOn();
     }
 
     @Override
-    public Long value7() {
+    public Long value6() {
         return getCount();
     }
 
@@ -279,38 +246,31 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
     }
 
     @Override
-    public ViewTableFileresourcetypesRecord value4(Boolean value) {
-        setPublicVisibility(value);
-        return this;
-    }
-
-    @Override
-    public ViewTableFileresourcetypesRecord value5(Timestamp value) {
+    public ViewTableFileresourcetypesRecord value4(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTableFileresourcetypesRecord value6(Timestamp value) {
+    public ViewTableFileresourcetypesRecord value5(Timestamp value) {
         setUpdatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTableFileresourcetypesRecord value7(Long value) {
+    public ViewTableFileresourcetypesRecord value6(Long value) {
         setCount(value);
         return this;
     }
 
     @Override
-    public ViewTableFileresourcetypesRecord values(Integer value1, String value2, String value3, Boolean value4, Timestamp value5, Timestamp value6, Long value7) {
+    public ViewTableFileresourcetypesRecord values(Integer value1, String value2, String value3, Timestamp value4, Timestamp value5, Long value6) {
         value1(value1);
         value2(value2);
         value3(value3);
         value4(value4);
         value5(value5);
         value6(value6);
-        value7(value7);
         return this;
     }
 
@@ -328,13 +288,12 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
     /**
      * Create a detached, initialised ViewTableFileresourcetypesRecord
      */
-    public ViewTableFileresourcetypesRecord(Integer id, String name, String description, Boolean publicVisibility, Timestamp createdOn, Timestamp updatedOn, Long count) {
+    public ViewTableFileresourcetypesRecord(Integer id, String name, String description, Timestamp createdOn, Timestamp updatedOn, Long count) {
         super(ViewTableFileresourcetypes.VIEW_TABLE_FILERESOURCETYPES);
 
         setId(id);
         setName(name);
         setDescription(description);
-        setPublicVisibility(publicVisibility);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
         setCount(count);
@@ -350,7 +309,6 @@ public class ViewTableFileresourcetypesRecord extends TableRecordImpl<ViewTableF
             setId(value.getId());
             setName(value.getName());
             setDescription(value.getDescription());
-            setPublicVisibility(value.getPublicVisibility());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
             setCount(value.getCount());
