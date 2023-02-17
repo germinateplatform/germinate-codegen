@@ -7,12 +7,13 @@ package jhi.germinate.server.database.codegen.tables;
 import java.sql.Timestamp;
 
 import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.enums.NewsImageFit;
 import jhi.germinate.server.database.codegen.tables.records.NewsRecord;
 
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row9;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -76,6 +77,12 @@ public class News extends TableImpl<NewsRecord> {
      * news item.
      */
     public final TableField<NewsRecord, String> IMAGE = createField(DSL.name("image"), SQLDataType.VARCHAR(255), this, "Image to use with this news item.");
+
+    /**
+     * The column <code>germinate_db.news.image_fit</code>. Determines the css
+     * property of the news item image.
+     */
+    public final TableField<NewsRecord, NewsImageFit> IMAGE_FIT = createField(DSL.name("image_fit"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("cover", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.NewsImageFit.class), this, "Determines the css property of the news item image.");
 
     /**
      * The column <code>germinate_db.news.hyperlink</code>. HTML hyperlink to
@@ -174,12 +181,12 @@ public class News extends TableImpl<NewsRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row9 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<Integer, Integer, String, String, String, String, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row9) super.fieldsRow();
+    public Row10<Integer, Integer, String, String, String, NewsImageFit, String, Integer, Timestamp, Timestamp> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
     // @formatter:on
 }

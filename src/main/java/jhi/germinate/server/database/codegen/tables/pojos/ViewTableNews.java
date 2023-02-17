@@ -7,6 +7,8 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.codegen.enums.ViewTableNewsNewsImageFit;
+
 
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -23,16 +25,17 @@ public class ViewTableNews implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   newsId;
-    private String    newsTitle;
-    private String    newsContent;
-    private String    newsHyperlink;
-    private String    newsImage;
-    private Integer   newstypeId;
-    private String    newstypeName;
-    private String    newstypeDescription;
-    private Timestamp createdOn;
-    private Timestamp updatedOn;
+    private Integer                   newsId;
+    private String                    newsTitle;
+    private String                    newsContent;
+    private String                    newsHyperlink;
+    private String                    newsImage;
+    private ViewTableNewsNewsImageFit newsImageFit;
+    private Integer                   newstypeId;
+    private String                    newstypeName;
+    private String                    newstypeDescription;
+    private Timestamp                 createdOn;
+    private Timestamp                 updatedOn;
 
     public ViewTableNews() {}
 
@@ -42,6 +45,7 @@ public class ViewTableNews implements Serializable {
         this.newsContent = value.newsContent;
         this.newsHyperlink = value.newsHyperlink;
         this.newsImage = value.newsImage;
+        this.newsImageFit = value.newsImageFit;
         this.newstypeId = value.newstypeId;
         this.newstypeName = value.newstypeName;
         this.newstypeDescription = value.newstypeDescription;
@@ -50,22 +54,24 @@ public class ViewTableNews implements Serializable {
     }
 
     public ViewTableNews(
-        Integer   newsId,
-        String    newsTitle,
-        String    newsContent,
-        String    newsHyperlink,
-        String    newsImage,
-        Integer   newstypeId,
-        String    newstypeName,
-        String    newstypeDescription,
-        Timestamp createdOn,
-        Timestamp updatedOn
+        Integer                   newsId,
+        String                    newsTitle,
+        String                    newsContent,
+        String                    newsHyperlink,
+        String                    newsImage,
+        ViewTableNewsNewsImageFit newsImageFit,
+        Integer                   newstypeId,
+        String                    newstypeName,
+        String                    newstypeDescription,
+        Timestamp                 createdOn,
+        Timestamp                 updatedOn
     ) {
         this.newsId = newsId;
         this.newsTitle = newsTitle;
         this.newsContent = newsContent;
         this.newsHyperlink = newsHyperlink;
         this.newsImage = newsImage;
+        this.newsImageFit = newsImageFit;
         this.newstypeId = newstypeId;
         this.newstypeName = newstypeName;
         this.newstypeDescription = newstypeDescription;
@@ -82,6 +88,7 @@ public class ViewTableNews implements Serializable {
         sb.append(", ").append(newsContent);
         sb.append(", ").append(newsHyperlink);
         sb.append(", ").append(newsImage);
+        sb.append(", ").append(newsImageFit);
         sb.append(", ").append(newstypeId);
         sb.append(", ").append(newstypeName);
         sb.append(", ").append(newstypeDescription);

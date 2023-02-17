@@ -7,6 +7,8 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.codegen.enums.NewsImageFit;
+
 
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -23,15 +25,16 @@ public class News implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   newstypeId;
-    private String    title;
-    private String    content;
-    private String    image;
-    private String    hyperlink;
-    private Integer   userId;
-    private Timestamp createdOn;
-    private Timestamp updatedOn;
+    private Integer      id;
+    private Integer      newstypeId;
+    private String       title;
+    private String       content;
+    private String       image;
+    private NewsImageFit imageFit;
+    private String       hyperlink;
+    private Integer      userId;
+    private Timestamp    createdOn;
+    private Timestamp    updatedOn;
 
     public News() {}
 
@@ -41,6 +44,7 @@ public class News implements Serializable {
         this.title = value.title;
         this.content = value.content;
         this.image = value.image;
+        this.imageFit = value.imageFit;
         this.hyperlink = value.hyperlink;
         this.userId = value.userId;
         this.createdOn = value.createdOn;
@@ -48,21 +52,23 @@ public class News implements Serializable {
     }
 
     public News(
-        Integer   id,
-        Integer   newstypeId,
-        String    title,
-        String    content,
-        String    image,
-        String    hyperlink,
-        Integer   userId,
-        Timestamp createdOn,
-        Timestamp updatedOn
+        Integer      id,
+        Integer      newstypeId,
+        String       title,
+        String       content,
+        String       image,
+        NewsImageFit imageFit,
+        String       hyperlink,
+        Integer      userId,
+        Timestamp    createdOn,
+        Timestamp    updatedOn
     ) {
         this.id = id;
         this.newstypeId = newstypeId;
         this.title = title;
         this.content = content;
         this.image = image;
+        this.imageFit = imageFit;
         this.hyperlink = hyperlink;
         this.userId = userId;
         this.createdOn = createdOn;
@@ -78,6 +84,7 @@ public class News implements Serializable {
         sb.append(", ").append(title);
         sb.append(", ").append(content);
         sb.append(", ").append(image);
+        sb.append(", ").append(imageFit);
         sb.append(", ").append(hyperlink);
         sb.append(", ").append(userId);
         sb.append(", ").append(createdOn);

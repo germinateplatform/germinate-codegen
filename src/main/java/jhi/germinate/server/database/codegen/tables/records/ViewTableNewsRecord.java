@@ -6,11 +6,12 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.codegen.enums.ViewTableNewsNewsImageFit;
 import jhi.germinate.server.database.codegen.tables.ViewTableNews;
 
 import org.jooq.Field;
-import org.jooq.Record10;
-import org.jooq.Row10;
+import org.jooq.Record11;
+import org.jooq.Row11;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,7 +20,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> implements Record10<Integer, String, String, String, String, Integer, String, String, Timestamp, Timestamp> {
+public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> implements Record11<Integer, String, String, String, String, ViewTableNewsNewsImageFit, Integer, String, String, Timestamp, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -108,11 +109,27 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_news.news_image_fit</code>.
+     * Determines the css property of the news item image.
+     */
+    public void setNewsImageFit(ViewTableNewsNewsImageFit value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_news.news_image_fit</code>.
+     * Determines the css property of the news item image.
+     */
+    public ViewTableNewsNewsImageFit getNewsImageFit() {
+        return (ViewTableNewsNewsImageFit) get(5);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_news.newstype_id</code>. Primary
      * id for this table. This uniquely identifies the row.
      */
     public void setNewstypeId(Integer value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
@@ -120,7 +137,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
      * id for this table. This uniquely identifies the row.
      */
     public Integer getNewstypeId() {
-        return (Integer) get(5);
+        return (Integer) get(6);
     }
 
     /**
@@ -128,7 +145,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
      * of the news type.
      */
     public void setNewstypeName(String value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
@@ -136,7 +153,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
      * of the news type.
      */
     public String getNewstypeName() {
-        return (String) get(6);
+        return (String) get(7);
     }
 
     /**
@@ -145,7 +162,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
      * description of the news type.
      */
     public void setNewstypeDescription(String value) {
-        set(7, value);
+        set(8, value);
     }
 
     /**
@@ -154,7 +171,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
      * description of the news type.
      */
     public String getNewstypeDescription() {
-        return (String) get(7);
+        return (String) get(8);
     }
 
     /**
@@ -162,7 +179,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
      * record was created.
      */
     public void setCreatedOn(Timestamp value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
@@ -170,7 +187,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
      * record was created.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(8);
+        return (Timestamp) get(9);
     }
 
     /**
@@ -179,7 +196,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
      * subsequent changes have been made to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(9, value);
+        set(10, value);
     }
 
     /**
@@ -188,21 +205,21 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
      * subsequent changes have been made to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(9);
+        return (Timestamp) get(10);
     }
 
     // -------------------------------------------------------------------------
-    // Record10 type implementation
+    // Record11 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, String, String, String, Integer, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row11<Integer, String, String, String, String, ViewTableNewsNewsImageFit, Integer, String, String, Timestamp, Timestamp> fieldsRow() {
+        return (Row11) super.fieldsRow();
     }
 
     @Override
-    public Row10<Integer, String, String, String, String, Integer, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row10) super.valuesRow();
+    public Row11<Integer, String, String, String, String, ViewTableNewsNewsImageFit, Integer, String, String, Timestamp, Timestamp> valuesRow() {
+        return (Row11) super.valuesRow();
     }
 
     @Override
@@ -231,27 +248,32 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
     }
 
     @Override
-    public Field<Integer> field6() {
+    public Field<ViewTableNewsNewsImageFit> field6() {
+        return ViewTableNews.VIEW_TABLE_NEWS.NEWS_IMAGE_FIT;
+    }
+
+    @Override
+    public Field<Integer> field7() {
         return ViewTableNews.VIEW_TABLE_NEWS.NEWSTYPE_ID;
     }
 
     @Override
-    public Field<String> field7() {
+    public Field<String> field8() {
         return ViewTableNews.VIEW_TABLE_NEWS.NEWSTYPE_NAME;
     }
 
     @Override
-    public Field<String> field8() {
+    public Field<String> field9() {
         return ViewTableNews.VIEW_TABLE_NEWS.NEWSTYPE_DESCRIPTION;
     }
 
     @Override
-    public Field<Timestamp> field9() {
+    public Field<Timestamp> field10() {
         return ViewTableNews.VIEW_TABLE_NEWS.CREATED_ON;
     }
 
     @Override
-    public Field<Timestamp> field10() {
+    public Field<Timestamp> field11() {
         return ViewTableNews.VIEW_TABLE_NEWS.UPDATED_ON;
     }
 
@@ -281,27 +303,32 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
     }
 
     @Override
-    public Integer component6() {
+    public ViewTableNewsNewsImageFit component6() {
+        return getNewsImageFit();
+    }
+
+    @Override
+    public Integer component7() {
         return getNewstypeId();
     }
 
     @Override
-    public String component7() {
+    public String component8() {
         return getNewstypeName();
     }
 
     @Override
-    public String component8() {
+    public String component9() {
         return getNewstypeDescription();
     }
 
     @Override
-    public Timestamp component9() {
+    public Timestamp component10() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp component10() {
+    public Timestamp component11() {
         return getUpdatedOn();
     }
 
@@ -331,27 +358,32 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
     }
 
     @Override
-    public Integer value6() {
+    public ViewTableNewsNewsImageFit value6() {
+        return getNewsImageFit();
+    }
+
+    @Override
+    public Integer value7() {
         return getNewstypeId();
     }
 
     @Override
-    public String value7() {
+    public String value8() {
         return getNewstypeName();
     }
 
     @Override
-    public String value8() {
+    public String value9() {
         return getNewstypeDescription();
     }
 
     @Override
-    public Timestamp value9() {
+    public Timestamp value10() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp value10() {
+    public Timestamp value11() {
         return getUpdatedOn();
     }
 
@@ -386,37 +418,43 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
     }
 
     @Override
-    public ViewTableNewsRecord value6(Integer value) {
+    public ViewTableNewsRecord value6(ViewTableNewsNewsImageFit value) {
+        setNewsImageFit(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableNewsRecord value7(Integer value) {
         setNewstypeId(value);
         return this;
     }
 
     @Override
-    public ViewTableNewsRecord value7(String value) {
+    public ViewTableNewsRecord value8(String value) {
         setNewstypeName(value);
         return this;
     }
 
     @Override
-    public ViewTableNewsRecord value8(String value) {
+    public ViewTableNewsRecord value9(String value) {
         setNewstypeDescription(value);
         return this;
     }
 
     @Override
-    public ViewTableNewsRecord value9(Timestamp value) {
+    public ViewTableNewsRecord value10(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTableNewsRecord value10(Timestamp value) {
+    public ViewTableNewsRecord value11(Timestamp value) {
         setUpdatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTableNewsRecord values(Integer value1, String value2, String value3, String value4, String value5, Integer value6, String value7, String value8, Timestamp value9, Timestamp value10) {
+    public ViewTableNewsRecord values(Integer value1, String value2, String value3, String value4, String value5, ViewTableNewsNewsImageFit value6, Integer value7, String value8, String value9, Timestamp value10, Timestamp value11) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -427,6 +465,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
         value8(value8);
         value9(value9);
         value10(value10);
+        value11(value11);
         return this;
     }
 
@@ -444,7 +483,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
     /**
      * Create a detached, initialised ViewTableNewsRecord
      */
-    public ViewTableNewsRecord(Integer newsId, String newsTitle, String newsContent, String newsHyperlink, String newsImage, Integer newstypeId, String newstypeName, String newstypeDescription, Timestamp createdOn, Timestamp updatedOn) {
+    public ViewTableNewsRecord(Integer newsId, String newsTitle, String newsContent, String newsHyperlink, String newsImage, ViewTableNewsNewsImageFit newsImageFit, Integer newstypeId, String newstypeName, String newstypeDescription, Timestamp createdOn, Timestamp updatedOn) {
         super(ViewTableNews.VIEW_TABLE_NEWS);
 
         setNewsId(newsId);
@@ -452,6 +491,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
         setNewsContent(newsContent);
         setNewsHyperlink(newsHyperlink);
         setNewsImage(newsImage);
+        setNewsImageFit(newsImageFit);
         setNewstypeId(newstypeId);
         setNewstypeName(newstypeName);
         setNewstypeDescription(newstypeDescription);
@@ -471,6 +511,7 @@ public class ViewTableNewsRecord extends TableRecordImpl<ViewTableNewsRecord> im
             setNewsContent(value.getNewsContent());
             setNewsHyperlink(value.getNewsHyperlink());
             setNewsImage(value.getNewsImage());
+            setNewsImageFit(value.getNewsImageFit());
             setNewstypeId(value.getNewstypeId());
             setNewstypeName(value.getNewstypeName());
             setNewstypeDescription(value.getNewstypeDescription());

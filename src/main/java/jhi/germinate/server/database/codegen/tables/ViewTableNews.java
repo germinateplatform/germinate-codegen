@@ -7,11 +7,12 @@ package jhi.germinate.server.database.codegen.tables;
 import java.sql.Timestamp;
 
 import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.enums.ViewTableNewsNewsImageFit;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableNewsRecord;
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row10;
+import org.jooq.Row11;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -76,6 +77,12 @@ public class ViewTableNews extends TableImpl<ViewTableNewsRecord> {
     public final TableField<ViewTableNewsRecord, String> NEWS_IMAGE = createField(DSL.name("news_image"), SQLDataType.VARCHAR(255), this, "Image to use with this news item.");
 
     /**
+     * The column <code>germinate_db.view_table_news.news_image_fit</code>.
+     * Determines the css property of the news item image.
+     */
+    public final TableField<ViewTableNewsRecord, ViewTableNewsNewsImageFit> NEWS_IMAGE_FIT = createField(DSL.name("news_image_fit"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("cover", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableNewsNewsImageFit.class), this, "Determines the css property of the news item image.");
+
+    /**
      * The column <code>germinate_db.view_table_news.newstype_id</code>. Primary
      * id for this table. This uniquely identifies the row.
      */
@@ -112,7 +119,7 @@ public class ViewTableNews extends TableImpl<ViewTableNewsRecord> {
     }
 
     private ViewTableNews(Name alias, Table<ViewTableNewsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_news` as select `germinate_template_4_23_02_08`.`news`.`id` AS `news_id`,`germinate_template_4_23_02_08`.`news`.`title` AS `news_title`,`germinate_template_4_23_02_08`.`news`.`content` AS `news_content`,`germinate_template_4_23_02_08`.`news`.`hyperlink` AS `news_hyperlink`,`germinate_template_4_23_02_08`.`news`.`image` AS `news_image`,`germinate_template_4_23_02_08`.`newstypes`.`id` AS `newstype_id`,`germinate_template_4_23_02_08`.`newstypes`.`name` AS `newstype_name`,`germinate_template_4_23_02_08`.`newstypes`.`description` AS `newstype_description`,`germinate_template_4_23_02_08`.`news`.`created_on` AS `created_on`,`germinate_template_4_23_02_08`.`news`.`updated_on` AS `updated_on` from (`germinate_template_4_23_02_08`.`news` left join `germinate_template_4_23_02_08`.`newstypes` on((`germinate_template_4_23_02_08`.`newstypes`.`id` = `germinate_template_4_23_02_08`.`news`.`newstype_id`))) order by `germinate_template_4_23_02_08`.`news`.`created_on` desc"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_news` as select `germinate_template_4_23_02_16`.`news`.`id` AS `news_id`,`germinate_template_4_23_02_16`.`news`.`title` AS `news_title`,`germinate_template_4_23_02_16`.`news`.`content` AS `news_content`,`germinate_template_4_23_02_16`.`news`.`hyperlink` AS `news_hyperlink`,`germinate_template_4_23_02_16`.`news`.`image` AS `news_image`,`germinate_template_4_23_02_16`.`news`.`image_fit` AS `news_image_fit`,`germinate_template_4_23_02_16`.`newstypes`.`id` AS `newstype_id`,`germinate_template_4_23_02_16`.`newstypes`.`name` AS `newstype_name`,`germinate_template_4_23_02_16`.`newstypes`.`description` AS `newstype_description`,`germinate_template_4_23_02_16`.`news`.`created_on` AS `created_on`,`germinate_template_4_23_02_16`.`news`.`updated_on` AS `updated_on` from (`germinate_template_4_23_02_16`.`news` left join `germinate_template_4_23_02_16`.`newstypes` on((`germinate_template_4_23_02_16`.`newstypes`.`id` = `germinate_template_4_23_02_16`.`news`.`newstype_id`))) order by `germinate_template_4_23_02_16`.`news`.`created_on` desc"));
     }
 
     /**
@@ -170,12 +177,12 @@ public class ViewTableNews extends TableImpl<ViewTableNewsRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row10 type methods
+    // Row11 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, String, String, String, Integer, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row11<Integer, String, String, String, String, ViewTableNewsNewsImageFit, Integer, String, String, Timestamp, Timestamp> fieldsRow() {
+        return (Row11) super.fieldsRow();
     }
     // @formatter:on
 }

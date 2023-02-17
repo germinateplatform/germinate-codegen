@@ -6,12 +6,13 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.codegen.enums.NewsImageFit;
 import jhi.germinate.server.database.codegen.tables.News;
 
 import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record9;
-import org.jooq.Row9;
+import org.jooq.Record10;
+import org.jooq.Row10;
 import org.jooq.impl.UpdatableRecordImpl;
 
 
@@ -20,7 +21,7 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Holds news items that are displayed within Germinate.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Record9<Integer, Integer, String, String, String, String, Integer, Timestamp, Timestamp> {
+public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Record10<Integer, Integer, String, String, String, NewsImageFit, String, Integer, Timestamp, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -107,12 +108,28 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
     }
 
     /**
+     * Setter for <code>germinate_db.news.image_fit</code>. Determines the css
+     * property of the news item image.
+     */
+    public void setImageFit(NewsImageFit value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.news.image_fit</code>. Determines the css
+     * property of the news item image.
+     */
+    public NewsImageFit getImageFit() {
+        return (NewsImageFit) get(5);
+    }
+
+    /**
      * Setter for <code>germinate_db.news.hyperlink</code>. HTML hyperlink to
      * use for this news item. This can be a link to another source which
      * contains more information or a link to the original source.
      */
     public void setHyperlink(String value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
@@ -121,7 +138,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
      * contains more information or a link to the original source.
      */
     public String getHyperlink() {
-        return (String) get(5);
+        return (String) get(6);
     }
 
     /**
@@ -129,7 +146,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
      * (users.id).
      */
     public void setUserId(Integer value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
@@ -137,7 +154,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
      * (users.id).
      */
     public Integer getUserId() {
-        return (Integer) get(6);
+        return (Integer) get(7);
     }
 
     /**
@@ -145,7 +162,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
      * created.
      */
     public void setCreatedOn(Timestamp value) {
-        set(7, value);
+        set(8, value);
     }
 
     /**
@@ -153,7 +170,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
      * created.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(7);
+        return (Timestamp) get(8);
     }
 
     /**
@@ -162,7 +179,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
      * changes have been made to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
@@ -171,7 +188,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
      * changes have been made to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(8);
+        return (Timestamp) get(9);
     }
 
     // -------------------------------------------------------------------------
@@ -184,17 +201,17 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
     }
 
     // -------------------------------------------------------------------------
-    // Record9 type implementation
+    // Record10 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<Integer, Integer, String, String, String, String, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row9) super.fieldsRow();
+    public Row10<Integer, Integer, String, String, String, NewsImageFit, String, Integer, Timestamp, Timestamp> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
 
     @Override
-    public Row9<Integer, Integer, String, String, String, String, Integer, Timestamp, Timestamp> valuesRow() {
-        return (Row9) super.valuesRow();
+    public Row10<Integer, Integer, String, String, String, NewsImageFit, String, Integer, Timestamp, Timestamp> valuesRow() {
+        return (Row10) super.valuesRow();
     }
 
     @Override
@@ -223,22 +240,27 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
     }
 
     @Override
-    public Field<String> field6() {
+    public Field<NewsImageFit> field6() {
+        return News.NEWS.IMAGE_FIT;
+    }
+
+    @Override
+    public Field<String> field7() {
         return News.NEWS.HYPERLINK;
     }
 
     @Override
-    public Field<Integer> field7() {
+    public Field<Integer> field8() {
         return News.NEWS.USER_ID;
     }
 
     @Override
-    public Field<Timestamp> field8() {
+    public Field<Timestamp> field9() {
         return News.NEWS.CREATED_ON;
     }
 
     @Override
-    public Field<Timestamp> field9() {
+    public Field<Timestamp> field10() {
         return News.NEWS.UPDATED_ON;
     }
 
@@ -268,22 +290,27 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
     }
 
     @Override
-    public String component6() {
+    public NewsImageFit component6() {
+        return getImageFit();
+    }
+
+    @Override
+    public String component7() {
         return getHyperlink();
     }
 
     @Override
-    public Integer component7() {
+    public Integer component8() {
         return getUserId();
     }
 
     @Override
-    public Timestamp component8() {
+    public Timestamp component9() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp component9() {
+    public Timestamp component10() {
         return getUpdatedOn();
     }
 
@@ -313,22 +340,27 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
     }
 
     @Override
-    public String value6() {
+    public NewsImageFit value6() {
+        return getImageFit();
+    }
+
+    @Override
+    public String value7() {
         return getHyperlink();
     }
 
     @Override
-    public Integer value7() {
+    public Integer value8() {
         return getUserId();
     }
 
     @Override
-    public Timestamp value8() {
+    public Timestamp value9() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp value9() {
+    public Timestamp value10() {
         return getUpdatedOn();
     }
 
@@ -363,31 +395,37 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
     }
 
     @Override
-    public NewsRecord value6(String value) {
+    public NewsRecord value6(NewsImageFit value) {
+        setImageFit(value);
+        return this;
+    }
+
+    @Override
+    public NewsRecord value7(String value) {
         setHyperlink(value);
         return this;
     }
 
     @Override
-    public NewsRecord value7(Integer value) {
+    public NewsRecord value8(Integer value) {
         setUserId(value);
         return this;
     }
 
     @Override
-    public NewsRecord value8(Timestamp value) {
+    public NewsRecord value9(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public NewsRecord value9(Timestamp value) {
+    public NewsRecord value10(Timestamp value) {
         setUpdatedOn(value);
         return this;
     }
 
     @Override
-    public NewsRecord values(Integer value1, Integer value2, String value3, String value4, String value5, String value6, Integer value7, Timestamp value8, Timestamp value9) {
+    public NewsRecord values(Integer value1, Integer value2, String value3, String value4, String value5, NewsImageFit value6, String value7, Integer value8, Timestamp value9, Timestamp value10) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -397,6 +435,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
         value7(value7);
         value8(value8);
         value9(value9);
+        value10(value10);
         return this;
     }
 
@@ -414,7 +453,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
     /**
      * Create a detached, initialised NewsRecord
      */
-    public NewsRecord(Integer id, Integer newstypeId, String title, String content, String image, String hyperlink, Integer userId, Timestamp createdOn, Timestamp updatedOn) {
+    public NewsRecord(Integer id, Integer newstypeId, String title, String content, String image, NewsImageFit imageFit, String hyperlink, Integer userId, Timestamp createdOn, Timestamp updatedOn) {
         super(News.NEWS);
 
         setId(id);
@@ -422,6 +461,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
         setTitle(title);
         setContent(content);
         setImage(image);
+        setImageFit(imageFit);
         setHyperlink(hyperlink);
         setUserId(userId);
         setCreatedOn(createdOn);
@@ -440,6 +480,7 @@ public class NewsRecord extends UpdatableRecordImpl<NewsRecord> implements Recor
             setTitle(value.getTitle());
             setContent(value.getContent());
             setImage(value.getImage());
+            setImageFit(value.getImageFit());
             setHyperlink(value.getHyperlink());
             setUserId(value.getUserId());
             setCreatedOn(value.getCreatedOn());
