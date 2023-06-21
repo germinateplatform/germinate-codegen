@@ -2,11 +2,12 @@ package jhi.germinate.server.database.pojo;
 
 public class ImportJobDetails
 {
-	private String  baseFolder;
-	private String  dataFilename;
-	private Boolean deleteOnFail;
-	private Integer targetDatasetId;
-	private RunType runType;
+	private String          baseFolder;
+	private String          dataFilename;
+	private Boolean         deleteOnFail;
+	private Integer         targetDatasetId;
+	private RunType         runType;
+	private DataOrientation dataOrientation;
 
 	public String getBaseFolder()
 	{
@@ -62,6 +63,17 @@ public class ImportJobDetails
 	public ImportJobDetails setTargetDatasetId(Integer targetDatasetId)
 	{
 		this.targetDatasetId = targetDatasetId;
+		return this;
+	}
+
+	public DataOrientation getDataOrientation()
+	{
+		return dataOrientation;
+	}
+
+	public ImportJobDetails setDataOrientation(DataOrientation dataOrientation)
+	{
+		this.dataOrientation = dataOrientation;
 		return this;
 	}
 }
