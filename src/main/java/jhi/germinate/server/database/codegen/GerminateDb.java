@@ -71,6 +71,8 @@ import jhi.germinate.server.database.codegen.tables.Phenotypes;
 import jhi.germinate.server.database.codegen.tables.Publicationdata;
 import jhi.germinate.server.database.codegen.tables.Publications;
 import jhi.germinate.server.database.codegen.tables.SchemaVersion;
+import jhi.germinate.server.database.codegen.tables.Stories;
+import jhi.germinate.server.database.codegen.tables.Storysteps;
 import jhi.germinate.server.database.codegen.tables.Synonyms;
 import jhi.germinate.server.database.codegen.tables.Synonymtypes;
 import jhi.germinate.server.database.codegen.tables.Taxonomies;
@@ -111,6 +113,7 @@ import jhi.germinate.server.database.codegen.tables.ViewTableNews;
 import jhi.germinate.server.database.codegen.tables.ViewTablePedigreedefinitions;
 import jhi.germinate.server.database.codegen.tables.ViewTablePedigrees;
 import jhi.germinate.server.database.codegen.tables.ViewTablePublications;
+import jhi.germinate.server.database.codegen.tables.ViewTableStories;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraitAttributes;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraits;
 import jhi.germinate.server.database.codegen.tables.ViewTableUsergroups;
@@ -214,6 +217,8 @@ public class GerminateDb extends SchemaImpl {
             Publicationdata.PUBLICATIONDATA,
             Publications.PUBLICATIONS,
             SchemaVersion.SCHEMA_VERSION,
+            Stories.STORIES,
+            Storysteps.STORYSTEPS,
             Synonyms.SYNONYMS,
             Synonymtypes.SYNONYMTYPES,
             Taxonomies.TAXONOMIES,
@@ -254,6 +259,7 @@ public class GerminateDb extends SchemaImpl {
             ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS,
             ViewTablePedigrees.VIEW_TABLE_PEDIGREES,
             ViewTablePublications.VIEW_TABLE_PUBLICATIONS,
+            ViewTableStories.VIEW_TABLE_STORIES,
             ViewTableTraitAttributes.VIEW_TABLE_TRAIT_ATTRIBUTES,
             ViewTableTraits.VIEW_TABLE_TRAITS,
             ViewTableUsergroups.VIEW_TABLE_USERGROUPS
