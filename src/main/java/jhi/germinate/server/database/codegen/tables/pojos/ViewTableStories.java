@@ -32,6 +32,7 @@ public class ViewTableStories implements Serializable {
     private StoryRequirements storyRequirements;
     private Integer           storyImageId;
     private String            storyImageName;
+    private Boolean           storyFeatured;
     private Boolean           storyVisibility;
     private Integer           storyUserId;
     private Integer           publicationId;
@@ -49,6 +50,7 @@ public class ViewTableStories implements Serializable {
         this.storyRequirements = value.storyRequirements;
         this.storyImageId = value.storyImageId;
         this.storyImageName = value.storyImageName;
+        this.storyFeatured = value.storyFeatured;
         this.storyVisibility = value.storyVisibility;
         this.storyUserId = value.storyUserId;
         this.publicationId = value.publicationId;
@@ -65,6 +67,7 @@ public class ViewTableStories implements Serializable {
         StoryRequirements storyRequirements,
         Integer           storyImageId,
         String            storyImageName,
+        Boolean           storyFeatured,
         Boolean           storyVisibility,
         Integer           storyUserId,
         Integer           publicationId,
@@ -79,6 +82,7 @@ public class ViewTableStories implements Serializable {
         this.storyRequirements = storyRequirements;
         this.storyImageId = storyImageId;
         this.storyImageName = storyImageName;
+        this.storyFeatured = storyFeatured;
         this.storyVisibility = storyVisibility;
         this.storyUserId = storyUserId;
         this.publicationId = publicationId;
@@ -98,6 +102,7 @@ public class ViewTableStories implements Serializable {
         sb.append(", ").append(storyRequirements);
         sb.append(", ").append(storyImageId);
         sb.append(", ").append(storyImageName);
+        sb.append(", ").append(storyFeatured);
         sb.append(", ").append(storyVisibility);
         sb.append(", ").append(storyUserId);
         sb.append(", ").append(publicationId);
