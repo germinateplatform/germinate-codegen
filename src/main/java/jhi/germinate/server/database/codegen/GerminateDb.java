@@ -78,6 +78,7 @@ import jhi.germinate.server.database.codegen.tables.Synonymtypes;
 import jhi.germinate.server.database.codegen.tables.Taxonomies;
 import jhi.germinate.server.database.codegen.tables.Treatments;
 import jhi.germinate.server.database.codegen.tables.Trialseries;
+import jhi.germinate.server.database.codegen.tables.Trialsetup;
 import jhi.germinate.server.database.codegen.tables.Units;
 import jhi.germinate.server.database.codegen.tables.Userfeedback;
 import jhi.germinate.server.database.codegen.tables.Usergroupmembers;
@@ -222,6 +223,7 @@ public class GerminateDb extends SchemaImpl {
             Taxonomies.TAXONOMIES,
             Treatments.TREATMENTS,
             Trialseries.TRIALSERIES,
+            Trialsetup.TRIALSETUP,
             Units.UNITS,
             Userfeedback.USERFEEDBACK,
             Usergroupmembers.USERGROUPMEMBERS,

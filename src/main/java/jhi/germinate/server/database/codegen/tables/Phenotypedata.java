@@ -4,7 +4,6 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import jhi.germinate.server.database.codegen.GerminateDb;
@@ -13,7 +12,7 @@ import jhi.germinate.server.database.codegen.tables.records.PhenotypedataRecord;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row18;
+import org.jooq.Row7;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -54,65 +53,21 @@ public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
     public final TableField<PhenotypedataRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "Primary id for this table. This uniquely identifies the row.");
 
     /**
+     * The column <code>germinate_db.phenotypedata.trialsetup_id</code>.
+     */
+    public final TableField<PhenotypedataRecord, Integer> TRIALSETUP_ID = createField(DSL.name("trialsetup_id"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
      * The column <code>germinate_db.phenotypedata.phenotype_id</code>. Foreign
      * key phenotypes (phenotype.id).
      */
     public final TableField<PhenotypedataRecord, Integer> PHENOTYPE_ID = createField(DSL.name("phenotype_id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Foreign key phenotypes (phenotype.id).");
 
     /**
-     * The column <code>germinate_db.phenotypedata.germinatebase_id</code>.
-     * Foreign key germinatebase (germinatebase.id).
-     */
-    public final TableField<PhenotypedataRecord, Integer> GERMINATEBASE_ID = createField(DSL.name("germinatebase_id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Foreign key germinatebase (germinatebase.id).");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.rep</code>.
-     */
-    public final TableField<PhenotypedataRecord, String> REP = createField(DSL.name("rep"), SQLDataType.VARCHAR(10).nullable(false).defaultValue(DSL.inline("1", SQLDataType.VARCHAR)), this, "");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.block</code>.
-     */
-    public final TableField<PhenotypedataRecord, String> BLOCK = createField(DSL.name("block"), SQLDataType.VARCHAR(10).nullable(false).defaultValue(DSL.inline("1", SQLDataType.VARCHAR)), this, "");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.trial_row</code>. The row
-     * number in the trial layout.
-     */
-    public final TableField<PhenotypedataRecord, Short> TRIAL_ROW = createField(DSL.name("trial_row"), SQLDataType.SMALLINT, this, "The row number in the trial layout.");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.trial_column</code>. The
-     * column number in the trial layout.
-     */
-    public final TableField<PhenotypedataRecord, Short> TRIAL_COLUMN = createField(DSL.name("trial_column"), SQLDataType.SMALLINT, this, "The column number in the trial layout.");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.latitude</code>.
-     */
-    public final TableField<PhenotypedataRecord, BigDecimal> LATITUDE = createField(DSL.name("latitude"), SQLDataType.DECIMAL(64, 10), this, "");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.longitude</code>.
-     */
-    public final TableField<PhenotypedataRecord, BigDecimal> LONGITUDE = createField(DSL.name("longitude"), SQLDataType.DECIMAL(64, 10), this, "");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.elevation</code>.
-     */
-    public final TableField<PhenotypedataRecord, BigDecimal> ELEVATION = createField(DSL.name("elevation"), SQLDataType.DECIMAL(64, 10), this, "");
-
-    /**
      * The column <code>germinate_db.phenotypedata.phenotype_value</code>. The
      * phenotype value for this phenotype_id and germinatebase_id combination.
      */
     public final TableField<PhenotypedataRecord, String> PHENOTYPE_VALUE = createField(DSL.name("phenotype_value"), SQLDataType.VARCHAR(255), this, "The phenotype value for this phenotype_id and germinatebase_id combination.");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.dataset_id</code>. Foreign
-     * key datasets (datasets.id).
-     */
-    public final TableField<PhenotypedataRecord, Integer> DATASET_ID = createField(DSL.name("dataset_id"), SQLDataType.INTEGER.nullable(false), this, "Foreign key datasets (datasets.id).");
 
     /**
      * The column <code>germinate_db.phenotypedata.recording_date</code>. Date
@@ -133,24 +88,6 @@ public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
      * subsequent changes have been made to the underlying record.
      */
     public final TableField<PhenotypedataRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.location_id</code>. Foreign
-     * key to locations (locations.id).
-     */
-    public final TableField<PhenotypedataRecord, Integer> LOCATION_ID = createField(DSL.name("location_id"), SQLDataType.INTEGER, this, "Foreign key to locations (locations.id).");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.treatment_id</code>. Foreign
-     * key to treatments (treatments.id).
-     */
-    public final TableField<PhenotypedataRecord, Integer> TREATMENT_ID = createField(DSL.name("treatment_id"), SQLDataType.INTEGER, this, "Foreign key to treatments (treatments.id).");
-
-    /**
-     * The column <code>germinate_db.phenotypedata.trialseries_id</code>.
-     * Foreign key to trialseries (trialseries.id).
-     */
-    public final TableField<PhenotypedataRecord, Integer> TRIALSERIES_ID = createField(DSL.name("trialseries_id"), SQLDataType.INTEGER, this, "Foreign key to trialseries (trialseries.id).");
 
     private Phenotypedata(Name alias, Table<PhenotypedataRecord> aliased) {
         this(alias, aliased, null);
@@ -223,12 +160,12 @@ public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row18 type methods
+    // Row7 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row18<Integer, Integer, Integer, String, String, Short, Short, BigDecimal, BigDecimal, BigDecimal, String, Integer, Timestamp, Timestamp, Timestamp, Integer, Integer, Integer> fieldsRow() {
-        return (Row18) super.fieldsRow();
+    public Row7<Integer, Integer, Integer, String, Timestamp, Timestamp, Timestamp> fieldsRow() {
+        return (Row7) super.fieldsRow();
     }
     // @formatter:on
 }
