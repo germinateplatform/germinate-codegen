@@ -9,7 +9,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewTableEntitiesRec
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row8;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -64,6 +64,14 @@ public class ViewTableEntities extends TableImpl<ViewTableEntitiesRecord> {
 
     /**
      * The column
+     * <code>germinate_db.view_table_entities.entity_parent_display_name</code>.
+     * The name to be displayed on user interfaces and to be exported to
+     * external tools like Flapjack and Helium.
+     */
+    public final TableField<ViewTableEntitiesRecord, String> ENTITY_PARENT_DISPLAY_NAME = createField(DSL.name("entity_parent_display_name"), SQLDataType.VARCHAR(255).nullable(false), this, "The name to be displayed on user interfaces and to be exported to external tools like Flapjack and Helium.");
+
+    /**
+     * The column
      * <code>germinate_db.view_table_entities.entity_parent_type</code>. The
      * name of the entity type.
      */
@@ -91,6 +99,14 @@ public class ViewTableEntities extends TableImpl<ViewTableEntitiesRecord> {
 
     /**
      * The column
+     * <code>germinate_db.view_table_entities.entity_child_display_name</code>.
+     * The name to be displayed on user interfaces and to be exported to
+     * external tools like Flapjack and Helium.
+     */
+    public final TableField<ViewTableEntitiesRecord, String> ENTITY_CHILD_DISPLAY_NAME = createField(DSL.name("entity_child_display_name"), SQLDataType.VARCHAR(255), this, "The name to be displayed on user interfaces and to be exported to external tools like Flapjack and Helium.");
+
+    /**
+     * The column
      * <code>germinate_db.view_table_entities.entity_child_type</code>. The name
      * of the entity type.
      */
@@ -101,7 +117,7 @@ public class ViewTableEntities extends TableImpl<ViewTableEntitiesRecord> {
     }
 
     private ViewTableEntities(Name alias, Table<ViewTableEntitiesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_entities` as select `parent`.`id` AS `entity_parent_id`,`parent`.`general_identifier` AS `entity_parent_gid`,`parent`.`name` AS `entity_parent_name`,`parententity`.`name` AS `entity_parent_type`,`child`.`id` AS `entity_child_id`,`child`.`general_identifier` AS `entity_child_gid`,`child`.`name` AS `entity_child_name`,`childentity`.`name` AS `entity_child_type` from (((`germinate_template_4_24_02_09`.`germinatebase` `parent` left join `germinate_template_4_24_02_09`.`germinatebase` `child` on((`parent`.`id` = `child`.`entityparent_id`))) left join `germinate_template_4_24_02_09`.`entitytypes` `parententity` on((`parententity`.`id` = `parent`.`entitytype_id`))) left join `germinate_template_4_24_02_09`.`entitytypes` `childentity` on((`childentity`.`id` = `child`.`entitytype_id`))) where ((`parent`.`id` is not null) and (`child`.`id` is not null))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_entities` as select `parent`.`id` AS `entity_parent_id`,`parent`.`general_identifier` AS `entity_parent_gid`,`parent`.`name` AS `entity_parent_name`,`parent`.`display_name` AS `entity_parent_display_name`,`parententity`.`name` AS `entity_parent_type`,`child`.`id` AS `entity_child_id`,`child`.`general_identifier` AS `entity_child_gid`,`child`.`name` AS `entity_child_name`,`child`.`display_name` AS `entity_child_display_name`,`childentity`.`name` AS `entity_child_type` from (((`germinate_template_4_24_09_04`.`germinatebase` `parent` left join `germinate_template_4_24_09_04`.`germinatebase` `child` on((`parent`.`id` = `child`.`entityparent_id`))) left join `germinate_template_4_24_09_04`.`entitytypes` `parententity` on((`parententity`.`id` = `parent`.`entitytype_id`))) left join `germinate_template_4_24_09_04`.`entitytypes` `childentity` on((`childentity`.`id` = `child`.`entitytype_id`))) where ((`parent`.`id` is not null) and (`child`.`id` is not null))"));
     }
 
     /**
@@ -159,12 +175,12 @@ public class ViewTableEntities extends TableImpl<ViewTableEntitiesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, String, String, String, Integer, String, String, String> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row10<Integer, String, String, String, String, Integer, String, String, String, String> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
     // @formatter:on
 }

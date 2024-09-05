@@ -11,7 +11,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewTablePedigreedef
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row13;
+import org.jooq.Row14;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -57,6 +57,14 @@ public class ViewTablePedigreedefinitions extends TableImpl<ViewTablePedigreedef
      * A unique name which defines an entry in the germinatbase table.
      */
     public final TableField<ViewTablePedigreedefinitionsRecord, String> GERMPLASM_NAME = createField(DSL.name("germplasm_name"), SQLDataType.VARCHAR(255), this, "A unique name which defines an entry in the germinatbase table.");
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_pedigreedefinitions.germplasm_display_name</code>.
+     * The name to be displayed on user interfaces and to be exported to
+     * external tools like Flapjack and Helium.
+     */
+    public final TableField<ViewTablePedigreedefinitionsRecord, String> GERMPLASM_DISPLAY_NAME = createField(DSL.name("germplasm_display_name"), SQLDataType.VARCHAR(255), this, "The name to be displayed on user interfaces and to be exported to external tools like Flapjack and Helium.");
 
     /**
      * The column
@@ -141,7 +149,7 @@ public class ViewTablePedigreedefinitions extends TableImpl<ViewTablePedigreedef
     }
 
     private ViewTablePedigreedefinitions(Name alias, Table<ViewTablePedigreedefinitionsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_pedigreedefinitions` as select `germinate_template_4_24_02_09`.`germinatebase`.`id` AS `germplasm_id`,`germinate_template_4_24_02_09`.`germinatebase`.`name` AS `germplasm_name`,`germinate_template_4_24_02_09`.`pedigreenotations`.`name` AS `pedigree_notation_name`,`germinate_template_4_24_02_09`.`pedigreenotations`.`description` AS `pedigree_notation_description`,`germinate_template_4_24_02_09`.`pedigreenotations`.`reference_url` AS `pedigree_notation_url`,`germinate_template_4_24_02_09`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_24_02_09`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_24_02_09`.`pedigreedefinitions`.`id` AS `definition_id`,`germinate_template_4_24_02_09`.`pedigreedefinitions`.`definition` AS `definition`,`germinate_template_4_24_02_09`.`pedigreedescriptions`.`name` AS `pedigree_description_name`,`germinate_template_4_24_02_09`.`pedigreedescriptions`.`description` AS `pedigree_description_description`,`germinate_template_4_24_02_09`.`pedigreedescriptions`.`author` AS `pedigree_description_author`,`germinate_template_4_24_02_09`.`pedigreedefinitions`.`created_on` AS `created_on` from ((((`germinate_template_4_24_02_09`.`pedigreedefinitions` left join `germinate_template_4_24_02_09`.`germinatebase` on((`germinate_template_4_24_02_09`.`germinatebase`.`id` = `germinate_template_4_24_02_09`.`pedigreedefinitions`.`germinatebase_id`))) left join `germinate_template_4_24_02_09`.`pedigreenotations` on((`germinate_template_4_24_02_09`.`pedigreenotations`.`id` = `germinate_template_4_24_02_09`.`pedigreedefinitions`.`pedigreenotation_id`))) left join `germinate_template_4_24_02_09`.`pedigreedescriptions` on((`germinate_template_4_24_02_09`.`pedigreedescriptions`.`id` = `germinate_template_4_24_02_09`.`pedigreedefinitions`.`pedigreedescription_id`))) left join `germinate_template_4_24_02_09`.`datasets` on((`germinate_template_4_24_02_09`.`datasets`.`id` = `germinate_template_4_24_02_09`.`pedigreedefinitions`.`dataset_id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_pedigreedefinitions` as select `germinate_template_4_24_09_04`.`germinatebase`.`id` AS `germplasm_id`,`germinate_template_4_24_09_04`.`germinatebase`.`name` AS `germplasm_name`,`germinate_template_4_24_09_04`.`germinatebase`.`display_name` AS `germplasm_display_name`,`germinate_template_4_24_09_04`.`pedigreenotations`.`name` AS `pedigree_notation_name`,`germinate_template_4_24_09_04`.`pedigreenotations`.`description` AS `pedigree_notation_description`,`germinate_template_4_24_09_04`.`pedigreenotations`.`reference_url` AS `pedigree_notation_url`,`germinate_template_4_24_09_04`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_24_09_04`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_24_09_04`.`pedigreedefinitions`.`id` AS `definition_id`,`germinate_template_4_24_09_04`.`pedigreedefinitions`.`definition` AS `definition`,`germinate_template_4_24_09_04`.`pedigreedescriptions`.`name` AS `pedigree_description_name`,`germinate_template_4_24_09_04`.`pedigreedescriptions`.`description` AS `pedigree_description_description`,`germinate_template_4_24_09_04`.`pedigreedescriptions`.`author` AS `pedigree_description_author`,`germinate_template_4_24_09_04`.`pedigreedefinitions`.`created_on` AS `created_on` from ((((`germinate_template_4_24_09_04`.`pedigreedefinitions` left join `germinate_template_4_24_09_04`.`germinatebase` on((`germinate_template_4_24_09_04`.`germinatebase`.`id` = `germinate_template_4_24_09_04`.`pedigreedefinitions`.`germinatebase_id`))) left join `germinate_template_4_24_09_04`.`pedigreenotations` on((`germinate_template_4_24_09_04`.`pedigreenotations`.`id` = `germinate_template_4_24_09_04`.`pedigreedefinitions`.`pedigreenotation_id`))) left join `germinate_template_4_24_09_04`.`pedigreedescriptions` on((`germinate_template_4_24_09_04`.`pedigreedescriptions`.`id` = `germinate_template_4_24_09_04`.`pedigreedefinitions`.`pedigreedescription_id`))) left join `germinate_template_4_24_09_04`.`datasets` on((`germinate_template_4_24_09_04`.`datasets`.`id` = `germinate_template_4_24_09_04`.`pedigreedefinitions`.`dataset_id`)))"));
     }
 
     /**
@@ -200,12 +208,12 @@ public class ViewTablePedigreedefinitions extends TableImpl<ViewTablePedigreedef
     }
 
     // -------------------------------------------------------------------------
-    // Row13 type methods
+    // Row14 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row13<Integer, String, String, String, String, Integer, String, Integer, String, String, String, String, Timestamp> fieldsRow() {
-        return (Row13) super.fieldsRow();
+    public Row14<Integer, String, String, String, String, String, Integer, String, Integer, String, String, String, String, Timestamp> fieldsRow() {
+        return (Row14) super.fieldsRow();
     }
     // @formatter:on
 }

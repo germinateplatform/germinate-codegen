@@ -10,8 +10,8 @@ import jhi.germinate.server.database.codegen.tables.Germinatebase;
 
 import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record13;
-import org.jooq.Row13;
+import org.jooq.Record14;
+import org.jooq.Row14;
 import org.jooq.impl.UpdatableRecordImpl;
 
 
@@ -21,7 +21,7 @@ import org.jooq.impl.UpdatableRecordImpl;
  * germplasm definition data.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord> implements Record13<Integer, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> {
+public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord> implements Record14<Integer, String, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -94,11 +94,29 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
     }
 
     /**
+     * Setter for <code>germinate_db.germinatebase.display_name</code>. The name
+     * to be displayed on user interfaces and to be exported to external tools
+     * like Flapjack and Helium.
+     */
+    public void setDisplayName(String value) {
+        set(4, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.germinatebase.display_name</code>. The name
+     * to be displayed on user interfaces and to be exported to external tools
+     * like Flapjack and Helium.
+     */
+    public String getDisplayName() {
+        return (String) get(4);
+    }
+
+    /**
      * Setter for <code>germinate_db.germinatebase.bank_number</code>.
      * Alternative genebank number.
      */
     public void setBankNumber(String value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
@@ -106,7 +124,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * Alternative genebank number.
      */
     public String getBankNumber() {
-        return (String) get(4);
+        return (String) get(5);
     }
 
     /**
@@ -114,7 +132,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to taxonomies (taxonomies.id).
      */
     public void setTaxonomyId(Integer value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
@@ -122,7 +140,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to taxonomies (taxonomies.id).
      */
     public Integer getTaxonomyId() {
-        return (Integer) get(5);
+        return (Integer) get(6);
     }
 
     /**
@@ -130,7 +148,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * if the entry has a plant passport.
      */
     public void setPlantPassport(String value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
@@ -138,7 +156,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * if the entry has a plant passport.
      */
     public String getPlantPassport() {
-        return (String) get(6);
+        return (String) get(7);
     }
 
     /**
@@ -146,7 +164,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to locations (locations.id).
      */
     public void setLocationId(Integer value) {
-        set(7, value);
+        set(8, value);
     }
 
     /**
@@ -154,7 +172,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to locations (locations.id).
      */
     public Integer getLocationId() {
-        return (Integer) get(7);
+        return (Integer) get(8);
     }
 
     /**
@@ -162,7 +180,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to entitytypes (entitytypes.id).
      */
     public void setEntitytypeId(Integer value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
@@ -170,7 +188,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * key to entitytypes (entitytypes.id).
      */
     public Integer getEntitytypeId() {
-        return (Integer) get(8);
+        return (Integer) get(9);
     }
 
     /**
@@ -178,7 +196,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * Foreign key to germinatebase (germinatebase.id).
      */
     public void setEntityparentId(Integer value) {
-        set(9, value);
+        set(10, value);
     }
 
     /**
@@ -186,7 +204,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * Foreign key to germinatebase (germinatebase.id).
      */
     public Integer getEntityparentId() {
-        return (Integer) get(9);
+        return (Integer) get(10);
     }
 
     /**
@@ -195,7 +213,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * this field will be overwritten.
      */
     public void setPdci(Double value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
@@ -204,7 +222,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * this field will be overwritten.
      */
     public Double getPdci() {
-        return (Double) get(10);
+        return (Double) get(11);
     }
 
     /**
@@ -212,7 +230,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * record was created.
      */
     public void setCreatedOn(Timestamp value) {
-        set(11, value);
+        set(12, value);
     }
 
     /**
@@ -220,7 +238,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * record was created.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(11);
+        return (Timestamp) get(12);
     }
 
     /**
@@ -229,7 +247,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * subsequent changes have been made to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(12, value);
+        set(13, value);
     }
 
     /**
@@ -238,7 +256,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
      * subsequent changes have been made to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(12);
+        return (Timestamp) get(13);
     }
 
     // -------------------------------------------------------------------------
@@ -251,17 +269,17 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
     }
 
     // -------------------------------------------------------------------------
-    // Record13 type implementation
+    // Record14 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row13<Integer, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> fieldsRow() {
-        return (Row13) super.fieldsRow();
+    public Row14<Integer, String, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> fieldsRow() {
+        return (Row14) super.fieldsRow();
     }
 
     @Override
-    public Row13<Integer, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> valuesRow() {
-        return (Row13) super.valuesRow();
+    public Row14<Integer, String, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> valuesRow() {
+        return (Row14) super.valuesRow();
     }
 
     @Override
@@ -286,46 +304,51 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
 
     @Override
     public Field<String> field5() {
+        return Germinatebase.GERMINATEBASE.DISPLAY_NAME;
+    }
+
+    @Override
+    public Field<String> field6() {
         return Germinatebase.GERMINATEBASE.BANK_NUMBER;
     }
 
     @Override
-    public Field<Integer> field6() {
+    public Field<Integer> field7() {
         return Germinatebase.GERMINATEBASE.TAXONOMY_ID;
     }
 
     @Override
-    public Field<String> field7() {
+    public Field<String> field8() {
         return Germinatebase.GERMINATEBASE.PLANT_PASSPORT;
     }
 
     @Override
-    public Field<Integer> field8() {
+    public Field<Integer> field9() {
         return Germinatebase.GERMINATEBASE.LOCATION_ID;
     }
 
     @Override
-    public Field<Integer> field9() {
+    public Field<Integer> field10() {
         return Germinatebase.GERMINATEBASE.ENTITYTYPE_ID;
     }
 
     @Override
-    public Field<Integer> field10() {
+    public Field<Integer> field11() {
         return Germinatebase.GERMINATEBASE.ENTITYPARENT_ID;
     }
 
     @Override
-    public Field<Double> field11() {
+    public Field<Double> field12() {
         return Germinatebase.GERMINATEBASE.PDCI;
     }
 
     @Override
-    public Field<Timestamp> field12() {
+    public Field<Timestamp> field13() {
         return Germinatebase.GERMINATEBASE.CREATED_ON;
     }
 
     @Override
-    public Field<Timestamp> field13() {
+    public Field<Timestamp> field14() {
         return Germinatebase.GERMINATEBASE.UPDATED_ON;
     }
 
@@ -351,46 +374,51 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
 
     @Override
     public String component5() {
+        return getDisplayName();
+    }
+
+    @Override
+    public String component6() {
         return getBankNumber();
     }
 
     @Override
-    public Integer component6() {
+    public Integer component7() {
         return getTaxonomyId();
     }
 
     @Override
-    public String component7() {
+    public String component8() {
         return getPlantPassport();
     }
 
     @Override
-    public Integer component8() {
+    public Integer component9() {
         return getLocationId();
     }
 
     @Override
-    public Integer component9() {
+    public Integer component10() {
         return getEntitytypeId();
     }
 
     @Override
-    public Integer component10() {
+    public Integer component11() {
         return getEntityparentId();
     }
 
     @Override
-    public Double component11() {
+    public Double component12() {
         return getPdci();
     }
 
     @Override
-    public Timestamp component12() {
+    public Timestamp component13() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp component13() {
+    public Timestamp component14() {
         return getUpdatedOn();
     }
 
@@ -416,46 +444,51 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
 
     @Override
     public String value5() {
+        return getDisplayName();
+    }
+
+    @Override
+    public String value6() {
         return getBankNumber();
     }
 
     @Override
-    public Integer value6() {
+    public Integer value7() {
         return getTaxonomyId();
     }
 
     @Override
-    public String value7() {
+    public String value8() {
         return getPlantPassport();
     }
 
     @Override
-    public Integer value8() {
+    public Integer value9() {
         return getLocationId();
     }
 
     @Override
-    public Integer value9() {
+    public Integer value10() {
         return getEntitytypeId();
     }
 
     @Override
-    public Integer value10() {
+    public Integer value11() {
         return getEntityparentId();
     }
 
     @Override
-    public Double value11() {
+    public Double value12() {
         return getPdci();
     }
 
     @Override
-    public Timestamp value12() {
+    public Timestamp value13() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp value13() {
+    public Timestamp value14() {
         return getUpdatedOn();
     }
 
@@ -485,60 +518,66 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
 
     @Override
     public GerminatebaseRecord value5(String value) {
+        setDisplayName(value);
+        return this;
+    }
+
+    @Override
+    public GerminatebaseRecord value6(String value) {
         setBankNumber(value);
         return this;
     }
 
     @Override
-    public GerminatebaseRecord value6(Integer value) {
+    public GerminatebaseRecord value7(Integer value) {
         setTaxonomyId(value);
         return this;
     }
 
     @Override
-    public GerminatebaseRecord value7(String value) {
+    public GerminatebaseRecord value8(String value) {
         setPlantPassport(value);
         return this;
     }
 
     @Override
-    public GerminatebaseRecord value8(Integer value) {
+    public GerminatebaseRecord value9(Integer value) {
         setLocationId(value);
         return this;
     }
 
     @Override
-    public GerminatebaseRecord value9(Integer value) {
+    public GerminatebaseRecord value10(Integer value) {
         setEntitytypeId(value);
         return this;
     }
 
     @Override
-    public GerminatebaseRecord value10(Integer value) {
+    public GerminatebaseRecord value11(Integer value) {
         setEntityparentId(value);
         return this;
     }
 
     @Override
-    public GerminatebaseRecord value11(Double value) {
+    public GerminatebaseRecord value12(Double value) {
         setPdci(value);
         return this;
     }
 
     @Override
-    public GerminatebaseRecord value12(Timestamp value) {
+    public GerminatebaseRecord value13(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public GerminatebaseRecord value13(Timestamp value) {
+    public GerminatebaseRecord value14(Timestamp value) {
         setUpdatedOn(value);
         return this;
     }
 
     @Override
-    public GerminatebaseRecord values(Integer value1, String value2, String value3, String value4, String value5, Integer value6, String value7, Integer value8, Integer value9, Integer value10, Double value11, Timestamp value12, Timestamp value13) {
+    public GerminatebaseRecord values(Integer value1, String value2, String value3, String value4, String value5, String value6, Integer value7, String value8, Integer value9, Integer value10, Integer value11, Double value12, Timestamp value13, Timestamp value14) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -552,6 +591,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
         value11(value11);
         value12(value12);
         value13(value13);
+        value14(value14);
         return this;
     }
 
@@ -569,13 +609,14 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
     /**
      * Create a detached, initialised GerminatebaseRecord
      */
-    public GerminatebaseRecord(Integer id, String generalIdentifier, String number, String name, String bankNumber, Integer taxonomyId, String plantPassport, Integer locationId, Integer entitytypeId, Integer entityparentId, Double pdci, Timestamp createdOn, Timestamp updatedOn) {
+    public GerminatebaseRecord(Integer id, String generalIdentifier, String number, String name, String displayName, String bankNumber, Integer taxonomyId, String plantPassport, Integer locationId, Integer entitytypeId, Integer entityparentId, Double pdci, Timestamp createdOn, Timestamp updatedOn) {
         super(Germinatebase.GERMINATEBASE);
 
         setId(id);
         setGeneralIdentifier(generalIdentifier);
         setNumber(number);
         setName(name);
+        setDisplayName(displayName);
         setBankNumber(bankNumber);
         setTaxonomyId(taxonomyId);
         setPlantPassport(plantPassport);
@@ -598,6 +639,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
             setGeneralIdentifier(value.getGeneralIdentifier());
             setNumber(value.getNumber());
             setName(value.getName());
+            setDisplayName(value.getDisplayName());
             setBankNumber(value.getBankNumber());
             setTaxonomyId(value.getTaxonomyId());
             setPlantPassport(value.getPlantPassport());

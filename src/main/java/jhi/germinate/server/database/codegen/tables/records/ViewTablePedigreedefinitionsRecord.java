@@ -9,8 +9,8 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.tables.ViewTablePedigreedefinitions;
 
 import org.jooq.Field;
-import org.jooq.Record13;
-import org.jooq.Row13;
+import org.jooq.Record14;
+import org.jooq.Row14;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTablePedigreedefinitionsRecord> implements Record13<Integer, String, String, String, String, Integer, String, Integer, String, String, String, String, Timestamp> {
+public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTablePedigreedefinitionsRecord> implements Record14<Integer, String, String, String, String, String, Integer, String, Integer, String, String, String, String, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -61,11 +61,31 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
 
     /**
      * Setter for
+     * <code>germinate_db.view_table_pedigreedefinitions.germplasm_display_name</code>.
+     * The name to be displayed on user interfaces and to be exported to
+     * external tools like Flapjack and Helium.
+     */
+    public void setGermplasmDisplayName(String value) {
+        set(2, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_pedigreedefinitions.germplasm_display_name</code>.
+     * The name to be displayed on user interfaces and to be exported to
+     * external tools like Flapjack and Helium.
+     */
+    public String getGermplasmDisplayName() {
+        return (String) get(2);
+    }
+
+    /**
+     * Setter for
      * <code>germinate_db.view_table_pedigreedefinitions.pedigree_notation_name</code>.
      * Name of the reference notation source.
      */
     public void setPedigreeNotationName(String value) {
-        set(2, value);
+        set(3, value);
     }
 
     /**
@@ -74,7 +94,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Name of the reference notation source.
      */
     public String getPedigreeNotationName() {
-        return (String) get(2);
+        return (String) get(3);
     }
 
     /**
@@ -83,7 +103,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * A longer description about the reference notation source.
      */
     public void setPedigreeNotationDescription(String value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
@@ -92,7 +112,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * A longer description about the reference notation source.
      */
     public String getPedigreeNotationDescription() {
-        return (String) get(3);
+        return (String) get(4);
     }
 
     /**
@@ -101,7 +121,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Hyperlink to the notation source.
      */
     public void setPedigreeNotationUrl(String value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
@@ -110,7 +130,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Hyperlink to the notation source.
      */
     public String getPedigreeNotationUrl() {
-        return (String) get(4);
+        return (String) get(5);
     }
 
     /**
@@ -119,7 +139,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Primary id for this table. This uniquely identifies the row.
      */
     public void setDatasetId(Integer value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
@@ -128,7 +148,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Primary id for this table. This uniquely identifies the row.
      */
     public Integer getDatasetId() {
-        return (Integer) get(5);
+        return (Integer) get(6);
     }
 
     /**
@@ -137,7 +157,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Describes the dataset.
      */
     public void setDatasetName(String value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
@@ -146,7 +166,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Describes the dataset.
      */
     public String getDatasetName() {
-        return (String) get(6);
+        return (String) get(7);
     }
 
     /**
@@ -155,7 +175,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Primary id for this table. This uniquely identifies the row.
      */
     public void setDefinitionId(Integer value) {
-        set(7, value);
+        set(8, value);
     }
 
     /**
@@ -164,7 +184,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Primary id for this table. This uniquely identifies the row.
      */
     public Integer getDefinitionId() {
-        return (Integer) get(7);
+        return (Integer) get(8);
     }
 
     /**
@@ -173,7 +193,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * pedigree string which is used to represent the germinatebase entry.
      */
     public void setDefinition(String value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
@@ -182,7 +202,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * pedigree string which is used to represent the germinatebase entry.
      */
     public String getDefinition() {
-        return (String) get(8);
+        return (String) get(9);
     }
 
     /**
@@ -191,7 +211,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * The name of the pedigree.
      */
     public void setPedigreeDescriptionName(String value) {
-        set(9, value);
+        set(10, value);
     }
 
     /**
@@ -200,7 +220,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * The name of the pedigree.
      */
     public String getPedigreeDescriptionName() {
-        return (String) get(9);
+        return (String) get(10);
     }
 
     /**
@@ -209,7 +229,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Describes the pedigree in more detail.
      */
     public void setPedigreeDescriptionDescription(String value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
@@ -218,7 +238,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * Describes the pedigree in more detail.
      */
     public String getPedigreeDescriptionDescription() {
-        return (String) get(10);
+        return (String) get(11);
     }
 
     /**
@@ -228,7 +248,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * be included in here for pedigree sources.
      */
     public void setPedigreeDescriptionAuthor(String value) {
-        set(11, value);
+        set(12, value);
     }
 
     /**
@@ -238,7 +258,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * be included in here for pedigree sources.
      */
     public String getPedigreeDescriptionAuthor() {
-        return (String) get(11);
+        return (String) get(12);
     }
 
     /**
@@ -247,7 +267,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * the record was created.
      */
     public void setCreatedOn(Timestamp value) {
-        set(12, value);
+        set(13, value);
     }
 
     /**
@@ -256,21 +276,21 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
      * the record was created.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(12);
+        return (Timestamp) get(13);
     }
 
     // -------------------------------------------------------------------------
-    // Record13 type implementation
+    // Record14 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row13<Integer, String, String, String, String, Integer, String, Integer, String, String, String, String, Timestamp> fieldsRow() {
-        return (Row13) super.fieldsRow();
+    public Row14<Integer, String, String, String, String, String, Integer, String, Integer, String, String, String, String, Timestamp> fieldsRow() {
+        return (Row14) super.fieldsRow();
     }
 
     @Override
-    public Row13<Integer, String, String, String, String, Integer, String, Integer, String, String, String, String, Timestamp> valuesRow() {
-        return (Row13) super.valuesRow();
+    public Row14<Integer, String, String, String, String, String, Integer, String, Integer, String, String, String, String, Timestamp> valuesRow() {
+        return (Row14) super.valuesRow();
     }
 
     @Override
@@ -285,56 +305,61 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
 
     @Override
     public Field<String> field3() {
-        return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.PEDIGREE_NOTATION_NAME;
+        return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.GERMPLASM_DISPLAY_NAME;
     }
 
     @Override
     public Field<String> field4() {
-        return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.PEDIGREE_NOTATION_DESCRIPTION;
+        return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.PEDIGREE_NOTATION_NAME;
     }
 
     @Override
     public Field<String> field5() {
+        return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.PEDIGREE_NOTATION_DESCRIPTION;
+    }
+
+    @Override
+    public Field<String> field6() {
         return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.PEDIGREE_NOTATION_URL;
     }
 
     @Override
-    public Field<Integer> field6() {
+    public Field<Integer> field7() {
         return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.DATASET_ID;
     }
 
     @Override
-    public Field<String> field7() {
+    public Field<String> field8() {
         return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.DATASET_NAME;
     }
 
     @Override
-    public Field<Integer> field8() {
+    public Field<Integer> field9() {
         return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.DEFINITION_ID;
     }
 
     @Override
-    public Field<String> field9() {
+    public Field<String> field10() {
         return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.DEFINITION;
     }
 
     @Override
-    public Field<String> field10() {
+    public Field<String> field11() {
         return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.PEDIGREE_DESCRIPTION_NAME;
     }
 
     @Override
-    public Field<String> field11() {
+    public Field<String> field12() {
         return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.PEDIGREE_DESCRIPTION_DESCRIPTION;
     }
 
     @Override
-    public Field<String> field12() {
+    public Field<String> field13() {
         return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.PEDIGREE_DESCRIPTION_AUTHOR;
     }
 
     @Override
-    public Field<Timestamp> field13() {
+    public Field<Timestamp> field14() {
         return ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS.CREATED_ON;
     }
 
@@ -350,56 +375,61 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
 
     @Override
     public String component3() {
-        return getPedigreeNotationName();
+        return getGermplasmDisplayName();
     }
 
     @Override
     public String component4() {
-        return getPedigreeNotationDescription();
+        return getPedigreeNotationName();
     }
 
     @Override
     public String component5() {
+        return getPedigreeNotationDescription();
+    }
+
+    @Override
+    public String component6() {
         return getPedigreeNotationUrl();
     }
 
     @Override
-    public Integer component6() {
+    public Integer component7() {
         return getDatasetId();
     }
 
     @Override
-    public String component7() {
+    public String component8() {
         return getDatasetName();
     }
 
     @Override
-    public Integer component8() {
+    public Integer component9() {
         return getDefinitionId();
     }
 
     @Override
-    public String component9() {
+    public String component10() {
         return getDefinition();
     }
 
     @Override
-    public String component10() {
+    public String component11() {
         return getPedigreeDescriptionName();
     }
 
     @Override
-    public String component11() {
+    public String component12() {
         return getPedigreeDescriptionDescription();
     }
 
     @Override
-    public String component12() {
+    public String component13() {
         return getPedigreeDescriptionAuthor();
     }
 
     @Override
-    public Timestamp component13() {
+    public Timestamp component14() {
         return getCreatedOn();
     }
 
@@ -415,56 +445,61 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
 
     @Override
     public String value3() {
-        return getPedigreeNotationName();
+        return getGermplasmDisplayName();
     }
 
     @Override
     public String value4() {
-        return getPedigreeNotationDescription();
+        return getPedigreeNotationName();
     }
 
     @Override
     public String value5() {
+        return getPedigreeNotationDescription();
+    }
+
+    @Override
+    public String value6() {
         return getPedigreeNotationUrl();
     }
 
     @Override
-    public Integer value6() {
+    public Integer value7() {
         return getDatasetId();
     }
 
     @Override
-    public String value7() {
+    public String value8() {
         return getDatasetName();
     }
 
     @Override
-    public Integer value8() {
+    public Integer value9() {
         return getDefinitionId();
     }
 
     @Override
-    public String value9() {
+    public String value10() {
         return getDefinition();
     }
 
     @Override
-    public String value10() {
+    public String value11() {
         return getPedigreeDescriptionName();
     }
 
     @Override
-    public String value11() {
+    public String value12() {
         return getPedigreeDescriptionDescription();
     }
 
     @Override
-    public String value12() {
+    public String value13() {
         return getPedigreeDescriptionAuthor();
     }
 
     @Override
-    public Timestamp value13() {
+    public Timestamp value14() {
         return getCreatedOn();
     }
 
@@ -482,72 +517,78 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
 
     @Override
     public ViewTablePedigreedefinitionsRecord value3(String value) {
-        setPedigreeNotationName(value);
+        setGermplasmDisplayName(value);
         return this;
     }
 
     @Override
     public ViewTablePedigreedefinitionsRecord value4(String value) {
-        setPedigreeNotationDescription(value);
+        setPedigreeNotationName(value);
         return this;
     }
 
     @Override
     public ViewTablePedigreedefinitionsRecord value5(String value) {
+        setPedigreeNotationDescription(value);
+        return this;
+    }
+
+    @Override
+    public ViewTablePedigreedefinitionsRecord value6(String value) {
         setPedigreeNotationUrl(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreedefinitionsRecord value6(Integer value) {
+    public ViewTablePedigreedefinitionsRecord value7(Integer value) {
         setDatasetId(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreedefinitionsRecord value7(String value) {
+    public ViewTablePedigreedefinitionsRecord value8(String value) {
         setDatasetName(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreedefinitionsRecord value8(Integer value) {
+    public ViewTablePedigreedefinitionsRecord value9(Integer value) {
         setDefinitionId(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreedefinitionsRecord value9(String value) {
+    public ViewTablePedigreedefinitionsRecord value10(String value) {
         setDefinition(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreedefinitionsRecord value10(String value) {
+    public ViewTablePedigreedefinitionsRecord value11(String value) {
         setPedigreeDescriptionName(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreedefinitionsRecord value11(String value) {
+    public ViewTablePedigreedefinitionsRecord value12(String value) {
         setPedigreeDescriptionDescription(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreedefinitionsRecord value12(String value) {
+    public ViewTablePedigreedefinitionsRecord value13(String value) {
         setPedigreeDescriptionAuthor(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreedefinitionsRecord value13(Timestamp value) {
+    public ViewTablePedigreedefinitionsRecord value14(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTablePedigreedefinitionsRecord values(Integer value1, String value2, String value3, String value4, String value5, Integer value6, String value7, Integer value8, String value9, String value10, String value11, String value12, Timestamp value13) {
+    public ViewTablePedigreedefinitionsRecord values(Integer value1, String value2, String value3, String value4, String value5, String value6, Integer value7, String value8, Integer value9, String value10, String value11, String value12, String value13, Timestamp value14) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -561,6 +602,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
         value11(value11);
         value12(value12);
         value13(value13);
+        value14(value14);
         return this;
     }
 
@@ -578,11 +620,12 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
     /**
      * Create a detached, initialised ViewTablePedigreedefinitionsRecord
      */
-    public ViewTablePedigreedefinitionsRecord(Integer germplasmId, String germplasmName, String pedigreeNotationName, String pedigreeNotationDescription, String pedigreeNotationUrl, Integer datasetId, String datasetName, Integer definitionId, String definition, String pedigreeDescriptionName, String pedigreeDescriptionDescription, String pedigreeDescriptionAuthor, Timestamp createdOn) {
+    public ViewTablePedigreedefinitionsRecord(Integer germplasmId, String germplasmName, String germplasmDisplayName, String pedigreeNotationName, String pedigreeNotationDescription, String pedigreeNotationUrl, Integer datasetId, String datasetName, Integer definitionId, String definition, String pedigreeDescriptionName, String pedigreeDescriptionDescription, String pedigreeDescriptionAuthor, Timestamp createdOn) {
         super(ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS);
 
         setGermplasmId(germplasmId);
         setGermplasmName(germplasmName);
+        setGermplasmDisplayName(germplasmDisplayName);
         setPedigreeNotationName(pedigreeNotationName);
         setPedigreeNotationDescription(pedigreeNotationDescription);
         setPedigreeNotationUrl(pedigreeNotationUrl);
@@ -605,6 +648,7 @@ public class ViewTablePedigreedefinitionsRecord extends TableRecordImpl<ViewTabl
         if (value != null) {
             setGermplasmId(value.getGermplasmId());
             setGermplasmName(value.getGermplasmName());
+            setGermplasmDisplayName(value.getGermplasmDisplayName());
             setPedigreeNotationName(value.getPedigreeNotationName());
             setPedigreeNotationDescription(value.getPedigreeNotationDescription());
             setPedigreeNotationUrl(value.getPedigreeNotationUrl());

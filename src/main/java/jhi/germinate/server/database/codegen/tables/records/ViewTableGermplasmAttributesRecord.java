@@ -10,8 +10,8 @@ import jhi.germinate.server.database.codegen.enums.ViewTableGermplasmAttributesA
 import jhi.germinate.server.database.codegen.tables.ViewTableGermplasmAttributes;
 
 import org.jooq.Field;
-import org.jooq.Record12;
-import org.jooq.Row12;
+import org.jooq.Record13;
+import org.jooq.Row13;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -20,7 +20,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTableGermplasmAttributesRecord> implements Record12<Integer, Integer, String, String, Integer, String, String, ViewTableGermplasmAttributesAttributeType, String, Integer, Timestamp, String> {
+public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTableGermplasmAttributesRecord> implements Record13<Integer, Integer, String, String, String, Integer, String, String, ViewTableGermplasmAttributesAttributeType, String, Integer, Timestamp, String> {
 
     private static final long serialVersionUID = 1L;
 
@@ -98,11 +98,31 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
 
     /**
      * Setter for
+     * <code>germinate_db.view_table_germplasm_attributes.germplasm_display_name</code>.
+     * The name to be displayed on user interfaces and to be exported to
+     * external tools like Flapjack and Helium.
+     */
+    public void setGermplasmDisplayName(String value) {
+        set(4, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_germplasm_attributes.germplasm_display_name</code>.
+     * The name to be displayed on user interfaces and to be exported to
+     * external tools like Flapjack and Helium.
+     */
+    public String getGermplasmDisplayName() {
+        return (String) get(4);
+    }
+
+    /**
+     * Setter for
      * <code>germinate_db.view_table_germplasm_attributes.attribute_id</code>.
      * Primary id for this table. This uniquely identifies the row.
      */
     public void setAttributeId(Integer value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
@@ -111,7 +131,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * Primary id for this table. This uniquely identifies the row.
      */
     public Integer getAttributeId() {
-        return (Integer) get(4);
+        return (Integer) get(5);
     }
 
     /**
@@ -120,7 +140,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * Defines the name of the attribute.
      */
     public void setAttributeName(String value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
@@ -129,7 +149,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * Defines the name of the attribute.
      */
     public String getAttributeName() {
-        return (String) get(5);
+        return (String) get(6);
     }
 
     /**
@@ -139,7 +159,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * what the attribute actually is.
      */
     public void setAttributeDescription(String value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
@@ -149,7 +169,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * what the attribute actually is.
      */
     public String getAttributeDescription() {
-        return (String) get(6);
+        return (String) get(7);
     }
 
     /**
@@ -159,7 +179,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * date or categorical types.
      */
     public void setAttributeType(ViewTableGermplasmAttributesAttributeType value) {
-        set(7, value);
+        set(8, value);
     }
 
     /**
@@ -169,7 +189,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * date or categorical types.
      */
     public ViewTableGermplasmAttributesAttributeType getAttributeType() {
-        return (ViewTableGermplasmAttributesAttributeType) get(7);
+        return (ViewTableGermplasmAttributesAttributeType) get(8);
     }
 
     /**
@@ -177,7 +197,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_attributes.target_table</code>.
      */
     public void setTargetTable(String value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
@@ -185,7 +205,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * <code>germinate_db.view_table_germplasm_attributes.target_table</code>.
      */
     public String getTargetTable() {
-        return (String) get(8);
+        return (String) get(9);
     }
 
     /**
@@ -194,7 +214,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * Foreign key to germinatebase (germinatebase.id).
      */
     public void setForeignId(Integer value) {
-        set(9, value);
+        set(10, value);
     }
 
     /**
@@ -203,7 +223,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * Foreign key to germinatebase (germinatebase.id).
      */
     public Integer getForeignId() {
-        return (Integer) get(9);
+        return (Integer) get(10);
     }
 
     /**
@@ -212,7 +232,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * When the record was created.
      */
     public void setCreatedOn(Timestamp value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
@@ -221,7 +241,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * When the record was created.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(10);
+        return (Timestamp) get(11);
     }
 
     /**
@@ -230,7 +250,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * The value of the attribute.
      */
     public void setAttributeValue(String value) {
-        set(11, value);
+        set(12, value);
     }
 
     /**
@@ -239,21 +259,21 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
      * The value of the attribute.
      */
     public String getAttributeValue() {
-        return (String) get(11);
+        return (String) get(12);
     }
 
     // -------------------------------------------------------------------------
-    // Record12 type implementation
+    // Record13 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row12<Integer, Integer, String, String, Integer, String, String, ViewTableGermplasmAttributesAttributeType, String, Integer, Timestamp, String> fieldsRow() {
-        return (Row12) super.fieldsRow();
+    public Row13<Integer, Integer, String, String, String, Integer, String, String, ViewTableGermplasmAttributesAttributeType, String, Integer, Timestamp, String> fieldsRow() {
+        return (Row13) super.fieldsRow();
     }
 
     @Override
-    public Row12<Integer, Integer, String, String, Integer, String, String, ViewTableGermplasmAttributesAttributeType, String, Integer, Timestamp, String> valuesRow() {
-        return (Row12) super.valuesRow();
+    public Row13<Integer, Integer, String, String, String, Integer, String, String, ViewTableGermplasmAttributesAttributeType, String, Integer, Timestamp, String> valuesRow() {
+        return (Row13) super.valuesRow();
     }
 
     @Override
@@ -277,42 +297,47 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
     }
 
     @Override
-    public Field<Integer> field5() {
+    public Field<String> field5() {
+        return ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES.GERMPLASM_DISPLAY_NAME;
+    }
+
+    @Override
+    public Field<Integer> field6() {
         return ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES.ATTRIBUTE_ID;
     }
 
     @Override
-    public Field<String> field6() {
+    public Field<String> field7() {
         return ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES.ATTRIBUTE_NAME;
     }
 
     @Override
-    public Field<String> field7() {
+    public Field<String> field8() {
         return ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES.ATTRIBUTE_DESCRIPTION;
     }
 
     @Override
-    public Field<ViewTableGermplasmAttributesAttributeType> field8() {
+    public Field<ViewTableGermplasmAttributesAttributeType> field9() {
         return ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES.ATTRIBUTE_TYPE;
     }
 
     @Override
-    public Field<String> field9() {
+    public Field<String> field10() {
         return ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES.TARGET_TABLE;
     }
 
     @Override
-    public Field<Integer> field10() {
+    public Field<Integer> field11() {
         return ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES.FOREIGN_ID;
     }
 
     @Override
-    public Field<Timestamp> field11() {
+    public Field<Timestamp> field12() {
         return ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES.CREATED_ON;
     }
 
     @Override
-    public Field<String> field12() {
+    public Field<String> field13() {
         return ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES.ATTRIBUTE_VALUE;
     }
 
@@ -337,42 +362,47 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
     }
 
     @Override
-    public Integer component5() {
+    public String component5() {
+        return getGermplasmDisplayName();
+    }
+
+    @Override
+    public Integer component6() {
         return getAttributeId();
     }
 
     @Override
-    public String component6() {
+    public String component7() {
         return getAttributeName();
     }
 
     @Override
-    public String component7() {
+    public String component8() {
         return getAttributeDescription();
     }
 
     @Override
-    public ViewTableGermplasmAttributesAttributeType component8() {
+    public ViewTableGermplasmAttributesAttributeType component9() {
         return getAttributeType();
     }
 
     @Override
-    public String component9() {
+    public String component10() {
         return getTargetTable();
     }
 
     @Override
-    public Integer component10() {
+    public Integer component11() {
         return getForeignId();
     }
 
     @Override
-    public Timestamp component11() {
+    public Timestamp component12() {
         return getCreatedOn();
     }
 
     @Override
-    public String component12() {
+    public String component13() {
         return getAttributeValue();
     }
 
@@ -397,42 +427,47 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
     }
 
     @Override
-    public Integer value5() {
+    public String value5() {
+        return getGermplasmDisplayName();
+    }
+
+    @Override
+    public Integer value6() {
         return getAttributeId();
     }
 
     @Override
-    public String value6() {
+    public String value7() {
         return getAttributeName();
     }
 
     @Override
-    public String value7() {
+    public String value8() {
         return getAttributeDescription();
     }
 
     @Override
-    public ViewTableGermplasmAttributesAttributeType value8() {
+    public ViewTableGermplasmAttributesAttributeType value9() {
         return getAttributeType();
     }
 
     @Override
-    public String value9() {
+    public String value10() {
         return getTargetTable();
     }
 
     @Override
-    public Integer value10() {
+    public Integer value11() {
         return getForeignId();
     }
 
     @Override
-    public Timestamp value11() {
+    public Timestamp value12() {
         return getCreatedOn();
     }
 
     @Override
-    public String value12() {
+    public String value13() {
         return getAttributeValue();
     }
 
@@ -461,55 +496,61 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
     }
 
     @Override
-    public ViewTableGermplasmAttributesRecord value5(Integer value) {
+    public ViewTableGermplasmAttributesRecord value5(String value) {
+        setGermplasmDisplayName(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableGermplasmAttributesRecord value6(Integer value) {
         setAttributeId(value);
         return this;
     }
 
     @Override
-    public ViewTableGermplasmAttributesRecord value6(String value) {
+    public ViewTableGermplasmAttributesRecord value7(String value) {
         setAttributeName(value);
         return this;
     }
 
     @Override
-    public ViewTableGermplasmAttributesRecord value7(String value) {
+    public ViewTableGermplasmAttributesRecord value8(String value) {
         setAttributeDescription(value);
         return this;
     }
 
     @Override
-    public ViewTableGermplasmAttributesRecord value8(ViewTableGermplasmAttributesAttributeType value) {
+    public ViewTableGermplasmAttributesRecord value9(ViewTableGermplasmAttributesAttributeType value) {
         setAttributeType(value);
         return this;
     }
 
     @Override
-    public ViewTableGermplasmAttributesRecord value9(String value) {
+    public ViewTableGermplasmAttributesRecord value10(String value) {
         setTargetTable(value);
         return this;
     }
 
     @Override
-    public ViewTableGermplasmAttributesRecord value10(Integer value) {
+    public ViewTableGermplasmAttributesRecord value11(Integer value) {
         setForeignId(value);
         return this;
     }
 
     @Override
-    public ViewTableGermplasmAttributesRecord value11(Timestamp value) {
+    public ViewTableGermplasmAttributesRecord value12(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTableGermplasmAttributesRecord value12(String value) {
+    public ViewTableGermplasmAttributesRecord value13(String value) {
         setAttributeValue(value);
         return this;
     }
 
     @Override
-    public ViewTableGermplasmAttributesRecord values(Integer value1, Integer value2, String value3, String value4, Integer value5, String value6, String value7, ViewTableGermplasmAttributesAttributeType value8, String value9, Integer value10, Timestamp value11, String value12) {
+    public ViewTableGermplasmAttributesRecord values(Integer value1, Integer value2, String value3, String value4, String value5, Integer value6, String value7, String value8, ViewTableGermplasmAttributesAttributeType value9, String value10, Integer value11, Timestamp value12, String value13) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -522,6 +563,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
         value10(value10);
         value11(value11);
         value12(value12);
+        value13(value13);
         return this;
     }
 
@@ -539,13 +581,14 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
     /**
      * Create a detached, initialised ViewTableGermplasmAttributesRecord
      */
-    public ViewTableGermplasmAttributesRecord(Integer attributeValueId, Integer germplasmId, String germplasmGid, String germplasmName, Integer attributeId, String attributeName, String attributeDescription, ViewTableGermplasmAttributesAttributeType attributeType, String targetTable, Integer foreignId, Timestamp createdOn, String attributeValue) {
+    public ViewTableGermplasmAttributesRecord(Integer attributeValueId, Integer germplasmId, String germplasmGid, String germplasmName, String germplasmDisplayName, Integer attributeId, String attributeName, String attributeDescription, ViewTableGermplasmAttributesAttributeType attributeType, String targetTable, Integer foreignId, Timestamp createdOn, String attributeValue) {
         super(ViewTableGermplasmAttributes.VIEW_TABLE_GERMPLASM_ATTRIBUTES);
 
         setAttributeValueId(attributeValueId);
         setGermplasmId(germplasmId);
         setGermplasmGid(germplasmGid);
         setGermplasmName(germplasmName);
+        setGermplasmDisplayName(germplasmDisplayName);
         setAttributeId(attributeId);
         setAttributeName(attributeName);
         setAttributeDescription(attributeDescription);
@@ -567,6 +610,7 @@ public class ViewTableGermplasmAttributesRecord extends TableRecordImpl<ViewTabl
             setGermplasmId(value.getGermplasmId());
             setGermplasmGid(value.getGermplasmGid());
             setGermplasmName(value.getGermplasmName());
+            setGermplasmDisplayName(value.getGermplasmDisplayName());
             setAttributeId(value.getAttributeId());
             setAttributeName(value.getAttributeName());
             setAttributeDescription(value.getAttributeDescription());

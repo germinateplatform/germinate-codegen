@@ -27,10 +27,12 @@ public class ViewTablePedigrees implements Serializable {
     private Integer                            parentId;
     private String                             parentGid;
     private String                             parentName;
+    private String                             parentDisplayName;
     private String                             parentNumber;
     private Integer                            childId;
     private String                             childGid;
     private String                             childName;
+    private String                             childDisplayName;
     private String                             childNumber;
     private Integer                            datasetId;
     private String                             datasetName;
@@ -47,10 +49,12 @@ public class ViewTablePedigrees implements Serializable {
         this.parentId = value.parentId;
         this.parentGid = value.parentGid;
         this.parentName = value.parentName;
+        this.parentDisplayName = value.parentDisplayName;
         this.parentNumber = value.parentNumber;
         this.childId = value.childId;
         this.childGid = value.childGid;
         this.childName = value.childName;
+        this.childDisplayName = value.childDisplayName;
         this.childNumber = value.childNumber;
         this.datasetId = value.datasetId;
         this.datasetName = value.datasetName;
@@ -66,10 +70,12 @@ public class ViewTablePedigrees implements Serializable {
         Integer                            parentId,
         String                             parentGid,
         String                             parentName,
+        String                             parentDisplayName,
         String                             parentNumber,
         Integer                            childId,
         String                             childGid,
         String                             childName,
+        String                             childDisplayName,
         String                             childNumber,
         Integer                            datasetId,
         String                             datasetName,
@@ -83,10 +89,12 @@ public class ViewTablePedigrees implements Serializable {
         this.parentId = parentId;
         this.parentGid = parentGid;
         this.parentName = parentName;
+        this.parentDisplayName = parentDisplayName;
         this.parentNumber = parentNumber;
         this.childId = childId;
         this.childGid = childGid;
         this.childName = childName;
+        this.childDisplayName = childDisplayName;
         this.childNumber = childNumber;
         this.datasetId = datasetId;
         this.datasetName = datasetName;
@@ -105,10 +113,12 @@ public class ViewTablePedigrees implements Serializable {
         sb.append(parentId);
         sb.append(", ").append(parentGid);
         sb.append(", ").append(parentName);
+        sb.append(", ").append(parentDisplayName);
         sb.append(", ").append(parentNumber);
         sb.append(", ").append(childId);
         sb.append(", ").append(childGid);
         sb.append(", ").append(childName);
+        sb.append(", ").append(childDisplayName);
         sb.append(", ").append(childNumber);
         sb.append(", ").append(datasetId);
         sb.append(", ").append(datasetName);

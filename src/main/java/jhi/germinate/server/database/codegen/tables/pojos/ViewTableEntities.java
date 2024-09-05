@@ -25,10 +25,12 @@ public class ViewTableEntities implements Serializable {
     private Integer entityParentId;
     private String  entityParentGid;
     private String  entityParentName;
+    private String  entityParentDisplayName;
     private String  entityParentType;
     private Integer entityChildId;
     private String  entityChildGid;
     private String  entityChildName;
+    private String  entityChildDisplayName;
     private String  entityChildType;
 
     public ViewTableEntities() {}
@@ -37,10 +39,12 @@ public class ViewTableEntities implements Serializable {
         this.entityParentId = value.entityParentId;
         this.entityParentGid = value.entityParentGid;
         this.entityParentName = value.entityParentName;
+        this.entityParentDisplayName = value.entityParentDisplayName;
         this.entityParentType = value.entityParentType;
         this.entityChildId = value.entityChildId;
         this.entityChildGid = value.entityChildGid;
         this.entityChildName = value.entityChildName;
+        this.entityChildDisplayName = value.entityChildDisplayName;
         this.entityChildType = value.entityChildType;
     }
 
@@ -48,19 +52,23 @@ public class ViewTableEntities implements Serializable {
         Integer entityParentId,
         String  entityParentGid,
         String  entityParentName,
+        String  entityParentDisplayName,
         String  entityParentType,
         Integer entityChildId,
         String  entityChildGid,
         String  entityChildName,
+        String  entityChildDisplayName,
         String  entityChildType
     ) {
         this.entityParentId = entityParentId;
         this.entityParentGid = entityParentGid;
         this.entityParentName = entityParentName;
+        this.entityParentDisplayName = entityParentDisplayName;
         this.entityParentType = entityParentType;
         this.entityChildId = entityChildId;
         this.entityChildGid = entityChildGid;
         this.entityChildName = entityChildName;
+        this.entityChildDisplayName = entityChildDisplayName;
         this.entityChildType = entityChildType;
     }
 
@@ -71,10 +79,12 @@ public class ViewTableEntities implements Serializable {
         sb.append(entityParentId);
         sb.append(", ").append(entityParentGid);
         sb.append(", ").append(entityParentName);
+        sb.append(", ").append(entityParentDisplayName);
         sb.append(", ").append(entityParentType);
         sb.append(", ").append(entityChildId);
         sb.append(", ").append(entityChildGid);
         sb.append(", ").append(entityChildName);
+        sb.append(", ").append(entityChildDisplayName);
         sb.append(", ").append(entityChildType);
 
         sb.append(")");

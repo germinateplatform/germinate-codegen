@@ -12,7 +12,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewTableGermplasmAt
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row12;
+import org.jooq.Row13;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -72,6 +72,14 @@ public class ViewTableGermplasmAttributes extends TableImpl<ViewTableGermplasmAt
      * A unique name which defines an entry in the germinatbase table.
      */
     public final TableField<ViewTableGermplasmAttributesRecord, String> GERMPLASM_NAME = createField(DSL.name("germplasm_name"), SQLDataType.VARCHAR(255), this, "A unique name which defines an entry in the germinatbase table.");
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_germplasm_attributes.germplasm_display_name</code>.
+     * The name to be displayed on user interfaces and to be exported to
+     * external tools like Flapjack and Helium.
+     */
+    public final TableField<ViewTableGermplasmAttributesRecord, String> GERMPLASM_DISPLAY_NAME = createField(DSL.name("germplasm_display_name"), SQLDataType.VARCHAR(255), this, "The name to be displayed on user interfaces and to be exported to external tools like Flapjack and Helium.");
 
     /**
      * The column
@@ -135,7 +143,7 @@ public class ViewTableGermplasmAttributes extends TableImpl<ViewTableGermplasmAt
     }
 
     private ViewTableGermplasmAttributes(Name alias, Table<ViewTableGermplasmAttributesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_germplasm_attributes` as select `germinate_template_4_24_02_09`.`attributedata`.`id` AS `attribute_value_id`,`germinate_template_4_24_02_09`.`germinatebase`.`id` AS `germplasm_id`,`germinate_template_4_24_02_09`.`germinatebase`.`general_identifier` AS `germplasm_gid`,`germinate_template_4_24_02_09`.`germinatebase`.`name` AS `germplasm_name`,`germinate_template_4_24_02_09`.`attributes`.`id` AS `attribute_id`,`germinate_template_4_24_02_09`.`attributes`.`name` AS `attribute_name`,`germinate_template_4_24_02_09`.`attributes`.`description` AS `attribute_description`,`germinate_template_4_24_02_09`.`attributes`.`datatype` AS `attribute_type`,`germinate_template_4_24_02_09`.`attributes`.`target_table` AS `target_table`,`germinate_template_4_24_02_09`.`attributedata`.`foreign_id` AS `foreign_id`,`germinate_template_4_24_02_09`.`attributedata`.`created_on` AS `created_on`,`germinate_template_4_24_02_09`.`attributedata`.`value` AS `attribute_value` from ((`germinate_template_4_24_02_09`.`attributedata` left join `germinate_template_4_24_02_09`.`germinatebase` on((`germinate_template_4_24_02_09`.`attributedata`.`foreign_id` = `germinate_template_4_24_02_09`.`germinatebase`.`id`))) left join `germinate_template_4_24_02_09`.`attributes` on((`germinate_template_4_24_02_09`.`attributes`.`id` = `germinate_template_4_24_02_09`.`attributedata`.`attribute_id`))) where (`germinate_template_4_24_02_09`.`attributes`.`target_table` = 'germinatebase')"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_germplasm_attributes` as select `germinate_template_4_24_09_04`.`attributedata`.`id` AS `attribute_value_id`,`germinate_template_4_24_09_04`.`germinatebase`.`id` AS `germplasm_id`,`germinate_template_4_24_09_04`.`germinatebase`.`general_identifier` AS `germplasm_gid`,`germinate_template_4_24_09_04`.`germinatebase`.`name` AS `germplasm_name`,`germinate_template_4_24_09_04`.`germinatebase`.`display_name` AS `germplasm_display_name`,`germinate_template_4_24_09_04`.`attributes`.`id` AS `attribute_id`,`germinate_template_4_24_09_04`.`attributes`.`name` AS `attribute_name`,`germinate_template_4_24_09_04`.`attributes`.`description` AS `attribute_description`,`germinate_template_4_24_09_04`.`attributes`.`datatype` AS `attribute_type`,`germinate_template_4_24_09_04`.`attributes`.`target_table` AS `target_table`,`germinate_template_4_24_09_04`.`attributedata`.`foreign_id` AS `foreign_id`,`germinate_template_4_24_09_04`.`attributedata`.`created_on` AS `created_on`,`germinate_template_4_24_09_04`.`attributedata`.`value` AS `attribute_value` from ((`germinate_template_4_24_09_04`.`attributedata` left join `germinate_template_4_24_09_04`.`germinatebase` on((`germinate_template_4_24_09_04`.`attributedata`.`foreign_id` = `germinate_template_4_24_09_04`.`germinatebase`.`id`))) left join `germinate_template_4_24_09_04`.`attributes` on((`germinate_template_4_24_09_04`.`attributes`.`id` = `germinate_template_4_24_09_04`.`attributedata`.`attribute_id`))) where (`germinate_template_4_24_09_04`.`attributes`.`target_table` = 'germinatebase')"));
     }
 
     /**
@@ -194,12 +202,12 @@ public class ViewTableGermplasmAttributes extends TableImpl<ViewTableGermplasmAt
     }
 
     // -------------------------------------------------------------------------
-    // Row12 type methods
+    // Row13 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row12<Integer, Integer, String, String, Integer, String, String, ViewTableGermplasmAttributesAttributeType, String, Integer, Timestamp, String> fieldsRow() {
-        return (Row12) super.fieldsRow();
+    public Row13<Integer, Integer, String, String, String, Integer, String, String, ViewTableGermplasmAttributesAttributeType, String, Integer, Timestamp, String> fieldsRow() {
+        return (Row13) super.fieldsRow();
     }
     // @formatter:on
 }

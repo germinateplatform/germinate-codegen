@@ -12,7 +12,7 @@ import jhi.germinate.server.database.codegen.tables.records.GerminatebaseRecord;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row13;
+import org.jooq.Row14;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -72,6 +72,13 @@ public class Germinatebase extends TableImpl<GerminatebaseRecord> {
      * which defines an entry in the germinatbase table.
      */
     public final TableField<GerminatebaseRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255).nullable(false), this, "A unique name which defines an entry in the germinatbase table.");
+
+    /**
+     * The column <code>germinate_db.germinatebase.display_name</code>. The name
+     * to be displayed on user interfaces and to be exported to external tools
+     * like Flapjack and Helium.
+     */
+    public final TableField<GerminatebaseRecord, String> DISPLAY_NAME = createField(DSL.name("display_name"), SQLDataType.VARCHAR(255).nullable(false), this, "The name to be displayed on user interfaces and to be exported to external tools like Flapjack and Helium.");
 
     /**
      * The column <code>germinate_db.germinatebase.bank_number</code>.
@@ -200,12 +207,12 @@ public class Germinatebase extends TableImpl<GerminatebaseRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row13 type methods
+    // Row14 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row13<Integer, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> fieldsRow() {
-        return (Row13) super.fieldsRow();
+    public Row14<Integer, String, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> fieldsRow() {
+        return (Row14) super.fieldsRow();
     }
     // @formatter:on
 }

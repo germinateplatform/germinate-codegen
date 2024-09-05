@@ -29,6 +29,7 @@ public class ViewTableGermplasmAttributes implements Serializable {
     private Integer                                   germplasmId;
     private String                                    germplasmGid;
     private String                                    germplasmName;
+    private String                                    germplasmDisplayName;
     private Integer                                   attributeId;
     private String                                    attributeName;
     private String                                    attributeDescription;
@@ -45,6 +46,7 @@ public class ViewTableGermplasmAttributes implements Serializable {
         this.germplasmId = value.germplasmId;
         this.germplasmGid = value.germplasmGid;
         this.germplasmName = value.germplasmName;
+        this.germplasmDisplayName = value.germplasmDisplayName;
         this.attributeId = value.attributeId;
         this.attributeName = value.attributeName;
         this.attributeDescription = value.attributeDescription;
@@ -60,6 +62,7 @@ public class ViewTableGermplasmAttributes implements Serializable {
         Integer                                   germplasmId,
         String                                    germplasmGid,
         String                                    germplasmName,
+        String                                    germplasmDisplayName,
         Integer                                   attributeId,
         String                                    attributeName,
         String                                    attributeDescription,
@@ -73,6 +76,7 @@ public class ViewTableGermplasmAttributes implements Serializable {
         this.germplasmId = germplasmId;
         this.germplasmGid = germplasmGid;
         this.germplasmName = germplasmName;
+        this.germplasmDisplayName = germplasmDisplayName;
         this.attributeId = attributeId;
         this.attributeName = attributeName;
         this.attributeDescription = attributeDescription;
@@ -91,6 +95,7 @@ public class ViewTableGermplasmAttributes implements Serializable {
         sb.append(", ").append(germplasmId);
         sb.append(", ").append(germplasmGid);
         sb.append(", ").append(germplasmName);
+        sb.append(", ").append(germplasmDisplayName);
         sb.append(", ").append(attributeId);
         sb.append(", ").append(attributeName);
         sb.append(", ").append(attributeDescription);

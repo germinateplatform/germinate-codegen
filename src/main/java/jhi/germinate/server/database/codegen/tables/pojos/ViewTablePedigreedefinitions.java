@@ -25,6 +25,7 @@ public class ViewTablePedigreedefinitions implements Serializable {
 
     private Integer   germplasmId;
     private String    germplasmName;
+    private String    germplasmDisplayName;
     private String    pedigreeNotationName;
     private String    pedigreeNotationDescription;
     private String    pedigreeNotationUrl;
@@ -42,6 +43,7 @@ public class ViewTablePedigreedefinitions implements Serializable {
     public ViewTablePedigreedefinitions(ViewTablePedigreedefinitions value) {
         this.germplasmId = value.germplasmId;
         this.germplasmName = value.germplasmName;
+        this.germplasmDisplayName = value.germplasmDisplayName;
         this.pedigreeNotationName = value.pedigreeNotationName;
         this.pedigreeNotationDescription = value.pedigreeNotationDescription;
         this.pedigreeNotationUrl = value.pedigreeNotationUrl;
@@ -58,6 +60,7 @@ public class ViewTablePedigreedefinitions implements Serializable {
     public ViewTablePedigreedefinitions(
         Integer   germplasmId,
         String    germplasmName,
+        String    germplasmDisplayName,
         String    pedigreeNotationName,
         String    pedigreeNotationDescription,
         String    pedigreeNotationUrl,
@@ -72,6 +75,7 @@ public class ViewTablePedigreedefinitions implements Serializable {
     ) {
         this.germplasmId = germplasmId;
         this.germplasmName = germplasmName;
+        this.germplasmDisplayName = germplasmDisplayName;
         this.pedigreeNotationName = pedigreeNotationName;
         this.pedigreeNotationDescription = pedigreeNotationDescription;
         this.pedigreeNotationUrl = pedigreeNotationUrl;
@@ -91,6 +95,7 @@ public class ViewTablePedigreedefinitions implements Serializable {
 
         sb.append(germplasmId);
         sb.append(", ").append(germplasmName);
+        sb.append(", ").append(germplasmDisplayName);
         sb.append(", ").append(pedigreeNotationName);
         sb.append(", ").append(pedigreeNotationDescription);
         sb.append(", ").append(pedigreeNotationUrl);

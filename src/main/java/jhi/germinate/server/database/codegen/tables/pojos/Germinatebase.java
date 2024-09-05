@@ -28,6 +28,7 @@ public class Germinatebase implements Serializable {
     private String    generalIdentifier;
     private String    number;
     private String    name;
+    private String    displayName;
     private String    bankNumber;
     private Integer   taxonomyId;
     private String    plantPassport;
@@ -45,6 +46,7 @@ public class Germinatebase implements Serializable {
         this.generalIdentifier = value.generalIdentifier;
         this.number = value.number;
         this.name = value.name;
+        this.displayName = value.displayName;
         this.bankNumber = value.bankNumber;
         this.taxonomyId = value.taxonomyId;
         this.plantPassport = value.plantPassport;
@@ -61,6 +63,7 @@ public class Germinatebase implements Serializable {
         String    generalIdentifier,
         String    number,
         String    name,
+        String    displayName,
         String    bankNumber,
         Integer   taxonomyId,
         String    plantPassport,
@@ -75,6 +78,7 @@ public class Germinatebase implements Serializable {
         this.generalIdentifier = generalIdentifier;
         this.number = number;
         this.name = name;
+        this.displayName = displayName;
         this.bankNumber = bankNumber;
         this.taxonomyId = taxonomyId;
         this.plantPassport = plantPassport;
@@ -94,6 +98,7 @@ public class Germinatebase implements Serializable {
         sb.append(", ").append(generalIdentifier);
         sb.append(", ").append(number);
         sb.append(", ").append(name);
+        sb.append(", ").append(displayName);
         sb.append(", ").append(bankNumber);
         sb.append(", ").append(taxonomyId);
         sb.append(", ").append(plantPassport);
