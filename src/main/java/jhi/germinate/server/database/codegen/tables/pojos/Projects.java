@@ -19,67 +19,72 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class Fileresources implements Serializable {
+public class Projects implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Integer   id;
     private String    name;
-    private String    path;
     private String    description;
-    private Long      filesize;
-    private Integer   fileresourcetypeId;
-    private Integer   projectId;
+    private String    pageContent;
+    private String    externalUrl;
+    private Integer   imageId;
+    private Timestamp startDate;
+    private Timestamp endDate;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
-    public Fileresources() {}
+    public Projects() {}
 
-    public Fileresources(Fileresources value) {
+    public Projects(Projects value) {
         this.id = value.id;
         this.name = value.name;
-        this.path = value.path;
         this.description = value.description;
-        this.filesize = value.filesize;
-        this.fileresourcetypeId = value.fileresourcetypeId;
-        this.projectId = value.projectId;
+        this.pageContent = value.pageContent;
+        this.externalUrl = value.externalUrl;
+        this.imageId = value.imageId;
+        this.startDate = value.startDate;
+        this.endDate = value.endDate;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
 
-    public Fileresources(
+    public Projects(
         Integer   id,
         String    name,
-        String    path,
         String    description,
-        Long      filesize,
-        Integer   fileresourcetypeId,
-        Integer   projectId,
+        String    pageContent,
+        String    externalUrl,
+        Integer   imageId,
+        Timestamp startDate,
+        Timestamp endDate,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
         this.id = id;
         this.name = name;
-        this.path = path;
         this.description = description;
-        this.filesize = filesize;
-        this.fileresourcetypeId = fileresourcetypeId;
-        this.projectId = projectId;
+        this.pageContent = pageContent;
+        this.externalUrl = externalUrl;
+        this.imageId = imageId;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Fileresources (");
+        StringBuilder sb = new StringBuilder("Projects (");
 
         sb.append(id);
         sb.append(", ").append(name);
-        sb.append(", ").append(path);
         sb.append(", ").append(description);
-        sb.append(", ").append(filesize);
-        sb.append(", ").append(fileresourcetypeId);
-        sb.append(", ").append(projectId);
+        sb.append(", ").append(pageContent);
+        sb.append(", ").append(externalUrl);
+        sb.append(", ").append(imageId);
+        sb.append(", ").append(startDate);
+        sb.append(", ").append(endDate);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

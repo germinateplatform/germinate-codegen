@@ -9,8 +9,8 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.tables.ViewTableGroups;
 
 import org.jooq.Field;
-import org.jooq.Record11;
-import org.jooq.Row11;
+import org.jooq.Record12;
+import org.jooq.Row12;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord> implements Record11<Integer, String, String, Integer, String, String, Integer, Boolean, Timestamp, Timestamp, Long> {
+public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord> implements Record12<Integer, String, String, Integer, String, String, Integer, Boolean, Timestamp, Timestamp, Integer[], Long> {
 
     private static final long serialVersionUID = 1L;
 
@@ -184,31 +184,45 @@ public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_groups.project_ids</code>.
+     */
+    public void setProjectIds(Integer[] value) {
+        set(10, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_groups.project_ids</code>.
+     */
+    public Integer[] getProjectIds() {
+        return (Integer[]) get(10);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_groups.count</code>.
      */
     public void setCount(Long value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_groups.count</code>.
      */
     public Long getCount() {
-        return (Long) get(10);
+        return (Long) get(11);
     }
 
     // -------------------------------------------------------------------------
-    // Record11 type implementation
+    // Record12 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, Integer, String, String, Integer, Boolean, Timestamp, Timestamp, Long> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row12<Integer, String, String, Integer, String, String, Integer, Boolean, Timestamp, Timestamp, Integer[], Long> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
 
     @Override
-    public Row11<Integer, String, String, Integer, String, String, Integer, Boolean, Timestamp, Timestamp, Long> valuesRow() {
-        return (Row11) super.valuesRow();
+    public Row12<Integer, String, String, Integer, String, String, Integer, Boolean, Timestamp, Timestamp, Integer[], Long> valuesRow() {
+        return (Row12) super.valuesRow();
     }
 
     @Override
@@ -262,7 +276,12 @@ public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord
     }
 
     @Override
-    public Field<Long> field11() {
+    public Field<Integer[]> field11() {
+        return ViewTableGroups.VIEW_TABLE_GROUPS.PROJECT_IDS;
+    }
+
+    @Override
+    public Field<Long> field12() {
         return ViewTableGroups.VIEW_TABLE_GROUPS.COUNT;
     }
 
@@ -317,7 +336,12 @@ public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord
     }
 
     @Override
-    public Long component11() {
+    public Integer[] component11() {
+        return getProjectIds();
+    }
+
+    @Override
+    public Long component12() {
         return getCount();
     }
 
@@ -372,7 +396,12 @@ public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord
     }
 
     @Override
-    public Long value11() {
+    public Integer[] value11() {
+        return getProjectIds();
+    }
+
+    @Override
+    public Long value12() {
         return getCount();
     }
 
@@ -437,13 +466,19 @@ public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord
     }
 
     @Override
-    public ViewTableGroupsRecord value11(Long value) {
+    public ViewTableGroupsRecord value11(Integer[] value) {
+        setProjectIds(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableGroupsRecord value12(Long value) {
         setCount(value);
         return this;
     }
 
     @Override
-    public ViewTableGroupsRecord values(Integer value1, String value2, String value3, Integer value4, String value5, String value6, Integer value7, Boolean value8, Timestamp value9, Timestamp value10, Long value11) {
+    public ViewTableGroupsRecord values(Integer value1, String value2, String value3, Integer value4, String value5, String value6, Integer value7, Boolean value8, Timestamp value9, Timestamp value10, Integer[] value11, Long value12) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -455,6 +490,7 @@ public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord
         value9(value9);
         value10(value10);
         value11(value11);
+        value12(value12);
         return this;
     }
 
@@ -472,7 +508,7 @@ public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord
     /**
      * Create a detached, initialised ViewTableGroupsRecord
      */
-    public ViewTableGroupsRecord(Integer groupId, String groupName, String groupDescription, Integer groupTypeId, String groupType, String userName, Integer userId, Boolean groupVisibility, Timestamp createdOn, Timestamp updatedOn, Long count) {
+    public ViewTableGroupsRecord(Integer groupId, String groupName, String groupDescription, Integer groupTypeId, String groupType, String userName, Integer userId, Boolean groupVisibility, Timestamp createdOn, Timestamp updatedOn, Integer[] projectIds, Long count) {
         super(ViewTableGroups.VIEW_TABLE_GROUPS);
 
         setGroupId(groupId);
@@ -485,6 +521,7 @@ public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord
         setGroupVisibility(groupVisibility);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        setProjectIds(projectIds);
         setCount(count);
     }
 
@@ -505,6 +542,7 @@ public class ViewTableGroupsRecord extends TableRecordImpl<ViewTableGroupsRecord
             setGroupVisibility(value.getGroupVisibility());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            setProjectIds(value.getProjectIds());
             setCount(value.getCount());
         }
     }

@@ -9,8 +9,8 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.tables.ViewTableFileresources;
 
 import org.jooq.Field;
-import org.jooq.Record11;
-import org.jooq.Row11;
+import org.jooq.Record14;
+import org.jooq.Row14;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFileresourcesRecord> implements Record11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer[]> {
+public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFileresourcesRecord> implements Record14<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer, String, String, Integer[]> {
 
     private static final long serialVersionUID = 1L;
 
@@ -150,12 +150,58 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_fileresources.project_id</code>.
+     */
+    public void setProjectId(Integer value) {
+        set(7, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_fileresources.project_id</code>.
+     */
+    public Integer getProjectId() {
+        return (Integer) get(7);
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_fileresources.project_name</code>.
+     */
+    public void setProjectName(String value) {
+        set(8, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_fileresources.project_name</code>.
+     */
+    public String getProjectName() {
+        return (String) get(8);
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_fileresources.project_description</code>.
+     */
+    public void setProjectDescription(String value) {
+        set(9, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_fileresources.project_description</code>.
+     */
+    public String getProjectDescription() {
+        return (String) get(9);
+    }
+
+    /**
      * Setter for
      * <code>germinate_db.view_table_fileresources.fileresourcetype_id</code>.
      * The primary id.
      */
     public void setFileresourcetypeId(Integer value) {
-        set(7, value);
+        set(10, value);
     }
 
     /**
@@ -164,7 +210,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
      * The primary id.
      */
     public Integer getFileresourcetypeId() {
-        return (Integer) get(7);
+        return (Integer) get(10);
     }
 
     /**
@@ -173,7 +219,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
      * The name of the file type.
      */
     public void setFileresourcetypeName(String value) {
-        set(8, value);
+        set(11, value);
     }
 
     /**
@@ -182,7 +228,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
      * The name of the file type.
      */
     public String getFileresourcetypeName() {
-        return (String) get(8);
+        return (String) get(11);
     }
 
     /**
@@ -191,7 +237,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
      * The description of the file type.
      */
     public void setFileresourcetypeDescription(String value) {
-        set(9, value);
+        set(12, value);
     }
 
     /**
@@ -200,7 +246,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
      * The description of the file type.
      */
     public String getFileresourcetypeDescription() {
-        return (String) get(9);
+        return (String) get(12);
     }
 
     /**
@@ -208,7 +254,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
      * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
      */
     public void setDatasetIds(Integer[] value) {
-        set(10, value);
+        set(13, value);
     }
 
     /**
@@ -216,21 +262,21 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
      * <code>germinate_db.view_table_fileresources.dataset_ids</code>.
      */
     public Integer[] getDatasetIds() {
-        return (Integer[]) get(10);
+        return (Integer[]) get(13);
     }
 
     // -------------------------------------------------------------------------
-    // Record11 type implementation
+    // Record14 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer[]> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row14<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer, String, String, Integer[]> fieldsRow() {
+        return (Row14) super.fieldsRow();
     }
 
     @Override
-    public Row11<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer[]> valuesRow() {
-        return (Row11) super.valuesRow();
+    public Row14<Integer, String, String, String, Long, Timestamp, Timestamp, Integer, String, String, Integer, String, String, Integer[]> valuesRow() {
+        return (Row14) super.valuesRow();
     }
 
     @Override
@@ -270,21 +316,36 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
 
     @Override
     public Field<Integer> field8() {
-        return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.FILERESOURCETYPE_ID;
+        return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.PROJECT_ID;
     }
 
     @Override
     public Field<String> field9() {
-        return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.FILERESOURCETYPE_NAME;
+        return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.PROJECT_NAME;
     }
 
     @Override
     public Field<String> field10() {
+        return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.PROJECT_DESCRIPTION;
+    }
+
+    @Override
+    public Field<Integer> field11() {
+        return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.FILERESOURCETYPE_ID;
+    }
+
+    @Override
+    public Field<String> field12() {
+        return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.FILERESOURCETYPE_NAME;
+    }
+
+    @Override
+    public Field<String> field13() {
         return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.FILERESOURCETYPE_DESCRIPTION;
     }
 
     @Override
-    public Field<Integer[]> field11() {
+    public Field<Integer[]> field14() {
         return ViewTableFileresources.VIEW_TABLE_FILERESOURCES.DATASET_IDS;
     }
 
@@ -325,21 +386,36 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
 
     @Override
     public Integer component8() {
-        return getFileresourcetypeId();
+        return getProjectId();
     }
 
     @Override
     public String component9() {
-        return getFileresourcetypeName();
+        return getProjectName();
     }
 
     @Override
     public String component10() {
+        return getProjectDescription();
+    }
+
+    @Override
+    public Integer component11() {
+        return getFileresourcetypeId();
+    }
+
+    @Override
+    public String component12() {
+        return getFileresourcetypeName();
+    }
+
+    @Override
+    public String component13() {
         return getFileresourcetypeDescription();
     }
 
     @Override
-    public Integer[] component11() {
+    public Integer[] component14() {
         return getDatasetIds();
     }
 
@@ -380,21 +456,36 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
 
     @Override
     public Integer value8() {
-        return getFileresourcetypeId();
+        return getProjectId();
     }
 
     @Override
     public String value9() {
-        return getFileresourcetypeName();
+        return getProjectName();
     }
 
     @Override
     public String value10() {
+        return getProjectDescription();
+    }
+
+    @Override
+    public Integer value11() {
+        return getFileresourcetypeId();
+    }
+
+    @Override
+    public String value12() {
+        return getFileresourcetypeName();
+    }
+
+    @Override
+    public String value13() {
         return getFileresourcetypeDescription();
     }
 
     @Override
-    public Integer[] value11() {
+    public Integer[] value14() {
         return getDatasetIds();
     }
 
@@ -442,30 +533,48 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
 
     @Override
     public ViewTableFileresourcesRecord value8(Integer value) {
-        setFileresourcetypeId(value);
+        setProjectId(value);
         return this;
     }
 
     @Override
     public ViewTableFileresourcesRecord value9(String value) {
-        setFileresourcetypeName(value);
+        setProjectName(value);
         return this;
     }
 
     @Override
     public ViewTableFileresourcesRecord value10(String value) {
+        setProjectDescription(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableFileresourcesRecord value11(Integer value) {
+        setFileresourcetypeId(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableFileresourcesRecord value12(String value) {
+        setFileresourcetypeName(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableFileresourcesRecord value13(String value) {
         setFileresourcetypeDescription(value);
         return this;
     }
 
     @Override
-    public ViewTableFileresourcesRecord value11(Integer[] value) {
+    public ViewTableFileresourcesRecord value14(Integer[] value) {
         setDatasetIds(value);
         return this;
     }
 
     @Override
-    public ViewTableFileresourcesRecord values(Integer value1, String value2, String value3, String value4, Long value5, Timestamp value6, Timestamp value7, Integer value8, String value9, String value10, Integer[] value11) {
+    public ViewTableFileresourcesRecord values(Integer value1, String value2, String value3, String value4, Long value5, Timestamp value6, Timestamp value7, Integer value8, String value9, String value10, Integer value11, String value12, String value13, Integer[] value14) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -477,6 +586,9 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
         value9(value9);
         value10(value10);
         value11(value11);
+        value12(value12);
+        value13(value13);
+        value14(value14);
         return this;
     }
 
@@ -494,7 +606,7 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
     /**
      * Create a detached, initialised ViewTableFileresourcesRecord
      */
-    public ViewTableFileresourcesRecord(Integer fileresourceId, String fileresourceName, String fileresourcePath, String fileresourceDescription, Long fileresourceSize, Timestamp fileresourceCreatedOn, Timestamp fileresourceUpdatedOn, Integer fileresourcetypeId, String fileresourcetypeName, String fileresourcetypeDescription, Integer[] datasetIds) {
+    public ViewTableFileresourcesRecord(Integer fileresourceId, String fileresourceName, String fileresourcePath, String fileresourceDescription, Long fileresourceSize, Timestamp fileresourceCreatedOn, Timestamp fileresourceUpdatedOn, Integer projectId, String projectName, String projectDescription, Integer fileresourcetypeId, String fileresourcetypeName, String fileresourcetypeDescription, Integer[] datasetIds) {
         super(ViewTableFileresources.VIEW_TABLE_FILERESOURCES);
 
         setFileresourceId(fileresourceId);
@@ -504,6 +616,9 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
         setFileresourceSize(fileresourceSize);
         setFileresourceCreatedOn(fileresourceCreatedOn);
         setFileresourceUpdatedOn(fileresourceUpdatedOn);
+        setProjectId(projectId);
+        setProjectName(projectName);
+        setProjectDescription(projectDescription);
         setFileresourcetypeId(fileresourcetypeId);
         setFileresourcetypeName(fileresourcetypeName);
         setFileresourcetypeDescription(fileresourcetypeDescription);
@@ -524,6 +639,9 @@ public class ViewTableFileresourcesRecord extends TableRecordImpl<ViewTableFiler
             setFileresourceSize(value.getFileresourceSize());
             setFileresourceCreatedOn(value.getFileresourceCreatedOn());
             setFileresourceUpdatedOn(value.getFileresourceUpdatedOn());
+            setProjectId(value.getProjectId());
+            setProjectName(value.getProjectName());
+            setProjectDescription(value.getProjectDescription());
             setFileresourcetypeId(value.getFileresourcetypeId());
             setFileresourcetypeName(value.getFileresourcetypeName());
             setFileresourcetypeDescription(value.getFileresourcetypeDescription());

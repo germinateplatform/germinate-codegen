@@ -31,6 +31,7 @@ public class Stories implements Serializable {
     private Integer           imageId;
     private StoryRequirements requirements;
     private Integer           publicationId;
+    private Integer           projectId;
     private Boolean           featured;
     private Boolean           visibility;
     private Integer           userId;
@@ -46,6 +47,7 @@ public class Stories implements Serializable {
         this.imageId = value.imageId;
         this.requirements = value.requirements;
         this.publicationId = value.publicationId;
+        this.projectId = value.projectId;
         this.featured = value.featured;
         this.visibility = value.visibility;
         this.userId = value.userId;
@@ -60,6 +62,7 @@ public class Stories implements Serializable {
         Integer           imageId,
         StoryRequirements requirements,
         Integer           publicationId,
+        Integer           projectId,
         Boolean           featured,
         Boolean           visibility,
         Integer           userId,
@@ -72,6 +75,7 @@ public class Stories implements Serializable {
         this.imageId = imageId;
         this.requirements = requirements;
         this.publicationId = publicationId;
+        this.projectId = projectId;
         this.featured = featured;
         this.visibility = visibility;
         this.userId = userId;
@@ -89,6 +93,7 @@ public class Stories implements Serializable {
         sb.append(", ").append(imageId);
         sb.append(", ").append(requirements);
         sb.append(", ").append(publicationId);
+        sb.append(", ").append(projectId);
         sb.append(", ").append(featured);
         sb.append(", ").append(visibility);
         sb.append(", ").append(userId);

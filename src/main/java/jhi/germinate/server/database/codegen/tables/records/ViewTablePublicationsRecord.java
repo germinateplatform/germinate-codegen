@@ -9,8 +9,8 @@ import java.sql.Timestamp;
 import jhi.germinate.server.database.codegen.tables.ViewTablePublications;
 
 import org.jooq.Field;
-import org.jooq.Record10;
-import org.jooq.Row10;
+import org.jooq.Record11;
+import org.jooq.Row11;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublicationsRecord> implements Record10<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> {
+public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublicationsRecord> implements Record11<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -148,45 +148,59 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_publications.project_ids</code>.
+     */
+    public void setProjectIds(Integer[] value) {
+        set(8, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_publications.project_ids</code>.
+     */
+    public Integer[] getProjectIds() {
+        return (Integer[]) get(8);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_publications.created_on</code>.
      */
     public void setCreatedOn(Timestamp value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_publications.created_on</code>.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(8);
+        return (Timestamp) get(9);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_publications.updated_on</code>.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(9, value);
+        set(10, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_publications.updated_on</code>.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(9);
+        return (Timestamp) get(10);
     }
 
     // -------------------------------------------------------------------------
-    // Record10 type implementation
+    // Record11 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row11<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> fieldsRow() {
+        return (Row11) super.fieldsRow();
     }
 
     @Override
-    public Row10<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> valuesRow() {
-        return (Row10) super.valuesRow();
+    public Row11<Integer, String, String, Integer, Integer[], Integer[], Integer[], Integer[], Integer[], Timestamp, Timestamp> valuesRow() {
+        return (Row11) super.valuesRow();
     }
 
     @Override
@@ -230,12 +244,17 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     }
 
     @Override
-    public Field<Timestamp> field9() {
-        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.CREATED_ON;
+    public Field<Integer[]> field9() {
+        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.PROJECT_IDS;
     }
 
     @Override
     public Field<Timestamp> field10() {
+        return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.CREATED_ON;
+    }
+
+    @Override
+    public Field<Timestamp> field11() {
         return ViewTablePublications.VIEW_TABLE_PUBLICATIONS.UPDATED_ON;
     }
 
@@ -280,12 +299,17 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     }
 
     @Override
-    public Timestamp component9() {
-        return getCreatedOn();
+    public Integer[] component9() {
+        return getProjectIds();
     }
 
     @Override
     public Timestamp component10() {
+        return getCreatedOn();
+    }
+
+    @Override
+    public Timestamp component11() {
         return getUpdatedOn();
     }
 
@@ -330,12 +354,17 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     }
 
     @Override
-    public Timestamp value9() {
-        return getCreatedOn();
+    public Integer[] value9() {
+        return getProjectIds();
     }
 
     @Override
     public Timestamp value10() {
+        return getCreatedOn();
+    }
+
+    @Override
+    public Timestamp value11() {
         return getUpdatedOn();
     }
 
@@ -388,19 +417,25 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     }
 
     @Override
-    public ViewTablePublicationsRecord value9(Timestamp value) {
-        setCreatedOn(value);
+    public ViewTablePublicationsRecord value9(Integer[] value) {
+        setProjectIds(value);
         return this;
     }
 
     @Override
     public ViewTablePublicationsRecord value10(Timestamp value) {
+        setCreatedOn(value);
+        return this;
+    }
+
+    @Override
+    public ViewTablePublicationsRecord value11(Timestamp value) {
         setUpdatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTablePublicationsRecord values(Integer value1, String value2, String value3, Integer value4, Integer[] value5, Integer[] value6, Integer[] value7, Integer[] value8, Timestamp value9, Timestamp value10) {
+    public ViewTablePublicationsRecord values(Integer value1, String value2, String value3, Integer value4, Integer[] value5, Integer[] value6, Integer[] value7, Integer[] value8, Integer[] value9, Timestamp value10, Timestamp value11) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -411,6 +446,7 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
         value8(value8);
         value9(value9);
         value10(value10);
+        value11(value11);
         return this;
     }
 
@@ -428,7 +464,7 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
     /**
      * Create a detached, initialised ViewTablePublicationsRecord
      */
-    public ViewTablePublicationsRecord(Integer publicationId, String publicationDoi, String publicationFallbackCache, Integer isDatabasePub, Integer[] datasetIds, Integer[] germplasmIds, Integer[] groupIds, Integer[] experimentIds, Timestamp createdOn, Timestamp updatedOn) {
+    public ViewTablePublicationsRecord(Integer publicationId, String publicationDoi, String publicationFallbackCache, Integer isDatabasePub, Integer[] datasetIds, Integer[] germplasmIds, Integer[] groupIds, Integer[] experimentIds, Integer[] projectIds, Timestamp createdOn, Timestamp updatedOn) {
         super(ViewTablePublications.VIEW_TABLE_PUBLICATIONS);
 
         setPublicationId(publicationId);
@@ -439,6 +475,7 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
         setGermplasmIds(germplasmIds);
         setGroupIds(groupIds);
         setExperimentIds(experimentIds);
+        setProjectIds(projectIds);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
     }
@@ -458,6 +495,7 @@ public class ViewTablePublicationsRecord extends TableRecordImpl<ViewTablePublic
             setGermplasmIds(value.getGermplasmIds());
             setGroupIds(value.getGroupIds());
             setExperimentIds(value.getExperimentIds());
+            setProjectIds(value.getProjectIds());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
         }

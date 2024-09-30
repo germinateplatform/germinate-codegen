@@ -6,12 +6,13 @@ package jhi.germinate.server.database.codegen.tables;
 
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableGroupsRecord;
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row11;
+import org.jooq.Row12;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -104,6 +105,11 @@ public class ViewTableGroups extends TableImpl<ViewTableGroupsRecord> {
     public final TableField<ViewTableGroupsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     /**
+     * The column <code>germinate_db.view_table_groups.project_ids</code>.
+     */
+    public final TableField<ViewTableGroupsRecord, Integer[]> PROJECT_IDS = createField(DSL.name("project_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
+
+    /**
      * The column <code>germinate_db.view_table_groups.count</code>.
      */
     public final TableField<ViewTableGroupsRecord, Long> COUNT = createField(DSL.name("count"), SQLDataType.BIGINT.nullable(false).defaultValue(DSL.inline("0", SQLDataType.BIGINT)), this, "");
@@ -113,7 +119,7 @@ public class ViewTableGroups extends TableImpl<ViewTableGroupsRecord> {
     }
 
     private ViewTableGroups(Name alias, Table<ViewTableGroupsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_groups` as select `germinate_template_4_24_09_04`.`groups`.`id` AS `group_id`,`germinate_template_4_24_09_04`.`groups`.`name` AS `group_name`,`germinate_template_4_24_09_04`.`groups`.`description` AS `group_description`,`germinate_template_4_24_09_04`.`grouptypes`.`id` AS `group_type_id`,`germinate_template_4_24_09_04`.`grouptypes`.`target_table` AS `group_type`,'' AS `user_name`,`germinate_template_4_24_09_04`.`groups`.`created_by` AS `user_id`,`germinate_template_4_24_09_04`.`groups`.`visibility` AS `group_visibility`,`germinate_template_4_24_09_04`.`groups`.`created_on` AS `created_on`,`germinate_template_4_24_09_04`.`groups`.`updated_on` AS `updated_on`,count(`germinate_template_4_24_09_04`.`groupmembers`.`id`) AS `count` from ((`germinate_template_4_24_09_04`.`groups` left join `germinate_template_4_24_09_04`.`grouptypes` on((`germinate_template_4_24_09_04`.`groups`.`grouptype_id` = `germinate_template_4_24_09_04`.`grouptypes`.`id`))) left join `germinate_template_4_24_09_04`.`groupmembers` on((`germinate_template_4_24_09_04`.`groupmembers`.`group_id` = `germinate_template_4_24_09_04`.`groups`.`id`))) group by `germinate_template_4_24_09_04`.`groups`.`id`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_groups` as select `germinate_template_4_24_09_27`.`groups`.`id` AS `group_id`,`germinate_template_4_24_09_27`.`groups`.`name` AS `group_name`,`germinate_template_4_24_09_27`.`groups`.`description` AS `group_description`,`germinate_template_4_24_09_27`.`grouptypes`.`id` AS `group_type_id`,`germinate_template_4_24_09_27`.`grouptypes`.`target_table` AS `group_type`,'' AS `user_name`,`germinate_template_4_24_09_27`.`groups`.`created_by` AS `user_id`,`germinate_template_4_24_09_27`.`groups`.`visibility` AS `group_visibility`,`germinate_template_4_24_09_27`.`groups`.`created_on` AS `created_on`,`germinate_template_4_24_09_27`.`groups`.`updated_on` AS `updated_on`,(select json_arrayagg(`germinate_template_4_24_09_27`.`projectgroups`.`project_id`) from `germinate_template_4_24_09_27`.`projectgroups` where (`germinate_template_4_24_09_27`.`projectgroups`.`group_id` = `germinate_template_4_24_09_27`.`groups`.`id`) group by `germinate_template_4_24_09_27`.`projectgroups`.`group_id`) AS `project_ids`,count(`germinate_template_4_24_09_27`.`groupmembers`.`id`) AS `count` from ((((`germinate_template_4_24_09_27`.`groups` left join `germinate_template_4_24_09_27`.`grouptypes` on((`germinate_template_4_24_09_27`.`groups`.`grouptype_id` = `germinate_template_4_24_09_27`.`grouptypes`.`id`))) left join `germinate_template_4_24_09_27`.`groupmembers` on((`germinate_template_4_24_09_27`.`groupmembers`.`group_id` = `germinate_template_4_24_09_27`.`groups`.`id`))) left join `germinate_template_4_24_09_27`.`projectgroups` on((`germinate_template_4_24_09_27`.`projectgroups`.`group_id` = `germinate_template_4_24_09_27`.`groups`.`id`))) left join `germinate_template_4_24_09_27`.`projects` on((`germinate_template_4_24_09_27`.`projects`.`id` = `germinate_template_4_24_09_27`.`projectgroups`.`project_id`))) group by `germinate_template_4_24_09_27`.`groups`.`id`"));
     }
 
     /**
@@ -171,12 +177,12 @@ public class ViewTableGroups extends TableImpl<ViewTableGroupsRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row11 type methods
+    // Row12 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, Integer, String, String, Integer, Boolean, Timestamp, Timestamp, Long> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row12<Integer, String, String, Integer, String, String, Integer, Boolean, Timestamp, Timestamp, Integer[], Long> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
     // @formatter:on
 }

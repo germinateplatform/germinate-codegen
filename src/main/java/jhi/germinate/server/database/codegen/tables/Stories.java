@@ -14,7 +14,7 @@ import jhi.germinate.server.database.pojo.StoryRequirements;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row11;
+import org.jooq.Row12;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -77,6 +77,11 @@ public class Stories extends TableImpl<StoriesRecord> {
      * The column <code>germinate_db.stories.publication_id</code>.
      */
     public final TableField<StoriesRecord, Integer> PUBLICATION_ID = createField(DSL.name("publication_id"), SQLDataType.INTEGER, this, "");
+
+    /**
+     * The column <code>germinate_db.stories.project_id</code>.
+     */
+    public final TableField<StoriesRecord, Integer> PROJECT_ID = createField(DSL.name("project_id"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>germinate_db.stories.featured</code>.
@@ -174,12 +179,12 @@ public class Stories extends TableImpl<StoriesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row11 type methods
+    // Row12 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<Integer, String, String, Integer, StoryRequirements, Integer, Boolean, Boolean, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row12<Integer, String, String, Integer, StoryRequirements, Integer, Integer, Boolean, Boolean, Integer, Timestamp, Timestamp> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
     // @formatter:on
 }

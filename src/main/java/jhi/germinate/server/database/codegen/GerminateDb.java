@@ -68,6 +68,10 @@ import jhi.germinate.server.database.codegen.tables.Pedigreenotations;
 import jhi.germinate.server.database.codegen.tables.Pedigrees;
 import jhi.germinate.server.database.codegen.tables.Phenotypedata;
 import jhi.germinate.server.database.codegen.tables.Phenotypes;
+import jhi.germinate.server.database.codegen.tables.Projectcollaborators;
+import jhi.germinate.server.database.codegen.tables.Projectgroups;
+import jhi.germinate.server.database.codegen.tables.Projectpublications;
+import jhi.germinate.server.database.codegen.tables.Projects;
 import jhi.germinate.server.database.codegen.tables.Publicationdata;
 import jhi.germinate.server.database.codegen.tables.Publications;
 import jhi.germinate.server.database.codegen.tables.SchemaVersion;
@@ -111,6 +115,7 @@ import jhi.germinate.server.database.codegen.tables.ViewTableMaps;
 import jhi.germinate.server.database.codegen.tables.ViewTableNews;
 import jhi.germinate.server.database.codegen.tables.ViewTablePedigreedefinitions;
 import jhi.germinate.server.database.codegen.tables.ViewTablePedigrees;
+import jhi.germinate.server.database.codegen.tables.ViewTableProjects;
 import jhi.germinate.server.database.codegen.tables.ViewTablePublications;
 import jhi.germinate.server.database.codegen.tables.ViewTableStories;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraitAttributes;
@@ -213,6 +218,10 @@ public class GerminateDb extends SchemaImpl {
             Pedigrees.PEDIGREES,
             Phenotypedata.PHENOTYPEDATA,
             Phenotypes.PHENOTYPES,
+            Projectcollaborators.PROJECTCOLLABORATORS,
+            Projectgroups.PROJECTGROUPS,
+            Projectpublications.PROJECTPUBLICATIONS,
+            Projects.PROJECTS,
             Publicationdata.PUBLICATIONDATA,
             Publications.PUBLICATIONS,
             SchemaVersion.SCHEMA_VERSION,
@@ -256,6 +265,7 @@ public class GerminateDb extends SchemaImpl {
             ViewTableNews.VIEW_TABLE_NEWS,
             ViewTablePedigreedefinitions.VIEW_TABLE_PEDIGREEDEFINITIONS,
             ViewTablePedigrees.VIEW_TABLE_PEDIGREES,
+            ViewTableProjects.VIEW_TABLE_PROJECTS,
             ViewTablePublications.VIEW_TABLE_PUBLICATIONS,
             ViewTableStories.VIEW_TABLE_STORIES,
             ViewTableTraitAttributes.VIEW_TABLE_TRAIT_ATTRIBUTES,

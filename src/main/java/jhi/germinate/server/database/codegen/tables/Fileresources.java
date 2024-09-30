@@ -12,7 +12,7 @@ import jhi.germinate.server.database.codegen.tables.records.FileresourcesRecord;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row8;
+import org.jooq.Row9;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -80,6 +80,11 @@ public class Fileresources extends TableImpl<FileresourcesRecord> {
      * Foreign key to fileresourcetypes.
      */
     public final TableField<FileresourcesRecord, Integer> FILERESOURCETYPE_ID = createField(DSL.name("fileresourcetype_id"), SQLDataType.INTEGER.nullable(false), this, "Foreign key to fileresourcetypes.");
+
+    /**
+     * The column <code>germinate_db.fileresources.project_id</code>.
+     */
+    public final TableField<FileresourcesRecord, Integer> PROJECT_ID = createField(DSL.name("project_id"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>germinate_db.fileresources.created_on</code>. When this
@@ -164,12 +169,12 @@ public class Fileresources extends TableImpl<FileresourcesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row9 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, String, String, String, Long, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row9<Integer, String, String, String, Long, Integer, Integer, Timestamp, Timestamp> fieldsRow() {
+        return (Row9) super.fieldsRow();
     }
     // @formatter:on
 }

@@ -32,6 +32,7 @@ public class ViewTablePublications implements Serializable {
     private Integer[] germplasmIds;
     private Integer[] groupIds;
     private Integer[] experimentIds;
+    private Integer[] projectIds;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -46,6 +47,7 @@ public class ViewTablePublications implements Serializable {
         this.germplasmIds = value.germplasmIds;
         this.groupIds = value.groupIds;
         this.experimentIds = value.experimentIds;
+        this.projectIds = value.projectIds;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
@@ -59,6 +61,7 @@ public class ViewTablePublications implements Serializable {
         Integer[] germplasmIds,
         Integer[] groupIds,
         Integer[] experimentIds,
+        Integer[] projectIds,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -70,6 +73,7 @@ public class ViewTablePublications implements Serializable {
         this.germplasmIds = germplasmIds;
         this.groupIds = groupIds;
         this.experimentIds = experimentIds;
+        this.projectIds = projectIds;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -86,6 +90,7 @@ public class ViewTablePublications implements Serializable {
         sb.append(", ").append(Arrays.toString(germplasmIds));
         sb.append(", ").append(Arrays.toString(groupIds));
         sb.append(", ").append(Arrays.toString(experimentIds));
+        sb.append(", ").append(Arrays.toString(projectIds));
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

@@ -13,7 +13,7 @@ import jhi.germinate.server.database.codegen.tables.records.ExperimentsRecord;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row7;
+import org.jooq.Row8;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -65,6 +65,11 @@ public class Experiments extends TableImpl<ExperimentsRecord> {
 
      */
     public final TableField<ExperimentsRecord, Integer> USER_ID = createField(DSL.name("user_id"), SQLDataType.INTEGER, this, "Foreign key to Gatekeeper users (Gatekeeper users.id).\n");
+
+    /**
+     * The column <code>germinate_db.experiments.project_id</code>.
+     */
+    public final TableField<ExperimentsRecord, Integer> PROJECT_ID = createField(DSL.name("project_id"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>germinate_db.experiments.description</code>. Describes
@@ -162,12 +167,12 @@ public class Experiments extends TableImpl<ExperimentsRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row7 type methods
+    // Row8 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Integer, String, Integer, String, Date, Timestamp, Timestamp> fieldsRow() {
-        return (Row7) super.fieldsRow();
+    public Row8<Integer, String, Integer, Integer, String, Date, Timestamp, Timestamp> fieldsRow() {
+        return (Row8) super.fieldsRow();
     }
     // @formatter:on
 }

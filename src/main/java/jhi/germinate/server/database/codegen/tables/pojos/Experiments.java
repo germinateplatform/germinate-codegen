@@ -27,6 +27,7 @@ public class Experiments implements Serializable {
     private Integer   id;
     private String    experimentName;
     private Integer   userId;
+    private Integer   projectId;
     private String    description;
     private Date      experimentDate;
     private Timestamp createdOn;
@@ -38,6 +39,7 @@ public class Experiments implements Serializable {
         this.id = value.id;
         this.experimentName = value.experimentName;
         this.userId = value.userId;
+        this.projectId = value.projectId;
         this.description = value.description;
         this.experimentDate = value.experimentDate;
         this.createdOn = value.createdOn;
@@ -48,6 +50,7 @@ public class Experiments implements Serializable {
         Integer   id,
         String    experimentName,
         Integer   userId,
+        Integer   projectId,
         String    description,
         Date      experimentDate,
         Timestamp createdOn,
@@ -56,6 +59,7 @@ public class Experiments implements Serializable {
         this.id = id;
         this.experimentName = experimentName;
         this.userId = userId;
+        this.projectId = projectId;
         this.description = description;
         this.experimentDate = experimentDate;
         this.createdOn = createdOn;
@@ -69,6 +73,7 @@ public class Experiments implements Serializable {
         sb.append(id);
         sb.append(", ").append(experimentName);
         sb.append(", ").append(userId);
+        sb.append(", ").append(projectId);
         sb.append(", ").append(description);
         sb.append(", ").append(experimentDate);
         sb.append(", ").append(createdOn);

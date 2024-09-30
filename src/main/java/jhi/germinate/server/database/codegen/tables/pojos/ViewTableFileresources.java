@@ -31,6 +31,9 @@ public class ViewTableFileresources implements Serializable {
     private Long      fileresourceSize;
     private Timestamp fileresourceCreatedOn;
     private Timestamp fileresourceUpdatedOn;
+    private Integer   projectId;
+    private String    projectName;
+    private String    projectDescription;
     private Integer   fileresourcetypeId;
     private String    fileresourcetypeName;
     private String    fileresourcetypeDescription;
@@ -46,6 +49,9 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourceSize = value.fileresourceSize;
         this.fileresourceCreatedOn = value.fileresourceCreatedOn;
         this.fileresourceUpdatedOn = value.fileresourceUpdatedOn;
+        this.projectId = value.projectId;
+        this.projectName = value.projectName;
+        this.projectDescription = value.projectDescription;
         this.fileresourcetypeId = value.fileresourcetypeId;
         this.fileresourcetypeName = value.fileresourcetypeName;
         this.fileresourcetypeDescription = value.fileresourcetypeDescription;
@@ -60,6 +66,9 @@ public class ViewTableFileresources implements Serializable {
         Long      fileresourceSize,
         Timestamp fileresourceCreatedOn,
         Timestamp fileresourceUpdatedOn,
+        Integer   projectId,
+        String    projectName,
+        String    projectDescription,
         Integer   fileresourcetypeId,
         String    fileresourcetypeName,
         String    fileresourcetypeDescription,
@@ -72,6 +81,9 @@ public class ViewTableFileresources implements Serializable {
         this.fileresourceSize = fileresourceSize;
         this.fileresourceCreatedOn = fileresourceCreatedOn;
         this.fileresourceUpdatedOn = fileresourceUpdatedOn;
+        this.projectId = projectId;
+        this.projectName = projectName;
+        this.projectDescription = projectDescription;
         this.fileresourcetypeId = fileresourcetypeId;
         this.fileresourcetypeName = fileresourcetypeName;
         this.fileresourcetypeDescription = fileresourcetypeDescription;
@@ -89,6 +101,9 @@ public class ViewTableFileresources implements Serializable {
         sb.append(", ").append(fileresourceSize);
         sb.append(", ").append(fileresourceCreatedOn);
         sb.append(", ").append(fileresourceUpdatedOn);
+        sb.append(", ").append(projectId);
+        sb.append(", ").append(projectName);
+        sb.append(", ").append(projectDescription);
         sb.append(", ").append(fileresourcetypeId);
         sb.append(", ").append(fileresourcetypeName);
         sb.append(", ").append(fileresourcetypeDescription);

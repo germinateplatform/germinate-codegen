@@ -39,6 +39,9 @@ public class ViewTableDatasets implements Serializable {
     private Integer              experimentId;
     private String               experimentName;
     private String               experimentDescription;
+    private Integer              projectId;
+    private String               projectName;
+    private String               projectDescription;
     private String               datatype;
     private String               datasetState;
     private ViewTableLocations[] locations;
@@ -72,6 +75,9 @@ public class ViewTableDatasets implements Serializable {
         this.experimentId = value.experimentId;
         this.experimentName = value.experimentName;
         this.experimentDescription = value.experimentDescription;
+        this.projectId = value.projectId;
+        this.projectName = value.projectName;
+        this.projectDescription = value.projectDescription;
         this.datatype = value.datatype;
         this.datasetState = value.datasetState;
         this.locations = value.locations;
@@ -104,6 +110,9 @@ public class ViewTableDatasets implements Serializable {
         Integer              experimentId,
         String               experimentName,
         String               experimentDescription,
+        Integer              projectId,
+        String               projectName,
+        String               projectDescription,
         String               datatype,
         String               datasetState,
         ViewTableLocations[] locations,
@@ -134,6 +143,9 @@ public class ViewTableDatasets implements Serializable {
         this.experimentId = experimentId;
         this.experimentName = experimentName;
         this.experimentDescription = experimentDescription;
+        this.projectId = projectId;
+        this.projectName = projectName;
+        this.projectDescription = projectDescription;
         this.datatype = datatype;
         this.datasetState = datasetState;
         this.locations = locations;
@@ -169,6 +181,9 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(experimentId);
         sb.append(", ").append(experimentName);
         sb.append(", ").append(experimentDescription);
+        sb.append(", ").append(projectId);
+        sb.append(", ").append(projectName);
+        sb.append(", ").append(projectDescription);
         sb.append(", ").append(datatype);
         sb.append(", ").append(datasetState);
         sb.append(", ").append(Arrays.toString(locations));

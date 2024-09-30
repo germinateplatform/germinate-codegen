@@ -20,7 +20,7 @@
             <excludes>
             </excludes>
             <includes>.*</includes>
-            <inputSchema>germinate_template_4_24_09_04</inputSchema>
+            <inputSchema>germinate_template_4_24_09_27</inputSchema>
             <outputSchema>germinate_db</outputSchema>
             <name>org.jooq.meta.mysql.MySQLDatabase</name>
             <comments>
@@ -174,6 +174,12 @@
                     <userType>jhi.germinate.server.database.codegen.tables.pojos.Storysteps[]</userType>
                 </forcedType>
                 <forcedType>
+                    <binding>jhi.germinate.server.database.binding.DatasetArrayBinding</binding>
+                    <expression>.*(view_table_projects)\.(datasets)</expression>
+                    <types>.*</types>
+                    <userType>jhi.germinate.server.database.pojo.Dataset[]</userType>
+                </forcedType>
+                <forcedType>
                     <binding>jhi.germinate.server.database.binding.StoryStepConfigBinding</binding>
                     <expression>.*(storysteps)\.(page_config)</expression>
                     <types>.*json.*</types>
@@ -208,7 +214,7 @@
                 <value></value>
             </property>
         </properties>
-        <url>jdbc:mysql://localhost/germinate_template_4_24_09_04?serverTimezone=UTC</url>
+        <url>jdbc:mysql://localhost/germinate_template_4_24_09_27?serverTimezone=UTC</url>
 
         <!-- You can also pass user/password and other JDBC properties in the optional properties tag: -->
         <user>root</user>

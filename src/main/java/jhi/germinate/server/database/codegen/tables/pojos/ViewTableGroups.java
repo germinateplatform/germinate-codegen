@@ -6,6 +6,7 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 
 import lombok.*;
@@ -33,6 +34,7 @@ public class ViewTableGroups implements Serializable {
     private Boolean   groupVisibility;
     private Timestamp createdOn;
     private Timestamp updatedOn;
+    private Integer[] projectIds;
     private Long      count;
 
     public ViewTableGroups() {}
@@ -48,6 +50,7 @@ public class ViewTableGroups implements Serializable {
         this.groupVisibility = value.groupVisibility;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
+        this.projectIds = value.projectIds;
         this.count = value.count;
     }
 
@@ -62,6 +65,7 @@ public class ViewTableGroups implements Serializable {
         Boolean   groupVisibility,
         Timestamp createdOn,
         Timestamp updatedOn,
+        Integer[] projectIds,
         Long      count
     ) {
         this.groupId = groupId;
@@ -74,6 +78,7 @@ public class ViewTableGroups implements Serializable {
         this.groupVisibility = groupVisibility;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+        this.projectIds = projectIds;
         this.count = count;
     }
 
@@ -91,6 +96,7 @@ public class ViewTableGroups implements Serializable {
         sb.append(", ").append(groupVisibility);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
+        sb.append(", ").append(Arrays.toString(projectIds));
         sb.append(", ").append(count);
 
         sb.append(")");

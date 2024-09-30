@@ -32,6 +32,9 @@ public class ViewTableStories implements Serializable {
     private StoryRequirements storyRequirements;
     private Integer           storyImageId;
     private String            storyImageName;
+    private Integer           projectId;
+    private String            projectName;
+    private String            projectDescription;
     private Boolean           storyFeatured;
     private Boolean           storyVisibility;
     private Integer           storyUserId;
@@ -50,6 +53,9 @@ public class ViewTableStories implements Serializable {
         this.storyRequirements = value.storyRequirements;
         this.storyImageId = value.storyImageId;
         this.storyImageName = value.storyImageName;
+        this.projectId = value.projectId;
+        this.projectName = value.projectName;
+        this.projectDescription = value.projectDescription;
         this.storyFeatured = value.storyFeatured;
         this.storyVisibility = value.storyVisibility;
         this.storyUserId = value.storyUserId;
@@ -67,6 +73,9 @@ public class ViewTableStories implements Serializable {
         StoryRequirements storyRequirements,
         Integer           storyImageId,
         String            storyImageName,
+        Integer           projectId,
+        String            projectName,
+        String            projectDescription,
         Boolean           storyFeatured,
         Boolean           storyVisibility,
         Integer           storyUserId,
@@ -82,6 +91,9 @@ public class ViewTableStories implements Serializable {
         this.storyRequirements = storyRequirements;
         this.storyImageId = storyImageId;
         this.storyImageName = storyImageName;
+        this.projectId = projectId;
+        this.projectName = projectName;
+        this.projectDescription = projectDescription;
         this.storyFeatured = storyFeatured;
         this.storyVisibility = storyVisibility;
         this.storyUserId = storyUserId;
@@ -102,6 +114,9 @@ public class ViewTableStories implements Serializable {
         sb.append(", ").append(storyRequirements);
         sb.append(", ").append(storyImageId);
         sb.append(", ").append(storyImageName);
+        sb.append(", ").append(projectId);
+        sb.append(", ").append(projectName);
+        sb.append(", ").append(projectDescription);
         sb.append(", ").append(storyFeatured);
         sb.append(", ").append(storyVisibility);
         sb.append(", ").append(storyUserId);
