@@ -4,12 +4,13 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableCollaboratorsRecord;
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row15;
+import org.jooq.Row16;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -151,12 +152,18 @@ public class ViewTableCollaborators extends TableImpl<ViewTableCollaboratorsReco
      */
     public final TableField<ViewTableCollaboratorsRecord, String> COUNTRY_CODE3 = createField(DSL.name("country_code3"), SQLDataType.CHAR(3).defaultValue(DSL.inline("", SQLDataType.CHAR)), this, "ISO 3 Code for country.");
 
+    /**
+     * The column
+     * <code>germinate_db.view_table_collaborators.project_ids</code>.
+     */
+    public final TableField<ViewTableCollaboratorsRecord, Integer[]> PROJECT_IDS = createField(DSL.name("project_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
+
     private ViewTableCollaborators(Name alias, Table<ViewTableCollaboratorsRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private ViewTableCollaborators(Name alias, Table<ViewTableCollaboratorsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_collaborators` as select `germinate_template_4_24_09_27`.`collaborators`.`id` AS `collaborator_id`,`germinate_template_4_24_09_27`.`collaborators`.`first_name` AS `collaborator_first_name`,`germinate_template_4_24_09_27`.`collaborators`.`last_name` AS `collaborator_last_name`,`germinate_template_4_24_09_27`.`collaborators`.`external_id` AS `collaborator_external_id`,`germinate_template_4_24_09_27`.`collaborators`.`email` AS `collaborator_email`,`germinate_template_4_24_09_27`.`collaborators`.`phone` AS `collaborator_phone`,`germinate_template_4_24_09_27`.`datasetcollaborators`.`collaborator_roles` AS `collaborator_roles`,`germinate_template_4_24_09_27`.`institutions`.`id` AS `institution_id`,`germinate_template_4_24_09_27`.`institutions`.`name` AS `institution_name`,`germinate_template_4_24_09_27`.`institutions`.`address` AS `institution_address`,`germinate_template_4_24_09_27`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_24_09_27`.`countries`.`id` AS `country_id`,`germinate_template_4_24_09_27`.`countries`.`country_name` AS `country_name`,`germinate_template_4_24_09_27`.`countries`.`country_code2` AS `country_code2`,`germinate_template_4_24_09_27`.`countries`.`country_code3` AS `country_code3` from ((((`germinate_template_4_24_09_27`.`collaborators` left join `germinate_template_4_24_09_27`.`institutions` on((`germinate_template_4_24_09_27`.`institutions`.`id` = `germinate_template_4_24_09_27`.`collaborators`.`institution_id`))) left join `germinate_template_4_24_09_27`.`countries` on((`germinate_template_4_24_09_27`.`countries`.`id` = `germinate_template_4_24_09_27`.`institutions`.`country_id`))) left join `germinate_template_4_24_09_27`.`datasetcollaborators` on((`germinate_template_4_24_09_27`.`datasetcollaborators`.`collaborator_id` = `germinate_template_4_24_09_27`.`collaborators`.`id`))) left join `germinate_template_4_24_09_27`.`datasets` on((`germinate_template_4_24_09_27`.`datasets`.`id` = `germinate_template_4_24_09_27`.`datasetcollaborators`.`dataset_id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_collaborators` as select `germinate_template_4_24_09_27`.`collaborators`.`id` AS `collaborator_id`,`germinate_template_4_24_09_27`.`collaborators`.`first_name` AS `collaborator_first_name`,`germinate_template_4_24_09_27`.`collaborators`.`last_name` AS `collaborator_last_name`,`germinate_template_4_24_09_27`.`collaborators`.`external_id` AS `collaborator_external_id`,`germinate_template_4_24_09_27`.`collaborators`.`email` AS `collaborator_email`,`germinate_template_4_24_09_27`.`collaborators`.`phone` AS `collaborator_phone`,`germinate_template_4_24_09_27`.`datasetcollaborators`.`collaborator_roles` AS `collaborator_roles`,`germinate_template_4_24_09_27`.`institutions`.`id` AS `institution_id`,`germinate_template_4_24_09_27`.`institutions`.`name` AS `institution_name`,`germinate_template_4_24_09_27`.`institutions`.`address` AS `institution_address`,`germinate_template_4_24_09_27`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_24_09_27`.`countries`.`id` AS `country_id`,`germinate_template_4_24_09_27`.`countries`.`country_name` AS `country_name`,`germinate_template_4_24_09_27`.`countries`.`country_code2` AS `country_code2`,`germinate_template_4_24_09_27`.`countries`.`country_code3` AS `country_code3`,(select json_arrayagg(`germinate_template_4_24_09_27`.`projectcollaborators`.`project_id`) from `germinate_template_4_24_09_27`.`projectcollaborators` where (`germinate_template_4_24_09_27`.`projectcollaborators`.`collaborator_id` = `germinate_template_4_24_09_27`.`collaborators`.`id`) group by `germinate_template_4_24_09_27`.`projectcollaborators`.`collaborator_id`) AS `project_ids` from ((((`germinate_template_4_24_09_27`.`collaborators` left join `germinate_template_4_24_09_27`.`institutions` on((`germinate_template_4_24_09_27`.`institutions`.`id` = `germinate_template_4_24_09_27`.`collaborators`.`institution_id`))) left join `germinate_template_4_24_09_27`.`countries` on((`germinate_template_4_24_09_27`.`countries`.`id` = `germinate_template_4_24_09_27`.`institutions`.`country_id`))) left join `germinate_template_4_24_09_27`.`datasetcollaborators` on((`germinate_template_4_24_09_27`.`datasetcollaborators`.`collaborator_id` = `germinate_template_4_24_09_27`.`collaborators`.`id`))) left join `germinate_template_4_24_09_27`.`datasets` on((`germinate_template_4_24_09_27`.`datasets`.`id` = `germinate_template_4_24_09_27`.`datasetcollaborators`.`dataset_id`)))"));
     }
 
     /**
@@ -215,12 +222,12 @@ public class ViewTableCollaborators extends TableImpl<ViewTableCollaboratorsReco
     }
 
     // -------------------------------------------------------------------------
-    // Row15 type methods
+    // Row16 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row15<Integer, String, String, String, String, String, String, Integer, String, String, Integer, Integer, String, String, String> fieldsRow() {
-        return (Row15) super.fieldsRow();
+    public Row16<Integer, String, String, String, String, String, String, Integer, String, String, Integer, Integer, String, String, String, Integer[]> fieldsRow() {
+        return (Row16) super.fieldsRow();
     }
     // @formatter:on
 }

@@ -5,6 +5,7 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 
 import lombok.*;
@@ -22,21 +23,22 @@ public class ViewTableCollaborators implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer collaboratorId;
-    private String  collaboratorFirstName;
-    private String  collaboratorLastName;
-    private String  collaboratorExternalId;
-    private String  collaboratorEmail;
-    private String  collaboratorPhone;
-    private String  collaboratorRoles;
-    private Integer institutionId;
-    private String  institutionName;
-    private String  institutionAddress;
-    private Integer datasetId;
-    private Integer countryId;
-    private String  countryName;
-    private String  countryCode2;
-    private String  countryCode3;
+    private Integer   collaboratorId;
+    private String    collaboratorFirstName;
+    private String    collaboratorLastName;
+    private String    collaboratorExternalId;
+    private String    collaboratorEmail;
+    private String    collaboratorPhone;
+    private String    collaboratorRoles;
+    private Integer   institutionId;
+    private String    institutionName;
+    private String    institutionAddress;
+    private Integer   datasetId;
+    private Integer   countryId;
+    private String    countryName;
+    private String    countryCode2;
+    private String    countryCode3;
+    private Integer[] projectIds;
 
     public ViewTableCollaborators() {}
 
@@ -56,24 +58,26 @@ public class ViewTableCollaborators implements Serializable {
         this.countryName = value.countryName;
         this.countryCode2 = value.countryCode2;
         this.countryCode3 = value.countryCode3;
+        this.projectIds = value.projectIds;
     }
 
     public ViewTableCollaborators(
-        Integer collaboratorId,
-        String  collaboratorFirstName,
-        String  collaboratorLastName,
-        String  collaboratorExternalId,
-        String  collaboratorEmail,
-        String  collaboratorPhone,
-        String  collaboratorRoles,
-        Integer institutionId,
-        String  institutionName,
-        String  institutionAddress,
-        Integer datasetId,
-        Integer countryId,
-        String  countryName,
-        String  countryCode2,
-        String  countryCode3
+        Integer   collaboratorId,
+        String    collaboratorFirstName,
+        String    collaboratorLastName,
+        String    collaboratorExternalId,
+        String    collaboratorEmail,
+        String    collaboratorPhone,
+        String    collaboratorRoles,
+        Integer   institutionId,
+        String    institutionName,
+        String    institutionAddress,
+        Integer   datasetId,
+        Integer   countryId,
+        String    countryName,
+        String    countryCode2,
+        String    countryCode3,
+        Integer[] projectIds
     ) {
         this.collaboratorId = collaboratorId;
         this.collaboratorFirstName = collaboratorFirstName;
@@ -90,6 +94,7 @@ public class ViewTableCollaborators implements Serializable {
         this.countryName = countryName;
         this.countryCode2 = countryCode2;
         this.countryCode3 = countryCode3;
+        this.projectIds = projectIds;
     }
 
     @Override
@@ -111,6 +116,7 @@ public class ViewTableCollaborators implements Serializable {
         sb.append(", ").append(countryName);
         sb.append(", ").append(countryCode2);
         sb.append(", ").append(countryCode3);
+        sb.append(", ").append(Arrays.toString(projectIds));
 
         sb.append(")");
         return sb.toString();

@@ -7,8 +7,8 @@ package jhi.germinate.server.database.codegen.tables.records;
 import jhi.germinate.server.database.codegen.tables.ViewTableCollaborators;
 
 import org.jooq.Field;
-import org.jooq.Record15;
-import org.jooq.Row15;
+import org.jooq.Record16;
+import org.jooq.Row16;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -17,7 +17,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableCollaboratorsRecord> implements Record15<Integer, String, String, String, String, String, String, Integer, String, String, Integer, Integer, String, String, String> {
+public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableCollaboratorsRecord> implements Record16<Integer, String, String, String, String, String, String, Integer, String, String, Integer, Integer, String, String, String, Integer[]> {
 
     private static final long serialVersionUID = 1L;
 
@@ -299,18 +299,34 @@ public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableColla
         return (String) get(14);
     }
 
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_collaborators.project_ids</code>.
+     */
+    public void setProjectIds(Integer[] value) {
+        set(15, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_collaborators.project_ids</code>.
+     */
+    public Integer[] getProjectIds() {
+        return (Integer[]) get(15);
+    }
+
     // -------------------------------------------------------------------------
-    // Record15 type implementation
+    // Record16 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row15<Integer, String, String, String, String, String, String, Integer, String, String, Integer, Integer, String, String, String> fieldsRow() {
-        return (Row15) super.fieldsRow();
+    public Row16<Integer, String, String, String, String, String, String, Integer, String, String, Integer, Integer, String, String, String, Integer[]> fieldsRow() {
+        return (Row16) super.fieldsRow();
     }
 
     @Override
-    public Row15<Integer, String, String, String, String, String, String, Integer, String, String, Integer, Integer, String, String, String> valuesRow() {
-        return (Row15) super.valuesRow();
+    public Row16<Integer, String, String, String, String, String, String, Integer, String, String, Integer, Integer, String, String, String, Integer[]> valuesRow() {
+        return (Row16) super.valuesRow();
     }
 
     @Override
@@ -389,6 +405,11 @@ public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableColla
     }
 
     @Override
+    public Field<Integer[]> field16() {
+        return ViewTableCollaborators.VIEW_TABLE_COLLABORATORS.PROJECT_IDS;
+    }
+
+    @Override
     public Integer component1() {
         return getCollaboratorId();
     }
@@ -464,6 +485,11 @@ public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableColla
     }
 
     @Override
+    public Integer[] component16() {
+        return getProjectIds();
+    }
+
+    @Override
     public Integer value1() {
         return getCollaboratorId();
     }
@@ -536,6 +562,11 @@ public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableColla
     @Override
     public String value15() {
         return getCountryCode3();
+    }
+
+    @Override
+    public Integer[] value16() {
+        return getProjectIds();
     }
 
     @Override
@@ -629,7 +660,13 @@ public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableColla
     }
 
     @Override
-    public ViewTableCollaboratorsRecord values(Integer value1, String value2, String value3, String value4, String value5, String value6, String value7, Integer value8, String value9, String value10, Integer value11, Integer value12, String value13, String value14, String value15) {
+    public ViewTableCollaboratorsRecord value16(Integer[] value) {
+        setProjectIds(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableCollaboratorsRecord values(Integer value1, String value2, String value3, String value4, String value5, String value6, String value7, Integer value8, String value9, String value10, Integer value11, Integer value12, String value13, String value14, String value15, Integer[] value16) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -645,6 +682,7 @@ public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableColla
         value13(value13);
         value14(value14);
         value15(value15);
+        value16(value16);
         return this;
     }
 
@@ -662,7 +700,7 @@ public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableColla
     /**
      * Create a detached, initialised ViewTableCollaboratorsRecord
      */
-    public ViewTableCollaboratorsRecord(Integer collaboratorId, String collaboratorFirstName, String collaboratorLastName, String collaboratorExternalId, String collaboratorEmail, String collaboratorPhone, String collaboratorRoles, Integer institutionId, String institutionName, String institutionAddress, Integer datasetId, Integer countryId, String countryName, String countryCode2, String countryCode3) {
+    public ViewTableCollaboratorsRecord(Integer collaboratorId, String collaboratorFirstName, String collaboratorLastName, String collaboratorExternalId, String collaboratorEmail, String collaboratorPhone, String collaboratorRoles, Integer institutionId, String institutionName, String institutionAddress, Integer datasetId, Integer countryId, String countryName, String countryCode2, String countryCode3, Integer[] projectIds) {
         super(ViewTableCollaborators.VIEW_TABLE_COLLABORATORS);
 
         setCollaboratorId(collaboratorId);
@@ -680,6 +718,7 @@ public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableColla
         setCountryName(countryName);
         setCountryCode2(countryCode2);
         setCountryCode3(countryCode3);
+        setProjectIds(projectIds);
     }
 
     /**
@@ -704,6 +743,7 @@ public class ViewTableCollaboratorsRecord extends TableRecordImpl<ViewTableColla
             setCountryName(value.getCountryName());
             setCountryCode2(value.getCountryCode2());
             setCountryCode3(value.getCountryCode3());
+            setProjectIds(value.getProjectIds());
         }
     }
     // @formatter:on
