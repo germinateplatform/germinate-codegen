@@ -30,11 +30,13 @@ import jhi.germinate.server.database.codegen.tables.Datasetpermissions;
 import jhi.germinate.server.database.codegen.tables.Datasets;
 import jhi.germinate.server.database.codegen.tables.Datasetstates;
 import jhi.germinate.server.database.codegen.tables.Datasettypes;
+import jhi.germinate.server.database.codegen.tables.Datawarnings;
 import jhi.germinate.server.database.codegen.tables.Entitytypes;
 import jhi.germinate.server.database.codegen.tables.Experiments;
 import jhi.germinate.server.database.codegen.tables.Fileresources;
 import jhi.germinate.server.database.codegen.tables.Fileresourcetypes;
 import jhi.germinate.server.database.codegen.tables.Germinatebase;
+import jhi.germinate.server.database.codegen.tables.Germplasmdatawarnings;
 import jhi.germinate.server.database.codegen.tables.Germplasminstitutions;
 import jhi.germinate.server.database.codegen.tables.Groupmembers;
 import jhi.germinate.server.database.codegen.tables.Groups;
@@ -180,11 +182,13 @@ public class GerminateDb extends SchemaImpl {
             Datasets.DATASETS,
             Datasetstates.DATASETSTATES,
             Datasettypes.DATASETTYPES,
+            Datawarnings.DATAWARNINGS,
             Entitytypes.ENTITYTYPES,
             Experiments.EXPERIMENTS,
             Fileresources.FILERESOURCES,
             Fileresourcetypes.FILERESOURCETYPES,
             Germinatebase.GERMINATEBASE,
+            Germplasmdatawarnings.GERMPLASMDATAWARNINGS,
             Germplasminstitutions.GERMPLASMINSTITUTIONS,
             Groupmembers.GROUPMEMBERS,
             Groups.GROUPS,
