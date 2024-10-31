@@ -54,6 +54,12 @@
                     <userType>jhi.germinate.server.database.codegen.tables.pojos.ViewTableLocations[]</userType>
                 </forcedType>
                 <forcedType>
+                    <binding>jhi.germinate.server.database.binding.DatasetInstitutionBinding</binding>
+                    <expression>.*(view_table_datasets)\.(institutions)</expression>
+                    <types>.*</types>
+                    <userType>jhi.germinate.server.database.codegen.tables.pojos.ViewTableInstitutions[]</userType>
+                </forcedType>
+                <forcedType>
                     <binding>jhi.germinate.server.database.binding.GermplasmInstitutionBinding</binding>
                     <expression>.*(view_table_germplasm_deprecated)\.(institutions)</expression>
                     <types>.*</types>

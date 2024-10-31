@@ -29,38 +29,39 @@ public class ViewTableDatasets implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer              datasetId;
-    private String               datasetName;
-    private String               datasetDescription;
-    private String               hyperlink;
-    private String               sourceFile;
-    private String               version;
-    private String               datasetType;
-    private Integer              experimentId;
-    private String               experimentName;
-    private String               experimentDescription;
-    private Integer              projectId;
-    private String               projectName;
-    private String               projectDescription;
-    private String               datatype;
-    private String               datasetState;
-    private ViewTableLocations[] locations;
-    private Integer              licenseId;
-    private String               licenseName;
-    private String               contact;
-    private Date                 startDate;
-    private Date                 endDate;
-    private DublinCore           dublinCore;
-    private Timestamp            createdOn;
-    private Timestamp            updatedOn;
-    private ULong                dataObjectCount;
-    private ULong                dataPointCount;
-    private Boolean              isExternal;
-    private Long                 publications;
-    private Integer[]            fileresourceIds;
-    private Long                 collaborators;
-    private Long                 attributes;
-    private Integer[]            acceptedBy;
+    private Integer                 datasetId;
+    private String                  datasetName;
+    private String                  datasetDescription;
+    private String                  hyperlink;
+    private String                  sourceFile;
+    private String                  version;
+    private String                  datasetType;
+    private Integer                 experimentId;
+    private String                  experimentName;
+    private String                  experimentDescription;
+    private Integer                 projectId;
+    private String                  projectName;
+    private String                  projectDescription;
+    private String                  datatype;
+    private String                  datasetState;
+    private ViewTableLocations[]    locations;
+    private ViewTableInstitutions[] institutions;
+    private Integer                 licenseId;
+    private String                  licenseName;
+    private String                  contact;
+    private Date                    startDate;
+    private Date                    endDate;
+    private DublinCore              dublinCore;
+    private Timestamp               createdOn;
+    private Timestamp               updatedOn;
+    private ULong                   dataObjectCount;
+    private ULong                   dataPointCount;
+    private Boolean                 isExternal;
+    private Long                    publications;
+    private Integer[]               fileresourceIds;
+    private Long                    collaborators;
+    private Long                    attributes;
+    private Integer[]               acceptedBy;
 
     public ViewTableDatasets() {}
 
@@ -81,6 +82,7 @@ public class ViewTableDatasets implements Serializable {
         this.datatype = value.datatype;
         this.datasetState = value.datasetState;
         this.locations = value.locations;
+        this.institutions = value.institutions;
         this.licenseId = value.licenseId;
         this.licenseName = value.licenseName;
         this.contact = value.contact;
@@ -100,38 +102,39 @@ public class ViewTableDatasets implements Serializable {
     }
 
     public ViewTableDatasets(
-        Integer              datasetId,
-        String               datasetName,
-        String               datasetDescription,
-        String               hyperlink,
-        String               sourceFile,
-        String               version,
-        String               datasetType,
-        Integer              experimentId,
-        String               experimentName,
-        String               experimentDescription,
-        Integer              projectId,
-        String               projectName,
-        String               projectDescription,
-        String               datatype,
-        String               datasetState,
-        ViewTableLocations[] locations,
-        Integer              licenseId,
-        String               licenseName,
-        String               contact,
-        Date                 startDate,
-        Date                 endDate,
-        DublinCore           dublinCore,
-        Timestamp            createdOn,
-        Timestamp            updatedOn,
-        ULong                dataObjectCount,
-        ULong                dataPointCount,
-        Boolean              isExternal,
-        Long                 publications,
-        Integer[]            fileresourceIds,
-        Long                 collaborators,
-        Long                 attributes,
-        Integer[]            acceptedBy
+        Integer                 datasetId,
+        String                  datasetName,
+        String                  datasetDescription,
+        String                  hyperlink,
+        String                  sourceFile,
+        String                  version,
+        String                  datasetType,
+        Integer                 experimentId,
+        String                  experimentName,
+        String                  experimentDescription,
+        Integer                 projectId,
+        String                  projectName,
+        String                  projectDescription,
+        String                  datatype,
+        String                  datasetState,
+        ViewTableLocations[]    locations,
+        ViewTableInstitutions[] institutions,
+        Integer                 licenseId,
+        String                  licenseName,
+        String                  contact,
+        Date                    startDate,
+        Date                    endDate,
+        DublinCore              dublinCore,
+        Timestamp               createdOn,
+        Timestamp               updatedOn,
+        ULong                   dataObjectCount,
+        ULong                   dataPointCount,
+        Boolean                 isExternal,
+        Long                    publications,
+        Integer[]               fileresourceIds,
+        Long                    collaborators,
+        Long                    attributes,
+        Integer[]               acceptedBy
     ) {
         this.datasetId = datasetId;
         this.datasetName = datasetName;
@@ -149,6 +152,7 @@ public class ViewTableDatasets implements Serializable {
         this.datatype = datatype;
         this.datasetState = datasetState;
         this.locations = locations;
+        this.institutions = institutions;
         this.licenseId = licenseId;
         this.licenseName = licenseName;
         this.contact = contact;
@@ -187,6 +191,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(datatype);
         sb.append(", ").append(datasetState);
         sb.append(", ").append(Arrays.toString(locations));
+        sb.append(", ").append(Arrays.toString(institutions));
         sb.append(", ").append(licenseId);
         sb.append(", ").append(licenseName);
         sb.append(", ").append(contact);
