@@ -7,8 +7,6 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import jhi.germinate.server.database.pojo.Exif;
-
 
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -21,67 +19,47 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class Images implements Serializable {
+public class Phenotypecategories implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Integer   id;
-    private Integer   imagetypeId;
+    private String    name;
     private String    description;
-    private Integer   foreignId;
-    private String    path;
-    private Exif      exif;
-    private Boolean   isReference;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
-    public Images() {}
+    public Phenotypecategories() {}
 
-    public Images(Images value) {
+    public Phenotypecategories(Phenotypecategories value) {
         this.id = value.id;
-        this.imagetypeId = value.imagetypeId;
+        this.name = value.name;
         this.description = value.description;
-        this.foreignId = value.foreignId;
-        this.path = value.path;
-        this.exif = value.exif;
-        this.isReference = value.isReference;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
 
-    public Images(
+    public Phenotypecategories(
         Integer   id,
-        Integer   imagetypeId,
+        String    name,
         String    description,
-        Integer   foreignId,
-        String    path,
-        Exif      exif,
-        Boolean   isReference,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
         this.id = id;
-        this.imagetypeId = imagetypeId;
+        this.name = name;
         this.description = description;
-        this.foreignId = foreignId;
-        this.path = path;
-        this.exif = exif;
-        this.isReference = isReference;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Images (");
+        StringBuilder sb = new StringBuilder("Phenotypecategories (");
 
         sb.append(id);
-        sb.append(", ").append(imagetypeId);
+        sb.append(", ").append(name);
         sb.append(", ").append(description);
-        sb.append(", ").append(foreignId);
-        sb.append(", ").append(path);
-        sb.append(", ").append(exif);
-        sb.append(", ").append(isReference);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

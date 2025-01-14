@@ -30,6 +30,7 @@ public class ViewTableImages implements Serializable {
     private Integer    imageId;
     private String     imageDescription;
     private Integer    imageForeignId;
+    private Boolean    imageIsReference;
     private String     imagePath;
     private Exif       imageExif;
     private String     imageType;
@@ -44,6 +45,7 @@ public class ViewTableImages implements Serializable {
         this.imageId = value.imageId;
         this.imageDescription = value.imageDescription;
         this.imageForeignId = value.imageForeignId;
+        this.imageIsReference = value.imageIsReference;
         this.imagePath = value.imagePath;
         this.imageExif = value.imageExif;
         this.imageType = value.imageType;
@@ -57,6 +59,7 @@ public class ViewTableImages implements Serializable {
         Integer    imageId,
         String     imageDescription,
         Integer    imageForeignId,
+        Boolean    imageIsReference,
         String     imagePath,
         Exif       imageExif,
         String     imageType,
@@ -68,6 +71,7 @@ public class ViewTableImages implements Serializable {
         this.imageId = imageId;
         this.imageDescription = imageDescription;
         this.imageForeignId = imageForeignId;
+        this.imageIsReference = imageIsReference;
         this.imagePath = imagePath;
         this.imageExif = imageExif;
         this.imageType = imageType;
@@ -84,6 +88,7 @@ public class ViewTableImages implements Serializable {
         sb.append(imageId);
         sb.append(", ").append(imageDescription);
         sb.append(", ").append(imageForeignId);
+        sb.append(", ").append(imageIsReference);
         sb.append(", ").append(imagePath);
         sb.append(", ").append(imageExif);
         sb.append(", ").append(imageType);

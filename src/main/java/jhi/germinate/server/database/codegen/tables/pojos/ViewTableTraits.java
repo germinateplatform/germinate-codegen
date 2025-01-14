@@ -32,6 +32,9 @@ public class ViewTableTraits implements Serializable {
     private String                  traitDescription;
     private ViewTableTraitsDataType dataType;
     private TraitRestrictions       traitRestrictions;
+    private Integer                 categoryId;
+    private String                  categoryName;
+    private String                  categoryDescription;
     private Integer                 unitId;
     private String                  unitName;
     private String                  unitDescription;
@@ -49,6 +52,9 @@ public class ViewTableTraits implements Serializable {
         this.traitDescription = value.traitDescription;
         this.dataType = value.dataType;
         this.traitRestrictions = value.traitRestrictions;
+        this.categoryId = value.categoryId;
+        this.categoryName = value.categoryName;
+        this.categoryDescription = value.categoryDescription;
         this.unitId = value.unitId;
         this.unitName = value.unitName;
         this.unitDescription = value.unitDescription;
@@ -65,6 +71,9 @@ public class ViewTableTraits implements Serializable {
         String                  traitDescription,
         ViewTableTraitsDataType dataType,
         TraitRestrictions       traitRestrictions,
+        Integer                 categoryId,
+        String                  categoryName,
+        String                  categoryDescription,
         Integer                 unitId,
         String                  unitName,
         String                  unitDescription,
@@ -79,6 +88,9 @@ public class ViewTableTraits implements Serializable {
         this.traitDescription = traitDescription;
         this.dataType = dataType;
         this.traitRestrictions = traitRestrictions;
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+        this.categoryDescription = categoryDescription;
         this.unitId = unitId;
         this.unitName = unitName;
         this.unitDescription = unitDescription;
@@ -98,6 +110,9 @@ public class ViewTableTraits implements Serializable {
         sb.append(", ").append(traitDescription);
         sb.append(", ").append(dataType);
         sb.append(", ").append(traitRestrictions);
+        sb.append(", ").append(categoryId);
+        sb.append(", ").append(categoryName);
+        sb.append(", ").append(categoryDescription);
         sb.append(", ").append(unitId);
         sb.append(", ").append(unitName);
         sb.append(", ").append(unitDescription);

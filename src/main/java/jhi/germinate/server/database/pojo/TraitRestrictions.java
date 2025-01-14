@@ -42,7 +42,7 @@ public class TraitRestrictions
 	public String toString()
 	{
 		return "TraitRestrictions{" +
-			"categories=" + Arrays.toString(categories) +
+			"categories=" + Arrays.deepToString(categories) +
 			", min=" + min +
 			", max=" + max +
 			'}';

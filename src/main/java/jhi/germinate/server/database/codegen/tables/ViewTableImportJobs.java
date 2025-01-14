@@ -82,14 +82,14 @@ public class ViewTableImportJobs extends TableImpl<ViewTableImportJobsRecord> {
     /**
      * The column <code>germinate_db.view_table_import_jobs.created_on</code>.
      */
-    public final TableField<ViewTableImportJobsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0), this, "");
+    public final TableField<ViewTableImportJobsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "");
 
     private ViewTableImportJobs(Name alias, Table<ViewTableImportJobsRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private ViewTableImportJobs(Name alias, Table<ViewTableImportJobsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_import_jobs` as select `germinate_template_4_24_10_07`.`data_import_jobs`.`id` AS `id`,`germinate_template_4_24_10_07`.`data_import_jobs`.`is_update` AS `is_update`,`germinate_template_4_24_10_07`.`data_import_jobs`.`datasetstate_id` AS `datasetstate_id`,`germinate_template_4_24_10_07`.`data_import_jobs`.`datatype` AS `datatype`,`germinate_template_4_24_10_07`.`data_import_jobs`.`status` AS `status`,`germinate_template_4_24_10_07`.`data_import_jobs`.`stats` AS `stats`,`germinate_template_4_24_10_07`.`data_import_jobs`.`created_on` AS `created_on` from `germinate_template_4_24_10_07`.`data_import_jobs` where ((`germinate_template_4_24_10_07`.`data_import_jobs`.`stats` is not null) and (`germinate_template_4_24_10_07`.`data_import_jobs`.`status` = 'completed') and (`germinate_template_4_24_10_07`.`data_import_jobs`.`imported` = 1))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_import_jobs` as select `germinate_template_4_25_01_14`.`data_import_jobs`.`id` AS `id`,`germinate_template_4_25_01_14`.`data_import_jobs`.`is_update` AS `is_update`,`germinate_template_4_25_01_14`.`data_import_jobs`.`datasetstate_id` AS `datasetstate_id`,`germinate_template_4_25_01_14`.`data_import_jobs`.`datatype` AS `datatype`,`germinate_template_4_25_01_14`.`data_import_jobs`.`status` AS `status`,`germinate_template_4_25_01_14`.`data_import_jobs`.`stats` AS `stats`,`germinate_template_4_25_01_14`.`data_import_jobs`.`created_on` AS `created_on` from `germinate_template_4_25_01_14`.`data_import_jobs` where ((`germinate_template_4_25_01_14`.`data_import_jobs`.`stats` is not null) and (`germinate_template_4_25_01_14`.`data_import_jobs`.`status` = 'completed') and (`germinate_template_4_25_01_14`.`data_import_jobs`.`imported` = 1))"));
     }
 
     /**

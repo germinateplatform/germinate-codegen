@@ -48,13 +48,13 @@ public class ViewTableFileresourcetypes extends TableImpl<ViewTableFileresourcet
      * The column <code>germinate_db.view_table_fileresourcetypes.id</code>. The
      * primary id.
      */
-    public final TableField<ViewTableFileresourcetypesRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "The primary id.");
+    public final TableField<ViewTableFileresourcetypesRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "The primary id.");
 
     /**
      * The column <code>germinate_db.view_table_fileresourcetypes.name</code>.
      * The name of the file type.
      */
-    public final TableField<ViewTableFileresourcetypesRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255).nullable(false), this, "The name of the file type.");
+    public final TableField<ViewTableFileresourcetypesRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255), this, "The name of the file type.");
 
     /**
      * The column
@@ -68,14 +68,14 @@ public class ViewTableFileresourcetypes extends TableImpl<ViewTableFileresourcet
      * <code>germinate_db.view_table_fileresourcetypes.created_on</code>. When
      * this record was created.
      */
-    public final TableField<ViewTableFileresourcetypesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0), this, "When this record was created.");
+    public final TableField<ViewTableFileresourcetypesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When this record was created.");
 
     /**
      * The column
      * <code>germinate_db.view_table_fileresourcetypes.updated_on</code>. When
      * this record was last updated.
      */
-    public final TableField<ViewTableFileresourcetypesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0), this, "When this record was last updated.");
+    public final TableField<ViewTableFileresourcetypesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When this record was last updated.");
 
     /**
      * The column <code>germinate_db.view_table_fileresourcetypes.count</code>.
@@ -87,7 +87,7 @@ public class ViewTableFileresourcetypes extends TableImpl<ViewTableFileresourcet
     }
 
     private ViewTableFileresourcetypes(Name alias, Table<ViewTableFileresourcetypesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresourcetypes` as select `germinate_template_4_24_10_07`.`fileresourcetypes`.`id` AS `id`,`germinate_template_4_24_10_07`.`fileresourcetypes`.`name` AS `name`,`germinate_template_4_24_10_07`.`fileresourcetypes`.`description` AS `description`,`germinate_template_4_24_10_07`.`fileresourcetypes`.`created_on` AS `created_on`,`germinate_template_4_24_10_07`.`fileresourcetypes`.`updated_on` AS `updated_on`,(select count(1) from `germinate_template_4_24_10_07`.`fileresources` where (`germinate_template_4_24_10_07`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_24_10_07`.`fileresourcetypes`.`id`)) AS `count` from `germinate_template_4_24_10_07`.`fileresourcetypes`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_fileresourcetypes` as select `germinate_template_4_25_01_14`.`fileresourcetypes`.`id` AS `id`,`germinate_template_4_25_01_14`.`fileresourcetypes`.`name` AS `name`,`germinate_template_4_25_01_14`.`fileresourcetypes`.`description` AS `description`,`germinate_template_4_25_01_14`.`fileresourcetypes`.`created_on` AS `created_on`,`germinate_template_4_25_01_14`.`fileresourcetypes`.`updated_on` AS `updated_on`,(select count(1) from `germinate_template_4_25_01_14`.`fileresources` where (`germinate_template_4_25_01_14`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_25_01_14`.`fileresourcetypes`.`id`)) AS `count` from `germinate_template_4_25_01_14`.`fileresourcetypes`"));
     }
 
     /**

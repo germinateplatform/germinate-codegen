@@ -50,13 +50,13 @@ public class ViewTableLicenseDefinitions extends TableImpl<ViewTableLicenseDefin
      * The column
      * <code>germinate_db.view_table_license_definitions.license_id</code>.
      */
-    public final TableField<ViewTableLicenseDefinitionsRecord, Integer> LICENSE_ID = createField(DSL.name("license_id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+    public final TableField<ViewTableLicenseDefinitionsRecord, Integer> LICENSE_ID = createField(DSL.name("license_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
      * The column
      * <code>germinate_db.view_table_license_definitions.license_name</code>.
      */
-    public final TableField<ViewTableLicenseDefinitionsRecord, String> LICENSE_NAME = createField(DSL.name("license_name"), SQLDataType.VARCHAR(255).nullable(false), this, "");
+    public final TableField<ViewTableLicenseDefinitionsRecord, String> LICENSE_NAME = createField(DSL.name("license_name"), SQLDataType.VARCHAR(255), this, "");
 
     /**
      * The column
@@ -69,7 +69,7 @@ public class ViewTableLicenseDefinitions extends TableImpl<ViewTableLicenseDefin
      * <code>germinate_db.view_table_license_definitions.created_on</code>. When
      * the record was created.
      */
-    public final TableField<ViewTableLicenseDefinitionsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0), this, "When the record was created.");
+    public final TableField<ViewTableLicenseDefinitionsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column
@@ -82,7 +82,7 @@ public class ViewTableLicenseDefinitions extends TableImpl<ViewTableLicenseDefin
     }
 
     private ViewTableLicenseDefinitions(Name alias, Table<ViewTableLicenseDefinitionsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_license_definitions` as select `germinate_template_4_24_10_07`.`licenses`.`id` AS `license_id`,`germinate_template_4_24_10_07`.`licenses`.`name` AS `license_name`,`germinate_template_4_24_10_07`.`licenses`.`description` AS `license_description`,`germinate_template_4_24_10_07`.`licenses`.`created_on` AS `created_on`,(select json_objectagg(`germinate_template_4_24_10_07`.`locales`.`name`,`germinate_template_4_24_10_07`.`licensedata`.`content`) from (`germinate_template_4_24_10_07`.`licensedata` left join `germinate_template_4_24_10_07`.`locales` on((`germinate_template_4_24_10_07`.`locales`.`id` = `germinate_template_4_24_10_07`.`licensedata`.`locale_id`))) where (`germinate_template_4_24_10_07`.`licensedata`.`license_id` = `germinate_template_4_24_10_07`.`licenses`.`id`) group by `germinate_template_4_24_10_07`.`licensedata`.`license_id`) AS `license_data` from `germinate_template_4_24_10_07`.`licenses`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_license_definitions` as select `germinate_template_4_25_01_14`.`licenses`.`id` AS `license_id`,`germinate_template_4_25_01_14`.`licenses`.`name` AS `license_name`,`germinate_template_4_25_01_14`.`licenses`.`description` AS `license_description`,`germinate_template_4_25_01_14`.`licenses`.`created_on` AS `created_on`,(select json_objectagg(`germinate_template_4_25_01_14`.`locales`.`name`,`germinate_template_4_25_01_14`.`licensedata`.`content`) from (`germinate_template_4_25_01_14`.`licensedata` left join `germinate_template_4_25_01_14`.`locales` on((`germinate_template_4_25_01_14`.`locales`.`id` = `germinate_template_4_25_01_14`.`licensedata`.`locale_id`))) where (`germinate_template_4_25_01_14`.`licensedata`.`license_id` = `germinate_template_4_25_01_14`.`licenses`.`id`) group by `germinate_template_4_25_01_14`.`licensedata`.`license_id`) AS `license_data` from `germinate_template_4_25_01_14`.`licenses`"));
     }
 
     /**

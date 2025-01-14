@@ -11,8 +11,8 @@ import jhi.germinate.server.database.pojo.Exif;
 import jhi.germinate.server.database.pojo.ImageTag;
 
 import org.jooq.Field;
-import org.jooq.Record10;
-import org.jooq.Row10;
+import org.jooq.Record11;
+import org.jooq.Row11;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -21,7 +21,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord> implements Record10<Integer, String, Integer, String, Exif, String, String, String, Timestamp, ImageTag[]> {
+public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord> implements Record11<Integer, String, Integer, Boolean, String, Exif, String, String, String, Timestamp, ImageTag[]> {
 
     private static final long serialVersionUID = 1L;
 
@@ -68,115 +68,131 @@ public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord
     }
 
     /**
+     * Setter for
+     * <code>germinate_db.view_table_images.image_is_reference</code>.
+     */
+    public void setImageIsReference(Boolean value) {
+        set(3, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_images.image_is_reference</code>.
+     */
+    public Boolean getImageIsReference() {
+        return (Boolean) get(3);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_images.image_path</code>.
      */
     public void setImagePath(String value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_images.image_path</code>.
      */
     public String getImagePath() {
-        return (String) get(3);
+        return (String) get(4);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_images.image_exif</code>.
      */
     public void setImageExif(Exif value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_images.image_exif</code>.
      */
     public Exif getImageExif() {
-        return (Exif) get(4);
+        return (Exif) get(5);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_images.image_type</code>.
      */
     public void setImageType(String value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_images.image_type</code>.
      */
     public String getImageType() {
-        return (String) get(5);
+        return (String) get(6);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_images.image_ref_table</code>.
      */
     public void setImageRefTable(String value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_images.image_ref_table</code>.
      */
     public String getImageRefTable() {
-        return (String) get(6);
+        return (String) get(7);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_images.reference_name</code>.
      */
     public void setReferenceName(String value) {
-        set(7, value);
+        set(8, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_images.reference_name</code>.
      */
     public String getReferenceName() {
-        return (String) get(7);
+        return (String) get(8);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_images.created_on</code>.
      */
     public void setCreatedOn(Timestamp value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_images.created_on</code>.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(8);
+        return (Timestamp) get(9);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_images.tags</code>.
      */
     public void setTags(ImageTag[] value) {
-        set(9, value);
+        set(10, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_images.tags</code>.
      */
     public ImageTag[] getTags() {
-        return (ImageTag[]) get(9);
+        return (ImageTag[]) get(10);
     }
 
     // -------------------------------------------------------------------------
-    // Record10 type implementation
+    // Record11 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, Integer, String, Exif, String, String, String, Timestamp, ImageTag[]> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row11<Integer, String, Integer, Boolean, String, Exif, String, String, String, Timestamp, ImageTag[]> fieldsRow() {
+        return (Row11) super.fieldsRow();
     }
 
     @Override
-    public Row10<Integer, String, Integer, String, Exif, String, String, String, Timestamp, ImageTag[]> valuesRow() {
-        return (Row10) super.valuesRow();
+    public Row11<Integer, String, Integer, Boolean, String, Exif, String, String, String, Timestamp, ImageTag[]> valuesRow() {
+        return (Row11) super.valuesRow();
     }
 
     @Override
@@ -195,37 +211,42 @@ public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord
     }
 
     @Override
-    public Field<String> field4() {
+    public Field<Boolean> field4() {
+        return ViewTableImages.VIEW_TABLE_IMAGES.IMAGE_IS_REFERENCE;
+    }
+
+    @Override
+    public Field<String> field5() {
         return ViewTableImages.VIEW_TABLE_IMAGES.IMAGE_PATH;
     }
 
     @Override
-    public Field<Exif> field5() {
+    public Field<Exif> field6() {
         return ViewTableImages.VIEW_TABLE_IMAGES.IMAGE_EXIF;
     }
 
     @Override
-    public Field<String> field6() {
+    public Field<String> field7() {
         return ViewTableImages.VIEW_TABLE_IMAGES.IMAGE_TYPE;
     }
 
     @Override
-    public Field<String> field7() {
+    public Field<String> field8() {
         return ViewTableImages.VIEW_TABLE_IMAGES.IMAGE_REF_TABLE;
     }
 
     @Override
-    public Field<String> field8() {
+    public Field<String> field9() {
         return ViewTableImages.VIEW_TABLE_IMAGES.REFERENCE_NAME;
     }
 
     @Override
-    public Field<Timestamp> field9() {
+    public Field<Timestamp> field10() {
         return ViewTableImages.VIEW_TABLE_IMAGES.CREATED_ON;
     }
 
     @Override
-    public Field<ImageTag[]> field10() {
+    public Field<ImageTag[]> field11() {
         return ViewTableImages.VIEW_TABLE_IMAGES.TAGS;
     }
 
@@ -245,37 +266,42 @@ public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord
     }
 
     @Override
-    public String component4() {
+    public Boolean component4() {
+        return getImageIsReference();
+    }
+
+    @Override
+    public String component5() {
         return getImagePath();
     }
 
     @Override
-    public Exif component5() {
+    public Exif component6() {
         return getImageExif();
     }
 
     @Override
-    public String component6() {
+    public String component7() {
         return getImageType();
     }
 
     @Override
-    public String component7() {
+    public String component8() {
         return getImageRefTable();
     }
 
     @Override
-    public String component8() {
+    public String component9() {
         return getReferenceName();
     }
 
     @Override
-    public Timestamp component9() {
+    public Timestamp component10() {
         return getCreatedOn();
     }
 
     @Override
-    public ImageTag[] component10() {
+    public ImageTag[] component11() {
         return getTags();
     }
 
@@ -295,37 +321,42 @@ public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord
     }
 
     @Override
-    public String value4() {
+    public Boolean value4() {
+        return getImageIsReference();
+    }
+
+    @Override
+    public String value5() {
         return getImagePath();
     }
 
     @Override
-    public Exif value5() {
+    public Exif value6() {
         return getImageExif();
     }
 
     @Override
-    public String value6() {
+    public String value7() {
         return getImageType();
     }
 
     @Override
-    public String value7() {
+    public String value8() {
         return getImageRefTable();
     }
 
     @Override
-    public String value8() {
+    public String value9() {
         return getReferenceName();
     }
 
     @Override
-    public Timestamp value9() {
+    public Timestamp value10() {
         return getCreatedOn();
     }
 
     @Override
-    public ImageTag[] value10() {
+    public ImageTag[] value11() {
         return getTags();
     }
 
@@ -348,49 +379,55 @@ public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord
     }
 
     @Override
-    public ViewTableImagesRecord value4(String value) {
+    public ViewTableImagesRecord value4(Boolean value) {
+        setImageIsReference(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableImagesRecord value5(String value) {
         setImagePath(value);
         return this;
     }
 
     @Override
-    public ViewTableImagesRecord value5(Exif value) {
+    public ViewTableImagesRecord value6(Exif value) {
         setImageExif(value);
         return this;
     }
 
     @Override
-    public ViewTableImagesRecord value6(String value) {
+    public ViewTableImagesRecord value7(String value) {
         setImageType(value);
         return this;
     }
 
     @Override
-    public ViewTableImagesRecord value7(String value) {
+    public ViewTableImagesRecord value8(String value) {
         setImageRefTable(value);
         return this;
     }
 
     @Override
-    public ViewTableImagesRecord value8(String value) {
+    public ViewTableImagesRecord value9(String value) {
         setReferenceName(value);
         return this;
     }
 
     @Override
-    public ViewTableImagesRecord value9(Timestamp value) {
+    public ViewTableImagesRecord value10(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public ViewTableImagesRecord value10(ImageTag[] value) {
+    public ViewTableImagesRecord value11(ImageTag[] value) {
         setTags(value);
         return this;
     }
 
     @Override
-    public ViewTableImagesRecord values(Integer value1, String value2, Integer value3, String value4, Exif value5, String value6, String value7, String value8, Timestamp value9, ImageTag[] value10) {
+    public ViewTableImagesRecord values(Integer value1, String value2, Integer value3, Boolean value4, String value5, Exif value6, String value7, String value8, String value9, Timestamp value10, ImageTag[] value11) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -401,6 +438,7 @@ public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord
         value8(value8);
         value9(value9);
         value10(value10);
+        value11(value11);
         return this;
     }
 
@@ -418,12 +456,13 @@ public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord
     /**
      * Create a detached, initialised ViewTableImagesRecord
      */
-    public ViewTableImagesRecord(Integer imageId, String imageDescription, Integer imageForeignId, String imagePath, Exif imageExif, String imageType, String imageRefTable, String referenceName, Timestamp createdOn, ImageTag[] tags) {
+    public ViewTableImagesRecord(Integer imageId, String imageDescription, Integer imageForeignId, Boolean imageIsReference, String imagePath, Exif imageExif, String imageType, String imageRefTable, String referenceName, Timestamp createdOn, ImageTag[] tags) {
         super(ViewTableImages.VIEW_TABLE_IMAGES);
 
         setImageId(imageId);
         setImageDescription(imageDescription);
         setImageForeignId(imageForeignId);
+        setImageIsReference(imageIsReference);
         setImagePath(imagePath);
         setImageExif(imageExif);
         setImageType(imageType);
@@ -443,6 +482,7 @@ public class ViewTableImagesRecord extends TableRecordImpl<ViewTableImagesRecord
             setImageId(value.getImageId());
             setImageDescription(value.getImageDescription());
             setImageForeignId(value.getImageForeignId());
+            setImageIsReference(value.getImageIsReference());
             setImagePath(value.getImagePath());
             setImageExif(value.getImageExif());
             setImageType(value.getImageType());

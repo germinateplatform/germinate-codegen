@@ -68,6 +68,7 @@ import jhi.germinate.server.database.codegen.tables.Pedigreedefinitions;
 import jhi.germinate.server.database.codegen.tables.Pedigreedescriptions;
 import jhi.germinate.server.database.codegen.tables.Pedigreenotations;
 import jhi.germinate.server.database.codegen.tables.Pedigrees;
+import jhi.germinate.server.database.codegen.tables.Phenotypecategories;
 import jhi.germinate.server.database.codegen.tables.Phenotypedata;
 import jhi.germinate.server.database.codegen.tables.Phenotypes;
 import jhi.germinate.server.database.codegen.tables.Projectcollaborators;
@@ -221,6 +222,7 @@ public class GerminateDb extends SchemaImpl {
             Pedigreedescriptions.PEDIGREEDESCRIPTIONS,
             Pedigreenotations.PEDIGREENOTATIONS,
             Pedigrees.PEDIGREES,
+            Phenotypecategories.PHENOTYPECATEGORIES,
             Phenotypedata.PHENOTYPEDATA,
             Phenotypes.PHENOTYPES,
             Projectcollaborators.PROJECTCOLLABORATORS,

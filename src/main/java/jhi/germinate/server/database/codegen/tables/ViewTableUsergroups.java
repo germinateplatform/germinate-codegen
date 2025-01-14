@@ -66,7 +66,7 @@ public class ViewTableUsergroups extends TableImpl<ViewTableUsergroupsRecord> {
      * The column <code>germinate_db.view_table_usergroups.created_on</code>.
      * When the record was created.
      */
-    public final TableField<ViewTableUsergroupsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0), this, "When the record was created.");
+    public final TableField<ViewTableUsergroupsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.view_table_usergroups.count</code>.
@@ -78,7 +78,7 @@ public class ViewTableUsergroups extends TableImpl<ViewTableUsergroupsRecord> {
     }
 
     private ViewTableUsergroups(Name alias, Table<ViewTableUsergroupsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_usergroups` as select `germinate_template_4_24_10_07`.`usergroups`.`id` AS `user_group_id`,`germinate_template_4_24_10_07`.`usergroups`.`name` AS `user_group_name`,`germinate_template_4_24_10_07`.`usergroups`.`description` AS `user_group_description`,`germinate_template_4_24_10_07`.`usergroups`.`created_on` AS `created_on`,count(`germinate_template_4_24_10_07`.`usergroupmembers`.`id`) AS `count` from (`germinate_template_4_24_10_07`.`usergroups` left join `germinate_template_4_24_10_07`.`usergroupmembers` on((`germinate_template_4_24_10_07`.`usergroupmembers`.`usergroup_id` = `germinate_template_4_24_10_07`.`usergroups`.`id`))) group by `germinate_template_4_24_10_07`.`usergroups`.`id`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_usergroups` as select `germinate_template_4_25_01_14`.`usergroups`.`id` AS `user_group_id`,`germinate_template_4_25_01_14`.`usergroups`.`name` AS `user_group_name`,`germinate_template_4_25_01_14`.`usergroups`.`description` AS `user_group_description`,`germinate_template_4_25_01_14`.`usergroups`.`created_on` AS `created_on`,count(`germinate_template_4_25_01_14`.`usergroupmembers`.`id`) AS `count` from (`germinate_template_4_25_01_14`.`usergroups` left join `germinate_template_4_25_01_14`.`usergroupmembers` on((`germinate_template_4_25_01_14`.`usergroupmembers`.`usergroup_id` = `germinate_template_4_25_01_14`.`usergroups`.`id`))) group by `germinate_template_4_25_01_14`.`usergroups`.`id`"));
     }
 
     /**

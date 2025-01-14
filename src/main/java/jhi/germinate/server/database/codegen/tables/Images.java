@@ -14,7 +14,7 @@ import jhi.germinate.server.database.pojo.Exif;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row8;
+import org.jooq.Row9;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -82,6 +82,11 @@ public class Images extends TableImpl<ImagesRecord> {
      * The column <code>germinate_db.images.exif</code>.
      */
     public final TableField<ImagesRecord, Exif> EXIF = createField(DSL.name("exif"), SQLDataType.JSON, this, "", new ExifBinding());
+
+    /**
+     * The column <code>germinate_db.images.is_reference</code>.
+     */
+    public final TableField<ImagesRecord, Boolean> IS_REFERENCE = createField(DSL.name("is_reference"), SQLDataType.BOOLEAN.nullable(false).defaultValue(DSL.inline("0", SQLDataType.BOOLEAN)), this, "");
 
     /**
      * The column <code>germinate_db.images.created_on</code>. When the record
@@ -167,12 +172,12 @@ public class Images extends TableImpl<ImagesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row9 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, Integer, String, Integer, String, Exif, Timestamp, Timestamp> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row9<Integer, Integer, String, Integer, String, Exif, Boolean, Timestamp, Timestamp> fieldsRow() {
+        return (Row9) super.fieldsRow();
     }
     // @formatter:on
 }

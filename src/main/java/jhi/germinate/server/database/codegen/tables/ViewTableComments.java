@@ -78,7 +78,7 @@ public class ViewTableComments extends TableImpl<ViewTableCommentsRecord> {
     /**
      * The column <code>germinate_db.view_table_comments.user_name</code>.
      */
-    public final TableField<ViewTableCommentsRecord, String> USER_NAME = createField(DSL.name("user_name"), SQLDataType.CHAR.nullable(false).defaultValue(DSL.inline("", SQLDataType.CHAR)), this, "");
+    public final TableField<ViewTableCommentsRecord, String> USER_NAME = createField(DSL.name("user_name"), SQLDataType.VARCHAR.nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>germinate_db.view_table_comments.comment_content</code>.
@@ -91,14 +91,14 @@ public class ViewTableComments extends TableImpl<ViewTableCommentsRecord> {
      * the record was updated. This may be different from the created on date if
      * subsequent changes have been made to the underlying record.
      */
-    public final TableField<ViewTableCommentsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<ViewTableCommentsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     private ViewTableComments(Name alias, Table<ViewTableCommentsRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private ViewTableComments(Name alias, Table<ViewTableCommentsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_comments` as select `germinate_template_4_24_10_07`.`comments`.`id` AS `comment_id`,`germinate_template_4_24_10_07`.`commenttypes`.`id` AS `comment_type_id`,`germinate_template_4_24_10_07`.`commenttypes`.`reference_table` AS `comment_type`,`germinate_template_4_24_10_07`.`comments`.`reference_id` AS `comment_foreign_id`,`germinate_template_4_24_10_07`.`comments`.`user_id` AS `user_id`,'' AS `user_name`,`germinate_template_4_24_10_07`.`comments`.`description` AS `comment_content`,`germinate_template_4_24_10_07`.`comments`.`updated_on` AS `updated_on` from (`germinate_template_4_24_10_07`.`comments` left join `germinate_template_4_24_10_07`.`commenttypes` on((`germinate_template_4_24_10_07`.`commenttypes`.`id` = `germinate_template_4_24_10_07`.`comments`.`commenttype_id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_comments` as select `germinate_template_4_25_01_14`.`comments`.`id` AS `comment_id`,`germinate_template_4_25_01_14`.`commenttypes`.`id` AS `comment_type_id`,`germinate_template_4_25_01_14`.`commenttypes`.`reference_table` AS `comment_type`,`germinate_template_4_25_01_14`.`comments`.`reference_id` AS `comment_foreign_id`,`germinate_template_4_25_01_14`.`comments`.`user_id` AS `user_id`,'' AS `user_name`,`germinate_template_4_25_01_14`.`comments`.`description` AS `comment_content`,`germinate_template_4_25_01_14`.`comments`.`updated_on` AS `updated_on` from (`germinate_template_4_25_01_14`.`comments` left join `germinate_template_4_25_01_14`.`commenttypes` on((`germinate_template_4_25_01_14`.`commenttypes`.`id` = `germinate_template_4_25_01_14`.`comments`.`commenttype_id`)))"));
     }
 
     /**

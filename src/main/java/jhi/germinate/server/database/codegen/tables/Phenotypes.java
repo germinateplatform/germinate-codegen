@@ -15,7 +15,7 @@ import jhi.germinate.server.database.pojo.TraitRestrictions;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row9;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -98,6 +98,12 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
      * units (units.id).
      */
     public final TableField<PhenotypesRecord, Integer> UNIT_ID = createField(DSL.name("unit_id"), SQLDataType.INTEGER, this, "Foreign Key to units (units.id).");
+
+    /**
+     * The column <code>germinate_db.phenotypes.category_id</code>. Foreign key
+     * to phenotypecategories (phenotypecategories.id)
+     */
+    public final TableField<PhenotypesRecord, Integer> CATEGORY_ID = createField(DSL.name("category_id"), SQLDataType.INTEGER, this, "Foreign key to phenotypecategories (phenotypecategories.id)");
 
     /**
      * The column <code>germinate_db.phenotypes.created_on</code>. When the
@@ -183,12 +189,12 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row9 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row9) super.fieldsRow();
+    public Row10<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Timestamp, Timestamp> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
     // @formatter:on
 }

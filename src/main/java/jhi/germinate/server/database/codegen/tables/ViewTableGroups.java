@@ -75,7 +75,7 @@ public class ViewTableGroups extends TableImpl<ViewTableGroupsRecord> {
     /**
      * The column <code>germinate_db.view_table_groups.user_name</code>.
      */
-    public final TableField<ViewTableGroupsRecord, String> USER_NAME = createField(DSL.name("user_name"), SQLDataType.CHAR.nullable(false).defaultValue(DSL.inline("", SQLDataType.CHAR)), this, "");
+    public final TableField<ViewTableGroupsRecord, String> USER_NAME = createField(DSL.name("user_name"), SQLDataType.VARCHAR.nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>germinate_db.view_table_groups.user_id</code>. Defines
@@ -95,14 +95,14 @@ public class ViewTableGroups extends TableImpl<ViewTableGroupsRecord> {
      * The column <code>germinate_db.view_table_groups.created_on</code>.
      * Foreign key to locations (locations.id).
      */
-    public final TableField<ViewTableGroupsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0), this, "Foreign key to locations (locations.id).");
+    public final TableField<ViewTableGroupsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "Foreign key to locations (locations.id).");
 
     /**
      * The column <code>germinate_db.view_table_groups.updated_on</code>. When
      * the record was updated. This may be different from the created on date if
      * subsequent changes have been made to the underlying record.
      */
-    public final TableField<ViewTableGroupsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<ViewTableGroupsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     /**
      * The column <code>germinate_db.view_table_groups.project_ids</code>.
@@ -119,7 +119,7 @@ public class ViewTableGroups extends TableImpl<ViewTableGroupsRecord> {
     }
 
     private ViewTableGroups(Name alias, Table<ViewTableGroupsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_groups` as select `germinate_template_4_24_10_07`.`groups`.`id` AS `group_id`,`germinate_template_4_24_10_07`.`groups`.`name` AS `group_name`,`germinate_template_4_24_10_07`.`groups`.`description` AS `group_description`,`germinate_template_4_24_10_07`.`grouptypes`.`id` AS `group_type_id`,`germinate_template_4_24_10_07`.`grouptypes`.`target_table` AS `group_type`,'' AS `user_name`,`germinate_template_4_24_10_07`.`groups`.`created_by` AS `user_id`,`germinate_template_4_24_10_07`.`groups`.`visibility` AS `group_visibility`,`germinate_template_4_24_10_07`.`groups`.`created_on` AS `created_on`,`germinate_template_4_24_10_07`.`groups`.`updated_on` AS `updated_on`,(select json_arrayagg(`germinate_template_4_24_10_07`.`projectgroups`.`project_id`) from `germinate_template_4_24_10_07`.`projectgroups` where (`germinate_template_4_24_10_07`.`projectgroups`.`group_id` = `germinate_template_4_24_10_07`.`groups`.`id`) group by `germinate_template_4_24_10_07`.`projectgroups`.`group_id`) AS `project_ids`,count(`germinate_template_4_24_10_07`.`groupmembers`.`id`) AS `count` from ((((`germinate_template_4_24_10_07`.`groups` left join `germinate_template_4_24_10_07`.`grouptypes` on((`germinate_template_4_24_10_07`.`groups`.`grouptype_id` = `germinate_template_4_24_10_07`.`grouptypes`.`id`))) left join `germinate_template_4_24_10_07`.`groupmembers` on((`germinate_template_4_24_10_07`.`groupmembers`.`group_id` = `germinate_template_4_24_10_07`.`groups`.`id`))) left join `germinate_template_4_24_10_07`.`projectgroups` on((`germinate_template_4_24_10_07`.`projectgroups`.`group_id` = `germinate_template_4_24_10_07`.`groups`.`id`))) left join `germinate_template_4_24_10_07`.`projects` on((`germinate_template_4_24_10_07`.`projects`.`id` = `germinate_template_4_24_10_07`.`projectgroups`.`project_id`))) group by `germinate_template_4_24_10_07`.`groups`.`id`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_groups` as select `germinate_template_4_25_01_14`.`groups`.`id` AS `group_id`,`germinate_template_4_25_01_14`.`groups`.`name` AS `group_name`,`germinate_template_4_25_01_14`.`groups`.`description` AS `group_description`,`germinate_template_4_25_01_14`.`grouptypes`.`id` AS `group_type_id`,`germinate_template_4_25_01_14`.`grouptypes`.`target_table` AS `group_type`,'' AS `user_name`,`germinate_template_4_25_01_14`.`groups`.`created_by` AS `user_id`,`germinate_template_4_25_01_14`.`groups`.`visibility` AS `group_visibility`,`germinate_template_4_25_01_14`.`groups`.`created_on` AS `created_on`,`germinate_template_4_25_01_14`.`groups`.`updated_on` AS `updated_on`,(select json_arrayagg(`germinate_template_4_25_01_14`.`projectgroups`.`project_id`) from `germinate_template_4_25_01_14`.`projectgroups` where (`germinate_template_4_25_01_14`.`projectgroups`.`group_id` = `germinate_template_4_25_01_14`.`groups`.`id`) group by `germinate_template_4_25_01_14`.`projectgroups`.`group_id`) AS `project_ids`,count(`germinate_template_4_25_01_14`.`groupmembers`.`id`) AS `count` from ((((`germinate_template_4_25_01_14`.`groups` left join `germinate_template_4_25_01_14`.`grouptypes` on((`germinate_template_4_25_01_14`.`groups`.`grouptype_id` = `germinate_template_4_25_01_14`.`grouptypes`.`id`))) left join `germinate_template_4_25_01_14`.`groupmembers` on((`germinate_template_4_25_01_14`.`groupmembers`.`group_id` = `germinate_template_4_25_01_14`.`groups`.`id`))) left join `germinate_template_4_25_01_14`.`projectgroups` on((`germinate_template_4_25_01_14`.`projectgroups`.`group_id` = `germinate_template_4_25_01_14`.`groups`.`id`))) left join `germinate_template_4_25_01_14`.`projects` on((`germinate_template_4_25_01_14`.`projects`.`id` = `germinate_template_4_25_01_14`.`projectgroups`.`project_id`))) group by `germinate_template_4_25_01_14`.`groups`.`id`"));
     }
 
     /**

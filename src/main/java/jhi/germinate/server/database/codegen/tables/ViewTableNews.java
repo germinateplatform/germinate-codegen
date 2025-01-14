@@ -105,21 +105,21 @@ public class ViewTableNews extends TableImpl<ViewTableNewsRecord> {
      * The column <code>germinate_db.view_table_news.created_on</code>. When the
      * record was created.
      */
-    public final TableField<ViewTableNewsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0), this, "When the record was created.");
+    public final TableField<ViewTableNewsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.view_table_news.updated_on</code>. When the
      * record was updated. This may be different from the created on date if
      * subsequent changes have been made to the underlying record.
      */
-    public final TableField<ViewTableNewsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<ViewTableNewsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     private ViewTableNews(Name alias, Table<ViewTableNewsRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private ViewTableNews(Name alias, Table<ViewTableNewsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_news` as select `germinate_template_4_24_10_07`.`news`.`id` AS `news_id`,`germinate_template_4_24_10_07`.`news`.`title` AS `news_title`,`germinate_template_4_24_10_07`.`news`.`content` AS `news_content`,`germinate_template_4_24_10_07`.`news`.`hyperlink` AS `news_hyperlink`,`germinate_template_4_24_10_07`.`news`.`image` AS `news_image`,`germinate_template_4_24_10_07`.`news`.`image_fit` AS `news_image_fit`,`germinate_template_4_24_10_07`.`newstypes`.`id` AS `newstype_id`,`germinate_template_4_24_10_07`.`newstypes`.`name` AS `newstype_name`,`germinate_template_4_24_10_07`.`newstypes`.`description` AS `newstype_description`,`germinate_template_4_24_10_07`.`news`.`created_on` AS `created_on`,`germinate_template_4_24_10_07`.`news`.`updated_on` AS `updated_on` from (`germinate_template_4_24_10_07`.`news` left join `germinate_template_4_24_10_07`.`newstypes` on((`germinate_template_4_24_10_07`.`newstypes`.`id` = `germinate_template_4_24_10_07`.`news`.`newstype_id`))) order by `germinate_template_4_24_10_07`.`news`.`created_on` desc"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_news` as select `germinate_template_4_25_01_14`.`news`.`id` AS `news_id`,`germinate_template_4_25_01_14`.`news`.`title` AS `news_title`,`germinate_template_4_25_01_14`.`news`.`content` AS `news_content`,`germinate_template_4_25_01_14`.`news`.`hyperlink` AS `news_hyperlink`,`germinate_template_4_25_01_14`.`news`.`image` AS `news_image`,`germinate_template_4_25_01_14`.`news`.`image_fit` AS `news_image_fit`,`germinate_template_4_25_01_14`.`newstypes`.`id` AS `newstype_id`,`germinate_template_4_25_01_14`.`newstypes`.`name` AS `newstype_name`,`germinate_template_4_25_01_14`.`newstypes`.`description` AS `newstype_description`,`germinate_template_4_25_01_14`.`news`.`created_on` AS `created_on`,`germinate_template_4_25_01_14`.`news`.`updated_on` AS `updated_on` from (`germinate_template_4_25_01_14`.`news` left join `germinate_template_4_25_01_14`.`newstypes` on((`germinate_template_4_25_01_14`.`newstypes`.`id` = `germinate_template_4_25_01_14`.`news`.`newstype_id`))) order by `germinate_template_4_25_01_14`.`news`.`created_on` desc"));
     }
 
     /**

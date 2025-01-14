@@ -122,14 +122,14 @@ public class ViewTableInstitutions extends TableImpl<ViewTableInstitutionsRecord
      * The column
      * <code>germinate_db.view_table_institutions.institution_type</code>.
      */
-    public final TableField<ViewTableInstitutionsRecord, String> INSTITUTION_TYPE = createField(DSL.name("institution_type"), SQLDataType.CHAR, this, "");
+    public final TableField<ViewTableInstitutionsRecord, String> INSTITUTION_TYPE = createField(DSL.name("institution_type"), SQLDataType.VARCHAR, this, "");
 
     private ViewTableInstitutions(Name alias, Table<ViewTableInstitutionsRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private ViewTableInstitutions(Name alias, Table<ViewTableInstitutionsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_institutions` as select `germinate_template_4_24_10_07`.`institutions`.`id` AS `institution_id`,`germinate_template_4_24_10_07`.`institutions`.`name` AS `institution_name`,`germinate_template_4_24_10_07`.`institutions`.`code` AS `institution_code`,`germinate_template_4_24_10_07`.`institutions`.`acronym` AS `institution_acronym`,`germinate_template_4_24_10_07`.`institutions`.`address` AS `institution_address`,`germinate_template_4_24_10_07`.`institutions`.`email` AS `institution_email`,`germinate_template_4_24_10_07`.`institutions`.`contact` AS `institution_contact`,`germinate_template_4_24_10_07`.`institutions`.`phone` AS `institution_phone`,`germinate_template_4_24_10_07`.`countries`.`id` AS `country_id`,`germinate_template_4_24_10_07`.`countries`.`country_name` AS `country_name`,`germinate_template_4_24_10_07`.`countries`.`country_code2` AS `country_code`,cast(NULL as char charset utf8mb4) AS `institution_type` from (`germinate_template_4_24_10_07`.`institutions` left join `germinate_template_4_24_10_07`.`countries` on((`germinate_template_4_24_10_07`.`countries`.`id` = `germinate_template_4_24_10_07`.`institutions`.`country_id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_institutions` as select `germinate_template_4_25_01_14`.`institutions`.`id` AS `institution_id`,`germinate_template_4_25_01_14`.`institutions`.`name` AS `institution_name`,`germinate_template_4_25_01_14`.`institutions`.`code` AS `institution_code`,`germinate_template_4_25_01_14`.`institutions`.`acronym` AS `institution_acronym`,`germinate_template_4_25_01_14`.`institutions`.`address` AS `institution_address`,`germinate_template_4_25_01_14`.`institutions`.`email` AS `institution_email`,`germinate_template_4_25_01_14`.`institutions`.`contact` AS `institution_contact`,`germinate_template_4_25_01_14`.`institutions`.`phone` AS `institution_phone`,`germinate_template_4_25_01_14`.`countries`.`id` AS `country_id`,`germinate_template_4_25_01_14`.`countries`.`country_name` AS `country_name`,`germinate_template_4_25_01_14`.`countries`.`country_code2` AS `country_code`,cast(NULL as char charset utf8mb4) AS `institution_type` from (`germinate_template_4_25_01_14`.`institutions` left join `germinate_template_4_25_01_14`.`countries` on((`germinate_template_4_25_01_14`.`countries`.`id` = `germinate_template_4_25_01_14`.`institutions`.`country_id`)))"));
     }
 
     /**

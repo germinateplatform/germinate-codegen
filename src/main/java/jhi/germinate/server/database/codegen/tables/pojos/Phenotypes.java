@@ -33,6 +33,7 @@ public class Phenotypes implements Serializable {
     private PhenotypesDatatype datatype;
     private TraitRestrictions  restrictions;
     private Integer            unitId;
+    private Integer            categoryId;
     private Timestamp          createdOn;
     private Timestamp          updatedOn;
 
@@ -46,6 +47,7 @@ public class Phenotypes implements Serializable {
         this.datatype = value.datatype;
         this.restrictions = value.restrictions;
         this.unitId = value.unitId;
+        this.categoryId = value.categoryId;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
@@ -58,6 +60,7 @@ public class Phenotypes implements Serializable {
         PhenotypesDatatype datatype,
         TraitRestrictions  restrictions,
         Integer            unitId,
+        Integer            categoryId,
         Timestamp          createdOn,
         Timestamp          updatedOn
     ) {
@@ -68,6 +71,7 @@ public class Phenotypes implements Serializable {
         this.datatype = datatype;
         this.restrictions = restrictions;
         this.unitId = unitId;
+        this.categoryId = categoryId;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -83,6 +87,7 @@ public class Phenotypes implements Serializable {
         sb.append(", ").append(datatype);
         sb.append(", ").append(restrictions);
         sb.append(", ").append(unitId);
+        sb.append(", ").append(categoryId);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

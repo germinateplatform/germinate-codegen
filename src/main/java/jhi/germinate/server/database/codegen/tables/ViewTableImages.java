@@ -15,7 +15,7 @@ import jhi.germinate.server.database.pojo.ImageTag;
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row10;
+import org.jooq.Row11;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -50,22 +50,28 @@ public class ViewTableImages extends TableImpl<ViewTableImagesRecord> {
     /**
      * The column <code>germinate_db.view_table_images.image_id</code>.
      */
-    public final TableField<ViewTableImagesRecord, Integer> IMAGE_ID = createField(DSL.name("image_id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+    public final TableField<ViewTableImagesRecord, Integer> IMAGE_ID = createField(DSL.name("image_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>germinate_db.view_table_images.image_description</code>.
      */
-    public final TableField<ViewTableImagesRecord, String> IMAGE_DESCRIPTION = createField(DSL.name("image_description"), SQLDataType.CLOB.nullable(false), this, "");
+    public final TableField<ViewTableImagesRecord, String> IMAGE_DESCRIPTION = createField(DSL.name("image_description"), SQLDataType.CLOB, this, "");
 
     /**
      * The column <code>germinate_db.view_table_images.image_foreign_id</code>.
      */
-    public final TableField<ViewTableImagesRecord, Integer> IMAGE_FOREIGN_ID = createField(DSL.name("image_foreign_id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+    public final TableField<ViewTableImagesRecord, Integer> IMAGE_FOREIGN_ID = createField(DSL.name("image_foreign_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_images.image_is_reference</code>.
+     */
+    public final TableField<ViewTableImagesRecord, Boolean> IMAGE_IS_REFERENCE = createField(DSL.name("image_is_reference"), SQLDataType.BOOLEAN.defaultValue(DSL.inline("0", SQLDataType.BOOLEAN)), this, "");
 
     /**
      * The column <code>germinate_db.view_table_images.image_path</code>.
      */
-    public final TableField<ViewTableImagesRecord, String> IMAGE_PATH = createField(DSL.name("image_path"), SQLDataType.CLOB.nullable(false), this, "");
+    public final TableField<ViewTableImagesRecord, String> IMAGE_PATH = createField(DSL.name("image_path"), SQLDataType.CLOB, this, "");
 
     /**
      * The column <code>germinate_db.view_table_images.image_exif</code>.
@@ -102,7 +108,7 @@ public class ViewTableImages extends TableImpl<ViewTableImagesRecord> {
     }
 
     private ViewTableImages(Name alias, Table<ViewTableImagesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_images` as select `images`.`image_id` AS `image_id`,`images`.`image_description` AS `image_description`,`images`.`image_foreign_id` AS `image_foreign_id`,`images`.`image_path` AS `image_path`,cast(`images`.`image_exif` as json) AS `image_exif`,`images`.`image_type` AS `image_type`,`images`.`image_ref_table` AS `image_ref_table`,`images`.`reference_name` AS `reference_name`,`images`.`created_on` AS `created_on`,(select json_arrayagg(json_object('tagId',`germinate_template_4_24_10_07`.`imagetags`.`id`,'tagName',`germinate_template_4_24_10_07`.`imagetags`.`tag_name`)) from (`germinate_template_4_24_10_07`.`image_to_tags` left join `germinate_template_4_24_10_07`.`imagetags` on((`germinate_template_4_24_10_07`.`imagetags`.`id` = `germinate_template_4_24_10_07`.`image_to_tags`.`imagetag_id`))) where ((`germinate_template_4_24_10_07`.`image_to_tags`.`image_id` = `images`.`image_id`) and (`germinate_template_4_24_10_07`.`image_to_tags`.`imagetag_id` is not null)) group by `germinate_template_4_24_10_07`.`image_to_tags`.`image_id`) AS `tags` from (select `germinate_template_4_24_10_07`.`images`.`id` AS `image_id`,`germinate_template_4_24_10_07`.`images`.`description` AS `image_description`,`germinate_template_4_24_10_07`.`images`.`foreign_id` AS `image_foreign_id`,`germinate_template_4_24_10_07`.`images`.`path` AS `image_path`,`germinate_template_4_24_10_07`.`images`.`exif` AS `image_exif`,`germinate_template_4_24_10_07`.`imagetypes`.`description` AS `image_type`,`germinate_template_4_24_10_07`.`imagetypes`.`reference_table` AS `image_ref_table`,`germinate_template_4_24_10_07`.`germinatebase`.`name` AS `reference_name`,`germinate_template_4_24_10_07`.`images`.`created_on` AS `created_on` from ((`germinate_template_4_24_10_07`.`images` left join `germinate_template_4_24_10_07`.`imagetypes` on((`germinate_template_4_24_10_07`.`imagetypes`.`id` = `germinate_template_4_24_10_07`.`images`.`imagetype_id`))) left join `germinate_template_4_24_10_07`.`germinatebase` on((`germinate_template_4_24_10_07`.`germinatebase`.`id` = `germinate_template_4_24_10_07`.`images`.`foreign_id`))) where (`germinate_template_4_24_10_07`.`imagetypes`.`reference_table` like 'germinatebase') union select `germinate_template_4_24_10_07`.`images`.`id` AS `image_id`,`germinate_template_4_24_10_07`.`images`.`description` AS `image_description`,`germinate_template_4_24_10_07`.`images`.`foreign_id` AS `image_foreign_id`,`germinate_template_4_24_10_07`.`images`.`path` AS `image_path`,`germinate_template_4_24_10_07`.`images`.`exif` AS `image_exif`,`germinate_template_4_24_10_07`.`imagetypes`.`description` AS `image_type`,`germinate_template_4_24_10_07`.`imagetypes`.`reference_table` AS `image_ref_table`,`germinate_template_4_24_10_07`.`phenotypes`.`name` AS `reference_name`,`germinate_template_4_24_10_07`.`images`.`created_on` AS `created_on` from ((`germinate_template_4_24_10_07`.`images` left join `germinate_template_4_24_10_07`.`imagetypes` on((`germinate_template_4_24_10_07`.`imagetypes`.`id` = `germinate_template_4_24_10_07`.`images`.`imagetype_id`))) left join `germinate_template_4_24_10_07`.`phenotypes` on((`germinate_template_4_24_10_07`.`phenotypes`.`id` = `germinate_template_4_24_10_07`.`images`.`foreign_id`))) where (`germinate_template_4_24_10_07`.`imagetypes`.`reference_table` like 'phenotypes')) `images`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_images` as select `images`.`image_id` AS `image_id`,`images`.`image_description` AS `image_description`,`images`.`image_foreign_id` AS `image_foreign_id`,`images`.`image_is_reference` AS `image_is_reference`,`images`.`image_path` AS `image_path`,cast(`images`.`image_exif` as json) AS `image_exif`,`images`.`image_type` AS `image_type`,`images`.`image_ref_table` AS `image_ref_table`,`images`.`reference_name` AS `reference_name`,`images`.`created_on` AS `created_on`,(select json_arrayagg(json_object('tagId',`germinate_template_4_25_01_14`.`imagetags`.`id`,'tagName',`germinate_template_4_25_01_14`.`imagetags`.`tag_name`)) from (`germinate_template_4_25_01_14`.`image_to_tags` left join `germinate_template_4_25_01_14`.`imagetags` on((`germinate_template_4_25_01_14`.`imagetags`.`id` = `germinate_template_4_25_01_14`.`image_to_tags`.`imagetag_id`))) where ((`germinate_template_4_25_01_14`.`image_to_tags`.`image_id` = `images`.`image_id`) and (`germinate_template_4_25_01_14`.`image_to_tags`.`imagetag_id` is not null)) group by `germinate_template_4_25_01_14`.`image_to_tags`.`image_id`) AS `tags` from (select `germinate_template_4_25_01_14`.`images`.`id` AS `image_id`,`germinate_template_4_25_01_14`.`images`.`description` AS `image_description`,`germinate_template_4_25_01_14`.`images`.`foreign_id` AS `image_foreign_id`,`germinate_template_4_25_01_14`.`images`.`path` AS `image_path`,`germinate_template_4_25_01_14`.`images`.`exif` AS `image_exif`,`germinate_template_4_25_01_14`.`images`.`is_reference` AS `image_is_reference`,`germinate_template_4_25_01_14`.`imagetypes`.`description` AS `image_type`,`germinate_template_4_25_01_14`.`imagetypes`.`reference_table` AS `image_ref_table`,`germinate_template_4_25_01_14`.`germinatebase`.`name` AS `reference_name`,`germinate_template_4_25_01_14`.`images`.`created_on` AS `created_on` from ((`germinate_template_4_25_01_14`.`images` left join `germinate_template_4_25_01_14`.`imagetypes` on((`germinate_template_4_25_01_14`.`imagetypes`.`id` = `germinate_template_4_25_01_14`.`images`.`imagetype_id`))) left join `germinate_template_4_25_01_14`.`germinatebase` on((`germinate_template_4_25_01_14`.`germinatebase`.`id` = `germinate_template_4_25_01_14`.`images`.`foreign_id`))) where (`germinate_template_4_25_01_14`.`imagetypes`.`reference_table` like 'germinatebase') union select `germinate_template_4_25_01_14`.`images`.`id` AS `image_id`,`germinate_template_4_25_01_14`.`images`.`description` AS `image_description`,`germinate_template_4_25_01_14`.`images`.`foreign_id` AS `image_foreign_id`,`germinate_template_4_25_01_14`.`images`.`path` AS `image_path`,`germinate_template_4_25_01_14`.`images`.`exif` AS `image_exif`,`germinate_template_4_25_01_14`.`images`.`is_reference` AS `image_is_reference`,`germinate_template_4_25_01_14`.`imagetypes`.`description` AS `image_type`,`germinate_template_4_25_01_14`.`imagetypes`.`reference_table` AS `image_ref_table`,`germinate_template_4_25_01_14`.`phenotypes`.`name` AS `reference_name`,`germinate_template_4_25_01_14`.`images`.`created_on` AS `created_on` from ((`germinate_template_4_25_01_14`.`images` left join `germinate_template_4_25_01_14`.`imagetypes` on((`germinate_template_4_25_01_14`.`imagetypes`.`id` = `germinate_template_4_25_01_14`.`images`.`imagetype_id`))) left join `germinate_template_4_25_01_14`.`phenotypes` on((`germinate_template_4_25_01_14`.`phenotypes`.`id` = `germinate_template_4_25_01_14`.`images`.`foreign_id`))) where (`germinate_template_4_25_01_14`.`imagetypes`.`reference_table` like 'phenotypes')) `images`"));
     }
 
     /**
@@ -160,12 +166,12 @@ public class ViewTableImages extends TableImpl<ViewTableImagesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row10 type methods
+    // Row11 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, Integer, String, Exif, String, String, String, Timestamp, ImageTag[]> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row11<Integer, String, Integer, Boolean, String, Exif, String, String, String, Timestamp, ImageTag[]> fieldsRow() {
+        return (Row11) super.fieldsRow();
     }
     // @formatter:on
 }
