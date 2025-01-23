@@ -32,6 +32,8 @@ public class ViewTableTraits implements Serializable {
     private String                  traitDescription;
     private ViewTableTraitsDataType dataType;
     private TraitRestrictions       traitRestrictions;
+    private Integer                 traitSetSize;
+    private Boolean                 traitIsTimeseries;
     private Integer                 categoryId;
     private String                  categoryName;
     private String                  categoryDescription;
@@ -52,6 +54,8 @@ public class ViewTableTraits implements Serializable {
         this.traitDescription = value.traitDescription;
         this.dataType = value.dataType;
         this.traitRestrictions = value.traitRestrictions;
+        this.traitSetSize = value.traitSetSize;
+        this.traitIsTimeseries = value.traitIsTimeseries;
         this.categoryId = value.categoryId;
         this.categoryName = value.categoryName;
         this.categoryDescription = value.categoryDescription;
@@ -71,6 +75,8 @@ public class ViewTableTraits implements Serializable {
         String                  traitDescription,
         ViewTableTraitsDataType dataType,
         TraitRestrictions       traitRestrictions,
+        Integer                 traitSetSize,
+        Boolean                 traitIsTimeseries,
         Integer                 categoryId,
         String                  categoryName,
         String                  categoryDescription,
@@ -88,6 +94,8 @@ public class ViewTableTraits implements Serializable {
         this.traitDescription = traitDescription;
         this.dataType = dataType;
         this.traitRestrictions = traitRestrictions;
+        this.traitSetSize = traitSetSize;
+        this.traitIsTimeseries = traitIsTimeseries;
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.categoryDescription = categoryDescription;
@@ -110,6 +118,8 @@ public class ViewTableTraits implements Serializable {
         sb.append(", ").append(traitDescription);
         sb.append(", ").append(dataType);
         sb.append(", ").append(traitRestrictions);
+        sb.append(", ").append(traitSetSize);
+        sb.append(", ").append(traitIsTimeseries);
         sb.append(", ").append(categoryId);
         sb.append(", ").append(categoryName);
         sb.append(", ").append(categoryDescription);

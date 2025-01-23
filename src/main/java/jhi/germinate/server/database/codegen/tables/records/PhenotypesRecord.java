@@ -12,8 +12,8 @@ import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record10;
-import org.jooq.Row10;
+import org.jooq.Record12;
+import org.jooq.Row12;
 import org.jooq.impl.UpdatableRecordImpl;
 
 
@@ -22,7 +22,7 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Defines phenoytpes which are held in Germinate.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> implements Record10<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Timestamp, Timestamp> {
+public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> implements Record12<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Integer, Boolean, Timestamp, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -171,11 +171,43 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
     }
 
     /**
+     * Setter for <code>germinate_db.phenotypes.setsize</code>. The number of
+     * individual measurements that should be taken for this trait.
+     */
+    public void setSetsize(Integer value) {
+        set(8, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.phenotypes.setsize</code>. The number of
+     * individual measurements that should be taken for this trait.
+     */
+    public Integer getSetsize() {
+        return (Integer) get(8);
+    }
+
+    /**
+     * Setter for <code>germinate_db.phenotypes.is_timeseries</code>. Determines
+     * whether this trait is a time-series trait or not.
+     */
+    public void setIsTimeseries(Boolean value) {
+        set(9, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.phenotypes.is_timeseries</code>. Determines
+     * whether this trait is a time-series trait or not.
+     */
+    public Boolean getIsTimeseries() {
+        return (Boolean) get(9);
+    }
+
+    /**
      * Setter for <code>germinate_db.phenotypes.created_on</code>. When the
      * record was created.
      */
     public void setCreatedOn(Timestamp value) {
-        set(8, value);
+        set(10, value);
     }
 
     /**
@@ -183,7 +215,7 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
      * record was created.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(8);
+        return (Timestamp) get(10);
     }
 
     /**
@@ -192,7 +224,7 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
      * changes have been made subsequently to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(9, value);
+        set(11, value);
     }
 
     /**
@@ -201,7 +233,7 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
      * changes have been made subsequently to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(9);
+        return (Timestamp) get(11);
     }
 
     // -------------------------------------------------------------------------
@@ -214,17 +246,17 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
     }
 
     // -------------------------------------------------------------------------
-    // Record10 type implementation
+    // Record12 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row12<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Integer, Boolean, Timestamp, Timestamp> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
 
     @Override
-    public Row10<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Timestamp, Timestamp> valuesRow() {
-        return (Row10) super.valuesRow();
+    public Row12<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Integer, Boolean, Timestamp, Timestamp> valuesRow() {
+        return (Row12) super.valuesRow();
     }
 
     @Override
@@ -268,12 +300,22 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
     }
 
     @Override
-    public Field<Timestamp> field9() {
+    public Field<Integer> field9() {
+        return Phenotypes.PHENOTYPES.SETSIZE;
+    }
+
+    @Override
+    public Field<Boolean> field10() {
+        return Phenotypes.PHENOTYPES.IS_TIMESERIES;
+    }
+
+    @Override
+    public Field<Timestamp> field11() {
         return Phenotypes.PHENOTYPES.CREATED_ON;
     }
 
     @Override
-    public Field<Timestamp> field10() {
+    public Field<Timestamp> field12() {
         return Phenotypes.PHENOTYPES.UPDATED_ON;
     }
 
@@ -318,12 +360,22 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
     }
 
     @Override
-    public Timestamp component9() {
+    public Integer component9() {
+        return getSetsize();
+    }
+
+    @Override
+    public Boolean component10() {
+        return getIsTimeseries();
+    }
+
+    @Override
+    public Timestamp component11() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp component10() {
+    public Timestamp component12() {
         return getUpdatedOn();
     }
 
@@ -368,12 +420,22 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
     }
 
     @Override
-    public Timestamp value9() {
+    public Integer value9() {
+        return getSetsize();
+    }
+
+    @Override
+    public Boolean value10() {
+        return getIsTimeseries();
+    }
+
+    @Override
+    public Timestamp value11() {
         return getCreatedOn();
     }
 
     @Override
-    public Timestamp value10() {
+    public Timestamp value12() {
         return getUpdatedOn();
     }
 
@@ -426,19 +488,31 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
     }
 
     @Override
-    public PhenotypesRecord value9(Timestamp value) {
+    public PhenotypesRecord value9(Integer value) {
+        setSetsize(value);
+        return this;
+    }
+
+    @Override
+    public PhenotypesRecord value10(Boolean value) {
+        setIsTimeseries(value);
+        return this;
+    }
+
+    @Override
+    public PhenotypesRecord value11(Timestamp value) {
         setCreatedOn(value);
         return this;
     }
 
     @Override
-    public PhenotypesRecord value10(Timestamp value) {
+    public PhenotypesRecord value12(Timestamp value) {
         setUpdatedOn(value);
         return this;
     }
 
     @Override
-    public PhenotypesRecord values(Integer value1, String value2, String value3, String value4, PhenotypesDatatype value5, TraitRestrictions value6, Integer value7, Integer value8, Timestamp value9, Timestamp value10) {
+    public PhenotypesRecord values(Integer value1, String value2, String value3, String value4, PhenotypesDatatype value5, TraitRestrictions value6, Integer value7, Integer value8, Integer value9, Boolean value10, Timestamp value11, Timestamp value12) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -449,6 +523,8 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
         value8(value8);
         value9(value9);
         value10(value10);
+        value11(value11);
+        value12(value12);
         return this;
     }
 
@@ -466,7 +542,7 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
     /**
      * Create a detached, initialised PhenotypesRecord
      */
-    public PhenotypesRecord(Integer id, String name, String shortName, String description, PhenotypesDatatype datatype, TraitRestrictions restrictions, Integer unitId, Integer categoryId, Timestamp createdOn, Timestamp updatedOn) {
+    public PhenotypesRecord(Integer id, String name, String shortName, String description, PhenotypesDatatype datatype, TraitRestrictions restrictions, Integer unitId, Integer categoryId, Integer setsize, Boolean isTimeseries, Timestamp createdOn, Timestamp updatedOn) {
         super(Phenotypes.PHENOTYPES);
 
         setId(id);
@@ -477,6 +553,8 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
         setRestrictions(restrictions);
         setUnitId(unitId);
         setCategoryId(categoryId);
+        setSetsize(setsize);
+        setIsTimeseries(isTimeseries);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
     }
@@ -496,6 +574,8 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
             setRestrictions(value.getRestrictions());
             setUnitId(value.getUnitId());
             setCategoryId(value.getCategoryId());
+            setSetsize(value.getSetsize());
+            setIsTimeseries(value.getIsTimeseries());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
         }

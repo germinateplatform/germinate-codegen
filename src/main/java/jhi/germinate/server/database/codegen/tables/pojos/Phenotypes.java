@@ -34,6 +34,8 @@ public class Phenotypes implements Serializable {
     private TraitRestrictions  restrictions;
     private Integer            unitId;
     private Integer            categoryId;
+    private Integer            setsize;
+    private Boolean            isTimeseries;
     private Timestamp          createdOn;
     private Timestamp          updatedOn;
 
@@ -48,6 +50,8 @@ public class Phenotypes implements Serializable {
         this.restrictions = value.restrictions;
         this.unitId = value.unitId;
         this.categoryId = value.categoryId;
+        this.setsize = value.setsize;
+        this.isTimeseries = value.isTimeseries;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
@@ -61,6 +65,8 @@ public class Phenotypes implements Serializable {
         TraitRestrictions  restrictions,
         Integer            unitId,
         Integer            categoryId,
+        Integer            setsize,
+        Boolean            isTimeseries,
         Timestamp          createdOn,
         Timestamp          updatedOn
     ) {
@@ -72,6 +78,8 @@ public class Phenotypes implements Serializable {
         this.restrictions = restrictions;
         this.unitId = unitId;
         this.categoryId = categoryId;
+        this.setsize = setsize;
+        this.isTimeseries = isTimeseries;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -88,6 +96,8 @@ public class Phenotypes implements Serializable {
         sb.append(", ").append(restrictions);
         sb.append(", ").append(unitId);
         sb.append(", ").append(categoryId);
+        sb.append(", ").append(setsize);
+        sb.append(", ").append(isTimeseries);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

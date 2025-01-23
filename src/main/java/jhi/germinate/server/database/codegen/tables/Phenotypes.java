@@ -15,7 +15,7 @@ import jhi.germinate.server.database.pojo.TraitRestrictions;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Name;
-import org.jooq.Row10;
+import org.jooq.Row12;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -106,6 +106,18 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
     public final TableField<PhenotypesRecord, Integer> CATEGORY_ID = createField(DSL.name("category_id"), SQLDataType.INTEGER, this, "Foreign key to phenotypecategories (phenotypecategories.id)");
 
     /**
+     * The column <code>germinate_db.phenotypes.setsize</code>. The number of
+     * individual measurements that should be taken for this trait.
+     */
+    public final TableField<PhenotypesRecord, Integer> SETSIZE = createField(DSL.name("setsize"), SQLDataType.INTEGER, this, "The number of individual measurements that should be taken for this trait.");
+
+    /**
+     * The column <code>germinate_db.phenotypes.is_timeseries</code>. Determines
+     * whether this trait is a time-series trait or not.
+     */
+    public final TableField<PhenotypesRecord, Boolean> IS_TIMESERIES = createField(DSL.name("is_timeseries"), SQLDataType.BOOLEAN.nullable(false).defaultValue(DSL.inline("1", SQLDataType.BOOLEAN)), this, "Determines whether this trait is a time-series trait or not.");
+
+    /**
      * The column <code>germinate_db.phenotypes.created_on</code>. When the
      * record was created.
      */
@@ -189,12 +201,12 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row10 type methods
+    // Row12 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row12<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Integer, Boolean, Timestamp, Timestamp> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
     // @formatter:on
 }

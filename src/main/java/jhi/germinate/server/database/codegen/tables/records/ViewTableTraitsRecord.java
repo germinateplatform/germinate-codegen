@@ -9,8 +9,8 @@ import jhi.germinate.server.database.codegen.tables.ViewTableTraits;
 import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 import org.jooq.Field;
-import org.jooq.Record16;
-import org.jooq.Row16;
+import org.jooq.Record18;
+import org.jooq.Row18;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,7 +19,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord> implements Record16<Integer, String, String, String, ViewTableTraitsDataType, TraitRestrictions, Integer, String, String, Integer, String, String, String, String[], Integer[], Long> {
+public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord> implements Record18<Integer, String, String, String, ViewTableTraitsDataType, TraitRestrictions, Integer, Boolean, Integer, String, String, Integer, String, String, String, String[], Integer[], Long> {
 
     private static final long serialVersionUID = 1L;
 
@@ -138,31 +138,67 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_traits.trait_set_size</code>.
+     * The number of individual measurements that should be taken for this
+     * trait.
+     */
+    public void setTraitSetSize(Integer value) {
+        set(6, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits.trait_set_size</code>.
+     * The number of individual measurements that should be taken for this
+     * trait.
+     */
+    public Integer getTraitSetSize() {
+        return (Integer) get(6);
+    }
+
+    /**
+     * Setter for
+     * <code>germinate_db.view_table_traits.trait_is_timeseries</code>.
+     * Determines whether this trait is a time-series trait or not.
+     */
+    public void setTraitIsTimeseries(Boolean value) {
+        set(7, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_traits.trait_is_timeseries</code>.
+     * Determines whether this trait is a time-series trait or not.
+     */
+    public Boolean getTraitIsTimeseries() {
+        return (Boolean) get(7);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_traits.category_id</code>.
      */
     public void setCategoryId(Integer value) {
-        set(6, value);
+        set(8, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.category_id</code>.
      */
     public Integer getCategoryId() {
-        return (Integer) get(6);
+        return (Integer) get(8);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.category_name</code>.
      */
     public void setCategoryName(String value) {
-        set(7, value);
+        set(9, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.category_name</code>.
      */
     public String getCategoryName() {
-        return (String) get(7);
+        return (String) get(9);
     }
 
     /**
@@ -170,7 +206,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.category_description</code>.
      */
     public void setCategoryDescription(String value) {
-        set(8, value);
+        set(10, value);
     }
 
     /**
@@ -178,7 +214,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.category_description</code>.
      */
     public String getCategoryDescription() {
-        return (String) get(8);
+        return (String) get(10);
     }
 
     /**
@@ -186,7 +222,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * id for this table. This uniquely identifies the row.
      */
     public void setUnitId(Integer value) {
-        set(9, value);
+        set(11, value);
     }
 
     /**
@@ -194,7 +230,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * id for this table. This uniquely identifies the row.
      */
     public Integer getUnitId() {
-        return (Integer) get(9);
+        return (Integer) get(11);
     }
 
     /**
@@ -202,7 +238,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * name of the unit. This should be the name of the unit in full.
      */
     public void setUnitName(String value) {
-        set(10, value);
+        set(12, value);
     }
 
     /**
@@ -210,7 +246,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * name of the unit. This should be the name of the unit in full.
      */
     public String getUnitName() {
-        return (String) get(10);
+        return (String) get(12);
     }
 
     /**
@@ -220,7 +256,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * it is derived and any other information which would help identifiy it.
      */
     public void setUnitDescription(String value) {
-        set(11, value);
+        set(13, value);
     }
 
     /**
@@ -230,7 +266,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * it is derived and any other information which would help identifiy it.
      */
     public String getUnitDescription() {
-        return (String) get(11);
+        return (String) get(13);
     }
 
     /**
@@ -238,7 +274,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * This should be the unit abbreviation.
      */
     public void setUnitAbbreviation(String value) {
-        set(12, value);
+        set(14, value);
     }
 
     /**
@@ -246,7 +282,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * This should be the unit abbreviation.
      */
     public String getUnitAbbreviation() {
-        return (String) get(12);
+        return (String) get(14);
     }
 
     /**
@@ -254,7 +290,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * synonyms as a json array.
      */
     public void setSynonyms(String[] value) {
-        set(13, value);
+        set(15, value);
     }
 
     /**
@@ -262,49 +298,49 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * synonyms as a json array.
      */
     public String[] getSynonyms() {
-        return (String[]) get(13);
+        return (String[]) get(15);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.dataset_ids</code>.
      */
     public void setDatasetIds(Integer[] value) {
-        set(14, value);
+        set(16, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.dataset_ids</code>.
      */
     public Integer[] getDatasetIds() {
-        return (Integer[]) get(14);
+        return (Integer[]) get(16);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.count</code>.
      */
     public void setCount(Long value) {
-        set(15, value);
+        set(17, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.count</code>.
      */
     public Long getCount() {
-        return (Long) get(15);
+        return (Long) get(17);
     }
 
     // -------------------------------------------------------------------------
-    // Record16 type implementation
+    // Record18 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row16<Integer, String, String, String, ViewTableTraitsDataType, TraitRestrictions, Integer, String, String, Integer, String, String, String, String[], Integer[], Long> fieldsRow() {
-        return (Row16) super.fieldsRow();
+    public Row18<Integer, String, String, String, ViewTableTraitsDataType, TraitRestrictions, Integer, Boolean, Integer, String, String, Integer, String, String, String, String[], Integer[], Long> fieldsRow() {
+        return (Row18) super.fieldsRow();
     }
 
     @Override
-    public Row16<Integer, String, String, String, ViewTableTraitsDataType, TraitRestrictions, Integer, String, String, Integer, String, String, String, String[], Integer[], Long> valuesRow() {
-        return (Row16) super.valuesRow();
+    public Row18<Integer, String, String, String, ViewTableTraitsDataType, TraitRestrictions, Integer, Boolean, Integer, String, String, Integer, String, String, String, String[], Integer[], Long> valuesRow() {
+        return (Row18) super.valuesRow();
     }
 
     @Override
@@ -339,51 +375,61 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
 
     @Override
     public Field<Integer> field7() {
+        return ViewTableTraits.VIEW_TABLE_TRAITS.TRAIT_SET_SIZE;
+    }
+
+    @Override
+    public Field<Boolean> field8() {
+        return ViewTableTraits.VIEW_TABLE_TRAITS.TRAIT_IS_TIMESERIES;
+    }
+
+    @Override
+    public Field<Integer> field9() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.CATEGORY_ID;
     }
 
     @Override
-    public Field<String> field8() {
+    public Field<String> field10() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.CATEGORY_NAME;
     }
 
     @Override
-    public Field<String> field9() {
+    public Field<String> field11() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.CATEGORY_DESCRIPTION;
     }
 
     @Override
-    public Field<Integer> field10() {
+    public Field<Integer> field12() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.UNIT_ID;
     }
 
     @Override
-    public Field<String> field11() {
+    public Field<String> field13() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.UNIT_NAME;
     }
 
     @Override
-    public Field<String> field12() {
+    public Field<String> field14() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.UNIT_DESCRIPTION;
     }
 
     @Override
-    public Field<String> field13() {
+    public Field<String> field15() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.UNIT_ABBREVIATION;
     }
 
     @Override
-    public Field<String[]> field14() {
+    public Field<String[]> field16() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.SYNONYMS;
     }
 
     @Override
-    public Field<Integer[]> field15() {
+    public Field<Integer[]> field17() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.DATASET_IDS;
     }
 
     @Override
-    public Field<Long> field16() {
+    public Field<Long> field18() {
         return ViewTableTraits.VIEW_TABLE_TRAITS.COUNT;
     }
 
@@ -419,51 +465,61 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
 
     @Override
     public Integer component7() {
+        return getTraitSetSize();
+    }
+
+    @Override
+    public Boolean component8() {
+        return getTraitIsTimeseries();
+    }
+
+    @Override
+    public Integer component9() {
         return getCategoryId();
     }
 
     @Override
-    public String component8() {
+    public String component10() {
         return getCategoryName();
     }
 
     @Override
-    public String component9() {
+    public String component11() {
         return getCategoryDescription();
     }
 
     @Override
-    public Integer component10() {
+    public Integer component12() {
         return getUnitId();
     }
 
     @Override
-    public String component11() {
+    public String component13() {
         return getUnitName();
     }
 
     @Override
-    public String component12() {
+    public String component14() {
         return getUnitDescription();
     }
 
     @Override
-    public String component13() {
+    public String component15() {
         return getUnitAbbreviation();
     }
 
     @Override
-    public String[] component14() {
+    public String[] component16() {
         return getSynonyms();
     }
 
     @Override
-    public Integer[] component15() {
+    public Integer[] component17() {
         return getDatasetIds();
     }
 
     @Override
-    public Long component16() {
+    public Long component18() {
         return getCount();
     }
 
@@ -499,51 +555,61 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
 
     @Override
     public Integer value7() {
+        return getTraitSetSize();
+    }
+
+    @Override
+    public Boolean value8() {
+        return getTraitIsTimeseries();
+    }
+
+    @Override
+    public Integer value9() {
         return getCategoryId();
     }
 
     @Override
-    public String value8() {
+    public String value10() {
         return getCategoryName();
     }
 
     @Override
-    public String value9() {
+    public String value11() {
         return getCategoryDescription();
     }
 
     @Override
-    public Integer value10() {
+    public Integer value12() {
         return getUnitId();
     }
 
     @Override
-    public String value11() {
+    public String value13() {
         return getUnitName();
     }
 
     @Override
-    public String value12() {
+    public String value14() {
         return getUnitDescription();
     }
 
     @Override
-    public String value13() {
+    public String value15() {
         return getUnitAbbreviation();
     }
 
     @Override
-    public String[] value14() {
+    public String[] value16() {
         return getSynonyms();
     }
 
     @Override
-    public Integer[] value15() {
+    public Integer[] value17() {
         return getDatasetIds();
     }
 
     @Override
-    public Long value16() {
+    public Long value18() {
         return getCount();
     }
 
@@ -585,66 +651,78 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
 
     @Override
     public ViewTableTraitsRecord value7(Integer value) {
+        setTraitSetSize(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableTraitsRecord value8(Boolean value) {
+        setTraitIsTimeseries(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableTraitsRecord value9(Integer value) {
         setCategoryId(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord value8(String value) {
+    public ViewTableTraitsRecord value10(String value) {
         setCategoryName(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord value9(String value) {
+    public ViewTableTraitsRecord value11(String value) {
         setCategoryDescription(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord value10(Integer value) {
+    public ViewTableTraitsRecord value12(Integer value) {
         setUnitId(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord value11(String value) {
+    public ViewTableTraitsRecord value13(String value) {
         setUnitName(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord value12(String value) {
+    public ViewTableTraitsRecord value14(String value) {
         setUnitDescription(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord value13(String value) {
+    public ViewTableTraitsRecord value15(String value) {
         setUnitAbbreviation(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord value14(String[] value) {
+    public ViewTableTraitsRecord value16(String[] value) {
         setSynonyms(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord value15(Integer[] value) {
+    public ViewTableTraitsRecord value17(Integer[] value) {
         setDatasetIds(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord value16(Long value) {
+    public ViewTableTraitsRecord value18(Long value) {
         setCount(value);
         return this;
     }
 
     @Override
-    public ViewTableTraitsRecord values(Integer value1, String value2, String value3, String value4, ViewTableTraitsDataType value5, TraitRestrictions value6, Integer value7, String value8, String value9, Integer value10, String value11, String value12, String value13, String[] value14, Integer[] value15, Long value16) {
+    public ViewTableTraitsRecord values(Integer value1, String value2, String value3, String value4, ViewTableTraitsDataType value5, TraitRestrictions value6, Integer value7, Boolean value8, Integer value9, String value10, String value11, Integer value12, String value13, String value14, String value15, String[] value16, Integer[] value17, Long value18) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -661,6 +739,8 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
         value14(value14);
         value15(value15);
         value16(value16);
+        value17(value17);
+        value18(value18);
         return this;
     }
 
@@ -678,7 +758,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
     /**
      * Create a detached, initialised ViewTableTraitsRecord
      */
-    public ViewTableTraitsRecord(Integer traitId, String traitName, String traitNameShort, String traitDescription, ViewTableTraitsDataType dataType, TraitRestrictions traitRestrictions, Integer categoryId, String categoryName, String categoryDescription, Integer unitId, String unitName, String unitDescription, String unitAbbreviation, String[] synonyms, Integer[] datasetIds, Long count) {
+    public ViewTableTraitsRecord(Integer traitId, String traitName, String traitNameShort, String traitDescription, ViewTableTraitsDataType dataType, TraitRestrictions traitRestrictions, Integer traitSetSize, Boolean traitIsTimeseries, Integer categoryId, String categoryName, String categoryDescription, Integer unitId, String unitName, String unitDescription, String unitAbbreviation, String[] synonyms, Integer[] datasetIds, Long count) {
         super(ViewTableTraits.VIEW_TABLE_TRAITS);
 
         setTraitId(traitId);
@@ -687,6 +767,8 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
         setTraitDescription(traitDescription);
         setDataType(dataType);
         setTraitRestrictions(traitRestrictions);
+        setTraitSetSize(traitSetSize);
+        setTraitIsTimeseries(traitIsTimeseries);
         setCategoryId(categoryId);
         setCategoryName(categoryName);
         setCategoryDescription(categoryDescription);
@@ -712,6 +794,8 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
             setTraitDescription(value.getTraitDescription());
             setDataType(value.getDataType());
             setTraitRestrictions(value.getTraitRestrictions());
+            setTraitSetSize(value.getTraitSetSize());
+            setTraitIsTimeseries(value.getTraitIsTimeseries());
             setCategoryId(value.getCategoryId());
             setCategoryName(value.getCategoryName());
             setCategoryDescription(value.getCategoryDescription());

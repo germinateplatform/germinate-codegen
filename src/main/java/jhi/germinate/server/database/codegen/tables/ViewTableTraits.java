@@ -14,7 +14,7 @@ import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row16;
+import org.jooq.Row18;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -92,6 +92,20 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     public final TableField<ViewTableTraitsRecord, TraitRestrictions> TRAIT_RESTRICTIONS = createField(DSL.name("trait_restrictions"), SQLDataType.JSON, this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.", new TraitRestrictionBinding());
 
     /**
+     * The column <code>germinate_db.view_table_traits.trait_set_size</code>.
+     * The number of individual measurements that should be taken for this
+     * trait.
+     */
+    public final TableField<ViewTableTraitsRecord, Integer> TRAIT_SET_SIZE = createField(DSL.name("trait_set_size"), SQLDataType.INTEGER, this, "The number of individual measurements that should be taken for this trait.");
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_traits.trait_is_timeseries</code>.
+     * Determines whether this trait is a time-series trait or not.
+     */
+    public final TableField<ViewTableTraitsRecord, Boolean> TRAIT_IS_TIMESERIES = createField(DSL.name("trait_is_timeseries"), SQLDataType.BOOLEAN.nullable(false).defaultValue(DSL.inline("1", SQLDataType.BOOLEAN)), this, "Determines whether this trait is a time-series trait or not.");
+
+    /**
      * The column <code>germinate_db.view_table_traits.category_id</code>.
      */
     public final TableField<ViewTableTraitsRecord, Integer> CATEGORY_ID = createField(DSL.name("category_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
@@ -154,7 +168,7 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     }
 
     private ViewTableTraits(Name alias, Table<ViewTableTraitsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_traits` as select distinct `germinate_template_4_25_01_14`.`phenotypes`.`id` AS `trait_id`,`germinate_template_4_25_01_14`.`phenotypes`.`name` AS `trait_name`,`germinate_template_4_25_01_14`.`phenotypes`.`short_name` AS `trait_name_short`,`germinate_template_4_25_01_14`.`phenotypes`.`description` AS `trait_description`,`germinate_template_4_25_01_14`.`phenotypes`.`datatype` AS `data_type`,`germinate_template_4_25_01_14`.`phenotypes`.`restrictions` AS `trait_restrictions`,`germinate_template_4_25_01_14`.`phenotypecategories`.`id` AS `category_id`,`germinate_template_4_25_01_14`.`phenotypecategories`.`name` AS `category_name`,`germinate_template_4_25_01_14`.`phenotypecategories`.`description` AS `category_description`,`germinate_template_4_25_01_14`.`units`.`id` AS `unit_id`,`germinate_template_4_25_01_14`.`units`.`unit_name` AS `unit_name`,`germinate_template_4_25_01_14`.`units`.`unit_description` AS `unit_description`,`germinate_template_4_25_01_14`.`units`.`unit_abbreviation` AS `unit_abbreviation`,`germinate_template_4_25_01_14`.`synonyms`.`synonyms` AS `synonyms`,(select cast(concat('[',(select group_concat(distinct `germinate_template_4_25_01_14`.`trialsetup`.`dataset_id` separator ',') from (`germinate_template_4_25_01_14`.`phenotypedata` left join `germinate_template_4_25_01_14`.`trialsetup` on((`germinate_template_4_25_01_14`.`trialsetup`.`id` = `germinate_template_4_25_01_14`.`phenotypedata`.`trialsetup_id`))) where (`germinate_template_4_25_01_14`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_01_14`.`phenotypes`.`id`)),']') as json)) AS `dataset_ids`,(select count(1) from `germinate_template_4_25_01_14`.`phenotypedata` where (`germinate_template_4_25_01_14`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_01_14`.`phenotypes`.`id`)) AS `count` from (((`germinate_template_4_25_01_14`.`phenotypes` left join `germinate_template_4_25_01_14`.`units` on((`germinate_template_4_25_01_14`.`units`.`id` = `germinate_template_4_25_01_14`.`phenotypes`.`unit_id`))) left join `germinate_template_4_25_01_14`.`phenotypecategories` on((`germinate_template_4_25_01_14`.`phenotypecategories`.`id` = `germinate_template_4_25_01_14`.`phenotypes`.`category_id`))) left join `germinate_template_4_25_01_14`.`synonyms` on(((`germinate_template_4_25_01_14`.`synonyms`.`foreign_id` = `germinate_template_4_25_01_14`.`phenotypes`.`id`) and (`germinate_template_4_25_01_14`.`synonyms`.`synonymtype_id` = 4)))) group by `germinate_template_4_25_01_14`.`phenotypes`.`id`,`germinate_template_4_25_01_14`.`synonyms`.`id`"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_traits` as select distinct `germinate_template_4_25_01_23`.`phenotypes`.`id` AS `trait_id`,`germinate_template_4_25_01_23`.`phenotypes`.`name` AS `trait_name`,`germinate_template_4_25_01_23`.`phenotypes`.`short_name` AS `trait_name_short`,`germinate_template_4_25_01_23`.`phenotypes`.`description` AS `trait_description`,`germinate_template_4_25_01_23`.`phenotypes`.`datatype` AS `data_type`,`germinate_template_4_25_01_23`.`phenotypes`.`restrictions` AS `trait_restrictions`,`germinate_template_4_25_01_23`.`phenotypes`.`setsize` AS `trait_set_size`,`germinate_template_4_25_01_23`.`phenotypes`.`is_timeseries` AS `trait_is_timeseries`,`germinate_template_4_25_01_23`.`phenotypecategories`.`id` AS `category_id`,`germinate_template_4_25_01_23`.`phenotypecategories`.`name` AS `category_name`,`germinate_template_4_25_01_23`.`phenotypecategories`.`description` AS `category_description`,`germinate_template_4_25_01_23`.`units`.`id` AS `unit_id`,`germinate_template_4_25_01_23`.`units`.`unit_name` AS `unit_name`,`germinate_template_4_25_01_23`.`units`.`unit_description` AS `unit_description`,`germinate_template_4_25_01_23`.`units`.`unit_abbreviation` AS `unit_abbreviation`,`germinate_template_4_25_01_23`.`synonyms`.`synonyms` AS `synonyms`,(select cast(concat('[',(select group_concat(distinct `germinate_template_4_25_01_23`.`trialsetup`.`dataset_id` separator ',') from (`germinate_template_4_25_01_23`.`phenotypedata` left join `germinate_template_4_25_01_23`.`trialsetup` on((`germinate_template_4_25_01_23`.`trialsetup`.`id` = `germinate_template_4_25_01_23`.`phenotypedata`.`trialsetup_id`))) where (`germinate_template_4_25_01_23`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_01_23`.`phenotypes`.`id`)),']') as json)) AS `dataset_ids`,(select count(1) from `germinate_template_4_25_01_23`.`phenotypedata` where (`germinate_template_4_25_01_23`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_01_23`.`phenotypes`.`id`)) AS `count` from (((`germinate_template_4_25_01_23`.`phenotypes` left join `germinate_template_4_25_01_23`.`units` on((`germinate_template_4_25_01_23`.`units`.`id` = `germinate_template_4_25_01_23`.`phenotypes`.`unit_id`))) left join `germinate_template_4_25_01_23`.`phenotypecategories` on((`germinate_template_4_25_01_23`.`phenotypecategories`.`id` = `germinate_template_4_25_01_23`.`phenotypes`.`category_id`))) left join `germinate_template_4_25_01_23`.`synonyms` on(((`germinate_template_4_25_01_23`.`synonyms`.`foreign_id` = `germinate_template_4_25_01_23`.`phenotypes`.`id`) and (`germinate_template_4_25_01_23`.`synonyms`.`synonymtype_id` = 4)))) group by `germinate_template_4_25_01_23`.`phenotypes`.`id`,`germinate_template_4_25_01_23`.`synonyms`.`id`"));
     }
 
     /**
@@ -212,12 +226,12 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row16 type methods
+    // Row18 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row16<Integer, String, String, String, ViewTableTraitsDataType, TraitRestrictions, Integer, String, String, Integer, String, String, String, String[], Integer[], Long> fieldsRow() {
-        return (Row16) super.fieldsRow();
+    public Row18<Integer, String, String, String, ViewTableTraitsDataType, TraitRestrictions, Integer, Boolean, Integer, String, String, Integer, String, String, String, String[], Integer[], Long> fieldsRow() {
+        return (Row18) super.fieldsRow();
     }
     // @formatter:on
 }
