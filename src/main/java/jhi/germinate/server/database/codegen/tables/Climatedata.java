@@ -72,7 +72,7 @@ public class Climatedata extends TableImpl<ClimatedataRecord> {
      * Monthly data is required for the current Germinate climate
      * viisualizations and interface.
      */
-    public final TableField<ClimatedataRecord, Double> CLIMATE_VALUE = createField(DSL.name("climate_value"), SQLDataType.DOUBLE, this, "Value for the specific climate attribute. These are monthly averages and not daily. Monthly data is required for the current Germinate climate viisualizations and interface.");
+    public final TableField<ClimatedataRecord, String> CLIMATE_VALUE = createField(DSL.name("climate_value"), SQLDataType.VARCHAR(255), this, "Value for the specific climate attribute. These are monthly averages and not daily. Monthly data is required for the current Germinate climate viisualizations and interface.");
 
     /**
      * The column <code>germinate_db.climatedata.dataset_id</code>. Foreign key
@@ -181,7 +181,7 @@ public class Climatedata extends TableImpl<ClimatedataRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<Integer, Integer, Integer, Double, Integer, Timestamp, String, Timestamp, Timestamp> fieldsRow() {
+    public Row9<Integer, Integer, Integer, String, Integer, Timestamp, String, Timestamp, Timestamp> fieldsRow() {
         return (Row9) super.fieldsRow();
     }
     // @formatter:on

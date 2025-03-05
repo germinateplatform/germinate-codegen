@@ -20,7 +20,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimateDataRecord> implements Record20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, Double> {
+public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimateDataRecord> implements Record20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, String> {
 
     private static final long serialVersionUID = 1L;
 
@@ -367,7 +367,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
      * daily. Monthly data is required for the current Germinate climate
      * viisualizations and interface.
      */
-    public void setClimateValue(Double value) {
+    public void setClimateValue(String value) {
         set(19, value);
     }
 
@@ -378,8 +378,8 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
      * daily. Monthly data is required for the current Germinate climate
      * viisualizations and interface.
      */
-    public Double getClimateValue() {
-        return (Double) get(19);
+    public String getClimateValue() {
+        return (String) get(19);
     }
 
     // -------------------------------------------------------------------------
@@ -387,12 +387,12 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     // -------------------------------------------------------------------------
 
     @Override
-    public Row20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, Double> fieldsRow() {
+    public Row20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, String> fieldsRow() {
         return (Row20) super.fieldsRow();
     }
 
     @Override
-    public Row20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, Double> valuesRow() {
+    public Row20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, String> valuesRow() {
         return (Row20) super.valuesRow();
     }
 
@@ -492,7 +492,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     }
 
     @Override
-    public Field<Double> field20() {
+    public Field<String> field20() {
         return ViewTableClimateData.VIEW_TABLE_CLIMATE_DATA.CLIMATE_VALUE;
     }
 
@@ -592,7 +592,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     }
 
     @Override
-    public Double component20() {
+    public String component20() {
         return getClimateValue();
     }
 
@@ -692,7 +692,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     }
 
     @Override
-    public Double value20() {
+    public String value20() {
         return getClimateValue();
     }
 
@@ -811,13 +811,13 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     }
 
     @Override
-    public ViewTableClimateDataRecord value20(Double value) {
+    public ViewTableClimateDataRecord value20(String value) {
         setClimateValue(value);
         return this;
     }
 
     @Override
-    public ViewTableClimateDataRecord values(Integer value1, String value2, String value3, String value4, String value5, BigDecimal value6, BigDecimal value7, BigDecimal value8, String value9, String value10, String value11, Integer value12, String value13, String value14, Integer value15, String value16, String value17, String value18, Timestamp value19, Double value20) {
+    public ViewTableClimateDataRecord values(Integer value1, String value2, String value3, String value4, String value5, BigDecimal value6, BigDecimal value7, BigDecimal value8, String value9, String value10, String value11, Integer value12, String value13, String value14, Integer value15, String value16, String value17, String value18, Timestamp value19, String value20) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -855,7 +855,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     /**
      * Create a detached, initialised ViewTableClimateDataRecord
      */
-    public ViewTableClimateDataRecord(Integer locationId, String locationName, String locationRegion, String locationState, String locationType, BigDecimal locationLatitude, BigDecimal locationLongitude, BigDecimal locationElevation, String countryName, String countryCode2, String countryCode3, Integer datasetId, String datasetName, String datasetDescription, Integer climateId, String climateName, String climateNameShort, String unitName, Timestamp recordingDate, Double climateValue) {
+    public ViewTableClimateDataRecord(Integer locationId, String locationName, String locationRegion, String locationState, String locationType, BigDecimal locationLatitude, BigDecimal locationLongitude, BigDecimal locationElevation, String countryName, String countryCode2, String countryCode3, Integer datasetId, String datasetName, String datasetDescription, Integer climateId, String climateName, String climateNameShort, String unitName, Timestamp recordingDate, String climateValue) {
         super(ViewTableClimateData.VIEW_TABLE_CLIMATE_DATA);
 
         setLocationId(locationId);

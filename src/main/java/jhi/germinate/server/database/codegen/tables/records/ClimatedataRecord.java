@@ -22,7 +22,7 @@ import org.jooq.impl.UpdatableRecordImpl;
  * other tables in Germinate.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> implements Record9<Integer, Integer, Integer, Double, Integer, Timestamp, String, Timestamp, Timestamp> {
+public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> implements Record9<Integer, Integer, Integer, String, Integer, Timestamp, String, Timestamp, Timestamp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -80,7 +80,7 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
      * Monthly data is required for the current Germinate climate
      * viisualizations and interface.
      */
-    public void setClimateValue(Double value) {
+    public void setClimateValue(String value) {
         set(3, value);
     }
 
@@ -90,8 +90,8 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
      * Monthly data is required for the current Germinate climate
      * viisualizations and interface.
      */
-    public Double getClimateValue() {
-        return (Double) get(3);
+    public String getClimateValue() {
+        return (String) get(3);
     }
 
     /**
@@ -192,12 +192,12 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<Integer, Integer, Integer, Double, Integer, Timestamp, String, Timestamp, Timestamp> fieldsRow() {
+    public Row9<Integer, Integer, Integer, String, Integer, Timestamp, String, Timestamp, Timestamp> fieldsRow() {
         return (Row9) super.fieldsRow();
     }
 
     @Override
-    public Row9<Integer, Integer, Integer, Double, Integer, Timestamp, String, Timestamp, Timestamp> valuesRow() {
+    public Row9<Integer, Integer, Integer, String, Integer, Timestamp, String, Timestamp, Timestamp> valuesRow() {
         return (Row9) super.valuesRow();
     }
 
@@ -217,7 +217,7 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
     }
 
     @Override
-    public Field<Double> field4() {
+    public Field<String> field4() {
         return Climatedata.CLIMATEDATA.CLIMATE_VALUE;
     }
 
@@ -262,7 +262,7 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
     }
 
     @Override
-    public Double component4() {
+    public String component4() {
         return getClimateValue();
     }
 
@@ -307,7 +307,7 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
     }
 
     @Override
-    public Double value4() {
+    public String value4() {
         return getClimateValue();
     }
 
@@ -355,7 +355,7 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
     }
 
     @Override
-    public ClimatedataRecord value4(Double value) {
+    public ClimatedataRecord value4(String value) {
         setClimateValue(value);
         return this;
     }
@@ -391,7 +391,7 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
     }
 
     @Override
-    public ClimatedataRecord values(Integer value1, Integer value2, Integer value3, Double value4, Integer value5, Timestamp value6, String value7, Timestamp value8, Timestamp value9) {
+    public ClimatedataRecord values(Integer value1, Integer value2, Integer value3, String value4, Integer value5, Timestamp value6, String value7, Timestamp value8, Timestamp value9) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -418,7 +418,7 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
     /**
      * Create a detached, initialised ClimatedataRecord
      */
-    public ClimatedataRecord(Integer id, Integer climateId, Integer locationId, Double climateValue, Integer datasetId, Timestamp recordingDate, String oldRecordingDate, Timestamp createdOn, Timestamp updatedOn) {
+    public ClimatedataRecord(Integer id, Integer climateId, Integer locationId, String climateValue, Integer datasetId, Timestamp recordingDate, String oldRecordingDate, Timestamp createdOn, Timestamp updatedOn) {
         super(Climatedata.CLIMATEDATA);
 
         setId(id);

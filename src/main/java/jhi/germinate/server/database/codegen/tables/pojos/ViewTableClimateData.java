@@ -43,7 +43,7 @@ public class ViewTableClimateData implements Serializable {
     private String     climateNameShort;
     private String     unitName;
     private Timestamp  recordingDate;
-    private Double     climateValue;
+    private String     climateValue;
 
     public ViewTableClimateData() {}
 
@@ -90,7 +90,7 @@ public class ViewTableClimateData implements Serializable {
         String     climateNameShort,
         String     unitName,
         Timestamp  recordingDate,
-        Double     climateValue
+        String     climateValue
     ) {
         this.locationId = locationId;
         this.locationName = locationName;

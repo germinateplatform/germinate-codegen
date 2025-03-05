@@ -28,7 +28,7 @@ public class Climatedata implements Serializable {
     private Integer   id;
     private Integer   climateId;
     private Integer   locationId;
-    private Double    climateValue;
+    private String    climateValue;
     private Integer   datasetId;
     private Timestamp recordingDate;
     private String    oldRecordingDate;
@@ -53,7 +53,7 @@ public class Climatedata implements Serializable {
         Integer   id,
         Integer   climateId,
         Integer   locationId,
-        Double    climateValue,
+        String    climateValue,
         Integer   datasetId,
         Timestamp recordingDate,
         String    oldRecordingDate,
