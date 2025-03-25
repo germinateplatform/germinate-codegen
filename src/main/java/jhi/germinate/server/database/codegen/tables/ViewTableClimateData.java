@@ -8,11 +8,12 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.enums.ViewTableClimateDataClimateDataType;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableClimateDataRecord;
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row20;
+import org.jooq.Row21;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -163,6 +164,14 @@ public class ViewTableClimateData extends TableImpl<ViewTableClimateDataRecord> 
     public final TableField<ViewTableClimateDataRecord, String> CLIMATE_NAME_SHORT = createField(DSL.name("climate_name_short"), SQLDataType.CHAR(10), this, "Shortened version of the climate name which is used in some table headers.");
 
     /**
+     * The column
+     * <code>germinate_db.view_table_climate_data.climate_data_type</code>.
+     * Defines the data type of the climate. This can be of numeric, text, date
+     * or categorical types.
+     */
+    public final TableField<ViewTableClimateDataRecord, ViewTableClimateDataClimateDataType> CLIMATE_DATA_TYPE = createField(DSL.name("climate_data_type"), SQLDataType.VARCHAR(11).defaultValue(DSL.inline("text", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ViewTableClimateDataClimateDataType.class), this, "Defines the data type of the climate. This can be of numeric, text, date or categorical types.");
+
+    /**
      * The column <code>germinate_db.view_table_climate_data.unit_name</code>.
      * The name of the unit. This should be the name of the unit in full.
      */
@@ -189,7 +198,7 @@ public class ViewTableClimateData extends TableImpl<ViewTableClimateDataRecord> 
     }
 
     private ViewTableClimateData(Name alias, Table<ViewTableClimateDataRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_climate_data` as select `germinate_template_4_25_03_05`.`locations`.`id` AS `location_id`,`germinate_template_4_25_03_05`.`locations`.`site_name` AS `location_name`,`germinate_template_4_25_03_05`.`locations`.`region` AS `location_region`,`germinate_template_4_25_03_05`.`locations`.`state` AS `location_state`,`germinate_template_4_25_03_05`.`locationtypes`.`name` AS `location_type`,`germinate_template_4_25_03_05`.`locations`.`latitude` AS `location_latitude`,`germinate_template_4_25_03_05`.`locations`.`longitude` AS `location_longitude`,`germinate_template_4_25_03_05`.`locations`.`elevation` AS `location_elevation`,`germinate_template_4_25_03_05`.`countries`.`country_name` AS `country_name`,`germinate_template_4_25_03_05`.`countries`.`country_code2` AS `country_code2`,`germinate_template_4_25_03_05`.`countries`.`country_code3` AS `country_code3`,`germinate_template_4_25_03_05`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_03_05`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_25_03_05`.`datasets`.`description` AS `dataset_description`,`germinate_template_4_25_03_05`.`climates`.`id` AS `climate_id`,`germinate_template_4_25_03_05`.`climates`.`name` AS `climate_name`,`germinate_template_4_25_03_05`.`climates`.`short_name` AS `climate_name_short`,`germinate_template_4_25_03_05`.`units`.`unit_name` AS `unit_name`,`germinate_template_4_25_03_05`.`climatedata`.`recording_date` AS `recording_date`,`germinate_template_4_25_03_05`.`climatedata`.`climate_value` AS `climate_value` from ((((((`germinate_template_4_25_03_05`.`climatedata` left join `germinate_template_4_25_03_05`.`locations` on((`germinate_template_4_25_03_05`.`locations`.`id` = `germinate_template_4_25_03_05`.`climatedata`.`location_id`))) left join `germinate_template_4_25_03_05`.`locationtypes` on((`germinate_template_4_25_03_05`.`locations`.`locationtype_id` = `germinate_template_4_25_03_05`.`locationtypes`.`id`))) left join `germinate_template_4_25_03_05`.`climates` on((`germinate_template_4_25_03_05`.`climates`.`id` = `germinate_template_4_25_03_05`.`climatedata`.`climate_id`))) left join `germinate_template_4_25_03_05`.`units` on((`germinate_template_4_25_03_05`.`units`.`id` = `germinate_template_4_25_03_05`.`climates`.`unit_id`))) left join `germinate_template_4_25_03_05`.`datasets` on((`germinate_template_4_25_03_05`.`datasets`.`id` = `germinate_template_4_25_03_05`.`climatedata`.`dataset_id`))) left join `germinate_template_4_25_03_05`.`countries` on((`germinate_template_4_25_03_05`.`countries`.`id` = `germinate_template_4_25_03_05`.`locations`.`country_id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_table_climate_data` as select `germinate_template_4_25_03_05`.`locations`.`id` AS `location_id`,`germinate_template_4_25_03_05`.`locations`.`site_name` AS `location_name`,`germinate_template_4_25_03_05`.`locations`.`region` AS `location_region`,`germinate_template_4_25_03_05`.`locations`.`state` AS `location_state`,`germinate_template_4_25_03_05`.`locationtypes`.`name` AS `location_type`,`germinate_template_4_25_03_05`.`locations`.`latitude` AS `location_latitude`,`germinate_template_4_25_03_05`.`locations`.`longitude` AS `location_longitude`,`germinate_template_4_25_03_05`.`locations`.`elevation` AS `location_elevation`,`germinate_template_4_25_03_05`.`countries`.`country_name` AS `country_name`,`germinate_template_4_25_03_05`.`countries`.`country_code2` AS `country_code2`,`germinate_template_4_25_03_05`.`countries`.`country_code3` AS `country_code3`,`germinate_template_4_25_03_05`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_03_05`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_25_03_05`.`datasets`.`description` AS `dataset_description`,`germinate_template_4_25_03_05`.`climates`.`id` AS `climate_id`,`germinate_template_4_25_03_05`.`climates`.`name` AS `climate_name`,`germinate_template_4_25_03_05`.`climates`.`short_name` AS `climate_name_short`,`germinate_template_4_25_03_05`.`climates`.`datatype` AS `climate_data_type`,`germinate_template_4_25_03_05`.`units`.`unit_name` AS `unit_name`,`germinate_template_4_25_03_05`.`climatedata`.`recording_date` AS `recording_date`,`germinate_template_4_25_03_05`.`climatedata`.`climate_value` AS `climate_value` from ((((((`germinate_template_4_25_03_05`.`climatedata` left join `germinate_template_4_25_03_05`.`locations` on((`germinate_template_4_25_03_05`.`locations`.`id` = `germinate_template_4_25_03_05`.`climatedata`.`location_id`))) left join `germinate_template_4_25_03_05`.`locationtypes` on((`germinate_template_4_25_03_05`.`locations`.`locationtype_id` = `germinate_template_4_25_03_05`.`locationtypes`.`id`))) left join `germinate_template_4_25_03_05`.`climates` on((`germinate_template_4_25_03_05`.`climates`.`id` = `germinate_template_4_25_03_05`.`climatedata`.`climate_id`))) left join `germinate_template_4_25_03_05`.`units` on((`germinate_template_4_25_03_05`.`units`.`id` = `germinate_template_4_25_03_05`.`climates`.`unit_id`))) left join `germinate_template_4_25_03_05`.`datasets` on((`germinate_template_4_25_03_05`.`datasets`.`id` = `germinate_template_4_25_03_05`.`climatedata`.`dataset_id`))) left join `germinate_template_4_25_03_05`.`countries` on((`germinate_template_4_25_03_05`.`countries`.`id` = `germinate_template_4_25_03_05`.`locations`.`country_id`)))"));
     }
 
     /**
@@ -248,12 +257,12 @@ public class ViewTableClimateData extends TableImpl<ViewTableClimateDataRecord> 
     }
 
     // -------------------------------------------------------------------------
-    // Row20 type methods
+    // Row21 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, String> fieldsRow() {
-        return (Row20) super.fieldsRow();
+    public Row21<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, ViewTableClimateDataClimateDataType, String, Timestamp, String> fieldsRow() {
+        return (Row21) super.fieldsRow();
     }
     // @formatter:on
 }

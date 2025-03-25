@@ -7,11 +7,12 @@ package jhi.germinate.server.database.codegen.tables.records;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.codegen.enums.ViewTableClimateDataClimateDataType;
 import jhi.germinate.server.database.codegen.tables.ViewTableClimateData;
 
 import org.jooq.Field;
-import org.jooq.Record20;
-import org.jooq.Row20;
+import org.jooq.Record21;
+import org.jooq.Row21;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -20,7 +21,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimateDataRecord> implements Record20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, String> {
+public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimateDataRecord> implements Record21<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, ViewTableClimateDataClimateDataType, String, Timestamp, String> {
 
     private static final long serialVersionUID = 1L;
 
@@ -327,11 +328,31 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     }
 
     /**
+     * Setter for
+     * <code>germinate_db.view_table_climate_data.climate_data_type</code>.
+     * Defines the data type of the climate. This can be of numeric, text, date
+     * or categorical types.
+     */
+    public void setClimateDataType(ViewTableClimateDataClimateDataType value) {
+        set(17, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_climate_data.climate_data_type</code>.
+     * Defines the data type of the climate. This can be of numeric, text, date
+     * or categorical types.
+     */
+    public ViewTableClimateDataClimateDataType getClimateDataType() {
+        return (ViewTableClimateDataClimateDataType) get(17);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_climate_data.unit_name</code>.
      * The name of the unit. This should be the name of the unit in full.
      */
     public void setUnitName(String value) {
-        set(17, value);
+        set(18, value);
     }
 
     /**
@@ -339,7 +360,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
      * The name of the unit. This should be the name of the unit in full.
      */
     public String getUnitName() {
-        return (String) get(17);
+        return (String) get(18);
     }
 
     /**
@@ -348,7 +369,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
      * date at which this data point was recorded.
      */
     public void setRecordingDate(Timestamp value) {
-        set(18, value);
+        set(19, value);
     }
 
     /**
@@ -357,7 +378,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
      * date at which this data point was recorded.
      */
     public Timestamp getRecordingDate() {
-        return (Timestamp) get(18);
+        return (Timestamp) get(19);
     }
 
     /**
@@ -368,7 +389,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
      * viisualizations and interface.
      */
     public void setClimateValue(String value) {
-        set(19, value);
+        set(20, value);
     }
 
     /**
@@ -379,21 +400,21 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
      * viisualizations and interface.
      */
     public String getClimateValue() {
-        return (String) get(19);
+        return (String) get(20);
     }
 
     // -------------------------------------------------------------------------
-    // Record20 type implementation
+    // Record21 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, String> fieldsRow() {
-        return (Row20) super.fieldsRow();
+    public Row21<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, ViewTableClimateDataClimateDataType, String, Timestamp, String> fieldsRow() {
+        return (Row21) super.fieldsRow();
     }
 
     @Override
-    public Row20<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, String, Timestamp, String> valuesRow() {
-        return (Row20) super.valuesRow();
+    public Row21<Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, String, String, String, Integer, String, String, Integer, String, String, ViewTableClimateDataClimateDataType, String, Timestamp, String> valuesRow() {
+        return (Row21) super.valuesRow();
     }
 
     @Override
@@ -482,17 +503,22 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     }
 
     @Override
-    public Field<String> field18() {
+    public Field<ViewTableClimateDataClimateDataType> field18() {
+        return ViewTableClimateData.VIEW_TABLE_CLIMATE_DATA.CLIMATE_DATA_TYPE;
+    }
+
+    @Override
+    public Field<String> field19() {
         return ViewTableClimateData.VIEW_TABLE_CLIMATE_DATA.UNIT_NAME;
     }
 
     @Override
-    public Field<Timestamp> field19() {
+    public Field<Timestamp> field20() {
         return ViewTableClimateData.VIEW_TABLE_CLIMATE_DATA.RECORDING_DATE;
     }
 
     @Override
-    public Field<String> field20() {
+    public Field<String> field21() {
         return ViewTableClimateData.VIEW_TABLE_CLIMATE_DATA.CLIMATE_VALUE;
     }
 
@@ -582,17 +608,22 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     }
 
     @Override
-    public String component18() {
+    public ViewTableClimateDataClimateDataType component18() {
+        return getClimateDataType();
+    }
+
+    @Override
+    public String component19() {
         return getUnitName();
     }
 
     @Override
-    public Timestamp component19() {
+    public Timestamp component20() {
         return getRecordingDate();
     }
 
     @Override
-    public String component20() {
+    public String component21() {
         return getClimateValue();
     }
 
@@ -682,17 +713,22 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     }
 
     @Override
-    public String value18() {
+    public ViewTableClimateDataClimateDataType value18() {
+        return getClimateDataType();
+    }
+
+    @Override
+    public String value19() {
         return getUnitName();
     }
 
     @Override
-    public Timestamp value19() {
+    public Timestamp value20() {
         return getRecordingDate();
     }
 
     @Override
-    public String value20() {
+    public String value21() {
         return getClimateValue();
     }
 
@@ -799,25 +835,31 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     }
 
     @Override
-    public ViewTableClimateDataRecord value18(String value) {
+    public ViewTableClimateDataRecord value18(ViewTableClimateDataClimateDataType value) {
+        setClimateDataType(value);
+        return this;
+    }
+
+    @Override
+    public ViewTableClimateDataRecord value19(String value) {
         setUnitName(value);
         return this;
     }
 
     @Override
-    public ViewTableClimateDataRecord value19(Timestamp value) {
+    public ViewTableClimateDataRecord value20(Timestamp value) {
         setRecordingDate(value);
         return this;
     }
 
     @Override
-    public ViewTableClimateDataRecord value20(String value) {
+    public ViewTableClimateDataRecord value21(String value) {
         setClimateValue(value);
         return this;
     }
 
     @Override
-    public ViewTableClimateDataRecord values(Integer value1, String value2, String value3, String value4, String value5, BigDecimal value6, BigDecimal value7, BigDecimal value8, String value9, String value10, String value11, Integer value12, String value13, String value14, Integer value15, String value16, String value17, String value18, Timestamp value19, String value20) {
+    public ViewTableClimateDataRecord values(Integer value1, String value2, String value3, String value4, String value5, BigDecimal value6, BigDecimal value7, BigDecimal value8, String value9, String value10, String value11, Integer value12, String value13, String value14, Integer value15, String value16, String value17, ViewTableClimateDataClimateDataType value18, String value19, Timestamp value20, String value21) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -838,6 +880,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
         value18(value18);
         value19(value19);
         value20(value20);
+        value21(value21);
         return this;
     }
 
@@ -855,7 +898,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
     /**
      * Create a detached, initialised ViewTableClimateDataRecord
      */
-    public ViewTableClimateDataRecord(Integer locationId, String locationName, String locationRegion, String locationState, String locationType, BigDecimal locationLatitude, BigDecimal locationLongitude, BigDecimal locationElevation, String countryName, String countryCode2, String countryCode3, Integer datasetId, String datasetName, String datasetDescription, Integer climateId, String climateName, String climateNameShort, String unitName, Timestamp recordingDate, String climateValue) {
+    public ViewTableClimateDataRecord(Integer locationId, String locationName, String locationRegion, String locationState, String locationType, BigDecimal locationLatitude, BigDecimal locationLongitude, BigDecimal locationElevation, String countryName, String countryCode2, String countryCode3, Integer datasetId, String datasetName, String datasetDescription, Integer climateId, String climateName, String climateNameShort, ViewTableClimateDataClimateDataType climateDataType, String unitName, Timestamp recordingDate, String climateValue) {
         super(ViewTableClimateData.VIEW_TABLE_CLIMATE_DATA);
 
         setLocationId(locationId);
@@ -875,6 +918,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
         setClimateId(climateId);
         setClimateName(climateName);
         setClimateNameShort(climateNameShort);
+        setClimateDataType(climateDataType);
         setUnitName(unitName);
         setRecordingDate(recordingDate);
         setClimateValue(climateValue);
@@ -904,6 +948,7 @@ public class ViewTableClimateDataRecord extends TableRecordImpl<ViewTableClimate
             setClimateId(value.getClimateId());
             setClimateName(value.getClimateName());
             setClimateNameShort(value.getClimateNameShort());
+            setClimateDataType(value.getClimateDataType());
             setUnitName(value.getUnitName());
             setRecordingDate(value.getRecordingDate());
             setClimateValue(value.getClimateValue());

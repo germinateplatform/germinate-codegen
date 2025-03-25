@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+import jhi.germinate.server.database.codegen.enums.ViewTableClimateDataClimateDataType;
+
 
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -24,26 +26,27 @@ public class ViewTableClimateData implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer    locationId;
-    private String     locationName;
-    private String     locationRegion;
-    private String     locationState;
-    private String     locationType;
-    private BigDecimal locationLatitude;
-    private BigDecimal locationLongitude;
-    private BigDecimal locationElevation;
-    private String     countryName;
-    private String     countryCode2;
-    private String     countryCode3;
-    private Integer    datasetId;
-    private String     datasetName;
-    private String     datasetDescription;
-    private Integer    climateId;
-    private String     climateName;
-    private String     climateNameShort;
-    private String     unitName;
-    private Timestamp  recordingDate;
-    private String     climateValue;
+    private Integer                             locationId;
+    private String                              locationName;
+    private String                              locationRegion;
+    private String                              locationState;
+    private String                              locationType;
+    private BigDecimal                          locationLatitude;
+    private BigDecimal                          locationLongitude;
+    private BigDecimal                          locationElevation;
+    private String                              countryName;
+    private String                              countryCode2;
+    private String                              countryCode3;
+    private Integer                             datasetId;
+    private String                              datasetName;
+    private String                              datasetDescription;
+    private Integer                             climateId;
+    private String                              climateName;
+    private String                              climateNameShort;
+    private ViewTableClimateDataClimateDataType climateDataType;
+    private String                              unitName;
+    private Timestamp                           recordingDate;
+    private String                              climateValue;
 
     public ViewTableClimateData() {}
 
@@ -65,32 +68,34 @@ public class ViewTableClimateData implements Serializable {
         this.climateId = value.climateId;
         this.climateName = value.climateName;
         this.climateNameShort = value.climateNameShort;
+        this.climateDataType = value.climateDataType;
         this.unitName = value.unitName;
         this.recordingDate = value.recordingDate;
         this.climateValue = value.climateValue;
     }
 
     public ViewTableClimateData(
-        Integer    locationId,
-        String     locationName,
-        String     locationRegion,
-        String     locationState,
-        String     locationType,
-        BigDecimal locationLatitude,
-        BigDecimal locationLongitude,
-        BigDecimal locationElevation,
-        String     countryName,
-        String     countryCode2,
-        String     countryCode3,
-        Integer    datasetId,
-        String     datasetName,
-        String     datasetDescription,
-        Integer    climateId,
-        String     climateName,
-        String     climateNameShort,
-        String     unitName,
-        Timestamp  recordingDate,
-        String     climateValue
+        Integer                             locationId,
+        String                              locationName,
+        String                              locationRegion,
+        String                              locationState,
+        String                              locationType,
+        BigDecimal                          locationLatitude,
+        BigDecimal                          locationLongitude,
+        BigDecimal                          locationElevation,
+        String                              countryName,
+        String                              countryCode2,
+        String                              countryCode3,
+        Integer                             datasetId,
+        String                              datasetName,
+        String                              datasetDescription,
+        Integer                             climateId,
+        String                              climateName,
+        String                              climateNameShort,
+        ViewTableClimateDataClimateDataType climateDataType,
+        String                              unitName,
+        Timestamp                           recordingDate,
+        String                              climateValue
     ) {
         this.locationId = locationId;
         this.locationName = locationName;
@@ -109,6 +114,7 @@ public class ViewTableClimateData implements Serializable {
         this.climateId = climateId;
         this.climateName = climateName;
         this.climateNameShort = climateNameShort;
+        this.climateDataType = climateDataType;
         this.unitName = unitName;
         this.recordingDate = recordingDate;
         this.climateValue = climateValue;
@@ -135,6 +141,7 @@ public class ViewTableClimateData implements Serializable {
         sb.append(", ").append(climateId);
         sb.append(", ").append(climateName);
         sb.append(", ").append(climateNameShort);
+        sb.append(", ").append(climateDataType);
         sb.append(", ").append(unitName);
         sb.append(", ").append(recordingDate);
         sb.append(", ").append(climateValue);
