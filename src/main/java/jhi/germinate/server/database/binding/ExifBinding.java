@@ -1,6 +1,6 @@
 package jhi.germinate.server.database.binding;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 import jhi.germinate.server.database.pojo.Exif;
 import org.jooq.*;
 import org.jooq.conf.ParamType;
@@ -17,7 +17,7 @@ public class ExifBinding implements Binding<JSON, Exif>
 	@Override
 	public Converter<JSON, Exif> converter()
 	{
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 		return new Converter<>()
 		{
 			@Override

@@ -9,7 +9,7 @@ import jhi.germinate.server.database.codegen.tables.records.ViewStatsBiologicals
 
 import org.jooq.Field;
 import org.jooq.Name;
-import org.jooq.Row2;
+import org.jooq.Row3;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -49,16 +49,22 @@ public class ViewStatsBiologicalstatus extends TableImpl<ViewStatsBiologicalstat
     public final TableField<ViewStatsBiologicalstatusRecord, String> BIOLOGICALSTATUS = createField(DSL.name("biologicalstatus"), SQLDataType.VARCHAR(255), this, "");
 
     /**
+     * The column <code>germinate_db.view_stats_biologicalstatus.genus</code>.
+     * Genus name for the species.
+     */
+    public final TableField<ViewStatsBiologicalstatusRecord, String> GENUS = createField(DSL.name("genus"), SQLDataType.VARCHAR(255).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "Genus name for the species.");
+
+    /**
      * The column <code>germinate_db.view_stats_biologicalstatus.count</code>.
      */
-    public final TableField<ViewStatsBiologicalstatusRecord, Long> COUNT = createField(DSL.name("count"), SQLDataType.BIGINT, this, "");
+    public final TableField<ViewStatsBiologicalstatusRecord, Long> COUNT = createField(DSL.name("count"), SQLDataType.BIGINT.nullable(false).defaultValue(DSL.inline("0", SQLDataType.BIGINT)), this, "");
 
     private ViewStatsBiologicalstatus(Name alias, Table<ViewStatsBiologicalstatusRecord> aliased) {
         this(alias, aliased, null);
     }
 
     private ViewStatsBiologicalstatus(Name alias, Table<ViewStatsBiologicalstatusRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_stats_biologicalstatus` as select substring_index(`germinate_template_4_25_03_05`.`biologicalstatus`.`sampstat`,' (',1) AS `biologicalstatus`,(select count(1) from `germinate_template_4_25_03_05`.`mcpd` where (`germinate_template_4_25_03_05`.`mcpd`.`sampstat` = `germinate_template_4_25_03_05`.`biologicalstatus`.`id`)) AS `count` from `germinate_template_4_25_03_05`.`biologicalstatus` having (`count` > 0) order by `count` desc"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `view_stats_biologicalstatus` as select substring_index(`germinate_template_4_25_03_05`.`biologicalstatus`.`sampstat`,' (',1) AS `biologicalstatus`,`germinate_template_4_25_03_05`.`taxonomies`.`genus` AS `genus`,count(1) AS `count` from (((`germinate_template_4_25_03_05`.`mcpd` left join `germinate_template_4_25_03_05`.`biologicalstatus` on((`germinate_template_4_25_03_05`.`mcpd`.`sampstat` = `germinate_template_4_25_03_05`.`biologicalstatus`.`id`))) left join `germinate_template_4_25_03_05`.`germinatebase` on((`germinate_template_4_25_03_05`.`germinatebase`.`id` = `germinate_template_4_25_03_05`.`mcpd`.`germinatebase_id`))) left join `germinate_template_4_25_03_05`.`taxonomies` on((`germinate_template_4_25_03_05`.`taxonomies`.`id` = `germinate_template_4_25_03_05`.`germinatebase`.`taxonomy_id`))) group by `germinate_template_4_25_03_05`.`biologicalstatus`.`id`,`germinate_template_4_25_03_05`.`taxonomies`.`genus` having (`biologicalstatus` is not null) order by `count` desc"));
     }
 
     /**
@@ -117,12 +123,12 @@ public class ViewStatsBiologicalstatus extends TableImpl<ViewStatsBiologicalstat
     }
 
     // -------------------------------------------------------------------------
-    // Row2 type methods
+    // Row3 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row2<String, Long> fieldsRow() {
-        return (Row2) super.fieldsRow();
+    public Row3<String, String, Long> fieldsRow() {
+        return (Row3) super.fieldsRow();
     }
     // @formatter:on
 }

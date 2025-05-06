@@ -7,8 +7,8 @@ package jhi.germinate.server.database.codegen.tables.records;
 import jhi.germinate.server.database.codegen.tables.ViewStatsBiologicalstatus;
 
 import org.jooq.Field;
-import org.jooq.Record2;
-import org.jooq.Row2;
+import org.jooq.Record3;
+import org.jooq.Row3;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -17,7 +17,7 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ViewStatsBiologicalstatusRecord extends TableRecordImpl<ViewStatsBiologicalstatusRecord> implements Record2<String, Long> {
+public class ViewStatsBiologicalstatusRecord extends TableRecordImpl<ViewStatsBiologicalstatusRecord> implements Record3<String, String, Long> {
 
     private static final long serialVersionUID = 1L;
 
@@ -38,31 +38,47 @@ public class ViewStatsBiologicalstatusRecord extends TableRecordImpl<ViewStatsBi
     }
 
     /**
+     * Setter for <code>germinate_db.view_stats_biologicalstatus.genus</code>.
+     * Genus name for the species.
+     */
+    public void setGenus(String value) {
+        set(1, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_stats_biologicalstatus.genus</code>.
+     * Genus name for the species.
+     */
+    public String getGenus() {
+        return (String) get(1);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_stats_biologicalstatus.count</code>.
      */
     public void setCount(Long value) {
-        set(1, value);
+        set(2, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_stats_biologicalstatus.count</code>.
      */
     public Long getCount() {
-        return (Long) get(1);
+        return (Long) get(2);
     }
 
     // -------------------------------------------------------------------------
-    // Record2 type implementation
+    // Record3 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row2<String, Long> fieldsRow() {
-        return (Row2) super.fieldsRow();
+    public Row3<String, String, Long> fieldsRow() {
+        return (Row3) super.fieldsRow();
     }
 
     @Override
-    public Row2<String, Long> valuesRow() {
-        return (Row2) super.valuesRow();
+    public Row3<String, String, Long> valuesRow() {
+        return (Row3) super.valuesRow();
     }
 
     @Override
@@ -71,7 +87,12 @@ public class ViewStatsBiologicalstatusRecord extends TableRecordImpl<ViewStatsBi
     }
 
     @Override
-    public Field<Long> field2() {
+    public Field<String> field2() {
+        return ViewStatsBiologicalstatus.VIEW_STATS_BIOLOGICALSTATUS.GENUS;
+    }
+
+    @Override
+    public Field<Long> field3() {
         return ViewStatsBiologicalstatus.VIEW_STATS_BIOLOGICALSTATUS.COUNT;
     }
 
@@ -81,7 +102,12 @@ public class ViewStatsBiologicalstatusRecord extends TableRecordImpl<ViewStatsBi
     }
 
     @Override
-    public Long component2() {
+    public String component2() {
+        return getGenus();
+    }
+
+    @Override
+    public Long component3() {
         return getCount();
     }
 
@@ -91,7 +117,12 @@ public class ViewStatsBiologicalstatusRecord extends TableRecordImpl<ViewStatsBi
     }
 
     @Override
-    public Long value2() {
+    public String value2() {
+        return getGenus();
+    }
+
+    @Override
+    public Long value3() {
         return getCount();
     }
 
@@ -102,15 +133,22 @@ public class ViewStatsBiologicalstatusRecord extends TableRecordImpl<ViewStatsBi
     }
 
     @Override
-    public ViewStatsBiologicalstatusRecord value2(Long value) {
+    public ViewStatsBiologicalstatusRecord value2(String value) {
+        setGenus(value);
+        return this;
+    }
+
+    @Override
+    public ViewStatsBiologicalstatusRecord value3(Long value) {
         setCount(value);
         return this;
     }
 
     @Override
-    public ViewStatsBiologicalstatusRecord values(String value1, Long value2) {
+    public ViewStatsBiologicalstatusRecord values(String value1, String value2, Long value3) {
         value1(value1);
         value2(value2);
+        value3(value3);
         return this;
     }
 
@@ -128,10 +166,11 @@ public class ViewStatsBiologicalstatusRecord extends TableRecordImpl<ViewStatsBi
     /**
      * Create a detached, initialised ViewStatsBiologicalstatusRecord
      */
-    public ViewStatsBiologicalstatusRecord(String biologicalstatus, Long count) {
+    public ViewStatsBiologicalstatusRecord(String biologicalstatus, String genus, Long count) {
         super(ViewStatsBiologicalstatus.VIEW_STATS_BIOLOGICALSTATUS);
 
         setBiologicalstatus(biologicalstatus);
+        setGenus(genus);
         setCount(count);
     }
 
@@ -143,6 +182,7 @@ public class ViewStatsBiologicalstatusRecord extends TableRecordImpl<ViewStatsBi
 
         if (value != null) {
             setBiologicalstatus(value.getBiologicalstatus());
+            setGenus(value.getGenus());
             setCount(value.getCount());
         }
     }

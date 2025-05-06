@@ -23,20 +23,24 @@ public class ViewStatsBiologicalstatus implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String biologicalstatus;
+    private String genus;
     private Long   count;
 
     public ViewStatsBiologicalstatus() {}
 
     public ViewStatsBiologicalstatus(ViewStatsBiologicalstatus value) {
         this.biologicalstatus = value.biologicalstatus;
+        this.genus = value.genus;
         this.count = value.count;
     }
 
     public ViewStatsBiologicalstatus(
         String biologicalstatus,
+        String genus,
         Long   count
     ) {
         this.biologicalstatus = biologicalstatus;
+        this.genus = genus;
         this.count = count;
     }
 
@@ -45,6 +49,7 @@ public class ViewStatsBiologicalstatus implements Serializable {
         StringBuilder sb = new StringBuilder("ViewStatsBiologicalstatus (");
 
         sb.append(biologicalstatus);
+        sb.append(", ").append(genus);
         sb.append(", ").append(count);
 
         sb.append(")");
