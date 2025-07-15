@@ -11,9 +11,11 @@ plugins {
 compileJava.options.encoding = 'UTF-8'
 
 group 'uk.ac.hutton.germinate'
-version '4.8.4'
+version '4.8.8'
 
-sourceCompatibility = 21
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+}
 
 repositories {
     mavenCentral()
@@ -22,10 +24,10 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'lib', include: ['*.jar'])
 
-    implementation 'org.json:json:20230227'
+    implementation 'org.json:json:20250517'
     implementation 'com.google.code.gson:gson:2.10'
 
-    implementation 'mysql:mysql-connector-java:8.0.33'
+    implementation 'com.mysql:mysql-connector-j:8.2.0'
     implementation 'org.jooq:jooq:3.16.18'
     implementation 'org.jooq:jooq-codegen:3.16.18'
 
