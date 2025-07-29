@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Units;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record6;
-import org.jooq.Row6;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -22,8 +18,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * of Units (SI) base units: kilogram, meter, second, ampere, kelvin, candela
  * and mole but can include any units that are required.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class UnitsRecord extends UpdatableRecordImpl<UnitsRecord> implements Record6<Integer, String, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class UnitsRecord extends UpdatableRecordImpl<UnitsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -139,157 +135,6 @@ public class UnitsRecord extends UpdatableRecordImpl<UnitsRecord> implements Rec
     }
 
     // -------------------------------------------------------------------------
-    // Record6 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row6<Integer, String, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row6) super.fieldsRow();
-    }
-
-    @Override
-    public Row6<Integer, String, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row6) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Units.UNITS.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Units.UNITS.UNIT_NAME;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Units.UNITS.UNIT_ABBREVIATION;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Units.UNITS.UNIT_DESCRIPTION;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Units.UNITS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Units.UNITS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getUnitName();
-    }
-
-    @Override
-    public String component3() {
-        return getUnitAbbreviation();
-    }
-
-    @Override
-    public String component4() {
-        return getUnitDescription();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getUnitName();
-    }
-
-    @Override
-    public String value3() {
-        return getUnitAbbreviation();
-    }
-
-    @Override
-    public String value4() {
-        return getUnitDescription();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public UnitsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public UnitsRecord value2(String value) {
-        setUnitName(value);
-        return this;
-    }
-
-    @Override
-    public UnitsRecord value3(String value) {
-        setUnitAbbreviation(value);
-        return this;
-    }
-
-    @Override
-    public UnitsRecord value4(String value) {
-        setUnitDescription(value);
-        return this;
-    }
-
-    @Override
-    public UnitsRecord value5(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public UnitsRecord value6(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public UnitsRecord values(Integer value1, String value2, String value3, String value4, Timestamp value5, Timestamp value6) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -312,6 +157,7 @@ public class UnitsRecord extends UpdatableRecordImpl<UnitsRecord> implements Rec
         setUnitDescription(unitDescription);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -327,6 +173,7 @@ public class UnitsRecord extends UpdatableRecordImpl<UnitsRecord> implements Rec
             setUnitDescription(value.getUnitDescription());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

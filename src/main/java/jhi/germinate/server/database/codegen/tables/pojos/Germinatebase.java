@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -19,23 +18,23 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Germinatebase implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private String    generalIdentifier;
-    private String    number;
-    private String    name;
-    private String    displayName;
-    private String    bankNumber;
-    private Integer   taxonomyId;
-    private String    plantPassport;
-    private Integer   locationId;
-    private Integer   entitytypeId;
-    private Integer   entityparentId;
-    private Double    pdci;
+    private Integer id;
+    private String generalIdentifier;
+    private String number;
+    private String name;
+    private String displayName;
+    private String bankNumber;
+    private Integer taxonomyId;
+    private String plantPassport;
+    private Integer locationId;
+    private Integer entitytypeId;
+    private Integer entityparentId;
+    private Double pdci;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -59,18 +58,18 @@ public class Germinatebase implements Serializable {
     }
 
     public Germinatebase(
-        Integer   id,
-        String    generalIdentifier,
-        String    number,
-        String    name,
-        String    displayName,
-        String    bankNumber,
-        Integer   taxonomyId,
-        String    plantPassport,
-        Integer   locationId,
-        Integer   entitytypeId,
-        Integer   entityparentId,
-        Double    pdci,
+        Integer id,
+        String generalIdentifier,
+        String number,
+        String name,
+        String displayName,
+        String bankNumber,
+        Integer taxonomyId,
+        String plantPassport,
+        Integer locationId,
+        Integer entitytypeId,
+        Integer entityparentId,
+        Double pdci,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -88,6 +87,123 @@ public class Germinatebase implements Serializable {
         this.pdci = pdci;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Germinatebase other = (Germinatebase) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.generalIdentifier == null) {
+            if (other.generalIdentifier != null)
+                return false;
+        }
+        else if (!this.generalIdentifier.equals(other.generalIdentifier))
+            return false;
+        if (this.number == null) {
+            if (other.number != null)
+                return false;
+        }
+        else if (!this.number.equals(other.number))
+            return false;
+        if (this.name == null) {
+            if (other.name != null)
+                return false;
+        }
+        else if (!this.name.equals(other.name))
+            return false;
+        if (this.displayName == null) {
+            if (other.displayName != null)
+                return false;
+        }
+        else if (!this.displayName.equals(other.displayName))
+            return false;
+        if (this.bankNumber == null) {
+            if (other.bankNumber != null)
+                return false;
+        }
+        else if (!this.bankNumber.equals(other.bankNumber))
+            return false;
+        if (this.taxonomyId == null) {
+            if (other.taxonomyId != null)
+                return false;
+        }
+        else if (!this.taxonomyId.equals(other.taxonomyId))
+            return false;
+        if (this.plantPassport == null) {
+            if (other.plantPassport != null)
+                return false;
+        }
+        else if (!this.plantPassport.equals(other.plantPassport))
+            return false;
+        if (this.locationId == null) {
+            if (other.locationId != null)
+                return false;
+        }
+        else if (!this.locationId.equals(other.locationId))
+            return false;
+        if (this.entitytypeId == null) {
+            if (other.entitytypeId != null)
+                return false;
+        }
+        else if (!this.entitytypeId.equals(other.entitytypeId))
+            return false;
+        if (this.entityparentId == null) {
+            if (other.entityparentId != null)
+                return false;
+        }
+        else if (!this.entityparentId.equals(other.entityparentId))
+            return false;
+        if (this.pdci == null) {
+            if (other.pdci != null)
+                return false;
+        }
+        else if (!this.pdci.equals(other.pdci))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.generalIdentifier == null) ? 0 : this.generalIdentifier.hashCode());
+        result = prime * result + ((this.number == null) ? 0 : this.number.hashCode());
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+        result = prime * result + ((this.displayName == null) ? 0 : this.displayName.hashCode());
+        result = prime * result + ((this.bankNumber == null) ? 0 : this.bankNumber.hashCode());
+        result = prime * result + ((this.taxonomyId == null) ? 0 : this.taxonomyId.hashCode());
+        result = prime * result + ((this.plantPassport == null) ? 0 : this.plantPassport.hashCode());
+        result = prime * result + ((this.locationId == null) ? 0 : this.locationId.hashCode());
+        result = prime * result + ((this.entitytypeId == null) ? 0 : this.entitytypeId.hashCode());
+        result = prime * result + ((this.entityparentId == null) ? 0 : this.entityparentId.hashCode());
+        result = prime * result + ((this.pdci == null) ? 0 : this.pdci.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

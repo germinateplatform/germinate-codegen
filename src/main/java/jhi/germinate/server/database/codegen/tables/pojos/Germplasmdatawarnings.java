@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,13 +17,13 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Germplasmdatawarnings implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   germinatebaseId;
-    private Integer   datawarningId;
+    private Integer germinatebaseId;
+    private Integer datawarningId;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -38,8 +37,8 @@ public class Germplasmdatawarnings implements Serializable {
     }
 
     public Germplasmdatawarnings(
-        Integer   germinatebaseId,
-        Integer   datawarningId,
+        Integer germinatebaseId,
+        Integer datawarningId,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -47,6 +46,53 @@ public class Germplasmdatawarnings implements Serializable {
         this.datawarningId = datawarningId;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Germplasmdatawarnings other = (Germplasmdatawarnings) obj;
+        if (this.germinatebaseId == null) {
+            if (other.germinatebaseId != null)
+                return false;
+        }
+        else if (!this.germinatebaseId.equals(other.germinatebaseId))
+            return false;
+        if (this.datawarningId == null) {
+            if (other.datawarningId != null)
+                return false;
+        }
+        else if (!this.datawarningId.equals(other.datawarningId))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.germinatebaseId == null) ? 0 : this.germinatebaseId.hashCode());
+        result = prime * result + ((this.datawarningId == null) ? 0 : this.datawarningId.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

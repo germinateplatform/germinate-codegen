@@ -4,25 +4,21 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.enums.PhenotypesDatatype;
 import jhi.germinate.server.database.codegen.tables.Phenotypes;
 import jhi.germinate.server.database.pojo.TraitRestrictions;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record12;
-import org.jooq.Row12;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
 /**
  * Defines phenoytpes which are held in Germinate.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> implements Record12<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Integer, Boolean, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -246,289 +242,6 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
     }
 
     // -------------------------------------------------------------------------
-    // Record12 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row12<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Integer, Boolean, Timestamp, Timestamp> fieldsRow() {
-        return (Row12) super.fieldsRow();
-    }
-
-    @Override
-    public Row12<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Integer, Boolean, Timestamp, Timestamp> valuesRow() {
-        return (Row12) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Phenotypes.PHENOTYPES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Phenotypes.PHENOTYPES.NAME;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Phenotypes.PHENOTYPES.SHORT_NAME;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Phenotypes.PHENOTYPES.DESCRIPTION;
-    }
-
-    @Override
-    public Field<PhenotypesDatatype> field5() {
-        return Phenotypes.PHENOTYPES.DATATYPE;
-    }
-
-    @Override
-    public Field<TraitRestrictions> field6() {
-        return Phenotypes.PHENOTYPES.RESTRICTIONS;
-    }
-
-    @Override
-    public Field<Integer> field7() {
-        return Phenotypes.PHENOTYPES.UNIT_ID;
-    }
-
-    @Override
-    public Field<Integer> field8() {
-        return Phenotypes.PHENOTYPES.CATEGORY_ID;
-    }
-
-    @Override
-    public Field<Integer> field9() {
-        return Phenotypes.PHENOTYPES.SETSIZE;
-    }
-
-    @Override
-    public Field<Boolean> field10() {
-        return Phenotypes.PHENOTYPES.IS_TIMESERIES;
-    }
-
-    @Override
-    public Field<Timestamp> field11() {
-        return Phenotypes.PHENOTYPES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field12() {
-        return Phenotypes.PHENOTYPES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getName();
-    }
-
-    @Override
-    public String component3() {
-        return getShortName();
-    }
-
-    @Override
-    public String component4() {
-        return getDescription();
-    }
-
-    @Override
-    public PhenotypesDatatype component5() {
-        return getDatatype();
-    }
-
-    @Override
-    public TraitRestrictions component6() {
-        return getRestrictions();
-    }
-
-    @Override
-    public Integer component7() {
-        return getUnitId();
-    }
-
-    @Override
-    public Integer component8() {
-        return getCategoryId();
-    }
-
-    @Override
-    public Integer component9() {
-        return getSetsize();
-    }
-
-    @Override
-    public Boolean component10() {
-        return getIsTimeseries();
-    }
-
-    @Override
-    public Timestamp component11() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component12() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getName();
-    }
-
-    @Override
-    public String value3() {
-        return getShortName();
-    }
-
-    @Override
-    public String value4() {
-        return getDescription();
-    }
-
-    @Override
-    public PhenotypesDatatype value5() {
-        return getDatatype();
-    }
-
-    @Override
-    public TraitRestrictions value6() {
-        return getRestrictions();
-    }
-
-    @Override
-    public Integer value7() {
-        return getUnitId();
-    }
-
-    @Override
-    public Integer value8() {
-        return getCategoryId();
-    }
-
-    @Override
-    public Integer value9() {
-        return getSetsize();
-    }
-
-    @Override
-    public Boolean value10() {
-        return getIsTimeseries();
-    }
-
-    @Override
-    public Timestamp value11() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value12() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public PhenotypesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value2(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value3(String value) {
-        setShortName(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value4(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value5(PhenotypesDatatype value) {
-        setDatatype(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value6(TraitRestrictions value) {
-        setRestrictions(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value7(Integer value) {
-        setUnitId(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value8(Integer value) {
-        setCategoryId(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value9(Integer value) {
-        setSetsize(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value10(Boolean value) {
-        setIsTimeseries(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value11(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord value12(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypesRecord values(Integer value1, String value2, String value3, String value4, PhenotypesDatatype value5, TraitRestrictions value6, Integer value7, Integer value8, Integer value9, Boolean value10, Timestamp value11, Timestamp value12) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        value9(value9);
-        value10(value10);
-        value11(value11);
-        value12(value12);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -557,6 +270,7 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
         setIsTimeseries(isTimeseries);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -578,6 +292,7 @@ public class PhenotypesRecord extends UpdatableRecordImpl<PhenotypesRecord> impl
             setIsTimeseries(value.getIsTimeseries());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

@@ -4,14 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.enums.ClimatesDatatype;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -21,19 +19,19 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Climates implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer          id;
-    private String           name;
-    private String           shortName;
-    private String           description;
+    private Integer id;
+    private String name;
+    private String shortName;
+    private String description;
     private ClimatesDatatype datatype;
-    private Integer          unitId;
-    private Timestamp        createdOn;
-    private Timestamp        updatedOn;
+    private Integer unitId;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public Climates() {}
 
@@ -49,14 +47,14 @@ public class Climates implements Serializable {
     }
 
     public Climates(
-        Integer          id,
-        String           name,
-        String           shortName,
-        String           description,
+        Integer id,
+        String name,
+        String shortName,
+        String description,
         ClimatesDatatype datatype,
-        Integer          unitId,
-        Timestamp        createdOn,
-        Timestamp        updatedOn
+        Integer unitId,
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.id = id;
         this.name = name;
@@ -66,6 +64,81 @@ public class Climates implements Serializable {
         this.unitId = unitId;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Climates other = (Climates) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.name == null) {
+            if (other.name != null)
+                return false;
+        }
+        else if (!this.name.equals(other.name))
+            return false;
+        if (this.shortName == null) {
+            if (other.shortName != null)
+                return false;
+        }
+        else if (!this.shortName.equals(other.shortName))
+            return false;
+        if (this.description == null) {
+            if (other.description != null)
+                return false;
+        }
+        else if (!this.description.equals(other.description))
+            return false;
+        if (this.datatype == null) {
+            if (other.datatype != null)
+                return false;
+        }
+        else if (!this.datatype.equals(other.datatype))
+            return false;
+        if (this.unitId == null) {
+            if (other.unitId != null)
+                return false;
+        }
+        else if (!this.unitId.equals(other.unitId))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+        result = prime * result + ((this.shortName == null) ? 0 : this.shortName.hashCode());
+        result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.datatype == null) ? 0 : this.datatype.hashCode());
+        result = prime * result + ((this.unitId == null) ? 0 : this.unitId.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

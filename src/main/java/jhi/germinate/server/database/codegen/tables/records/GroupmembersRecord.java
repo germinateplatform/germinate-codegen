@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Groupmembers;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record5;
-import org.jooq.Row5;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -20,8 +16,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Defines which entities are contained within a group. These can be the primary
  * key from any table.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class GroupmembersRecord extends UpdatableRecordImpl<GroupmembersRecord> implements Record5<Integer, Integer, Integer, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class GroupmembersRecord extends UpdatableRecordImpl<GroupmembersRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -117,135 +113,6 @@ public class GroupmembersRecord extends UpdatableRecordImpl<GroupmembersRecord> 
     }
 
     // -------------------------------------------------------------------------
-    // Record5 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row5<Integer, Integer, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row5) super.fieldsRow();
-    }
-
-    @Override
-    public Row5<Integer, Integer, Integer, Timestamp, Timestamp> valuesRow() {
-        return (Row5) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Groupmembers.GROUPMEMBERS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Groupmembers.GROUPMEMBERS.FOREIGN_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Groupmembers.GROUPMEMBERS.GROUP_ID;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Groupmembers.GROUPMEMBERS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Groupmembers.GROUPMEMBERS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getForeignId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getGroupId();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getForeignId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getGroupId();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public GroupmembersRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public GroupmembersRecord value2(Integer value) {
-        setForeignId(value);
-        return this;
-    }
-
-    @Override
-    public GroupmembersRecord value3(Integer value) {
-        setGroupId(value);
-        return this;
-    }
-
-    @Override
-    public GroupmembersRecord value4(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public GroupmembersRecord value5(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public GroupmembersRecord values(Integer value1, Integer value2, Integer value3, Timestamp value4, Timestamp value5) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -267,6 +134,7 @@ public class GroupmembersRecord extends UpdatableRecordImpl<GroupmembersRecord> 
         setGroupId(groupId);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -281,6 +149,7 @@ public class GroupmembersRecord extends UpdatableRecordImpl<GroupmembersRecord> 
             setGroupId(value.getGroupId());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

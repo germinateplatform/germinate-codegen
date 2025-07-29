@@ -4,16 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.enums.ClimatesDatatype;
 import jhi.germinate.server.database.codegen.tables.Climates;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record8;
-import org.jooq.Row8;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -21,8 +17,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Defines climates. Climates are measureable weather type characteristics such
  * as temperature or cloud cover.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ClimatesRecord extends UpdatableRecordImpl<ClimatesRecord> implements Record8<Integer, String, String, String, ClimatesDatatype, Integer, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class ClimatesRecord extends UpdatableRecordImpl<ClimatesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -170,201 +166,6 @@ public class ClimatesRecord extends UpdatableRecordImpl<ClimatesRecord> implemen
     }
 
     // -------------------------------------------------------------------------
-    // Record8 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row8<Integer, String, String, String, ClimatesDatatype, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row8) super.fieldsRow();
-    }
-
-    @Override
-    public Row8<Integer, String, String, String, ClimatesDatatype, Integer, Timestamp, Timestamp> valuesRow() {
-        return (Row8) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Climates.CLIMATES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Climates.CLIMATES.NAME;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Climates.CLIMATES.SHORT_NAME;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Climates.CLIMATES.DESCRIPTION;
-    }
-
-    @Override
-    public Field<ClimatesDatatype> field5() {
-        return Climates.CLIMATES.DATATYPE;
-    }
-
-    @Override
-    public Field<Integer> field6() {
-        return Climates.CLIMATES.UNIT_ID;
-    }
-
-    @Override
-    public Field<Timestamp> field7() {
-        return Climates.CLIMATES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field8() {
-        return Climates.CLIMATES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getName();
-    }
-
-    @Override
-    public String component3() {
-        return getShortName();
-    }
-
-    @Override
-    public String component4() {
-        return getDescription();
-    }
-
-    @Override
-    public ClimatesDatatype component5() {
-        return getDatatype();
-    }
-
-    @Override
-    public Integer component6() {
-        return getUnitId();
-    }
-
-    @Override
-    public Timestamp component7() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component8() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getName();
-    }
-
-    @Override
-    public String value3() {
-        return getShortName();
-    }
-
-    @Override
-    public String value4() {
-        return getDescription();
-    }
-
-    @Override
-    public ClimatesDatatype value5() {
-        return getDatatype();
-    }
-
-    @Override
-    public Integer value6() {
-        return getUnitId();
-    }
-
-    @Override
-    public Timestamp value7() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value8() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public ClimatesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public ClimatesRecord value2(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public ClimatesRecord value3(String value) {
-        setShortName(value);
-        return this;
-    }
-
-    @Override
-    public ClimatesRecord value4(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public ClimatesRecord value5(ClimatesDatatype value) {
-        setDatatype(value);
-        return this;
-    }
-
-    @Override
-    public ClimatesRecord value6(Integer value) {
-        setUnitId(value);
-        return this;
-    }
-
-    @Override
-    public ClimatesRecord value7(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public ClimatesRecord value8(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public ClimatesRecord values(Integer value1, String value2, String value3, String value4, ClimatesDatatype value5, Integer value6, Timestamp value7, Timestamp value8) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -389,6 +190,7 @@ public class ClimatesRecord extends UpdatableRecordImpl<ClimatesRecord> implemen
         setUnitId(unitId);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -406,6 +208,7 @@ public class ClimatesRecord extends UpdatableRecordImpl<ClimatesRecord> implemen
             setUnitId(value.getUnitId());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

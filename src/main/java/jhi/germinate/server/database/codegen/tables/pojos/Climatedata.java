@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -20,18 +19,18 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Climatedata implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   climateId;
-    private Integer   locationId;
-    private String    climateValue;
-    private Integer   datasetId;
+    private Integer id;
+    private Integer climateId;
+    private Integer locationId;
+    private String climateValue;
+    private Integer datasetId;
     private Timestamp recordingDate;
-    private String    oldRecordingDate;
+    private String oldRecordingDate;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -50,13 +49,13 @@ public class Climatedata implements Serializable {
     }
 
     public Climatedata(
-        Integer   id,
-        Integer   climateId,
-        Integer   locationId,
-        String    climateValue,
-        Integer   datasetId,
+        Integer id,
+        Integer climateId,
+        Integer locationId,
+        String climateValue,
+        Integer datasetId,
         Timestamp recordingDate,
-        String    oldRecordingDate,
+        String oldRecordingDate,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -69,6 +68,88 @@ public class Climatedata implements Serializable {
         this.oldRecordingDate = oldRecordingDate;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Climatedata other = (Climatedata) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.climateId == null) {
+            if (other.climateId != null)
+                return false;
+        }
+        else if (!this.climateId.equals(other.climateId))
+            return false;
+        if (this.locationId == null) {
+            if (other.locationId != null)
+                return false;
+        }
+        else if (!this.locationId.equals(other.locationId))
+            return false;
+        if (this.climateValue == null) {
+            if (other.climateValue != null)
+                return false;
+        }
+        else if (!this.climateValue.equals(other.climateValue))
+            return false;
+        if (this.datasetId == null) {
+            if (other.datasetId != null)
+                return false;
+        }
+        else if (!this.datasetId.equals(other.datasetId))
+            return false;
+        if (this.recordingDate == null) {
+            if (other.recordingDate != null)
+                return false;
+        }
+        else if (!this.recordingDate.equals(other.recordingDate))
+            return false;
+        if (this.oldRecordingDate == null) {
+            if (other.oldRecordingDate != null)
+                return false;
+        }
+        else if (!this.oldRecordingDate.equals(other.oldRecordingDate))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.climateId == null) ? 0 : this.climateId.hashCode());
+        result = prime * result + ((this.locationId == null) ? 0 : this.locationId.hashCode());
+        result = prime * result + ((this.climateValue == null) ? 0 : this.climateValue.hashCode());
+        result = prime * result + ((this.datasetId == null) ? 0 : this.datasetId.hashCode());
+        result = prime * result + ((this.recordingDate == null) ? 0 : this.recordingDate.hashCode());
+        result = prime * result + ((this.oldRecordingDate == null) ? 0 : this.oldRecordingDate.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

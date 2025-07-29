@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Treatments;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record5;
-import org.jooq.Row5;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -20,8 +16,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * For trials data the treatment is used to distinguish between factors.
  * Examples would include whether the trial was treated with fungicides or not.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class TreatmentsRecord extends UpdatableRecordImpl<TreatmentsRecord> implements Record5<Integer, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class TreatmentsRecord extends UpdatableRecordImpl<TreatmentsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -119,135 +115,6 @@ public class TreatmentsRecord extends UpdatableRecordImpl<TreatmentsRecord> impl
     }
 
     // -------------------------------------------------------------------------
-    // Record5 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row5<Integer, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row5) super.fieldsRow();
-    }
-
-    @Override
-    public Row5<Integer, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row5) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Treatments.TREATMENTS.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Treatments.TREATMENTS.NAME;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Treatments.TREATMENTS.DESCRIPTION;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Treatments.TREATMENTS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Treatments.TREATMENTS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getName();
-    }
-
-    @Override
-    public String component3() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getName();
-    }
-
-    @Override
-    public String value3() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public TreatmentsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public TreatmentsRecord value2(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public TreatmentsRecord value3(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public TreatmentsRecord value4(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public TreatmentsRecord value5(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public TreatmentsRecord values(Integer value1, String value2, String value3, Timestamp value4, Timestamp value5) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -269,6 +136,7 @@ public class TreatmentsRecord extends UpdatableRecordImpl<TreatmentsRecord> impl
         setDescription(description);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -283,6 +151,7 @@ public class TreatmentsRecord extends UpdatableRecordImpl<TreatmentsRecord> impl
             setDescription(value.getDescription());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

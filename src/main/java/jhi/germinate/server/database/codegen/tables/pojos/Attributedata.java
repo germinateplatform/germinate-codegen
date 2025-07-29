@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -22,15 +21,15 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Attributedata implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   attributeId;
-    private Integer   foreignId;
-    private String    value;
+    private Integer id;
+    private Integer attributeId;
+    private Integer foreignId;
+    private String value;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -46,10 +45,10 @@ public class Attributedata implements Serializable {
     }
 
     public Attributedata(
-        Integer   id,
-        Integer   attributeId,
-        Integer   foreignId,
-        String    value,
+        Integer id,
+        Integer attributeId,
+        Integer foreignId,
+        String value,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -59,6 +58,67 @@ public class Attributedata implements Serializable {
         this.value = value;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Attributedata other = (Attributedata) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.attributeId == null) {
+            if (other.attributeId != null)
+                return false;
+        }
+        else if (!this.attributeId.equals(other.attributeId))
+            return false;
+        if (this.foreignId == null) {
+            if (other.foreignId != null)
+                return false;
+        }
+        else if (!this.foreignId.equals(other.foreignId))
+            return false;
+        if (this.value == null) {
+            if (other.value != null)
+                return false;
+        }
+        else if (!this.value.equals(other.value))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.attributeId == null) ? 0 : this.attributeId.hashCode());
+        result = prime * result + ((this.foreignId == null) ? 0 : this.foreignId.hashCode());
+        result = prime * result + ((this.value == null) ? 0 : this.value.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

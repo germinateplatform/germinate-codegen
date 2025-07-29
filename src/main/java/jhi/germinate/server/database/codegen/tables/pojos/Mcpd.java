@@ -4,13 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
-
-import lombok.*;
-import lombok.experimental.Accessors;
 
 // @formatter:off
 /**
@@ -19,55 +18,55 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Mcpd implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer    germinatebaseId;
-    private String     puid;
-    private String     instcode;
-    private String     accenumb;
-    private String     collnumb;
-    private String     collcode;
-    private String     collname;
-    private String     collinstaddress;
-    private String     collmissid;
-    private String     genus;
-    private String     species;
-    private String     spauthor;
-    private String     subtaxa;
-    private String     subtauthor;
-    private String     cropname;
-    private String     accename;
-    private String     acqdate;
-    private String     origcty;
-    private String     collsite;
+    private Integer germinatebaseId;
+    private String puid;
+    private String instcode;
+    private String accenumb;
+    private String collnumb;
+    private String collcode;
+    private String collname;
+    private String collinstaddress;
+    private String collmissid;
+    private String genus;
+    private String species;
+    private String spauthor;
+    private String subtaxa;
+    private String subtauthor;
+    private String cropname;
+    private String accename;
+    private String acqdate;
+    private String origcty;
+    private String collsite;
     private BigDecimal declatitude;
-    private String     latitude;
+    private String latitude;
     private BigDecimal declongitude;
-    private String     longitude;
-    private Integer    coorduncert;
-    private String     coorddatum;
-    private String     georefmeth;
+    private String longitude;
+    private Integer coorduncert;
+    private String coorddatum;
+    private String georefmeth;
     private BigDecimal elevation;
-    private String     colldate;
-    private String     bredcode;
-    private String     bredname;
-    private Integer    sampstat;
-    private String     ancest;
-    private Integer    collsrc;
-    private String     donorcode;
-    private String     donorname;
-    private String     donornumb;
-    private String     othernumb;
-    private String     duplsite;
-    private String     duplinstname;
-    private String     storage;
-    private Integer    mlsstat;
-    private String     remarks;
-    private Timestamp  createdOn;
-    private Timestamp  updatedOn;
+    private String colldate;
+    private String bredcode;
+    private String bredname;
+    private Integer sampstat;
+    private String ancest;
+    private Integer collsrc;
+    private String donorcode;
+    private String donorname;
+    private String donornumb;
+    private String othernumb;
+    private String duplsite;
+    private String duplinstname;
+    private String storage;
+    private Integer mlsstat;
+    private String remarks;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public Mcpd() {}
 
@@ -119,50 +118,50 @@ public class Mcpd implements Serializable {
     }
 
     public Mcpd(
-        Integer    germinatebaseId,
-        String     puid,
-        String     instcode,
-        String     accenumb,
-        String     collnumb,
-        String     collcode,
-        String     collname,
-        String     collinstaddress,
-        String     collmissid,
-        String     genus,
-        String     species,
-        String     spauthor,
-        String     subtaxa,
-        String     subtauthor,
-        String     cropname,
-        String     accename,
-        String     acqdate,
-        String     origcty,
-        String     collsite,
+        Integer germinatebaseId,
+        String puid,
+        String instcode,
+        String accenumb,
+        String collnumb,
+        String collcode,
+        String collname,
+        String collinstaddress,
+        String collmissid,
+        String genus,
+        String species,
+        String spauthor,
+        String subtaxa,
+        String subtauthor,
+        String cropname,
+        String accename,
+        String acqdate,
+        String origcty,
+        String collsite,
         BigDecimal declatitude,
-        String     latitude,
+        String latitude,
         BigDecimal declongitude,
-        String     longitude,
-        Integer    coorduncert,
-        String     coorddatum,
-        String     georefmeth,
+        String longitude,
+        Integer coorduncert,
+        String coorddatum,
+        String georefmeth,
         BigDecimal elevation,
-        String     colldate,
-        String     bredcode,
-        String     bredname,
-        Integer    sampstat,
-        String     ancest,
-        Integer    collsrc,
-        String     donorcode,
-        String     donorname,
-        String     donornumb,
-        String     othernumb,
-        String     duplsite,
-        String     duplinstname,
-        String     storage,
-        Integer    mlsstat,
-        String     remarks,
-        Timestamp  createdOn,
-        Timestamp  updatedOn
+        String colldate,
+        String bredcode,
+        String bredname,
+        Integer sampstat,
+        String ancest,
+        Integer collsrc,
+        String donorcode,
+        String donorname,
+        String donornumb,
+        String othernumb,
+        String duplsite,
+        String duplinstname,
+        String storage,
+        Integer mlsstat,
+        String remarks,
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.germinatebaseId = germinatebaseId;
         this.puid = puid;
@@ -208,6 +207,333 @@ public class Mcpd implements Serializable {
         this.remarks = remarks;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Mcpd other = (Mcpd) obj;
+        if (this.germinatebaseId == null) {
+            if (other.germinatebaseId != null)
+                return false;
+        }
+        else if (!this.germinatebaseId.equals(other.germinatebaseId))
+            return false;
+        if (this.puid == null) {
+            if (other.puid != null)
+                return false;
+        }
+        else if (!this.puid.equals(other.puid))
+            return false;
+        if (this.instcode == null) {
+            if (other.instcode != null)
+                return false;
+        }
+        else if (!this.instcode.equals(other.instcode))
+            return false;
+        if (this.accenumb == null) {
+            if (other.accenumb != null)
+                return false;
+        }
+        else if (!this.accenumb.equals(other.accenumb))
+            return false;
+        if (this.collnumb == null) {
+            if (other.collnumb != null)
+                return false;
+        }
+        else if (!this.collnumb.equals(other.collnumb))
+            return false;
+        if (this.collcode == null) {
+            if (other.collcode != null)
+                return false;
+        }
+        else if (!this.collcode.equals(other.collcode))
+            return false;
+        if (this.collname == null) {
+            if (other.collname != null)
+                return false;
+        }
+        else if (!this.collname.equals(other.collname))
+            return false;
+        if (this.collinstaddress == null) {
+            if (other.collinstaddress != null)
+                return false;
+        }
+        else if (!this.collinstaddress.equals(other.collinstaddress))
+            return false;
+        if (this.collmissid == null) {
+            if (other.collmissid != null)
+                return false;
+        }
+        else if (!this.collmissid.equals(other.collmissid))
+            return false;
+        if (this.genus == null) {
+            if (other.genus != null)
+                return false;
+        }
+        else if (!this.genus.equals(other.genus))
+            return false;
+        if (this.species == null) {
+            if (other.species != null)
+                return false;
+        }
+        else if (!this.species.equals(other.species))
+            return false;
+        if (this.spauthor == null) {
+            if (other.spauthor != null)
+                return false;
+        }
+        else if (!this.spauthor.equals(other.spauthor))
+            return false;
+        if (this.subtaxa == null) {
+            if (other.subtaxa != null)
+                return false;
+        }
+        else if (!this.subtaxa.equals(other.subtaxa))
+            return false;
+        if (this.subtauthor == null) {
+            if (other.subtauthor != null)
+                return false;
+        }
+        else if (!this.subtauthor.equals(other.subtauthor))
+            return false;
+        if (this.cropname == null) {
+            if (other.cropname != null)
+                return false;
+        }
+        else if (!this.cropname.equals(other.cropname))
+            return false;
+        if (this.accename == null) {
+            if (other.accename != null)
+                return false;
+        }
+        else if (!this.accename.equals(other.accename))
+            return false;
+        if (this.acqdate == null) {
+            if (other.acqdate != null)
+                return false;
+        }
+        else if (!this.acqdate.equals(other.acqdate))
+            return false;
+        if (this.origcty == null) {
+            if (other.origcty != null)
+                return false;
+        }
+        else if (!this.origcty.equals(other.origcty))
+            return false;
+        if (this.collsite == null) {
+            if (other.collsite != null)
+                return false;
+        }
+        else if (!this.collsite.equals(other.collsite))
+            return false;
+        if (this.declatitude == null) {
+            if (other.declatitude != null)
+                return false;
+        }
+        else if (!this.declatitude.equals(other.declatitude))
+            return false;
+        if (this.latitude == null) {
+            if (other.latitude != null)
+                return false;
+        }
+        else if (!this.latitude.equals(other.latitude))
+            return false;
+        if (this.declongitude == null) {
+            if (other.declongitude != null)
+                return false;
+        }
+        else if (!this.declongitude.equals(other.declongitude))
+            return false;
+        if (this.longitude == null) {
+            if (other.longitude != null)
+                return false;
+        }
+        else if (!this.longitude.equals(other.longitude))
+            return false;
+        if (this.coorduncert == null) {
+            if (other.coorduncert != null)
+                return false;
+        }
+        else if (!this.coorduncert.equals(other.coorduncert))
+            return false;
+        if (this.coorddatum == null) {
+            if (other.coorddatum != null)
+                return false;
+        }
+        else if (!this.coorddatum.equals(other.coorddatum))
+            return false;
+        if (this.georefmeth == null) {
+            if (other.georefmeth != null)
+                return false;
+        }
+        else if (!this.georefmeth.equals(other.georefmeth))
+            return false;
+        if (this.elevation == null) {
+            if (other.elevation != null)
+                return false;
+        }
+        else if (!this.elevation.equals(other.elevation))
+            return false;
+        if (this.colldate == null) {
+            if (other.colldate != null)
+                return false;
+        }
+        else if (!this.colldate.equals(other.colldate))
+            return false;
+        if (this.bredcode == null) {
+            if (other.bredcode != null)
+                return false;
+        }
+        else if (!this.bredcode.equals(other.bredcode))
+            return false;
+        if (this.bredname == null) {
+            if (other.bredname != null)
+                return false;
+        }
+        else if (!this.bredname.equals(other.bredname))
+            return false;
+        if (this.sampstat == null) {
+            if (other.sampstat != null)
+                return false;
+        }
+        else if (!this.sampstat.equals(other.sampstat))
+            return false;
+        if (this.ancest == null) {
+            if (other.ancest != null)
+                return false;
+        }
+        else if (!this.ancest.equals(other.ancest))
+            return false;
+        if (this.collsrc == null) {
+            if (other.collsrc != null)
+                return false;
+        }
+        else if (!this.collsrc.equals(other.collsrc))
+            return false;
+        if (this.donorcode == null) {
+            if (other.donorcode != null)
+                return false;
+        }
+        else if (!this.donorcode.equals(other.donorcode))
+            return false;
+        if (this.donorname == null) {
+            if (other.donorname != null)
+                return false;
+        }
+        else if (!this.donorname.equals(other.donorname))
+            return false;
+        if (this.donornumb == null) {
+            if (other.donornumb != null)
+                return false;
+        }
+        else if (!this.donornumb.equals(other.donornumb))
+            return false;
+        if (this.othernumb == null) {
+            if (other.othernumb != null)
+                return false;
+        }
+        else if (!this.othernumb.equals(other.othernumb))
+            return false;
+        if (this.duplsite == null) {
+            if (other.duplsite != null)
+                return false;
+        }
+        else if (!this.duplsite.equals(other.duplsite))
+            return false;
+        if (this.duplinstname == null) {
+            if (other.duplinstname != null)
+                return false;
+        }
+        else if (!this.duplinstname.equals(other.duplinstname))
+            return false;
+        if (this.storage == null) {
+            if (other.storage != null)
+                return false;
+        }
+        else if (!this.storage.equals(other.storage))
+            return false;
+        if (this.mlsstat == null) {
+            if (other.mlsstat != null)
+                return false;
+        }
+        else if (!this.mlsstat.equals(other.mlsstat))
+            return false;
+        if (this.remarks == null) {
+            if (other.remarks != null)
+                return false;
+        }
+        else if (!this.remarks.equals(other.remarks))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.germinatebaseId == null) ? 0 : this.germinatebaseId.hashCode());
+        result = prime * result + ((this.puid == null) ? 0 : this.puid.hashCode());
+        result = prime * result + ((this.instcode == null) ? 0 : this.instcode.hashCode());
+        result = prime * result + ((this.accenumb == null) ? 0 : this.accenumb.hashCode());
+        result = prime * result + ((this.collnumb == null) ? 0 : this.collnumb.hashCode());
+        result = prime * result + ((this.collcode == null) ? 0 : this.collcode.hashCode());
+        result = prime * result + ((this.collname == null) ? 0 : this.collname.hashCode());
+        result = prime * result + ((this.collinstaddress == null) ? 0 : this.collinstaddress.hashCode());
+        result = prime * result + ((this.collmissid == null) ? 0 : this.collmissid.hashCode());
+        result = prime * result + ((this.genus == null) ? 0 : this.genus.hashCode());
+        result = prime * result + ((this.species == null) ? 0 : this.species.hashCode());
+        result = prime * result + ((this.spauthor == null) ? 0 : this.spauthor.hashCode());
+        result = prime * result + ((this.subtaxa == null) ? 0 : this.subtaxa.hashCode());
+        result = prime * result + ((this.subtauthor == null) ? 0 : this.subtauthor.hashCode());
+        result = prime * result + ((this.cropname == null) ? 0 : this.cropname.hashCode());
+        result = prime * result + ((this.accename == null) ? 0 : this.accename.hashCode());
+        result = prime * result + ((this.acqdate == null) ? 0 : this.acqdate.hashCode());
+        result = prime * result + ((this.origcty == null) ? 0 : this.origcty.hashCode());
+        result = prime * result + ((this.collsite == null) ? 0 : this.collsite.hashCode());
+        result = prime * result + ((this.declatitude == null) ? 0 : this.declatitude.hashCode());
+        result = prime * result + ((this.latitude == null) ? 0 : this.latitude.hashCode());
+        result = prime * result + ((this.declongitude == null) ? 0 : this.declongitude.hashCode());
+        result = prime * result + ((this.longitude == null) ? 0 : this.longitude.hashCode());
+        result = prime * result + ((this.coorduncert == null) ? 0 : this.coorduncert.hashCode());
+        result = prime * result + ((this.coorddatum == null) ? 0 : this.coorddatum.hashCode());
+        result = prime * result + ((this.georefmeth == null) ? 0 : this.georefmeth.hashCode());
+        result = prime * result + ((this.elevation == null) ? 0 : this.elevation.hashCode());
+        result = prime * result + ((this.colldate == null) ? 0 : this.colldate.hashCode());
+        result = prime * result + ((this.bredcode == null) ? 0 : this.bredcode.hashCode());
+        result = prime * result + ((this.bredname == null) ? 0 : this.bredname.hashCode());
+        result = prime * result + ((this.sampstat == null) ? 0 : this.sampstat.hashCode());
+        result = prime * result + ((this.ancest == null) ? 0 : this.ancest.hashCode());
+        result = prime * result + ((this.collsrc == null) ? 0 : this.collsrc.hashCode());
+        result = prime * result + ((this.donorcode == null) ? 0 : this.donorcode.hashCode());
+        result = prime * result + ((this.donorname == null) ? 0 : this.donorname.hashCode());
+        result = prime * result + ((this.donornumb == null) ? 0 : this.donornumb.hashCode());
+        result = prime * result + ((this.othernumb == null) ? 0 : this.othernumb.hashCode());
+        result = prime * result + ((this.duplsite == null) ? 0 : this.duplsite.hashCode());
+        result = prime * result + ((this.duplinstname == null) ? 0 : this.duplinstname.hashCode());
+        result = prime * result + ((this.storage == null) ? 0 : this.storage.hashCode());
+        result = prime * result + ((this.mlsstat == null) ? 0 : this.mlsstat.hashCode());
+        result = prime * result + ((this.remarks == null) ? 0 : this.remarks.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

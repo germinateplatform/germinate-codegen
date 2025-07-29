@@ -4,25 +4,15 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.PedigreesRelationshipType;
 import jhi.germinate.server.database.codegen.tables.records.PedigreesRecord;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row9;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 
 // @formatter:off
@@ -32,7 +22,7 @@ import org.jooq.impl.TableImpl;
  * pedigree networks can be constructed. This table is required for operation
  * with the Helium pedigree viewer.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Pedigrees extends TableImpl<PedigreesRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -78,7 +68,7 @@ public class Pedigrees extends TableImpl<PedigreesRecord> {
      * The column <code>germinate_db.pedigrees.relationship_type</code>. Male or
      * Female parent. Should be recorded as 'M' (male) or 'F' (female).
      */
-    public final TableField<PedigreesRecord, PedigreesRelationshipType> RELATIONSHIP_TYPE = createField(DSL.name("relationship_type"), SQLDataType.VARCHAR(5).nullable(false).defaultValue(DSL.inline("OTHER", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.PedigreesRelationshipType.class), this, "Male or Female parent. Should be recorded as 'M' (male) or 'F' (female).");
+    public final TableField<PedigreesRecord, PedigreesRelationshipType> RELATIONSHIP_TYPE = createField(DSL.name("relationship_type"), SQLDataType.VARCHAR(5).nullable(false).defaultValue(DSL.inline("OTHER", SQLDataType.VARCHAR)).asEnumDataType(PedigreesRelationshipType.class), this, "Male or Female parent. Should be recorded as 'M' (male) or 'F' (female).");
 
     /**
      * The column <code>germinate_db.pedigrees.pedigreedescription_id</code>.
@@ -99,21 +89,21 @@ public class Pedigrees extends TableImpl<PedigreesRecord> {
      * The column <code>germinate_db.pedigrees.created_on</code>. When the
      * record was created.
      */
-    public final TableField<PedigreesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
+    public final TableField<PedigreesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.pedigrees.updated_on</code>. When the
      * record was updated. This may be different from the created on date if
      * subsequent changes have been made to the underlying record.
      */
-    public final TableField<PedigreesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<PedigreesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     private Pedigrees(Name alias, Table<PedigreesRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private Pedigrees(Name alias, Table<PedigreesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Holds pedigree definitions. A pedigree is constructed from a series of individial->parent records. This gives a great deal of flexibility in how pedigree networks can be constructed. This table is required for operation with the Helium pedigree viewer."), TableOptions.table());
+    private Pedigrees(Name alias, Table<PedigreesRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("Holds pedigree definitions. A pedigree is constructed from a series of individial->parent records. This gives a great deal of flexibility in how pedigree networks can be constructed. This table is required for operation with the Helium pedigree viewer."), TableOptions.table(), where);
     }
 
     /**
@@ -162,6 +152,11 @@ public class Pedigrees extends TableImpl<PedigreesRecord> {
         return new Pedigrees(alias, this);
     }
 
+    @Override
+    public Pedigrees as(Table<?> alias) {
+        return new Pedigrees(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -178,13 +173,96 @@ public class Pedigrees extends TableImpl<PedigreesRecord> {
         return new Pedigrees(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row9 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row9<Integer, Integer, Integer, Integer, PedigreesRelationshipType, Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row9) super.fieldsRow();
+    public Pedigrees rename(Table<?> name) {
+        return new Pedigrees(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Pedigrees where(Condition condition) {
+        return new Pedigrees(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Pedigrees where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Pedigrees where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Pedigrees where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Pedigrees where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Pedigrees where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Pedigrees where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Pedigrees where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Pedigrees whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Pedigrees whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

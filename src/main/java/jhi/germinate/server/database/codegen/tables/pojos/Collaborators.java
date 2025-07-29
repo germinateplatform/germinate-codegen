@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,18 +17,18 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Collaborators implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private String    firstName;
-    private String    lastName;
-    private String    email;
-    private String    phone;
-    private String    externalId;
-    private Integer   institutionId;
+    private Integer id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phone;
+    private String externalId;
+    private Integer institutionId;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -48,13 +47,13 @@ public class Collaborators implements Serializable {
     }
 
     public Collaborators(
-        Integer   id,
-        String    firstName,
-        String    lastName,
-        String    email,
-        String    phone,
-        String    externalId,
-        Integer   institutionId,
+        Integer id,
+        String firstName,
+        String lastName,
+        String email,
+        String phone,
+        String externalId,
+        Integer institutionId,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -67,6 +66,88 @@ public class Collaborators implements Serializable {
         this.institutionId = institutionId;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Collaborators other = (Collaborators) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.firstName == null) {
+            if (other.firstName != null)
+                return false;
+        }
+        else if (!this.firstName.equals(other.firstName))
+            return false;
+        if (this.lastName == null) {
+            if (other.lastName != null)
+                return false;
+        }
+        else if (!this.lastName.equals(other.lastName))
+            return false;
+        if (this.email == null) {
+            if (other.email != null)
+                return false;
+        }
+        else if (!this.email.equals(other.email))
+            return false;
+        if (this.phone == null) {
+            if (other.phone != null)
+                return false;
+        }
+        else if (!this.phone.equals(other.phone))
+            return false;
+        if (this.externalId == null) {
+            if (other.externalId != null)
+                return false;
+        }
+        else if (!this.externalId.equals(other.externalId))
+            return false;
+        if (this.institutionId == null) {
+            if (other.institutionId != null)
+                return false;
+        }
+        else if (!this.institutionId.equals(other.institutionId))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.firstName == null) ? 0 : this.firstName.hashCode());
+        result = prime * result + ((this.lastName == null) ? 0 : this.lastName.hashCode());
+        result = prime * result + ((this.email == null) ? 0 : this.email.hashCode());
+        result = prime * result + ((this.phone == null) ? 0 : this.phone.hashCode());
+        result = prime * result + ((this.externalId == null) ? 0 : this.externalId.hashCode());
+        result = prime * result + ((this.institutionId == null) ? 0 : this.institutionId.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

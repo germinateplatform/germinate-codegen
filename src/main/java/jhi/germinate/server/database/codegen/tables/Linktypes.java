@@ -4,24 +4,14 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.LinktypesRecord;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row7;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 
 // @formatter:off
@@ -32,7 +22,7 @@ import org.jooq.impl.TableImpl;
  * by the value of the
  * ”target column” in the ”target table”
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Linktypes extends TableImpl<LinktypesRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -58,7 +48,8 @@ public class Linktypes extends TableImpl<LinktypesRecord> {
 
     /**
      * The column <code>germinate_db.linktypes.description</code>. A description
-     * of the link.
+     * of the link
+.
      */
     public final TableField<LinktypesRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(255), this, "A description of the link\r.");
 
@@ -84,21 +75,21 @@ public class Linktypes extends TableImpl<LinktypesRecord> {
      * The column <code>germinate_db.linktypes.created_on</code>. When the
      * record was created.
      */
-    public final TableField<LinktypesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
+    public final TableField<LinktypesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.linktypes.updated_on</code>. When the
      * record was updated. This may be different from the created on date if
      * subsequent changes have been made to the underlying record.
      */
-    public final TableField<LinktypesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<LinktypesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     private Linktypes(Name alias, Table<LinktypesRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private Linktypes(Name alias, Table<LinktypesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("The link type determines which database table and column are used to construct the final\r\nlink. The ”placeholder” in the link (from the links table) will be replaced by the value of the\r\n”target column” in the ”target table”"), TableOptions.table());
+    private Linktypes(Name alias, Table<LinktypesRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("The link type determines which database table and column are used to construct the final\r\nlink. The ”placeholder” in the link (from the links table) will be replaced by the value of the\r\n”target column” in the ”target table”"), TableOptions.table(), where);
     }
 
     /**
@@ -147,6 +138,11 @@ public class Linktypes extends TableImpl<LinktypesRecord> {
         return new Linktypes(alias, this);
     }
 
+    @Override
+    public Linktypes as(Table<?> alias) {
+        return new Linktypes(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -163,13 +159,96 @@ public class Linktypes extends TableImpl<LinktypesRecord> {
         return new Linktypes(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row7 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row7<Integer, String, String, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row7) super.fieldsRow();
+    public Linktypes rename(Table<?> name) {
+        return new Linktypes(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Linktypes where(Condition condition) {
+        return new Linktypes(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Linktypes where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Linktypes where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Linktypes where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Linktypes where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Linktypes where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Linktypes where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Linktypes where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Linktypes whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Linktypes whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

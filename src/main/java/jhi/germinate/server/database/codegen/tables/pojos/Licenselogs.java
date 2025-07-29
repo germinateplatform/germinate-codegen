@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,14 +17,14 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Licenselogs implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   licenseId;
-    private Integer   userId;
+    private Integer id;
+    private Integer licenseId;
+    private Integer userId;
     private Timestamp acceptedOn;
 
     public Licenselogs() {}
@@ -38,15 +37,62 @@ public class Licenselogs implements Serializable {
     }
 
     public Licenselogs(
-        Integer   id,
-        Integer   licenseId,
-        Integer   userId,
+        Integer id,
+        Integer licenseId,
+        Integer userId,
         Timestamp acceptedOn
     ) {
         this.id = id;
         this.licenseId = licenseId;
         this.userId = userId;
         this.acceptedOn = acceptedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Licenselogs other = (Licenselogs) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.licenseId == null) {
+            if (other.licenseId != null)
+                return false;
+        }
+        else if (!this.licenseId.equals(other.licenseId))
+            return false;
+        if (this.userId == null) {
+            if (other.userId != null)
+                return false;
+        }
+        else if (!this.userId.equals(other.userId))
+            return false;
+        if (this.acceptedOn == null) {
+            if (other.acceptedOn != null)
+                return false;
+        }
+        else if (!this.acceptedOn.equals(other.acceptedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.licenseId == null) ? 0 : this.licenseId.hashCode());
+        result = prime * result + ((this.userId == null) ? 0 : this.userId.hashCode());
+        result = prime * result + ((this.acceptedOn == null) ? 0 : this.acceptedOn.hashCode());
+        return result;
     }
 
     @Override

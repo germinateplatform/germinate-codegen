@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -19,15 +18,15 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Datasetpermissions implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   datasetId;
-    private Integer   userId;
-    private Integer   groupId;
+    private Integer id;
+    private Integer datasetId;
+    private Integer userId;
+    private Integer groupId;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -43,10 +42,10 @@ public class Datasetpermissions implements Serializable {
     }
 
     public Datasetpermissions(
-        Integer   id,
-        Integer   datasetId,
-        Integer   userId,
-        Integer   groupId,
+        Integer id,
+        Integer datasetId,
+        Integer userId,
+        Integer groupId,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -56,6 +55,67 @@ public class Datasetpermissions implements Serializable {
         this.groupId = groupId;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Datasetpermissions other = (Datasetpermissions) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.datasetId == null) {
+            if (other.datasetId != null)
+                return false;
+        }
+        else if (!this.datasetId.equals(other.datasetId))
+            return false;
+        if (this.userId == null) {
+            if (other.userId != null)
+                return false;
+        }
+        else if (!this.userId.equals(other.userId))
+            return false;
+        if (this.groupId == null) {
+            if (other.groupId != null)
+                return false;
+        }
+        else if (!this.groupId.equals(other.groupId))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.datasetId == null) ? 0 : this.datasetId.hashCode());
+        result = prime * result + ((this.userId == null) ? 0 : this.userId.hashCode());
+        result = prime * result + ((this.groupId == null) ? 0 : this.groupId.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

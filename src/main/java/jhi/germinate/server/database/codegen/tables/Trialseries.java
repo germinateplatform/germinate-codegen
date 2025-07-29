@@ -4,24 +4,14 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.TrialseriesRecord;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row4;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 
 // @formatter:off
@@ -30,7 +20,7 @@ import org.jooq.impl.TableImpl;
  * which trials data is associated. Examples would include the overarching
  * project.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Trialseries extends TableImpl<TrialseriesRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -64,21 +54,21 @@ public class Trialseries extends TableImpl<TrialseriesRecord> {
      * The column <code>germinate_db.trialseries.created_on</code>. When the
      * record was created.
      */
-    public final TableField<TrialseriesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
+    public final TableField<TrialseriesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.trialseries.updated_on</code>. When the
      * record was updated. This may be different from the created on date if
      * changes have been made subsequently to the underlying record.
      */
-    public final TableField<TrialseriesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if changes have been made subsequently to the underlying record.");
+    public final TableField<TrialseriesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if changes have been made subsequently to the underlying record.");
 
     private Trialseries(Name alias, Table<TrialseriesRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private Trialseries(Name alias, Table<TrialseriesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Holds the names of trial series. Trial series define the name of the trial to which trials data is associated. Examples would include the overarching project."), TableOptions.table());
+    private Trialseries(Name alias, Table<TrialseriesRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("Holds the names of trial series. Trial series define the name of the trial to which trials data is associated. Examples would include the overarching project."), TableOptions.table(), where);
     }
 
     /**
@@ -127,6 +117,11 @@ public class Trialseries extends TableImpl<TrialseriesRecord> {
         return new Trialseries(alias, this);
     }
 
+    @Override
+    public Trialseries as(Table<?> alias) {
+        return new Trialseries(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -143,13 +138,96 @@ public class Trialseries extends TableImpl<TrialseriesRecord> {
         return new Trialseries(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row4 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row4<Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row4) super.fieldsRow();
+    public Trialseries rename(Table<?> name) {
+        return new Trialseries(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Trialseries where(Condition condition) {
+        return new Trialseries(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Trialseries where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Trialseries where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Trialseries where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Trialseries where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Trialseries where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Trialseries where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Trialseries where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Trialseries whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Trialseries whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

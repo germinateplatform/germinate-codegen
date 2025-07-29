@@ -4,16 +4,14 @@
 package jhi.germinate.server.database.codegen.enums;
 
 
-import org.jooq.Catalog;
-import org.jooq.EnumType;
-import org.jooq.Schema;
+import org.jooq.*;
 
 
 // @formatter:off
 /**
  * The estimated severity of the issue.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public enum UserfeedbackSeverity implements EnumType {
 
     low("low"),
@@ -40,7 +38,7 @@ public enum UserfeedbackSeverity implements EnumType {
 
     @Override
     public String getName() {
-        return "userfeedback_severity";
+        return null;
     }
 
     @Override
@@ -49,7 +47,9 @@ public enum UserfeedbackSeverity implements EnumType {
     }
 
     /**
-     * Lookup a value of this EnumType by its literal
+     * Lookup a value of this EnumType by its literal. Returns
+     * <code>null</code>, if no such value could be found, see {@link
+     * EnumType#lookupLiteral(Class, String)}.
      */
     public static UserfeedbackSeverity lookupLiteral(String literal) {
         return EnumType.lookupLiteral(UserfeedbackSeverity.class, literal);

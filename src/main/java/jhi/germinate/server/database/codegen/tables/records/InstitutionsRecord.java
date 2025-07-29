@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Institutions;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record11;
-import org.jooq.Row11;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -20,8 +16,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Defines institutions within Germinate. Accessions may be associated with an
  * institute and this can be defined here.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class InstitutionsRecord extends UpdatableRecordImpl<InstitutionsRecord> implements Record11<Integer, String, String, String, Integer, String, String, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class InstitutionsRecord extends UpdatableRecordImpl<InstitutionsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -213,267 +209,6 @@ public class InstitutionsRecord extends UpdatableRecordImpl<InstitutionsRecord> 
     }
 
     // -------------------------------------------------------------------------
-    // Record11 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row11<Integer, String, String, String, Integer, String, String, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row11) super.fieldsRow();
-    }
-
-    @Override
-    public Row11<Integer, String, String, String, Integer, String, String, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row11) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Institutions.INSTITUTIONS.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Institutions.INSTITUTIONS.CODE;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Institutions.INSTITUTIONS.NAME;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Institutions.INSTITUTIONS.ACRONYM;
-    }
-
-    @Override
-    public Field<Integer> field5() {
-        return Institutions.INSTITUTIONS.COUNTRY_ID;
-    }
-
-    @Override
-    public Field<String> field6() {
-        return Institutions.INSTITUTIONS.CONTACT;
-    }
-
-    @Override
-    public Field<String> field7() {
-        return Institutions.INSTITUTIONS.PHONE;
-    }
-
-    @Override
-    public Field<String> field8() {
-        return Institutions.INSTITUTIONS.EMAIL;
-    }
-
-    @Override
-    public Field<String> field9() {
-        return Institutions.INSTITUTIONS.ADDRESS;
-    }
-
-    @Override
-    public Field<Timestamp> field10() {
-        return Institutions.INSTITUTIONS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field11() {
-        return Institutions.INSTITUTIONS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getCode();
-    }
-
-    @Override
-    public String component3() {
-        return getName();
-    }
-
-    @Override
-    public String component4() {
-        return getAcronym();
-    }
-
-    @Override
-    public Integer component5() {
-        return getCountryId();
-    }
-
-    @Override
-    public String component6() {
-        return getContact();
-    }
-
-    @Override
-    public String component7() {
-        return getPhone();
-    }
-
-    @Override
-    public String component8() {
-        return getEmail();
-    }
-
-    @Override
-    public String component9() {
-        return getAddress();
-    }
-
-    @Override
-    public Timestamp component10() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component11() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getCode();
-    }
-
-    @Override
-    public String value3() {
-        return getName();
-    }
-
-    @Override
-    public String value4() {
-        return getAcronym();
-    }
-
-    @Override
-    public Integer value5() {
-        return getCountryId();
-    }
-
-    @Override
-    public String value6() {
-        return getContact();
-    }
-
-    @Override
-    public String value7() {
-        return getPhone();
-    }
-
-    @Override
-    public String value8() {
-        return getEmail();
-    }
-
-    @Override
-    public String value9() {
-        return getAddress();
-    }
-
-    @Override
-    public Timestamp value10() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value11() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public InstitutionsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value2(String value) {
-        setCode(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value3(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value4(String value) {
-        setAcronym(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value5(Integer value) {
-        setCountryId(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value6(String value) {
-        setContact(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value7(String value) {
-        setPhone(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value8(String value) {
-        setEmail(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value9(String value) {
-        setAddress(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value10(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord value11(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public InstitutionsRecord values(Integer value1, String value2, String value3, String value4, Integer value5, String value6, String value7, String value8, String value9, Timestamp value10, Timestamp value11) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        value9(value9);
-        value10(value10);
-        value11(value11);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -501,6 +236,7 @@ public class InstitutionsRecord extends UpdatableRecordImpl<InstitutionsRecord> 
         setAddress(address);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -521,6 +257,7 @@ public class InstitutionsRecord extends UpdatableRecordImpl<InstitutionsRecord> 
             setAddress(value.getAddress());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

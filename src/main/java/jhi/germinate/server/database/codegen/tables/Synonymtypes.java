@@ -4,31 +4,21 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.SynonymtypesRecord;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row6;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 
 // @formatter:off
 /**
  * Synonym type definitions.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Synonymtypes extends TableImpl<SynonymtypesRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -74,21 +64,21 @@ public class Synonymtypes extends TableImpl<SynonymtypesRecord> {
      * The column <code>germinate_db.synonymtypes.created_on</code>. When the
      * record was created.
      */
-    public final TableField<SynonymtypesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
+    public final TableField<SynonymtypesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.synonymtypes.updated_on</code>. When the
      * record was updated. This may be different from the created on date if
      * subsequent changes have been made to the underlying record.
      */
-    public final TableField<SynonymtypesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<SynonymtypesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     private Synonymtypes(Name alias, Table<SynonymtypesRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private Synonymtypes(Name alias, Table<SynonymtypesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Synonym type definitions."), TableOptions.table());
+    private Synonymtypes(Name alias, Table<SynonymtypesRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("Synonym type definitions."), TableOptions.table(), where);
     }
 
     /**
@@ -137,6 +127,11 @@ public class Synonymtypes extends TableImpl<SynonymtypesRecord> {
         return new Synonymtypes(alias, this);
     }
 
+    @Override
+    public Synonymtypes as(Table<?> alias) {
+        return new Synonymtypes(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -153,13 +148,96 @@ public class Synonymtypes extends TableImpl<SynonymtypesRecord> {
         return new Synonymtypes(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row6 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row6<Integer, String, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row6) super.fieldsRow();
+    public Synonymtypes rename(Table<?> name) {
+        return new Synonymtypes(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Synonymtypes where(Condition condition) {
+        return new Synonymtypes(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Synonymtypes where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Synonymtypes where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Synonymtypes where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Synonymtypes where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Synonymtypes where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Synonymtypes where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Synonymtypes where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Synonymtypes whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Synonymtypes whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

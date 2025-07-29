@@ -4,14 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.pojo.Exif;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -20,18 +18,18 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Images implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   imagetypeId;
-    private String    description;
-    private Integer   foreignId;
-    private String    path;
-    private Exif      exif;
-    private Boolean   isReference;
+    private Integer id;
+    private Integer imagetypeId;
+    private String description;
+    private Integer foreignId;
+    private String path;
+    private Exif exif;
+    private Boolean isReference;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -50,13 +48,13 @@ public class Images implements Serializable {
     }
 
     public Images(
-        Integer   id,
-        Integer   imagetypeId,
-        String    description,
-        Integer   foreignId,
-        String    path,
-        Exif      exif,
-        Boolean   isReference,
+        Integer id,
+        Integer imagetypeId,
+        String description,
+        Integer foreignId,
+        String path,
+        Exif exif,
+        Boolean isReference,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -69,6 +67,88 @@ public class Images implements Serializable {
         this.isReference = isReference;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Images other = (Images) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.imagetypeId == null) {
+            if (other.imagetypeId != null)
+                return false;
+        }
+        else if (!this.imagetypeId.equals(other.imagetypeId))
+            return false;
+        if (this.description == null) {
+            if (other.description != null)
+                return false;
+        }
+        else if (!this.description.equals(other.description))
+            return false;
+        if (this.foreignId == null) {
+            if (other.foreignId != null)
+                return false;
+        }
+        else if (!this.foreignId.equals(other.foreignId))
+            return false;
+        if (this.path == null) {
+            if (other.path != null)
+                return false;
+        }
+        else if (!this.path.equals(other.path))
+            return false;
+        if (this.exif == null) {
+            if (other.exif != null)
+                return false;
+        }
+        else if (!this.exif.equals(other.exif))
+            return false;
+        if (this.isReference == null) {
+            if (other.isReference != null)
+                return false;
+        }
+        else if (!this.isReference.equals(other.isReference))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.imagetypeId == null) ? 0 : this.imagetypeId.hashCode());
+        result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.foreignId == null) ? 0 : this.foreignId.hashCode());
+        result = prime * result + ((this.path == null) ? 0 : this.path.hashCode());
+        result = prime * result + ((this.exif == null) ? 0 : this.exif.hashCode());
+        result = prime * result + ((this.isReference == null) ? 0 : this.isReference.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

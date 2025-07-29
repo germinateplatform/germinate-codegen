@@ -4,9 +4,7 @@
 package jhi.germinate.server.database.codegen.enums;
 
 
-import org.jooq.Catalog;
-import org.jooq.EnumType;
-import org.jooq.Schema;
+import org.jooq.*;
 
 
 // @formatter:off
@@ -14,7 +12,7 @@ import org.jooq.Schema;
  * Optionally, other database items can be linked to this. As an example, an
  * overlay can be linked to a climate variable.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public enum MapoverlaysReferenceTable implements EnumType {
 
     phenotypes("phenotypes"),
@@ -39,7 +37,7 @@ public enum MapoverlaysReferenceTable implements EnumType {
 
     @Override
     public String getName() {
-        return "mapoverlays_reference_table";
+        return null;
     }
 
     @Override
@@ -48,7 +46,9 @@ public enum MapoverlaysReferenceTable implements EnumType {
     }
 
     /**
-     * Lookup a value of this EnumType by its literal
+     * Lookup a value of this EnumType by its literal. Returns
+     * <code>null</code>, if no such value could be found, see {@link
+     * EnumType#lookupLiteral(Class, String)}.
      */
     public static MapoverlaysReferenceTable lookupLiteral(String literal) {
         return EnumType.lookupLiteral(MapoverlaysReferenceTable.class, literal);

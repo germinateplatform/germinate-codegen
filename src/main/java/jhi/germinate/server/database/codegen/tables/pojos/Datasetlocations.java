@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,13 +17,13 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Datasetlocations implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   datasetId;
-    private Integer   locationId;
+    private Integer datasetId;
+    private Integer locationId;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -38,8 +37,8 @@ public class Datasetlocations implements Serializable {
     }
 
     public Datasetlocations(
-        Integer   datasetId,
-        Integer   locationId,
+        Integer datasetId,
+        Integer locationId,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -47,6 +46,53 @@ public class Datasetlocations implements Serializable {
         this.locationId = locationId;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Datasetlocations other = (Datasetlocations) obj;
+        if (this.datasetId == null) {
+            if (other.datasetId != null)
+                return false;
+        }
+        else if (!this.datasetId.equals(other.datasetId))
+            return false;
+        if (this.locationId == null) {
+            if (other.locationId != null)
+                return false;
+        }
+        else if (!this.locationId.equals(other.locationId))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.datasetId == null) ? 0 : this.datasetId.hashCode());
+        result = prime * result + ((this.locationId == null) ? 0 : this.locationId.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

@@ -4,25 +4,15 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.ClimatesDatatype;
 import jhi.germinate.server.database.codegen.tables.records.ClimatesRecord;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row8;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 
 // @formatter:off
@@ -30,7 +20,7 @@ import org.jooq.impl.TableImpl;
  * Defines climates. Climates are measureable weather type characteristics such
  * as temperature or cloud cover.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Climates extends TableImpl<ClimatesRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -77,7 +67,7 @@ public class Climates extends TableImpl<ClimatesRecord> {
      * type of the climate. This can be of numeric, text, date or categorical
      * types.
      */
-    public final TableField<ClimatesRecord, ClimatesDatatype> DATATYPE = createField(DSL.name("datatype"), SQLDataType.VARCHAR(11).nullable(false).defaultValue(DSL.inline("text", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.ClimatesDatatype.class), this, "Defines the data type of the climate. This can be of numeric, text, date or categorical types.");
+    public final TableField<ClimatesRecord, ClimatesDatatype> DATATYPE = createField(DSL.name("datatype"), SQLDataType.VARCHAR(11).nullable(false).defaultValue(DSL.inline("text", SQLDataType.VARCHAR)).asEnumDataType(ClimatesDatatype.class), this, "Defines the data type of the climate. This can be of numeric, text, date or categorical types.");
 
     /**
      * The column <code>germinate_db.climates.unit_id</code>. Foreign key to
@@ -90,21 +80,21 @@ public class Climates extends TableImpl<ClimatesRecord> {
      * The column <code>germinate_db.climates.created_on</code>. When the record
      * was created.
      */
-    public final TableField<ClimatesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
+    public final TableField<ClimatesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.climates.updated_on</code>. When the record
      * was updated. This may be different from the created on date if subsequent
      * changes have been made to the underlying record.
      */
-    public final TableField<ClimatesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<ClimatesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     private Climates(Name alias, Table<ClimatesRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private Climates(Name alias, Table<ClimatesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Defines climates. Climates are measureable weather type characteristics such as temperature or cloud cover."), TableOptions.table());
+    private Climates(Name alias, Table<ClimatesRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("Defines climates. Climates are measureable weather type characteristics such as temperature or cloud cover."), TableOptions.table(), where);
     }
 
     /**
@@ -153,6 +143,11 @@ public class Climates extends TableImpl<ClimatesRecord> {
         return new Climates(alias, this);
     }
 
+    @Override
+    public Climates as(Table<?> alias) {
+        return new Climates(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -169,13 +164,96 @@ public class Climates extends TableImpl<ClimatesRecord> {
         return new Climates(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row8 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row8<Integer, String, String, String, ClimatesDatatype, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Climates rename(Table<?> name) {
+        return new Climates(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Climates where(Condition condition) {
+        return new Climates(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Climates where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Climates where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Climates where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Climates where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Climates where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Climates where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Climates where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Climates whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Climates whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

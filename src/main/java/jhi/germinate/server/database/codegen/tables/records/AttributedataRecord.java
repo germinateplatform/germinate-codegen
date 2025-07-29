@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Attributedata;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record6;
-import org.jooq.Row6;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -23,8 +19,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * defining germplasm which only exists for a small sub-group of the total
  * database.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class AttributedataRecord extends UpdatableRecordImpl<AttributedataRecord> implements Record6<Integer, Integer, Integer, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class AttributedataRecord extends UpdatableRecordImpl<AttributedataRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -136,157 +132,6 @@ public class AttributedataRecord extends UpdatableRecordImpl<AttributedataRecord
     }
 
     // -------------------------------------------------------------------------
-    // Record6 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row6<Integer, Integer, Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row6) super.fieldsRow();
-    }
-
-    @Override
-    public Row6<Integer, Integer, Integer, String, Timestamp, Timestamp> valuesRow() {
-        return (Row6) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Attributedata.ATTRIBUTEDATA.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Attributedata.ATTRIBUTEDATA.ATTRIBUTE_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Attributedata.ATTRIBUTEDATA.FOREIGN_ID;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Attributedata.ATTRIBUTEDATA.VALUE;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Attributedata.ATTRIBUTEDATA.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Attributedata.ATTRIBUTEDATA.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getAttributeId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getForeignId();
-    }
-
-    @Override
-    public String component4() {
-        return getValue();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getAttributeId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getForeignId();
-    }
-
-    @Override
-    public String value4() {
-        return getValue();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public AttributedataRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public AttributedataRecord value2(Integer value) {
-        setAttributeId(value);
-        return this;
-    }
-
-    @Override
-    public AttributedataRecord value3(Integer value) {
-        setForeignId(value);
-        return this;
-    }
-
-    @Override
-    public AttributedataRecord value4(String value) {
-        setValue(value);
-        return this;
-    }
-
-    @Override
-    public AttributedataRecord value5(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public AttributedataRecord value6(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public AttributedataRecord values(Integer value1, Integer value2, Integer value3, String value4, Timestamp value5, Timestamp value6) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -309,6 +154,7 @@ public class AttributedataRecord extends UpdatableRecordImpl<AttributedataRecord
         setValue(value);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -324,6 +170,7 @@ public class AttributedataRecord extends UpdatableRecordImpl<AttributedataRecord
             setValue(value.getValue());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -22,19 +21,19 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Mapdefinitions implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   mapfeaturetypeId;
-    private Integer   markerId;
-    private Integer   mapId;
-    private Double    definitionStart;
-    private Double    definitionEnd;
-    private String    chromosome;
-    private String    armImpute;
+    private Integer id;
+    private Integer mapfeaturetypeId;
+    private Integer markerId;
+    private Integer mapId;
+    private Double definitionStart;
+    private Double definitionEnd;
+    private String chromosome;
+    private String armImpute;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -54,14 +53,14 @@ public class Mapdefinitions implements Serializable {
     }
 
     public Mapdefinitions(
-        Integer   id,
-        Integer   mapfeaturetypeId,
-        Integer   markerId,
-        Integer   mapId,
-        Double    definitionStart,
-        Double    definitionEnd,
-        String    chromosome,
-        String    armImpute,
+        Integer id,
+        Integer mapfeaturetypeId,
+        Integer markerId,
+        Integer mapId,
+        Double definitionStart,
+        Double definitionEnd,
+        String chromosome,
+        String armImpute,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -75,6 +74,95 @@ public class Mapdefinitions implements Serializable {
         this.armImpute = armImpute;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Mapdefinitions other = (Mapdefinitions) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.mapfeaturetypeId == null) {
+            if (other.mapfeaturetypeId != null)
+                return false;
+        }
+        else if (!this.mapfeaturetypeId.equals(other.mapfeaturetypeId))
+            return false;
+        if (this.markerId == null) {
+            if (other.markerId != null)
+                return false;
+        }
+        else if (!this.markerId.equals(other.markerId))
+            return false;
+        if (this.mapId == null) {
+            if (other.mapId != null)
+                return false;
+        }
+        else if (!this.mapId.equals(other.mapId))
+            return false;
+        if (this.definitionStart == null) {
+            if (other.definitionStart != null)
+                return false;
+        }
+        else if (!this.definitionStart.equals(other.definitionStart))
+            return false;
+        if (this.definitionEnd == null) {
+            if (other.definitionEnd != null)
+                return false;
+        }
+        else if (!this.definitionEnd.equals(other.definitionEnd))
+            return false;
+        if (this.chromosome == null) {
+            if (other.chromosome != null)
+                return false;
+        }
+        else if (!this.chromosome.equals(other.chromosome))
+            return false;
+        if (this.armImpute == null) {
+            if (other.armImpute != null)
+                return false;
+        }
+        else if (!this.armImpute.equals(other.armImpute))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.mapfeaturetypeId == null) ? 0 : this.mapfeaturetypeId.hashCode());
+        result = prime * result + ((this.markerId == null) ? 0 : this.markerId.hashCode());
+        result = prime * result + ((this.mapId == null) ? 0 : this.mapId.hashCode());
+        result = prime * result + ((this.definitionStart == null) ? 0 : this.definitionStart.hashCode());
+        result = prime * result + ((this.definitionEnd == null) ? 0 : this.definitionEnd.hashCode());
+        result = prime * result + ((this.chromosome == null) ? 0 : this.chromosome.hashCode());
+        result = prime * result + ((this.armImpute == null) ? 0 : this.armImpute.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

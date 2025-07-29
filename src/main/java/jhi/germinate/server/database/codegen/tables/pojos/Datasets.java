@@ -4,15 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.pojo.DublinCore;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.*;
 
 // @formatter:off
 /**
@@ -23,30 +20,30 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Datasets implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer    id;
-    private Integer    experimentId;
-    private Integer    datasettypeId;
-    private String     name;
-    private String     description;
-    private Date       dateStart;
-    private Date       dateEnd;
-    private String     sourceFile;
-    private String     datatype;
+    private Integer id;
+    private Integer experimentId;
+    private Integer datasettypeId;
+    private String name;
+    private String description;
+    private Date dateStart;
+    private Date dateEnd;
+    private String sourceFile;
+    private String datatype;
     private DublinCore dublinCore;
-    private String     version;
-    private Integer    createdBy;
-    private Integer    datasetStateId;
-    private Integer    licenseId;
-    private Boolean    isExternal;
-    private String     hyperlink;
-    private Timestamp  createdOn;
-    private Timestamp  updatedOn;
-    private String     contact;
+    private String version;
+    private Integer createdBy;
+    private Integer datasetStateId;
+    private Integer licenseId;
+    private Boolean isExternal;
+    private String hyperlink;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
+    private String contact;
 
     public Datasets() {}
 
@@ -73,25 +70,25 @@ public class Datasets implements Serializable {
     }
 
     public Datasets(
-        Integer    id,
-        Integer    experimentId,
-        Integer    datasettypeId,
-        String     name,
-        String     description,
-        Date       dateStart,
-        Date       dateEnd,
-        String     sourceFile,
-        String     datatype,
+        Integer id,
+        Integer experimentId,
+        Integer datasettypeId,
+        String name,
+        String description,
+        Date dateStart,
+        Date dateEnd,
+        String sourceFile,
+        String datatype,
         DublinCore dublinCore,
-        String     version,
-        Integer    createdBy,
-        Integer    datasetStateId,
-        Integer    licenseId,
-        Boolean    isExternal,
-        String     hyperlink,
-        Timestamp  createdOn,
-        Timestamp  updatedOn,
-        String     contact
+        String version,
+        Integer createdBy,
+        Integer datasetStateId,
+        Integer licenseId,
+        Boolean isExternal,
+        String hyperlink,
+        Timestamp createdOn,
+        Timestamp updatedOn,
+        String contact
     ) {
         this.id = id;
         this.experimentId = experimentId;
@@ -112,6 +109,158 @@ public class Datasets implements Serializable {
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
         this.contact = contact;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Datasets other = (Datasets) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.experimentId == null) {
+            if (other.experimentId != null)
+                return false;
+        }
+        else if (!this.experimentId.equals(other.experimentId))
+            return false;
+        if (this.datasettypeId == null) {
+            if (other.datasettypeId != null)
+                return false;
+        }
+        else if (!this.datasettypeId.equals(other.datasettypeId))
+            return false;
+        if (this.name == null) {
+            if (other.name != null)
+                return false;
+        }
+        else if (!this.name.equals(other.name))
+            return false;
+        if (this.description == null) {
+            if (other.description != null)
+                return false;
+        }
+        else if (!this.description.equals(other.description))
+            return false;
+        if (this.dateStart == null) {
+            if (other.dateStart != null)
+                return false;
+        }
+        else if (!this.dateStart.equals(other.dateStart))
+            return false;
+        if (this.dateEnd == null) {
+            if (other.dateEnd != null)
+                return false;
+        }
+        else if (!this.dateEnd.equals(other.dateEnd))
+            return false;
+        if (this.sourceFile == null) {
+            if (other.sourceFile != null)
+                return false;
+        }
+        else if (!this.sourceFile.equals(other.sourceFile))
+            return false;
+        if (this.datatype == null) {
+            if (other.datatype != null)
+                return false;
+        }
+        else if (!this.datatype.equals(other.datatype))
+            return false;
+        if (this.dublinCore == null) {
+            if (other.dublinCore != null)
+                return false;
+        }
+        else if (!this.dublinCore.equals(other.dublinCore))
+            return false;
+        if (this.version == null) {
+            if (other.version != null)
+                return false;
+        }
+        else if (!this.version.equals(other.version))
+            return false;
+        if (this.createdBy == null) {
+            if (other.createdBy != null)
+                return false;
+        }
+        else if (!this.createdBy.equals(other.createdBy))
+            return false;
+        if (this.datasetStateId == null) {
+            if (other.datasetStateId != null)
+                return false;
+        }
+        else if (!this.datasetStateId.equals(other.datasetStateId))
+            return false;
+        if (this.licenseId == null) {
+            if (other.licenseId != null)
+                return false;
+        }
+        else if (!this.licenseId.equals(other.licenseId))
+            return false;
+        if (this.isExternal == null) {
+            if (other.isExternal != null)
+                return false;
+        }
+        else if (!this.isExternal.equals(other.isExternal))
+            return false;
+        if (this.hyperlink == null) {
+            if (other.hyperlink != null)
+                return false;
+        }
+        else if (!this.hyperlink.equals(other.hyperlink))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        if (this.contact == null) {
+            if (other.contact != null)
+                return false;
+        }
+        else if (!this.contact.equals(other.contact))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.experimentId == null) ? 0 : this.experimentId.hashCode());
+        result = prime * result + ((this.datasettypeId == null) ? 0 : this.datasettypeId.hashCode());
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+        result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.dateStart == null) ? 0 : this.dateStart.hashCode());
+        result = prime * result + ((this.dateEnd == null) ? 0 : this.dateEnd.hashCode());
+        result = prime * result + ((this.sourceFile == null) ? 0 : this.sourceFile.hashCode());
+        result = prime * result + ((this.datatype == null) ? 0 : this.datatype.hashCode());
+        result = prime * result + ((this.dublinCore == null) ? 0 : this.dublinCore.hashCode());
+        result = prime * result + ((this.version == null) ? 0 : this.version.hashCode());
+        result = prime * result + ((this.createdBy == null) ? 0 : this.createdBy.hashCode());
+        result = prime * result + ((this.datasetStateId == null) ? 0 : this.datasetStateId.hashCode());
+        result = prime * result + ((this.licenseId == null) ? 0 : this.licenseId.hashCode());
+        result = prime * result + ((this.isExternal == null) ? 0 : this.isExternal.hashCode());
+        result = prime * result + ((this.hyperlink == null) ? 0 : this.hyperlink.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        result = prime * result + ((this.contact == null) ? 0 : this.contact.hashCode());
+        return result;
     }
 
     @Override

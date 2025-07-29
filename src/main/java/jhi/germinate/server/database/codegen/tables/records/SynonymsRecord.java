@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Synonyms;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record6;
-import org.jooq.Row6;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -20,8 +16,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Allows the definition of synonyms for entries such as germinatebase entries
  * or marker names.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class SynonymsRecord extends UpdatableRecordImpl<SynonymsRecord> implements Record6<Integer, Integer, Integer, String[], Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class SynonymsRecord extends UpdatableRecordImpl<SynonymsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -135,157 +131,6 @@ public class SynonymsRecord extends UpdatableRecordImpl<SynonymsRecord> implemen
     }
 
     // -------------------------------------------------------------------------
-    // Record6 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row6<Integer, Integer, Integer, String[], Timestamp, Timestamp> fieldsRow() {
-        return (Row6) super.fieldsRow();
-    }
-
-    @Override
-    public Row6<Integer, Integer, Integer, String[], Timestamp, Timestamp> valuesRow() {
-        return (Row6) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Synonyms.SYNONYMS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Synonyms.SYNONYMS.FOREIGN_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Synonyms.SYNONYMS.SYNONYMTYPE_ID;
-    }
-
-    @Override
-    public Field<String[]> field4() {
-        return Synonyms.SYNONYMS.SYNONYMS_;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Synonyms.SYNONYMS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Synonyms.SYNONYMS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getForeignId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getSynonymtypeId();
-    }
-
-    @Override
-    public String[] component4() {
-        return getSynonyms();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getForeignId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getSynonymtypeId();
-    }
-
-    @Override
-    public String[] value4() {
-        return getSynonyms();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public SynonymsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public SynonymsRecord value2(Integer value) {
-        setForeignId(value);
-        return this;
-    }
-
-    @Override
-    public SynonymsRecord value3(Integer value) {
-        setSynonymtypeId(value);
-        return this;
-    }
-
-    @Override
-    public SynonymsRecord value4(String[] value) {
-        setSynonyms(value);
-        return this;
-    }
-
-    @Override
-    public SynonymsRecord value5(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public SynonymsRecord value6(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public SynonymsRecord values(Integer value1, Integer value2, Integer value3, String[] value4, Timestamp value5, Timestamp value6) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -308,6 +153,7 @@ public class SynonymsRecord extends UpdatableRecordImpl<SynonymsRecord> implemen
         setSynonyms(synonyms);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -323,6 +169,7 @@ public class SynonymsRecord extends UpdatableRecordImpl<SynonymsRecord> implemen
             setSynonyms(value.getSynonyms());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

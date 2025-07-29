@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Countries;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record6;
-import org.jooq.Row6;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -20,8 +16,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Countries that are used in the locations type tables in Germinate. These are
  * the ISO codes for countries.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class CountriesRecord extends UpdatableRecordImpl<CountriesRecord> implements Record6<Integer, String, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class CountriesRecord extends UpdatableRecordImpl<CountriesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -133,157 +129,6 @@ public class CountriesRecord extends UpdatableRecordImpl<CountriesRecord> implem
     }
 
     // -------------------------------------------------------------------------
-    // Record6 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row6<Integer, String, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row6) super.fieldsRow();
-    }
-
-    @Override
-    public Row6<Integer, String, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row6) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Countries.COUNTRIES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Countries.COUNTRIES.COUNTRY_CODE2;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Countries.COUNTRIES.COUNTRY_CODE3;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Countries.COUNTRIES.COUNTRY_NAME;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Countries.COUNTRIES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Countries.COUNTRIES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getCountryCode2();
-    }
-
-    @Override
-    public String component3() {
-        return getCountryCode3();
-    }
-
-    @Override
-    public String component4() {
-        return getCountryName();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getCountryCode2();
-    }
-
-    @Override
-    public String value3() {
-        return getCountryCode3();
-    }
-
-    @Override
-    public String value4() {
-        return getCountryName();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public CountriesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public CountriesRecord value2(String value) {
-        setCountryCode2(value);
-        return this;
-    }
-
-    @Override
-    public CountriesRecord value3(String value) {
-        setCountryCode3(value);
-        return this;
-    }
-
-    @Override
-    public CountriesRecord value4(String value) {
-        setCountryName(value);
-        return this;
-    }
-
-    @Override
-    public CountriesRecord value5(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public CountriesRecord value6(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public CountriesRecord values(Integer value1, String value2, String value3, String value4, Timestamp value5, Timestamp value6) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -306,6 +151,7 @@ public class CountriesRecord extends UpdatableRecordImpl<CountriesRecord> implem
         setCountryName(countryName);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -321,6 +167,7 @@ public class CountriesRecord extends UpdatableRecordImpl<CountriesRecord> implem
             setCountryName(value.getCountryName());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

@@ -4,16 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.enums.AttributesDatatype;
 import jhi.germinate.server.database.codegen.tables.Attributes;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record7;
-import org.jooq.Row7;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -23,8 +19,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * important do not warrant adding additional columns in the other tables.
  * Examples would be using this to define ecotypes for germinatebase entries.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class AttributesRecord extends UpdatableRecordImpl<AttributesRecord> implements Record7<Integer, String, String, AttributesDatatype, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class AttributesRecord extends UpdatableRecordImpl<AttributesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -154,179 +150,6 @@ public class AttributesRecord extends UpdatableRecordImpl<AttributesRecord> impl
     }
 
     // -------------------------------------------------------------------------
-    // Record7 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row7<Integer, String, String, AttributesDatatype, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row7) super.fieldsRow();
-    }
-
-    @Override
-    public Row7<Integer, String, String, AttributesDatatype, String, Timestamp, Timestamp> valuesRow() {
-        return (Row7) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Attributes.ATTRIBUTES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Attributes.ATTRIBUTES.NAME;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Attributes.ATTRIBUTES.DESCRIPTION;
-    }
-
-    @Override
-    public Field<AttributesDatatype> field4() {
-        return Attributes.ATTRIBUTES.DATATYPE;
-    }
-
-    @Override
-    public Field<String> field5() {
-        return Attributes.ATTRIBUTES.TARGET_TABLE;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Attributes.ATTRIBUTES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field7() {
-        return Attributes.ATTRIBUTES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getName();
-    }
-
-    @Override
-    public String component3() {
-        return getDescription();
-    }
-
-    @Override
-    public AttributesDatatype component4() {
-        return getDatatype();
-    }
-
-    @Override
-    public String component5() {
-        return getTargetTable();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component7() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getName();
-    }
-
-    @Override
-    public String value3() {
-        return getDescription();
-    }
-
-    @Override
-    public AttributesDatatype value4() {
-        return getDatatype();
-    }
-
-    @Override
-    public String value5() {
-        return getTargetTable();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value7() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public AttributesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public AttributesRecord value2(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public AttributesRecord value3(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public AttributesRecord value4(AttributesDatatype value) {
-        setDatatype(value);
-        return this;
-    }
-
-    @Override
-    public AttributesRecord value5(String value) {
-        setTargetTable(value);
-        return this;
-    }
-
-    @Override
-    public AttributesRecord value6(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public AttributesRecord value7(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public AttributesRecord values(Integer value1, String value2, String value3, AttributesDatatype value4, String value5, Timestamp value6, Timestamp value7) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -350,6 +173,7 @@ public class AttributesRecord extends UpdatableRecordImpl<AttributesRecord> impl
         setTargetTable(targetTable);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -366,6 +190,7 @@ public class AttributesRecord extends UpdatableRecordImpl<AttributesRecord> impl
             setTargetTable(value.getTargetTable());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

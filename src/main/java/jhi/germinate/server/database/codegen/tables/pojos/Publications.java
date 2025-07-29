@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,14 +17,14 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Publications implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private String    doi;
-    private String    fallbackCache;
+    private Integer id;
+    private String doi;
+    private String fallbackCache;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -40,9 +39,9 @@ public class Publications implements Serializable {
     }
 
     public Publications(
-        Integer   id,
-        String    doi,
-        String    fallbackCache,
+        Integer id,
+        String doi,
+        String fallbackCache,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -51,6 +50,60 @@ public class Publications implements Serializable {
         this.fallbackCache = fallbackCache;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Publications other = (Publications) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.doi == null) {
+            if (other.doi != null)
+                return false;
+        }
+        else if (!this.doi.equals(other.doi))
+            return false;
+        if (this.fallbackCache == null) {
+            if (other.fallbackCache != null)
+                return false;
+        }
+        else if (!this.fallbackCache.equals(other.fallbackCache))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.doi == null) ? 0 : this.doi.hashCode());
+        result = prime * result + ((this.fallbackCache == null) ? 0 : this.fallbackCache.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

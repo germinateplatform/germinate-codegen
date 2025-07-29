@@ -4,13 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
-
-import lombok.*;
-import lombok.experimental.Accessors;
 
 // @formatter:off
 /**
@@ -19,26 +18,26 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Trialsetup implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer    id;
-    private Integer    germinatebaseId;
-    private Integer    datasetId;
-    private Integer    locationId;
-    private Integer    treatmentId;
-    private Integer    trialseriesId;
-    private String     block;
-    private String     rep;
-    private Short      trialRow;
-    private Short      trialColumn;
+    private Integer id;
+    private Integer germinatebaseId;
+    private Integer datasetId;
+    private Integer locationId;
+    private Integer treatmentId;
+    private Integer trialseriesId;
+    private String block;
+    private String rep;
+    private Short trialRow;
+    private Short trialColumn;
     private BigDecimal latitude;
     private BigDecimal longitude;
     private BigDecimal elevation;
-    private Timestamp  createdOn;
-    private Timestamp  updatedOn;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public Trialsetup() {}
 
@@ -61,21 +60,21 @@ public class Trialsetup implements Serializable {
     }
 
     public Trialsetup(
-        Integer    id,
-        Integer    germinatebaseId,
-        Integer    datasetId,
-        Integer    locationId,
-        Integer    treatmentId,
-        Integer    trialseriesId,
-        String     block,
-        String     rep,
-        Short      trialRow,
-        Short      trialColumn,
+        Integer id,
+        Integer germinatebaseId,
+        Integer datasetId,
+        Integer locationId,
+        Integer treatmentId,
+        Integer trialseriesId,
+        String block,
+        String rep,
+        Short trialRow,
+        Short trialColumn,
         BigDecimal latitude,
         BigDecimal longitude,
         BigDecimal elevation,
-        Timestamp  createdOn,
-        Timestamp  updatedOn
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.id = id;
         this.germinatebaseId = germinatebaseId;
@@ -92,6 +91,130 @@ public class Trialsetup implements Serializable {
         this.elevation = elevation;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Trialsetup other = (Trialsetup) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.germinatebaseId == null) {
+            if (other.germinatebaseId != null)
+                return false;
+        }
+        else if (!this.germinatebaseId.equals(other.germinatebaseId))
+            return false;
+        if (this.datasetId == null) {
+            if (other.datasetId != null)
+                return false;
+        }
+        else if (!this.datasetId.equals(other.datasetId))
+            return false;
+        if (this.locationId == null) {
+            if (other.locationId != null)
+                return false;
+        }
+        else if (!this.locationId.equals(other.locationId))
+            return false;
+        if (this.treatmentId == null) {
+            if (other.treatmentId != null)
+                return false;
+        }
+        else if (!this.treatmentId.equals(other.treatmentId))
+            return false;
+        if (this.trialseriesId == null) {
+            if (other.trialseriesId != null)
+                return false;
+        }
+        else if (!this.trialseriesId.equals(other.trialseriesId))
+            return false;
+        if (this.block == null) {
+            if (other.block != null)
+                return false;
+        }
+        else if (!this.block.equals(other.block))
+            return false;
+        if (this.rep == null) {
+            if (other.rep != null)
+                return false;
+        }
+        else if (!this.rep.equals(other.rep))
+            return false;
+        if (this.trialRow == null) {
+            if (other.trialRow != null)
+                return false;
+        }
+        else if (!this.trialRow.equals(other.trialRow))
+            return false;
+        if (this.trialColumn == null) {
+            if (other.trialColumn != null)
+                return false;
+        }
+        else if (!this.trialColumn.equals(other.trialColumn))
+            return false;
+        if (this.latitude == null) {
+            if (other.latitude != null)
+                return false;
+        }
+        else if (!this.latitude.equals(other.latitude))
+            return false;
+        if (this.longitude == null) {
+            if (other.longitude != null)
+                return false;
+        }
+        else if (!this.longitude.equals(other.longitude))
+            return false;
+        if (this.elevation == null) {
+            if (other.elevation != null)
+                return false;
+        }
+        else if (!this.elevation.equals(other.elevation))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.germinatebaseId == null) ? 0 : this.germinatebaseId.hashCode());
+        result = prime * result + ((this.datasetId == null) ? 0 : this.datasetId.hashCode());
+        result = prime * result + ((this.locationId == null) ? 0 : this.locationId.hashCode());
+        result = prime * result + ((this.treatmentId == null) ? 0 : this.treatmentId.hashCode());
+        result = prime * result + ((this.trialseriesId == null) ? 0 : this.trialseriesId.hashCode());
+        result = prime * result + ((this.block == null) ? 0 : this.block.hashCode());
+        result = prime * result + ((this.rep == null) ? 0 : this.rep.hashCode());
+        result = prime * result + ((this.trialRow == null) ? 0 : this.trialRow.hashCode());
+        result = prime * result + ((this.trialColumn == null) ? 0 : this.trialColumn.hashCode());
+        result = prime * result + ((this.latitude == null) ? 0 : this.latitude.hashCode());
+        result = prime * result + ((this.longitude == null) ? 0 : this.longitude.hashCode());
+        result = prime * result + ((this.elevation == null) ? 0 : this.elevation.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,17 +17,17 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Pedigreedefinitions implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   datasetId;
-    private Integer   germinatebaseId;
-    private Integer   pedigreenotationId;
-    private Integer   pedigreedescriptionId;
-    private String    definition;
+    private Integer id;
+    private Integer datasetId;
+    private Integer germinatebaseId;
+    private Integer pedigreenotationId;
+    private Integer pedigreedescriptionId;
+    private String definition;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -46,12 +45,12 @@ public class Pedigreedefinitions implements Serializable {
     }
 
     public Pedigreedefinitions(
-        Integer   id,
-        Integer   datasetId,
-        Integer   germinatebaseId,
-        Integer   pedigreenotationId,
-        Integer   pedigreedescriptionId,
-        String    definition,
+        Integer id,
+        Integer datasetId,
+        Integer germinatebaseId,
+        Integer pedigreenotationId,
+        Integer pedigreedescriptionId,
+        String definition,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -63,6 +62,81 @@ public class Pedigreedefinitions implements Serializable {
         this.definition = definition;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Pedigreedefinitions other = (Pedigreedefinitions) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.datasetId == null) {
+            if (other.datasetId != null)
+                return false;
+        }
+        else if (!this.datasetId.equals(other.datasetId))
+            return false;
+        if (this.germinatebaseId == null) {
+            if (other.germinatebaseId != null)
+                return false;
+        }
+        else if (!this.germinatebaseId.equals(other.germinatebaseId))
+            return false;
+        if (this.pedigreenotationId == null) {
+            if (other.pedigreenotationId != null)
+                return false;
+        }
+        else if (!this.pedigreenotationId.equals(other.pedigreenotationId))
+            return false;
+        if (this.pedigreedescriptionId == null) {
+            if (other.pedigreedescriptionId != null)
+                return false;
+        }
+        else if (!this.pedigreedescriptionId.equals(other.pedigreedescriptionId))
+            return false;
+        if (this.definition == null) {
+            if (other.definition != null)
+                return false;
+        }
+        else if (!this.definition.equals(other.definition))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.datasetId == null) ? 0 : this.datasetId.hashCode());
+        result = prime * result + ((this.germinatebaseId == null) ? 0 : this.germinatebaseId.hashCode());
+        result = prime * result + ((this.pedigreenotationId == null) ? 0 : this.pedigreenotationId.hashCode());
+        result = prime * result + ((this.pedigreedescriptionId == null) ? 0 : this.pedigreedescriptionId.hashCode());
+        result = prime * result + ((this.definition == null) ? 0 : this.definition.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

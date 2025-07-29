@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Linktypes;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record7;
-import org.jooq.Row7;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -23,8 +19,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * by the value of the
  * ”target column” in the ”target table”
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class LinktypesRecord extends UpdatableRecordImpl<LinktypesRecord> implements Record7<Integer, String, String, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class LinktypesRecord extends UpdatableRecordImpl<LinktypesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -46,7 +42,8 @@ public class LinktypesRecord extends UpdatableRecordImpl<LinktypesRecord> implem
 
     /**
      * Setter for <code>germinate_db.linktypes.description</code>. A description
-     * of the link.
+     * of the link
+.
      */
     public void setDescription(String value) {
         set(1, value);
@@ -54,7 +51,8 @@ public class LinktypesRecord extends UpdatableRecordImpl<LinktypesRecord> implem
 
     /**
      * Getter for <code>germinate_db.linktypes.description</code>. A description
-     * of the link.
+     * of the link
+.
      */
     public String getDescription() {
         return (String) get(1);
@@ -152,179 +150,6 @@ public class LinktypesRecord extends UpdatableRecordImpl<LinktypesRecord> implem
     }
 
     // -------------------------------------------------------------------------
-    // Record7 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row7<Integer, String, String, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row7) super.fieldsRow();
-    }
-
-    @Override
-    public Row7<Integer, String, String, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row7) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Linktypes.LINKTYPES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Linktypes.LINKTYPES.DESCRIPTION;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Linktypes.LINKTYPES.TARGET_TABLE;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Linktypes.LINKTYPES.TARGET_COLUMN;
-    }
-
-    @Override
-    public Field<String> field5() {
-        return Linktypes.LINKTYPES.PLACEHOLDER;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Linktypes.LINKTYPES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field7() {
-        return Linktypes.LINKTYPES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getDescription();
-    }
-
-    @Override
-    public String component3() {
-        return getTargetTable();
-    }
-
-    @Override
-    public String component4() {
-        return getTargetColumn();
-    }
-
-    @Override
-    public String component5() {
-        return getPlaceholder();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component7() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getDescription();
-    }
-
-    @Override
-    public String value3() {
-        return getTargetTable();
-    }
-
-    @Override
-    public String value4() {
-        return getTargetColumn();
-    }
-
-    @Override
-    public String value5() {
-        return getPlaceholder();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value7() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public LinktypesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public LinktypesRecord value2(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public LinktypesRecord value3(String value) {
-        setTargetTable(value);
-        return this;
-    }
-
-    @Override
-    public LinktypesRecord value4(String value) {
-        setTargetColumn(value);
-        return this;
-    }
-
-    @Override
-    public LinktypesRecord value5(String value) {
-        setPlaceholder(value);
-        return this;
-    }
-
-    @Override
-    public LinktypesRecord value6(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public LinktypesRecord value7(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public LinktypesRecord values(Integer value1, String value2, String value3, String value4, String value5, Timestamp value6, Timestamp value7) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -348,6 +173,7 @@ public class LinktypesRecord extends UpdatableRecordImpl<LinktypesRecord> implem
         setPlaceholder(placeholder);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -364,6 +190,7 @@ public class LinktypesRecord extends UpdatableRecordImpl<LinktypesRecord> implem
             setPlaceholder(value.getPlaceholder());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

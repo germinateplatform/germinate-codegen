@@ -4,23 +4,19 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Datasetaccesslogs;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record9;
-import org.jooq.Row9;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
 /**
  * If enabled, tracks which user accessed which datasets.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class DatasetaccesslogsRecord extends UpdatableRecordImpl<DatasetaccesslogsRecord> implements Record9<Integer, Integer, String, String, String, Integer, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class DatasetaccesslogsRecord extends UpdatableRecordImpl<DatasetaccesslogsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -168,223 +164,6 @@ public class DatasetaccesslogsRecord extends UpdatableRecordImpl<Datasetaccesslo
     }
 
     // -------------------------------------------------------------------------
-    // Record9 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row9<Integer, Integer, String, String, String, Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row9) super.fieldsRow();
-    }
-
-    @Override
-    public Row9<Integer, Integer, String, String, String, Integer, String, Timestamp, Timestamp> valuesRow() {
-        return (Row9) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Datasetaccesslogs.DATASETACCESSLOGS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Datasetaccesslogs.DATASETACCESSLOGS.USER_ID;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Datasetaccesslogs.DATASETACCESSLOGS.USER_NAME;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Datasetaccesslogs.DATASETACCESSLOGS.USER_EMAIL;
-    }
-
-    @Override
-    public Field<String> field5() {
-        return Datasetaccesslogs.DATASETACCESSLOGS.USER_INSTITUTION;
-    }
-
-    @Override
-    public Field<Integer> field6() {
-        return Datasetaccesslogs.DATASETACCESSLOGS.DATASET_ID;
-    }
-
-    @Override
-    public Field<String> field7() {
-        return Datasetaccesslogs.DATASETACCESSLOGS.REASON;
-    }
-
-    @Override
-    public Field<Timestamp> field8() {
-        return Datasetaccesslogs.DATASETACCESSLOGS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field9() {
-        return Datasetaccesslogs.DATASETACCESSLOGS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getUserId();
-    }
-
-    @Override
-    public String component3() {
-        return getUserName();
-    }
-
-    @Override
-    public String component4() {
-        return getUserEmail();
-    }
-
-    @Override
-    public String component5() {
-        return getUserInstitution();
-    }
-
-    @Override
-    public Integer component6() {
-        return getDatasetId();
-    }
-
-    @Override
-    public String component7() {
-        return getReason();
-    }
-
-    @Override
-    public Timestamp component8() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component9() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getUserId();
-    }
-
-    @Override
-    public String value3() {
-        return getUserName();
-    }
-
-    @Override
-    public String value4() {
-        return getUserEmail();
-    }
-
-    @Override
-    public String value5() {
-        return getUserInstitution();
-    }
-
-    @Override
-    public Integer value6() {
-        return getDatasetId();
-    }
-
-    @Override
-    public String value7() {
-        return getReason();
-    }
-
-    @Override
-    public Timestamp value8() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value9() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public DatasetaccesslogsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public DatasetaccesslogsRecord value2(Integer value) {
-        setUserId(value);
-        return this;
-    }
-
-    @Override
-    public DatasetaccesslogsRecord value3(String value) {
-        setUserName(value);
-        return this;
-    }
-
-    @Override
-    public DatasetaccesslogsRecord value4(String value) {
-        setUserEmail(value);
-        return this;
-    }
-
-    @Override
-    public DatasetaccesslogsRecord value5(String value) {
-        setUserInstitution(value);
-        return this;
-    }
-
-    @Override
-    public DatasetaccesslogsRecord value6(Integer value) {
-        setDatasetId(value);
-        return this;
-    }
-
-    @Override
-    public DatasetaccesslogsRecord value7(String value) {
-        setReason(value);
-        return this;
-    }
-
-    @Override
-    public DatasetaccesslogsRecord value8(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public DatasetaccesslogsRecord value9(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public DatasetaccesslogsRecord values(Integer value1, Integer value2, String value3, String value4, String value5, Integer value6, String value7, Timestamp value8, Timestamp value9) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        value9(value9);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -410,6 +189,7 @@ public class DatasetaccesslogsRecord extends UpdatableRecordImpl<Datasetaccesslo
         setReason(reason);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -428,6 +208,7 @@ public class DatasetaccesslogsRecord extends UpdatableRecordImpl<Datasetaccesslo
             setReason(value.getReason());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

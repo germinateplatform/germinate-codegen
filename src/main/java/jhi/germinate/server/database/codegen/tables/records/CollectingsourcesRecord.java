@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Collectingsources;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record4;
-import org.jooq.Row4;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -24,8 +20,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * such as 11, 12, etc. See Multi Crop Passport Descriptors (MCPD V2 2012) for
  * further definitions.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class CollectingsourcesRecord extends UpdatableRecordImpl<CollectingsourcesRecord> implements Record4<Integer, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class CollectingsourcesRecord extends UpdatableRecordImpl<CollectingsourcesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -107,113 +103,6 @@ public class CollectingsourcesRecord extends UpdatableRecordImpl<Collectingsourc
     }
 
     // -------------------------------------------------------------------------
-    // Record4 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row4) super.fieldsRow();
-    }
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> valuesRow() {
-        return (Row4) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Collectingsources.COLLECTINGSOURCES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Collectingsources.COLLECTINGSOURCES.COLLSRC;
-    }
-
-    @Override
-    public Field<Timestamp> field3() {
-        return Collectingsources.COLLECTINGSOURCES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Collectingsources.COLLECTINGSOURCES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getCollsrc();
-    }
-
-    @Override
-    public Timestamp component3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getCollsrc();
-    }
-
-    @Override
-    public Timestamp value3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public CollectingsourcesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public CollectingsourcesRecord value2(String value) {
-        setCollsrc(value);
-        return this;
-    }
-
-    @Override
-    public CollectingsourcesRecord value3(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public CollectingsourcesRecord value4(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public CollectingsourcesRecord values(Integer value1, String value2, Timestamp value3, Timestamp value4) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -234,6 +123,7 @@ public class CollectingsourcesRecord extends UpdatableRecordImpl<Collectingsourc
         setCollsrc(collsrc);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -247,6 +137,7 @@ public class CollectingsourcesRecord extends UpdatableRecordImpl<Collectingsourc
             setCollsrc(value.getCollsrc());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

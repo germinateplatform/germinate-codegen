@@ -4,16 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.enums.PedigreesRelationshipType;
 import jhi.germinate.server.database.codegen.tables.Pedigrees;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record9;
-import org.jooq.Row9;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -23,8 +19,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * pedigree networks can be constructed. This table is required for operation
  * with the Helium pedigree viewer.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class PedigreesRecord extends UpdatableRecordImpl<PedigreesRecord> implements Record9<Integer, Integer, Integer, Integer, PedigreesRelationshipType, Integer, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class PedigreesRecord extends UpdatableRecordImpl<PedigreesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -190,223 +186,6 @@ public class PedigreesRecord extends UpdatableRecordImpl<PedigreesRecord> implem
     }
 
     // -------------------------------------------------------------------------
-    // Record9 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row9<Integer, Integer, Integer, Integer, PedigreesRelationshipType, Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row9) super.fieldsRow();
-    }
-
-    @Override
-    public Row9<Integer, Integer, Integer, Integer, PedigreesRelationshipType, Integer, String, Timestamp, Timestamp> valuesRow() {
-        return (Row9) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Pedigrees.PEDIGREES.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Pedigrees.PEDIGREES.DATASET_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Pedigrees.PEDIGREES.GERMINATEBASE_ID;
-    }
-
-    @Override
-    public Field<Integer> field4() {
-        return Pedigrees.PEDIGREES.PARENT_ID;
-    }
-
-    @Override
-    public Field<PedigreesRelationshipType> field5() {
-        return Pedigrees.PEDIGREES.RELATIONSHIP_TYPE;
-    }
-
-    @Override
-    public Field<Integer> field6() {
-        return Pedigrees.PEDIGREES.PEDIGREEDESCRIPTION_ID;
-    }
-
-    @Override
-    public Field<String> field7() {
-        return Pedigrees.PEDIGREES.RELATIONSHIP_DESCRIPTION;
-    }
-
-    @Override
-    public Field<Timestamp> field8() {
-        return Pedigrees.PEDIGREES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field9() {
-        return Pedigrees.PEDIGREES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getDatasetId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getGerminatebaseId();
-    }
-
-    @Override
-    public Integer component4() {
-        return getParentId();
-    }
-
-    @Override
-    public PedigreesRelationshipType component5() {
-        return getRelationshipType();
-    }
-
-    @Override
-    public Integer component6() {
-        return getPedigreedescriptionId();
-    }
-
-    @Override
-    public String component7() {
-        return getRelationshipDescription();
-    }
-
-    @Override
-    public Timestamp component8() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component9() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getDatasetId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getGerminatebaseId();
-    }
-
-    @Override
-    public Integer value4() {
-        return getParentId();
-    }
-
-    @Override
-    public PedigreesRelationshipType value5() {
-        return getRelationshipType();
-    }
-
-    @Override
-    public Integer value6() {
-        return getPedigreedescriptionId();
-    }
-
-    @Override
-    public String value7() {
-        return getRelationshipDescription();
-    }
-
-    @Override
-    public Timestamp value8() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value9() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public PedigreesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public PedigreesRecord value2(Integer value) {
-        setDatasetId(value);
-        return this;
-    }
-
-    @Override
-    public PedigreesRecord value3(Integer value) {
-        setGerminatebaseId(value);
-        return this;
-    }
-
-    @Override
-    public PedigreesRecord value4(Integer value) {
-        setParentId(value);
-        return this;
-    }
-
-    @Override
-    public PedigreesRecord value5(PedigreesRelationshipType value) {
-        setRelationshipType(value);
-        return this;
-    }
-
-    @Override
-    public PedigreesRecord value6(Integer value) {
-        setPedigreedescriptionId(value);
-        return this;
-    }
-
-    @Override
-    public PedigreesRecord value7(String value) {
-        setRelationshipDescription(value);
-        return this;
-    }
-
-    @Override
-    public PedigreesRecord value8(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public PedigreesRecord value9(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public PedigreesRecord values(Integer value1, Integer value2, Integer value3, Integer value4, PedigreesRelationshipType value5, Integer value6, String value7, Timestamp value8, Timestamp value9) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        value9(value9);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -432,6 +211,7 @@ public class PedigreesRecord extends UpdatableRecordImpl<PedigreesRecord> implem
         setRelationshipDescription(relationshipDescription);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -450,6 +230,7 @@ public class PedigreesRecord extends UpdatableRecordImpl<PedigreesRecord> implem
             setRelationshipDescription(value.getRelationshipDescription());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

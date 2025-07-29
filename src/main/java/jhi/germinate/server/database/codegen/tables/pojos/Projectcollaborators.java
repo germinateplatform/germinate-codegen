@@ -4,14 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.enums.ProjectcollaboratorsRole;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -20,16 +18,16 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Projectcollaborators implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer                  collaboratorId;
-    private Integer                  projectId;
+    private Integer collaboratorId;
+    private Integer projectId;
     private ProjectcollaboratorsRole role;
-    private Timestamp                createdOn;
-    private Timestamp                updatedOn;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public Projectcollaborators() {}
 
@@ -42,17 +40,71 @@ public class Projectcollaborators implements Serializable {
     }
 
     public Projectcollaborators(
-        Integer                  collaboratorId,
-        Integer                  projectId,
+        Integer collaboratorId,
+        Integer projectId,
         ProjectcollaboratorsRole role,
-        Timestamp                createdOn,
-        Timestamp                updatedOn
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.collaboratorId = collaboratorId;
         this.projectId = projectId;
         this.role = role;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Projectcollaborators other = (Projectcollaborators) obj;
+        if (this.collaboratorId == null) {
+            if (other.collaboratorId != null)
+                return false;
+        }
+        else if (!this.collaboratorId.equals(other.collaboratorId))
+            return false;
+        if (this.projectId == null) {
+            if (other.projectId != null)
+                return false;
+        }
+        else if (!this.projectId.equals(other.projectId))
+            return false;
+        if (this.role == null) {
+            if (other.role != null)
+                return false;
+        }
+        else if (!this.role.equals(other.role))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.collaboratorId == null) ? 0 : this.collaboratorId.hashCode());
+        result = prime * result + ((this.projectId == null) ? 0 : this.projectId.hashCode());
+        result = prime * result + ((this.role == null) ? 0 : this.role.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

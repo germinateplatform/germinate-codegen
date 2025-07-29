@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -19,20 +18,20 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Institutions implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private String    code;
-    private String    name;
-    private String    acronym;
-    private Integer   countryId;
-    private String    contact;
-    private String    phone;
-    private String    email;
-    private String    address;
+    private Integer id;
+    private String code;
+    private String name;
+    private String acronym;
+    private Integer countryId;
+    private String contact;
+    private String phone;
+    private String email;
+    private String address;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -53,15 +52,15 @@ public class Institutions implements Serializable {
     }
 
     public Institutions(
-        Integer   id,
-        String    code,
-        String    name,
-        String    acronym,
-        Integer   countryId,
-        String    contact,
-        String    phone,
-        String    email,
-        String    address,
+        Integer id,
+        String code,
+        String name,
+        String acronym,
+        Integer countryId,
+        String contact,
+        String phone,
+        String email,
+        String address,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -76,6 +75,102 @@ public class Institutions implements Serializable {
         this.address = address;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Institutions other = (Institutions) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.code == null) {
+            if (other.code != null)
+                return false;
+        }
+        else if (!this.code.equals(other.code))
+            return false;
+        if (this.name == null) {
+            if (other.name != null)
+                return false;
+        }
+        else if (!this.name.equals(other.name))
+            return false;
+        if (this.acronym == null) {
+            if (other.acronym != null)
+                return false;
+        }
+        else if (!this.acronym.equals(other.acronym))
+            return false;
+        if (this.countryId == null) {
+            if (other.countryId != null)
+                return false;
+        }
+        else if (!this.countryId.equals(other.countryId))
+            return false;
+        if (this.contact == null) {
+            if (other.contact != null)
+                return false;
+        }
+        else if (!this.contact.equals(other.contact))
+            return false;
+        if (this.phone == null) {
+            if (other.phone != null)
+                return false;
+        }
+        else if (!this.phone.equals(other.phone))
+            return false;
+        if (this.email == null) {
+            if (other.email != null)
+                return false;
+        }
+        else if (!this.email.equals(other.email))
+            return false;
+        if (this.address == null) {
+            if (other.address != null)
+                return false;
+        }
+        else if (!this.address.equals(other.address))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.code == null) ? 0 : this.code.hashCode());
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+        result = prime * result + ((this.acronym == null) ? 0 : this.acronym.hashCode());
+        result = prime * result + ((this.countryId == null) ? 0 : this.countryId.hashCode());
+        result = prime * result + ((this.contact == null) ? 0 : this.contact.hashCode());
+        result = prime * result + ((this.phone == null) ? 0 : this.phone.hashCode());
+        result = prime * result + ((this.email == null) ? 0 : this.email.hashCode());
+        result = prime * result + ((this.address == null) ? 0 : this.address.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

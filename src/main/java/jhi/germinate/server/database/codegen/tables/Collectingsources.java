@@ -4,24 +4,14 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.CollectingsourcesRecord;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row4;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 
 // @formatter:off
@@ -33,7 +23,7 @@ import org.jooq.impl.TableImpl;
  * such as 11, 12, etc. See Multi Crop Passport Descriptors (MCPD V2 2012) for
  * further definitions.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Collectingsources extends TableImpl<CollectingsourcesRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -68,21 +58,21 @@ public class Collectingsources extends TableImpl<CollectingsourcesRecord> {
      * The column <code>germinate_db.collectingsources.created_on</code>. When
      * the record was created.
      */
-    public final TableField<CollectingsourcesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
+    public final TableField<CollectingsourcesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.collectingsources.updated_on</code>. When
      * the record was updated. This may be different from the created on date if
      * subsequent changes have been made to the underlying record.
      */
-    public final TableField<CollectingsourcesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<CollectingsourcesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     private Collectingsources(Name alias, Table<CollectingsourcesRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private Collectingsources(Name alias, Table<CollectingsourcesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("The coding scheme proposed can be used at 2 different levels of detail: either by using the\r\ngeneral codes such as 10, 20, 30, 40, etc., or by using the more specific codes,\r\nsuch as 11, 12, etc. See Multi Crop Passport Descriptors (MCPD V2 2012) for further definitions."), TableOptions.table());
+    private Collectingsources(Name alias, Table<CollectingsourcesRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("The coding scheme proposed can be used at 2 different levels of detail: either by using the\r\ngeneral codes such as 10, 20, 30, 40, etc., or by using the more specific codes,\r\nsuch as 11, 12, etc. See Multi Crop Passport Descriptors (MCPD V2 2012) for further definitions."), TableOptions.table(), where);
     }
 
     /**
@@ -133,6 +123,11 @@ public class Collectingsources extends TableImpl<CollectingsourcesRecord> {
         return new Collectingsources(alias, this);
     }
 
+    @Override
+    public Collectingsources as(Table<?> alias) {
+        return new Collectingsources(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -149,13 +144,96 @@ public class Collectingsources extends TableImpl<CollectingsourcesRecord> {
         return new Collectingsources(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row4 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row4<Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row4) super.fieldsRow();
+    public Collectingsources rename(Table<?> name) {
+        return new Collectingsources(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Collectingsources where(Condition condition) {
+        return new Collectingsources(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Collectingsources where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Collectingsources where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Collectingsources where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Collectingsources where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Collectingsources where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Collectingsources where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Collectingsources where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Collectingsources whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Collectingsources whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

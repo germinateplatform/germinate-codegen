@@ -4,23 +4,19 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Phenotypedata;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record7;
-import org.jooq.Row7;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
 /**
  * Contains phenotypic data which has been collected.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord> implements Record7<Integer, Integer, Integer, String, Timestamp, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -148,179 +144,6 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     }
 
     // -------------------------------------------------------------------------
-    // Record7 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row7<Integer, Integer, Integer, String, Timestamp, Timestamp, Timestamp> fieldsRow() {
-        return (Row7) super.fieldsRow();
-    }
-
-    @Override
-    public Row7<Integer, Integer, Integer, String, Timestamp, Timestamp, Timestamp> valuesRow() {
-        return (Row7) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Phenotypedata.PHENOTYPEDATA.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Phenotypedata.PHENOTYPEDATA.TRIALSETUP_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Phenotypedata.PHENOTYPEDATA.PHENOTYPE_ID;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Phenotypedata.PHENOTYPEDATA.PHENOTYPE_VALUE;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Phenotypedata.PHENOTYPEDATA.RECORDING_DATE;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Phenotypedata.PHENOTYPEDATA.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field7() {
-        return Phenotypedata.PHENOTYPEDATA.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getTrialsetupId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getPhenotypeId();
-    }
-
-    @Override
-    public String component4() {
-        return getPhenotypeValue();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getRecordingDate();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component7() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getTrialsetupId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getPhenotypeId();
-    }
-
-    @Override
-    public String value4() {
-        return getPhenotypeValue();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getRecordingDate();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value7() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public PhenotypedataRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypedataRecord value2(Integer value) {
-        setTrialsetupId(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypedataRecord value3(Integer value) {
-        setPhenotypeId(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypedataRecord value4(String value) {
-        setPhenotypeValue(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypedataRecord value5(Timestamp value) {
-        setRecordingDate(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypedataRecord value6(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypedataRecord value7(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public PhenotypedataRecord values(Integer value1, Integer value2, Integer value3, String value4, Timestamp value5, Timestamp value6, Timestamp value7) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -344,6 +167,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
         setRecordingDate(recordingDate);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -360,6 +184,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
             setRecordingDate(value.getRecordingDate());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

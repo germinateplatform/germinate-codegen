@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Comments;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record8;
-import org.jooq.Row8;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -20,8 +16,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Comments can be added to different entries in Germinate such as entries from
  * germinatebase or markers from the markers table.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class CommentsRecord extends UpdatableRecordImpl<CommentsRecord> implements Record8<Integer, Integer, Integer, Boolean, String, Integer, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class CommentsRecord extends UpdatableRecordImpl<CommentsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -165,201 +161,6 @@ public class CommentsRecord extends UpdatableRecordImpl<CommentsRecord> implemen
     }
 
     // -------------------------------------------------------------------------
-    // Record8 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row8<Integer, Integer, Integer, Boolean, String, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row8) super.fieldsRow();
-    }
-
-    @Override
-    public Row8<Integer, Integer, Integer, Boolean, String, Integer, Timestamp, Timestamp> valuesRow() {
-        return (Row8) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Comments.COMMENTS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Comments.COMMENTS.COMMENTTYPE_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Comments.COMMENTS.USER_ID;
-    }
-
-    @Override
-    public Field<Boolean> field4() {
-        return Comments.COMMENTS.VISIBILITY;
-    }
-
-    @Override
-    public Field<String> field5() {
-        return Comments.COMMENTS.DESCRIPTION;
-    }
-
-    @Override
-    public Field<Integer> field6() {
-        return Comments.COMMENTS.REFERENCE_ID;
-    }
-
-    @Override
-    public Field<Timestamp> field7() {
-        return Comments.COMMENTS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field8() {
-        return Comments.COMMENTS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getCommenttypeId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getUserId();
-    }
-
-    @Override
-    public Boolean component4() {
-        return getVisibility();
-    }
-
-    @Override
-    public String component5() {
-        return getDescription();
-    }
-
-    @Override
-    public Integer component6() {
-        return getReferenceId();
-    }
-
-    @Override
-    public Timestamp component7() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component8() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getCommenttypeId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getUserId();
-    }
-
-    @Override
-    public Boolean value4() {
-        return getVisibility();
-    }
-
-    @Override
-    public String value5() {
-        return getDescription();
-    }
-
-    @Override
-    public Integer value6() {
-        return getReferenceId();
-    }
-
-    @Override
-    public Timestamp value7() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value8() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public CommentsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public CommentsRecord value2(Integer value) {
-        setCommenttypeId(value);
-        return this;
-    }
-
-    @Override
-    public CommentsRecord value3(Integer value) {
-        setUserId(value);
-        return this;
-    }
-
-    @Override
-    public CommentsRecord value4(Boolean value) {
-        setVisibility(value);
-        return this;
-    }
-
-    @Override
-    public CommentsRecord value5(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public CommentsRecord value6(Integer value) {
-        setReferenceId(value);
-        return this;
-    }
-
-    @Override
-    public CommentsRecord value7(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public CommentsRecord value8(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public CommentsRecord values(Integer value1, Integer value2, Integer value3, Boolean value4, String value5, Integer value6, Timestamp value7, Timestamp value8) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -384,6 +185,7 @@ public class CommentsRecord extends UpdatableRecordImpl<CommentsRecord> implemen
         setReferenceId(referenceId);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -401,6 +203,7 @@ public class CommentsRecord extends UpdatableRecordImpl<CommentsRecord> implemen
             setReferenceId(value.getReferenceId());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

@@ -4,27 +4,16 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Date;
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.binding.DublinCoreBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.DatasetsRecord;
 import jhi.germinate.server.database.pojo.DublinCore;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row19;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.*;
+import java.util.Collection;
 
 
 // @formatter:off
@@ -33,7 +22,7 @@ import org.jooq.impl.TableImpl;
  * datasets which are links out to external data sources most will be held
  * within Germinate.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Datasets extends TableImpl<DatasetsRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -152,14 +141,14 @@ public class Datasets extends TableImpl<DatasetsRecord> {
      * was created.
 
      */
-    public final TableField<DatasetsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.\n");
+    public final TableField<DatasetsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.\n");
 
     /**
      * The column <code>germinate_db.datasets.updated_on</code>. When the record
      * was updated. This may be different from the created on date if subsequent
      * changes have been made to the underlying record.
      */
-    public final TableField<DatasetsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<DatasetsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     /**
      * The column <code>germinate_db.datasets.contact</code>. The contact to get
@@ -168,11 +157,11 @@ public class Datasets extends TableImpl<DatasetsRecord> {
     public final TableField<DatasetsRecord, String> CONTACT = createField(DSL.name("contact"), SQLDataType.VARCHAR(255), this, "The contact to get more information about this dataset.");
 
     private Datasets(Name alias, Table<DatasetsRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private Datasets(Name alias, Table<DatasetsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Datasets which are defined within Germinate although there can be external datasets which are links out to external data sources most will be held within Germinate."), TableOptions.table());
+    private Datasets(Name alias, Table<DatasetsRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("Datasets which are defined within Germinate although there can be external datasets which are links out to external data sources most will be held within Germinate."), TableOptions.table(), where);
     }
 
     /**
@@ -221,6 +210,11 @@ public class Datasets extends TableImpl<DatasetsRecord> {
         return new Datasets(alias, this);
     }
 
+    @Override
+    public Datasets as(Table<?> alias) {
+        return new Datasets(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -237,13 +231,96 @@ public class Datasets extends TableImpl<DatasetsRecord> {
         return new Datasets(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row19 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row19<Integer, Integer, Integer, String, String, Date, Date, String, String, DublinCore, String, Integer, Integer, Integer, Boolean, String, Timestamp, Timestamp, String> fieldsRow() {
-        return (Row19) super.fieldsRow();
+    public Datasets rename(Table<?> name) {
+        return new Datasets(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Datasets where(Condition condition) {
+        return new Datasets(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Datasets where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Datasets where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Datasets where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Datasets where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Datasets where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Datasets where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Datasets where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Datasets whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Datasets whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

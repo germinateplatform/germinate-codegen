@@ -4,23 +4,19 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Commenttypes;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record5;
-import org.jooq.Row5;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
 /**
  * Defines the comment type.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class CommenttypesRecord extends UpdatableRecordImpl<CommenttypesRecord> implements Record5<Integer, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class CommenttypesRecord extends UpdatableRecordImpl<CommenttypesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -118,135 +114,6 @@ public class CommenttypesRecord extends UpdatableRecordImpl<CommenttypesRecord> 
     }
 
     // -------------------------------------------------------------------------
-    // Record5 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row5<Integer, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row5) super.fieldsRow();
-    }
-
-    @Override
-    public Row5<Integer, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row5) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Commenttypes.COMMENTTYPES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Commenttypes.COMMENTTYPES.DESCRIPTION;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Commenttypes.COMMENTTYPES.REFERENCE_TABLE;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Commenttypes.COMMENTTYPES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Commenttypes.COMMENTTYPES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getDescription();
-    }
-
-    @Override
-    public String component3() {
-        return getReferenceTable();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getDescription();
-    }
-
-    @Override
-    public String value3() {
-        return getReferenceTable();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public CommenttypesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public CommenttypesRecord value2(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public CommenttypesRecord value3(String value) {
-        setReferenceTable(value);
-        return this;
-    }
-
-    @Override
-    public CommenttypesRecord value4(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public CommenttypesRecord value5(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public CommenttypesRecord values(Integer value1, String value2, String value3, Timestamp value4, Timestamp value5) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -268,6 +135,7 @@ public class CommenttypesRecord extends UpdatableRecordImpl<CommenttypesRecord> 
         setReferenceTable(referenceTable);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -282,6 +150,7 @@ public class CommenttypesRecord extends UpdatableRecordImpl<CommenttypesRecord> 
             setReferenceTable(value.getReferenceTable());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

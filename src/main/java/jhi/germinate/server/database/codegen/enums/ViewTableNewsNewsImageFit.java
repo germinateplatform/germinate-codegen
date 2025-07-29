@@ -4,16 +4,14 @@
 package jhi.germinate.server.database.codegen.enums;
 
 
-import org.jooq.Catalog;
-import org.jooq.EnumType;
-import org.jooq.Schema;
+import org.jooq.*;
 
 
 // @formatter:off
 /**
  * Determines the css property of the news item image.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public enum ViewTableNewsNewsImageFit implements EnumType {
 
     contain("contain"),
@@ -38,7 +36,7 @@ public enum ViewTableNewsNewsImageFit implements EnumType {
 
     @Override
     public String getName() {
-        return "view_table_news_news_image_fit";
+        return null;
     }
 
     @Override
@@ -47,7 +45,9 @@ public enum ViewTableNewsNewsImageFit implements EnumType {
     }
 
     /**
-     * Lookup a value of this EnumType by its literal
+     * Lookup a value of this EnumType by its literal. Returns
+     * <code>null</code>, if no such value could be found, see {@link
+     * EnumType#lookupLiteral(Class, String)}.
      */
     public static ViewTableNewsNewsImageFit lookupLiteral(String literal) {
         return EnumType.lookupLiteral(ViewTableNewsNewsImageFit.class, literal);

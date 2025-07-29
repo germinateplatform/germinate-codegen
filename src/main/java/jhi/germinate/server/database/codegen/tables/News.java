@@ -4,32 +4,22 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.NewsImageFit;
 import jhi.germinate.server.database.codegen.tables.records.NewsRecord;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row10;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 
 // @formatter:off
 /**
  * Holds news items that are displayed within Germinate.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class News extends TableImpl<NewsRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -82,7 +72,7 @@ public class News extends TableImpl<NewsRecord> {
      * The column <code>germinate_db.news.image_fit</code>. Determines the css
      * property of the news item image.
      */
-    public final TableField<NewsRecord, NewsImageFit> IMAGE_FIT = createField(DSL.name("image_fit"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("cover", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.NewsImageFit.class), this, "Determines the css property of the news item image.");
+    public final TableField<NewsRecord, NewsImageFit> IMAGE_FIT = createField(DSL.name("image_fit"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("cover", SQLDataType.VARCHAR)).asEnumDataType(NewsImageFit.class), this, "Determines the css property of the news item image.");
 
     /**
      * The column <code>germinate_db.news.hyperlink</code>. HTML hyperlink to
@@ -101,21 +91,21 @@ public class News extends TableImpl<NewsRecord> {
      * The column <code>germinate_db.news.created_on</code>. When the record was
      * created.
      */
-    public final TableField<NewsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
+    public final TableField<NewsRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.news.updated_on</code>. When the record was
      * updated. This may be different from the created on date if subsequent
      * changes have been made to the underlying record.
      */
-    public final TableField<NewsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<NewsRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     private News(Name alias, Table<NewsRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private News(Name alias, Table<NewsRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Holds news items that are displayed within Germinate."), TableOptions.table());
+    private News(Name alias, Table<NewsRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("Holds news items that are displayed within Germinate."), TableOptions.table(), where);
     }
 
     /**
@@ -164,6 +154,11 @@ public class News extends TableImpl<NewsRecord> {
         return new News(alias, this);
     }
 
+    @Override
+    public News as(Table<?> alias) {
+        return new News(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -180,13 +175,96 @@ public class News extends TableImpl<NewsRecord> {
         return new News(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row10 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row10<Integer, Integer, String, String, String, NewsImageFit, String, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public News rename(Table<?> name) {
+        return new News(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public News where(Condition condition) {
+        return new News(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public News where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public News where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public News where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public News where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public News where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public News where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public News where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public News whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public News whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Mapdefinitions;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record10;
-import org.jooq.Row10;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -23,8 +19,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * definition_start and definition_end columns can be used to specify a range
  * across a linkage group.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class MapdefinitionsRecord extends UpdatableRecordImpl<MapdefinitionsRecord> implements Record10<Integer, Integer, Integer, Integer, Double, Double, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class MapdefinitionsRecord extends UpdatableRecordImpl<MapdefinitionsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -204,245 +200,6 @@ public class MapdefinitionsRecord extends UpdatableRecordImpl<MapdefinitionsReco
     }
 
     // -------------------------------------------------------------------------
-    // Record10 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row10<Integer, Integer, Integer, Integer, Double, Double, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row10) super.fieldsRow();
-    }
-
-    @Override
-    public Row10<Integer, Integer, Integer, Integer, Double, Double, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row10) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Mapdefinitions.MAPDEFINITIONS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Mapdefinitions.MAPDEFINITIONS.MAPFEATURETYPE_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Mapdefinitions.MAPDEFINITIONS.MARKER_ID;
-    }
-
-    @Override
-    public Field<Integer> field4() {
-        return Mapdefinitions.MAPDEFINITIONS.MAP_ID;
-    }
-
-    @Override
-    public Field<Double> field5() {
-        return Mapdefinitions.MAPDEFINITIONS.DEFINITION_START;
-    }
-
-    @Override
-    public Field<Double> field6() {
-        return Mapdefinitions.MAPDEFINITIONS.DEFINITION_END;
-    }
-
-    @Override
-    public Field<String> field7() {
-        return Mapdefinitions.MAPDEFINITIONS.CHROMOSOME;
-    }
-
-    @Override
-    public Field<String> field8() {
-        return Mapdefinitions.MAPDEFINITIONS.ARM_IMPUTE;
-    }
-
-    @Override
-    public Field<Timestamp> field9() {
-        return Mapdefinitions.MAPDEFINITIONS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field10() {
-        return Mapdefinitions.MAPDEFINITIONS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getMapfeaturetypeId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getMarkerId();
-    }
-
-    @Override
-    public Integer component4() {
-        return getMapId();
-    }
-
-    @Override
-    public Double component5() {
-        return getDefinitionStart();
-    }
-
-    @Override
-    public Double component6() {
-        return getDefinitionEnd();
-    }
-
-    @Override
-    public String component7() {
-        return getChromosome();
-    }
-
-    @Override
-    public String component8() {
-        return getArmImpute();
-    }
-
-    @Override
-    public Timestamp component9() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component10() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getMapfeaturetypeId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getMarkerId();
-    }
-
-    @Override
-    public Integer value4() {
-        return getMapId();
-    }
-
-    @Override
-    public Double value5() {
-        return getDefinitionStart();
-    }
-
-    @Override
-    public Double value6() {
-        return getDefinitionEnd();
-    }
-
-    @Override
-    public String value7() {
-        return getChromosome();
-    }
-
-    @Override
-    public String value8() {
-        return getArmImpute();
-    }
-
-    @Override
-    public Timestamp value9() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value10() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public MapdefinitionsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord value2(Integer value) {
-        setMapfeaturetypeId(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord value3(Integer value) {
-        setMarkerId(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord value4(Integer value) {
-        setMapId(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord value5(Double value) {
-        setDefinitionStart(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord value6(Double value) {
-        setDefinitionEnd(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord value7(String value) {
-        setChromosome(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord value8(String value) {
-        setArmImpute(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord value9(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord value10(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MapdefinitionsRecord values(Integer value1, Integer value2, Integer value3, Integer value4, Double value5, Double value6, String value7, String value8, Timestamp value9, Timestamp value10) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        value9(value9);
-        value10(value10);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -469,6 +226,7 @@ public class MapdefinitionsRecord extends UpdatableRecordImpl<MapdefinitionsReco
         setArmImpute(armImpute);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -488,6 +246,7 @@ public class MapdefinitionsRecord extends UpdatableRecordImpl<MapdefinitionsReco
             setArmImpute(value.getArmImpute());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Links;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record8;
-import org.jooq.Row8;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -21,8 +17,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * this feature you can
  * define links to external resources.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class LinksRecord extends UpdatableRecordImpl<LinksRecord> implements Record8<Integer, Integer, Integer, String, String, Boolean, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class LinksRecord extends UpdatableRecordImpl<LinksRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -164,201 +160,6 @@ public class LinksRecord extends UpdatableRecordImpl<LinksRecord> implements Rec
     }
 
     // -------------------------------------------------------------------------
-    // Record8 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row8<Integer, Integer, Integer, String, String, Boolean, Timestamp, Timestamp> fieldsRow() {
-        return (Row8) super.fieldsRow();
-    }
-
-    @Override
-    public Row8<Integer, Integer, Integer, String, String, Boolean, Timestamp, Timestamp> valuesRow() {
-        return (Row8) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Links.LINKS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Links.LINKS.LINKTYPE_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Links.LINKS.FOREIGN_ID;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Links.LINKS.HYPERLINK;
-    }
-
-    @Override
-    public Field<String> field5() {
-        return Links.LINKS.DESCRIPTION;
-    }
-
-    @Override
-    public Field<Boolean> field6() {
-        return Links.LINKS.VISIBILITY;
-    }
-
-    @Override
-    public Field<Timestamp> field7() {
-        return Links.LINKS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field8() {
-        return Links.LINKS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getLinktypeId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getForeignId();
-    }
-
-    @Override
-    public String component4() {
-        return getHyperlink();
-    }
-
-    @Override
-    public String component5() {
-        return getDescription();
-    }
-
-    @Override
-    public Boolean component6() {
-        return getVisibility();
-    }
-
-    @Override
-    public Timestamp component7() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component8() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getLinktypeId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getForeignId();
-    }
-
-    @Override
-    public String value4() {
-        return getHyperlink();
-    }
-
-    @Override
-    public String value5() {
-        return getDescription();
-    }
-
-    @Override
-    public Boolean value6() {
-        return getVisibility();
-    }
-
-    @Override
-    public Timestamp value7() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value8() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public LinksRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public LinksRecord value2(Integer value) {
-        setLinktypeId(value);
-        return this;
-    }
-
-    @Override
-    public LinksRecord value3(Integer value) {
-        setForeignId(value);
-        return this;
-    }
-
-    @Override
-    public LinksRecord value4(String value) {
-        setHyperlink(value);
-        return this;
-    }
-
-    @Override
-    public LinksRecord value5(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public LinksRecord value6(Boolean value) {
-        setVisibility(value);
-        return this;
-    }
-
-    @Override
-    public LinksRecord value7(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public LinksRecord value8(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public LinksRecord values(Integer value1, Integer value2, Integer value3, String value4, String value5, Boolean value6, Timestamp value7, Timestamp value8) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -383,6 +184,7 @@ public class LinksRecord extends UpdatableRecordImpl<LinksRecord> implements Rec
         setVisibility(visibility);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -400,6 +202,7 @@ public class LinksRecord extends UpdatableRecordImpl<LinksRecord> implements Rec
             setVisibility(value.getVisibility());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

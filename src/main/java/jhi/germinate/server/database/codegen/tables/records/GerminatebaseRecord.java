@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Germinatebase;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record14;
-import org.jooq.Row14;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -20,8 +16,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Germinatebase is the Germinate base table which contains passport and other
  * germplasm definition data.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord> implements Record14<Integer, String, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -269,333 +265,6 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
     }
 
     // -------------------------------------------------------------------------
-    // Record14 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row14<Integer, String, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> fieldsRow() {
-        return (Row14) super.fieldsRow();
-    }
-
-    @Override
-    public Row14<Integer, String, String, String, String, String, Integer, String, Integer, Integer, Integer, Double, Timestamp, Timestamp> valuesRow() {
-        return (Row14) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Germinatebase.GERMINATEBASE.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Germinatebase.GERMINATEBASE.GENERAL_IDENTIFIER;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Germinatebase.GERMINATEBASE.NUMBER;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Germinatebase.GERMINATEBASE.NAME;
-    }
-
-    @Override
-    public Field<String> field5() {
-        return Germinatebase.GERMINATEBASE.DISPLAY_NAME;
-    }
-
-    @Override
-    public Field<String> field6() {
-        return Germinatebase.GERMINATEBASE.BANK_NUMBER;
-    }
-
-    @Override
-    public Field<Integer> field7() {
-        return Germinatebase.GERMINATEBASE.TAXONOMY_ID;
-    }
-
-    @Override
-    public Field<String> field8() {
-        return Germinatebase.GERMINATEBASE.PLANT_PASSPORT;
-    }
-
-    @Override
-    public Field<Integer> field9() {
-        return Germinatebase.GERMINATEBASE.LOCATION_ID;
-    }
-
-    @Override
-    public Field<Integer> field10() {
-        return Germinatebase.GERMINATEBASE.ENTITYTYPE_ID;
-    }
-
-    @Override
-    public Field<Integer> field11() {
-        return Germinatebase.GERMINATEBASE.ENTITYPARENT_ID;
-    }
-
-    @Override
-    public Field<Double> field12() {
-        return Germinatebase.GERMINATEBASE.PDCI;
-    }
-
-    @Override
-    public Field<Timestamp> field13() {
-        return Germinatebase.GERMINATEBASE.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field14() {
-        return Germinatebase.GERMINATEBASE.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getGeneralIdentifier();
-    }
-
-    @Override
-    public String component3() {
-        return getNumber();
-    }
-
-    @Override
-    public String component4() {
-        return getName();
-    }
-
-    @Override
-    public String component5() {
-        return getDisplayName();
-    }
-
-    @Override
-    public String component6() {
-        return getBankNumber();
-    }
-
-    @Override
-    public Integer component7() {
-        return getTaxonomyId();
-    }
-
-    @Override
-    public String component8() {
-        return getPlantPassport();
-    }
-
-    @Override
-    public Integer component9() {
-        return getLocationId();
-    }
-
-    @Override
-    public Integer component10() {
-        return getEntitytypeId();
-    }
-
-    @Override
-    public Integer component11() {
-        return getEntityparentId();
-    }
-
-    @Override
-    public Double component12() {
-        return getPdci();
-    }
-
-    @Override
-    public Timestamp component13() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component14() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getGeneralIdentifier();
-    }
-
-    @Override
-    public String value3() {
-        return getNumber();
-    }
-
-    @Override
-    public String value4() {
-        return getName();
-    }
-
-    @Override
-    public String value5() {
-        return getDisplayName();
-    }
-
-    @Override
-    public String value6() {
-        return getBankNumber();
-    }
-
-    @Override
-    public Integer value7() {
-        return getTaxonomyId();
-    }
-
-    @Override
-    public String value8() {
-        return getPlantPassport();
-    }
-
-    @Override
-    public Integer value9() {
-        return getLocationId();
-    }
-
-    @Override
-    public Integer value10() {
-        return getEntitytypeId();
-    }
-
-    @Override
-    public Integer value11() {
-        return getEntityparentId();
-    }
-
-    @Override
-    public Double value12() {
-        return getPdci();
-    }
-
-    @Override
-    public Timestamp value13() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value14() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public GerminatebaseRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value2(String value) {
-        setGeneralIdentifier(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value3(String value) {
-        setNumber(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value4(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value5(String value) {
-        setDisplayName(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value6(String value) {
-        setBankNumber(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value7(Integer value) {
-        setTaxonomyId(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value8(String value) {
-        setPlantPassport(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value9(Integer value) {
-        setLocationId(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value10(Integer value) {
-        setEntitytypeId(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value11(Integer value) {
-        setEntityparentId(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value12(Double value) {
-        setPdci(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value13(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord value14(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public GerminatebaseRecord values(Integer value1, String value2, String value3, String value4, String value5, String value6, Integer value7, String value8, Integer value9, Integer value10, Integer value11, Double value12, Timestamp value13, Timestamp value14) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        value9(value9);
-        value10(value10);
-        value11(value11);
-        value12(value12);
-        value13(value13);
-        value14(value14);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -626,6 +295,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
         setPdci(pdci);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -649,6 +319,7 @@ public class GerminatebaseRecord extends UpdatableRecordImpl<GerminatebaseRecord
             setPdci(value.getPdci());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

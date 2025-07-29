@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Climatedata;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record9;
-import org.jooq.Row9;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -21,8 +17,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * cover. This is based on locations rather than accessions like most of the
  * other tables in Germinate.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> implements Record9<Integer, Integer, Integer, String, Integer, Timestamp, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -188,223 +184,6 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
     }
 
     // -------------------------------------------------------------------------
-    // Record9 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row9<Integer, Integer, Integer, String, Integer, Timestamp, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row9) super.fieldsRow();
-    }
-
-    @Override
-    public Row9<Integer, Integer, Integer, String, Integer, Timestamp, String, Timestamp, Timestamp> valuesRow() {
-        return (Row9) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Climatedata.CLIMATEDATA.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Climatedata.CLIMATEDATA.CLIMATE_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Climatedata.CLIMATEDATA.LOCATION_ID;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Climatedata.CLIMATEDATA.CLIMATE_VALUE;
-    }
-
-    @Override
-    public Field<Integer> field5() {
-        return Climatedata.CLIMATEDATA.DATASET_ID;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Climatedata.CLIMATEDATA.RECORDING_DATE;
-    }
-
-    @Override
-    public Field<String> field7() {
-        return Climatedata.CLIMATEDATA.OLD_RECORDING_DATE;
-    }
-
-    @Override
-    public Field<Timestamp> field8() {
-        return Climatedata.CLIMATEDATA.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field9() {
-        return Climatedata.CLIMATEDATA.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getClimateId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getLocationId();
-    }
-
-    @Override
-    public String component4() {
-        return getClimateValue();
-    }
-
-    @Override
-    public Integer component5() {
-        return getDatasetId();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getRecordingDate();
-    }
-
-    @Override
-    public String component7() {
-        return getOldRecordingDate();
-    }
-
-    @Override
-    public Timestamp component8() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component9() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getClimateId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getLocationId();
-    }
-
-    @Override
-    public String value4() {
-        return getClimateValue();
-    }
-
-    @Override
-    public Integer value5() {
-        return getDatasetId();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getRecordingDate();
-    }
-
-    @Override
-    public String value7() {
-        return getOldRecordingDate();
-    }
-
-    @Override
-    public Timestamp value8() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value9() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public ClimatedataRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public ClimatedataRecord value2(Integer value) {
-        setClimateId(value);
-        return this;
-    }
-
-    @Override
-    public ClimatedataRecord value3(Integer value) {
-        setLocationId(value);
-        return this;
-    }
-
-    @Override
-    public ClimatedataRecord value4(String value) {
-        setClimateValue(value);
-        return this;
-    }
-
-    @Override
-    public ClimatedataRecord value5(Integer value) {
-        setDatasetId(value);
-        return this;
-    }
-
-    @Override
-    public ClimatedataRecord value6(Timestamp value) {
-        setRecordingDate(value);
-        return this;
-    }
-
-    @Override
-    public ClimatedataRecord value7(String value) {
-        setOldRecordingDate(value);
-        return this;
-    }
-
-    @Override
-    public ClimatedataRecord value8(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public ClimatedataRecord value9(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public ClimatedataRecord values(Integer value1, Integer value2, Integer value3, String value4, Integer value5, Timestamp value6, String value7, Timestamp value8, Timestamp value9) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        value9(value9);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -430,6 +209,7 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
         setOldRecordingDate(oldRecordingDate);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -448,6 +228,7 @@ public class ClimatedataRecord extends UpdatableRecordImpl<ClimatedataRecord> im
             setOldRecordingDate(value.getOldRecordingDate());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

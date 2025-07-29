@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,18 +17,18 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Maps implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private String    name;
-    private String    description;
-    private Boolean   visibility;
+    private Integer id;
+    private String name;
+    private String description;
+    private Boolean visibility;
     private Timestamp createdOn;
     private Timestamp updatedOn;
-    private Integer   userId;
+    private Integer userId;
 
     public Maps() {}
 
@@ -44,13 +43,13 @@ public class Maps implements Serializable {
     }
 
     public Maps(
-        Integer   id,
-        String    name,
-        String    description,
-        Boolean   visibility,
+        Integer id,
+        String name,
+        String description,
+        Boolean visibility,
         Timestamp createdOn,
         Timestamp updatedOn,
-        Integer   userId
+        Integer userId
     ) {
         this.id = id;
         this.name = name;
@@ -59,6 +58,74 @@ public class Maps implements Serializable {
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
         this.userId = userId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Maps other = (Maps) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.name == null) {
+            if (other.name != null)
+                return false;
+        }
+        else if (!this.name.equals(other.name))
+            return false;
+        if (this.description == null) {
+            if (other.description != null)
+                return false;
+        }
+        else if (!this.description.equals(other.description))
+            return false;
+        if (this.visibility == null) {
+            if (other.visibility != null)
+                return false;
+        }
+        else if (!this.visibility.equals(other.visibility))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        if (this.userId == null) {
+            if (other.userId != null)
+                return false;
+        }
+        else if (!this.userId.equals(other.userId))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+        result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.visibility == null) ? 0 : this.visibility.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        result = prime * result + ((this.userId == null) ? 0 : this.userId.hashCode());
+        return result;
     }
 
     @Override

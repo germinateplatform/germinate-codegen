@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Biologicalstatus;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record4;
-import org.jooq.Row4;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -45,8 +41,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * 600) GMO (by genetic engineering)
  *  999) Other 
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class BiologicalstatusRecord extends UpdatableRecordImpl<BiologicalstatusRecord> implements Record4<Integer, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class BiologicalstatusRecord extends UpdatableRecordImpl<BiologicalstatusRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -126,113 +122,6 @@ public class BiologicalstatusRecord extends UpdatableRecordImpl<Biologicalstatus
     }
 
     // -------------------------------------------------------------------------
-    // Record4 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row4) super.fieldsRow();
-    }
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> valuesRow() {
-        return (Row4) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Biologicalstatus.BIOLOGICALSTATUS.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Biologicalstatus.BIOLOGICALSTATUS.SAMPSTAT;
-    }
-
-    @Override
-    public Field<Timestamp> field3() {
-        return Biologicalstatus.BIOLOGICALSTATUS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Biologicalstatus.BIOLOGICALSTATUS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getSampstat();
-    }
-
-    @Override
-    public Timestamp component3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getSampstat();
-    }
-
-    @Override
-    public Timestamp value3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public BiologicalstatusRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public BiologicalstatusRecord value2(String value) {
-        setSampstat(value);
-        return this;
-    }
-
-    @Override
-    public BiologicalstatusRecord value3(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public BiologicalstatusRecord value4(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public BiologicalstatusRecord values(Integer value1, String value2, Timestamp value3, Timestamp value4) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -253,6 +142,7 @@ public class BiologicalstatusRecord extends UpdatableRecordImpl<Biologicalstatus
         setSampstat(sampstat);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -266,6 +156,7 @@ public class BiologicalstatusRecord extends UpdatableRecordImpl<Biologicalstatus
             setSampstat(value.getSampstat());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

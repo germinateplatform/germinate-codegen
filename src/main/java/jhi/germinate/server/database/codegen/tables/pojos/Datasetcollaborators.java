@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,15 +17,15 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Datasetcollaborators implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   datasetId;
-    private Integer   collaboratorId;
-    private String    collaboratorRoles;
+    private Integer id;
+    private Integer datasetId;
+    private Integer collaboratorId;
+    private String collaboratorRoles;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -42,10 +41,10 @@ public class Datasetcollaborators implements Serializable {
     }
 
     public Datasetcollaborators(
-        Integer   id,
-        Integer   datasetId,
-        Integer   collaboratorId,
-        String    collaboratorRoles,
+        Integer id,
+        Integer datasetId,
+        Integer collaboratorId,
+        String collaboratorRoles,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -55,6 +54,67 @@ public class Datasetcollaborators implements Serializable {
         this.collaboratorRoles = collaboratorRoles;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Datasetcollaborators other = (Datasetcollaborators) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.datasetId == null) {
+            if (other.datasetId != null)
+                return false;
+        }
+        else if (!this.datasetId.equals(other.datasetId))
+            return false;
+        if (this.collaboratorId == null) {
+            if (other.collaboratorId != null)
+                return false;
+        }
+        else if (!this.collaboratorId.equals(other.collaboratorId))
+            return false;
+        if (this.collaboratorRoles == null) {
+            if (other.collaboratorRoles != null)
+                return false;
+        }
+        else if (!this.collaboratorRoles.equals(other.collaboratorRoles))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.datasetId == null) ? 0 : this.datasetId.hashCode());
+        result = prime * result + ((this.collaboratorId == null) ? 0 : this.collaboratorId.hashCode());
+        result = prime * result + ((this.collaboratorRoles == null) ? 0 : this.collaboratorRoles.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

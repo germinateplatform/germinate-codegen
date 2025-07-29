@@ -4,13 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
-
-import lombok.*;
-import lombok.experimental.Accessors;
 
 // @formatter:off
 /**
@@ -20,26 +19,26 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Locations implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer    id;
-    private Integer    locationtypeId;
-    private Integer    countryId;
-    private String     state;
-    private String     region;
-    private String     siteName;
-    private String     siteNameShort;
+    private Integer id;
+    private Integer locationtypeId;
+    private Integer countryId;
+    private String state;
+    private String region;
+    private String siteName;
+    private String siteNameShort;
     private BigDecimal elevation;
     private BigDecimal latitude;
     private BigDecimal longitude;
-    private Integer    coordinateUncertainty;
-    private String     coordinateDatum;
-    private String     georeferencingMethod;
-    private Timestamp  createdOn;
-    private Timestamp  updatedOn;
+    private Integer coordinateUncertainty;
+    private String coordinateDatum;
+    private String georeferencingMethod;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public Locations() {}
 
@@ -62,21 +61,21 @@ public class Locations implements Serializable {
     }
 
     public Locations(
-        Integer    id,
-        Integer    locationtypeId,
-        Integer    countryId,
-        String     state,
-        String     region,
-        String     siteName,
-        String     siteNameShort,
+        Integer id,
+        Integer locationtypeId,
+        Integer countryId,
+        String state,
+        String region,
+        String siteName,
+        String siteNameShort,
         BigDecimal elevation,
         BigDecimal latitude,
         BigDecimal longitude,
-        Integer    coordinateUncertainty,
-        String     coordinateDatum,
-        String     georeferencingMethod,
-        Timestamp  createdOn,
-        Timestamp  updatedOn
+        Integer coordinateUncertainty,
+        String coordinateDatum,
+        String georeferencingMethod,
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.id = id;
         this.locationtypeId = locationtypeId;
@@ -93,6 +92,130 @@ public class Locations implements Serializable {
         this.georeferencingMethod = georeferencingMethod;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Locations other = (Locations) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.locationtypeId == null) {
+            if (other.locationtypeId != null)
+                return false;
+        }
+        else if (!this.locationtypeId.equals(other.locationtypeId))
+            return false;
+        if (this.countryId == null) {
+            if (other.countryId != null)
+                return false;
+        }
+        else if (!this.countryId.equals(other.countryId))
+            return false;
+        if (this.state == null) {
+            if (other.state != null)
+                return false;
+        }
+        else if (!this.state.equals(other.state))
+            return false;
+        if (this.region == null) {
+            if (other.region != null)
+                return false;
+        }
+        else if (!this.region.equals(other.region))
+            return false;
+        if (this.siteName == null) {
+            if (other.siteName != null)
+                return false;
+        }
+        else if (!this.siteName.equals(other.siteName))
+            return false;
+        if (this.siteNameShort == null) {
+            if (other.siteNameShort != null)
+                return false;
+        }
+        else if (!this.siteNameShort.equals(other.siteNameShort))
+            return false;
+        if (this.elevation == null) {
+            if (other.elevation != null)
+                return false;
+        }
+        else if (!this.elevation.equals(other.elevation))
+            return false;
+        if (this.latitude == null) {
+            if (other.latitude != null)
+                return false;
+        }
+        else if (!this.latitude.equals(other.latitude))
+            return false;
+        if (this.longitude == null) {
+            if (other.longitude != null)
+                return false;
+        }
+        else if (!this.longitude.equals(other.longitude))
+            return false;
+        if (this.coordinateUncertainty == null) {
+            if (other.coordinateUncertainty != null)
+                return false;
+        }
+        else if (!this.coordinateUncertainty.equals(other.coordinateUncertainty))
+            return false;
+        if (this.coordinateDatum == null) {
+            if (other.coordinateDatum != null)
+                return false;
+        }
+        else if (!this.coordinateDatum.equals(other.coordinateDatum))
+            return false;
+        if (this.georeferencingMethod == null) {
+            if (other.georeferencingMethod != null)
+                return false;
+        }
+        else if (!this.georeferencingMethod.equals(other.georeferencingMethod))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.locationtypeId == null) ? 0 : this.locationtypeId.hashCode());
+        result = prime * result + ((this.countryId == null) ? 0 : this.countryId.hashCode());
+        result = prime * result + ((this.state == null) ? 0 : this.state.hashCode());
+        result = prime * result + ((this.region == null) ? 0 : this.region.hashCode());
+        result = prime * result + ((this.siteName == null) ? 0 : this.siteName.hashCode());
+        result = prime * result + ((this.siteNameShort == null) ? 0 : this.siteNameShort.hashCode());
+        result = prime * result + ((this.elevation == null) ? 0 : this.elevation.hashCode());
+        result = prime * result + ((this.latitude == null) ? 0 : this.latitude.hashCode());
+        result = prime * result + ((this.longitude == null) ? 0 : this.longitude.hashCode());
+        result = prime * result + ((this.coordinateUncertainty == null) ? 0 : this.coordinateUncertainty.hashCode());
+        result = prime * result + ((this.coordinateDatum == null) ? 0 : this.coordinateDatum.hashCode());
+        result = prime * result + ((this.georeferencingMethod == null) ? 0 : this.georeferencingMethod.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

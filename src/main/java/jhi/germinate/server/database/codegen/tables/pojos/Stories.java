@@ -4,14 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.pojo.StoryRequirements;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -20,23 +18,23 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Stories implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer           id;
-    private String            name;
-    private String            description;
-    private Integer           imageId;
+    private Integer id;
+    private String name;
+    private String description;
+    private Integer imageId;
     private StoryRequirements requirements;
-    private Integer           publicationId;
-    private Integer           projectId;
-    private Boolean           featured;
-    private Boolean           visibility;
-    private Integer           userId;
-    private Timestamp         createdOn;
-    private Timestamp         updatedOn;
+    private Integer publicationId;
+    private Integer projectId;
+    private Boolean featured;
+    private Boolean visibility;
+    private Integer userId;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public Stories() {}
 
@@ -56,18 +54,18 @@ public class Stories implements Serializable {
     }
 
     public Stories(
-        Integer           id,
-        String            name,
-        String            description,
-        Integer           imageId,
+        Integer id,
+        String name,
+        String description,
+        Integer imageId,
         StoryRequirements requirements,
-        Integer           publicationId,
-        Integer           projectId,
-        Boolean           featured,
-        Boolean           visibility,
-        Integer           userId,
-        Timestamp         createdOn,
-        Timestamp         updatedOn
+        Integer publicationId,
+        Integer projectId,
+        Boolean featured,
+        Boolean visibility,
+        Integer userId,
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.id = id;
         this.name = name;
@@ -81,6 +79,109 @@ public class Stories implements Serializable {
         this.userId = userId;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Stories other = (Stories) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.name == null) {
+            if (other.name != null)
+                return false;
+        }
+        else if (!this.name.equals(other.name))
+            return false;
+        if (this.description == null) {
+            if (other.description != null)
+                return false;
+        }
+        else if (!this.description.equals(other.description))
+            return false;
+        if (this.imageId == null) {
+            if (other.imageId != null)
+                return false;
+        }
+        else if (!this.imageId.equals(other.imageId))
+            return false;
+        if (this.requirements == null) {
+            if (other.requirements != null)
+                return false;
+        }
+        else if (!this.requirements.equals(other.requirements))
+            return false;
+        if (this.publicationId == null) {
+            if (other.publicationId != null)
+                return false;
+        }
+        else if (!this.publicationId.equals(other.publicationId))
+            return false;
+        if (this.projectId == null) {
+            if (other.projectId != null)
+                return false;
+        }
+        else if (!this.projectId.equals(other.projectId))
+            return false;
+        if (this.featured == null) {
+            if (other.featured != null)
+                return false;
+        }
+        else if (!this.featured.equals(other.featured))
+            return false;
+        if (this.visibility == null) {
+            if (other.visibility != null)
+                return false;
+        }
+        else if (!this.visibility.equals(other.visibility))
+            return false;
+        if (this.userId == null) {
+            if (other.userId != null)
+                return false;
+        }
+        else if (!this.userId.equals(other.userId))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+        result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.imageId == null) ? 0 : this.imageId.hashCode());
+        result = prime * result + ((this.requirements == null) ? 0 : this.requirements.hashCode());
+        result = prime * result + ((this.publicationId == null) ? 0 : this.publicationId.hashCode());
+        result = prime * result + ((this.projectId == null) ? 0 : this.projectId.hashCode());
+        result = prime * result + ((this.featured == null) ? 0 : this.featured.hashCode());
+        result = prime * result + ((this.visibility == null) ? 0 : this.visibility.hashCode());
+        result = prime * result + ((this.userId == null) ? 0 : this.userId.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

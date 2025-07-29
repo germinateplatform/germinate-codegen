@@ -4,23 +4,19 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Markers;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record5;
-import org.jooq.Row5;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
 /**
  * Defines genetic markers within the database and assigns a type (markertypes).
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class MarkersRecord extends UpdatableRecordImpl<MarkersRecord> implements Record5<Integer, Integer, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class MarkersRecord extends UpdatableRecordImpl<MarkersRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -118,135 +114,6 @@ public class MarkersRecord extends UpdatableRecordImpl<MarkersRecord> implements
     }
 
     // -------------------------------------------------------------------------
-    // Record5 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row5<Integer, Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row5) super.fieldsRow();
-    }
-
-    @Override
-    public Row5<Integer, Integer, String, Timestamp, Timestamp> valuesRow() {
-        return (Row5) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Markers.MARKERS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Markers.MARKERS.MARKERTYPE_ID;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Markers.MARKERS.MARKER_NAME;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Markers.MARKERS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Markers.MARKERS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getMarkertypeId();
-    }
-
-    @Override
-    public String component3() {
-        return getMarkerName();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getMarkertypeId();
-    }
-
-    @Override
-    public String value3() {
-        return getMarkerName();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public MarkersRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public MarkersRecord value2(Integer value) {
-        setMarkertypeId(value);
-        return this;
-    }
-
-    @Override
-    public MarkersRecord value3(String value) {
-        setMarkerName(value);
-        return this;
-    }
-
-    @Override
-    public MarkersRecord value4(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MarkersRecord value5(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MarkersRecord values(Integer value1, Integer value2, String value3, Timestamp value4, Timestamp value5) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -268,6 +135,7 @@ public class MarkersRecord extends UpdatableRecordImpl<MarkersRecord> implements
         setMarkerName(markerName);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -282,6 +150,7 @@ public class MarkersRecord extends UpdatableRecordImpl<MarkersRecord> implements
             setMarkerName(value.getMarkerName());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

@@ -4,34 +4,24 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.binding.TraitRestrictionBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.PhenotypesDatatype;
 import jhi.germinate.server.database.codegen.tables.records.PhenotypesRecord;
 import jhi.germinate.server.database.pojo.TraitRestrictions;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row12;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 
 // @formatter:off
 /**
  * Defines phenoytpes which are held in Germinate.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Phenotypes extends TableImpl<PhenotypesRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -80,7 +70,7 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
      * data type of the phenotype. This can be of numeric, text, date or
      * categorical types.
      */
-    public final TableField<PhenotypesRecord, PhenotypesDatatype> DATATYPE = createField(DSL.name("datatype"), SQLDataType.VARCHAR(11).nullable(false).defaultValue(DSL.inline("text", SQLDataType.VARCHAR)).asEnumDataType(jhi.germinate.server.database.codegen.enums.PhenotypesDatatype.class), this, "Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.");
+    public final TableField<PhenotypesRecord, PhenotypesDatatype> DATATYPE = createField(DSL.name("datatype"), SQLDataType.VARCHAR(11).nullable(false).defaultValue(DSL.inline("text", SQLDataType.VARCHAR)).asEnumDataType(PhenotypesDatatype.class), this, "Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.");
 
     /**
      * The column <code>germinate_db.phenotypes.restrictions</code>. A json
@@ -121,21 +111,21 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
      * The column <code>germinate_db.phenotypes.created_on</code>. When the
      * record was created.
      */
-    public final TableField<PhenotypesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
+    public final TableField<PhenotypesRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.phenotypes.updated_on</code>. When the
      * record was updated. This may be different from the created on date if
      * changes have been made subsequently to the underlying record.
      */
-    public final TableField<PhenotypesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if changes have been made subsequently to the underlying record.");
+    public final TableField<PhenotypesRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if changes have been made subsequently to the underlying record.");
 
     private Phenotypes(Name alias, Table<PhenotypesRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private Phenotypes(Name alias, Table<PhenotypesRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Defines phenoytpes which are held in Germinate."), TableOptions.table());
+    private Phenotypes(Name alias, Table<PhenotypesRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("Defines phenoytpes which are held in Germinate."), TableOptions.table(), where);
     }
 
     /**
@@ -184,6 +174,11 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
         return new Phenotypes(alias, this);
     }
 
+    @Override
+    public Phenotypes as(Table<?> alias) {
+        return new Phenotypes(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -200,13 +195,96 @@ public class Phenotypes extends TableImpl<PhenotypesRecord> {
         return new Phenotypes(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row12 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row12<Integer, String, String, String, PhenotypesDatatype, TraitRestrictions, Integer, Integer, Integer, Boolean, Timestamp, Timestamp> fieldsRow() {
-        return (Row12) super.fieldsRow();
+    public Phenotypes rename(Table<?> name) {
+        return new Phenotypes(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Phenotypes where(Condition condition) {
+        return new Phenotypes(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Phenotypes where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Phenotypes where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Phenotypes where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Phenotypes where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Phenotypes where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Phenotypes where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Phenotypes where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Phenotypes whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Phenotypes whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

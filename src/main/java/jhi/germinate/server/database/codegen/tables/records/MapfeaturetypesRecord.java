@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Mapfeaturetypes;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record4;
-import org.jooq.Row4;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -20,8 +16,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Defines features which can exist on maps. In general this will be the marker
  * type but it can also be used to identify QTL regions.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class MapfeaturetypesRecord extends UpdatableRecordImpl<MapfeaturetypesRecord> implements Record4<Integer, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class MapfeaturetypesRecord extends UpdatableRecordImpl<MapfeaturetypesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -103,113 +99,6 @@ public class MapfeaturetypesRecord extends UpdatableRecordImpl<MapfeaturetypesRe
     }
 
     // -------------------------------------------------------------------------
-    // Record4 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row4) super.fieldsRow();
-    }
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> valuesRow() {
-        return (Row4) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Mapfeaturetypes.MAPFEATURETYPES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Mapfeaturetypes.MAPFEATURETYPES.DESCRIPTION;
-    }
-
-    @Override
-    public Field<Timestamp> field3() {
-        return Mapfeaturetypes.MAPFEATURETYPES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Mapfeaturetypes.MAPFEATURETYPES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp component3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp value3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public MapfeaturetypesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public MapfeaturetypesRecord value2(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public MapfeaturetypesRecord value3(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MapfeaturetypesRecord value4(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MapfeaturetypesRecord values(Integer value1, String value2, Timestamp value3, Timestamp value4) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -230,6 +119,7 @@ public class MapfeaturetypesRecord extends UpdatableRecordImpl<MapfeaturetypesRe
         setDescription(description);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -243,6 +133,7 @@ public class MapfeaturetypesRecord extends UpdatableRecordImpl<MapfeaturetypesRe
             setDescription(value.getDescription());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

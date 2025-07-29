@@ -4,13 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Arrays;
-
-
-import lombok.*;
-import lombok.experimental.Accessors;
 
 // @formatter:off
 /**
@@ -20,15 +19,15 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Synonyms implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   foreignId;
-    private Integer   synonymtypeId;
-    private String[]  synonyms;
+    private Integer id;
+    private Integer foreignId;
+    private Integer synonymtypeId;
+    private String[] synonyms;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -44,10 +43,10 @@ public class Synonyms implements Serializable {
     }
 
     public Synonyms(
-        Integer   id,
-        Integer   foreignId,
-        Integer   synonymtypeId,
-        String[]  synonyms,
+        Integer id,
+        Integer foreignId,
+        Integer synonymtypeId,
+        String[] synonyms,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -60,13 +59,74 @@ public class Synonyms implements Serializable {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Synonyms other = (Synonyms) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.foreignId == null) {
+            if (other.foreignId != null)
+                return false;
+        }
+        else if (!this.foreignId.equals(other.foreignId))
+            return false;
+        if (this.synonymtypeId == null) {
+            if (other.synonymtypeId != null)
+                return false;
+        }
+        else if (!this.synonymtypeId.equals(other.synonymtypeId))
+            return false;
+        if (this.synonyms == null) {
+            if (other.synonyms != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.synonyms, other.synonyms))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.foreignId == null) ? 0 : this.foreignId.hashCode());
+        result = prime * result + ((this.synonymtypeId == null) ? 0 : this.synonymtypeId.hashCode());
+        result = prime * result + ((this.synonyms == null) ? 0 : Arrays.deepHashCode(this.synonyms));
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Synonyms (");
 
         sb.append(id);
         sb.append(", ").append(foreignId);
         sb.append(", ").append(synonymtypeId);
-        sb.append(", ").append(Arrays.toString(synonyms));
+        sb.append(", ").append(Arrays.deepToString(synonyms));
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

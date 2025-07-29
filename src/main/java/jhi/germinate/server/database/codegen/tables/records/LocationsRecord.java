@@ -4,16 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
+import jhi.germinate.server.database.codegen.tables.Locations;
+import org.jooq.Record1;
+import org.jooq.impl.UpdatableRecordImpl;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
-import jhi.germinate.server.database.codegen.tables.Locations;
-
-import org.jooq.Field;
-import org.jooq.Record1;
-import org.jooq.Record15;
-import org.jooq.Row15;
-import org.jooq.impl.UpdatableRecordImpl;
 
 
 // @formatter:off
@@ -21,8 +17,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * Describes locations. Locations can be collecting sites or the location of any
  * geographical feature such as research institutes or lab locations.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class LocationsRecord extends UpdatableRecordImpl<LocationsRecord> implements Record15<Integer, Integer, Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, Integer, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class LocationsRecord extends UpdatableRecordImpl<LocationsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -288,355 +284,6 @@ public class LocationsRecord extends UpdatableRecordImpl<LocationsRecord> implem
     }
 
     // -------------------------------------------------------------------------
-    // Record15 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row15<Integer, Integer, Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, Integer, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row15) super.fieldsRow();
-    }
-
-    @Override
-    public Row15<Integer, Integer, Integer, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, Integer, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row15) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Locations.LOCATIONS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Locations.LOCATIONS.LOCATIONTYPE_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Locations.LOCATIONS.COUNTRY_ID;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Locations.LOCATIONS.STATE;
-    }
-
-    @Override
-    public Field<String> field5() {
-        return Locations.LOCATIONS.REGION;
-    }
-
-    @Override
-    public Field<String> field6() {
-        return Locations.LOCATIONS.SITE_NAME;
-    }
-
-    @Override
-    public Field<String> field7() {
-        return Locations.LOCATIONS.SITE_NAME_SHORT;
-    }
-
-    @Override
-    public Field<BigDecimal> field8() {
-        return Locations.LOCATIONS.ELEVATION;
-    }
-
-    @Override
-    public Field<BigDecimal> field9() {
-        return Locations.LOCATIONS.LATITUDE;
-    }
-
-    @Override
-    public Field<BigDecimal> field10() {
-        return Locations.LOCATIONS.LONGITUDE;
-    }
-
-    @Override
-    public Field<Integer> field11() {
-        return Locations.LOCATIONS.COORDINATE_UNCERTAINTY;
-    }
-
-    @Override
-    public Field<String> field12() {
-        return Locations.LOCATIONS.COORDINATE_DATUM;
-    }
-
-    @Override
-    public Field<String> field13() {
-        return Locations.LOCATIONS.GEOREFERENCING_METHOD;
-    }
-
-    @Override
-    public Field<Timestamp> field14() {
-        return Locations.LOCATIONS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field15() {
-        return Locations.LOCATIONS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getLocationtypeId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getCountryId();
-    }
-
-    @Override
-    public String component4() {
-        return getState();
-    }
-
-    @Override
-    public String component5() {
-        return getRegion();
-    }
-
-    @Override
-    public String component6() {
-        return getSiteName();
-    }
-
-    @Override
-    public String component7() {
-        return getSiteNameShort();
-    }
-
-    @Override
-    public BigDecimal component8() {
-        return getElevation();
-    }
-
-    @Override
-    public BigDecimal component9() {
-        return getLatitude();
-    }
-
-    @Override
-    public BigDecimal component10() {
-        return getLongitude();
-    }
-
-    @Override
-    public Integer component11() {
-        return getCoordinateUncertainty();
-    }
-
-    @Override
-    public String component12() {
-        return getCoordinateDatum();
-    }
-
-    @Override
-    public String component13() {
-        return getGeoreferencingMethod();
-    }
-
-    @Override
-    public Timestamp component14() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component15() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getLocationtypeId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getCountryId();
-    }
-
-    @Override
-    public String value4() {
-        return getState();
-    }
-
-    @Override
-    public String value5() {
-        return getRegion();
-    }
-
-    @Override
-    public String value6() {
-        return getSiteName();
-    }
-
-    @Override
-    public String value7() {
-        return getSiteNameShort();
-    }
-
-    @Override
-    public BigDecimal value8() {
-        return getElevation();
-    }
-
-    @Override
-    public BigDecimal value9() {
-        return getLatitude();
-    }
-
-    @Override
-    public BigDecimal value10() {
-        return getLongitude();
-    }
-
-    @Override
-    public Integer value11() {
-        return getCoordinateUncertainty();
-    }
-
-    @Override
-    public String value12() {
-        return getCoordinateDatum();
-    }
-
-    @Override
-    public String value13() {
-        return getGeoreferencingMethod();
-    }
-
-    @Override
-    public Timestamp value14() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value15() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public LocationsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value2(Integer value) {
-        setLocationtypeId(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value3(Integer value) {
-        setCountryId(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value4(String value) {
-        setState(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value5(String value) {
-        setRegion(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value6(String value) {
-        setSiteName(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value7(String value) {
-        setSiteNameShort(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value8(BigDecimal value) {
-        setElevation(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value9(BigDecimal value) {
-        setLatitude(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value10(BigDecimal value) {
-        setLongitude(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value11(Integer value) {
-        setCoordinateUncertainty(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value12(String value) {
-        setCoordinateDatum(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value13(String value) {
-        setGeoreferencingMethod(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value14(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord value15(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public LocationsRecord values(Integer value1, Integer value2, Integer value3, String value4, String value5, String value6, String value7, BigDecimal value8, BigDecimal value9, BigDecimal value10, Integer value11, String value12, String value13, Timestamp value14, Timestamp value15) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        value9(value9);
-        value10(value10);
-        value11(value11);
-        value12(value12);
-        value13(value13);
-        value14(value14);
-        value15(value15);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -668,6 +315,7 @@ public class LocationsRecord extends UpdatableRecordImpl<LocationsRecord> implem
         setGeoreferencingMethod(georeferencingMethod);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -692,6 +340,7 @@ public class LocationsRecord extends UpdatableRecordImpl<LocationsRecord> implem
             setGeoreferencingMethod(value.getGeoreferencingMethod());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

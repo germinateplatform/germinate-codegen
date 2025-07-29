@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Markertypes;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record4;
-import org.jooq.Row4;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -22,8 +18,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * markers table and alllows for mixing of marker types on genetic and physical
  * maps.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class MarkertypesRecord extends UpdatableRecordImpl<MarkertypesRecord> implements Record4<Integer, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class MarkertypesRecord extends UpdatableRecordImpl<MarkertypesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -105,113 +101,6 @@ public class MarkertypesRecord extends UpdatableRecordImpl<MarkertypesRecord> im
     }
 
     // -------------------------------------------------------------------------
-    // Record4 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row4) super.fieldsRow();
-    }
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> valuesRow() {
-        return (Row4) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Markertypes.MARKERTYPES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Markertypes.MARKERTYPES.DESCRIPTION;
-    }
-
-    @Override
-    public Field<Timestamp> field3() {
-        return Markertypes.MARKERTYPES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Markertypes.MARKERTYPES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp component3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp value3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public MarkertypesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public MarkertypesRecord value2(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public MarkertypesRecord value3(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MarkertypesRecord value4(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MarkertypesRecord values(Integer value1, String value2, Timestamp value3, Timestamp value4) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -232,6 +121,7 @@ public class MarkertypesRecord extends UpdatableRecordImpl<MarkertypesRecord> im
         setDescription(description);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -245,6 +135,7 @@ public class MarkertypesRecord extends UpdatableRecordImpl<MarkertypesRecord> im
             setDescription(value.getDescription());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

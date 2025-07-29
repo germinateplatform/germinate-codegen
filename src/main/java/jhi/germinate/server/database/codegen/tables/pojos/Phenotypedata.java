@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,15 +17,15 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Phenotypedata implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   trialsetupId;
-    private Integer   phenotypeId;
-    private String    phenotypeValue;
+    private Integer id;
+    private Integer trialsetupId;
+    private Integer phenotypeId;
+    private String phenotypeValue;
     private Timestamp recordingDate;
     private Timestamp createdOn;
     private Timestamp updatedOn;
@@ -44,10 +43,10 @@ public class Phenotypedata implements Serializable {
     }
 
     public Phenotypedata(
-        Integer   id,
-        Integer   trialsetupId,
-        Integer   phenotypeId,
-        String    phenotypeValue,
+        Integer id,
+        Integer trialsetupId,
+        Integer phenotypeId,
+        String phenotypeValue,
         Timestamp recordingDate,
         Timestamp createdOn,
         Timestamp updatedOn
@@ -59,6 +58,74 @@ public class Phenotypedata implements Serializable {
         this.recordingDate = recordingDate;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Phenotypedata other = (Phenotypedata) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.trialsetupId == null) {
+            if (other.trialsetupId != null)
+                return false;
+        }
+        else if (!this.trialsetupId.equals(other.trialsetupId))
+            return false;
+        if (this.phenotypeId == null) {
+            if (other.phenotypeId != null)
+                return false;
+        }
+        else if (!this.phenotypeId.equals(other.phenotypeId))
+            return false;
+        if (this.phenotypeValue == null) {
+            if (other.phenotypeValue != null)
+                return false;
+        }
+        else if (!this.phenotypeValue.equals(other.phenotypeValue))
+            return false;
+        if (this.recordingDate == null) {
+            if (other.recordingDate != null)
+                return false;
+        }
+        else if (!this.recordingDate.equals(other.recordingDate))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.trialsetupId == null) ? 0 : this.trialsetupId.hashCode());
+        result = prime * result + ((this.phenotypeId == null) ? 0 : this.phenotypeId.hashCode());
+        result = prime * result + ((this.phenotypeValue == null) ? 0 : this.phenotypeValue.hashCode());
+        result = prime * result + ((this.recordingDate == null) ? 0 : this.recordingDate.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

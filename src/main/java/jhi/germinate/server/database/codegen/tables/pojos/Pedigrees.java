@@ -4,14 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.enums.PedigreesRelationshipType;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -23,20 +21,20 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Pedigrees implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer                   id;
-    private Integer                   datasetId;
-    private Integer                   germinatebaseId;
-    private Integer                   parentId;
+    private Integer id;
+    private Integer datasetId;
+    private Integer germinatebaseId;
+    private Integer parentId;
     private PedigreesRelationshipType relationshipType;
-    private Integer                   pedigreedescriptionId;
-    private String                    relationshipDescription;
-    private Timestamp                 createdOn;
-    private Timestamp                 updatedOn;
+    private Integer pedigreedescriptionId;
+    private String relationshipDescription;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public Pedigrees() {}
 
@@ -53,15 +51,15 @@ public class Pedigrees implements Serializable {
     }
 
     public Pedigrees(
-        Integer                   id,
-        Integer                   datasetId,
-        Integer                   germinatebaseId,
-        Integer                   parentId,
+        Integer id,
+        Integer datasetId,
+        Integer germinatebaseId,
+        Integer parentId,
         PedigreesRelationshipType relationshipType,
-        Integer                   pedigreedescriptionId,
-        String                    relationshipDescription,
-        Timestamp                 createdOn,
-        Timestamp                 updatedOn
+        Integer pedigreedescriptionId,
+        String relationshipDescription,
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.id = id;
         this.datasetId = datasetId;
@@ -72,6 +70,88 @@ public class Pedigrees implements Serializable {
         this.relationshipDescription = relationshipDescription;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Pedigrees other = (Pedigrees) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.datasetId == null) {
+            if (other.datasetId != null)
+                return false;
+        }
+        else if (!this.datasetId.equals(other.datasetId))
+            return false;
+        if (this.germinatebaseId == null) {
+            if (other.germinatebaseId != null)
+                return false;
+        }
+        else if (!this.germinatebaseId.equals(other.germinatebaseId))
+            return false;
+        if (this.parentId == null) {
+            if (other.parentId != null)
+                return false;
+        }
+        else if (!this.parentId.equals(other.parentId))
+            return false;
+        if (this.relationshipType == null) {
+            if (other.relationshipType != null)
+                return false;
+        }
+        else if (!this.relationshipType.equals(other.relationshipType))
+            return false;
+        if (this.pedigreedescriptionId == null) {
+            if (other.pedigreedescriptionId != null)
+                return false;
+        }
+        else if (!this.pedigreedescriptionId.equals(other.pedigreedescriptionId))
+            return false;
+        if (this.relationshipDescription == null) {
+            if (other.relationshipDescription != null)
+                return false;
+        }
+        else if (!this.relationshipDescription.equals(other.relationshipDescription))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.datasetId == null) ? 0 : this.datasetId.hashCode());
+        result = prime * result + ((this.germinatebaseId == null) ? 0 : this.germinatebaseId.hashCode());
+        result = prime * result + ((this.parentId == null) ? 0 : this.parentId.hashCode());
+        result = prime * result + ((this.relationshipType == null) ? 0 : this.relationshipType.hashCode());
+        result = prime * result + ((this.pedigreedescriptionId == null) ? 0 : this.pedigreedescriptionId.hashCode());
+        result = prime * result + ((this.relationshipDescription == null) ? 0 : this.relationshipDescription.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

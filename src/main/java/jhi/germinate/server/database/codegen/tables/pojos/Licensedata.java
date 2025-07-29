@@ -4,12 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -18,15 +17,15 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Licensedata implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   licenseId;
-    private Integer   localeId;
-    private String    content;
+    private Integer id;
+    private Integer licenseId;
+    private Integer localeId;
+    private String content;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -42,10 +41,10 @@ public class Licensedata implements Serializable {
     }
 
     public Licensedata(
-        Integer   id,
-        Integer   licenseId,
-        Integer   localeId,
-        String    content,
+        Integer id,
+        Integer licenseId,
+        Integer localeId,
+        String content,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -55,6 +54,67 @@ public class Licensedata implements Serializable {
         this.content = content;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Licensedata other = (Licensedata) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.licenseId == null) {
+            if (other.licenseId != null)
+                return false;
+        }
+        else if (!this.licenseId.equals(other.licenseId))
+            return false;
+        if (this.localeId == null) {
+            if (other.localeId != null)
+                return false;
+        }
+        else if (!this.localeId.equals(other.localeId))
+            return false;
+        if (this.content == null) {
+            if (other.content != null)
+                return false;
+        }
+        else if (!this.content.equals(other.content))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.licenseId == null) ? 0 : this.licenseId.hashCode());
+        result = prime * result + ((this.localeId == null) ? 0 : this.localeId.hashCode());
+        result = prime * result + ((this.content == null) ? 0 : this.content.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

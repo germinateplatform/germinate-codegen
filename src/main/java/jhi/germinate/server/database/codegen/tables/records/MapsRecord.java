@@ -4,23 +4,19 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Maps;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record7;
-import org.jooq.Row7;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
 /**
  * Describes genetic maps that have been defined within Germinate.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class MapsRecord extends UpdatableRecordImpl<MapsRecord> implements Record7<Integer, String, String, Boolean, Timestamp, Timestamp, Integer> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class MapsRecord extends UpdatableRecordImpl<MapsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -146,179 +142,6 @@ public class MapsRecord extends UpdatableRecordImpl<MapsRecord> implements Recor
     }
 
     // -------------------------------------------------------------------------
-    // Record7 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row7<Integer, String, String, Boolean, Timestamp, Timestamp, Integer> fieldsRow() {
-        return (Row7) super.fieldsRow();
-    }
-
-    @Override
-    public Row7<Integer, String, String, Boolean, Timestamp, Timestamp, Integer> valuesRow() {
-        return (Row7) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Maps.MAPS.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Maps.MAPS.NAME;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Maps.MAPS.DESCRIPTION;
-    }
-
-    @Override
-    public Field<Boolean> field4() {
-        return Maps.MAPS.VISIBILITY;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Maps.MAPS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Maps.MAPS.UPDATED_ON;
-    }
-
-    @Override
-    public Field<Integer> field7() {
-        return Maps.MAPS.USER_ID;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getName();
-    }
-
-    @Override
-    public String component3() {
-        return getDescription();
-    }
-
-    @Override
-    public Boolean component4() {
-        return getVisibility();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer component7() {
-        return getUserId();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getName();
-    }
-
-    @Override
-    public String value3() {
-        return getDescription();
-    }
-
-    @Override
-    public Boolean value4() {
-        return getVisibility();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value7() {
-        return getUserId();
-    }
-
-    @Override
-    public MapsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public MapsRecord value2(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public MapsRecord value3(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public MapsRecord value4(Boolean value) {
-        setVisibility(value);
-        return this;
-    }
-
-    @Override
-    public MapsRecord value5(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MapsRecord value6(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public MapsRecord value7(Integer value) {
-        setUserId(value);
-        return this;
-    }
-
-    @Override
-    public MapsRecord values(Integer value1, String value2, String value3, Boolean value4, Timestamp value5, Timestamp value6, Integer value7) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -342,6 +165,7 @@ public class MapsRecord extends UpdatableRecordImpl<MapsRecord> implements Recor
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
         setUserId(userId);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -358,6 +182,7 @@ public class MapsRecord extends UpdatableRecordImpl<MapsRecord> implements Recor
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
             setUserId(value.getUserId());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

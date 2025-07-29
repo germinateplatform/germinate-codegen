@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Groups;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record8;
-import org.jooq.Row8;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -21,8 +17,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * of different group types such as germinatebase accesion groups and marker
  * groups.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class GroupsRecord extends UpdatableRecordImpl<GroupsRecord> implements Record8<Integer, Integer, String, String, Boolean, Integer, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class GroupsRecord extends UpdatableRecordImpl<GroupsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -166,201 +162,6 @@ public class GroupsRecord extends UpdatableRecordImpl<GroupsRecord> implements R
     }
 
     // -------------------------------------------------------------------------
-    // Record8 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row8<Integer, Integer, String, String, Boolean, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row8) super.fieldsRow();
-    }
-
-    @Override
-    public Row8<Integer, Integer, String, String, Boolean, Integer, Timestamp, Timestamp> valuesRow() {
-        return (Row8) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Groups.GROUPS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Groups.GROUPS.GROUPTYPE_ID;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Groups.GROUPS.NAME;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Groups.GROUPS.DESCRIPTION;
-    }
-
-    @Override
-    public Field<Boolean> field5() {
-        return Groups.GROUPS.VISIBILITY;
-    }
-
-    @Override
-    public Field<Integer> field6() {
-        return Groups.GROUPS.CREATED_BY;
-    }
-
-    @Override
-    public Field<Timestamp> field7() {
-        return Groups.GROUPS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field8() {
-        return Groups.GROUPS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getGrouptypeId();
-    }
-
-    @Override
-    public String component3() {
-        return getName();
-    }
-
-    @Override
-    public String component4() {
-        return getDescription();
-    }
-
-    @Override
-    public Boolean component5() {
-        return getVisibility();
-    }
-
-    @Override
-    public Integer component6() {
-        return getCreatedBy();
-    }
-
-    @Override
-    public Timestamp component7() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component8() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getGrouptypeId();
-    }
-
-    @Override
-    public String value3() {
-        return getName();
-    }
-
-    @Override
-    public String value4() {
-        return getDescription();
-    }
-
-    @Override
-    public Boolean value5() {
-        return getVisibility();
-    }
-
-    @Override
-    public Integer value6() {
-        return getCreatedBy();
-    }
-
-    @Override
-    public Timestamp value7() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value8() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public GroupsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public GroupsRecord value2(Integer value) {
-        setGrouptypeId(value);
-        return this;
-    }
-
-    @Override
-    public GroupsRecord value3(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public GroupsRecord value4(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public GroupsRecord value5(Boolean value) {
-        setVisibility(value);
-        return this;
-    }
-
-    @Override
-    public GroupsRecord value6(Integer value) {
-        setCreatedBy(value);
-        return this;
-    }
-
-    @Override
-    public GroupsRecord value7(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public GroupsRecord value8(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public GroupsRecord values(Integer value1, Integer value2, String value3, String value4, Boolean value5, Integer value6, Timestamp value7, Timestamp value8) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -385,6 +186,7 @@ public class GroupsRecord extends UpdatableRecordImpl<GroupsRecord> implements R
         setCreatedBy(createdBy);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -402,6 +204,7 @@ public class GroupsRecord extends UpdatableRecordImpl<GroupsRecord> implements R
             setCreatedBy(value.getCreatedBy());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

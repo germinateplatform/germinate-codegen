@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Taxonomies;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record10;
-import org.jooq.Row10;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -21,8 +17,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * within a particular Germinate instance including common names and ploidy
  * levels.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class TaxonomiesRecord extends UpdatableRecordImpl<TaxonomiesRecord> implements Record10<Integer, String, String, String, String, String, String, Integer, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class TaxonomiesRecord extends UpdatableRecordImpl<TaxonomiesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -204,245 +200,6 @@ public class TaxonomiesRecord extends UpdatableRecordImpl<TaxonomiesRecord> impl
     }
 
     // -------------------------------------------------------------------------
-    // Record10 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row10<Integer, String, String, String, String, String, String, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row10) super.fieldsRow();
-    }
-
-    @Override
-    public Row10<Integer, String, String, String, String, String, String, Integer, Timestamp, Timestamp> valuesRow() {
-        return (Row10) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Taxonomies.TAXONOMIES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Taxonomies.TAXONOMIES.GENUS;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Taxonomies.TAXONOMIES.SPECIES;
-    }
-
-    @Override
-    public Field<String> field4() {
-        return Taxonomies.TAXONOMIES.SUBTAXA;
-    }
-
-    @Override
-    public Field<String> field5() {
-        return Taxonomies.TAXONOMIES.SPECIES_AUTHOR;
-    }
-
-    @Override
-    public Field<String> field6() {
-        return Taxonomies.TAXONOMIES.SUBTAXA_AUTHOR;
-    }
-
-    @Override
-    public Field<String> field7() {
-        return Taxonomies.TAXONOMIES.CROPNAME;
-    }
-
-    @Override
-    public Field<Integer> field8() {
-        return Taxonomies.TAXONOMIES.PLOIDY;
-    }
-
-    @Override
-    public Field<Timestamp> field9() {
-        return Taxonomies.TAXONOMIES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field10() {
-        return Taxonomies.TAXONOMIES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getGenus();
-    }
-
-    @Override
-    public String component3() {
-        return getSpecies();
-    }
-
-    @Override
-    public String component4() {
-        return getSubtaxa();
-    }
-
-    @Override
-    public String component5() {
-        return getSpeciesAuthor();
-    }
-
-    @Override
-    public String component6() {
-        return getSubtaxaAuthor();
-    }
-
-    @Override
-    public String component7() {
-        return getCropname();
-    }
-
-    @Override
-    public Integer component8() {
-        return getPloidy();
-    }
-
-    @Override
-    public Timestamp component9() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component10() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getGenus();
-    }
-
-    @Override
-    public String value3() {
-        return getSpecies();
-    }
-
-    @Override
-    public String value4() {
-        return getSubtaxa();
-    }
-
-    @Override
-    public String value5() {
-        return getSpeciesAuthor();
-    }
-
-    @Override
-    public String value6() {
-        return getSubtaxaAuthor();
-    }
-
-    @Override
-    public String value7() {
-        return getCropname();
-    }
-
-    @Override
-    public Integer value8() {
-        return getPloidy();
-    }
-
-    @Override
-    public Timestamp value9() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value10() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public TaxonomiesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord value2(String value) {
-        setGenus(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord value3(String value) {
-        setSpecies(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord value4(String value) {
-        setSubtaxa(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord value5(String value) {
-        setSpeciesAuthor(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord value6(String value) {
-        setSubtaxaAuthor(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord value7(String value) {
-        setCropname(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord value8(Integer value) {
-        setPloidy(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord value9(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord value10(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public TaxonomiesRecord values(Integer value1, String value2, String value3, String value4, String value5, String value6, String value7, Integer value8, Timestamp value9, Timestamp value10) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        value7(value7);
-        value8(value8);
-        value9(value9);
-        value10(value10);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -469,6 +226,7 @@ public class TaxonomiesRecord extends UpdatableRecordImpl<TaxonomiesRecord> impl
         setPloidy(ploidy);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -488,6 +246,7 @@ public class TaxonomiesRecord extends UpdatableRecordImpl<TaxonomiesRecord> impl
             setPloidy(value.getPloidy());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

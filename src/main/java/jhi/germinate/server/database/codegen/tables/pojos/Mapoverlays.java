@@ -4,15 +4,13 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import jhi.germinate.server.database.codegen.enums.MapoverlaysReferenceTable;
+import lombok.*;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
-import jhi.germinate.server.database.codegen.enums.MapoverlaysReferenceTable;
-
-
-import lombok.*;
-import lombok.experimental.Accessors;
 
 // @formatter:off
 /**
@@ -21,25 +19,25 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Mapoverlays implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer                   id;
-    private String                    name;
-    private String                    description;
-    private BigDecimal                bottomLeftLat;
-    private BigDecimal                bottomLeftLng;
-    private BigDecimal                topRightLat;
-    private BigDecimal                topRightLng;
-    private Boolean                   isLegend;
+    private Integer id;
+    private String name;
+    private String description;
+    private BigDecimal bottomLeftLat;
+    private BigDecimal bottomLeftLng;
+    private BigDecimal topRightLat;
+    private BigDecimal topRightLng;
+    private Boolean isLegend;
     private MapoverlaysReferenceTable referenceTable;
-    private Integer                   foreignId;
-    private Integer                   datasetId;
-    private Timestamp                 recordingDate;
-    private Timestamp                 createdOn;
-    private Timestamp                 updatedOn;
+    private Integer foreignId;
+    private Integer datasetId;
+    private Timestamp recordingDate;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public Mapoverlays() {}
 
@@ -61,20 +59,20 @@ public class Mapoverlays implements Serializable {
     }
 
     public Mapoverlays(
-        Integer                   id,
-        String                    name,
-        String                    description,
-        BigDecimal                bottomLeftLat,
-        BigDecimal                bottomLeftLng,
-        BigDecimal                topRightLat,
-        BigDecimal                topRightLng,
-        Boolean                   isLegend,
+        Integer id,
+        String name,
+        String description,
+        BigDecimal bottomLeftLat,
+        BigDecimal bottomLeftLng,
+        BigDecimal topRightLat,
+        BigDecimal topRightLng,
+        Boolean isLegend,
         MapoverlaysReferenceTable referenceTable,
-        Integer                   foreignId,
-        Integer                   datasetId,
-        Timestamp                 recordingDate,
-        Timestamp                 createdOn,
-        Timestamp                 updatedOn
+        Integer foreignId,
+        Integer datasetId,
+        Timestamp recordingDate,
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.id = id;
         this.name = name;
@@ -90,6 +88,123 @@ public class Mapoverlays implements Serializable {
         this.recordingDate = recordingDate;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Mapoverlays other = (Mapoverlays) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.name == null) {
+            if (other.name != null)
+                return false;
+        }
+        else if (!this.name.equals(other.name))
+            return false;
+        if (this.description == null) {
+            if (other.description != null)
+                return false;
+        }
+        else if (!this.description.equals(other.description))
+            return false;
+        if (this.bottomLeftLat == null) {
+            if (other.bottomLeftLat != null)
+                return false;
+        }
+        else if (!this.bottomLeftLat.equals(other.bottomLeftLat))
+            return false;
+        if (this.bottomLeftLng == null) {
+            if (other.bottomLeftLng != null)
+                return false;
+        }
+        else if (!this.bottomLeftLng.equals(other.bottomLeftLng))
+            return false;
+        if (this.topRightLat == null) {
+            if (other.topRightLat != null)
+                return false;
+        }
+        else if (!this.topRightLat.equals(other.topRightLat))
+            return false;
+        if (this.topRightLng == null) {
+            if (other.topRightLng != null)
+                return false;
+        }
+        else if (!this.topRightLng.equals(other.topRightLng))
+            return false;
+        if (this.isLegend == null) {
+            if (other.isLegend != null)
+                return false;
+        }
+        else if (!this.isLegend.equals(other.isLegend))
+            return false;
+        if (this.referenceTable == null) {
+            if (other.referenceTable != null)
+                return false;
+        }
+        else if (!this.referenceTable.equals(other.referenceTable))
+            return false;
+        if (this.foreignId == null) {
+            if (other.foreignId != null)
+                return false;
+        }
+        else if (!this.foreignId.equals(other.foreignId))
+            return false;
+        if (this.datasetId == null) {
+            if (other.datasetId != null)
+                return false;
+        }
+        else if (!this.datasetId.equals(other.datasetId))
+            return false;
+        if (this.recordingDate == null) {
+            if (other.recordingDate != null)
+                return false;
+        }
+        else if (!this.recordingDate.equals(other.recordingDate))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+        result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.bottomLeftLat == null) ? 0 : this.bottomLeftLat.hashCode());
+        result = prime * result + ((this.bottomLeftLng == null) ? 0 : this.bottomLeftLng.hashCode());
+        result = prime * result + ((this.topRightLat == null) ? 0 : this.topRightLat.hashCode());
+        result = prime * result + ((this.topRightLng == null) ? 0 : this.topRightLng.hashCode());
+        result = prime * result + ((this.isLegend == null) ? 0 : this.isLegend.hashCode());
+        result = prime * result + ((this.referenceTable == null) ? 0 : this.referenceTable.hashCode());
+        result = prime * result + ((this.foreignId == null) ? 0 : this.foreignId.hashCode());
+        result = prime * result + ((this.datasetId == null) ? 0 : this.datasetId.hashCode());
+        result = prime * result + ((this.recordingDate == null) ? 0 : this.recordingDate.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

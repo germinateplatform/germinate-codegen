@@ -4,14 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.enums.PublicationdataReferenceType;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -20,17 +18,17 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Publicationdata implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer                      id;
-    private Integer                      foreignId;
-    private Integer                      publicationId;
+    private Integer id;
+    private Integer foreignId;
+    private Integer publicationId;
     private PublicationdataReferenceType referenceType;
-    private Timestamp                    createdOn;
-    private Timestamp                    updatedOn;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public Publicationdata() {}
 
@@ -44,12 +42,12 @@ public class Publicationdata implements Serializable {
     }
 
     public Publicationdata(
-        Integer                      id,
-        Integer                      foreignId,
-        Integer                      publicationId,
+        Integer id,
+        Integer foreignId,
+        Integer publicationId,
         PublicationdataReferenceType referenceType,
-        Timestamp                    createdOn,
-        Timestamp                    updatedOn
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.id = id;
         this.foreignId = foreignId;
@@ -57,6 +55,67 @@ public class Publicationdata implements Serializable {
         this.referenceType = referenceType;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Publicationdata other = (Publicationdata) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.foreignId == null) {
+            if (other.foreignId != null)
+                return false;
+        }
+        else if (!this.foreignId.equals(other.foreignId))
+            return false;
+        if (this.publicationId == null) {
+            if (other.publicationId != null)
+                return false;
+        }
+        else if (!this.publicationId.equals(other.publicationId))
+            return false;
+        if (this.referenceType == null) {
+            if (other.referenceType != null)
+                return false;
+        }
+        else if (!this.referenceType.equals(other.referenceType))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.foreignId == null) ? 0 : this.foreignId.hashCode());
+        result = prime * result + ((this.publicationId == null) ? 0 : this.publicationId.hashCode());
+        result = prime * result + ((this.referenceType == null) ? 0 : this.referenceType.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

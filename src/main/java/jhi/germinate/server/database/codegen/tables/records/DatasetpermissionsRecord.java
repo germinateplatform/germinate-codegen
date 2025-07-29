@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Datasetpermissions;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record6;
-import org.jooq.Row6;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -20,8 +16,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * This defines which users can view which datasets. Requires Germinate
  * Gatekeeper. This overrides the datasets state.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class DatasetpermissionsRecord extends UpdatableRecordImpl<DatasetpermissionsRecord> implements Record6<Integer, Integer, Integer, Integer, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class DatasetpermissionsRecord extends UpdatableRecordImpl<DatasetpermissionsRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -133,157 +129,6 @@ public class DatasetpermissionsRecord extends UpdatableRecordImpl<Datasetpermiss
     }
 
     // -------------------------------------------------------------------------
-    // Record6 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row6<Integer, Integer, Integer, Integer, Timestamp, Timestamp> fieldsRow() {
-        return (Row6) super.fieldsRow();
-    }
-
-    @Override
-    public Row6<Integer, Integer, Integer, Integer, Timestamp, Timestamp> valuesRow() {
-        return (Row6) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Datasetpermissions.DATASETPERMISSIONS.ID;
-    }
-
-    @Override
-    public Field<Integer> field2() {
-        return Datasetpermissions.DATASETPERMISSIONS.DATASET_ID;
-    }
-
-    @Override
-    public Field<Integer> field3() {
-        return Datasetpermissions.DATASETPERMISSIONS.USER_ID;
-    }
-
-    @Override
-    public Field<Integer> field4() {
-        return Datasetpermissions.DATASETPERMISSIONS.GROUP_ID;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Datasetpermissions.DATASETPERMISSIONS.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field6() {
-        return Datasetpermissions.DATASETPERMISSIONS.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public Integer component2() {
-        return getDatasetId();
-    }
-
-    @Override
-    public Integer component3() {
-        return getUserId();
-    }
-
-    @Override
-    public Integer component4() {
-        return getGroupId();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public Integer value2() {
-        return getDatasetId();
-    }
-
-    @Override
-    public Integer value3() {
-        return getUserId();
-    }
-
-    @Override
-    public Integer value4() {
-        return getGroupId();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value6() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public DatasetpermissionsRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public DatasetpermissionsRecord value2(Integer value) {
-        setDatasetId(value);
-        return this;
-    }
-
-    @Override
-    public DatasetpermissionsRecord value3(Integer value) {
-        setUserId(value);
-        return this;
-    }
-
-    @Override
-    public DatasetpermissionsRecord value4(Integer value) {
-        setGroupId(value);
-        return this;
-    }
-
-    @Override
-    public DatasetpermissionsRecord value5(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public DatasetpermissionsRecord value6(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public DatasetpermissionsRecord values(Integer value1, Integer value2, Integer value3, Integer value4, Timestamp value5, Timestamp value6) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        value6(value6);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -306,6 +151,7 @@ public class DatasetpermissionsRecord extends UpdatableRecordImpl<Datasetpermiss
         setGroupId(groupId);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -321,6 +167,7 @@ public class DatasetpermissionsRecord extends UpdatableRecordImpl<Datasetpermiss
             setGroupId(value.getGroupId());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

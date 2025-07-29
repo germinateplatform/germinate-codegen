@@ -4,14 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
-import org.jooq.types.ULong;
-
-
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.jooq.types.ULong;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 // @formatter:off
 /**
@@ -21,15 +19,15 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Datasetmeta implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer   id;
-    private Integer   datasetId;
-    private ULong     nrOfDataObjects;
-    private ULong     nrOfDataPoints;
+    private Integer id;
+    private Integer datasetId;
+    private ULong nrOfDataObjects;
+    private ULong nrOfDataPoints;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -45,10 +43,10 @@ public class Datasetmeta implements Serializable {
     }
 
     public Datasetmeta(
-        Integer   id,
-        Integer   datasetId,
-        ULong     nrOfDataObjects,
-        ULong     nrOfDataPoints,
+        Integer id,
+        Integer datasetId,
+        ULong nrOfDataObjects,
+        ULong nrOfDataPoints,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
@@ -58,6 +56,67 @@ public class Datasetmeta implements Serializable {
         this.nrOfDataPoints = nrOfDataPoints;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Datasetmeta other = (Datasetmeta) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.datasetId == null) {
+            if (other.datasetId != null)
+                return false;
+        }
+        else if (!this.datasetId.equals(other.datasetId))
+            return false;
+        if (this.nrOfDataObjects == null) {
+            if (other.nrOfDataObjects != null)
+                return false;
+        }
+        else if (!this.nrOfDataObjects.equals(other.nrOfDataObjects))
+            return false;
+        if (this.nrOfDataPoints == null) {
+            if (other.nrOfDataPoints != null)
+                return false;
+        }
+        else if (!this.nrOfDataPoints.equals(other.nrOfDataPoints))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.datasetId == null) ? 0 : this.datasetId.hashCode());
+        result = prime * result + ((this.nrOfDataObjects == null) ? 0 : this.nrOfDataObjects.hashCode());
+        result = prime * result + ((this.nrOfDataPoints == null) ? 0 : this.nrOfDataPoints.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
     }
 
     @Override

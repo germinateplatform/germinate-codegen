@@ -4,23 +4,19 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Locationtypes;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record5;
-import org.jooq.Row5;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
 /**
  * Describes a location.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class LocationtypesRecord extends UpdatableRecordImpl<LocationtypesRecord> implements Record5<Integer, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class LocationtypesRecord extends UpdatableRecordImpl<LocationtypesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -116,135 +112,6 @@ public class LocationtypesRecord extends UpdatableRecordImpl<LocationtypesRecord
     }
 
     // -------------------------------------------------------------------------
-    // Record5 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row5<Integer, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row5) super.fieldsRow();
-    }
-
-    @Override
-    public Row5<Integer, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row5) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Locationtypes.LOCATIONTYPES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Locationtypes.LOCATIONTYPES.NAME;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Locationtypes.LOCATIONTYPES.DESCRIPTION;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Locationtypes.LOCATIONTYPES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Locationtypes.LOCATIONTYPES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getName();
-    }
-
-    @Override
-    public String component3() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getName();
-    }
-
-    @Override
-    public String value3() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public LocationtypesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public LocationtypesRecord value2(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public LocationtypesRecord value3(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public LocationtypesRecord value4(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public LocationtypesRecord value5(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public LocationtypesRecord values(Integer value1, String value2, String value3, Timestamp value4, Timestamp value5) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -266,6 +133,7 @@ public class LocationtypesRecord extends UpdatableRecordImpl<LocationtypesRecord
         setDescription(description);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -280,6 +148,7 @@ public class LocationtypesRecord extends UpdatableRecordImpl<LocationtypesRecord
             setDescription(value.getDescription());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

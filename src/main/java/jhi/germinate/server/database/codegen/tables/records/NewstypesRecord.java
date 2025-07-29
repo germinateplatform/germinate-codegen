@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Newstypes;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record5;
-import org.jooq.Row5;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -21,8 +17,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * displayed on the Germinate user interface and are not required if the user
  * interface is not used.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class NewstypesRecord extends UpdatableRecordImpl<NewstypesRecord> implements Record5<Integer, String, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class NewstypesRecord extends UpdatableRecordImpl<NewstypesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -118,135 +114,6 @@ public class NewstypesRecord extends UpdatableRecordImpl<NewstypesRecord> implem
     }
 
     // -------------------------------------------------------------------------
-    // Record5 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row5<Integer, String, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row5) super.fieldsRow();
-    }
-
-    @Override
-    public Row5<Integer, String, String, Timestamp, Timestamp> valuesRow() {
-        return (Row5) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Newstypes.NEWSTYPES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Newstypes.NEWSTYPES.NAME;
-    }
-
-    @Override
-    public Field<String> field3() {
-        return Newstypes.NEWSTYPES.DESCRIPTION;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Newstypes.NEWSTYPES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field5() {
-        return Newstypes.NEWSTYPES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getName();
-    }
-
-    @Override
-    public String component3() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getName();
-    }
-
-    @Override
-    public String value3() {
-        return getDescription();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value5() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public NewstypesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public NewstypesRecord value2(String value) {
-        setName(value);
-        return this;
-    }
-
-    @Override
-    public NewstypesRecord value3(String value) {
-        setDescription(value);
-        return this;
-    }
-
-    @Override
-    public NewstypesRecord value4(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public NewstypesRecord value5(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public NewstypesRecord values(Integer value1, String value2, String value3, Timestamp value4, Timestamp value5) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        value5(value5);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -268,6 +135,7 @@ public class NewstypesRecord extends UpdatableRecordImpl<NewstypesRecord> implem
         setDescription(description);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -282,6 +150,7 @@ public class NewstypesRecord extends UpdatableRecordImpl<NewstypesRecord> implem
             setDescription(value.getDescription());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on

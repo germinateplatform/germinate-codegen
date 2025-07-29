@@ -4,24 +4,14 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.BiologicalstatusRecord;
-
-import org.jooq.Field;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Row4;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
+import org.jooq.*;
+import org.jooq.impl.*;
 import org.jooq.impl.Internal;
-import org.jooq.impl.SQLDataType;
-import org.jooq.impl.TableImpl;
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 
 // @formatter:off
@@ -54,7 +44,7 @@ import org.jooq.impl.TableImpl;
  * 600) GMO (by genetic engineering)
  *  999) Other 
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Biologicalstatus extends TableImpl<BiologicalstatusRecord> {
 
     private static final long serialVersionUID = 1L;
@@ -88,21 +78,21 @@ public class Biologicalstatus extends TableImpl<BiologicalstatusRecord> {
      * The column <code>germinate_db.biologicalstatus.created_on</code>. When
      * the record was created.
      */
-    public final TableField<BiologicalstatusRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was created.");
+    public final TableField<BiologicalstatusRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was created.");
 
     /**
      * The column <code>germinate_db.biologicalstatus.updated_on</code>. When
      * the record was updated. This may be different from the created on date if
      * subsequent changes have been made to the underlying record.
      */
-    public final TableField<BiologicalstatusRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
+    public final TableField<BiologicalstatusRecord, Timestamp> UPDATED_ON = createField(DSL.name("updated_on"), SQLDataType.TIMESTAMP(0).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.TIMESTAMP)), this, "When the record was updated. This may be different from the created on date if subsequent changes have been made to the underlying record.");
 
     private Biologicalstatus(Name alias, Table<BiologicalstatusRecord> aliased) {
-        this(alias, aliased, null);
+        this(alias, aliased, (Field<?>[]) null, null);
     }
 
-    private Biologicalstatus(Name alias, Table<BiologicalstatusRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("Based on Multi Crop Passport Descriptors (MCPD V2 2012) - The coding scheme proposed can be used at 3 different levels of detail: either by using the\ngeneral codes (in boldface) such as 100, 200, 300, 400, or by using the more specific codes\nsuch as 110, 120, etc.\n100) Wild\n110) Natural\n120) Semi-natural/wild\n130) Semi-natural/sown\n200) Weedy\n300) Traditional cultivar/landrace\n400) Breeding/research material\n 410) Breeder's line\n 411) Synthetic population\n 412) Hybrid\n 413) Founder stock/base population\n 414) Inbred line (parent of hybrid cultivar)\n 415) Segregating population\n 416) Clonal selection\n 420) Genetic stock\n 421) Mutant (e.g. induced/insertion mutants, tilling populations)\n 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,\namphiploids)\n 423) Other genetic stocks (e.g. mapping populations)\n500) Advanced or improved cultivar (conventional breeding methods)\n600) GMO (by genetic engineering)\n 999) Other "), TableOptions.table());
+    private Biologicalstatus(Name alias, Table<BiologicalstatusRecord> aliased, Field<?>[] parameters, Condition where) {
+        super(alias, null, aliased, parameters, DSL.comment("Based on Multi Crop Passport Descriptors (MCPD V2 2012) - The coding scheme proposed can be used at 3 different levels of detail: either by using the\ngeneral codes (in boldface) such as 100, 200, 300, 400, or by using the more specific codes\nsuch as 110, 120, etc.\n100) Wild\n110) Natural\n120) Semi-natural/wild\n130) Semi-natural/sown\n200) Weedy\n300) Traditional cultivar/landrace\n400) Breeding/research material\n 410) Breeder's line\n 411) Synthetic population\n 412) Hybrid\n 413) Founder stock/base population\n 414) Inbred line (parent of hybrid cultivar)\n 415) Segregating population\n 416) Clonal selection\n 420) Genetic stock\n 421) Mutant (e.g. induced/insertion mutants, tilling populations)\n 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,\namphiploids)\n 423) Other genetic stocks (e.g. mapping populations)\n500) Advanced or improved cultivar (conventional breeding methods)\n600) GMO (by genetic engineering)\n 999) Other "), TableOptions.table(), where);
     }
 
     /**
@@ -153,6 +143,11 @@ public class Biologicalstatus extends TableImpl<BiologicalstatusRecord> {
         return new Biologicalstatus(alias, this);
     }
 
+    @Override
+    public Biologicalstatus as(Table<?> alias) {
+        return new Biologicalstatus(alias.getQualifiedName(), this);
+    }
+
     /**
      * Rename this table
      */
@@ -169,13 +164,96 @@ public class Biologicalstatus extends TableImpl<BiologicalstatusRecord> {
         return new Biologicalstatus(name, null);
     }
 
-    // -------------------------------------------------------------------------
-    // Row4 type methods
-    // -------------------------------------------------------------------------
-
+    /**
+     * Rename this table
+     */
     @Override
-    public Row4<Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row4) super.fieldsRow();
+    public Biologicalstatus rename(Table<?> name) {
+        return new Biologicalstatus(name.getQualifiedName(), null);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Biologicalstatus where(Condition condition) {
+        return new Biologicalstatus(getQualifiedName(), aliased() ? this : null, null, condition);
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Biologicalstatus where(Collection<? extends Condition> conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Biologicalstatus where(Condition... conditions) {
+        return where(DSL.and(conditions));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Biologicalstatus where(Field<Boolean> condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Biologicalstatus where(SQL condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Biologicalstatus where(@Stringly.SQL String condition) {
+        return where(DSL.condition(condition));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Biologicalstatus where(@Stringly.SQL String condition, Object... binds) {
+        return where(DSL.condition(condition, binds));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    @PlainSQL
+    public Biologicalstatus where(@Stringly.SQL String condition, QueryPart... parts) {
+        return where(DSL.condition(condition, parts));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Biologicalstatus whereExists(Select<?> select) {
+        return where(DSL.exists(select));
+    }
+
+    /**
+     * Create an inline derived table from this table
+     */
+    @Override
+    public Biologicalstatus whereNotExists(Select<?> select) {
+        return where(DSL.notExists(select));
     }
     // @formatter:on
 }

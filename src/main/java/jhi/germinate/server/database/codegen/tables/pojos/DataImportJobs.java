@@ -4,19 +4,14 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import jhi.germinate.server.database.codegen.enums.*;
+import jhi.germinate.server.database.pojo.*;
+import lombok.*;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Arrays;
-
-import jhi.germinate.server.database.codegen.enums.DataImportJobsDatatype;
-import jhi.germinate.server.database.codegen.enums.DataImportJobsStatus;
-import jhi.germinate.server.database.pojo.ImportJobDetails;
-import jhi.germinate.server.database.pojo.ImportJobStats;
-import jhi.germinate.server.database.pojo.ImportResult;
-
-
-import lombok.*;
-import lombok.experimental.Accessors;
 
 // @formatter:off
 /**
@@ -25,27 +20,27 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class DataImportJobs implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer                id;
-    private String                 uuid;
-    private String                 jobId;
-    private ImportJobDetails       jobConfig;
-    private Integer                userId;
-    private String                 originalFilename;
-    private Boolean                isUpdate;
-    private Integer                datasetstateId;
+    private Integer id;
+    private String uuid;
+    private String jobId;
+    private ImportJobDetails jobConfig;
+    private Integer userId;
+    private String originalFilename;
+    private Boolean isUpdate;
+    private Integer datasetstateId;
     private DataImportJobsDatatype datatype;
-    private DataImportJobsStatus   status;
-    private Boolean                imported;
-    private Boolean                visibility;
-    private ImportResult[]         feedback;
-    private ImportJobStats         stats;
-    private Timestamp              createdOn;
-    private Timestamp              updatedOn;
+    private DataImportJobsStatus status;
+    private Boolean imported;
+    private Boolean visibility;
+    private ImportResult[] feedback;
+    private ImportJobStats stats;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
 
     public DataImportJobs() {}
 
@@ -69,22 +64,22 @@ public class DataImportJobs implements Serializable {
     }
 
     public DataImportJobs(
-        Integer                id,
-        String                 uuid,
-        String                 jobId,
-        ImportJobDetails       jobConfig,
-        Integer                userId,
-        String                 originalFilename,
-        Boolean                isUpdate,
-        Integer                datasetstateId,
+        Integer id,
+        String uuid,
+        String jobId,
+        ImportJobDetails jobConfig,
+        Integer userId,
+        String originalFilename,
+        Boolean isUpdate,
+        Integer datasetstateId,
         DataImportJobsDatatype datatype,
-        DataImportJobsStatus   status,
-        Boolean                imported,
-        Boolean                visibility,
-        ImportResult[]         feedback,
-        ImportJobStats         stats,
-        Timestamp              createdOn,
-        Timestamp              updatedOn
+        DataImportJobsStatus status,
+        Boolean imported,
+        Boolean visibility,
+        ImportResult[] feedback,
+        ImportJobStats stats,
+        Timestamp createdOn,
+        Timestamp updatedOn
     ) {
         this.id = id;
         this.uuid = uuid;
@@ -105,6 +100,137 @@ public class DataImportJobs implements Serializable {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final DataImportJobs other = (DataImportJobs) obj;
+        if (this.id == null) {
+            if (other.id != null)
+                return false;
+        }
+        else if (!this.id.equals(other.id))
+            return false;
+        if (this.uuid == null) {
+            if (other.uuid != null)
+                return false;
+        }
+        else if (!this.uuid.equals(other.uuid))
+            return false;
+        if (this.jobId == null) {
+            if (other.jobId != null)
+                return false;
+        }
+        else if (!this.jobId.equals(other.jobId))
+            return false;
+        if (this.jobConfig == null) {
+            if (other.jobConfig != null)
+                return false;
+        }
+        else if (!this.jobConfig.equals(other.jobConfig))
+            return false;
+        if (this.userId == null) {
+            if (other.userId != null)
+                return false;
+        }
+        else if (!this.userId.equals(other.userId))
+            return false;
+        if (this.originalFilename == null) {
+            if (other.originalFilename != null)
+                return false;
+        }
+        else if (!this.originalFilename.equals(other.originalFilename))
+            return false;
+        if (this.isUpdate == null) {
+            if (other.isUpdate != null)
+                return false;
+        }
+        else if (!this.isUpdate.equals(other.isUpdate))
+            return false;
+        if (this.datasetstateId == null) {
+            if (other.datasetstateId != null)
+                return false;
+        }
+        else if (!this.datasetstateId.equals(other.datasetstateId))
+            return false;
+        if (this.datatype == null) {
+            if (other.datatype != null)
+                return false;
+        }
+        else if (!this.datatype.equals(other.datatype))
+            return false;
+        if (this.status == null) {
+            if (other.status != null)
+                return false;
+        }
+        else if (!this.status.equals(other.status))
+            return false;
+        if (this.imported == null) {
+            if (other.imported != null)
+                return false;
+        }
+        else if (!this.imported.equals(other.imported))
+            return false;
+        if (this.visibility == null) {
+            if (other.visibility != null)
+                return false;
+        }
+        else if (!this.visibility.equals(other.visibility))
+            return false;
+        if (this.feedback == null) {
+            if (other.feedback != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.feedback, other.feedback))
+            return false;
+        if (this.stats == null) {
+            if (other.stats != null)
+                return false;
+        }
+        else if (!this.stats.equals(other.stats))
+            return false;
+        if (this.createdOn == null) {
+            if (other.createdOn != null)
+                return false;
+        }
+        else if (!this.createdOn.equals(other.createdOn))
+            return false;
+        if (this.updatedOn == null) {
+            if (other.updatedOn != null)
+                return false;
+        }
+        else if (!this.updatedOn.equals(other.updatedOn))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.uuid == null) ? 0 : this.uuid.hashCode());
+        result = prime * result + ((this.jobId == null) ? 0 : this.jobId.hashCode());
+        result = prime * result + ((this.jobConfig == null) ? 0 : this.jobConfig.hashCode());
+        result = prime * result + ((this.userId == null) ? 0 : this.userId.hashCode());
+        result = prime * result + ((this.originalFilename == null) ? 0 : this.originalFilename.hashCode());
+        result = prime * result + ((this.isUpdate == null) ? 0 : this.isUpdate.hashCode());
+        result = prime * result + ((this.datasetstateId == null) ? 0 : this.datasetstateId.hashCode());
+        result = prime * result + ((this.datatype == null) ? 0 : this.datatype.hashCode());
+        result = prime * result + ((this.status == null) ? 0 : this.status.hashCode());
+        result = prime * result + ((this.imported == null) ? 0 : this.imported.hashCode());
+        result = prime * result + ((this.visibility == null) ? 0 : this.visibility.hashCode());
+        result = prime * result + ((this.feedback == null) ? 0 : Arrays.deepHashCode(this.feedback));
+        result = prime * result + ((this.stats == null) ? 0 : this.stats.hashCode());
+        result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
+        result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
+        return result;
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("DataImportJobs (");
 
@@ -120,7 +246,7 @@ public class DataImportJobs implements Serializable {
         sb.append(", ").append(status);
         sb.append(", ").append(imported);
         sb.append(", ").append(visibility);
-        sb.append(", ").append(Arrays.toString(feedback));
+        sb.append(", ").append(Arrays.deepToString(feedback));
         sb.append(", ").append(stats);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);

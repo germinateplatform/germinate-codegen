@@ -4,9 +4,7 @@
 package jhi.germinate.server.database.codegen.enums;
 
 
-import org.jooq.Catalog;
-import org.jooq.EnumType;
-import org.jooq.Schema;
+import org.jooq.*;
 
 
 // @formatter:off
@@ -14,7 +12,7 @@ import org.jooq.Schema;
  * Defines the data type of the attribute. This can be of numeric, text, date or
  * categorical types.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public enum ViewTableTraitAttributesAttributeType implements EnumType {
 
     categorical("categorical"),
@@ -43,7 +41,7 @@ public enum ViewTableTraitAttributesAttributeType implements EnumType {
 
     @Override
     public String getName() {
-        return "view_table_trait_attributes_attribute_type";
+        return null;
     }
 
     @Override
@@ -52,7 +50,9 @@ public enum ViewTableTraitAttributesAttributeType implements EnumType {
     }
 
     /**
-     * Lookup a value of this EnumType by its literal
+     * Lookup a value of this EnumType by its literal. Returns
+     * <code>null</code>, if no such value could be found, see {@link
+     * EnumType#lookupLiteral(Class, String)}.
      */
     public static ViewTableTraitAttributesAttributeType lookupLiteral(String literal) {
         return EnumType.lookupLiteral(ViewTableTraitAttributesAttributeType.class, literal);

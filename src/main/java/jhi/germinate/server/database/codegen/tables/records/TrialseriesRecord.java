@@ -4,15 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import java.sql.Timestamp;
-
 import jhi.germinate.server.database.codegen.tables.Trialseries;
-
-import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record4;
-import org.jooq.Row4;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -21,8 +17,8 @@ import org.jooq.impl.UpdatableRecordImpl;
  * which trials data is associated. Examples would include the overarching
  * project.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class TrialseriesRecord extends UpdatableRecordImpl<TrialseriesRecord> implements Record4<Integer, String, Timestamp, Timestamp> {
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+public class TrialseriesRecord extends UpdatableRecordImpl<TrialseriesRecord> {
 
     private static final long serialVersionUID = 1L;
 
@@ -102,113 +98,6 @@ public class TrialseriesRecord extends UpdatableRecordImpl<TrialseriesRecord> im
     }
 
     // -------------------------------------------------------------------------
-    // Record4 type implementation
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> fieldsRow() {
-        return (Row4) super.fieldsRow();
-    }
-
-    @Override
-    public Row4<Integer, String, Timestamp, Timestamp> valuesRow() {
-        return (Row4) super.valuesRow();
-    }
-
-    @Override
-    public Field<Integer> field1() {
-        return Trialseries.TRIALSERIES.ID;
-    }
-
-    @Override
-    public Field<String> field2() {
-        return Trialseries.TRIALSERIES.SERIESNAME;
-    }
-
-    @Override
-    public Field<Timestamp> field3() {
-        return Trialseries.TRIALSERIES.CREATED_ON;
-    }
-
-    @Override
-    public Field<Timestamp> field4() {
-        return Trialseries.TRIALSERIES.UPDATED_ON;
-    }
-
-    @Override
-    public Integer component1() {
-        return getId();
-    }
-
-    @Override
-    public String component2() {
-        return getSeriesname();
-    }
-
-    @Override
-    public Timestamp component3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp component4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public Integer value1() {
-        return getId();
-    }
-
-    @Override
-    public String value2() {
-        return getSeriesname();
-    }
-
-    @Override
-    public Timestamp value3() {
-        return getCreatedOn();
-    }
-
-    @Override
-    public Timestamp value4() {
-        return getUpdatedOn();
-    }
-
-    @Override
-    public TrialseriesRecord value1(Integer value) {
-        setId(value);
-        return this;
-    }
-
-    @Override
-    public TrialseriesRecord value2(String value) {
-        setSeriesname(value);
-        return this;
-    }
-
-    @Override
-    public TrialseriesRecord value3(Timestamp value) {
-        setCreatedOn(value);
-        return this;
-    }
-
-    @Override
-    public TrialseriesRecord value4(Timestamp value) {
-        setUpdatedOn(value);
-        return this;
-    }
-
-    @Override
-    public TrialseriesRecord values(Integer value1, String value2, Timestamp value3, Timestamp value4) {
-        value1(value1);
-        value2(value2);
-        value3(value3);
-        value4(value4);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------------------
 
@@ -229,6 +118,7 @@ public class TrialseriesRecord extends UpdatableRecordImpl<TrialseriesRecord> im
         setSeriesname(seriesname);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
+        resetTouchedOnNotNull();
     }
 
     /**
@@ -242,6 +132,7 @@ public class TrialseriesRecord extends UpdatableRecordImpl<TrialseriesRecord> im
             setSeriesname(value.getSeriesname());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
+            resetTouchedOnNotNull();
         }
     }
     // @formatter:on
