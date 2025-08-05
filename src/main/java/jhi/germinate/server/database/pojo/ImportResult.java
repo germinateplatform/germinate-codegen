@@ -1,5 +1,14 @@
 package jhi.germinate.server.database.pojo;
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Accessors(chain = true)
+@ToString
 public class ImportResult
 {
 	private ImportStatus status;
@@ -13,45 +22,6 @@ public class ImportResult
 		this.rowIndex = rowIndex;
 		this.message = message;
 		this.type = StatusType.ERROR;
-	}
-
-	public ImportResult(ImportStatus status, int rowIndex, String message, StatusType type)
-	{
-		this.status = status;
-		this.rowIndex = rowIndex;
-		this.message = message;
-		this.type = type;
-	}
-
-	public ImportStatus getStatus()
-	{
-		return status;
-	}
-
-	public int getRowIndex()
-	{
-		return rowIndex;
-	}
-
-	public String getMessage()
-	{
-		return message;
-	}
-
-	public StatusType getType()
-	{
-		return type;
-	}
-
-	@Override
-	public String toString()
-	{
-		return "ImportResult{" +
-			"status=" + status +
-			", rowIndex=" + rowIndex +
-			", message='" + message + '\'' +
-			", type=" + type +
-			'}';
 	}
 
 	public enum StatusType

@@ -1,32 +1,17 @@
 package jhi.germinate.server.database.pojo;
 
+import lombok.*;
+import lombok.experimental.Accessors;
+
 /**
  * @author Sebastian Raubach
  */
+@NoArgsConstructor
+@Getter
+@Setter
+@Accessors(chain = true)
 public class ImageTag
 {
 	private Integer tagId;
 	private String tagName;
-
-	public Integer getTagId()
-	{
-		return tagId;
-	}
-
-	public ImageTag setTagId(Integer tagId)
-	{
-		this.tagId = tagId;
-		return this;
-	}
-
-	public String getTagName()
-	{
-		return tagName;
-	}
-
-	public ImageTag setTagName(String tagName)
-	{
-		this.tagName = tagName;
-		return this;
-	}
 }
