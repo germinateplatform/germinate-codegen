@@ -10,8 +10,8 @@ plugins {
 
 compileJava.options.encoding = 'UTF-8'
 
-group 'uk.ac.hutton.germinate'
-version '4.9.0'
+group = 'uk.ac.hutton.germinate'
+version = '4.9.0'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
