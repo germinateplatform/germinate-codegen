@@ -4,10 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.tables.ViewTableLocations;
-import org.jooq.impl.TableRecordImpl;
-
 import java.math.BigDecimal;
+
+import jhi.germinate.server.database.codegen.tables.ViewTableLocations;
+
+import org.jooq.impl.TableRecordImpl;
 
 
 // @formatter:off

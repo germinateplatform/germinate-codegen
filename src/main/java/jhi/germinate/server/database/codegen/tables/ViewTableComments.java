@@ -4,13 +4,27 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.tables.records.ViewTableCommentsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
-
 import java.sql.Timestamp;
 import java.util.Collection;
+
+import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.tables.records.ViewTableCommentsRecord;
+
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -90,7 +104,7 @@ public class ViewTableComments extends TableImpl<ViewTableCommentsRecord> {
     }
 
     private ViewTableComments(Name alias, Table<ViewTableCommentsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_comments` as select `germinate_template_4_25_03_05`.`comments`.`id` AS `comment_id`,`germinate_template_4_25_03_05`.`commenttypes`.`id` AS `comment_type_id`,`germinate_template_4_25_03_05`.`commenttypes`.`reference_table` AS `comment_type`,`germinate_template_4_25_03_05`.`comments`.`reference_id` AS `comment_foreign_id`,`germinate_template_4_25_03_05`.`comments`.`user_id` AS `user_id`,'' AS `user_name`,`germinate_template_4_25_03_05`.`comments`.`description` AS `comment_content`,`germinate_template_4_25_03_05`.`comments`.`updated_on` AS `updated_on` from (`germinate_template_4_25_03_05`.`comments` left join `germinate_template_4_25_03_05`.`commenttypes` on((`germinate_template_4_25_03_05`.`commenttypes`.`id` = `germinate_template_4_25_03_05`.`comments`.`commenttype_id`)))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_comments` as select `germinate_template_4_25_09_04`.`comments`.`id` AS `comment_id`,`germinate_template_4_25_09_04`.`commenttypes`.`id` AS `comment_type_id`,`germinate_template_4_25_09_04`.`commenttypes`.`reference_table` AS `comment_type`,`germinate_template_4_25_09_04`.`comments`.`reference_id` AS `comment_foreign_id`,`germinate_template_4_25_09_04`.`comments`.`user_id` AS `user_id`,'' AS `user_name`,`germinate_template_4_25_09_04`.`comments`.`description` AS `comment_content`,`germinate_template_4_25_09_04`.`comments`.`updated_on` AS `updated_on` from (`germinate_template_4_25_09_04`.`comments` left join `germinate_template_4_25_09_04`.`commenttypes` on((`germinate_template_4_25_09_04`.`commenttypes`.`id` = `germinate_template_4_25_09_04`.`comments`.`commenttype_id`)))"), where);
     }
 
     /**

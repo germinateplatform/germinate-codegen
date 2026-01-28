@@ -4,11 +4,136 @@
 package jhi.germinate.server.database.codegen;
 
 
-import jhi.germinate.server.database.codegen.tables.*;
-import org.jooq.*;
-import org.jooq.impl.*;
+import java.util.Arrays;
+import java.util.List;
 
-import java.util.*;
+import jhi.germinate.server.database.codegen.tables.Attributedata;
+import jhi.germinate.server.database.codegen.tables.Attributes;
+import jhi.germinate.server.database.codegen.tables.Biologicalstatus;
+import jhi.germinate.server.database.codegen.tables.Climatedata;
+import jhi.germinate.server.database.codegen.tables.Climates;
+import jhi.germinate.server.database.codegen.tables.Collaborators;
+import jhi.germinate.server.database.codegen.tables.Collectingsources;
+import jhi.germinate.server.database.codegen.tables.Comments;
+import jhi.germinate.server.database.codegen.tables.Commenttypes;
+import jhi.germinate.server.database.codegen.tables.Countries;
+import jhi.germinate.server.database.codegen.tables.DataExportJobs;
+import jhi.germinate.server.database.codegen.tables.DataImportJobs;
+import jhi.germinate.server.database.codegen.tables.Datasetaccesslogs;
+import jhi.germinate.server.database.codegen.tables.Datasetcollaborators;
+import jhi.germinate.server.database.codegen.tables.Datasetfileresources;
+import jhi.germinate.server.database.codegen.tables.Datasetlocations;
+import jhi.germinate.server.database.codegen.tables.Datasetmembers;
+import jhi.germinate.server.database.codegen.tables.Datasetmembertypes;
+import jhi.germinate.server.database.codegen.tables.Datasetmeta;
+import jhi.germinate.server.database.codegen.tables.Datasetpermissions;
+import jhi.germinate.server.database.codegen.tables.Datasets;
+import jhi.germinate.server.database.codegen.tables.Datasetstates;
+import jhi.germinate.server.database.codegen.tables.Datasettypes;
+import jhi.germinate.server.database.codegen.tables.Datawarnings;
+import jhi.germinate.server.database.codegen.tables.Entitytypes;
+import jhi.germinate.server.database.codegen.tables.Experiments;
+import jhi.germinate.server.database.codegen.tables.Fileresources;
+import jhi.germinate.server.database.codegen.tables.Fileresourcetypes;
+import jhi.germinate.server.database.codegen.tables.Germinatebase;
+import jhi.germinate.server.database.codegen.tables.Germplasmdatawarnings;
+import jhi.germinate.server.database.codegen.tables.Germplasminstitutions;
+import jhi.germinate.server.database.codegen.tables.Groupmembers;
+import jhi.germinate.server.database.codegen.tables.Groups;
+import jhi.germinate.server.database.codegen.tables.Grouptypes;
+import jhi.germinate.server.database.codegen.tables.ImageToTags;
+import jhi.germinate.server.database.codegen.tables.Images;
+import jhi.germinate.server.database.codegen.tables.Imagetags;
+import jhi.germinate.server.database.codegen.tables.Imagetypes;
+import jhi.germinate.server.database.codegen.tables.Institutions;
+import jhi.germinate.server.database.codegen.tables.Licensedata;
+import jhi.germinate.server.database.codegen.tables.Licenselogs;
+import jhi.germinate.server.database.codegen.tables.Licenses;
+import jhi.germinate.server.database.codegen.tables.Links;
+import jhi.germinate.server.database.codegen.tables.Linktypes;
+import jhi.germinate.server.database.codegen.tables.Locales;
+import jhi.germinate.server.database.codegen.tables.Locations;
+import jhi.germinate.server.database.codegen.tables.Locationtypes;
+import jhi.germinate.server.database.codegen.tables.Mapdefinitions;
+import jhi.germinate.server.database.codegen.tables.Mapfeaturetypes;
+import jhi.germinate.server.database.codegen.tables.Mapoverlays;
+import jhi.germinate.server.database.codegen.tables.Maps;
+import jhi.germinate.server.database.codegen.tables.Markers;
+import jhi.germinate.server.database.codegen.tables.Markertypes;
+import jhi.germinate.server.database.codegen.tables.Mcpd;
+import jhi.germinate.server.database.codegen.tables.Mlsstatus;
+import jhi.germinate.server.database.codegen.tables.News;
+import jhi.germinate.server.database.codegen.tables.Newstypes;
+import jhi.germinate.server.database.codegen.tables.Pedigreedefinitions;
+import jhi.germinate.server.database.codegen.tables.Pedigreedescriptions;
+import jhi.germinate.server.database.codegen.tables.Pedigreenotations;
+import jhi.germinate.server.database.codegen.tables.Pedigrees;
+import jhi.germinate.server.database.codegen.tables.Phenotypecategories;
+import jhi.germinate.server.database.codegen.tables.Phenotypedata;
+import jhi.germinate.server.database.codegen.tables.Phenotypes;
+import jhi.germinate.server.database.codegen.tables.Projectcollaborators;
+import jhi.germinate.server.database.codegen.tables.Projectgroups;
+import jhi.germinate.server.database.codegen.tables.Projectpublications;
+import jhi.germinate.server.database.codegen.tables.Projects;
+import jhi.germinate.server.database.codegen.tables.Publicationdata;
+import jhi.germinate.server.database.codegen.tables.Publications;
+import jhi.germinate.server.database.codegen.tables.SchemaVersion;
+import jhi.germinate.server.database.codegen.tables.Stories;
+import jhi.germinate.server.database.codegen.tables.Storysteps;
+import jhi.germinate.server.database.codegen.tables.Synonyms;
+import jhi.germinate.server.database.codegen.tables.Synonymtypes;
+import jhi.germinate.server.database.codegen.tables.Taxonomies;
+import jhi.germinate.server.database.codegen.tables.Taxonomyproviders;
+import jhi.germinate.server.database.codegen.tables.Taxonomyproviderslinks;
+import jhi.germinate.server.database.codegen.tables.Treatments;
+import jhi.germinate.server.database.codegen.tables.Trialseries;
+import jhi.germinate.server.database.codegen.tables.Trialsetup;
+import jhi.germinate.server.database.codegen.tables.Units;
+import jhi.germinate.server.database.codegen.tables.Userfeedback;
+import jhi.germinate.server.database.codegen.tables.Usergroupmembers;
+import jhi.germinate.server.database.codegen.tables.Usergroups;
+import jhi.germinate.server.database.codegen.tables.ViewStatsBiologicalstatus;
+import jhi.germinate.server.database.codegen.tables.ViewStatsCountry;
+import jhi.germinate.server.database.codegen.tables.ViewStatsPdci;
+import jhi.germinate.server.database.codegen.tables.ViewStatsTaxonomy;
+import jhi.germinate.server.database.codegen.tables.ViewTableClimateData;
+import jhi.germinate.server.database.codegen.tables.ViewTableClimates;
+import jhi.germinate.server.database.codegen.tables.ViewTableCollaborators;
+import jhi.germinate.server.database.codegen.tables.ViewTableComments;
+import jhi.germinate.server.database.codegen.tables.ViewTableDatasetAttributes;
+import jhi.germinate.server.database.codegen.tables.ViewTableDatasets;
+import jhi.germinate.server.database.codegen.tables.ViewTableEntities;
+import jhi.germinate.server.database.codegen.tables.ViewTableFileresources;
+import jhi.germinate.server.database.codegen.tables.ViewTableFileresourcetypes;
+import jhi.germinate.server.database.codegen.tables.ViewTableGermplasmAttributes;
+import jhi.germinate.server.database.codegen.tables.ViewTableGermplasmDeprecated;
+import jhi.germinate.server.database.codegen.tables.ViewTableGroups;
+import jhi.germinate.server.database.codegen.tables.ViewTableImages;
+import jhi.germinate.server.database.codegen.tables.ViewTableImportJobs;
+import jhi.germinate.server.database.codegen.tables.ViewTableInstitutionDatasets;
+import jhi.germinate.server.database.codegen.tables.ViewTableInstitutions;
+import jhi.germinate.server.database.codegen.tables.ViewTableLicenseDefinitions;
+import jhi.germinate.server.database.codegen.tables.ViewTableLicenses;
+import jhi.germinate.server.database.codegen.tables.ViewTableLinks;
+import jhi.germinate.server.database.codegen.tables.ViewTableLocations;
+import jhi.germinate.server.database.codegen.tables.ViewTableMapoverlays;
+import jhi.germinate.server.database.codegen.tables.ViewTableMaps;
+import jhi.germinate.server.database.codegen.tables.ViewTableNews;
+import jhi.germinate.server.database.codegen.tables.ViewTablePedigreedefinitions;
+import jhi.germinate.server.database.codegen.tables.ViewTablePedigrees;
+import jhi.germinate.server.database.codegen.tables.ViewTableProjects;
+import jhi.germinate.server.database.codegen.tables.ViewTablePublications;
+import jhi.germinate.server.database.codegen.tables.ViewTableStories;
+import jhi.germinate.server.database.codegen.tables.ViewTableTaxonomies;
+import jhi.germinate.server.database.codegen.tables.ViewTableTraitAttributes;
+import jhi.germinate.server.database.codegen.tables.ViewTableTraits;
+import jhi.germinate.server.database.codegen.tables.ViewTableTraitsTemplate;
+import jhi.germinate.server.database.codegen.tables.ViewTableUsergroups;
+
+import org.jooq.Catalog;
+import org.jooq.Table;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SchemaImpl;
 
 
 // @formatter:off
@@ -117,6 +242,8 @@ public class GerminateDb extends SchemaImpl {
             Synonyms.SYNONYMS,
             Synonymtypes.SYNONYMTYPES,
             Taxonomies.TAXONOMIES,
+            Taxonomyproviders.TAXONOMYPROVIDERS,
+            Taxonomyproviderslinks.TAXONOMYPROVIDERSLINKS,
             Treatments.TREATMENTS,
             Trialseries.TRIALSERIES,
             Trialsetup.TRIALSETUP,
@@ -156,8 +283,10 @@ public class GerminateDb extends SchemaImpl {
             ViewTableProjects.VIEW_TABLE_PROJECTS,
             ViewTablePublications.VIEW_TABLE_PUBLICATIONS,
             ViewTableStories.VIEW_TABLE_STORIES,
+            ViewTableTaxonomies.VIEW_TABLE_TAXONOMIES,
             ViewTableTraitAttributes.VIEW_TABLE_TRAIT_ATTRIBUTES,
             ViewTableTraits.VIEW_TABLE_TRAITS,
+            ViewTableTraitsTemplate.VIEW_TABLE_TRAITS_TEMPLATE,
             ViewTableUsergroups.VIEW_TABLE_USERGROUPS
         );
     }

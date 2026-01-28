@@ -4,15 +4,29 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.sql.Timestamp;
+import java.util.Collection;
+
 import jhi.germinate.server.database.binding.DatasetArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableProjectsRecord;
 import jhi.germinate.server.database.pojo.Dataset;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.sql.Timestamp;
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -105,7 +119,7 @@ public class ViewTableProjects extends TableImpl<ViewTableProjectsRecord> {
     }
 
     private ViewTableProjects(Name alias, Table<ViewTableProjectsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_projects` as select `germinate_template_4_25_03_05`.`projects`.`id` AS `project_id`,`germinate_template_4_25_03_05`.`projects`.`name` AS `project_name`,`germinate_template_4_25_03_05`.`projects`.`description` AS `project_description`,`germinate_template_4_25_03_05`.`projects`.`page_content` AS `project_page_content`,`germinate_template_4_25_03_05`.`projects`.`external_url` AS `project_external_url`,`germinate_template_4_25_03_05`.`projects`.`image_id` AS `project_image_id`,`germinate_template_4_25_03_05`.`projects`.`start_date` AS `project_start_date`,`germinate_template_4_25_03_05`.`projects`.`end_date` AS `project_end_date`,`germinate_template_4_25_03_05`.`projects`.`created_on` AS `project_created_on`,`germinate_template_4_25_03_05`.`projects`.`updated_on` AS `project_updated_on`,json_arrayagg(json_object('datasetId',`germinate_template_4_25_03_05`.`datasets`.`id`,'datasetName',`germinate_template_4_25_03_05`.`datasets`.`name`,'datasetType',`germinate_template_4_25_03_05`.`datasettypes`.`description`,'datasetIsExternal',`germinate_template_4_25_03_05`.`datasets`.`is_external`)) AS `datasets` from (((`germinate_template_4_25_03_05`.`projects` left join `germinate_template_4_25_03_05`.`experiments` on((`germinate_template_4_25_03_05`.`experiments`.`project_id` = `germinate_template_4_25_03_05`.`projects`.`id`))) left join `germinate_template_4_25_03_05`.`datasets` on((`germinate_template_4_25_03_05`.`datasets`.`experiment_id` = `germinate_template_4_25_03_05`.`experiments`.`id`))) left join `germinate_template_4_25_03_05`.`datasettypes` on((`germinate_template_4_25_03_05`.`datasettypes`.`id` = `germinate_template_4_25_03_05`.`datasets`.`datasettype_id`))) group by `germinate_template_4_25_03_05`.`projects`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_projects` as select `germinate_template_4_25_09_04`.`projects`.`id` AS `project_id`,`germinate_template_4_25_09_04`.`projects`.`name` AS `project_name`,`germinate_template_4_25_09_04`.`projects`.`description` AS `project_description`,`germinate_template_4_25_09_04`.`projects`.`page_content` AS `project_page_content`,`germinate_template_4_25_09_04`.`projects`.`external_url` AS `project_external_url`,`germinate_template_4_25_09_04`.`projects`.`image_id` AS `project_image_id`,`germinate_template_4_25_09_04`.`projects`.`start_date` AS `project_start_date`,`germinate_template_4_25_09_04`.`projects`.`end_date` AS `project_end_date`,`germinate_template_4_25_09_04`.`projects`.`created_on` AS `project_created_on`,`germinate_template_4_25_09_04`.`projects`.`updated_on` AS `project_updated_on`,json_arrayagg(json_object('datasetId',`germinate_template_4_25_09_04`.`datasets`.`id`,'datasetName',`germinate_template_4_25_09_04`.`datasets`.`name`,'datasetType',`germinate_template_4_25_09_04`.`datasettypes`.`description`,'datasetIsExternal',`germinate_template_4_25_09_04`.`datasets`.`is_external`)) AS `datasets` from (((`germinate_template_4_25_09_04`.`projects` left join `germinate_template_4_25_09_04`.`experiments` on((`germinate_template_4_25_09_04`.`experiments`.`project_id` = `germinate_template_4_25_09_04`.`projects`.`id`))) left join `germinate_template_4_25_09_04`.`datasets` on((`germinate_template_4_25_09_04`.`datasets`.`experiment_id` = `germinate_template_4_25_09_04`.`experiments`.`id`))) left join `germinate_template_4_25_09_04`.`datasettypes` on((`germinate_template_4_25_09_04`.`datasettypes`.`id` = `germinate_template_4_25_09_04`.`datasets`.`datasettype_id`))) group by `germinate_template_4_25_09_04`.`projects`.`id`"), where);
     }
 
     /**

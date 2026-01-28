@@ -4,14 +4,28 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.sql.Timestamp;
+import java.util.Collection;
+
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.ViewTableNewsNewsImageFit;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableNewsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.sql.Timestamp;
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -111,7 +125,7 @@ public class ViewTableNews extends TableImpl<ViewTableNewsRecord> {
     }
 
     private ViewTableNews(Name alias, Table<ViewTableNewsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_news` as select `germinate_template_4_25_03_05`.`news`.`id` AS `news_id`,`germinate_template_4_25_03_05`.`news`.`title` AS `news_title`,`germinate_template_4_25_03_05`.`news`.`content` AS `news_content`,`germinate_template_4_25_03_05`.`news`.`hyperlink` AS `news_hyperlink`,`germinate_template_4_25_03_05`.`news`.`image` AS `news_image`,`germinate_template_4_25_03_05`.`news`.`image_fit` AS `news_image_fit`,`germinate_template_4_25_03_05`.`newstypes`.`id` AS `newstype_id`,`germinate_template_4_25_03_05`.`newstypes`.`name` AS `newstype_name`,`germinate_template_4_25_03_05`.`newstypes`.`description` AS `newstype_description`,`germinate_template_4_25_03_05`.`news`.`created_on` AS `created_on`,`germinate_template_4_25_03_05`.`news`.`updated_on` AS `updated_on` from (`germinate_template_4_25_03_05`.`news` left join `germinate_template_4_25_03_05`.`newstypes` on((`germinate_template_4_25_03_05`.`newstypes`.`id` = `germinate_template_4_25_03_05`.`news`.`newstype_id`))) order by `germinate_template_4_25_03_05`.`news`.`created_on` desc"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_news` as select `germinate_template_4_25_09_04`.`news`.`id` AS `news_id`,`germinate_template_4_25_09_04`.`news`.`title` AS `news_title`,`germinate_template_4_25_09_04`.`news`.`content` AS `news_content`,`germinate_template_4_25_09_04`.`news`.`hyperlink` AS `news_hyperlink`,`germinate_template_4_25_09_04`.`news`.`image` AS `news_image`,`germinate_template_4_25_09_04`.`news`.`image_fit` AS `news_image_fit`,`germinate_template_4_25_09_04`.`newstypes`.`id` AS `newstype_id`,`germinate_template_4_25_09_04`.`newstypes`.`name` AS `newstype_name`,`germinate_template_4_25_09_04`.`newstypes`.`description` AS `newstype_description`,`germinate_template_4_25_09_04`.`news`.`created_on` AS `created_on`,`germinate_template_4_25_09_04`.`news`.`updated_on` AS `updated_on` from (`germinate_template_4_25_09_04`.`news` left join `germinate_template_4_25_09_04`.`newstypes` on((`germinate_template_4_25_09_04`.`newstypes`.`id` = `germinate_template_4_25_09_04`.`news`.`newstype_id`))) order by `germinate_template_4_25_09_04`.`news`.`created_on` desc"), where);
     }
 
     /**

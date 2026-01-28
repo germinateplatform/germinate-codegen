@@ -4,13 +4,27 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.util.Collection;
+
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.ViewTableClimatesDataType;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableClimatesRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -112,7 +126,7 @@ public class ViewTableClimates extends TableImpl<ViewTableClimatesRecord> {
     }
 
     private ViewTableClimates(Name alias, Table<ViewTableClimatesRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_climates` as select `germinate_template_4_25_03_05`.`climates`.`id` AS `climate_id`,`germinate_template_4_25_03_05`.`climates`.`name` AS `climate_name`,`germinate_template_4_25_03_05`.`climates`.`short_name` AS `climate_name_short`,`germinate_template_4_25_03_05`.`climates`.`description` AS `climate_description`,`germinate_template_4_25_03_05`.`climates`.`datatype` AS `data_type`,`germinate_template_4_25_03_05`.`units`.`id` AS `unit_id`,`germinate_template_4_25_03_05`.`units`.`unit_name` AS `unit_name`,`germinate_template_4_25_03_05`.`units`.`unit_description` AS `unit_description`,(select count(1) from `germinate_template_4_25_03_05`.`mapoverlays` where ((`germinate_template_4_25_03_05`.`mapoverlays`.`reference_table` = 'climates') and (`germinate_template_4_25_03_05`.`mapoverlays`.`foreign_id` = `germinate_template_4_25_03_05`.`climates`.`id`))) AS `overlays`,`germinate_template_4_25_03_05`.`units`.`unit_abbreviation` AS `unit_abbreviation`,(select count(1) from `germinate_template_4_25_03_05`.`climatedata` where (`germinate_template_4_25_03_05`.`climatedata`.`climate_id` = `germinate_template_4_25_03_05`.`climates`.`id`)) AS `count` from (`germinate_template_4_25_03_05`.`climates` left join `germinate_template_4_25_03_05`.`units` on((`germinate_template_4_25_03_05`.`units`.`id` = `germinate_template_4_25_03_05`.`climates`.`unit_id`))) group by `germinate_template_4_25_03_05`.`climates`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_climates` as select `germinate_template_4_25_09_04`.`climates`.`id` AS `climate_id`,`germinate_template_4_25_09_04`.`climates`.`name` AS `climate_name`,`germinate_template_4_25_09_04`.`climates`.`short_name` AS `climate_name_short`,`germinate_template_4_25_09_04`.`climates`.`description` AS `climate_description`,`germinate_template_4_25_09_04`.`climates`.`datatype` AS `data_type`,`germinate_template_4_25_09_04`.`units`.`id` AS `unit_id`,`germinate_template_4_25_09_04`.`units`.`unit_name` AS `unit_name`,`germinate_template_4_25_09_04`.`units`.`unit_description` AS `unit_description`,(select count(1) from `germinate_template_4_25_09_04`.`mapoverlays` where ((`germinate_template_4_25_09_04`.`mapoverlays`.`reference_table` = 'climates') and (`germinate_template_4_25_09_04`.`mapoverlays`.`foreign_id` = `germinate_template_4_25_09_04`.`climates`.`id`))) AS `overlays`,`germinate_template_4_25_09_04`.`units`.`unit_abbreviation` AS `unit_abbreviation`,(select count(1) from `germinate_template_4_25_09_04`.`climatedata` where (`germinate_template_4_25_09_04`.`climatedata`.`climate_id` = `germinate_template_4_25_09_04`.`climates`.`id`)) AS `count` from (`germinate_template_4_25_09_04`.`climates` left join `germinate_template_4_25_09_04`.`units` on((`germinate_template_4_25_09_04`.`units`.`id` = `germinate_template_4_25_09_04`.`climates`.`unit_id`))) group by `germinate_template_4_25_09_04`.`climates`.`id`"), where);
     }
 
     /**

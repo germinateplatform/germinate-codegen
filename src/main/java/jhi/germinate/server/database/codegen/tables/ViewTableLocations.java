@@ -4,13 +4,27 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.tables.records.ViewTableLocationsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
-
 import java.math.BigDecimal;
 import java.util.Collection;
+
+import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.tables.records.ViewTableLocationsRecord;
+
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -131,7 +145,7 @@ public class ViewTableLocations extends TableImpl<ViewTableLocationsRecord> {
     }
 
     private ViewTableLocations(Name alias, Table<ViewTableLocationsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_locations` as select `germinate_template_4_25_03_05`.`locations`.`id` AS `location_id`,`germinate_template_4_25_03_05`.`locations`.`site_name` AS `location_name`,`germinate_template_4_25_03_05`.`locations`.`site_name_short` AS `location_name_short`,`germinate_template_4_25_03_05`.`locations`.`region` AS `location_region`,`germinate_template_4_25_03_05`.`locations`.`state` AS `location_state`,`germinate_template_4_25_03_05`.`locationtypes`.`name` AS `location_type`,`germinate_template_4_25_03_05`.`locations`.`latitude` AS `location_latitude`,`germinate_template_4_25_03_05`.`locations`.`longitude` AS `location_longitude`,`germinate_template_4_25_03_05`.`locations`.`elevation` AS `location_elevation`,`germinate_template_4_25_03_05`.`locations`.`coordinate_uncertainty` AS `location_coordinate_uncertainty`,`germinate_template_4_25_03_05`.`countries`.`id` AS `country_id`,`germinate_template_4_25_03_05`.`countries`.`country_name` AS `country_name`,`germinate_template_4_25_03_05`.`countries`.`country_code2` AS `country_code2`,`germinate_template_4_25_03_05`.`countries`.`country_code3` AS `country_code3` from ((`germinate_template_4_25_03_05`.`locations` left join `germinate_template_4_25_03_05`.`countries` on((`germinate_template_4_25_03_05`.`countries`.`id` = `germinate_template_4_25_03_05`.`locations`.`country_id`))) left join `germinate_template_4_25_03_05`.`locationtypes` on((`germinate_template_4_25_03_05`.`locationtypes`.`id` = `germinate_template_4_25_03_05`.`locations`.`locationtype_id`)))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_locations` as select `germinate_template_4_25_09_04`.`locations`.`id` AS `location_id`,`germinate_template_4_25_09_04`.`locations`.`site_name` AS `location_name`,`germinate_template_4_25_09_04`.`locations`.`site_name_short` AS `location_name_short`,`germinate_template_4_25_09_04`.`locations`.`region` AS `location_region`,`germinate_template_4_25_09_04`.`locations`.`state` AS `location_state`,`germinate_template_4_25_09_04`.`locationtypes`.`name` AS `location_type`,`germinate_template_4_25_09_04`.`locations`.`latitude` AS `location_latitude`,`germinate_template_4_25_09_04`.`locations`.`longitude` AS `location_longitude`,`germinate_template_4_25_09_04`.`locations`.`elevation` AS `location_elevation`,`germinate_template_4_25_09_04`.`locations`.`coordinate_uncertainty` AS `location_coordinate_uncertainty`,`germinate_template_4_25_09_04`.`countries`.`id` AS `country_id`,`germinate_template_4_25_09_04`.`countries`.`country_name` AS `country_name`,`germinate_template_4_25_09_04`.`countries`.`country_code2` AS `country_code2`,`germinate_template_4_25_09_04`.`countries`.`country_code3` AS `country_code3` from ((`germinate_template_4_25_09_04`.`locations` left join `germinate_template_4_25_09_04`.`countries` on((`germinate_template_4_25_09_04`.`countries`.`id` = `germinate_template_4_25_09_04`.`locations`.`country_id`))) left join `germinate_template_4_25_09_04`.`locationtypes` on((`germinate_template_4_25_09_04`.`locationtypes`.`id` = `germinate_template_4_25_09_04`.`locations`.`locationtype_id`)))"), where);
     }
 
     /**

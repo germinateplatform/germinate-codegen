@@ -4,13 +4,16 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import jhi.germinate.server.database.codegen.enums.*;
-import jhi.germinate.server.database.pojo.ImportJobStats;
-import lombok.*;
-import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.enums.ViewTableImportJobsDatatype;
+import jhi.germinate.server.database.codegen.enums.ViewTableImportJobsStatus;
+import jhi.germinate.server.database.pojo.ImportJobStats;
+
+
+import lombok.*;
+import lombok.experimental.Accessors;
 
 // @formatter:off
 /**

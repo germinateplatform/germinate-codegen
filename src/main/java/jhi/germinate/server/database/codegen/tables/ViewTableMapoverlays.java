@@ -4,15 +4,29 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.enums.ViewTableMapoverlaysReferenceTable;
-import jhi.germinate.server.database.codegen.tables.records.ViewTableMapoverlaysRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
-
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Collection;
+
+import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.enums.ViewTableMapoverlaysReferenceTable;
+import jhi.germinate.server.database.codegen.tables.records.ViewTableMapoverlaysRecord;
+
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -161,7 +175,7 @@ public class ViewTableMapoverlays extends TableImpl<ViewTableMapoverlaysRecord> 
     }
 
     private ViewTableMapoverlays(Name alias, Table<ViewTableMapoverlaysRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_mapoverlays` as select `germinate_template_4_25_03_05`.`mapoverlays`.`id` AS `mapoverlay_id`,`germinate_template_4_25_03_05`.`mapoverlays`.`name` AS `mapoverlay_name`,`germinate_template_4_25_03_05`.`mapoverlays`.`description` AS `mapoverlay_description`,`germinate_template_4_25_03_05`.`mapoverlays`.`bottom_left_lat` AS `mapoverlay_bottom_left_lat`,`germinate_template_4_25_03_05`.`mapoverlays`.`bottom_left_lng` AS `mapoverlay_bottom_left_lng`,`germinate_template_4_25_03_05`.`mapoverlays`.`top_right_lat` AS `mapoverlay_top_right_lat`,`germinate_template_4_25_03_05`.`mapoverlays`.`top_right_lng` AS `mapoverlay_top_right_lng`,`germinate_template_4_25_03_05`.`mapoverlays`.`is_legend` AS `mapoverlays_is_legend`,`germinate_template_4_25_03_05`.`mapoverlays`.`reference_table` AS `reference_table`,`germinate_template_4_25_03_05`.`mapoverlays`.`foreign_id` AS `foreign_id`,`germinate_template_4_25_03_05`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_03_05`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_25_03_05`.`datasets`.`description` AS `dataset_description`,`germinate_template_4_25_03_05`.`datasettypes`.`description` AS `dataset_type`,`germinate_template_4_25_03_05`.`mapoverlays`.`recording_date` AS `recording_date`,`germinate_template_4_25_03_05`.`mapoverlays`.`created_on` AS `created_on`,`germinate_template_4_25_03_05`.`mapoverlays`.`updated_on` AS `updated_on` from ((`germinate_template_4_25_03_05`.`mapoverlays` left join `germinate_template_4_25_03_05`.`datasets` on((`germinate_template_4_25_03_05`.`datasets`.`id` = `germinate_template_4_25_03_05`.`mapoverlays`.`dataset_id`))) left join `germinate_template_4_25_03_05`.`datasettypes` on((`germinate_template_4_25_03_05`.`datasettypes`.`id` = `germinate_template_4_25_03_05`.`datasets`.`datasettype_id`)))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_mapoverlays` as select `germinate_template_4_25_09_04`.`mapoverlays`.`id` AS `mapoverlay_id`,`germinate_template_4_25_09_04`.`mapoverlays`.`name` AS `mapoverlay_name`,`germinate_template_4_25_09_04`.`mapoverlays`.`description` AS `mapoverlay_description`,`germinate_template_4_25_09_04`.`mapoverlays`.`bottom_left_lat` AS `mapoverlay_bottom_left_lat`,`germinate_template_4_25_09_04`.`mapoverlays`.`bottom_left_lng` AS `mapoverlay_bottom_left_lng`,`germinate_template_4_25_09_04`.`mapoverlays`.`top_right_lat` AS `mapoverlay_top_right_lat`,`germinate_template_4_25_09_04`.`mapoverlays`.`top_right_lng` AS `mapoverlay_top_right_lng`,`germinate_template_4_25_09_04`.`mapoverlays`.`is_legend` AS `mapoverlays_is_legend`,`germinate_template_4_25_09_04`.`mapoverlays`.`reference_table` AS `reference_table`,`germinate_template_4_25_09_04`.`mapoverlays`.`foreign_id` AS `foreign_id`,`germinate_template_4_25_09_04`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_09_04`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_25_09_04`.`datasets`.`description` AS `dataset_description`,`germinate_template_4_25_09_04`.`datasettypes`.`description` AS `dataset_type`,`germinate_template_4_25_09_04`.`mapoverlays`.`recording_date` AS `recording_date`,`germinate_template_4_25_09_04`.`mapoverlays`.`created_on` AS `created_on`,`germinate_template_4_25_09_04`.`mapoverlays`.`updated_on` AS `updated_on` from ((`germinate_template_4_25_09_04`.`mapoverlays` left join `germinate_template_4_25_09_04`.`datasets` on((`germinate_template_4_25_09_04`.`datasets`.`id` = `germinate_template_4_25_09_04`.`mapoverlays`.`dataset_id`))) left join `germinate_template_4_25_09_04`.`datasettypes` on((`germinate_template_4_25_09_04`.`datasettypes`.`id` = `germinate_template_4_25_09_04`.`datasets`.`datasettype_id`)))"), where);
     }
 
     /**

@@ -4,12 +4,26 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.util.Collection;
+
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableEntitiesRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -110,7 +124,7 @@ public class ViewTableEntities extends TableImpl<ViewTableEntitiesRecord> {
     }
 
     private ViewTableEntities(Name alias, Table<ViewTableEntitiesRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_entities` as select `parent`.`id` AS `entity_parent_id`,`parent`.`general_identifier` AS `entity_parent_gid`,`parent`.`name` AS `entity_parent_name`,`parent`.`display_name` AS `entity_parent_display_name`,`parententity`.`name` AS `entity_parent_type`,`child`.`id` AS `entity_child_id`,`child`.`general_identifier` AS `entity_child_gid`,`child`.`name` AS `entity_child_name`,`child`.`display_name` AS `entity_child_display_name`,`childentity`.`name` AS `entity_child_type` from (((`germinate_template_4_25_03_05`.`germinatebase` `parent` left join `germinate_template_4_25_03_05`.`germinatebase` `child` on((`parent`.`id` = `child`.`entityparent_id`))) left join `germinate_template_4_25_03_05`.`entitytypes` `parententity` on((`parententity`.`id` = `parent`.`entitytype_id`))) left join `germinate_template_4_25_03_05`.`entitytypes` `childentity` on((`childentity`.`id` = `child`.`entitytype_id`))) where ((`parent`.`id` is not null) and (`child`.`id` is not null))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_entities` as select `parent`.`id` AS `entity_parent_id`,`parent`.`general_identifier` AS `entity_parent_gid`,`parent`.`name` AS `entity_parent_name`,`parent`.`display_name` AS `entity_parent_display_name`,`parententity`.`name` AS `entity_parent_type`,`child`.`id` AS `entity_child_id`,`child`.`general_identifier` AS `entity_child_gid`,`child`.`name` AS `entity_child_name`,`child`.`display_name` AS `entity_child_display_name`,`childentity`.`name` AS `entity_child_type` from (((`germinate_template_4_25_09_04`.`germinatebase` `parent` left join `germinate_template_4_25_09_04`.`germinatebase` `child` on((`parent`.`id` = `child`.`entityparent_id`))) left join `germinate_template_4_25_09_04`.`entitytypes` `parententity` on((`parententity`.`id` = `parent`.`entitytype_id`))) left join `germinate_template_4_25_09_04`.`entitytypes` `childentity` on((`childentity`.`id` = `child`.`entitytype_id`))) where ((`parent`.`id` is not null) and (`child`.`id` is not null))"), where);
     }
 
     /**

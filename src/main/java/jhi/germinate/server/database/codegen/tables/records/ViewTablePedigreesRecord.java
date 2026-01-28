@@ -6,6 +6,7 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 import jhi.germinate.server.database.codegen.enums.ViewTablePedigreesRelationshipType;
 import jhi.germinate.server.database.codegen.tables.ViewTablePedigrees;
+
 import org.jooq.impl.TableRecordImpl;
 
 

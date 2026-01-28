@@ -4,15 +4,31 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.binding.*;
+import java.util.Collection;
+
+import jhi.germinate.server.database.binding.IntArrayBinding;
+import jhi.germinate.server.database.binding.SynonymBinding;
+import jhi.germinate.server.database.binding.TraitRestrictionBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableTraitsRecord;
 import jhi.germinate.server.database.pojo.TraitRestrictions;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -159,7 +175,7 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     }
 
     private ViewTableTraits(Name alias, Table<ViewTableTraitsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_traits` as select distinct `germinate_template_4_25_03_05`.`phenotypes`.`id` AS `trait_id`,`germinate_template_4_25_03_05`.`phenotypes`.`name` AS `trait_name`,`germinate_template_4_25_03_05`.`phenotypes`.`short_name` AS `trait_name_short`,`germinate_template_4_25_03_05`.`phenotypes`.`description` AS `trait_description`,`germinate_template_4_25_03_05`.`phenotypes`.`datatype` AS `data_type`,`germinate_template_4_25_03_05`.`phenotypes`.`restrictions` AS `trait_restrictions`,`germinate_template_4_25_03_05`.`phenotypes`.`setsize` AS `trait_set_size`,`germinate_template_4_25_03_05`.`phenotypes`.`is_timeseries` AS `trait_is_timeseries`,`germinate_template_4_25_03_05`.`phenotypecategories`.`id` AS `category_id`,`germinate_template_4_25_03_05`.`phenotypecategories`.`name` AS `category_name`,`germinate_template_4_25_03_05`.`phenotypecategories`.`description` AS `category_description`,`germinate_template_4_25_03_05`.`units`.`id` AS `unit_id`,`germinate_template_4_25_03_05`.`units`.`unit_name` AS `unit_name`,`germinate_template_4_25_03_05`.`units`.`unit_description` AS `unit_description`,`germinate_template_4_25_03_05`.`units`.`unit_abbreviation` AS `unit_abbreviation`,`germinate_template_4_25_03_05`.`synonyms`.`synonyms` AS `synonyms`,(select cast(concat('[',(select group_concat(distinct `germinate_template_4_25_03_05`.`trialsetup`.`dataset_id` separator ',') from (`germinate_template_4_25_03_05`.`phenotypedata` left join `germinate_template_4_25_03_05`.`trialsetup` on((`germinate_template_4_25_03_05`.`trialsetup`.`id` = `germinate_template_4_25_03_05`.`phenotypedata`.`trialsetup_id`))) where (`germinate_template_4_25_03_05`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_03_05`.`phenotypes`.`id`)),']') as json)) AS `dataset_ids`,(select count(1) from `germinate_template_4_25_03_05`.`phenotypedata` where (`germinate_template_4_25_03_05`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_03_05`.`phenotypes`.`id`)) AS `count` from (((`germinate_template_4_25_03_05`.`phenotypes` left join `germinate_template_4_25_03_05`.`units` on((`germinate_template_4_25_03_05`.`units`.`id` = `germinate_template_4_25_03_05`.`phenotypes`.`unit_id`))) left join `germinate_template_4_25_03_05`.`phenotypecategories` on((`germinate_template_4_25_03_05`.`phenotypecategories`.`id` = `germinate_template_4_25_03_05`.`phenotypes`.`category_id`))) left join `germinate_template_4_25_03_05`.`synonyms` on(((`germinate_template_4_25_03_05`.`synonyms`.`foreign_id` = `germinate_template_4_25_03_05`.`phenotypes`.`id`) and (`germinate_template_4_25_03_05`.`synonyms`.`synonymtype_id` = 4)))) group by `germinate_template_4_25_03_05`.`phenotypes`.`id`,`germinate_template_4_25_03_05`.`synonyms`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_traits` as select distinct `germinate_template_4_25_09_04`.`phenotypes`.`id` AS `trait_id`,`germinate_template_4_25_09_04`.`phenotypes`.`name` AS `trait_name`,`germinate_template_4_25_09_04`.`phenotypes`.`short_name` AS `trait_name_short`,`germinate_template_4_25_09_04`.`phenotypes`.`description` AS `trait_description`,`germinate_template_4_25_09_04`.`phenotypes`.`datatype` AS `data_type`,`germinate_template_4_25_09_04`.`phenotypes`.`restrictions` AS `trait_restrictions`,`germinate_template_4_25_09_04`.`phenotypes`.`setsize` AS `trait_set_size`,`germinate_template_4_25_09_04`.`phenotypes`.`is_timeseries` AS `trait_is_timeseries`,`germinate_template_4_25_09_04`.`phenotypecategories`.`id` AS `category_id`,`germinate_template_4_25_09_04`.`phenotypecategories`.`name` AS `category_name`,`germinate_template_4_25_09_04`.`phenotypecategories`.`description` AS `category_description`,`germinate_template_4_25_09_04`.`units`.`id` AS `unit_id`,`germinate_template_4_25_09_04`.`units`.`unit_name` AS `unit_name`,`germinate_template_4_25_09_04`.`units`.`unit_description` AS `unit_description`,`germinate_template_4_25_09_04`.`units`.`unit_abbreviation` AS `unit_abbreviation`,`germinate_template_4_25_09_04`.`synonyms`.`synonyms` AS `synonyms`,(select cast(concat('[',(select group_concat(distinct `germinate_template_4_25_09_04`.`trialsetup`.`dataset_id` separator ',') from (`germinate_template_4_25_09_04`.`phenotypedata` left join `germinate_template_4_25_09_04`.`trialsetup` on((`germinate_template_4_25_09_04`.`trialsetup`.`id` = `germinate_template_4_25_09_04`.`phenotypedata`.`trialsetup_id`))) where (`germinate_template_4_25_09_04`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_09_04`.`phenotypes`.`id`)),']') as json)) AS `dataset_ids`,(select count(1) from `germinate_template_4_25_09_04`.`phenotypedata` where (`germinate_template_4_25_09_04`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_09_04`.`phenotypes`.`id`)) AS `count` from (((`germinate_template_4_25_09_04`.`phenotypes` left join `germinate_template_4_25_09_04`.`units` on((`germinate_template_4_25_09_04`.`units`.`id` = `germinate_template_4_25_09_04`.`phenotypes`.`unit_id`))) left join `germinate_template_4_25_09_04`.`phenotypecategories` on((`germinate_template_4_25_09_04`.`phenotypecategories`.`id` = `germinate_template_4_25_09_04`.`phenotypes`.`category_id`))) left join `germinate_template_4_25_09_04`.`synonyms` on(((`germinate_template_4_25_09_04`.`synonyms`.`foreign_id` = `germinate_template_4_25_09_04`.`phenotypes`.`id`) and (`germinate_template_4_25_09_04`.`synonyms`.`synonymtype_id` = 4)))) group by `germinate_template_4_25_09_04`.`phenotypes`.`id`,`germinate_template_4_25_09_04`.`synonyms`.`id`"), where);
     }
 
     /**

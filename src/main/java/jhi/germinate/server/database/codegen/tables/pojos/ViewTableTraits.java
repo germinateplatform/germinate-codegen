@@ -4,13 +4,15 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType;
-import jhi.germinate.server.database.pojo.TraitRestrictions;
-import lombok.*;
-import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 import java.util.Arrays;
+
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType;
+import jhi.germinate.server.database.pojo.TraitRestrictions;
+
+
+import lombok.*;
+import lombok.experimental.Accessors;
 
 // @formatter:off
 /**

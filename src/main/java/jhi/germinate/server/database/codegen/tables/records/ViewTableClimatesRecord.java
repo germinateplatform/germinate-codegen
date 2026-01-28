@@ -6,6 +6,7 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 import jhi.germinate.server.database.codegen.enums.ViewTableClimatesDataType;
 import jhi.germinate.server.database.codegen.tables.ViewTableClimates;
+
 import org.jooq.impl.TableRecordImpl;
 
 

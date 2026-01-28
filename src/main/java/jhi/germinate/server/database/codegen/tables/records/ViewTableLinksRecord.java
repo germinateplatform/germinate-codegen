@@ -4,10 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.tables.ViewTableLinks;
-import org.jooq.impl.TableRecordImpl;
-
 import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.tables.ViewTableLinks;
+
+import org.jooq.impl.TableRecordImpl;
 
 
 // @formatter:off
@@ -86,8 +87,7 @@ public class ViewTableLinksRecord extends TableRecordImpl<ViewTableLinksRecord> 
     /**
      * Setter for
      * <code>germinate_db.view_table_links.linktype_description</code>. A
-     * description of the link
-.
+     * description of the link.
      */
     public void setLinktypeDescription(String value) {
         set(4, value);
@@ -96,8 +96,7 @@ public class ViewTableLinksRecord extends TableRecordImpl<ViewTableLinksRecord> 
     /**
      * Getter for
      * <code>germinate_db.view_table_links.linktype_description</code>. A
-     * description of the link
-.
+     * description of the link.
      */
     public String getLinktypeDescription() {
         return (String) get(4);

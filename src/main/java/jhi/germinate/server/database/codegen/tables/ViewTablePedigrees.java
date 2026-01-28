@@ -4,13 +4,27 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.util.Collection;
+
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.ViewTablePedigreesRelationshipType;
 import jhi.germinate.server.database.codegen.tables.records.ViewTablePedigreesRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -165,7 +179,7 @@ public class ViewTablePedigrees extends TableImpl<ViewTablePedigreesRecord> {
     }
 
     private ViewTablePedigrees(Name alias, Table<ViewTablePedigreesRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_pedigrees` as select `parent`.`id` AS `parent_id`,`parent`.`general_identifier` AS `parent_gid`,`parent`.`name` AS `parent_name`,`parent`.`display_name` AS `parent_display_name`,`parent`.`number` AS `parent_number`,`child`.`id` AS `child_id`,`child`.`general_identifier` AS `child_gid`,`child`.`name` AS `child_name`,`child`.`display_name` AS `child_display_name`,`child`.`number` AS `child_number`,`germinate_template_4_25_03_05`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_03_05`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_25_03_05`.`experiments`.`id` AS `experiment_id`,`germinate_template_4_25_03_05`.`experiments`.`experiment_name` AS `experiment_name`,`germinate_template_4_25_03_05`.`pedigrees`.`relationship_type` AS `relationship_type`,`germinate_template_4_25_03_05`.`pedigrees`.`relationship_description` AS `relationship_description`,`germinate_template_4_25_03_05`.`pedigreedescriptions`.`name` AS `pedigree_description`,`germinate_template_4_25_03_05`.`pedigreedescriptions`.`author` AS `pedigree_author` from (((((`germinate_template_4_25_03_05`.`pedigrees` left join `germinate_template_4_25_03_05`.`germinatebase` `parent` on((`parent`.`id` = `germinate_template_4_25_03_05`.`pedigrees`.`parent_id`))) left join `germinate_template_4_25_03_05`.`germinatebase` `child` on((`child`.`id` = `germinate_template_4_25_03_05`.`pedigrees`.`germinatebase_id`))) left join `germinate_template_4_25_03_05`.`pedigreedescriptions` on((`germinate_template_4_25_03_05`.`pedigreedescriptions`.`id` = `germinate_template_4_25_03_05`.`pedigrees`.`pedigreedescription_id`))) left join `germinate_template_4_25_03_05`.`datasets` on((`germinate_template_4_25_03_05`.`datasets`.`id` = `germinate_template_4_25_03_05`.`pedigrees`.`dataset_id`))) left join `germinate_template_4_25_03_05`.`experiments` on((`germinate_template_4_25_03_05`.`experiments`.`id` = `germinate_template_4_25_03_05`.`datasets`.`experiment_id`)))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_pedigrees` as select `parent`.`id` AS `parent_id`,`parent`.`general_identifier` AS `parent_gid`,`parent`.`name` AS `parent_name`,`parent`.`display_name` AS `parent_display_name`,`parent`.`number` AS `parent_number`,`child`.`id` AS `child_id`,`child`.`general_identifier` AS `child_gid`,`child`.`name` AS `child_name`,`child`.`display_name` AS `child_display_name`,`child`.`number` AS `child_number`,`germinate_template_4_25_09_04`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_09_04`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_25_09_04`.`experiments`.`id` AS `experiment_id`,`germinate_template_4_25_09_04`.`experiments`.`experiment_name` AS `experiment_name`,`germinate_template_4_25_09_04`.`pedigrees`.`relationship_type` AS `relationship_type`,`germinate_template_4_25_09_04`.`pedigrees`.`relationship_description` AS `relationship_description`,`germinate_template_4_25_09_04`.`pedigreedescriptions`.`name` AS `pedigree_description`,`germinate_template_4_25_09_04`.`pedigreedescriptions`.`author` AS `pedigree_author` from (((((`germinate_template_4_25_09_04`.`pedigrees` left join `germinate_template_4_25_09_04`.`germinatebase` `parent` on((`parent`.`id` = `germinate_template_4_25_09_04`.`pedigrees`.`parent_id`))) left join `germinate_template_4_25_09_04`.`germinatebase` `child` on((`child`.`id` = `germinate_template_4_25_09_04`.`pedigrees`.`germinatebase_id`))) left join `germinate_template_4_25_09_04`.`pedigreedescriptions` on((`germinate_template_4_25_09_04`.`pedigreedescriptions`.`id` = `germinate_template_4_25_09_04`.`pedigrees`.`pedigreedescription_id`))) left join `germinate_template_4_25_09_04`.`datasets` on((`germinate_template_4_25_09_04`.`datasets`.`id` = `germinate_template_4_25_09_04`.`pedigrees`.`dataset_id`))) left join `germinate_template_4_25_09_04`.`experiments` on((`germinate_template_4_25_09_04`.`experiments`.`id` = `germinate_template_4_25_09_04`.`datasets`.`experiment_id`)))"), where);
     }
 
     /**

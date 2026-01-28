@@ -4,12 +4,14 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.enums.*;
+import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.enums.UserfeedbackFeedbackType;
+import jhi.germinate.server.database.codegen.enums.UserfeedbackSeverity;
 import jhi.germinate.server.database.codegen.tables.Userfeedback;
+
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;
-
-import java.sql.Timestamp;
 
 
 // @formatter:off

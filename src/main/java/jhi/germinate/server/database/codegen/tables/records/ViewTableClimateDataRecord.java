@@ -4,12 +4,13 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.enums.ViewTableClimateDataClimateDataType;
-import jhi.germinate.server.database.codegen.tables.ViewTableClimateData;
-import org.jooq.impl.TableRecordImpl;
-
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.enums.ViewTableClimateDataClimateDataType;
+import jhi.germinate.server.database.codegen.tables.ViewTableClimateData;
+
+import org.jooq.impl.TableRecordImpl;
 
 
 // @formatter:off

@@ -4,11 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
+import java.math.BigDecimal;
+
 import jhi.germinate.server.database.codegen.tables.ViewTableGermplasmDeprecated;
 import jhi.germinate.server.database.pojo.GermplasmInstitution;
-import org.jooq.impl.TableRecordImpl;
 
-import java.math.BigDecimal;
+import org.jooq.impl.TableRecordImpl;
 
 
 // @formatter:off

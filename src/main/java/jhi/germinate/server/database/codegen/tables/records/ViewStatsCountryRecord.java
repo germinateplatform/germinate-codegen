@@ -5,6 +5,7 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 
 import jhi.germinate.server.database.codegen.tables.ViewStatsCountry;
+
 import org.jooq.impl.TableRecordImpl;
 
 

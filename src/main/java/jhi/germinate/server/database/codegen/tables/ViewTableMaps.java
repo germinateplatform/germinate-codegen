@@ -4,12 +4,26 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.util.Collection;
+
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableMapsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -74,7 +88,7 @@ public class ViewTableMaps extends TableImpl<ViewTableMapsRecord> {
     }
 
     private ViewTableMaps(Name alias, Table<ViewTableMapsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_maps` as select `germinate_template_4_25_03_05`.`maps`.`id` AS `map_id`,`germinate_template_4_25_03_05`.`maps`.`name` AS `map_name`,`germinate_template_4_25_03_05`.`maps`.`description` AS `map_description`,`germinate_template_4_25_03_05`.`maps`.`user_id` AS `user_id`,`germinate_template_4_25_03_05`.`maps`.`visibility` AS `visibility`,count(1) AS `marker_count` from (`germinate_template_4_25_03_05`.`maps` left join `germinate_template_4_25_03_05`.`mapdefinitions` on((`germinate_template_4_25_03_05`.`maps`.`id` = `germinate_template_4_25_03_05`.`mapdefinitions`.`map_id`))) group by `germinate_template_4_25_03_05`.`maps`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_maps` as select `germinate_template_4_25_09_04`.`maps`.`id` AS `map_id`,`germinate_template_4_25_09_04`.`maps`.`name` AS `map_name`,`germinate_template_4_25_09_04`.`maps`.`description` AS `map_description`,`germinate_template_4_25_09_04`.`maps`.`user_id` AS `user_id`,`germinate_template_4_25_09_04`.`maps`.`visibility` AS `visibility`,count(1) AS `marker_count` from (`germinate_template_4_25_09_04`.`maps` left join `germinate_template_4_25_09_04`.`mapdefinitions` on((`germinate_template_4_25_09_04`.`maps`.`id` = `germinate_template_4_25_09_04`.`mapdefinitions`.`map_id`))) group by `germinate_template_4_25_09_04`.`maps`.`id`"), where);
     }
 
     /**

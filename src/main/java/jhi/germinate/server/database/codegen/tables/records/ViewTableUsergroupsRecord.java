@@ -4,10 +4,11 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.tables.ViewTableUsergroups;
-import org.jooq.impl.TableRecordImpl;
-
 import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.tables.ViewTableUsergroups;
+
+import org.jooq.impl.TableRecordImpl;
 
 
 // @formatter:off

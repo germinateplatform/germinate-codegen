@@ -4,12 +4,26 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.util.Collection;
+
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewStatsTaxonomyRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -59,7 +73,7 @@ public class ViewStatsTaxonomy extends TableImpl<ViewStatsTaxonomyRecord> {
     }
 
     private ViewStatsTaxonomy(Name alias, Table<ViewStatsTaxonomyRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_stats_taxonomy` as select `t`.`genus` AS `genus`,`t`.`species` AS `species`,`t`.`subtaxa` AS `subtaxa`,`t`.`count` AS `count` from (select `germinate_template_4_25_03_05`.`taxonomies`.`genus` AS `genus`,`germinate_template_4_25_03_05`.`taxonomies`.`species` AS `species`,`germinate_template_4_25_03_05`.`taxonomies`.`subtaxa` AS `subtaxa`,count(1) AS `count` from (`germinate_template_4_25_03_05`.`germinatebase` left join `germinate_template_4_25_03_05`.`taxonomies` on((`germinate_template_4_25_03_05`.`taxonomies`.`id` = `germinate_template_4_25_03_05`.`germinatebase`.`taxonomy_id`))) where ((`germinate_template_4_25_03_05`.`taxonomies`.`genus` is not null) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) group by `germinate_template_4_25_03_05`.`taxonomies`.`id` union select 'N/A' AS `genus`,NULL AS `species`,NULL AS `subtaxa`,count(1) AS `count` from (`germinate_template_4_25_03_05`.`germinatebase` left join `germinate_template_4_25_03_05`.`taxonomies` on((`germinate_template_4_25_03_05`.`taxonomies`.`id` = `germinate_template_4_25_03_05`.`germinatebase`.`taxonomy_id`))) where ((`germinate_template_4_25_03_05`.`taxonomies`.`genus` is null) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) group by `germinate_template_4_25_03_05`.`taxonomies`.`id`) `t` order by `t`.`count` desc"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_stats_taxonomy` as select `t`.`genus` AS `genus`,`t`.`species` AS `species`,`t`.`subtaxa` AS `subtaxa`,`t`.`count` AS `count` from (select `germinate_template_4_25_09_04`.`taxonomies`.`genus` AS `genus`,`germinate_template_4_25_09_04`.`taxonomies`.`species` AS `species`,`germinate_template_4_25_09_04`.`taxonomies`.`subtaxa` AS `subtaxa`,count(1) AS `count` from (`germinate_template_4_25_09_04`.`germinatebase` left join `germinate_template_4_25_09_04`.`taxonomies` on((`germinate_template_4_25_09_04`.`taxonomies`.`id` = `germinate_template_4_25_09_04`.`germinatebase`.`taxonomy_id`))) where ((`germinate_template_4_25_09_04`.`taxonomies`.`genus` is not null) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) group by `germinate_template_4_25_09_04`.`taxonomies`.`id` union select 'N/A' AS `genus`,NULL AS `species`,NULL AS `subtaxa`,count(1) AS `count` from (`germinate_template_4_25_09_04`.`germinatebase` left join `germinate_template_4_25_09_04`.`taxonomies` on((`germinate_template_4_25_09_04`.`taxonomies`.`id` = `germinate_template_4_25_09_04`.`germinatebase`.`taxonomy_id`))) where ((`germinate_template_4_25_09_04`.`taxonomies`.`genus` is null) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) group by `germinate_template_4_25_09_04`.`taxonomies`.`id`) `t` order by `t`.`count` desc"), where);
     }
 
     /**

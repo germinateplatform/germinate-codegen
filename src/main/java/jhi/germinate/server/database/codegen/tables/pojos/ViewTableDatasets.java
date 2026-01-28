@@ -4,14 +4,18 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Arrays;
+
 import jhi.germinate.server.database.pojo.DublinCore;
-import lombok.*;
-import lombok.experimental.Accessors;
+
 import org.jooq.types.ULong;
 
-import java.io.Serializable;
-import java.sql.*;
-import java.util.Arrays;
+
+import lombok.*;
+import lombok.experimental.Accessors;
 
 // @formatter:off
 /**

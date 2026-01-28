@@ -4,13 +4,27 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.tables.records.ViewTableUsergroupsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
-
 import java.sql.Timestamp;
 import java.util.Collection;
+
+import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.tables.records.ViewTableUsergroupsRecord;
+
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -70,7 +84,7 @@ public class ViewTableUsergroups extends TableImpl<ViewTableUsergroupsRecord> {
     }
 
     private ViewTableUsergroups(Name alias, Table<ViewTableUsergroupsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_usergroups` as select `germinate_template_4_25_03_05`.`usergroups`.`id` AS `user_group_id`,`germinate_template_4_25_03_05`.`usergroups`.`name` AS `user_group_name`,`germinate_template_4_25_03_05`.`usergroups`.`description` AS `user_group_description`,`germinate_template_4_25_03_05`.`usergroups`.`created_on` AS `created_on`,count(`germinate_template_4_25_03_05`.`usergroupmembers`.`id`) AS `count` from (`germinate_template_4_25_03_05`.`usergroups` left join `germinate_template_4_25_03_05`.`usergroupmembers` on((`germinate_template_4_25_03_05`.`usergroupmembers`.`usergroup_id` = `germinate_template_4_25_03_05`.`usergroups`.`id`))) group by `germinate_template_4_25_03_05`.`usergroups`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_usergroups` as select `germinate_template_4_25_09_04`.`usergroups`.`id` AS `user_group_id`,`germinate_template_4_25_09_04`.`usergroups`.`name` AS `user_group_name`,`germinate_template_4_25_09_04`.`usergroups`.`description` AS `user_group_description`,`germinate_template_4_25_09_04`.`usergroups`.`created_on` AS `created_on`,count(`germinate_template_4_25_09_04`.`usergroupmembers`.`id`) AS `count` from (`germinate_template_4_25_09_04`.`usergroups` left join `germinate_template_4_25_09_04`.`usergroupmembers` on((`germinate_template_4_25_09_04`.`usergroupmembers`.`usergroup_id` = `germinate_template_4_25_09_04`.`usergroups`.`id`))) group by `germinate_template_4_25_09_04`.`usergroups`.`id`"), where);
     }
 
     /**

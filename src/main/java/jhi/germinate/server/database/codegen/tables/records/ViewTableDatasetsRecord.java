@@ -4,13 +4,16 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import jhi.germinate.server.database.codegen.tables.ViewTableDatasets;
-import jhi.germinate.server.database.codegen.tables.pojos.*;
+import jhi.germinate.server.database.codegen.tables.pojos.ViewTableInstitutions;
+import jhi.germinate.server.database.codegen.tables.pojos.ViewTableLocations;
 import jhi.germinate.server.database.pojo.DublinCore;
+
 import org.jooq.impl.TableRecordImpl;
 import org.jooq.types.ULong;
-
-import java.sql.*;
 
 
 // @formatter:off

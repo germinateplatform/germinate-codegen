@@ -4,16 +4,31 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.binding.ImportJobStatsBinding;
-import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.enums.*;
-import jhi.germinate.server.database.codegen.tables.records.ViewTableImportJobsRecord;
-import jhi.germinate.server.database.pojo.ImportJobStats;
-import org.jooq.*;
-import org.jooq.impl.*;
-
 import java.sql.Timestamp;
 import java.util.Collection;
+
+import jhi.germinate.server.database.binding.ImportJobStatsBinding;
+import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.enums.ViewTableImportJobsDatatype;
+import jhi.germinate.server.database.codegen.enums.ViewTableImportJobsStatus;
+import jhi.germinate.server.database.codegen.tables.records.ViewTableImportJobsRecord;
+import jhi.germinate.server.database.pojo.ImportJobStats;
+
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -80,7 +95,7 @@ public class ViewTableImportJobs extends TableImpl<ViewTableImportJobsRecord> {
     }
 
     private ViewTableImportJobs(Name alias, Table<ViewTableImportJobsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_import_jobs` as select `germinate_template_4_25_03_05`.`data_import_jobs`.`id` AS `id`,`germinate_template_4_25_03_05`.`data_import_jobs`.`is_update` AS `is_update`,`germinate_template_4_25_03_05`.`data_import_jobs`.`datasetstate_id` AS `datasetstate_id`,`germinate_template_4_25_03_05`.`data_import_jobs`.`datatype` AS `datatype`,`germinate_template_4_25_03_05`.`data_import_jobs`.`status` AS `status`,`germinate_template_4_25_03_05`.`data_import_jobs`.`stats` AS `stats`,`germinate_template_4_25_03_05`.`data_import_jobs`.`created_on` AS `created_on` from `germinate_template_4_25_03_05`.`data_import_jobs` where ((`germinate_template_4_25_03_05`.`data_import_jobs`.`stats` is not null) and (`germinate_template_4_25_03_05`.`data_import_jobs`.`status` = 'completed') and (`germinate_template_4_25_03_05`.`data_import_jobs`.`imported` = 1))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_import_jobs` as select `germinate_template_4_25_09_04`.`data_import_jobs`.`id` AS `id`,`germinate_template_4_25_09_04`.`data_import_jobs`.`is_update` AS `is_update`,`germinate_template_4_25_09_04`.`data_import_jobs`.`datasetstate_id` AS `datasetstate_id`,`germinate_template_4_25_09_04`.`data_import_jobs`.`datatype` AS `datatype`,`germinate_template_4_25_09_04`.`data_import_jobs`.`status` AS `status`,`germinate_template_4_25_09_04`.`data_import_jobs`.`stats` AS `stats`,`germinate_template_4_25_09_04`.`data_import_jobs`.`created_on` AS `created_on` from `germinate_template_4_25_09_04`.`data_import_jobs` where ((`germinate_template_4_25_09_04`.`data_import_jobs`.`stats` is not null) and (`germinate_template_4_25_09_04`.`data_import_jobs`.`status` = 'completed') and (`germinate_template_4_25_09_04`.`data_import_jobs`.`imported` = 1))"), where);
     }
 
     /**

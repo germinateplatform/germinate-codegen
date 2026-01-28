@@ -4,12 +4,26 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.util.Collection;
+
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewStatsBiologicalstatusRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -57,7 +71,7 @@ public class ViewStatsBiologicalstatus extends TableImpl<ViewStatsBiologicalstat
     }
 
     private ViewStatsBiologicalstatus(Name alias, Table<ViewStatsBiologicalstatusRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_stats_biologicalstatus` as select substring_index(`germinate_template_4_25_03_05`.`biologicalstatus`.`sampstat`,' (',1) AS `biologicalstatus`,`germinate_template_4_25_03_05`.`taxonomies`.`genus` AS `genus`,count(1) AS `count` from (((`germinate_template_4_25_03_05`.`mcpd` left join `germinate_template_4_25_03_05`.`biologicalstatus` on((`germinate_template_4_25_03_05`.`mcpd`.`sampstat` = `germinate_template_4_25_03_05`.`biologicalstatus`.`id`))) left join `germinate_template_4_25_03_05`.`germinatebase` on((`germinate_template_4_25_03_05`.`germinatebase`.`id` = `germinate_template_4_25_03_05`.`mcpd`.`germinatebase_id`))) left join `germinate_template_4_25_03_05`.`taxonomies` on((`germinate_template_4_25_03_05`.`taxonomies`.`id` = `germinate_template_4_25_03_05`.`germinatebase`.`taxonomy_id`))) group by `germinate_template_4_25_03_05`.`biologicalstatus`.`id`,`germinate_template_4_25_03_05`.`taxonomies`.`genus` having (`biologicalstatus` is not null) order by `count` desc"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_stats_biologicalstatus` as select substring_index(`germinate_template_4_25_09_04`.`biologicalstatus`.`sampstat`,' (',1) AS `biologicalstatus`,`germinate_template_4_25_09_04`.`taxonomies`.`genus` AS `genus`,count(1) AS `count` from (((`germinate_template_4_25_09_04`.`mcpd` left join `germinate_template_4_25_09_04`.`biologicalstatus` on((`germinate_template_4_25_09_04`.`mcpd`.`sampstat` = `germinate_template_4_25_09_04`.`biologicalstatus`.`id`))) left join `germinate_template_4_25_09_04`.`germinatebase` on((`germinate_template_4_25_09_04`.`germinatebase`.`id` = `germinate_template_4_25_09_04`.`mcpd`.`germinatebase_id`))) left join `germinate_template_4_25_09_04`.`taxonomies` on((`germinate_template_4_25_09_04`.`taxonomies`.`id` = `germinate_template_4_25_09_04`.`germinatebase`.`taxonomy_id`))) group by `germinate_template_4_25_09_04`.`biologicalstatus`.`id`,`germinate_template_4_25_09_04`.`taxonomies`.`genus` having (`biologicalstatus` is not null) order by `germinate_template_4_25_09_04`.`taxonomies`.`genus` desc,`count` desc"), where);
     }
 
     /**

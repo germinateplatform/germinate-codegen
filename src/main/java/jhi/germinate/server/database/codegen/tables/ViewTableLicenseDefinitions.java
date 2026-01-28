@@ -4,14 +4,29 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.sql.Timestamp;
+import java.util.Collection;
+import java.util.Map;
+
 import jhi.germinate.server.database.binding.LicenseContentBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableLicenseDefinitionsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.sql.Timestamp;
-import java.util.*;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -73,7 +88,7 @@ public class ViewTableLicenseDefinitions extends TableImpl<ViewTableLicenseDefin
     }
 
     private ViewTableLicenseDefinitions(Name alias, Table<ViewTableLicenseDefinitionsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_license_definitions` as select `germinate_template_4_25_03_05`.`licenses`.`id` AS `license_id`,`germinate_template_4_25_03_05`.`licenses`.`name` AS `license_name`,`germinate_template_4_25_03_05`.`licenses`.`description` AS `license_description`,`germinate_template_4_25_03_05`.`licenses`.`created_on` AS `created_on`,(select json_objectagg(`germinate_template_4_25_03_05`.`locales`.`name`,`germinate_template_4_25_03_05`.`licensedata`.`content`) from (`germinate_template_4_25_03_05`.`licensedata` left join `germinate_template_4_25_03_05`.`locales` on((`germinate_template_4_25_03_05`.`locales`.`id` = `germinate_template_4_25_03_05`.`licensedata`.`locale_id`))) where (`germinate_template_4_25_03_05`.`licensedata`.`license_id` = `germinate_template_4_25_03_05`.`licenses`.`id`) group by `germinate_template_4_25_03_05`.`licensedata`.`license_id`) AS `license_data` from `germinate_template_4_25_03_05`.`licenses`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_license_definitions` as select `germinate_template_4_25_09_04`.`licenses`.`id` AS `license_id`,`germinate_template_4_25_09_04`.`licenses`.`name` AS `license_name`,`germinate_template_4_25_09_04`.`licenses`.`description` AS `license_description`,`germinate_template_4_25_09_04`.`licenses`.`created_on` AS `created_on`,(select json_objectagg(`germinate_template_4_25_09_04`.`locales`.`name`,`germinate_template_4_25_09_04`.`licensedata`.`content`) from (`germinate_template_4_25_09_04`.`licensedata` left join `germinate_template_4_25_09_04`.`locales` on((`germinate_template_4_25_09_04`.`locales`.`id` = `germinate_template_4_25_09_04`.`licensedata`.`locale_id`))) where (`germinate_template_4_25_09_04`.`licensedata`.`license_id` = `germinate_template_4_25_09_04`.`licenses`.`id`) group by `germinate_template_4_25_09_04`.`licensedata`.`license_id`) AS `license_data` from `germinate_template_4_25_09_04`.`licenses`"), where);
     }
 
     /**

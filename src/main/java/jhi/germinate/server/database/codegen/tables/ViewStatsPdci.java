@@ -4,12 +4,26 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.util.Collection;
+
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewStatsPdciRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -49,7 +63,7 @@ public class ViewStatsPdci extends TableImpl<ViewStatsPdciRecord> {
     }
 
     private ViewStatsPdci(Name alias, Table<ViewStatsPdciRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_stats_pdci` as select '0-1' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 0) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` < 1) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) union select '1-2' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 1) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` < 2) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) union select '2-3' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 2) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` < 3) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) union select '3-4' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 3) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` < 4) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) union select '4-5' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 4) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` < 5) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) union select '5-6' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 5) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` < 6) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) union select '6-7' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 6) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` < 7) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) union select '7-8' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 7) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` < 8) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) union select '8-9' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 8) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` < 9) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1)) union select '9-10' AS `bin`,count(1) AS `count` from `germinate_template_4_25_03_05`.`germinatebase` where ((`germinate_template_4_25_03_05`.`germinatebase`.`pdci` >= 9) and (`germinate_template_4_25_03_05`.`germinatebase`.`pdci` <= 10) and (`germinate_template_4_25_03_05`.`germinatebase`.`entitytype_id` = 1))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_stats_pdci` as select '0-1' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 0) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` < 1) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) union select '1-2' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 1) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` < 2) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) union select '2-3' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 2) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` < 3) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) union select '3-4' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 3) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` < 4) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) union select '4-5' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 4) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` < 5) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) union select '5-6' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 5) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` < 6) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) union select '6-7' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 6) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` < 7) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) union select '7-8' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 7) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` < 8) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) union select '8-9' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 8) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` < 9) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1)) union select '9-10' AS `bin`,count(1) AS `count` from `germinate_template_4_25_09_04`.`germinatebase` where ((`germinate_template_4_25_09_04`.`germinatebase`.`pdci` >= 9) and (`germinate_template_4_25_09_04`.`germinatebase`.`pdci` <= 10) and (`germinate_template_4_25_09_04`.`germinatebase`.`entitytype_id` = 1))"), where);
     }
 
     /**

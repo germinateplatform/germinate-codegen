@@ -7,6 +7,7 @@ package jhi.germinate.server.database.codegen.tables.records;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraits;
 import jhi.germinate.server.database.pojo.TraitRestrictions;
+
 import org.jooq.impl.TableRecordImpl;
 
 

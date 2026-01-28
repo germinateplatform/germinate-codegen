@@ -4,16 +4,31 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.binding.*;
+import java.sql.Timestamp;
+import java.util.Collection;
+
+import jhi.germinate.server.database.binding.StoryRequirementsBinding;
+import jhi.germinate.server.database.binding.StoryTableStepsBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.pojos.Storysteps;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableStoriesRecord;
 import jhi.germinate.server.database.pojo.StoryRequirements;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.sql.Timestamp;
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -133,7 +148,7 @@ public class ViewTableStories extends TableImpl<ViewTableStoriesRecord> {
     }
 
     private ViewTableStories(Name alias, Table<ViewTableStoriesRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_stories` as select `germinate_template_4_25_03_05`.`stories`.`id` AS `story_id`,`germinate_template_4_25_03_05`.`stories`.`name` AS `story_name`,`germinate_template_4_25_03_05`.`stories`.`description` AS `story_description`,`germinate_template_4_25_03_05`.`stories`.`requirements` AS `story_requirements`,`germinate_template_4_25_03_05`.`images`.`id` AS `story_image_id`,`germinate_template_4_25_03_05`.`images`.`path` AS `story_image_name`,`germinate_template_4_25_03_05`.`projects`.`id` AS `project_id`,`germinate_template_4_25_03_05`.`projects`.`name` AS `project_name`,`germinate_template_4_25_03_05`.`projects`.`description` AS `project_description`,`germinate_template_4_25_03_05`.`stories`.`featured` AS `story_featured`,`germinate_template_4_25_03_05`.`stories`.`visibility` AS `story_visibility`,`germinate_template_4_25_03_05`.`stories`.`user_id` AS `story_user_id`,`germinate_template_4_25_03_05`.`publications`.`id` AS `publication_id`,`germinate_template_4_25_03_05`.`publications`.`doi` AS `publication_doi`,json_arrayagg(json_object('id',`germinate_template_4_25_03_05`.`storysteps`.`id`,'name',`germinate_template_4_25_03_05`.`storysteps`.`name`,'description',`germinate_template_4_25_03_05`.`storysteps`.`description`,'storyId',`germinate_template_4_25_03_05`.`storysteps`.`story_id`,'storyIndex',`germinate_template_4_25_03_05`.`storysteps`.`story_index`,'pageConfig',`germinate_template_4_25_03_05`.`storysteps`.`page_config`,'storyIndex',`germinate_template_4_25_03_05`.`storysteps`.`story_index`,'imageId',`germinate_template_4_25_03_05`.`storysteps`.`image_id`,'createdOn',date_format(`germinate_template_4_25_03_05`.`storysteps`.`created_on`,'%Y-%m-%d %H:%i:%s'),'updatedOn',date_format(`germinate_template_4_25_03_05`.`storysteps`.`updated_on`,'%Y-%m-%d %H:%i:%s'))) AS `story_steps`,`germinate_template_4_25_03_05`.`stories`.`created_on` AS `story_created_on`,`germinate_template_4_25_03_05`.`stories`.`updated_on` AS `story_updated_on` from ((((`germinate_template_4_25_03_05`.`stories` left join `germinate_template_4_25_03_05`.`storysteps` on((`germinate_template_4_25_03_05`.`stories`.`id` = `germinate_template_4_25_03_05`.`storysteps`.`story_id`))) left join `germinate_template_4_25_03_05`.`images` on((`germinate_template_4_25_03_05`.`images`.`id` = `germinate_template_4_25_03_05`.`stories`.`image_id`))) left join `germinate_template_4_25_03_05`.`publications` on((`germinate_template_4_25_03_05`.`publications`.`id` = `germinate_template_4_25_03_05`.`stories`.`publication_id`))) left join `germinate_template_4_25_03_05`.`projects` on((`germinate_template_4_25_03_05`.`projects`.`id` = `germinate_template_4_25_03_05`.`stories`.`project_id`))) group by `germinate_template_4_25_03_05`.`stories`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_stories` as select `germinate_template_4_25_09_04`.`stories`.`id` AS `story_id`,`germinate_template_4_25_09_04`.`stories`.`name` AS `story_name`,`germinate_template_4_25_09_04`.`stories`.`description` AS `story_description`,`germinate_template_4_25_09_04`.`stories`.`requirements` AS `story_requirements`,`germinate_template_4_25_09_04`.`images`.`id` AS `story_image_id`,`germinate_template_4_25_09_04`.`images`.`path` AS `story_image_name`,`germinate_template_4_25_09_04`.`projects`.`id` AS `project_id`,`germinate_template_4_25_09_04`.`projects`.`name` AS `project_name`,`germinate_template_4_25_09_04`.`projects`.`description` AS `project_description`,`germinate_template_4_25_09_04`.`stories`.`featured` AS `story_featured`,`germinate_template_4_25_09_04`.`stories`.`visibility` AS `story_visibility`,`germinate_template_4_25_09_04`.`stories`.`user_id` AS `story_user_id`,`germinate_template_4_25_09_04`.`publications`.`id` AS `publication_id`,`germinate_template_4_25_09_04`.`publications`.`doi` AS `publication_doi`,json_arrayagg(json_object('id',`germinate_template_4_25_09_04`.`storysteps`.`id`,'name',`germinate_template_4_25_09_04`.`storysteps`.`name`,'description',`germinate_template_4_25_09_04`.`storysteps`.`description`,'storyId',`germinate_template_4_25_09_04`.`storysteps`.`story_id`,'storyIndex',`germinate_template_4_25_09_04`.`storysteps`.`story_index`,'pageConfig',`germinate_template_4_25_09_04`.`storysteps`.`page_config`,'storyIndex',`germinate_template_4_25_09_04`.`storysteps`.`story_index`,'imageId',`germinate_template_4_25_09_04`.`storysteps`.`image_id`,'createdOn',date_format(`germinate_template_4_25_09_04`.`storysteps`.`created_on`,'%Y-%m-%d %H:%i:%s'),'updatedOn',date_format(`germinate_template_4_25_09_04`.`storysteps`.`updated_on`,'%Y-%m-%d %H:%i:%s'))) AS `story_steps`,`germinate_template_4_25_09_04`.`stories`.`created_on` AS `story_created_on`,`germinate_template_4_25_09_04`.`stories`.`updated_on` AS `story_updated_on` from ((((`germinate_template_4_25_09_04`.`stories` left join `germinate_template_4_25_09_04`.`storysteps` on((`germinate_template_4_25_09_04`.`stories`.`id` = `germinate_template_4_25_09_04`.`storysteps`.`story_id`))) left join `germinate_template_4_25_09_04`.`images` on((`germinate_template_4_25_09_04`.`images`.`id` = `germinate_template_4_25_09_04`.`stories`.`image_id`))) left join `germinate_template_4_25_09_04`.`publications` on((`germinate_template_4_25_09_04`.`publications`.`id` = `germinate_template_4_25_09_04`.`stories`.`publication_id`))) left join `germinate_template_4_25_09_04`.`projects` on((`germinate_template_4_25_09_04`.`projects`.`id` = `germinate_template_4_25_09_04`.`stories`.`project_id`))) group by `germinate_template_4_25_09_04`.`stories`.`id`"), where);
     }
 
     /**

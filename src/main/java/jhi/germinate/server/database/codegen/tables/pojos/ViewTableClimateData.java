@@ -4,13 +4,15 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import jhi.germinate.server.database.codegen.enums.ViewTableClimateDataClimateDataType;
-import lombok.*;
-import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.enums.ViewTableClimateDataClimateDataType;
+
+
+import lombok.*;
+import lombok.experimental.Accessors;
 
 // @formatter:off
 /**

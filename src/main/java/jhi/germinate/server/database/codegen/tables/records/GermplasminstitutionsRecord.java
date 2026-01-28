@@ -4,12 +4,13 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
+import java.sql.Timestamp;
+
 import jhi.germinate.server.database.codegen.enums.GermplasminstitutionsType;
 import jhi.germinate.server.database.codegen.tables.Germplasminstitutions;
+
 import org.jooq.Record3;
 import org.jooq.impl.UpdatableRecordImpl;
-
-import java.sql.Timestamp;
 
 
 // @formatter:off

@@ -4,13 +4,27 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.tables.records.ViewTablePedigreedefinitionsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
-
 import java.sql.Timestamp;
 import java.util.Collection;
+
+import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.tables.records.ViewTablePedigreedefinitionsRecord;
+
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -141,7 +155,7 @@ public class ViewTablePedigreedefinitions extends TableImpl<ViewTablePedigreedef
     }
 
     private ViewTablePedigreedefinitions(Name alias, Table<ViewTablePedigreedefinitionsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_pedigreedefinitions` as select `germinate_template_4_25_03_05`.`germinatebase`.`id` AS `germplasm_id`,`germinate_template_4_25_03_05`.`germinatebase`.`name` AS `germplasm_name`,`germinate_template_4_25_03_05`.`germinatebase`.`display_name` AS `germplasm_display_name`,`germinate_template_4_25_03_05`.`pedigreenotations`.`name` AS `pedigree_notation_name`,`germinate_template_4_25_03_05`.`pedigreenotations`.`description` AS `pedigree_notation_description`,`germinate_template_4_25_03_05`.`pedigreenotations`.`reference_url` AS `pedigree_notation_url`,`germinate_template_4_25_03_05`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_03_05`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_25_03_05`.`pedigreedefinitions`.`id` AS `definition_id`,`germinate_template_4_25_03_05`.`pedigreedefinitions`.`definition` AS `definition`,`germinate_template_4_25_03_05`.`pedigreedescriptions`.`name` AS `pedigree_description_name`,`germinate_template_4_25_03_05`.`pedigreedescriptions`.`description` AS `pedigree_description_description`,`germinate_template_4_25_03_05`.`pedigreedescriptions`.`author` AS `pedigree_description_author`,`germinate_template_4_25_03_05`.`pedigreedefinitions`.`created_on` AS `created_on` from ((((`germinate_template_4_25_03_05`.`pedigreedefinitions` left join `germinate_template_4_25_03_05`.`germinatebase` on((`germinate_template_4_25_03_05`.`germinatebase`.`id` = `germinate_template_4_25_03_05`.`pedigreedefinitions`.`germinatebase_id`))) left join `germinate_template_4_25_03_05`.`pedigreenotations` on((`germinate_template_4_25_03_05`.`pedigreenotations`.`id` = `germinate_template_4_25_03_05`.`pedigreedefinitions`.`pedigreenotation_id`))) left join `germinate_template_4_25_03_05`.`pedigreedescriptions` on((`germinate_template_4_25_03_05`.`pedigreedescriptions`.`id` = `germinate_template_4_25_03_05`.`pedigreedefinitions`.`pedigreedescription_id`))) left join `germinate_template_4_25_03_05`.`datasets` on((`germinate_template_4_25_03_05`.`datasets`.`id` = `germinate_template_4_25_03_05`.`pedigreedefinitions`.`dataset_id`)))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_pedigreedefinitions` as select `germinate_template_4_25_09_04`.`germinatebase`.`id` AS `germplasm_id`,`germinate_template_4_25_09_04`.`germinatebase`.`name` AS `germplasm_name`,`germinate_template_4_25_09_04`.`germinatebase`.`display_name` AS `germplasm_display_name`,`germinate_template_4_25_09_04`.`pedigreenotations`.`name` AS `pedigree_notation_name`,`germinate_template_4_25_09_04`.`pedigreenotations`.`description` AS `pedigree_notation_description`,`germinate_template_4_25_09_04`.`pedigreenotations`.`reference_url` AS `pedigree_notation_url`,`germinate_template_4_25_09_04`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_09_04`.`datasets`.`name` AS `dataset_name`,`germinate_template_4_25_09_04`.`pedigreedefinitions`.`id` AS `definition_id`,`germinate_template_4_25_09_04`.`pedigreedefinitions`.`definition` AS `definition`,`germinate_template_4_25_09_04`.`pedigreedescriptions`.`name` AS `pedigree_description_name`,`germinate_template_4_25_09_04`.`pedigreedescriptions`.`description` AS `pedigree_description_description`,`germinate_template_4_25_09_04`.`pedigreedescriptions`.`author` AS `pedigree_description_author`,`germinate_template_4_25_09_04`.`pedigreedefinitions`.`created_on` AS `created_on` from ((((`germinate_template_4_25_09_04`.`pedigreedefinitions` left join `germinate_template_4_25_09_04`.`germinatebase` on((`germinate_template_4_25_09_04`.`germinatebase`.`id` = `germinate_template_4_25_09_04`.`pedigreedefinitions`.`germinatebase_id`))) left join `germinate_template_4_25_09_04`.`pedigreenotations` on((`germinate_template_4_25_09_04`.`pedigreenotations`.`id` = `germinate_template_4_25_09_04`.`pedigreedefinitions`.`pedigreenotation_id`))) left join `germinate_template_4_25_09_04`.`pedigreedescriptions` on((`germinate_template_4_25_09_04`.`pedigreedescriptions`.`id` = `germinate_template_4_25_09_04`.`pedigreedefinitions`.`pedigreedescription_id`))) left join `germinate_template_4_25_09_04`.`datasets` on((`germinate_template_4_25_09_04`.`datasets`.`id` = `germinate_template_4_25_09_04`.`pedigreedefinitions`.`dataset_id`)))"), where);
     }
 
     /**

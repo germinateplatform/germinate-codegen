@@ -4,13 +4,29 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.binding.*;
+import java.util.Collection;
+import java.util.Map;
+
+import jhi.germinate.server.database.binding.IntArrayBinding;
+import jhi.germinate.server.database.binding.LicenseContentBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableLicensesRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.*;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -72,7 +88,7 @@ public class ViewTableLicenses extends TableImpl<ViewTableLicensesRecord> {
     }
 
     private ViewTableLicenses(Name alias, Table<ViewTableLicensesRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_licenses` as select `germinate_template_4_25_03_05`.`licenses`.`id` AS `license_id`,`germinate_template_4_25_03_05`.`licenses`.`name` AS `license_name`,`germinate_template_4_25_03_05`.`licenses`.`description` AS `license_description`,json_objectagg(`germinate_template_4_25_03_05`.`locales`.`name`,`germinate_template_4_25_03_05`.`licensedata`.`content`) AS `license_content`,`germinate_template_4_25_03_05`.`datasets`.`id` AS `dataset_id`,json_arrayagg(`germinate_template_4_25_03_05`.`licenselogs`.`user_id`) AS `accepted_by` from ((((`germinate_template_4_25_03_05`.`licenses` left join `germinate_template_4_25_03_05`.`licensedata` on((`germinate_template_4_25_03_05`.`licensedata`.`license_id` = `germinate_template_4_25_03_05`.`licenses`.`id`))) left join `germinate_template_4_25_03_05`.`locales` on((`germinate_template_4_25_03_05`.`locales`.`id` = `germinate_template_4_25_03_05`.`licensedata`.`locale_id`))) left join `germinate_template_4_25_03_05`.`datasets` on((`germinate_template_4_25_03_05`.`datasets`.`license_id` = `germinate_template_4_25_03_05`.`licenses`.`id`))) left join `germinate_template_4_25_03_05`.`licenselogs` on((`germinate_template_4_25_03_05`.`licenselogs`.`license_id` = `germinate_template_4_25_03_05`.`licenses`.`id`))) group by `germinate_template_4_25_03_05`.`licenses`.`id`,`germinate_template_4_25_03_05`.`datasets`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_licenses` as select `germinate_template_4_25_09_04`.`licenses`.`id` AS `license_id`,`germinate_template_4_25_09_04`.`licenses`.`name` AS `license_name`,`germinate_template_4_25_09_04`.`licenses`.`description` AS `license_description`,json_objectagg(`germinate_template_4_25_09_04`.`locales`.`name`,`germinate_template_4_25_09_04`.`licensedata`.`content`) AS `license_content`,`germinate_template_4_25_09_04`.`datasets`.`id` AS `dataset_id`,json_arrayagg(`germinate_template_4_25_09_04`.`licenselogs`.`user_id`) AS `accepted_by` from ((((`germinate_template_4_25_09_04`.`licenses` left join `germinate_template_4_25_09_04`.`licensedata` on((`germinate_template_4_25_09_04`.`licensedata`.`license_id` = `germinate_template_4_25_09_04`.`licenses`.`id`))) left join `germinate_template_4_25_09_04`.`locales` on((`germinate_template_4_25_09_04`.`locales`.`id` = `germinate_template_4_25_09_04`.`licensedata`.`locale_id`))) left join `germinate_template_4_25_09_04`.`datasets` on((`germinate_template_4_25_09_04`.`datasets`.`license_id` = `germinate_template_4_25_09_04`.`licenses`.`id`))) left join `germinate_template_4_25_09_04`.`licenselogs` on((`germinate_template_4_25_09_04`.`licenselogs`.`license_id` = `germinate_template_4_25_09_04`.`licenses`.`id`))) group by `germinate_template_4_25_09_04`.`licenses`.`id`,`germinate_template_4_25_09_04`.`datasets`.`id`"), where);
     }
 
     /**

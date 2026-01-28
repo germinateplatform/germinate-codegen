@@ -4,13 +4,27 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.tables.records.ViewTableFileresourcetypesRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
-
 import java.sql.Timestamp;
 import java.util.Collection;
+
+import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.tables.records.ViewTableFileresourcetypesRecord;
+
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -79,7 +93,7 @@ public class ViewTableFileresourcetypes extends TableImpl<ViewTableFileresourcet
     }
 
     private ViewTableFileresourcetypes(Name alias, Table<ViewTableFileresourcetypesRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_fileresourcetypes` as select `germinate_template_4_25_03_05`.`fileresourcetypes`.`id` AS `id`,`germinate_template_4_25_03_05`.`fileresourcetypes`.`name` AS `name`,`germinate_template_4_25_03_05`.`fileresourcetypes`.`description` AS `description`,`germinate_template_4_25_03_05`.`fileresourcetypes`.`created_on` AS `created_on`,`germinate_template_4_25_03_05`.`fileresourcetypes`.`updated_on` AS `updated_on`,(select count(1) from `germinate_template_4_25_03_05`.`fileresources` where (`germinate_template_4_25_03_05`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_25_03_05`.`fileresourcetypes`.`id`)) AS `count` from `germinate_template_4_25_03_05`.`fileresourcetypes`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_fileresourcetypes` as select `germinate_template_4_25_09_04`.`fileresourcetypes`.`id` AS `id`,`germinate_template_4_25_09_04`.`fileresourcetypes`.`name` AS `name`,`germinate_template_4_25_09_04`.`fileresourcetypes`.`description` AS `description`,`germinate_template_4_25_09_04`.`fileresourcetypes`.`created_on` AS `created_on`,`germinate_template_4_25_09_04`.`fileresourcetypes`.`updated_on` AS `updated_on`,(select count(1) from `germinate_template_4_25_09_04`.`fileresources` where (`germinate_template_4_25_09_04`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_25_09_04`.`fileresourcetypes`.`id`)) AS `count` from `germinate_template_4_25_09_04`.`fileresourcetypes`"), where);
     }
 
     /**

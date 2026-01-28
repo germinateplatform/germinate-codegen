@@ -4,13 +4,27 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.util.Collection;
+
 import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableCollaboratorsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -156,7 +170,7 @@ public class ViewTableCollaborators extends TableImpl<ViewTableCollaboratorsReco
     }
 
     private ViewTableCollaborators(Name alias, Table<ViewTableCollaboratorsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_collaborators` as select `germinate_template_4_25_03_05`.`collaborators`.`id` AS `collaborator_id`,`germinate_template_4_25_03_05`.`collaborators`.`first_name` AS `collaborator_first_name`,`germinate_template_4_25_03_05`.`collaborators`.`last_name` AS `collaborator_last_name`,`germinate_template_4_25_03_05`.`collaborators`.`external_id` AS `collaborator_external_id`,`germinate_template_4_25_03_05`.`collaborators`.`email` AS `collaborator_email`,`germinate_template_4_25_03_05`.`collaborators`.`phone` AS `collaborator_phone`,`germinate_template_4_25_03_05`.`datasetcollaborators`.`collaborator_roles` AS `collaborator_roles`,`germinate_template_4_25_03_05`.`institutions`.`id` AS `institution_id`,`germinate_template_4_25_03_05`.`institutions`.`name` AS `institution_name`,`germinate_template_4_25_03_05`.`institutions`.`address` AS `institution_address`,`germinate_template_4_25_03_05`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_03_05`.`countries`.`id` AS `country_id`,`germinate_template_4_25_03_05`.`countries`.`country_name` AS `country_name`,`germinate_template_4_25_03_05`.`countries`.`country_code2` AS `country_code2`,`germinate_template_4_25_03_05`.`countries`.`country_code3` AS `country_code3`,(select json_arrayagg(`germinate_template_4_25_03_05`.`projectcollaborators`.`project_id`) from `germinate_template_4_25_03_05`.`projectcollaborators` where (`germinate_template_4_25_03_05`.`projectcollaborators`.`collaborator_id` = `germinate_template_4_25_03_05`.`collaborators`.`id`) group by `germinate_template_4_25_03_05`.`projectcollaborators`.`collaborator_id`) AS `project_ids` from ((((`germinate_template_4_25_03_05`.`collaborators` left join `germinate_template_4_25_03_05`.`institutions` on((`germinate_template_4_25_03_05`.`institutions`.`id` = `germinate_template_4_25_03_05`.`collaborators`.`institution_id`))) left join `germinate_template_4_25_03_05`.`countries` on((`germinate_template_4_25_03_05`.`countries`.`id` = `germinate_template_4_25_03_05`.`institutions`.`country_id`))) left join `germinate_template_4_25_03_05`.`datasetcollaborators` on((`germinate_template_4_25_03_05`.`datasetcollaborators`.`collaborator_id` = `germinate_template_4_25_03_05`.`collaborators`.`id`))) left join `germinate_template_4_25_03_05`.`datasets` on((`germinate_template_4_25_03_05`.`datasets`.`id` = `germinate_template_4_25_03_05`.`datasetcollaborators`.`dataset_id`)))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_collaborators` as select `germinate_template_4_25_09_04`.`collaborators`.`id` AS `collaborator_id`,`germinate_template_4_25_09_04`.`collaborators`.`first_name` AS `collaborator_first_name`,`germinate_template_4_25_09_04`.`collaborators`.`last_name` AS `collaborator_last_name`,`germinate_template_4_25_09_04`.`collaborators`.`external_id` AS `collaborator_external_id`,`germinate_template_4_25_09_04`.`collaborators`.`email` AS `collaborator_email`,`germinate_template_4_25_09_04`.`collaborators`.`phone` AS `collaborator_phone`,`germinate_template_4_25_09_04`.`datasetcollaborators`.`collaborator_roles` AS `collaborator_roles`,`germinate_template_4_25_09_04`.`institutions`.`id` AS `institution_id`,`germinate_template_4_25_09_04`.`institutions`.`name` AS `institution_name`,`germinate_template_4_25_09_04`.`institutions`.`address` AS `institution_address`,`germinate_template_4_25_09_04`.`datasets`.`id` AS `dataset_id`,`germinate_template_4_25_09_04`.`countries`.`id` AS `country_id`,`germinate_template_4_25_09_04`.`countries`.`country_name` AS `country_name`,`germinate_template_4_25_09_04`.`countries`.`country_code2` AS `country_code2`,`germinate_template_4_25_09_04`.`countries`.`country_code3` AS `country_code3`,(select json_arrayagg(`germinate_template_4_25_09_04`.`projectcollaborators`.`project_id`) from `germinate_template_4_25_09_04`.`projectcollaborators` where (`germinate_template_4_25_09_04`.`projectcollaborators`.`collaborator_id` = `germinate_template_4_25_09_04`.`collaborators`.`id`) group by `germinate_template_4_25_09_04`.`projectcollaborators`.`collaborator_id`) AS `project_ids` from ((((`germinate_template_4_25_09_04`.`collaborators` left join `germinate_template_4_25_09_04`.`institutions` on((`germinate_template_4_25_09_04`.`institutions`.`id` = `germinate_template_4_25_09_04`.`collaborators`.`institution_id`))) left join `germinate_template_4_25_09_04`.`countries` on((`germinate_template_4_25_09_04`.`countries`.`id` = `germinate_template_4_25_09_04`.`institutions`.`country_id`))) left join `germinate_template_4_25_09_04`.`datasetcollaborators` on((`germinate_template_4_25_09_04`.`datasetcollaborators`.`collaborator_id` = `germinate_template_4_25_09_04`.`collaborators`.`id`))) left join `germinate_template_4_25_09_04`.`datasets` on((`germinate_template_4_25_09_04`.`datasets`.`id` = `germinate_template_4_25_09_04`.`datasetcollaborators`.`dataset_id`)))"), where);
     }
 
     /**

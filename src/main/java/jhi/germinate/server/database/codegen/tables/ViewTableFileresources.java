@@ -4,14 +4,28 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.sql.Timestamp;
+import java.util.Collection;
+
 import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableFileresourcesRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.sql.Timestamp;
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -135,7 +149,7 @@ public class ViewTableFileresources extends TableImpl<ViewTableFileresourcesReco
     }
 
     private ViewTableFileresources(Name alias, Table<ViewTableFileresourcesRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_fileresources` as select `germinate_template_4_25_03_05`.`fileresources`.`id` AS `fileresource_id`,`germinate_template_4_25_03_05`.`fileresources`.`name` AS `fileresource_name`,`germinate_template_4_25_03_05`.`fileresources`.`path` AS `fileresource_path`,`germinate_template_4_25_03_05`.`fileresources`.`description` AS `fileresource_description`,`germinate_template_4_25_03_05`.`fileresources`.`filesize` AS `fileresource_size`,`germinate_template_4_25_03_05`.`fileresources`.`created_on` AS `fileresource_created_on`,`germinate_template_4_25_03_05`.`fileresources`.`updated_on` AS `fileresource_updated_on`,`germinate_template_4_25_03_05`.`projects`.`id` AS `project_id`,`germinate_template_4_25_03_05`.`projects`.`name` AS `project_name`,`germinate_template_4_25_03_05`.`projects`.`description` AS `project_description`,`germinate_template_4_25_03_05`.`fileresourcetypes`.`id` AS `fileresourcetype_id`,`germinate_template_4_25_03_05`.`fileresourcetypes`.`name` AS `fileresourcetype_name`,`germinate_template_4_25_03_05`.`fileresourcetypes`.`description` AS `fileresourcetype_description`,(select json_arrayagg(`germinate_template_4_25_03_05`.`datasetfileresources`.`dataset_id`) from `germinate_template_4_25_03_05`.`datasetfileresources` where (`germinate_template_4_25_03_05`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_25_03_05`.`fileresources`.`id`)) AS `dataset_ids` from (((`germinate_template_4_25_03_05`.`fileresources` left join `germinate_template_4_25_03_05`.`fileresourcetypes` on((`germinate_template_4_25_03_05`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_25_03_05`.`fileresourcetypes`.`id`))) left join `germinate_template_4_25_03_05`.`datasetfileresources` on((`germinate_template_4_25_03_05`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_25_03_05`.`fileresources`.`id`))) left join `germinate_template_4_25_03_05`.`projects` on((`germinate_template_4_25_03_05`.`projects`.`id` = `germinate_template_4_25_03_05`.`fileresources`.`project_id`))) group by `germinate_template_4_25_03_05`.`fileresources`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_fileresources` as select `germinate_template_4_25_09_04`.`fileresources`.`id` AS `fileresource_id`,`germinate_template_4_25_09_04`.`fileresources`.`name` AS `fileresource_name`,`germinate_template_4_25_09_04`.`fileresources`.`path` AS `fileresource_path`,`germinate_template_4_25_09_04`.`fileresources`.`description` AS `fileresource_description`,`germinate_template_4_25_09_04`.`fileresources`.`filesize` AS `fileresource_size`,`germinate_template_4_25_09_04`.`fileresources`.`created_on` AS `fileresource_created_on`,`germinate_template_4_25_09_04`.`fileresources`.`updated_on` AS `fileresource_updated_on`,`germinate_template_4_25_09_04`.`projects`.`id` AS `project_id`,`germinate_template_4_25_09_04`.`projects`.`name` AS `project_name`,`germinate_template_4_25_09_04`.`projects`.`description` AS `project_description`,`germinate_template_4_25_09_04`.`fileresourcetypes`.`id` AS `fileresourcetype_id`,`germinate_template_4_25_09_04`.`fileresourcetypes`.`name` AS `fileresourcetype_name`,`germinate_template_4_25_09_04`.`fileresourcetypes`.`description` AS `fileresourcetype_description`,(select json_arrayagg(`germinate_template_4_25_09_04`.`datasetfileresources`.`dataset_id`) from `germinate_template_4_25_09_04`.`datasetfileresources` where (`germinate_template_4_25_09_04`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_25_09_04`.`fileresources`.`id`)) AS `dataset_ids` from (((`germinate_template_4_25_09_04`.`fileresources` left join `germinate_template_4_25_09_04`.`fileresourcetypes` on((`germinate_template_4_25_09_04`.`fileresources`.`fileresourcetype_id` = `germinate_template_4_25_09_04`.`fileresourcetypes`.`id`))) left join `germinate_template_4_25_09_04`.`datasetfileresources` on((`germinate_template_4_25_09_04`.`datasetfileresources`.`fileresource_id` = `germinate_template_4_25_09_04`.`fileresources`.`id`))) left join `germinate_template_4_25_09_04`.`projects` on((`germinate_template_4_25_09_04`.`projects`.`id` = `germinate_template_4_25_09_04`.`fileresources`.`project_id`))) group by `germinate_template_4_25_09_04`.`fileresources`.`id`"), where);
     }
 
     /**
