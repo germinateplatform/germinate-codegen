@@ -52,18 +52,18 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     }
 
     /**
-     * Setter for <code>germinate_db.phenotypedata.phenotype_id</code>. Foreign
+     * Setter for <code>germinate_db.phenotypedata.variable_id</code>. Foreign
      * key phenotypes (phenotype.id).
      */
-    public void setPhenotypeId(Integer value) {
+    public void setVariableId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>germinate_db.phenotypedata.phenotype_id</code>. Foreign
+     * Getter for <code>germinate_db.phenotypedata.variable_id</code>. Foreign
      * key phenotypes (phenotype.id).
      */
-    public Integer getPhenotypeId() {
+    public Integer getVariableId() {
         return (Integer) get(2);
     }
 
@@ -158,12 +158,12 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
     /**
      * Create a detached, initialised PhenotypedataRecord
      */
-    public PhenotypedataRecord(Integer id, Integer trialsetupId, Integer phenotypeId, String phenotypeValue, Timestamp recordingDate, Timestamp createdOn, Timestamp updatedOn) {
+    public PhenotypedataRecord(Integer id, Integer trialsetupId, Integer variableId, String phenotypeValue, Timestamp recordingDate, Timestamp createdOn, Timestamp updatedOn) {
         super(Phenotypedata.PHENOTYPEDATA);
 
         setId(id);
         setTrialsetupId(trialsetupId);
-        setPhenotypeId(phenotypeId);
+        setVariableId(variableId);
         setPhenotypeValue(phenotypeValue);
         setRecordingDate(recordingDate);
         setCreatedOn(createdOn);
@@ -180,7 +180,7 @@ public class PhenotypedataRecord extends UpdatableRecordImpl<PhenotypedataRecord
         if (value != null) {
             setId(value.getId());
             setTrialsetupId(value.getTrialsetupId());
-            setPhenotypeId(value.getPhenotypeId());
+            setVariableId(value.getVariableId());
             setPhenotypeValue(value.getPhenotypeValue());
             setRecordingDate(value.getRecordingDate());
             setCreatedOn(value.getCreatedOn());

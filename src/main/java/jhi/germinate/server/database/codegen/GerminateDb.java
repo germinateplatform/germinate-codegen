@@ -61,22 +61,25 @@ import jhi.germinate.server.database.codegen.tables.Maps;
 import jhi.germinate.server.database.codegen.tables.Markers;
 import jhi.germinate.server.database.codegen.tables.Markertypes;
 import jhi.germinate.server.database.codegen.tables.Mcpd;
+import jhi.germinate.server.database.codegen.tables.Methodontologies;
+import jhi.germinate.server.database.codegen.tables.Methods;
 import jhi.germinate.server.database.codegen.tables.Mlsstatus;
 import jhi.germinate.server.database.codegen.tables.News;
 import jhi.germinate.server.database.codegen.tables.Newstypes;
+import jhi.germinate.server.database.codegen.tables.Ontologies;
 import jhi.germinate.server.database.codegen.tables.Pedigreedefinitions;
 import jhi.germinate.server.database.codegen.tables.Pedigreedescriptions;
 import jhi.germinate.server.database.codegen.tables.Pedigreenotations;
 import jhi.germinate.server.database.codegen.tables.Pedigrees;
-import jhi.germinate.server.database.codegen.tables.Phenotypecategories;
 import jhi.germinate.server.database.codegen.tables.Phenotypedata;
-import jhi.germinate.server.database.codegen.tables.Phenotypes;
 import jhi.germinate.server.database.codegen.tables.Projectcollaborators;
 import jhi.germinate.server.database.codegen.tables.Projectgroups;
 import jhi.germinate.server.database.codegen.tables.Projectpublications;
 import jhi.germinate.server.database.codegen.tables.Projects;
 import jhi.germinate.server.database.codegen.tables.Publicationdata;
 import jhi.germinate.server.database.codegen.tables.Publications;
+import jhi.germinate.server.database.codegen.tables.Scaleontologies;
+import jhi.germinate.server.database.codegen.tables.Scales;
 import jhi.germinate.server.database.codegen.tables.SchemaVersion;
 import jhi.germinate.server.database.codegen.tables.Stories;
 import jhi.germinate.server.database.codegen.tables.Storysteps;
@@ -85,6 +88,9 @@ import jhi.germinate.server.database.codegen.tables.Synonymtypes;
 import jhi.germinate.server.database.codegen.tables.Taxonomies;
 import jhi.germinate.server.database.codegen.tables.Taxonomyproviders;
 import jhi.germinate.server.database.codegen.tables.Taxonomyproviderslinks;
+import jhi.germinate.server.database.codegen.tables.Traitcategories;
+import jhi.germinate.server.database.codegen.tables.Traitontologies;
+import jhi.germinate.server.database.codegen.tables.Traits;
 import jhi.germinate.server.database.codegen.tables.Treatments;
 import jhi.germinate.server.database.codegen.tables.Trialseries;
 import jhi.germinate.server.database.codegen.tables.Trialsetup;
@@ -92,6 +98,8 @@ import jhi.germinate.server.database.codegen.tables.Units;
 import jhi.germinate.server.database.codegen.tables.Userfeedback;
 import jhi.germinate.server.database.codegen.tables.Usergroupmembers;
 import jhi.germinate.server.database.codegen.tables.Usergroups;
+import jhi.germinate.server.database.codegen.tables.Variableontologies;
+import jhi.germinate.server.database.codegen.tables.Variables;
 import jhi.germinate.server.database.codegen.tables.ViewStatsBiologicalstatus;
 import jhi.germinate.server.database.codegen.tables.ViewStatsCountry;
 import jhi.germinate.server.database.codegen.tables.ViewStatsPdci;
@@ -220,22 +228,25 @@ public class GerminateDb extends SchemaImpl {
             Markers.MARKERS,
             Markertypes.MARKERTYPES,
             Mcpd.MCPD,
+            Methodontologies.METHODONTOLOGIES,
+            Methods.METHODS,
             Mlsstatus.MLSSTATUS,
             News.NEWS,
             Newstypes.NEWSTYPES,
+            Ontologies.ONTOLOGIES,
             Pedigreedefinitions.PEDIGREEDEFINITIONS,
             Pedigreedescriptions.PEDIGREEDESCRIPTIONS,
             Pedigreenotations.PEDIGREENOTATIONS,
             Pedigrees.PEDIGREES,
-            Phenotypecategories.PHENOTYPECATEGORIES,
             Phenotypedata.PHENOTYPEDATA,
-            Phenotypes.PHENOTYPES,
             Projectcollaborators.PROJECTCOLLABORATORS,
             Projectgroups.PROJECTGROUPS,
             Projectpublications.PROJECTPUBLICATIONS,
             Projects.PROJECTS,
             Publicationdata.PUBLICATIONDATA,
             Publications.PUBLICATIONS,
+            Scaleontologies.SCALEONTOLOGIES,
+            Scales.SCALES,
             SchemaVersion.SCHEMA_VERSION,
             Stories.STORIES,
             Storysteps.STORYSTEPS,
@@ -244,6 +255,9 @@ public class GerminateDb extends SchemaImpl {
             Taxonomies.TAXONOMIES,
             Taxonomyproviders.TAXONOMYPROVIDERS,
             Taxonomyproviderslinks.TAXONOMYPROVIDERSLINKS,
+            Traitcategories.TRAITCATEGORIES,
+            Traitontologies.TRAITONTOLOGIES,
+            Traits.TRAITS,
             Treatments.TREATMENTS,
             Trialseries.TRIALSERIES,
             Trialsetup.TRIALSETUP,
@@ -251,6 +265,8 @@ public class GerminateDb extends SchemaImpl {
             Userfeedback.USERFEEDBACK,
             Usergroupmembers.USERGROUPMEMBERS,
             Usergroups.USERGROUPS,
+            Variableontologies.VARIABLEONTOLOGIES,
+            Variables.VARIABLES,
             ViewStatsBiologicalstatus.VIEW_STATS_BIOLOGICALSTATUS,
             ViewStatsCountry.VIEW_STATS_COUNTRY,
             ViewStatsPdci.VIEW_STATS_PDCI,

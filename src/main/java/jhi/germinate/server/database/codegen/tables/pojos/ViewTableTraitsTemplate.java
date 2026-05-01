@@ -6,7 +6,9 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 
 import java.io.Serializable;
 
-import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTemplateDataType;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTemplateMethodClass;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTemplateScaleDataType;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTemplateTraitClass;
 
 import org.jooq.JSON;
 
@@ -26,66 +28,106 @@ public class ViewTableTraitsTemplate implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String name;
-    private String shortName;
-    private String description;
-    private ViewTableTraitsTemplateDataType dataType;
-    private String unitName;
-    private String unitAbbreviation;
-    private String unitDescriptions;
-    private JSON traitCategories_28commaSeparated_29;
-    private JSON min_28onlyForNumericTraits_29;
-    private JSON max_28onlyForNumericTraits_29;
-    private Long setSize;
-    private String isTimeseries;
+    private String variableCropontologyId;
+    private String variableName;
+    private String variableDescription;
+    private String traitCopontologyId;
+    private String traitName;
+    private String traitDescription;
+    private String traitAbbreviation;
+    private ViewTableTraitsTemplateTraitClass traitClass;
     private String traitCategory;
+    private String methodCropontologyId;
+    private String methodName;
+    private String methodDescription;
+    private ViewTableTraitsTemplateMethodClass methodClass;
+    private Integer methodSetSize;
+    private Boolean methodIsTimeseries;
+    private String scaleCropontologyId;
+    private String scaleName;
+    private String scaleDescription;
+    private String scaleUnit;
+    private ViewTableTraitsTemplateScaleDataType scaleDataType;
+    private JSON scaleMinimum;
+    private JSON scaleMaximum;
+    private JSON scaleValidValues;
 
     public ViewTableTraitsTemplate() {}
 
     public ViewTableTraitsTemplate(ViewTableTraitsTemplate value) {
-        this.name = value.name;
-        this.shortName = value.shortName;
-        this.description = value.description;
-        this.dataType = value.dataType;
-        this.unitName = value.unitName;
-        this.unitAbbreviation = value.unitAbbreviation;
-        this.unitDescriptions = value.unitDescriptions;
-        this.traitCategories_28commaSeparated_29 = value.traitCategories_28commaSeparated_29;
-        this.min_28onlyForNumericTraits_29 = value.min_28onlyForNumericTraits_29;
-        this.max_28onlyForNumericTraits_29 = value.max_28onlyForNumericTraits_29;
-        this.setSize = value.setSize;
-        this.isTimeseries = value.isTimeseries;
+        this.variableCropontologyId = value.variableCropontologyId;
+        this.variableName = value.variableName;
+        this.variableDescription = value.variableDescription;
+        this.traitCopontologyId = value.traitCopontologyId;
+        this.traitName = value.traitName;
+        this.traitDescription = value.traitDescription;
+        this.traitAbbreviation = value.traitAbbreviation;
+        this.traitClass = value.traitClass;
         this.traitCategory = value.traitCategory;
+        this.methodCropontologyId = value.methodCropontologyId;
+        this.methodName = value.methodName;
+        this.methodDescription = value.methodDescription;
+        this.methodClass = value.methodClass;
+        this.methodSetSize = value.methodSetSize;
+        this.methodIsTimeseries = value.methodIsTimeseries;
+        this.scaleCropontologyId = value.scaleCropontologyId;
+        this.scaleName = value.scaleName;
+        this.scaleDescription = value.scaleDescription;
+        this.scaleUnit = value.scaleUnit;
+        this.scaleDataType = value.scaleDataType;
+        this.scaleMinimum = value.scaleMinimum;
+        this.scaleMaximum = value.scaleMaximum;
+        this.scaleValidValues = value.scaleValidValues;
     }
 
     public ViewTableTraitsTemplate(
-        String name,
-        String shortName,
-        String description,
-        ViewTableTraitsTemplateDataType dataType,
-        String unitName,
-        String unitAbbreviation,
-        String unitDescriptions,
-        JSON traitCategories_28commaSeparated_29,
-        JSON min_28onlyForNumericTraits_29,
-        JSON max_28onlyForNumericTraits_29,
-        Long setSize,
-        String isTimeseries,
-        String traitCategory
+        String variableCropontologyId,
+        String variableName,
+        String variableDescription,
+        String traitCopontologyId,
+        String traitName,
+        String traitDescription,
+        String traitAbbreviation,
+        ViewTableTraitsTemplateTraitClass traitClass,
+        String traitCategory,
+        String methodCropontologyId,
+        String methodName,
+        String methodDescription,
+        ViewTableTraitsTemplateMethodClass methodClass,
+        Integer methodSetSize,
+        Boolean methodIsTimeseries,
+        String scaleCropontologyId,
+        String scaleName,
+        String scaleDescription,
+        String scaleUnit,
+        ViewTableTraitsTemplateScaleDataType scaleDataType,
+        JSON scaleMinimum,
+        JSON scaleMaximum,
+        JSON scaleValidValues
     ) {
-        this.name = name;
-        this.shortName = shortName;
-        this.description = description;
-        this.dataType = dataType;
-        this.unitName = unitName;
-        this.unitAbbreviation = unitAbbreviation;
-        this.unitDescriptions = unitDescriptions;
-        this.traitCategories_28commaSeparated_29 = traitCategories_28commaSeparated_29;
-        this.min_28onlyForNumericTraits_29 = min_28onlyForNumericTraits_29;
-        this.max_28onlyForNumericTraits_29 = max_28onlyForNumericTraits_29;
-        this.setSize = setSize;
-        this.isTimeseries = isTimeseries;
+        this.variableCropontologyId = variableCropontologyId;
+        this.variableName = variableName;
+        this.variableDescription = variableDescription;
+        this.traitCopontologyId = traitCopontologyId;
+        this.traitName = traitName;
+        this.traitDescription = traitDescription;
+        this.traitAbbreviation = traitAbbreviation;
+        this.traitClass = traitClass;
         this.traitCategory = traitCategory;
+        this.methodCropontologyId = methodCropontologyId;
+        this.methodName = methodName;
+        this.methodDescription = methodDescription;
+        this.methodClass = methodClass;
+        this.methodSetSize = methodSetSize;
+        this.methodIsTimeseries = methodIsTimeseries;
+        this.scaleCropontologyId = scaleCropontologyId;
+        this.scaleName = scaleName;
+        this.scaleDescription = scaleDescription;
+        this.scaleUnit = scaleUnit;
+        this.scaleDataType = scaleDataType;
+        this.scaleMinimum = scaleMinimum;
+        this.scaleMaximum = scaleMaximum;
+        this.scaleValidValues = scaleValidValues;
     }
 
     @Override
@@ -97,83 +139,143 @@ public class ViewTableTraitsTemplate implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         final ViewTableTraitsTemplate other = (ViewTableTraitsTemplate) obj;
-        if (this.name == null) {
-            if (other.name != null)
+        if (this.variableCropontologyId == null) {
+            if (other.variableCropontologyId != null)
                 return false;
         }
-        else if (!this.name.equals(other.name))
+        else if (!this.variableCropontologyId.equals(other.variableCropontologyId))
             return false;
-        if (this.shortName == null) {
-            if (other.shortName != null)
+        if (this.variableName == null) {
+            if (other.variableName != null)
                 return false;
         }
-        else if (!this.shortName.equals(other.shortName))
+        else if (!this.variableName.equals(other.variableName))
             return false;
-        if (this.description == null) {
-            if (other.description != null)
+        if (this.variableDescription == null) {
+            if (other.variableDescription != null)
                 return false;
         }
-        else if (!this.description.equals(other.description))
+        else if (!this.variableDescription.equals(other.variableDescription))
             return false;
-        if (this.dataType == null) {
-            if (other.dataType != null)
+        if (this.traitCopontologyId == null) {
+            if (other.traitCopontologyId != null)
                 return false;
         }
-        else if (!this.dataType.equals(other.dataType))
+        else if (!this.traitCopontologyId.equals(other.traitCopontologyId))
             return false;
-        if (this.unitName == null) {
-            if (other.unitName != null)
+        if (this.traitName == null) {
+            if (other.traitName != null)
                 return false;
         }
-        else if (!this.unitName.equals(other.unitName))
+        else if (!this.traitName.equals(other.traitName))
             return false;
-        if (this.unitAbbreviation == null) {
-            if (other.unitAbbreviation != null)
+        if (this.traitDescription == null) {
+            if (other.traitDescription != null)
                 return false;
         }
-        else if (!this.unitAbbreviation.equals(other.unitAbbreviation))
+        else if (!this.traitDescription.equals(other.traitDescription))
             return false;
-        if (this.unitDescriptions == null) {
-            if (other.unitDescriptions != null)
+        if (this.traitAbbreviation == null) {
+            if (other.traitAbbreviation != null)
                 return false;
         }
-        else if (!this.unitDescriptions.equals(other.unitDescriptions))
+        else if (!this.traitAbbreviation.equals(other.traitAbbreviation))
             return false;
-        if (this.traitCategories_28commaSeparated_29 == null) {
-            if (other.traitCategories_28commaSeparated_29 != null)
+        if (this.traitClass == null) {
+            if (other.traitClass != null)
                 return false;
         }
-        else if (!this.traitCategories_28commaSeparated_29.equals(other.traitCategories_28commaSeparated_29))
-            return false;
-        if (this.min_28onlyForNumericTraits_29 == null) {
-            if (other.min_28onlyForNumericTraits_29 != null)
-                return false;
-        }
-        else if (!this.min_28onlyForNumericTraits_29.equals(other.min_28onlyForNumericTraits_29))
-            return false;
-        if (this.max_28onlyForNumericTraits_29 == null) {
-            if (other.max_28onlyForNumericTraits_29 != null)
-                return false;
-        }
-        else if (!this.max_28onlyForNumericTraits_29.equals(other.max_28onlyForNumericTraits_29))
-            return false;
-        if (this.setSize == null) {
-            if (other.setSize != null)
-                return false;
-        }
-        else if (!this.setSize.equals(other.setSize))
-            return false;
-        if (this.isTimeseries == null) {
-            if (other.isTimeseries != null)
-                return false;
-        }
-        else if (!this.isTimeseries.equals(other.isTimeseries))
+        else if (!this.traitClass.equals(other.traitClass))
             return false;
         if (this.traitCategory == null) {
             if (other.traitCategory != null)
                 return false;
         }
         else if (!this.traitCategory.equals(other.traitCategory))
+            return false;
+        if (this.methodCropontologyId == null) {
+            if (other.methodCropontologyId != null)
+                return false;
+        }
+        else if (!this.methodCropontologyId.equals(other.methodCropontologyId))
+            return false;
+        if (this.methodName == null) {
+            if (other.methodName != null)
+                return false;
+        }
+        else if (!this.methodName.equals(other.methodName))
+            return false;
+        if (this.methodDescription == null) {
+            if (other.methodDescription != null)
+                return false;
+        }
+        else if (!this.methodDescription.equals(other.methodDescription))
+            return false;
+        if (this.methodClass == null) {
+            if (other.methodClass != null)
+                return false;
+        }
+        else if (!this.methodClass.equals(other.methodClass))
+            return false;
+        if (this.methodSetSize == null) {
+            if (other.methodSetSize != null)
+                return false;
+        }
+        else if (!this.methodSetSize.equals(other.methodSetSize))
+            return false;
+        if (this.methodIsTimeseries == null) {
+            if (other.methodIsTimeseries != null)
+                return false;
+        }
+        else if (!this.methodIsTimeseries.equals(other.methodIsTimeseries))
+            return false;
+        if (this.scaleCropontologyId == null) {
+            if (other.scaleCropontologyId != null)
+                return false;
+        }
+        else if (!this.scaleCropontologyId.equals(other.scaleCropontologyId))
+            return false;
+        if (this.scaleName == null) {
+            if (other.scaleName != null)
+                return false;
+        }
+        else if (!this.scaleName.equals(other.scaleName))
+            return false;
+        if (this.scaleDescription == null) {
+            if (other.scaleDescription != null)
+                return false;
+        }
+        else if (!this.scaleDescription.equals(other.scaleDescription))
+            return false;
+        if (this.scaleUnit == null) {
+            if (other.scaleUnit != null)
+                return false;
+        }
+        else if (!this.scaleUnit.equals(other.scaleUnit))
+            return false;
+        if (this.scaleDataType == null) {
+            if (other.scaleDataType != null)
+                return false;
+        }
+        else if (!this.scaleDataType.equals(other.scaleDataType))
+            return false;
+        if (this.scaleMinimum == null) {
+            if (other.scaleMinimum != null)
+                return false;
+        }
+        else if (!this.scaleMinimum.equals(other.scaleMinimum))
+            return false;
+        if (this.scaleMaximum == null) {
+            if (other.scaleMaximum != null)
+                return false;
+        }
+        else if (!this.scaleMaximum.equals(other.scaleMaximum))
+            return false;
+        if (this.scaleValidValues == null) {
+            if (other.scaleValidValues != null)
+                return false;
+        }
+        else if (!this.scaleValidValues.equals(other.scaleValidValues))
             return false;
         return true;
     }
@@ -182,19 +284,29 @@ public class ViewTableTraitsTemplate implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
-        result = prime * result + ((this.shortName == null) ? 0 : this.shortName.hashCode());
-        result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
-        result = prime * result + ((this.dataType == null) ? 0 : this.dataType.hashCode());
-        result = prime * result + ((this.unitName == null) ? 0 : this.unitName.hashCode());
-        result = prime * result + ((this.unitAbbreviation == null) ? 0 : this.unitAbbreviation.hashCode());
-        result = prime * result + ((this.unitDescriptions == null) ? 0 : this.unitDescriptions.hashCode());
-        result = prime * result + ((this.traitCategories_28commaSeparated_29 == null) ? 0 : this.traitCategories_28commaSeparated_29.hashCode());
-        result = prime * result + ((this.min_28onlyForNumericTraits_29 == null) ? 0 : this.min_28onlyForNumericTraits_29.hashCode());
-        result = prime * result + ((this.max_28onlyForNumericTraits_29 == null) ? 0 : this.max_28onlyForNumericTraits_29.hashCode());
-        result = prime * result + ((this.setSize == null) ? 0 : this.setSize.hashCode());
-        result = prime * result + ((this.isTimeseries == null) ? 0 : this.isTimeseries.hashCode());
+        result = prime * result + ((this.variableCropontologyId == null) ? 0 : this.variableCropontologyId.hashCode());
+        result = prime * result + ((this.variableName == null) ? 0 : this.variableName.hashCode());
+        result = prime * result + ((this.variableDescription == null) ? 0 : this.variableDescription.hashCode());
+        result = prime * result + ((this.traitCopontologyId == null) ? 0 : this.traitCopontologyId.hashCode());
+        result = prime * result + ((this.traitName == null) ? 0 : this.traitName.hashCode());
+        result = prime * result + ((this.traitDescription == null) ? 0 : this.traitDescription.hashCode());
+        result = prime * result + ((this.traitAbbreviation == null) ? 0 : this.traitAbbreviation.hashCode());
+        result = prime * result + ((this.traitClass == null) ? 0 : this.traitClass.hashCode());
         result = prime * result + ((this.traitCategory == null) ? 0 : this.traitCategory.hashCode());
+        result = prime * result + ((this.methodCropontologyId == null) ? 0 : this.methodCropontologyId.hashCode());
+        result = prime * result + ((this.methodName == null) ? 0 : this.methodName.hashCode());
+        result = prime * result + ((this.methodDescription == null) ? 0 : this.methodDescription.hashCode());
+        result = prime * result + ((this.methodClass == null) ? 0 : this.methodClass.hashCode());
+        result = prime * result + ((this.methodSetSize == null) ? 0 : this.methodSetSize.hashCode());
+        result = prime * result + ((this.methodIsTimeseries == null) ? 0 : this.methodIsTimeseries.hashCode());
+        result = prime * result + ((this.scaleCropontologyId == null) ? 0 : this.scaleCropontologyId.hashCode());
+        result = prime * result + ((this.scaleName == null) ? 0 : this.scaleName.hashCode());
+        result = prime * result + ((this.scaleDescription == null) ? 0 : this.scaleDescription.hashCode());
+        result = prime * result + ((this.scaleUnit == null) ? 0 : this.scaleUnit.hashCode());
+        result = prime * result + ((this.scaleDataType == null) ? 0 : this.scaleDataType.hashCode());
+        result = prime * result + ((this.scaleMinimum == null) ? 0 : this.scaleMinimum.hashCode());
+        result = prime * result + ((this.scaleMaximum == null) ? 0 : this.scaleMaximum.hashCode());
+        result = prime * result + ((this.scaleValidValues == null) ? 0 : this.scaleValidValues.hashCode());
         return result;
     }
 
@@ -202,19 +314,29 @@ public class ViewTableTraitsTemplate implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder("ViewTableTraitsTemplate (");
 
-        sb.append(name);
-        sb.append(", ").append(shortName);
-        sb.append(", ").append(description);
-        sb.append(", ").append(dataType);
-        sb.append(", ").append(unitName);
-        sb.append(", ").append(unitAbbreviation);
-        sb.append(", ").append(unitDescriptions);
-        sb.append(", ").append(traitCategories_28commaSeparated_29);
-        sb.append(", ").append(min_28onlyForNumericTraits_29);
-        sb.append(", ").append(max_28onlyForNumericTraits_29);
-        sb.append(", ").append(setSize);
-        sb.append(", ").append(isTimeseries);
+        sb.append(variableCropontologyId);
+        sb.append(", ").append(variableName);
+        sb.append(", ").append(variableDescription);
+        sb.append(", ").append(traitCopontologyId);
+        sb.append(", ").append(traitName);
+        sb.append(", ").append(traitDescription);
+        sb.append(", ").append(traitAbbreviation);
+        sb.append(", ").append(traitClass);
         sb.append(", ").append(traitCategory);
+        sb.append(", ").append(methodCropontologyId);
+        sb.append(", ").append(methodName);
+        sb.append(", ").append(methodDescription);
+        sb.append(", ").append(methodClass);
+        sb.append(", ").append(methodSetSize);
+        sb.append(", ").append(methodIsTimeseries);
+        sb.append(", ").append(scaleCropontologyId);
+        sb.append(", ").append(scaleName);
+        sb.append(", ").append(scaleDescription);
+        sb.append(", ").append(scaleUnit);
+        sb.append(", ").append(scaleDataType);
+        sb.append(", ").append(scaleMinimum);
+        sb.append(", ").append(scaleMaximum);
+        sb.append(", ").append(scaleValidValues);
 
         sb.append(")");
         return sb.toString();

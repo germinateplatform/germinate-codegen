@@ -7,7 +7,9 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsMethodClass;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsScaleDatatype;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTraitClass;
 import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 
@@ -26,84 +28,104 @@ public class ViewTableTraits implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private Integer variableId;
+    private String variableName;
+    private String variableDescription;
     private Integer traitId;
     private String traitName;
-    private String traitNameShort;
     private String traitDescription;
-    private ViewTableTraitsDataType dataType;
-    private TraitRestrictions traitRestrictions;
-    private Integer traitSetSize;
-    private Boolean traitIsTimeseries;
-    private Integer categoryId;
-    private String categoryName;
-    private String categoryDescription;
-    private Integer unitId;
-    private String unitName;
-    private String unitDescription;
-    private String unitAbbreviation;
-    private String[] synonyms;
+    private Integer methodId;
+    private String methodName;
+    private String methodDescription;
+    private ViewTableTraitsMethodClass methodClass;
+    private Integer scaleId;
+    private String scaleName;
+    private String scaleDescription;
+    private String traitAbbreviation;
+    private ViewTableTraitsTraitClass traitClass;
+    private String[] traitSynonyms;
+    private Integer methodSetSize;
+    private Boolean methodIsTimeseries;
+    private ViewTableTraitsScaleDatatype scaleDatatype;
+    private TraitRestrictions scaleRestrictions;
+    private String scaleUnit;
     private Integer[] datasetIds;
     private Long count;
 
     public ViewTableTraits() {}
 
     public ViewTableTraits(ViewTableTraits value) {
+        this.variableId = value.variableId;
+        this.variableName = value.variableName;
+        this.variableDescription = value.variableDescription;
         this.traitId = value.traitId;
         this.traitName = value.traitName;
-        this.traitNameShort = value.traitNameShort;
         this.traitDescription = value.traitDescription;
-        this.dataType = value.dataType;
-        this.traitRestrictions = value.traitRestrictions;
-        this.traitSetSize = value.traitSetSize;
-        this.traitIsTimeseries = value.traitIsTimeseries;
-        this.categoryId = value.categoryId;
-        this.categoryName = value.categoryName;
-        this.categoryDescription = value.categoryDescription;
-        this.unitId = value.unitId;
-        this.unitName = value.unitName;
-        this.unitDescription = value.unitDescription;
-        this.unitAbbreviation = value.unitAbbreviation;
-        this.synonyms = value.synonyms;
+        this.methodId = value.methodId;
+        this.methodName = value.methodName;
+        this.methodDescription = value.methodDescription;
+        this.methodClass = value.methodClass;
+        this.scaleId = value.scaleId;
+        this.scaleName = value.scaleName;
+        this.scaleDescription = value.scaleDescription;
+        this.traitAbbreviation = value.traitAbbreviation;
+        this.traitClass = value.traitClass;
+        this.traitSynonyms = value.traitSynonyms;
+        this.methodSetSize = value.methodSetSize;
+        this.methodIsTimeseries = value.methodIsTimeseries;
+        this.scaleDatatype = value.scaleDatatype;
+        this.scaleRestrictions = value.scaleRestrictions;
+        this.scaleUnit = value.scaleUnit;
         this.datasetIds = value.datasetIds;
         this.count = value.count;
     }
 
     public ViewTableTraits(
+        Integer variableId,
+        String variableName,
+        String variableDescription,
         Integer traitId,
         String traitName,
-        String traitNameShort,
         String traitDescription,
-        ViewTableTraitsDataType dataType,
-        TraitRestrictions traitRestrictions,
-        Integer traitSetSize,
-        Boolean traitIsTimeseries,
-        Integer categoryId,
-        String categoryName,
-        String categoryDescription,
-        Integer unitId,
-        String unitName,
-        String unitDescription,
-        String unitAbbreviation,
-        String[] synonyms,
+        Integer methodId,
+        String methodName,
+        String methodDescription,
+        ViewTableTraitsMethodClass methodClass,
+        Integer scaleId,
+        String scaleName,
+        String scaleDescription,
+        String traitAbbreviation,
+        ViewTableTraitsTraitClass traitClass,
+        String[] traitSynonyms,
+        Integer methodSetSize,
+        Boolean methodIsTimeseries,
+        ViewTableTraitsScaleDatatype scaleDatatype,
+        TraitRestrictions scaleRestrictions,
+        String scaleUnit,
         Integer[] datasetIds,
         Long count
     ) {
+        this.variableId = variableId;
+        this.variableName = variableName;
+        this.variableDescription = variableDescription;
         this.traitId = traitId;
         this.traitName = traitName;
-        this.traitNameShort = traitNameShort;
         this.traitDescription = traitDescription;
-        this.dataType = dataType;
-        this.traitRestrictions = traitRestrictions;
-        this.traitSetSize = traitSetSize;
-        this.traitIsTimeseries = traitIsTimeseries;
-        this.categoryId = categoryId;
-        this.categoryName = categoryName;
-        this.categoryDescription = categoryDescription;
-        this.unitId = unitId;
-        this.unitName = unitName;
-        this.unitDescription = unitDescription;
-        this.unitAbbreviation = unitAbbreviation;
-        this.synonyms = synonyms;
+        this.methodId = methodId;
+        this.methodName = methodName;
+        this.methodDescription = methodDescription;
+        this.methodClass = methodClass;
+        this.scaleId = scaleId;
+        this.scaleName = scaleName;
+        this.scaleDescription = scaleDescription;
+        this.traitAbbreviation = traitAbbreviation;
+        this.traitClass = traitClass;
+        this.traitSynonyms = traitSynonyms;
+        this.methodSetSize = methodSetSize;
+        this.methodIsTimeseries = methodIsTimeseries;
+        this.scaleDatatype = scaleDatatype;
+        this.scaleRestrictions = scaleRestrictions;
+        this.scaleUnit = scaleUnit;
         this.datasetIds = datasetIds;
         this.count = count;
     }
@@ -117,6 +139,24 @@ public class ViewTableTraits implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         final ViewTableTraits other = (ViewTableTraits) obj;
+        if (this.variableId == null) {
+            if (other.variableId != null)
+                return false;
+        }
+        else if (!this.variableId.equals(other.variableId))
+            return false;
+        if (this.variableName == null) {
+            if (other.variableName != null)
+                return false;
+        }
+        else if (!this.variableName.equals(other.variableName))
+            return false;
+        if (this.variableDescription == null) {
+            if (other.variableDescription != null)
+                return false;
+        }
+        else if (!this.variableDescription.equals(other.variableDescription))
+            return false;
         if (this.traitId == null) {
             if (other.traitId != null)
                 return false;
@@ -129,89 +169,101 @@ public class ViewTableTraits implements Serializable {
         }
         else if (!this.traitName.equals(other.traitName))
             return false;
-        if (this.traitNameShort == null) {
-            if (other.traitNameShort != null)
-                return false;
-        }
-        else if (!this.traitNameShort.equals(other.traitNameShort))
-            return false;
         if (this.traitDescription == null) {
             if (other.traitDescription != null)
                 return false;
         }
         else if (!this.traitDescription.equals(other.traitDescription))
             return false;
-        if (this.dataType == null) {
-            if (other.dataType != null)
+        if (this.methodId == null) {
+            if (other.methodId != null)
                 return false;
         }
-        else if (!this.dataType.equals(other.dataType))
+        else if (!this.methodId.equals(other.methodId))
             return false;
-        if (this.traitRestrictions == null) {
-            if (other.traitRestrictions != null)
+        if (this.methodName == null) {
+            if (other.methodName != null)
                 return false;
         }
-        else if (!this.traitRestrictions.equals(other.traitRestrictions))
+        else if (!this.methodName.equals(other.methodName))
             return false;
-        if (this.traitSetSize == null) {
-            if (other.traitSetSize != null)
+        if (this.methodDescription == null) {
+            if (other.methodDescription != null)
                 return false;
         }
-        else if (!this.traitSetSize.equals(other.traitSetSize))
+        else if (!this.methodDescription.equals(other.methodDescription))
             return false;
-        if (this.traitIsTimeseries == null) {
-            if (other.traitIsTimeseries != null)
+        if (this.methodClass == null) {
+            if (other.methodClass != null)
                 return false;
         }
-        else if (!this.traitIsTimeseries.equals(other.traitIsTimeseries))
+        else if (!this.methodClass.equals(other.methodClass))
             return false;
-        if (this.categoryId == null) {
-            if (other.categoryId != null)
+        if (this.scaleId == null) {
+            if (other.scaleId != null)
                 return false;
         }
-        else if (!this.categoryId.equals(other.categoryId))
+        else if (!this.scaleId.equals(other.scaleId))
             return false;
-        if (this.categoryName == null) {
-            if (other.categoryName != null)
+        if (this.scaleName == null) {
+            if (other.scaleName != null)
                 return false;
         }
-        else if (!this.categoryName.equals(other.categoryName))
+        else if (!this.scaleName.equals(other.scaleName))
             return false;
-        if (this.categoryDescription == null) {
-            if (other.categoryDescription != null)
+        if (this.scaleDescription == null) {
+            if (other.scaleDescription != null)
                 return false;
         }
-        else if (!this.categoryDescription.equals(other.categoryDescription))
+        else if (!this.scaleDescription.equals(other.scaleDescription))
             return false;
-        if (this.unitId == null) {
-            if (other.unitId != null)
+        if (this.traitAbbreviation == null) {
+            if (other.traitAbbreviation != null)
                 return false;
         }
-        else if (!this.unitId.equals(other.unitId))
+        else if (!this.traitAbbreviation.equals(other.traitAbbreviation))
             return false;
-        if (this.unitName == null) {
-            if (other.unitName != null)
+        if (this.traitClass == null) {
+            if (other.traitClass != null)
                 return false;
         }
-        else if (!this.unitName.equals(other.unitName))
+        else if (!this.traitClass.equals(other.traitClass))
             return false;
-        if (this.unitDescription == null) {
-            if (other.unitDescription != null)
+        if (this.traitSynonyms == null) {
+            if (other.traitSynonyms != null)
                 return false;
         }
-        else if (!this.unitDescription.equals(other.unitDescription))
+        else if (!Arrays.deepEquals(this.traitSynonyms, other.traitSynonyms))
             return false;
-        if (this.unitAbbreviation == null) {
-            if (other.unitAbbreviation != null)
+        if (this.methodSetSize == null) {
+            if (other.methodSetSize != null)
                 return false;
         }
-        else if (!this.unitAbbreviation.equals(other.unitAbbreviation))
+        else if (!this.methodSetSize.equals(other.methodSetSize))
             return false;
-        if (this.synonyms == null) {
-            if (other.synonyms != null)
+        if (this.methodIsTimeseries == null) {
+            if (other.methodIsTimeseries != null)
                 return false;
         }
-        else if (!Arrays.deepEquals(this.synonyms, other.synonyms))
+        else if (!this.methodIsTimeseries.equals(other.methodIsTimeseries))
+            return false;
+        if (this.scaleDatatype == null) {
+            if (other.scaleDatatype != null)
+                return false;
+        }
+        else if (!this.scaleDatatype.equals(other.scaleDatatype))
+            return false;
+        if (this.scaleRestrictions == null) {
+            if (other.scaleRestrictions != null)
+                return false;
+        }
+        else if (!this.scaleRestrictions.equals(other.scaleRestrictions))
+            return false;
+        if (this.scaleUnit == null) {
+            if (other.scaleUnit != null)
+                return false;
+        }
+        else if (!this.scaleUnit.equals(other.scaleUnit))
             return false;
         if (this.datasetIds == null) {
             if (other.datasetIds != null)
@@ -232,22 +284,27 @@ public class ViewTableTraits implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + ((this.variableId == null) ? 0 : this.variableId.hashCode());
+        result = prime * result + ((this.variableName == null) ? 0 : this.variableName.hashCode());
+        result = prime * result + ((this.variableDescription == null) ? 0 : this.variableDescription.hashCode());
         result = prime * result + ((this.traitId == null) ? 0 : this.traitId.hashCode());
         result = prime * result + ((this.traitName == null) ? 0 : this.traitName.hashCode());
-        result = prime * result + ((this.traitNameShort == null) ? 0 : this.traitNameShort.hashCode());
         result = prime * result + ((this.traitDescription == null) ? 0 : this.traitDescription.hashCode());
-        result = prime * result + ((this.dataType == null) ? 0 : this.dataType.hashCode());
-        result = prime * result + ((this.traitRestrictions == null) ? 0 : this.traitRestrictions.hashCode());
-        result = prime * result + ((this.traitSetSize == null) ? 0 : this.traitSetSize.hashCode());
-        result = prime * result + ((this.traitIsTimeseries == null) ? 0 : this.traitIsTimeseries.hashCode());
-        result = prime * result + ((this.categoryId == null) ? 0 : this.categoryId.hashCode());
-        result = prime * result + ((this.categoryName == null) ? 0 : this.categoryName.hashCode());
-        result = prime * result + ((this.categoryDescription == null) ? 0 : this.categoryDescription.hashCode());
-        result = prime * result + ((this.unitId == null) ? 0 : this.unitId.hashCode());
-        result = prime * result + ((this.unitName == null) ? 0 : this.unitName.hashCode());
-        result = prime * result + ((this.unitDescription == null) ? 0 : this.unitDescription.hashCode());
-        result = prime * result + ((this.unitAbbreviation == null) ? 0 : this.unitAbbreviation.hashCode());
-        result = prime * result + ((this.synonyms == null) ? 0 : Arrays.deepHashCode(this.synonyms));
+        result = prime * result + ((this.methodId == null) ? 0 : this.methodId.hashCode());
+        result = prime * result + ((this.methodName == null) ? 0 : this.methodName.hashCode());
+        result = prime * result + ((this.methodDescription == null) ? 0 : this.methodDescription.hashCode());
+        result = prime * result + ((this.methodClass == null) ? 0 : this.methodClass.hashCode());
+        result = prime * result + ((this.scaleId == null) ? 0 : this.scaleId.hashCode());
+        result = prime * result + ((this.scaleName == null) ? 0 : this.scaleName.hashCode());
+        result = prime * result + ((this.scaleDescription == null) ? 0 : this.scaleDescription.hashCode());
+        result = prime * result + ((this.traitAbbreviation == null) ? 0 : this.traitAbbreviation.hashCode());
+        result = prime * result + ((this.traitClass == null) ? 0 : this.traitClass.hashCode());
+        result = prime * result + ((this.traitSynonyms == null) ? 0 : Arrays.deepHashCode(this.traitSynonyms));
+        result = prime * result + ((this.methodSetSize == null) ? 0 : this.methodSetSize.hashCode());
+        result = prime * result + ((this.methodIsTimeseries == null) ? 0 : this.methodIsTimeseries.hashCode());
+        result = prime * result + ((this.scaleDatatype == null) ? 0 : this.scaleDatatype.hashCode());
+        result = prime * result + ((this.scaleRestrictions == null) ? 0 : this.scaleRestrictions.hashCode());
+        result = prime * result + ((this.scaleUnit == null) ? 0 : this.scaleUnit.hashCode());
         result = prime * result + ((this.datasetIds == null) ? 0 : Arrays.deepHashCode(this.datasetIds));
         result = prime * result + ((this.count == null) ? 0 : this.count.hashCode());
         return result;
@@ -257,22 +314,27 @@ public class ViewTableTraits implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder("ViewTableTraits (");
 
-        sb.append(traitId);
+        sb.append(variableId);
+        sb.append(", ").append(variableName);
+        sb.append(", ").append(variableDescription);
+        sb.append(", ").append(traitId);
         sb.append(", ").append(traitName);
-        sb.append(", ").append(traitNameShort);
         sb.append(", ").append(traitDescription);
-        sb.append(", ").append(dataType);
-        sb.append(", ").append(traitRestrictions);
-        sb.append(", ").append(traitSetSize);
-        sb.append(", ").append(traitIsTimeseries);
-        sb.append(", ").append(categoryId);
-        sb.append(", ").append(categoryName);
-        sb.append(", ").append(categoryDescription);
-        sb.append(", ").append(unitId);
-        sb.append(", ").append(unitName);
-        sb.append(", ").append(unitDescription);
-        sb.append(", ").append(unitAbbreviation);
-        sb.append(", ").append(Arrays.deepToString(synonyms));
+        sb.append(", ").append(methodId);
+        sb.append(", ").append(methodName);
+        sb.append(", ").append(methodDescription);
+        sb.append(", ").append(methodClass);
+        sb.append(", ").append(scaleId);
+        sb.append(", ").append(scaleName);
+        sb.append(", ").append(scaleDescription);
+        sb.append(", ").append(traitAbbreviation);
+        sb.append(", ").append(traitClass);
+        sb.append(", ").append(Arrays.deepToString(traitSynonyms));
+        sb.append(", ").append(methodSetSize);
+        sb.append(", ").append(methodIsTimeseries);
+        sb.append(", ").append(scaleDatatype);
+        sb.append(", ").append(scaleRestrictions);
+        sb.append(", ").append(scaleUnit);
         sb.append(", ").append(Arrays.deepToString(datasetIds));
         sb.append(", ").append(count);
 

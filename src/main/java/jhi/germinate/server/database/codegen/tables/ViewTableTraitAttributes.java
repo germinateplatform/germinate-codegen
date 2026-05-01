@@ -60,17 +60,15 @@ public class ViewTableTraitAttributes extends TableImpl<ViewTableTraitAttributes
 
     /**
      * The column
-     * <code>germinate_db.view_table_trait_attributes.trait_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
+     * <code>germinate_db.view_table_trait_attributes.variable_id</code>.
      */
-    public final TableField<ViewTableTraitAttributesRecord, Integer> TRAIT_ID = createField(DSL.name("trait_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Primary id for this table. This uniquely identifies the row.");
+    public final TableField<ViewTableTraitAttributesRecord, Integer> VARIABLE_ID = createField(DSL.name("variable_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
      * The column
-     * <code>germinate_db.view_table_trait_attributes.trait_name</code>.
-     * Phenotype full name.
+     * <code>germinate_db.view_table_trait_attributes.variable_name</code>.
      */
-    public final TableField<ViewTableTraitAttributesRecord, String> TRAIT_NAME = createField(DSL.name("trait_name"), SQLDataType.VARCHAR(255).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "Phenotype full name.");
+    public final TableField<ViewTableTraitAttributesRecord, String> VARIABLE_NAME = createField(DSL.name("variable_name"), SQLDataType.VARCHAR(255), this, "");
 
     /**
      * The column
@@ -134,7 +132,7 @@ public class ViewTableTraitAttributes extends TableImpl<ViewTableTraitAttributes
     }
 
     private ViewTableTraitAttributes(Name alias, Table<ViewTableTraitAttributesRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_trait_attributes` as select `germinate_template_4_25_09_04`.`attributedata`.`id` AS `attribute_value_id`,`germinate_template_4_25_09_04`.`phenotypes`.`id` AS `trait_id`,`germinate_template_4_25_09_04`.`phenotypes`.`name` AS `trait_name`,`germinate_template_4_25_09_04`.`attributes`.`id` AS `attribute_id`,`germinate_template_4_25_09_04`.`attributes`.`name` AS `attribute_name`,`germinate_template_4_25_09_04`.`attributes`.`description` AS `attribute_description`,`germinate_template_4_25_09_04`.`attributes`.`datatype` AS `attribute_type`,`germinate_template_4_25_09_04`.`attributes`.`target_table` AS `target_table`,`germinate_template_4_25_09_04`.`attributedata`.`foreign_id` AS `foreign_id`,`germinate_template_4_25_09_04`.`attributedata`.`created_on` AS `created_on`,`germinate_template_4_25_09_04`.`attributedata`.`value` AS `attribute_value` from ((`germinate_template_4_25_09_04`.`attributedata` left join `germinate_template_4_25_09_04`.`phenotypes` on((`germinate_template_4_25_09_04`.`attributedata`.`foreign_id` = `germinate_template_4_25_09_04`.`phenotypes`.`id`))) left join `germinate_template_4_25_09_04`.`attributes` on((`germinate_template_4_25_09_04`.`attributes`.`id` = `germinate_template_4_25_09_04`.`attributedata`.`attribute_id`))) where (`germinate_template_4_25_09_04`.`attributes`.`target_table` = 'phenotypes')"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_trait_attributes` as select `germinate_template_5_26_01_28`.`attributedata`.`id` AS `attribute_value_id`,`germinate_template_5_26_01_28`.`variables`.`id` AS `variable_id`,`germinate_template_5_26_01_28`.`variables`.`name` AS `variable_name`,`germinate_template_5_26_01_28`.`attributes`.`id` AS `attribute_id`,`germinate_template_5_26_01_28`.`attributes`.`name` AS `attribute_name`,`germinate_template_5_26_01_28`.`attributes`.`description` AS `attribute_description`,`germinate_template_5_26_01_28`.`attributes`.`datatype` AS `attribute_type`,`germinate_template_5_26_01_28`.`attributes`.`target_table` AS `target_table`,`germinate_template_5_26_01_28`.`attributedata`.`foreign_id` AS `foreign_id`,`germinate_template_5_26_01_28`.`attributedata`.`created_on` AS `created_on`,`germinate_template_5_26_01_28`.`attributedata`.`value` AS `attribute_value` from ((`germinate_template_5_26_01_28`.`attributedata` left join `germinate_template_5_26_01_28`.`variables` on((`germinate_template_5_26_01_28`.`attributedata`.`foreign_id` = `germinate_template_5_26_01_28`.`variables`.`id`))) left join `germinate_template_5_26_01_28`.`attributes` on((`germinate_template_5_26_01_28`.`attributes`.`id` = `germinate_template_5_26_01_28`.`attributedata`.`attribute_id`))) where (`germinate_template_5_26_01_28`.`attributes`.`target_table` = 'variables')"), where);
     }
 
     /**

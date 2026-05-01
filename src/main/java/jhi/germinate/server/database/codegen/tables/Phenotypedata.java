@@ -64,10 +64,10 @@ public class Phenotypedata extends TableImpl<PhenotypedataRecord> {
     public final TableField<PhenotypedataRecord, Integer> TRIALSETUP_ID = createField(DSL.name("trialsetup_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>germinate_db.phenotypedata.phenotype_id</code>. Foreign
+     * The column <code>germinate_db.phenotypedata.variable_id</code>. Foreign
      * key phenotypes (phenotype.id).
      */
-    public final TableField<PhenotypedataRecord, Integer> PHENOTYPE_ID = createField(DSL.name("phenotype_id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Foreign key phenotypes (phenotype.id).");
+    public final TableField<PhenotypedataRecord, Integer> VARIABLE_ID = createField(DSL.name("variable_id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Foreign key phenotypes (phenotype.id).");
 
     /**
      * The column <code>germinate_db.phenotypedata.phenotype_value</code>. The

@@ -19,36 +19,48 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 @SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
-public class Phenotypecategories implements Serializable {
+public class Variables implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Integer id;
     private String name;
     private String description;
+    private Integer traitId;
+    private Integer methodId;
+    private Integer scaleId;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
-    public Phenotypecategories() {}
+    public Variables() {}
 
-    public Phenotypecategories(Phenotypecategories value) {
+    public Variables(Variables value) {
         this.id = value.id;
         this.name = value.name;
         this.description = value.description;
+        this.traitId = value.traitId;
+        this.methodId = value.methodId;
+        this.scaleId = value.scaleId;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
     }
 
-    public Phenotypecategories(
+    public Variables(
         Integer id,
         String name,
         String description,
+        Integer traitId,
+        Integer methodId,
+        Integer scaleId,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.traitId = traitId;
+        this.methodId = methodId;
+        this.scaleId = scaleId;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -61,7 +73,7 @@ public class Phenotypecategories implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final Phenotypecategories other = (Phenotypecategories) obj;
+        final Variables other = (Variables) obj;
         if (this.id == null) {
             if (other.id != null)
                 return false;
@@ -79,6 +91,24 @@ public class Phenotypecategories implements Serializable {
                 return false;
         }
         else if (!this.description.equals(other.description))
+            return false;
+        if (this.traitId == null) {
+            if (other.traitId != null)
+                return false;
+        }
+        else if (!this.traitId.equals(other.traitId))
+            return false;
+        if (this.methodId == null) {
+            if (other.methodId != null)
+                return false;
+        }
+        else if (!this.methodId.equals(other.methodId))
+            return false;
+        if (this.scaleId == null) {
+            if (other.scaleId != null)
+                return false;
+        }
+        else if (!this.scaleId.equals(other.scaleId))
             return false;
         if (this.createdOn == null) {
             if (other.createdOn != null)
@@ -102,6 +132,9 @@ public class Phenotypecategories implements Serializable {
         result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
         result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
         result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.traitId == null) ? 0 : this.traitId.hashCode());
+        result = prime * result + ((this.methodId == null) ? 0 : this.methodId.hashCode());
+        result = prime * result + ((this.scaleId == null) ? 0 : this.scaleId.hashCode());
         result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
         result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
         return result;
@@ -109,11 +142,14 @@ public class Phenotypecategories implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Phenotypecategories (");
+        StringBuilder sb = new StringBuilder("Variables (");
 
         sb.append(id);
         sb.append(", ").append(name);
         sb.append(", ").append(description);
+        sb.append(", ").append(traitId);
+        sb.append(", ").append(methodId);
+        sb.append(", ").append(scaleId);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
 

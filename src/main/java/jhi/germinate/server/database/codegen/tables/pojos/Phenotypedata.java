@@ -25,7 +25,7 @@ public class Phenotypedata implements Serializable {
 
     private Integer id;
     private Integer trialsetupId;
-    private Integer phenotypeId;
+    private Integer variableId;
     private String phenotypeValue;
     private Timestamp recordingDate;
     private Timestamp createdOn;
@@ -36,7 +36,7 @@ public class Phenotypedata implements Serializable {
     public Phenotypedata(Phenotypedata value) {
         this.id = value.id;
         this.trialsetupId = value.trialsetupId;
-        this.phenotypeId = value.phenotypeId;
+        this.variableId = value.variableId;
         this.phenotypeValue = value.phenotypeValue;
         this.recordingDate = value.recordingDate;
         this.createdOn = value.createdOn;
@@ -46,7 +46,7 @@ public class Phenotypedata implements Serializable {
     public Phenotypedata(
         Integer id,
         Integer trialsetupId,
-        Integer phenotypeId,
+        Integer variableId,
         String phenotypeValue,
         Timestamp recordingDate,
         Timestamp createdOn,
@@ -54,7 +54,7 @@ public class Phenotypedata implements Serializable {
     ) {
         this.id = id;
         this.trialsetupId = trialsetupId;
-        this.phenotypeId = phenotypeId;
+        this.variableId = variableId;
         this.phenotypeValue = phenotypeValue;
         this.recordingDate = recordingDate;
         this.createdOn = createdOn;
@@ -82,11 +82,11 @@ public class Phenotypedata implements Serializable {
         }
         else if (!this.trialsetupId.equals(other.trialsetupId))
             return false;
-        if (this.phenotypeId == null) {
-            if (other.phenotypeId != null)
+        if (this.variableId == null) {
+            if (other.variableId != null)
                 return false;
         }
-        else if (!this.phenotypeId.equals(other.phenotypeId))
+        else if (!this.variableId.equals(other.variableId))
             return false;
         if (this.phenotypeValue == null) {
             if (other.phenotypeValue != null)
@@ -121,7 +121,7 @@ public class Phenotypedata implements Serializable {
         int result = 1;
         result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
         result = prime * result + ((this.trialsetupId == null) ? 0 : this.trialsetupId.hashCode());
-        result = prime * result + ((this.phenotypeId == null) ? 0 : this.phenotypeId.hashCode());
+        result = prime * result + ((this.variableId == null) ? 0 : this.variableId.hashCode());
         result = prime * result + ((this.phenotypeValue == null) ? 0 : this.phenotypeValue.hashCode());
         result = prime * result + ((this.recordingDate == null) ? 0 : this.recordingDate.hashCode());
         result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
@@ -135,7 +135,7 @@ public class Phenotypedata implements Serializable {
 
         sb.append(id);
         sb.append(", ").append(trialsetupId);
-        sb.append(", ").append(phenotypeId);
+        sb.append(", ").append(variableId);
         sb.append(", ").append(phenotypeValue);
         sb.append(", ").append(recordingDate);
         sb.append(", ").append(createdOn);

@@ -26,8 +26,8 @@ public class ViewTableTraitAttributes implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer attributeValueId;
-    private Integer traitId;
-    private String traitName;
+    private Integer variableId;
+    private String variableName;
     private Integer attributeId;
     private String attributeName;
     private String attributeDescription;
@@ -41,8 +41,8 @@ public class ViewTableTraitAttributes implements Serializable {
 
     public ViewTableTraitAttributes(ViewTableTraitAttributes value) {
         this.attributeValueId = value.attributeValueId;
-        this.traitId = value.traitId;
-        this.traitName = value.traitName;
+        this.variableId = value.variableId;
+        this.variableName = value.variableName;
         this.attributeId = value.attributeId;
         this.attributeName = value.attributeName;
         this.attributeDescription = value.attributeDescription;
@@ -55,8 +55,8 @@ public class ViewTableTraitAttributes implements Serializable {
 
     public ViewTableTraitAttributes(
         Integer attributeValueId,
-        Integer traitId,
-        String traitName,
+        Integer variableId,
+        String variableName,
         Integer attributeId,
         String attributeName,
         String attributeDescription,
@@ -67,8 +67,8 @@ public class ViewTableTraitAttributes implements Serializable {
         String attributeValue
     ) {
         this.attributeValueId = attributeValueId;
-        this.traitId = traitId;
-        this.traitName = traitName;
+        this.variableId = variableId;
+        this.variableName = variableName;
         this.attributeId = attributeId;
         this.attributeName = attributeName;
         this.attributeDescription = attributeDescription;
@@ -94,17 +94,17 @@ public class ViewTableTraitAttributes implements Serializable {
         }
         else if (!this.attributeValueId.equals(other.attributeValueId))
             return false;
-        if (this.traitId == null) {
-            if (other.traitId != null)
+        if (this.variableId == null) {
+            if (other.variableId != null)
                 return false;
         }
-        else if (!this.traitId.equals(other.traitId))
+        else if (!this.variableId.equals(other.variableId))
             return false;
-        if (this.traitName == null) {
-            if (other.traitName != null)
+        if (this.variableName == null) {
+            if (other.variableName != null)
                 return false;
         }
-        else if (!this.traitName.equals(other.traitName))
+        else if (!this.variableName.equals(other.variableName))
             return false;
         if (this.attributeId == null) {
             if (other.attributeId != null)
@@ -162,8 +162,8 @@ public class ViewTableTraitAttributes implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((this.attributeValueId == null) ? 0 : this.attributeValueId.hashCode());
-        result = prime * result + ((this.traitId == null) ? 0 : this.traitId.hashCode());
-        result = prime * result + ((this.traitName == null) ? 0 : this.traitName.hashCode());
+        result = prime * result + ((this.variableId == null) ? 0 : this.variableId.hashCode());
+        result = prime * result + ((this.variableName == null) ? 0 : this.variableName.hashCode());
         result = prime * result + ((this.attributeId == null) ? 0 : this.attributeId.hashCode());
         result = prime * result + ((this.attributeName == null) ? 0 : this.attributeName.hashCode());
         result = prime * result + ((this.attributeDescription == null) ? 0 : this.attributeDescription.hashCode());
@@ -180,8 +180,8 @@ public class ViewTableTraitAttributes implements Serializable {
         StringBuilder sb = new StringBuilder("ViewTableTraitAttributes (");
 
         sb.append(attributeValueId);
-        sb.append(", ").append(traitId);
-        sb.append(", ").append(traitName);
+        sb.append(", ").append(variableId);
+        sb.append(", ").append(variableName);
         sb.append(", ").append(attributeId);
         sb.append(", ").append(attributeName);
         sb.append(", ").append(attributeDescription);

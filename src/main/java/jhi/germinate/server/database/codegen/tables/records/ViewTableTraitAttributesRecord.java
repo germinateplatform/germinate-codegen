@@ -41,37 +41,33 @@ public class ViewTableTraitAttributesRecord extends TableRecordImpl<ViewTableTra
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_trait_attributes.trait_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
+     * <code>germinate_db.view_table_trait_attributes.variable_id</code>.
      */
-    public void setTraitId(Integer value) {
+    public void setVariableId(Integer value) {
         set(1, value);
     }
 
     /**
      * Getter for
-     * <code>germinate_db.view_table_trait_attributes.trait_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
+     * <code>germinate_db.view_table_trait_attributes.variable_id</code>.
      */
-    public Integer getTraitId() {
+    public Integer getVariableId() {
         return (Integer) get(1);
     }
 
     /**
      * Setter for
-     * <code>germinate_db.view_table_trait_attributes.trait_name</code>.
-     * Phenotype full name.
+     * <code>germinate_db.view_table_trait_attributes.variable_name</code>.
      */
-    public void setTraitName(String value) {
+    public void setVariableName(String value) {
         set(2, value);
     }
 
     /**
      * Getter for
-     * <code>germinate_db.view_table_trait_attributes.trait_name</code>.
-     * Phenotype full name.
+     * <code>germinate_db.view_table_trait_attributes.variable_name</code>.
      */
-    public String getTraitName() {
+    public String getVariableName() {
         return (String) get(2);
     }
 
@@ -235,12 +231,12 @@ public class ViewTableTraitAttributesRecord extends TableRecordImpl<ViewTableTra
     /**
      * Create a detached, initialised ViewTableTraitAttributesRecord
      */
-    public ViewTableTraitAttributesRecord(Integer attributeValueId, Integer traitId, String traitName, Integer attributeId, String attributeName, String attributeDescription, ViewTableTraitAttributesAttributeType attributeType, String targetTable, Integer foreignId, Timestamp createdOn, String attributeValue) {
+    public ViewTableTraitAttributesRecord(Integer attributeValueId, Integer variableId, String variableName, Integer attributeId, String attributeName, String attributeDescription, ViewTableTraitAttributesAttributeType attributeType, String targetTable, Integer foreignId, Timestamp createdOn, String attributeValue) {
         super(ViewTableTraitAttributes.VIEW_TABLE_TRAIT_ATTRIBUTES);
 
         setAttributeValueId(attributeValueId);
-        setTraitId(traitId);
-        setTraitName(traitName);
+        setVariableId(variableId);
+        setVariableName(variableName);
         setAttributeId(attributeId);
         setAttributeName(attributeName);
         setAttributeDescription(attributeDescription);
@@ -260,8 +256,8 @@ public class ViewTableTraitAttributesRecord extends TableRecordImpl<ViewTableTra
 
         if (value != null) {
             setAttributeValueId(value.getAttributeValueId());
-            setTraitId(value.getTraitId());
-            setTraitName(value.getTraitName());
+            setVariableId(value.getVariableId());
+            setVariableName(value.getVariableName());
             setAttributeId(value.getAttributeId());
             setAttributeName(value.getAttributeName());
             setAttributeDescription(value.getAttributeDescription());

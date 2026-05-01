@@ -4,7 +4,9 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTemplateDataType;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTemplateMethodClass;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTemplateScaleDataType;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTemplateTraitClass;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraitsTemplate;
 
 import org.jooq.JSON;
@@ -21,209 +23,131 @@ public class ViewTableTraitsTemplateRecord extends TableRecordImpl<ViewTableTrai
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>germinate_db.view_table_traits_template.Name</code>.
-     * Phenotype full name.
+     * Setter for <code>germinate_db.view_table_traits_template.Variable
+     * cropontology id</code>.
      */
-    public void setName(String value) {
+    public void setVariableCropontologyId(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_traits_template.Name</code>.
-     * Phenotype full name.
+     * Getter for <code>germinate_db.view_table_traits_template.Variable
+     * cropontology id</code>.
      */
-    public String getName() {
+    public String getVariableCropontologyId() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_traits_template.Short
-     * Name</code>. Shortened name for the phenotype. This is used in table
-     * columns where space is an issue.
+     * Setter for <code>germinate_db.view_table_traits_template.Variable
+     * name</code>.
      */
-    public void setShortName(String value) {
+    public void setVariableName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_traits_template.Short
-     * Name</code>. Shortened name for the phenotype. This is used in table
-     * columns where space is an issue.
+     * Getter for <code>germinate_db.view_table_traits_template.Variable
+     * name</code>.
      */
-    public String getShortName() {
+    public String getVariableName() {
         return (String) get(1);
     }
 
     /**
-     * Setter for
-     * <code>germinate_db.view_table_traits_template.Description</code>. Full
-     * description of the phenotype. This should contain enough infomation to
-     * accurately identify the phenoytpe and how it was recorded.
+     * Setter for <code>germinate_db.view_table_traits_template.Variable
+     * description</code>.
      */
-    public void setDescription(String value) {
+    public void setVariableDescription(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for
-     * <code>germinate_db.view_table_traits_template.Description</code>. Full
-     * description of the phenotype. This should contain enough infomation to
-     * accurately identify the phenoytpe and how it was recorded.
+     * Getter for <code>germinate_db.view_table_traits_template.Variable
+     * description</code>.
      */
-    public String getDescription() {
+    public String getVariableDescription() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_traits_template.Data
-     * Type</code>. Defines the data type of the phenotype. This can be of
-     * numeric, text, date or categorical types.
+     * Setter for <code>germinate_db.view_table_traits_template.Trait
+     * copontology id</code>.
      */
-    public void setDataType(ViewTableTraitsTemplateDataType value) {
+    public void setTraitCopontologyId(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_traits_template.Data
-     * Type</code>. Defines the data type of the phenotype. This can be of
-     * numeric, text, date or categorical types.
+     * Getter for <code>germinate_db.view_table_traits_template.Trait
+     * copontology id</code>.
      */
-    public ViewTableTraitsTemplateDataType getDataType() {
-        return (ViewTableTraitsTemplateDataType) get(3);
+    public String getTraitCopontologyId() {
+        return (String) get(3);
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_traits_template.Unit
-     * Name</code>. The name of the unit. This should be the name of the unit in
-     * full.
+     * Setter for <code>germinate_db.view_table_traits_template.Trait
+     * name</code>.
      */
-    public void setUnitName(String value) {
+    public void setTraitName(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_traits_template.Unit
-     * Name</code>. The name of the unit. This should be the name of the unit in
-     * full.
+     * Getter for <code>germinate_db.view_table_traits_template.Trait
+     * name</code>.
      */
-    public String getUnitName() {
+    public String getTraitName() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_traits_template.Unit
-     * Abbreviation</code>. This should be the unit abbreviation.
+     * Setter for <code>germinate_db.view_table_traits_template.Trait
+     * description</code>.
      */
-    public void setUnitAbbreviation(String value) {
+    public void setTraitDescription(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_traits_template.Unit
-     * Abbreviation</code>. This should be the unit abbreviation.
+     * Getter for <code>germinate_db.view_table_traits_template.Trait
+     * description</code>.
      */
-    public String getUnitAbbreviation() {
+    public String getTraitDescription() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_traits_template.Unit
-     * Descriptions</code>. A description of the unit. If the unit is not a
-     * standard SI unit then it is beneficial to have a description which
-     * explains what the unit it, how it is derived and any other information
-     * which would help identifiy it.
+     * Setter for <code>germinate_db.view_table_traits_template.Trait
+     * abbreviation</code>.
      */
-    public void setUnitDescriptions(String value) {
+    public void setTraitAbbreviation(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_traits_template.Unit
-     * Descriptions</code>. A description of the unit. If the unit is not a
-     * standard SI unit then it is beneficial to have a description which
-     * explains what the unit it, how it is derived and any other information
-     * which would help identifiy it.
+     * Getter for <code>germinate_db.view_table_traits_template.Trait
+     * abbreviation</code>.
      */
-    public String getUnitDescriptions() {
+    public String getTraitAbbreviation() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>germinate_db.view_table_traits_template.Trait categories
-     * (comma separated)</code>.
+     * Setter for <code>germinate_db.view_table_traits_template.Trait
+     * class</code>.
      */
-    public void setTraitCategories_28commaSeparated_29(JSON value) {
+    public void setTraitClass(ViewTableTraitsTemplateTraitClass value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_table_traits_template.Trait categories
-     * (comma separated)</code>.
+     * Getter for <code>germinate_db.view_table_traits_template.Trait
+     * class</code>.
      */
-    public JSON getTraitCategories_28commaSeparated_29() {
-        return (JSON) get(7);
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_traits_template.Min (only for
-     * numeric traits)</code>.
-     */
-    public void setMin_28onlyForNumericTraits_29(JSON value) {
-        set(8, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_traits_template.Min (only for
-     * numeric traits)</code>.
-     */
-    public JSON getMin_28onlyForNumericTraits_29() {
-        return (JSON) get(8);
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_traits_template.Max (only for
-     * numeric traits)</code>.
-     */
-    public void setMax_28onlyForNumericTraits_29(JSON value) {
-        set(9, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_traits_template.Max (only for
-     * numeric traits)</code>.
-     */
-    public JSON getMax_28onlyForNumericTraits_29() {
-        return (JSON) get(9);
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_traits_template.Set size</code>.
-     */
-    public void setSetSize(Long value) {
-        set(10, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_traits_template.Set size</code>.
-     */
-    public Long getSetSize() {
-        return (Long) get(10);
-    }
-
-    /**
-     * Setter for <code>germinate_db.view_table_traits_template.Is
-     * timeseries</code>.
-     */
-    public void setIsTimeseries(String value) {
-        set(11, value);
-    }
-
-    /**
-     * Getter for <code>germinate_db.view_table_traits_template.Is
-     * timeseries</code>.
-     */
-    public String getIsTimeseries() {
-        return (String) get(11);
+    public ViewTableTraitsTemplateTraitClass getTraitClass() {
+        return (ViewTableTraitsTemplateTraitClass) get(7);
     }
 
     /**
@@ -231,7 +155,7 @@ public class ViewTableTraitsTemplateRecord extends TableRecordImpl<ViewTableTrai
      * category</code>.
      */
     public void setTraitCategory(String value) {
-        set(12, value);
+        set(8, value);
     }
 
     /**
@@ -239,7 +163,231 @@ public class ViewTableTraitsTemplateRecord extends TableRecordImpl<ViewTableTrai
      * category</code>.
      */
     public String getTraitCategory() {
-        return (String) get(12);
+        return (String) get(8);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Method
+     * cropontology id</code>.
+     */
+    public void setMethodCropontologyId(String value) {
+        set(9, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Method
+     * cropontology id</code>.
+     */
+    public String getMethodCropontologyId() {
+        return (String) get(9);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Method
+     * name</code>.
+     */
+    public void setMethodName(String value) {
+        set(10, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Method
+     * name</code>.
+     */
+    public String getMethodName() {
+        return (String) get(10);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Method
+     * description</code>.
+     */
+    public void setMethodDescription(String value) {
+        set(11, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Method
+     * description</code>.
+     */
+    public String getMethodDescription() {
+        return (String) get(11);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Method
+     * class</code>.
+     */
+    public void setMethodClass(ViewTableTraitsTemplateMethodClass value) {
+        set(12, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Method
+     * class</code>.
+     */
+    public ViewTableTraitsTemplateMethodClass getMethodClass() {
+        return (ViewTableTraitsTemplateMethodClass) get(12);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Method set
+     * size</code>.
+     */
+    public void setMethodSetSize(Integer value) {
+        set(13, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Method set
+     * size</code>.
+     */
+    public Integer getMethodSetSize() {
+        return (Integer) get(13);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Method is
+     * timeseries</code>.
+     */
+    public void setMethodIsTimeseries(Boolean value) {
+        set(14, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Method is
+     * timeseries</code>.
+     */
+    public Boolean getMethodIsTimeseries() {
+        return (Boolean) get(14);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Scale
+     * cropontology id</code>.
+     */
+    public void setScaleCropontologyId(String value) {
+        set(15, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Scale
+     * cropontology id</code>.
+     */
+    public String getScaleCropontologyId() {
+        return (String) get(15);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Scale
+     * name</code>.
+     */
+    public void setScaleName(String value) {
+        set(16, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Scale
+     * name</code>.
+     */
+    public String getScaleName() {
+        return (String) get(16);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Scale
+     * description</code>.
+     */
+    public void setScaleDescription(String value) {
+        set(17, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Scale
+     * description</code>.
+     */
+    public String getScaleDescription() {
+        return (String) get(17);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Scale
+     * unit</code>.
+     */
+    public void setScaleUnit(String value) {
+        set(18, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Scale
+     * unit</code>.
+     */
+    public String getScaleUnit() {
+        return (String) get(18);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Scale data
+     * type</code>.
+     */
+    public void setScaleDataType(ViewTableTraitsTemplateScaleDataType value) {
+        set(19, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Scale data
+     * type</code>.
+     */
+    public ViewTableTraitsTemplateScaleDataType getScaleDataType() {
+        return (ViewTableTraitsTemplateScaleDataType) get(19);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Scale
+     * minimum</code>.
+     */
+    public void setScaleMinimum(JSON value) {
+        set(20, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Scale
+     * minimum</code>.
+     */
+    public JSON getScaleMinimum() {
+        return (JSON) get(20);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Scale
+     * maximum</code>.
+     */
+    public void setScaleMaximum(JSON value) {
+        set(21, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Scale
+     * maximum</code>.
+     */
+    public JSON getScaleMaximum() {
+        return (JSON) get(21);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits_template.Scale valid
+     * values</code>.
+     */
+    public void setScaleValidValues(JSON value) {
+        set(22, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits_template.Scale valid
+     * values</code>.
+     */
+    public JSON getScaleValidValues() {
+        return (JSON) get(22);
     }
 
     // -------------------------------------------------------------------------
@@ -256,22 +404,32 @@ public class ViewTableTraitsTemplateRecord extends TableRecordImpl<ViewTableTrai
     /**
      * Create a detached, initialised ViewTableTraitsTemplateRecord
      */
-    public ViewTableTraitsTemplateRecord(String name, String shortName, String description, ViewTableTraitsTemplateDataType dataType, String unitName, String unitAbbreviation, String unitDescriptions, JSON traitCategories_28commaSeparated_29, JSON min_28onlyForNumericTraits_29, JSON max_28onlyForNumericTraits_29, Long setSize, String isTimeseries, String traitCategory) {
+    public ViewTableTraitsTemplateRecord(String variableCropontologyId, String variableName, String variableDescription, String traitCopontologyId, String traitName, String traitDescription, String traitAbbreviation, ViewTableTraitsTemplateTraitClass traitClass, String traitCategory, String methodCropontologyId, String methodName, String methodDescription, ViewTableTraitsTemplateMethodClass methodClass, Integer methodSetSize, Boolean methodIsTimeseries, String scaleCropontologyId, String scaleName, String scaleDescription, String scaleUnit, ViewTableTraitsTemplateScaleDataType scaleDataType, JSON scaleMinimum, JSON scaleMaximum, JSON scaleValidValues) {
         super(ViewTableTraitsTemplate.VIEW_TABLE_TRAITS_TEMPLATE);
 
-        setName(name);
-        setShortName(shortName);
-        setDescription(description);
-        setDataType(dataType);
-        setUnitName(unitName);
-        setUnitAbbreviation(unitAbbreviation);
-        setUnitDescriptions(unitDescriptions);
-        setTraitCategories_28commaSeparated_29(traitCategories_28commaSeparated_29);
-        setMin_28onlyForNumericTraits_29(min_28onlyForNumericTraits_29);
-        setMax_28onlyForNumericTraits_29(max_28onlyForNumericTraits_29);
-        setSetSize(setSize);
-        setIsTimeseries(isTimeseries);
+        setVariableCropontologyId(variableCropontologyId);
+        setVariableName(variableName);
+        setVariableDescription(variableDescription);
+        setTraitCopontologyId(traitCopontologyId);
+        setTraitName(traitName);
+        setTraitDescription(traitDescription);
+        setTraitAbbreviation(traitAbbreviation);
+        setTraitClass(traitClass);
         setTraitCategory(traitCategory);
+        setMethodCropontologyId(methodCropontologyId);
+        setMethodName(methodName);
+        setMethodDescription(methodDescription);
+        setMethodClass(methodClass);
+        setMethodSetSize(methodSetSize);
+        setMethodIsTimeseries(methodIsTimeseries);
+        setScaleCropontologyId(scaleCropontologyId);
+        setScaleName(scaleName);
+        setScaleDescription(scaleDescription);
+        setScaleUnit(scaleUnit);
+        setScaleDataType(scaleDataType);
+        setScaleMinimum(scaleMinimum);
+        setScaleMaximum(scaleMaximum);
+        setScaleValidValues(scaleValidValues);
         resetTouchedOnNotNull();
     }
 
@@ -282,19 +440,29 @@ public class ViewTableTraitsTemplateRecord extends TableRecordImpl<ViewTableTrai
         super(ViewTableTraitsTemplate.VIEW_TABLE_TRAITS_TEMPLATE);
 
         if (value != null) {
-            setName(value.getName());
-            setShortName(value.getShortName());
-            setDescription(value.getDescription());
-            setDataType(value.getDataType());
-            setUnitName(value.getUnitName());
-            setUnitAbbreviation(value.getUnitAbbreviation());
-            setUnitDescriptions(value.getUnitDescriptions());
-            setTraitCategories_28commaSeparated_29(value.getTraitCategories_28commaSeparated_29());
-            setMin_28onlyForNumericTraits_29(value.getMin_28onlyForNumericTraits_29());
-            setMax_28onlyForNumericTraits_29(value.getMax_28onlyForNumericTraits_29());
-            setSetSize(value.getSetSize());
-            setIsTimeseries(value.getIsTimeseries());
+            setVariableCropontologyId(value.getVariableCropontologyId());
+            setVariableName(value.getVariableName());
+            setVariableDescription(value.getVariableDescription());
+            setTraitCopontologyId(value.getTraitCopontologyId());
+            setTraitName(value.getTraitName());
+            setTraitDescription(value.getTraitDescription());
+            setTraitAbbreviation(value.getTraitAbbreviation());
+            setTraitClass(value.getTraitClass());
             setTraitCategory(value.getTraitCategory());
+            setMethodCropontologyId(value.getMethodCropontologyId());
+            setMethodName(value.getMethodName());
+            setMethodDescription(value.getMethodDescription());
+            setMethodClass(value.getMethodClass());
+            setMethodSetSize(value.getMethodSetSize());
+            setMethodIsTimeseries(value.getMethodIsTimeseries());
+            setScaleCropontologyId(value.getScaleCropontologyId());
+            setScaleName(value.getScaleName());
+            setScaleDescription(value.getScaleDescription());
+            setScaleUnit(value.getScaleUnit());
+            setScaleDataType(value.getScaleDataType());
+            setScaleMinimum(value.getScaleMinimum());
+            setScaleMaximum(value.getScaleMaximum());
+            setScaleValidValues(value.getScaleValidValues());
             resetTouchedOnNotNull();
         }
     }
