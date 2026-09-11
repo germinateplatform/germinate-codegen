@@ -52,6 +52,7 @@ public class ViewTableDatasets implements Serializable {
     private Date startDate;
     private Date endDate;
     private DublinCore dublinCore;
+    private Integer createdBy;
     private Timestamp createdOn;
     private Timestamp updatedOn;
     private ULong dataObjectCount;
@@ -89,6 +90,7 @@ public class ViewTableDatasets implements Serializable {
         this.startDate = value.startDate;
         this.endDate = value.endDate;
         this.dublinCore = value.dublinCore;
+        this.createdBy = value.createdBy;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
         this.dataObjectCount = value.dataObjectCount;
@@ -125,6 +127,7 @@ public class ViewTableDatasets implements Serializable {
         Date startDate,
         Date endDate,
         DublinCore dublinCore,
+        Integer createdBy,
         Timestamp createdOn,
         Timestamp updatedOn,
         ULong dataObjectCount,
@@ -159,6 +162,7 @@ public class ViewTableDatasets implements Serializable {
         this.startDate = startDate;
         this.endDate = endDate;
         this.dublinCore = dublinCore;
+        this.createdBy = createdBy;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
         this.dataObjectCount = dataObjectCount;
@@ -318,6 +322,12 @@ public class ViewTableDatasets implements Serializable {
         }
         else if (!this.dublinCore.equals(other.dublinCore))
             return false;
+        if (this.createdBy == null) {
+            if (other.createdBy != null)
+                return false;
+        }
+        else if (!this.createdBy.equals(other.createdBy))
+            return false;
         if (this.createdOn == null) {
             if (other.createdOn != null)
                 return false;
@@ -408,6 +418,7 @@ public class ViewTableDatasets implements Serializable {
         result = prime * result + ((this.startDate == null) ? 0 : this.startDate.hashCode());
         result = prime * result + ((this.endDate == null) ? 0 : this.endDate.hashCode());
         result = prime * result + ((this.dublinCore == null) ? 0 : this.dublinCore.hashCode());
+        result = prime * result + ((this.createdBy == null) ? 0 : this.createdBy.hashCode());
         result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
         result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
         result = prime * result + ((this.dataObjectCount == null) ? 0 : this.dataObjectCount.hashCode());
@@ -448,6 +459,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(startDate);
         sb.append(", ").append(endDate);
         sb.append(", ").append(dublinCore);
+        sb.append(", ").append(createdBy);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
         sb.append(", ").append(dataObjectCount);

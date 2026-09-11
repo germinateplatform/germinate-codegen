@@ -6,6 +6,7 @@ package jhi.germinate.server.database.codegen.tables;
 
 import java.util.Collection;
 
+import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.ViewTableClimatesDataType;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableClimatesRecord;
@@ -53,13 +54,13 @@ public class ViewTableClimates extends TableImpl<ViewTableClimatesRecord> {
      * The column <code>germinate_db.view_table_climates.climate_id</code>.
      * Primary id for this table. This uniquely identifies the row.
      */
-    public final TableField<ViewTableClimatesRecord, Integer> CLIMATE_ID = createField(DSL.name("climate_id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Primary id for this table. This uniquely identifies the row.");
+    public final TableField<ViewTableClimatesRecord, Integer> CLIMATE_ID = createField(DSL.name("climate_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Primary id for this table. This uniquely identifies the row.");
 
     /**
      * The column <code>germinate_db.view_table_climates.climate_name</code>.
      * Describes the climate.
      */
-    public final TableField<ViewTableClimatesRecord, String> CLIMATE_NAME = createField(DSL.name("climate_name"), SQLDataType.VARCHAR(255).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "Describes the climate.");
+    public final TableField<ViewTableClimatesRecord, String> CLIMATE_NAME = createField(DSL.name("climate_name"), SQLDataType.VARCHAR(255).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "Describes the climate.");
 
     /**
      * The column
@@ -81,7 +82,7 @@ public class ViewTableClimates extends TableImpl<ViewTableClimatesRecord> {
      * Defines the data type of the climate. This can be of numeric, text, date
      * or categorical types.
      */
-    public final TableField<ViewTableClimatesRecord, ViewTableClimatesDataType> DATA_TYPE = createField(DSL.name("data_type"), SQLDataType.VARCHAR(11).nullable(false).defaultValue(DSL.inline("text", SQLDataType.VARCHAR)).asEnumDataType(ViewTableClimatesDataType.class), this, "Defines the data type of the climate. This can be of numeric, text, date or categorical types.");
+    public final TableField<ViewTableClimatesRecord, ViewTableClimatesDataType> DATA_TYPE = createField(DSL.name("data_type"), SQLDataType.VARCHAR(11).defaultValue(DSL.inline("text", SQLDataType.VARCHAR)).asEnumDataType(ViewTableClimatesDataType.class), this, "Defines the data type of the climate. This can be of numeric, text, date or categorical types.");
 
     /**
      * The column <code>germinate_db.view_table_climates.unit_id</code>. Primary
@@ -117,6 +118,11 @@ public class ViewTableClimates extends TableImpl<ViewTableClimatesRecord> {
     public final TableField<ViewTableClimatesRecord, String> UNIT_ABBREVIATION = createField(DSL.name("unit_abbreviation"), SQLDataType.CHAR(10), this, "This should be the unit abbreviation.");
 
     /**
+     * The column <code>germinate_db.view_table_climates.dataset_ids</code>.
+     */
+    public final TableField<ViewTableClimatesRecord, Integer[]> DATASET_IDS = createField(DSL.name("dataset_ids"), SQLDataType.JSON, this, "", new IntArrayBinding());
+
+    /**
      * The column <code>germinate_db.view_table_climates.count</code>.
      */
     public final TableField<ViewTableClimatesRecord, Long> COUNT = createField(DSL.name("count"), SQLDataType.BIGINT, this, "");
@@ -126,7 +132,7 @@ public class ViewTableClimates extends TableImpl<ViewTableClimatesRecord> {
     }
 
     private ViewTableClimates(Name alias, Table<ViewTableClimatesRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_climates` as select `germinate_template_5_26_01_28`.`climates`.`id` AS `climate_id`,`germinate_template_5_26_01_28`.`climates`.`name` AS `climate_name`,`germinate_template_5_26_01_28`.`climates`.`short_name` AS `climate_name_short`,`germinate_template_5_26_01_28`.`climates`.`description` AS `climate_description`,`germinate_template_5_26_01_28`.`climates`.`datatype` AS `data_type`,`germinate_template_5_26_01_28`.`units`.`id` AS `unit_id`,`germinate_template_5_26_01_28`.`units`.`unit_name` AS `unit_name`,`germinate_template_5_26_01_28`.`units`.`unit_description` AS `unit_description`,(select count(1) from `germinate_template_5_26_01_28`.`mapoverlays` where ((`germinate_template_5_26_01_28`.`mapoverlays`.`reference_table` = 'climates') and (`germinate_template_5_26_01_28`.`mapoverlays`.`foreign_id` = `germinate_template_5_26_01_28`.`climates`.`id`))) AS `overlays`,`germinate_template_5_26_01_28`.`units`.`unit_abbreviation` AS `unit_abbreviation`,(select count(1) from `germinate_template_5_26_01_28`.`climatedata` where (`germinate_template_5_26_01_28`.`climatedata`.`climate_id` = `germinate_template_5_26_01_28`.`climates`.`id`)) AS `count` from (`germinate_template_5_26_01_28`.`climates` left join `germinate_template_5_26_01_28`.`units` on((`germinate_template_5_26_01_28`.`units`.`id` = `germinate_template_5_26_01_28`.`climates`.`unit_id`))) group by `germinate_template_5_26_01_28`.`climates`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_climates` as select `germinate_template_5_26_08_13`.`climates`.`id` AS `climate_id`,`germinate_template_5_26_08_13`.`climates`.`name` AS `climate_name`,`germinate_template_5_26_08_13`.`climates`.`short_name` AS `climate_name_short`,`germinate_template_5_26_08_13`.`climates`.`description` AS `climate_description`,`germinate_template_5_26_08_13`.`climates`.`datatype` AS `data_type`,`germinate_template_5_26_08_13`.`units`.`id` AS `unit_id`,`germinate_template_5_26_08_13`.`units`.`unit_name` AS `unit_name`,`germinate_template_5_26_08_13`.`units`.`unit_description` AS `unit_description`,(select count(1) from `germinate_template_5_26_08_13`.`mapoverlays` where ((`germinate_template_5_26_08_13`.`mapoverlays`.`reference_table` = 'climates') and (`germinate_template_5_26_08_13`.`mapoverlays`.`foreign_id` = `germinate_template_5_26_08_13`.`climates`.`id`))) AS `overlays`,`germinate_template_5_26_08_13`.`units`.`unit_abbreviation` AS `unit_abbreviation`,(select cast(concat('[',(select group_concat(distinct `germinate_template_5_26_08_13`.`climatedata`.`dataset_id` separator ',') from `germinate_template_5_26_08_13`.`climatedata` where (`germinate_template_5_26_08_13`.`climatedata`.`climate_id` = `germinate_template_5_26_08_13`.`climates`.`id`)),']') as json)) AS `dataset_ids`,(select count(1) from `germinate_template_5_26_08_13`.`climatedata` where (`germinate_template_5_26_08_13`.`climatedata`.`climate_id` = `germinate_template_5_26_08_13`.`climates`.`id`)) AS `count` from (`germinate_template_5_26_08_13`.`climates` left join `germinate_template_5_26_08_13`.`units` on((`germinate_template_5_26_08_13`.`climates`.`unit_id` = `germinate_template_5_26_08_13`.`units`.`id`)))"), where);
     }
 
     /**

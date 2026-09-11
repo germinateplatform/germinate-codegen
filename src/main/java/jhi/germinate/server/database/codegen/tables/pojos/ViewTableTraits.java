@@ -31,6 +31,7 @@ public class ViewTableTraits implements Serializable {
     private Integer variableId;
     private String variableName;
     private String variableDescription;
+    private String[] variableSynonyms;
     private Integer traitId;
     private String traitName;
     private String traitDescription;
@@ -44,6 +45,9 @@ public class ViewTableTraits implements Serializable {
     private String traitAbbreviation;
     private ViewTableTraitsTraitClass traitClass;
     private String[] traitSynonyms;
+    private Integer traitCategoryId;
+    private String traitCategoryName;
+    private String traitCategoryDescription;
     private Integer methodSetSize;
     private Boolean methodIsTimeseries;
     private ViewTableTraitsScaleDatatype scaleDatatype;
@@ -58,6 +62,7 @@ public class ViewTableTraits implements Serializable {
         this.variableId = value.variableId;
         this.variableName = value.variableName;
         this.variableDescription = value.variableDescription;
+        this.variableSynonyms = value.variableSynonyms;
         this.traitId = value.traitId;
         this.traitName = value.traitName;
         this.traitDescription = value.traitDescription;
@@ -71,6 +76,9 @@ public class ViewTableTraits implements Serializable {
         this.traitAbbreviation = value.traitAbbreviation;
         this.traitClass = value.traitClass;
         this.traitSynonyms = value.traitSynonyms;
+        this.traitCategoryId = value.traitCategoryId;
+        this.traitCategoryName = value.traitCategoryName;
+        this.traitCategoryDescription = value.traitCategoryDescription;
         this.methodSetSize = value.methodSetSize;
         this.methodIsTimeseries = value.methodIsTimeseries;
         this.scaleDatatype = value.scaleDatatype;
@@ -84,6 +92,7 @@ public class ViewTableTraits implements Serializable {
         Integer variableId,
         String variableName,
         String variableDescription,
+        String[] variableSynonyms,
         Integer traitId,
         String traitName,
         String traitDescription,
@@ -97,6 +106,9 @@ public class ViewTableTraits implements Serializable {
         String traitAbbreviation,
         ViewTableTraitsTraitClass traitClass,
         String[] traitSynonyms,
+        Integer traitCategoryId,
+        String traitCategoryName,
+        String traitCategoryDescription,
         Integer methodSetSize,
         Boolean methodIsTimeseries,
         ViewTableTraitsScaleDatatype scaleDatatype,
@@ -108,6 +120,7 @@ public class ViewTableTraits implements Serializable {
         this.variableId = variableId;
         this.variableName = variableName;
         this.variableDescription = variableDescription;
+        this.variableSynonyms = variableSynonyms;
         this.traitId = traitId;
         this.traitName = traitName;
         this.traitDescription = traitDescription;
@@ -121,6 +134,9 @@ public class ViewTableTraits implements Serializable {
         this.traitAbbreviation = traitAbbreviation;
         this.traitClass = traitClass;
         this.traitSynonyms = traitSynonyms;
+        this.traitCategoryId = traitCategoryId;
+        this.traitCategoryName = traitCategoryName;
+        this.traitCategoryDescription = traitCategoryDescription;
         this.methodSetSize = methodSetSize;
         this.methodIsTimeseries = methodIsTimeseries;
         this.scaleDatatype = scaleDatatype;
@@ -156,6 +172,12 @@ public class ViewTableTraits implements Serializable {
                 return false;
         }
         else if (!this.variableDescription.equals(other.variableDescription))
+            return false;
+        if (this.variableSynonyms == null) {
+            if (other.variableSynonyms != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.variableSynonyms, other.variableSynonyms))
             return false;
         if (this.traitId == null) {
             if (other.traitId != null)
@@ -235,6 +257,24 @@ public class ViewTableTraits implements Serializable {
         }
         else if (!Arrays.deepEquals(this.traitSynonyms, other.traitSynonyms))
             return false;
+        if (this.traitCategoryId == null) {
+            if (other.traitCategoryId != null)
+                return false;
+        }
+        else if (!this.traitCategoryId.equals(other.traitCategoryId))
+            return false;
+        if (this.traitCategoryName == null) {
+            if (other.traitCategoryName != null)
+                return false;
+        }
+        else if (!this.traitCategoryName.equals(other.traitCategoryName))
+            return false;
+        if (this.traitCategoryDescription == null) {
+            if (other.traitCategoryDescription != null)
+                return false;
+        }
+        else if (!this.traitCategoryDescription.equals(other.traitCategoryDescription))
+            return false;
         if (this.methodSetSize == null) {
             if (other.methodSetSize != null)
                 return false;
@@ -287,6 +327,7 @@ public class ViewTableTraits implements Serializable {
         result = prime * result + ((this.variableId == null) ? 0 : this.variableId.hashCode());
         result = prime * result + ((this.variableName == null) ? 0 : this.variableName.hashCode());
         result = prime * result + ((this.variableDescription == null) ? 0 : this.variableDescription.hashCode());
+        result = prime * result + ((this.variableSynonyms == null) ? 0 : Arrays.deepHashCode(this.variableSynonyms));
         result = prime * result + ((this.traitId == null) ? 0 : this.traitId.hashCode());
         result = prime * result + ((this.traitName == null) ? 0 : this.traitName.hashCode());
         result = prime * result + ((this.traitDescription == null) ? 0 : this.traitDescription.hashCode());
@@ -300,6 +341,9 @@ public class ViewTableTraits implements Serializable {
         result = prime * result + ((this.traitAbbreviation == null) ? 0 : this.traitAbbreviation.hashCode());
         result = prime * result + ((this.traitClass == null) ? 0 : this.traitClass.hashCode());
         result = prime * result + ((this.traitSynonyms == null) ? 0 : Arrays.deepHashCode(this.traitSynonyms));
+        result = prime * result + ((this.traitCategoryId == null) ? 0 : this.traitCategoryId.hashCode());
+        result = prime * result + ((this.traitCategoryName == null) ? 0 : this.traitCategoryName.hashCode());
+        result = prime * result + ((this.traitCategoryDescription == null) ? 0 : this.traitCategoryDescription.hashCode());
         result = prime * result + ((this.methodSetSize == null) ? 0 : this.methodSetSize.hashCode());
         result = prime * result + ((this.methodIsTimeseries == null) ? 0 : this.methodIsTimeseries.hashCode());
         result = prime * result + ((this.scaleDatatype == null) ? 0 : this.scaleDatatype.hashCode());
@@ -317,6 +361,7 @@ public class ViewTableTraits implements Serializable {
         sb.append(variableId);
         sb.append(", ").append(variableName);
         sb.append(", ").append(variableDescription);
+        sb.append(", ").append(Arrays.deepToString(variableSynonyms));
         sb.append(", ").append(traitId);
         sb.append(", ").append(traitName);
         sb.append(", ").append(traitDescription);
@@ -330,6 +375,9 @@ public class ViewTableTraits implements Serializable {
         sb.append(", ").append(traitAbbreviation);
         sb.append(", ").append(traitClass);
         sb.append(", ").append(Arrays.deepToString(traitSynonyms));
+        sb.append(", ").append(traitCategoryId);
+        sb.append(", ").append(traitCategoryName);
+        sb.append(", ").append(traitCategoryDescription);
         sb.append(", ").append(methodSetSize);
         sb.append(", ").append(methodIsTimeseries);
         sb.append(", ").append(scaleDatatype);

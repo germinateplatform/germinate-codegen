@@ -8,8 +8,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 import jhi.germinate.server.database.codegen.enums.ScalesDatatype;
-
-import org.jooq.JSON;
+import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 
 import lombok.*;
@@ -32,7 +31,7 @@ public class Scales implements Serializable {
     private String description;
     private String unit;
     private ScalesDatatype datatype;
-    private JSON restrictions;
+    private TraitRestrictions restrictions;
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
@@ -55,7 +54,7 @@ public class Scales implements Serializable {
         String description,
         String unit,
         ScalesDatatype datatype,
-        JSON restrictions,
+        TraitRestrictions restrictions,
         Timestamp createdOn,
         Timestamp updatedOn
     ) {

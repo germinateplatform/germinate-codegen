@@ -8,8 +8,8 @@ import java.sql.Timestamp;
 
 import jhi.germinate.server.database.codegen.enums.ScalesDatatype;
 import jhi.germinate.server.database.codegen.tables.Scales;
+import jhi.germinate.server.database.pojo.TraitRestrictions;
 
-import org.jooq.JSON;
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;
 
@@ -96,15 +96,15 @@ public class ScalesRecord extends UpdatableRecordImpl<ScalesRecord> {
     /**
      * Setter for <code>germinate_db.scales.restrictions</code>.
      */
-    public void setRestrictions(JSON value) {
+    public void setRestrictions(TraitRestrictions value) {
         set(5, value);
     }
 
     /**
      * Getter for <code>germinate_db.scales.restrictions</code>.
      */
-    public JSON getRestrictions() {
-        return (JSON) get(5);
+    public TraitRestrictions getRestrictions() {
+        return (TraitRestrictions) get(5);
     }
 
     /**
@@ -158,7 +158,7 @@ public class ScalesRecord extends UpdatableRecordImpl<ScalesRecord> {
     /**
      * Create a detached, initialised ScalesRecord
      */
-    public ScalesRecord(Integer id, String name, String description, String unit, ScalesDatatype datatype, JSON restrictions, Timestamp createdOn, Timestamp updatedOn) {
+    public ScalesRecord(Integer id, String name, String description, String unit, ScalesDatatype datatype, TraitRestrictions restrictions, Timestamp createdOn, Timestamp updatedOn) {
         super(Scales.SCALES);
 
         setId(id);

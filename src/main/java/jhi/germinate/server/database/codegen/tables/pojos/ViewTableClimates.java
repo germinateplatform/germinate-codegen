@@ -5,6 +5,7 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import jhi.germinate.server.database.codegen.enums.ViewTableClimatesDataType;
 
@@ -34,6 +35,7 @@ public class ViewTableClimates implements Serializable {
     private String unitDescription;
     private Long overlays;
     private String unitAbbreviation;
+    private Integer[] datasetIds;
     private Long count;
 
     public ViewTableClimates() {}
@@ -49,6 +51,7 @@ public class ViewTableClimates implements Serializable {
         this.unitDescription = value.unitDescription;
         this.overlays = value.overlays;
         this.unitAbbreviation = value.unitAbbreviation;
+        this.datasetIds = value.datasetIds;
         this.count = value.count;
     }
 
@@ -63,6 +66,7 @@ public class ViewTableClimates implements Serializable {
         String unitDescription,
         Long overlays,
         String unitAbbreviation,
+        Integer[] datasetIds,
         Long count
     ) {
         this.climateId = climateId;
@@ -75,6 +79,7 @@ public class ViewTableClimates implements Serializable {
         this.unitDescription = unitDescription;
         this.overlays = overlays;
         this.unitAbbreviation = unitAbbreviation;
+        this.datasetIds = datasetIds;
         this.count = count;
     }
 
@@ -147,6 +152,12 @@ public class ViewTableClimates implements Serializable {
         }
         else if (!this.unitAbbreviation.equals(other.unitAbbreviation))
             return false;
+        if (this.datasetIds == null) {
+            if (other.datasetIds != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.datasetIds, other.datasetIds))
+            return false;
         if (this.count == null) {
             if (other.count != null)
                 return false;
@@ -170,6 +181,7 @@ public class ViewTableClimates implements Serializable {
         result = prime * result + ((this.unitDescription == null) ? 0 : this.unitDescription.hashCode());
         result = prime * result + ((this.overlays == null) ? 0 : this.overlays.hashCode());
         result = prime * result + ((this.unitAbbreviation == null) ? 0 : this.unitAbbreviation.hashCode());
+        result = prime * result + ((this.datasetIds == null) ? 0 : Arrays.deepHashCode(this.datasetIds));
         result = prime * result + ((this.count == null) ? 0 : this.count.hashCode());
         return result;
     }
@@ -188,6 +200,7 @@ public class ViewTableClimates implements Serializable {
         sb.append(", ").append(unitDescription);
         sb.append(", ").append(overlays);
         sb.append(", ").append(unitAbbreviation);
+        sb.append(", ").append(Arrays.deepToString(datasetIds));
         sb.append(", ").append(count);
 
         sb.append(")");

@@ -88,7 +88,7 @@ public class ViewTableMaps extends TableImpl<ViewTableMapsRecord> {
     }
 
     private ViewTableMaps(Name alias, Table<ViewTableMapsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_maps` as select `germinate_template_5_26_01_28`.`maps`.`id` AS `map_id`,`germinate_template_5_26_01_28`.`maps`.`name` AS `map_name`,`germinate_template_5_26_01_28`.`maps`.`description` AS `map_description`,`germinate_template_5_26_01_28`.`maps`.`user_id` AS `user_id`,`germinate_template_5_26_01_28`.`maps`.`visibility` AS `visibility`,count(1) AS `marker_count` from (`germinate_template_5_26_01_28`.`maps` left join `germinate_template_5_26_01_28`.`mapdefinitions` on((`germinate_template_5_26_01_28`.`maps`.`id` = `germinate_template_5_26_01_28`.`mapdefinitions`.`map_id`))) group by `germinate_template_5_26_01_28`.`maps`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_maps` as select `germinate_template_5_26_08_13`.`maps`.`id` AS `map_id`,`germinate_template_5_26_08_13`.`maps`.`name` AS `map_name`,`germinate_template_5_26_08_13`.`maps`.`description` AS `map_description`,`germinate_template_5_26_08_13`.`maps`.`user_id` AS `user_id`,`germinate_template_5_26_08_13`.`maps`.`visibility` AS `visibility`,count(1) AS `marker_count` from (`germinate_template_5_26_08_13`.`maps` left join `germinate_template_5_26_08_13`.`mapdefinitions` on((`germinate_template_5_26_08_13`.`maps`.`id` = `germinate_template_5_26_08_13`.`mapdefinitions`.`map_id`))) group by `germinate_template_5_26_08_13`.`maps`.`id`"), where);
     }
 
     /**

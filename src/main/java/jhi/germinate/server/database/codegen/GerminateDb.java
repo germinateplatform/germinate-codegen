@@ -95,7 +95,6 @@ import jhi.germinate.server.database.codegen.tables.Treatments;
 import jhi.germinate.server.database.codegen.tables.Trialseries;
 import jhi.germinate.server.database.codegen.tables.Trialsetup;
 import jhi.germinate.server.database.codegen.tables.Units;
-import jhi.germinate.server.database.codegen.tables.Userfeedback;
 import jhi.germinate.server.database.codegen.tables.Usergroupmembers;
 import jhi.germinate.server.database.codegen.tables.Usergroups;
 import jhi.germinate.server.database.codegen.tables.Variableontologies;
@@ -136,6 +135,7 @@ import jhi.germinate.server.database.codegen.tables.ViewTableTaxonomies;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraitAttributes;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraits;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraitsTemplate;
+import jhi.germinate.server.database.codegen.tables.ViewTableTrialLayouts;
 import jhi.germinate.server.database.codegen.tables.ViewTableUsergroups;
 
 import org.jooq.Catalog;
@@ -262,7 +262,6 @@ public class GerminateDb extends SchemaImpl {
             Trialseries.TRIALSERIES,
             Trialsetup.TRIALSETUP,
             Units.UNITS,
-            Userfeedback.USERFEEDBACK,
             Usergroupmembers.USERGROUPMEMBERS,
             Usergroups.USERGROUPS,
             Variableontologies.VARIABLEONTOLOGIES,
@@ -303,6 +302,7 @@ public class GerminateDb extends SchemaImpl {
             ViewTableTraitAttributes.VIEW_TABLE_TRAIT_ATTRIBUTES,
             ViewTableTraits.VIEW_TABLE_TRAITS,
             ViewTableTraitsTemplate.VIEW_TABLE_TRAITS_TEMPLATE,
+            ViewTableTrialLayouts.VIEW_TABLE_TRIAL_LAYOUTS,
             ViewTableUsergroups.VIEW_TABLE_USERGROUPS
         );
     }

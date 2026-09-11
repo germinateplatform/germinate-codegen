@@ -7,14 +7,15 @@ package jhi.germinate.server.database.codegen.tables;
 import java.sql.Timestamp;
 import java.util.Collection;
 
+import jhi.germinate.server.database.binding.TraitRestrictionBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.enums.ScalesDatatype;
 import jhi.germinate.server.database.codegen.tables.records.ScalesRecord;
+import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 import org.jooq.Condition;
 import org.jooq.Field;
 import org.jooq.Identity;
-import org.jooq.JSON;
 import org.jooq.Name;
 import org.jooq.PlainSQL;
 import org.jooq.QueryPart;
@@ -82,7 +83,7 @@ public class Scales extends TableImpl<ScalesRecord> {
     /**
      * The column <code>germinate_db.scales.restrictions</code>.
      */
-    public final TableField<ScalesRecord, JSON> RESTRICTIONS = createField(DSL.name("restrictions"), SQLDataType.JSON, this, "");
+    public final TableField<ScalesRecord, TraitRestrictions> RESTRICTIONS = createField(DSL.name("restrictions"), SQLDataType.JSON, this, "", new TraitRestrictionBinding());
 
     /**
      * The column <code>germinate_db.scales.created_on</code>.

@@ -1,5 +1,10 @@
 package jhi.germinate.server.database.pojo;
 
+import lombok.*;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public enum ImportStatus
 {
 	GENERIC_DUPLICATE_COLUMN(true),
@@ -10,7 +15,7 @@ public enum ImportStatus
 	GENERIC_MISSING_REQUIRED_VALUE(true),
 	GENERIC_MISSING_DB_ITEM_UPDATE,
 	GENERIC_VALUE_TOO_LONG,
-	GENERIC_INVALID_COUNTRY_CODE,
+	GENERIC_INVALID_COUNTRY_CODE(true),
 	GENERIC_INVALID_NUMBER,
 	GENERIC_INVALID_BOOLEAN,
 	GENERIC_INVALID_DATE,
@@ -36,6 +41,8 @@ public enum ImportStatus
 	MCPD_MISSING_ACCENUMB,
 	MCPD_INVALID_DUPLINST_NAME_MAPPING,
 	TRIALS_INVALID_TRAIT_DATATYPE(true),
+	TRIALS_INVALID_TRAIT_CLASS(true),
+	TRIALS_INVALID_METHOD_CLASS(true),
 	TRIALS_INVALID_TRAIT_CATEGORIES(true),
 	TRIALS_MISSING_TRAIT_DECLARATION(true),
 	TRIALS_DATA_DATE_HEADER_MISMATCH,
@@ -63,18 +70,4 @@ public enum ImportStatus
 	SHAPEFILE_WARNING_MISSING_ACCENUMB;
 
 	private boolean allowsMultiple = false;
-
-	private ImportStatus()
-	{
-	}
-
-	private ImportStatus(boolean allowsMultiple)
-	{
-		this.allowsMultiple = allowsMultiple;
-	}
-
-	public boolean isAllowsMultiple()
-	{
-		return allowsMultiple;
-	}
 }
