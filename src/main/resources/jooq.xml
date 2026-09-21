@@ -6,7 +6,7 @@
             <pojos>true</pojos>
             <globalCatalogReferences>false</globalCatalogReferences>
             <globalKeyReferences>false</globalKeyReferences>
-            <globalLinkReferences>false</globalLinkReferences>>
+            <globalLinkReferences>false</globalLinkReferences>
             <globalQueueReferences>false</globalQueueReferences>
             <globalRoutineReferences>false</globalRoutineReferences>
             <globalSchemaReferences>false</globalSchemaReferences>
