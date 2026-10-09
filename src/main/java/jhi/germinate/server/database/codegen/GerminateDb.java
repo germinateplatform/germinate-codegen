@@ -83,6 +83,7 @@ import jhi.germinate.server.database.codegen.tables.Scales;
 import jhi.germinate.server.database.codegen.tables.SchemaVersion;
 import jhi.germinate.server.database.codegen.tables.Stories;
 import jhi.germinate.server.database.codegen.tables.Storysteps;
+import jhi.germinate.server.database.codegen.tables.Studydetails;
 import jhi.germinate.server.database.codegen.tables.Synonyms;
 import jhi.germinate.server.database.codegen.tables.Synonymtypes;
 import jhi.germinate.server.database.codegen.tables.Taxonomies;
@@ -250,6 +251,7 @@ public class GerminateDb extends SchemaImpl {
             SchemaVersion.SCHEMA_VERSION,
             Stories.STORIES,
             Storysteps.STORYSTEPS,
+            Studydetails.STUDYDETAILS,
             Synonyms.SYNONYMS,
             Synonymtypes.SYNONYMTYPES,
             Taxonomies.TAXONOMIES,

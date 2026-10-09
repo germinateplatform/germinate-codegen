@@ -141,6 +141,12 @@ public class Datasets extends TableImpl<DatasetsRecord> {
     public final TableField<DatasetsRecord, Integer> LICENSE_ID = createField(DSL.name("license_id"), SQLDataType.INTEGER, this, "");
 
     /**
+     * The column <code>germinate_db.datasets.studydetails_id</code>. Foreign
+     * key to studydetails (studydetails.id).
+     */
+    public final TableField<DatasetsRecord, Integer> STUDYDETAILS_ID = createField(DSL.name("studydetails_id"), SQLDataType.INTEGER, this, "Foreign key to studydetails (studydetails.id).");
+
+    /**
      * The column <code>germinate_db.datasets.is_external</code>. Defines if the
      * dataset is contained within Germinate or from an external source and not
      * stored in the database.

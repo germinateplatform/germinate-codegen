@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 
 import jhi.germinate.server.database.pojo.DublinCore;
+import jhi.germinate.server.database.pojo.StudyDetailsCore;
 
 import org.jooq.types.ULong;
 
@@ -39,6 +40,7 @@ public class ViewTableDatasets implements Serializable {
     private Integer experimentId;
     private String experimentName;
     private String experimentDescription;
+    private StudyDetailsCore studyDetailsCore;
     private Integer projectId;
     private String projectName;
     private String projectDescription;
@@ -77,6 +79,7 @@ public class ViewTableDatasets implements Serializable {
         this.experimentId = value.experimentId;
         this.experimentName = value.experimentName;
         this.experimentDescription = value.experimentDescription;
+        this.studyDetailsCore = value.studyDetailsCore;
         this.projectId = value.projectId;
         this.projectName = value.projectName;
         this.projectDescription = value.projectDescription;
@@ -114,6 +117,7 @@ public class ViewTableDatasets implements Serializable {
         Integer experimentId,
         String experimentName,
         String experimentDescription,
+        StudyDetailsCore studyDetailsCore,
         Integer projectId,
         String projectName,
         String projectDescription,
@@ -149,6 +153,7 @@ public class ViewTableDatasets implements Serializable {
         this.experimentId = experimentId;
         this.experimentName = experimentName;
         this.experimentDescription = experimentDescription;
+        this.studyDetailsCore = studyDetailsCore;
         this.projectId = projectId;
         this.projectName = projectName;
         this.projectDescription = projectDescription;
@@ -243,6 +248,12 @@ public class ViewTableDatasets implements Serializable {
                 return false;
         }
         else if (!this.experimentDescription.equals(other.experimentDescription))
+            return false;
+        if (this.studyDetailsCore == null) {
+            if (other.studyDetailsCore != null)
+                return false;
+        }
+        else if (!this.studyDetailsCore.equals(other.studyDetailsCore))
             return false;
         if (this.projectId == null) {
             if (other.projectId != null)
@@ -405,6 +416,7 @@ public class ViewTableDatasets implements Serializable {
         result = prime * result + ((this.experimentId == null) ? 0 : this.experimentId.hashCode());
         result = prime * result + ((this.experimentName == null) ? 0 : this.experimentName.hashCode());
         result = prime * result + ((this.experimentDescription == null) ? 0 : this.experimentDescription.hashCode());
+        result = prime * result + ((this.studyDetailsCore == null) ? 0 : this.studyDetailsCore.hashCode());
         result = prime * result + ((this.projectId == null) ? 0 : this.projectId.hashCode());
         result = prime * result + ((this.projectName == null) ? 0 : this.projectName.hashCode());
         result = prime * result + ((this.projectDescription == null) ? 0 : this.projectDescription.hashCode());
@@ -446,6 +458,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(experimentId);
         sb.append(", ").append(experimentName);
         sb.append(", ").append(experimentDescription);
+        sb.append(", ").append(studyDetailsCore);
         sb.append(", ").append(projectId);
         sb.append(", ").append(projectName);
         sb.append(", ").append(projectDescription);
