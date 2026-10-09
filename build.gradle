@@ -44,15 +44,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
 
-// Runs the JOOQ code generation
-task codegen (type: JavaExec) {
-    group = 'Execution'
-    classpath = sourceSets.main.runtimeClasspath
-    mainClass = 'org.jooq.codegen.GenerationTool'
-    args 'jooq.xml'
-    finalizedBy build
-}
-
 task dbDump(type: JavaExec) {
     group = 'Execution'
     description = 'Dumps the database using mysql-backup4j, based on connection info from jooq.xml'
@@ -87,4 +78,15 @@ task dbDump(type: JavaExec) {
 
         args = [host, port, database, user, password, project.property('germinate.source.directory')]
     }
+
+    finalizedBy build
+}
+
+// Runs the JOOQ code generation
+task codegen (type: JavaExec) {
+    group = 'Execution'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.jooq.codegen.GenerationTool'
+    args 'jooq.xml'
+    finalizedBy dbDump
 }
