@@ -192,6 +192,12 @@
                     <userType>jhi.germinate.server.database.pojo.Dataset[]</userType>
                 </forcedType>
                 <forcedType>
+                    <binding>jhi.germinate.server.database.binding.OntologyInfoArrayBinding</binding>
+                    <expression>.*(view_table_traits)\..+(_ontologies)</expression>
+                    <types>.*</types>
+                    <userType>jhi.germinate.server.database.pojo.OntologyInfo[]</userType>
+                </forcedType>
+                <forcedType>
                     <binding>jhi.germinate.server.database.binding.StoryStepConfigBinding</binding>
                     <expression>.*(storysteps)\.(page_config)</expression>
                     <types>.*json.*</types>

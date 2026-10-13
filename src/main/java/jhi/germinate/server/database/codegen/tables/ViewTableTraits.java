@@ -7,6 +7,7 @@ package jhi.germinate.server.database.codegen.tables;
 import java.util.Collection;
 
 import jhi.germinate.server.database.binding.IntArrayBinding;
+import jhi.germinate.server.database.binding.OntologyInfoArrayBinding;
 import jhi.germinate.server.database.binding.SynonymBinding;
 import jhi.germinate.server.database.binding.TraitRestrictionBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
@@ -14,6 +15,7 @@ import jhi.germinate.server.database.codegen.enums.ViewTableTraitsMethodClass;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsScaleDatatype;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTraitClass;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableTraitsRecord;
+import jhi.germinate.server.database.pojo.OntologyInfo;
 import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 import org.jooq.Condition;
@@ -72,6 +74,12 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     public final TableField<ViewTableTraitsRecord, String> VARIABLE_DESCRIPTION = createField(DSL.name("variable_description"), SQLDataType.CLOB, this, "");
 
     /**
+     * The column
+     * <code>germinate_db.view_table_traits.variable_ontologies</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, OntologyInfo[]> VARIABLE_ONTOLOGIES = createField(DSL.name("variable_ontologies"), SQLDataType.JSON, this, "", new OntologyInfoArrayBinding());
+
+    /**
      * The column <code>germinate_db.view_table_traits.variable_synonyms</code>.
      * The synonyms as a json array.
      */
@@ -91,6 +99,11 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
      * The column <code>germinate_db.view_table_traits.trait_description</code>.
      */
     public final TableField<ViewTableTraitsRecord, String> TRAIT_DESCRIPTION = createField(DSL.name("trait_description"), SQLDataType.CLOB, this, "");
+
+    /**
+     * The column <code>germinate_db.view_table_traits.trait_ontologies</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, OntologyInfo[]> TRAIT_ONTOLOGIES = createField(DSL.name("trait_ontologies"), SQLDataType.JSON, this, "", new OntologyInfoArrayBinding());
 
     /**
      * The column <code>germinate_db.view_table_traits.method_id</code>.
@@ -114,6 +127,11 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     public final TableField<ViewTableTraitsRecord, ViewTableTraitsMethodClass> METHOD_CLASS = createField(DSL.name("method_class"), SQLDataType.VARCHAR(14).defaultValue(DSL.inline("other", SQLDataType.VARCHAR)).asEnumDataType(ViewTableTraitsMethodClass.class), this, "");
 
     /**
+     * The column <code>germinate_db.view_table_traits.method_ontologies</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, OntologyInfo[]> METHOD_ONTOLOGIES = createField(DSL.name("method_ontologies"), SQLDataType.JSON, this, "", new OntologyInfoArrayBinding());
+
+    /**
      * The column <code>germinate_db.view_table_traits.scale_id</code>.
      */
     public final TableField<ViewTableTraitsRecord, Integer> SCALE_ID = createField(DSL.name("scale_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
@@ -127,6 +145,11 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
      * The column <code>germinate_db.view_table_traits.scale_description</code>.
      */
     public final TableField<ViewTableTraitsRecord, String> SCALE_DESCRIPTION = createField(DSL.name("scale_description"), SQLDataType.CLOB, this, "");
+
+    /**
+     * The column <code>germinate_db.view_table_traits.scale_ontologies</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, OntologyInfo[]> SCALE_ONTOLOGIES = createField(DSL.name("scale_ontologies"), SQLDataType.JSON, this, "", new OntologyInfoArrayBinding());
 
     /**
      * The column
@@ -203,7 +226,7 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     }
 
     private ViewTableTraits(Name alias, Table<ViewTableTraitsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_traits` as select `germinate_template_5_26_10_09`.`variables`.`id` AS `variable_id`,`germinate_template_5_26_10_09`.`variables`.`name` AS `variable_name`,`germinate_template_5_26_10_09`.`variables`.`description` AS `variable_description`,`germinate_template_5_26_10_09`.`synonyms`.`synonyms` AS `variable_synonyms`,`germinate_template_5_26_10_09`.`traits`.`id` AS `trait_id`,`germinate_template_5_26_10_09`.`traits`.`name` AS `trait_name`,`germinate_template_5_26_10_09`.`traits`.`description` AS `trait_description`,`germinate_template_5_26_10_09`.`methods`.`id` AS `method_id`,`germinate_template_5_26_10_09`.`methods`.`name` AS `method_name`,`germinate_template_5_26_10_09`.`methods`.`description` AS `method_description`,`germinate_template_5_26_10_09`.`methods`.`method_class` AS `method_class`,`germinate_template_5_26_10_09`.`scales`.`id` AS `scale_id`,`germinate_template_5_26_10_09`.`scales`.`name` AS `scale_name`,`germinate_template_5_26_10_09`.`scales`.`description` AS `scale_description`,`germinate_template_5_26_10_09`.`traits`.`abbreviation` AS `trait_abbreviation`,`germinate_template_5_26_10_09`.`traits`.`trait_class` AS `trait_class`,`germinate_template_5_26_10_09`.`traits`.`synonyms` AS `trait_synonyms`,`germinate_template_5_26_10_09`.`traitcategories`.`id` AS `trait_category_id`,`germinate_template_5_26_10_09`.`traitcategories`.`name` AS `trait_category_name`,`germinate_template_5_26_10_09`.`traitcategories`.`description` AS `trait_category_description`,`germinate_template_5_26_10_09`.`methods`.`setsize` AS `method_set_size`,`germinate_template_5_26_10_09`.`methods`.`is_timeseries` AS `method_is_timeseries`,`germinate_template_5_26_10_09`.`scales`.`datatype` AS `scale_datatype`,`germinate_template_5_26_10_09`.`scales`.`restrictions` AS `scale_restrictions`,`germinate_template_5_26_10_09`.`scales`.`unit` AS `scale_unit`,(select cast(concat('[',(select group_concat(distinct `germinate_template_5_26_10_09`.`trialsetup`.`dataset_id` separator ',') from (`germinate_template_5_26_10_09`.`phenotypedata` left join `germinate_template_5_26_10_09`.`trialsetup` on((`germinate_template_5_26_10_09`.`trialsetup`.`id` = `germinate_template_5_26_10_09`.`phenotypedata`.`trialsetup_id`))) where (`germinate_template_5_26_10_09`.`phenotypedata`.`variable_id` = `germinate_template_5_26_10_09`.`variables`.`id`)),']') as json)) AS `dataset_ids`,(select count(1) from `germinate_template_5_26_10_09`.`phenotypedata` where (`germinate_template_5_26_10_09`.`phenotypedata`.`variable_id` = `germinate_template_5_26_10_09`.`variables`.`id`)) AS `count` from (((((`germinate_template_5_26_10_09`.`variables` left join `germinate_template_5_26_10_09`.`traits` on((`germinate_template_5_26_10_09`.`traits`.`id` = `germinate_template_5_26_10_09`.`variables`.`trait_id`))) left join `germinate_template_5_26_10_09`.`scales` on((`germinate_template_5_26_10_09`.`scales`.`id` = `germinate_template_5_26_10_09`.`variables`.`scale_id`))) left join `germinate_template_5_26_10_09`.`methods` on((`germinate_template_5_26_10_09`.`methods`.`id` = `germinate_template_5_26_10_09`.`variables`.`method_id`))) left join `germinate_template_5_26_10_09`.`traitcategories` on((`germinate_template_5_26_10_09`.`traitcategories`.`id` = `germinate_template_5_26_10_09`.`traits`.`traitcategory_id`))) left join `germinate_template_5_26_10_09`.`synonyms` on(((`germinate_template_5_26_10_09`.`synonyms`.`synonymtype_id` = 4) and (`germinate_template_5_26_10_09`.`synonyms`.`foreign_id` = `germinate_template_5_26_10_09`.`variables`.`id`))))"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_traits` as select `germinate_template_5_26_10_09`.`variables`.`id` AS `variable_id`,`germinate_template_5_26_10_09`.`variables`.`name` AS `variable_name`,`germinate_template_5_26_10_09`.`variables`.`description` AS `variable_description`,(select json_arrayagg(json_object('ontologyId',`germinate_template_5_26_10_09`.`variableontologies`.`ontology_id`,'ontologyPuid',`germinate_template_5_26_10_09`.`variableontologies`.`ontology_puid`)) from `germinate_template_5_26_10_09`.`variableontologies` where (`germinate_template_5_26_10_09`.`variableontologies`.`variable_id` = `germinate_template_5_26_10_09`.`variables`.`id`)) AS `variable_ontologies`,`germinate_template_5_26_10_09`.`synonyms`.`synonyms` AS `variable_synonyms`,`germinate_template_5_26_10_09`.`traits`.`id` AS `trait_id`,`germinate_template_5_26_10_09`.`traits`.`name` AS `trait_name`,`germinate_template_5_26_10_09`.`traits`.`description` AS `trait_description`,(select json_arrayagg(json_object('ontologyId',`germinate_template_5_26_10_09`.`traitontologies`.`ontology_id`,'ontologyPuid',`germinate_template_5_26_10_09`.`traitontologies`.`ontology_puid`)) from `germinate_template_5_26_10_09`.`traitontologies` where (`germinate_template_5_26_10_09`.`traitontologies`.`trait_id` = `germinate_template_5_26_10_09`.`traits`.`id`)) AS `trait_ontologies`,`germinate_template_5_26_10_09`.`methods`.`id` AS `method_id`,`germinate_template_5_26_10_09`.`methods`.`name` AS `method_name`,`germinate_template_5_26_10_09`.`methods`.`description` AS `method_description`,`germinate_template_5_26_10_09`.`methods`.`method_class` AS `method_class`,(select json_arrayagg(json_object('ontologyId',`germinate_template_5_26_10_09`.`methodontologies`.`ontology_id`,'ontologyPuid',`germinate_template_5_26_10_09`.`methodontologies`.`ontology_puid`)) from `germinate_template_5_26_10_09`.`methodontologies` where (`germinate_template_5_26_10_09`.`methodontologies`.`method_id` = `germinate_template_5_26_10_09`.`methods`.`id`)) AS `method_ontologies`,`germinate_template_5_26_10_09`.`scales`.`id` AS `scale_id`,`germinate_template_5_26_10_09`.`scales`.`name` AS `scale_name`,`germinate_template_5_26_10_09`.`scales`.`description` AS `scale_description`,(select json_arrayagg(json_object('ontologyId',`germinate_template_5_26_10_09`.`scaleontologies`.`ontology_id`,'ontologyPuid',`germinate_template_5_26_10_09`.`scaleontologies`.`ontology_puid`)) from `germinate_template_5_26_10_09`.`scaleontologies` where (`germinate_template_5_26_10_09`.`scaleontologies`.`scale_id` = `germinate_template_5_26_10_09`.`scales`.`id`)) AS `scale_ontologies`,`germinate_template_5_26_10_09`.`traits`.`abbreviation` AS `trait_abbreviation`,`germinate_template_5_26_10_09`.`traits`.`trait_class` AS `trait_class`,`germinate_template_5_26_10_09`.`traits`.`synonyms` AS `trait_synonyms`,`germinate_template_5_26_10_09`.`traitcategories`.`id` AS `trait_category_id`,`germinate_template_5_26_10_09`.`traitcategories`.`name` AS `trait_category_name`,`germinate_template_5_26_10_09`.`traitcategories`.`description` AS `trait_category_description`,`germinate_template_5_26_10_09`.`methods`.`setsize` AS `method_set_size`,`germinate_template_5_26_10_09`.`methods`.`is_timeseries` AS `method_is_timeseries`,`germinate_template_5_26_10_09`.`scales`.`datatype` AS `scale_datatype`,`germinate_template_5_26_10_09`.`scales`.`restrictions` AS `scale_restrictions`,`germinate_template_5_26_10_09`.`scales`.`unit` AS `scale_unit`,(select cast(concat('[',(select group_concat(distinct `germinate_template_5_26_10_09`.`trialsetup`.`dataset_id` separator ',') from (`germinate_template_5_26_10_09`.`phenotypedata` left join `germinate_template_5_26_10_09`.`trialsetup` on((`germinate_template_5_26_10_09`.`trialsetup`.`id` = `germinate_template_5_26_10_09`.`phenotypedata`.`trialsetup_id`))) where (`germinate_template_5_26_10_09`.`phenotypedata`.`variable_id` = `germinate_template_5_26_10_09`.`variables`.`id`)),']') as json)) AS `dataset_ids`,(select count(1) from `germinate_template_5_26_10_09`.`phenotypedata` where (`germinate_template_5_26_10_09`.`phenotypedata`.`variable_id` = `germinate_template_5_26_10_09`.`variables`.`id`)) AS `count` from (((((`germinate_template_5_26_10_09`.`variables` left join `germinate_template_5_26_10_09`.`traits` on((`germinate_template_5_26_10_09`.`traits`.`id` = `germinate_template_5_26_10_09`.`variables`.`trait_id`))) left join `germinate_template_5_26_10_09`.`scales` on((`germinate_template_5_26_10_09`.`scales`.`id` = `germinate_template_5_26_10_09`.`variables`.`scale_id`))) left join `germinate_template_5_26_10_09`.`methods` on((`germinate_template_5_26_10_09`.`methods`.`id` = `germinate_template_5_26_10_09`.`variables`.`method_id`))) left join `germinate_template_5_26_10_09`.`traitcategories` on((`germinate_template_5_26_10_09`.`traitcategories`.`id` = `germinate_template_5_26_10_09`.`traits`.`traitcategory_id`))) left join `germinate_template_5_26_10_09`.`synonyms` on(((`germinate_template_5_26_10_09`.`synonyms`.`synonymtype_id` = 4) and (`germinate_template_5_26_10_09`.`synonyms`.`foreign_id` = `germinate_template_5_26_10_09`.`variables`.`id`))))"), where);
     }
 
     /**

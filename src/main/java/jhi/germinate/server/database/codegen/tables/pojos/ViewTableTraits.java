@@ -10,6 +10,7 @@ import java.util.Arrays;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsMethodClass;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsScaleDatatype;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTraitClass;
+import jhi.germinate.server.database.pojo.OntologyInfo;
 import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 
@@ -31,17 +32,21 @@ public class ViewTableTraits implements Serializable {
     private Integer variableId;
     private String variableName;
     private String variableDescription;
+    private OntologyInfo[] variableOntologies;
     private String[] variableSynonyms;
     private Integer traitId;
     private String traitName;
     private String traitDescription;
+    private OntologyInfo[] traitOntologies;
     private Integer methodId;
     private String methodName;
     private String methodDescription;
     private ViewTableTraitsMethodClass methodClass;
+    private OntologyInfo[] methodOntologies;
     private Integer scaleId;
     private String scaleName;
     private String scaleDescription;
+    private OntologyInfo[] scaleOntologies;
     private String traitAbbreviation;
     private ViewTableTraitsTraitClass traitClass;
     private String[] traitSynonyms;
@@ -62,17 +67,21 @@ public class ViewTableTraits implements Serializable {
         this.variableId = value.variableId;
         this.variableName = value.variableName;
         this.variableDescription = value.variableDescription;
+        this.variableOntologies = value.variableOntologies;
         this.variableSynonyms = value.variableSynonyms;
         this.traitId = value.traitId;
         this.traitName = value.traitName;
         this.traitDescription = value.traitDescription;
+        this.traitOntologies = value.traitOntologies;
         this.methodId = value.methodId;
         this.methodName = value.methodName;
         this.methodDescription = value.methodDescription;
         this.methodClass = value.methodClass;
+        this.methodOntologies = value.methodOntologies;
         this.scaleId = value.scaleId;
         this.scaleName = value.scaleName;
         this.scaleDescription = value.scaleDescription;
+        this.scaleOntologies = value.scaleOntologies;
         this.traitAbbreviation = value.traitAbbreviation;
         this.traitClass = value.traitClass;
         this.traitSynonyms = value.traitSynonyms;
@@ -92,17 +101,21 @@ public class ViewTableTraits implements Serializable {
         Integer variableId,
         String variableName,
         String variableDescription,
+        OntologyInfo[] variableOntologies,
         String[] variableSynonyms,
         Integer traitId,
         String traitName,
         String traitDescription,
+        OntologyInfo[] traitOntologies,
         Integer methodId,
         String methodName,
         String methodDescription,
         ViewTableTraitsMethodClass methodClass,
+        OntologyInfo[] methodOntologies,
         Integer scaleId,
         String scaleName,
         String scaleDescription,
+        OntologyInfo[] scaleOntologies,
         String traitAbbreviation,
         ViewTableTraitsTraitClass traitClass,
         String[] traitSynonyms,
@@ -120,17 +133,21 @@ public class ViewTableTraits implements Serializable {
         this.variableId = variableId;
         this.variableName = variableName;
         this.variableDescription = variableDescription;
+        this.variableOntologies = variableOntologies;
         this.variableSynonyms = variableSynonyms;
         this.traitId = traitId;
         this.traitName = traitName;
         this.traitDescription = traitDescription;
+        this.traitOntologies = traitOntologies;
         this.methodId = methodId;
         this.methodName = methodName;
         this.methodDescription = methodDescription;
         this.methodClass = methodClass;
+        this.methodOntologies = methodOntologies;
         this.scaleId = scaleId;
         this.scaleName = scaleName;
         this.scaleDescription = scaleDescription;
+        this.scaleOntologies = scaleOntologies;
         this.traitAbbreviation = traitAbbreviation;
         this.traitClass = traitClass;
         this.traitSynonyms = traitSynonyms;
@@ -173,6 +190,12 @@ public class ViewTableTraits implements Serializable {
         }
         else if (!this.variableDescription.equals(other.variableDescription))
             return false;
+        if (this.variableOntologies == null) {
+            if (other.variableOntologies != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.variableOntologies, other.variableOntologies))
+            return false;
         if (this.variableSynonyms == null) {
             if (other.variableSynonyms != null)
                 return false;
@@ -196,6 +219,12 @@ public class ViewTableTraits implements Serializable {
                 return false;
         }
         else if (!this.traitDescription.equals(other.traitDescription))
+            return false;
+        if (this.traitOntologies == null) {
+            if (other.traitOntologies != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.traitOntologies, other.traitOntologies))
             return false;
         if (this.methodId == null) {
             if (other.methodId != null)
@@ -221,6 +250,12 @@ public class ViewTableTraits implements Serializable {
         }
         else if (!this.methodClass.equals(other.methodClass))
             return false;
+        if (this.methodOntologies == null) {
+            if (other.methodOntologies != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.methodOntologies, other.methodOntologies))
+            return false;
         if (this.scaleId == null) {
             if (other.scaleId != null)
                 return false;
@@ -238,6 +273,12 @@ public class ViewTableTraits implements Serializable {
                 return false;
         }
         else if (!this.scaleDescription.equals(other.scaleDescription))
+            return false;
+        if (this.scaleOntologies == null) {
+            if (other.scaleOntologies != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.scaleOntologies, other.scaleOntologies))
             return false;
         if (this.traitAbbreviation == null) {
             if (other.traitAbbreviation != null)
@@ -327,17 +368,21 @@ public class ViewTableTraits implements Serializable {
         result = prime * result + ((this.variableId == null) ? 0 : this.variableId.hashCode());
         result = prime * result + ((this.variableName == null) ? 0 : this.variableName.hashCode());
         result = prime * result + ((this.variableDescription == null) ? 0 : this.variableDescription.hashCode());
+        result = prime * result + ((this.variableOntologies == null) ? 0 : Arrays.deepHashCode(this.variableOntologies));
         result = prime * result + ((this.variableSynonyms == null) ? 0 : Arrays.deepHashCode(this.variableSynonyms));
         result = prime * result + ((this.traitId == null) ? 0 : this.traitId.hashCode());
         result = prime * result + ((this.traitName == null) ? 0 : this.traitName.hashCode());
         result = prime * result + ((this.traitDescription == null) ? 0 : this.traitDescription.hashCode());
+        result = prime * result + ((this.traitOntologies == null) ? 0 : Arrays.deepHashCode(this.traitOntologies));
         result = prime * result + ((this.methodId == null) ? 0 : this.methodId.hashCode());
         result = prime * result + ((this.methodName == null) ? 0 : this.methodName.hashCode());
         result = prime * result + ((this.methodDescription == null) ? 0 : this.methodDescription.hashCode());
         result = prime * result + ((this.methodClass == null) ? 0 : this.methodClass.hashCode());
+        result = prime * result + ((this.methodOntologies == null) ? 0 : Arrays.deepHashCode(this.methodOntologies));
         result = prime * result + ((this.scaleId == null) ? 0 : this.scaleId.hashCode());
         result = prime * result + ((this.scaleName == null) ? 0 : this.scaleName.hashCode());
         result = prime * result + ((this.scaleDescription == null) ? 0 : this.scaleDescription.hashCode());
+        result = prime * result + ((this.scaleOntologies == null) ? 0 : Arrays.deepHashCode(this.scaleOntologies));
         result = prime * result + ((this.traitAbbreviation == null) ? 0 : this.traitAbbreviation.hashCode());
         result = prime * result + ((this.traitClass == null) ? 0 : this.traitClass.hashCode());
         result = prime * result + ((this.traitSynonyms == null) ? 0 : Arrays.deepHashCode(this.traitSynonyms));
@@ -361,17 +406,21 @@ public class ViewTableTraits implements Serializable {
         sb.append(variableId);
         sb.append(", ").append(variableName);
         sb.append(", ").append(variableDescription);
+        sb.append(", ").append(Arrays.deepToString(variableOntologies));
         sb.append(", ").append(Arrays.deepToString(variableSynonyms));
         sb.append(", ").append(traitId);
         sb.append(", ").append(traitName);
         sb.append(", ").append(traitDescription);
+        sb.append(", ").append(Arrays.deepToString(traitOntologies));
         sb.append(", ").append(methodId);
         sb.append(", ").append(methodName);
         sb.append(", ").append(methodDescription);
         sb.append(", ").append(methodClass);
+        sb.append(", ").append(Arrays.deepToString(methodOntologies));
         sb.append(", ").append(scaleId);
         sb.append(", ").append(scaleName);
         sb.append(", ").append(scaleDescription);
+        sb.append(", ").append(Arrays.deepToString(scaleOntologies));
         sb.append(", ").append(traitAbbreviation);
         sb.append(", ").append(traitClass);
         sb.append(", ").append(Arrays.deepToString(traitSynonyms));

@@ -8,6 +8,7 @@ import jhi.germinate.server.database.codegen.enums.ViewTableTraitsMethodClass;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsScaleDatatype;
 import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTraitClass;
 import jhi.germinate.server.database.codegen.tables.ViewTableTraits;
+import jhi.germinate.server.database.pojo.OntologyInfo;
 import jhi.germinate.server.database.pojo.TraitRestrictions;
 
 import org.jooq.impl.TableRecordImpl;
@@ -67,11 +68,27 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
     }
 
     /**
+     * Setter for
+     * <code>germinate_db.view_table_traits.variable_ontologies</code>.
+     */
+    public void setVariableOntologies(OntologyInfo[] value) {
+        set(3, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_traits.variable_ontologies</code>.
+     */
+    public OntologyInfo[] getVariableOntologies() {
+        return (OntologyInfo[]) get(3);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_traits.variable_synonyms</code>.
      * The synonyms as a json array.
      */
     public void setVariableSynonyms(String[] value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
@@ -79,77 +96,91 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * The synonyms as a json array.
      */
     public String[] getVariableSynonyms() {
-        return (String[]) get(3);
+        return (String[]) get(4);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.trait_id</code>.
      */
     public void setTraitId(Integer value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.trait_id</code>.
      */
     public Integer getTraitId() {
-        return (Integer) get(4);
+        return (Integer) get(5);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.trait_name</code>.
      */
     public void setTraitName(String value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.trait_name</code>.
      */
     public String getTraitName() {
-        return (String) get(5);
+        return (String) get(6);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.trait_description</code>.
      */
     public void setTraitDescription(String value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.trait_description</code>.
      */
     public String getTraitDescription() {
-        return (String) get(6);
+        return (String) get(7);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits.trait_ontologies</code>.
+     */
+    public void setTraitOntologies(OntologyInfo[] value) {
+        set(8, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits.trait_ontologies</code>.
+     */
+    public OntologyInfo[] getTraitOntologies() {
+        return (OntologyInfo[]) get(8);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.method_id</code>.
      */
     public void setMethodId(Integer value) {
-        set(7, value);
+        set(9, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.method_id</code>.
      */
     public Integer getMethodId() {
-        return (Integer) get(7);
+        return (Integer) get(9);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.method_name</code>.
      */
     public void setMethodName(String value) {
-        set(8, value);
+        set(10, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.method_name</code>.
      */
     public String getMethodName() {
-        return (String) get(8);
+        return (String) get(10);
     }
 
     /**
@@ -157,7 +188,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.method_description</code>.
      */
     public void setMethodDescription(String value) {
-        set(9, value);
+        set(11, value);
     }
 
     /**
@@ -165,63 +196,91 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.method_description</code>.
      */
     public String getMethodDescription() {
-        return (String) get(9);
+        return (String) get(11);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.method_class</code>.
      */
     public void setMethodClass(ViewTableTraitsMethodClass value) {
-        set(10, value);
+        set(12, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.method_class</code>.
      */
     public ViewTableTraitsMethodClass getMethodClass() {
-        return (ViewTableTraitsMethodClass) get(10);
+        return (ViewTableTraitsMethodClass) get(12);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits.method_ontologies</code>.
+     */
+    public void setMethodOntologies(OntologyInfo[] value) {
+        set(13, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits.method_ontologies</code>.
+     */
+    public OntologyInfo[] getMethodOntologies() {
+        return (OntologyInfo[]) get(13);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.scale_id</code>.
      */
     public void setScaleId(Integer value) {
-        set(11, value);
+        set(14, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.scale_id</code>.
      */
     public Integer getScaleId() {
-        return (Integer) get(11);
+        return (Integer) get(14);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.scale_name</code>.
      */
     public void setScaleName(String value) {
-        set(12, value);
+        set(15, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.scale_name</code>.
      */
     public String getScaleName() {
-        return (String) get(12);
+        return (String) get(15);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.scale_description</code>.
      */
     public void setScaleDescription(String value) {
-        set(13, value);
+        set(16, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.scale_description</code>.
      */
     public String getScaleDescription() {
-        return (String) get(13);
+        return (String) get(16);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_traits.scale_ontologies</code>.
+     */
+    public void setScaleOntologies(OntologyInfo[] value) {
+        set(17, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_traits.scale_ontologies</code>.
+     */
+    public OntologyInfo[] getScaleOntologies() {
+        return (OntologyInfo[]) get(17);
     }
 
     /**
@@ -229,7 +288,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.trait_abbreviation</code>.
      */
     public void setTraitAbbreviation(String value) {
-        set(14, value);
+        set(18, value);
     }
 
     /**
@@ -237,49 +296,49 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.trait_abbreviation</code>.
      */
     public String getTraitAbbreviation() {
-        return (String) get(14);
+        return (String) get(18);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.trait_class</code>.
      */
     public void setTraitClass(ViewTableTraitsTraitClass value) {
-        set(15, value);
+        set(19, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.trait_class</code>.
      */
     public ViewTableTraitsTraitClass getTraitClass() {
-        return (ViewTableTraitsTraitClass) get(15);
+        return (ViewTableTraitsTraitClass) get(19);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.trait_synonyms</code>.
      */
     public void setTraitSynonyms(String[] value) {
-        set(16, value);
+        set(20, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.trait_synonyms</code>.
      */
     public String[] getTraitSynonyms() {
-        return (String[]) get(16);
+        return (String[]) get(20);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.trait_category_id</code>.
      */
     public void setTraitCategoryId(Integer value) {
-        set(17, value);
+        set(21, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.trait_category_id</code>.
      */
     public Integer getTraitCategoryId() {
-        return (Integer) get(17);
+        return (Integer) get(21);
     }
 
     /**
@@ -287,7 +346,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.trait_category_name</code>.
      */
     public void setTraitCategoryName(String value) {
-        set(18, value);
+        set(22, value);
     }
 
     /**
@@ -295,7 +354,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.trait_category_name</code>.
      */
     public String getTraitCategoryName() {
-        return (String) get(18);
+        return (String) get(22);
     }
 
     /**
@@ -303,7 +362,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.trait_category_description</code>.
      */
     public void setTraitCategoryDescription(String value) {
-        set(19, value);
+        set(23, value);
     }
 
     /**
@@ -311,21 +370,21 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.trait_category_description</code>.
      */
     public String getTraitCategoryDescription() {
-        return (String) get(19);
+        return (String) get(23);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.method_set_size</code>.
      */
     public void setMethodSetSize(Integer value) {
-        set(20, value);
+        set(24, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.method_set_size</code>.
      */
     public Integer getMethodSetSize() {
-        return (Integer) get(20);
+        return (Integer) get(24);
     }
 
     /**
@@ -333,7 +392,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.method_is_timeseries</code>.
      */
     public void setMethodIsTimeseries(Boolean value) {
-        set(21, value);
+        set(25, value);
     }
 
     /**
@@ -341,21 +400,21 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.method_is_timeseries</code>.
      */
     public Boolean getMethodIsTimeseries() {
-        return (Boolean) get(21);
+        return (Boolean) get(25);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.scale_datatype</code>.
      */
     public void setScaleDatatype(ViewTableTraitsScaleDatatype value) {
-        set(22, value);
+        set(26, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.scale_datatype</code>.
      */
     public ViewTableTraitsScaleDatatype getScaleDatatype() {
-        return (ViewTableTraitsScaleDatatype) get(22);
+        return (ViewTableTraitsScaleDatatype) get(26);
     }
 
     /**
@@ -363,7 +422,7 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.scale_restrictions</code>.
      */
     public void setScaleRestrictions(TraitRestrictions value) {
-        set(23, value);
+        set(27, value);
     }
 
     /**
@@ -371,49 +430,49 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
      * <code>germinate_db.view_table_traits.scale_restrictions</code>.
      */
     public TraitRestrictions getScaleRestrictions() {
-        return (TraitRestrictions) get(23);
+        return (TraitRestrictions) get(27);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.scale_unit</code>.
      */
     public void setScaleUnit(String value) {
-        set(24, value);
+        set(28, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.scale_unit</code>.
      */
     public String getScaleUnit() {
-        return (String) get(24);
+        return (String) get(28);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.dataset_ids</code>.
      */
     public void setDatasetIds(Integer[] value) {
-        set(25, value);
+        set(29, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.dataset_ids</code>.
      */
     public Integer[] getDatasetIds() {
-        return (Integer[]) get(25);
+        return (Integer[]) get(29);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_traits.count</code>.
      */
     public void setCount(Long value) {
-        set(26, value);
+        set(30, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_traits.count</code>.
      */
     public Long getCount() {
-        return (Long) get(26);
+        return (Long) get(30);
     }
 
     // -------------------------------------------------------------------------
@@ -430,23 +489,27 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
     /**
      * Create a detached, initialised ViewTableTraitsRecord
      */
-    public ViewTableTraitsRecord(Integer variableId, String variableName, String variableDescription, String[] variableSynonyms, Integer traitId, String traitName, String traitDescription, Integer methodId, String methodName, String methodDescription, ViewTableTraitsMethodClass methodClass, Integer scaleId, String scaleName, String scaleDescription, String traitAbbreviation, ViewTableTraitsTraitClass traitClass, String[] traitSynonyms, Integer traitCategoryId, String traitCategoryName, String traitCategoryDescription, Integer methodSetSize, Boolean methodIsTimeseries, ViewTableTraitsScaleDatatype scaleDatatype, TraitRestrictions scaleRestrictions, String scaleUnit, Integer[] datasetIds, Long count) {
+    public ViewTableTraitsRecord(Integer variableId, String variableName, String variableDescription, OntologyInfo[] variableOntologies, String[] variableSynonyms, Integer traitId, String traitName, String traitDescription, OntologyInfo[] traitOntologies, Integer methodId, String methodName, String methodDescription, ViewTableTraitsMethodClass methodClass, OntologyInfo[] methodOntologies, Integer scaleId, String scaleName, String scaleDescription, OntologyInfo[] scaleOntologies, String traitAbbreviation, ViewTableTraitsTraitClass traitClass, String[] traitSynonyms, Integer traitCategoryId, String traitCategoryName, String traitCategoryDescription, Integer methodSetSize, Boolean methodIsTimeseries, ViewTableTraitsScaleDatatype scaleDatatype, TraitRestrictions scaleRestrictions, String scaleUnit, Integer[] datasetIds, Long count) {
         super(ViewTableTraits.VIEW_TABLE_TRAITS);
 
         setVariableId(variableId);
         setVariableName(variableName);
         setVariableDescription(variableDescription);
+        setVariableOntologies(variableOntologies);
         setVariableSynonyms(variableSynonyms);
         setTraitId(traitId);
         setTraitName(traitName);
         setTraitDescription(traitDescription);
+        setTraitOntologies(traitOntologies);
         setMethodId(methodId);
         setMethodName(methodName);
         setMethodDescription(methodDescription);
         setMethodClass(methodClass);
+        setMethodOntologies(methodOntologies);
         setScaleId(scaleId);
         setScaleName(scaleName);
         setScaleDescription(scaleDescription);
+        setScaleOntologies(scaleOntologies);
         setTraitAbbreviation(traitAbbreviation);
         setTraitClass(traitClass);
         setTraitSynonyms(traitSynonyms);
@@ -473,17 +536,21 @@ public class ViewTableTraitsRecord extends TableRecordImpl<ViewTableTraitsRecord
             setVariableId(value.getVariableId());
             setVariableName(value.getVariableName());
             setVariableDescription(value.getVariableDescription());
+            setVariableOntologies(value.getVariableOntologies());
             setVariableSynonyms(value.getVariableSynonyms());
             setTraitId(value.getTraitId());
             setTraitName(value.getTraitName());
             setTraitDescription(value.getTraitDescription());
+            setTraitOntologies(value.getTraitOntologies());
             setMethodId(value.getMethodId());
             setMethodName(value.getMethodName());
             setMethodDescription(value.getMethodDescription());
             setMethodClass(value.getMethodClass());
+            setMethodOntologies(value.getMethodOntologies());
             setScaleId(value.getScaleId());
             setScaleName(value.getScaleName());
             setScaleDescription(value.getScaleDescription());
+            setScaleOntologies(value.getScaleOntologies());
             setTraitAbbreviation(value.getTraitAbbreviation());
             setTraitClass(value.getTraitClass());
             setTraitSynonyms(value.getTraitSynonyms());
