@@ -6,6 +6,7 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 import jhi.germinate.server.database.codegen.enums.ViewTableDatasetAttributesAttributeType;
 import jhi.germinate.server.database.codegen.tables.ViewTableDatasetAttributes;
+
 import org.jooq.impl.TableRecordImpl;
 
 

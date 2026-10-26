@@ -4,14 +4,28 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.sql.Timestamp;
+import java.util.Collection;
+
 import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTablePublicationsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.sql.Timestamp;
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -103,7 +117,7 @@ public class ViewTablePublications extends TableImpl<ViewTablePublicationsRecord
     }
 
     private ViewTablePublications(Name alias, Table<ViewTablePublicationsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_publications` as select `germinate_template_4_25_03_05`.`publications`.`id` AS `publication_id`,`germinate_template_4_25_03_05`.`publications`.`doi` AS `publication_doi`,`germinate_template_4_25_03_05`.`publications`.`fallback_cache` AS `publication_fallback_cache`,(select true from `germinate_template_4_25_03_05`.`publicationdata` where ((`germinate_template_4_25_03_05`.`publicationdata`.`reference_type` = 'database') and (`germinate_template_4_25_03_05`.`publicationdata`.`publication_id` = `germinate_template_4_25_03_05`.`publications`.`id`))) AS `is_database_pub`,(select json_arrayagg(`germinate_template_4_25_03_05`.`publicationdata`.`foreign_id`) from `germinate_template_4_25_03_05`.`publicationdata` where ((`germinate_template_4_25_03_05`.`publicationdata`.`reference_type` = 'dataset') and (`germinate_template_4_25_03_05`.`publicationdata`.`publication_id` = `germinate_template_4_25_03_05`.`publications`.`id`)) group by `germinate_template_4_25_03_05`.`publicationdata`.`publication_id`) AS `dataset_ids`,(select json_arrayagg(`germinate_template_4_25_03_05`.`publicationdata`.`foreign_id`) from `germinate_template_4_25_03_05`.`publicationdata` where ((`germinate_template_4_25_03_05`.`publicationdata`.`reference_type` = 'germplasm') and (`germinate_template_4_25_03_05`.`publicationdata`.`publication_id` = `germinate_template_4_25_03_05`.`publications`.`id`)) group by `germinate_template_4_25_03_05`.`publicationdata`.`publication_id`) AS `germplasm_ids`,(select json_arrayagg(`germinate_template_4_25_03_05`.`publicationdata`.`foreign_id`) from `germinate_template_4_25_03_05`.`publicationdata` where ((`germinate_template_4_25_03_05`.`publicationdata`.`reference_type` = 'group') and (`germinate_template_4_25_03_05`.`publicationdata`.`publication_id` = `germinate_template_4_25_03_05`.`publications`.`id`)) group by `germinate_template_4_25_03_05`.`publicationdata`.`publication_id`) AS `group_ids`,(select json_arrayagg(`germinate_template_4_25_03_05`.`publicationdata`.`foreign_id`) from `germinate_template_4_25_03_05`.`publicationdata` where ((`germinate_template_4_25_03_05`.`publicationdata`.`reference_type` = 'experiment') and (`germinate_template_4_25_03_05`.`publicationdata`.`publication_id` = `germinate_template_4_25_03_05`.`publications`.`id`)) group by `germinate_template_4_25_03_05`.`publicationdata`.`publication_id`) AS `experiment_ids`,(select json_arrayagg(`germinate_template_4_25_03_05`.`projectpublications`.`project_id`) from `germinate_template_4_25_03_05`.`projectpublications` where (`germinate_template_4_25_03_05`.`projectpublications`.`publication_id` = `germinate_template_4_25_03_05`.`publications`.`id`) group by `germinate_template_4_25_03_05`.`projectpublications`.`publication_id`) AS `project_ids`,`germinate_template_4_25_03_05`.`publications`.`created_on` AS `created_on`,`germinate_template_4_25_03_05`.`publications`.`updated_on` AS `updated_on` from `germinate_template_4_25_03_05`.`publications`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_publications` as select `germinate_template_5_26_10_09`.`publications`.`id` AS `publication_id`,`germinate_template_5_26_10_09`.`publications`.`doi` AS `publication_doi`,`germinate_template_5_26_10_09`.`publications`.`fallback_cache` AS `publication_fallback_cache`,(select true from `germinate_template_5_26_10_09`.`publicationdata` where ((`germinate_template_5_26_10_09`.`publicationdata`.`reference_type` = 'database') and (`germinate_template_5_26_10_09`.`publicationdata`.`publication_id` = `germinate_template_5_26_10_09`.`publications`.`id`))) AS `is_database_pub`,(select json_arrayagg(`germinate_template_5_26_10_09`.`publicationdata`.`foreign_id`) from `germinate_template_5_26_10_09`.`publicationdata` where ((`germinate_template_5_26_10_09`.`publicationdata`.`reference_type` = 'dataset') and (`germinate_template_5_26_10_09`.`publicationdata`.`publication_id` = `germinate_template_5_26_10_09`.`publications`.`id`)) group by `germinate_template_5_26_10_09`.`publicationdata`.`publication_id`) AS `dataset_ids`,(select json_arrayagg(`germinate_template_5_26_10_09`.`publicationdata`.`foreign_id`) from `germinate_template_5_26_10_09`.`publicationdata` where ((`germinate_template_5_26_10_09`.`publicationdata`.`reference_type` = 'germplasm') and (`germinate_template_5_26_10_09`.`publicationdata`.`publication_id` = `germinate_template_5_26_10_09`.`publications`.`id`)) group by `germinate_template_5_26_10_09`.`publicationdata`.`publication_id`) AS `germplasm_ids`,(select json_arrayagg(`germinate_template_5_26_10_09`.`publicationdata`.`foreign_id`) from `germinate_template_5_26_10_09`.`publicationdata` where ((`germinate_template_5_26_10_09`.`publicationdata`.`reference_type` = 'group') and (`germinate_template_5_26_10_09`.`publicationdata`.`publication_id` = `germinate_template_5_26_10_09`.`publications`.`id`)) group by `germinate_template_5_26_10_09`.`publicationdata`.`publication_id`) AS `group_ids`,(select json_arrayagg(`germinate_template_5_26_10_09`.`publicationdata`.`foreign_id`) from `germinate_template_5_26_10_09`.`publicationdata` where ((`germinate_template_5_26_10_09`.`publicationdata`.`reference_type` = 'experiment') and (`germinate_template_5_26_10_09`.`publicationdata`.`publication_id` = `germinate_template_5_26_10_09`.`publications`.`id`)) group by `germinate_template_5_26_10_09`.`publicationdata`.`publication_id`) AS `experiment_ids`,(select json_arrayagg(`germinate_template_5_26_10_09`.`projectpublications`.`project_id`) from `germinate_template_5_26_10_09`.`projectpublications` where (`germinate_template_5_26_10_09`.`projectpublications`.`publication_id` = `germinate_template_5_26_10_09`.`publications`.`id`) group by `germinate_template_5_26_10_09`.`projectpublications`.`publication_id`) AS `project_ids`,`germinate_template_5_26_10_09`.`publications`.`created_on` AS `created_on`,`germinate_template_5_26_10_09`.`publications`.`updated_on` AS `updated_on` from `germinate_template_5_26_10_09`.`publications`"), where);
     }
 
     /**

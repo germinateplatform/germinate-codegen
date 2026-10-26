@@ -4,12 +4,13 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
+import java.sql.Timestamp;
+
 import jhi.germinate.server.database.codegen.enums.PedigreesRelationshipType;
 import jhi.germinate.server.database.codegen.tables.Pedigrees;
+
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;
-
-import java.sql.Timestamp;
 
 
 // @formatter:off

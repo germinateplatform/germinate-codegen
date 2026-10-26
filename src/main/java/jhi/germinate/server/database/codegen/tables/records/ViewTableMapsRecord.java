@@ -5,6 +5,7 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 
 import jhi.germinate.server.database.codegen.tables.ViewTableMaps;
+
 import org.jooq.impl.TableRecordImpl;
 
 

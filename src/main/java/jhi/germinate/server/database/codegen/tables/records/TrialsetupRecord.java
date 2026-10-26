@@ -4,12 +4,13 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.tables.Trialsetup;
-import org.jooq.Record1;
-import org.jooq.impl.UpdatableRecordImpl;
-
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.tables.Trialsetup;
+
+import org.jooq.Record1;
+import org.jooq.impl.UpdatableRecordImpl;
 
 
 // @formatter:off

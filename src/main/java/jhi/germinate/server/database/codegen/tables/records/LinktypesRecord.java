@@ -4,11 +4,12 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
+import java.sql.Timestamp;
+
 import jhi.germinate.server.database.codegen.tables.Linktypes;
+
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;
-
-import java.sql.Timestamp;
 
 
 // @formatter:off
@@ -42,8 +43,7 @@ public class LinktypesRecord extends UpdatableRecordImpl<LinktypesRecord> {
 
     /**
      * Setter for <code>germinate_db.linktypes.description</code>. A description
-     * of the link
-.
+     * of the link.
      */
     public void setDescription(String value) {
         set(1, value);
@@ -51,8 +51,7 @@ public class LinktypesRecord extends UpdatableRecordImpl<LinktypesRecord> {
 
     /**
      * Getter for <code>germinate_db.linktypes.description</code>. A description
-     * of the link
-.
+     * of the link.
      */
     public String getDescription() {
         return (String) get(1);

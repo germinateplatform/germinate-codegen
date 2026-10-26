@@ -4,12 +4,14 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import jhi.germinate.server.database.codegen.tables.Datasets;
 import jhi.germinate.server.database.pojo.DublinCore;
+
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;
-
-import java.sql.*;
 
 
 // @formatter:off
@@ -246,12 +248,28 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
     }
 
     /**
+     * Setter for <code>germinate_db.datasets.studydetails_id</code>. Foreign
+     * key to studydetails (studydetails.id).
+     */
+    public void setStudydetailsId(Integer value) {
+        set(14, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.datasets.studydetails_id</code>. Foreign
+     * key to studydetails (studydetails.id).
+     */
+    public Integer getStudydetailsId() {
+        return (Integer) get(14);
+    }
+
+    /**
      * Setter for <code>germinate_db.datasets.is_external</code>. Defines if the
      * dataset is contained within Germinate or from an external source and not
      * stored in the database.
      */
     public void setIsExternal(Boolean value) {
-        set(14, value);
+        set(15, value);
     }
 
     /**
@@ -260,7 +278,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * stored in the database.
      */
     public Boolean getIsExternal() {
-        return (Boolean) get(14);
+        return (Boolean) get(15);
     }
 
     /**
@@ -268,7 +286,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * the external dasets.
      */
     public void setHyperlink(String value) {
-        set(15, value);
+        set(16, value);
     }
 
     /**
@@ -276,7 +294,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * the external dasets.
      */
     public String getHyperlink() {
-        return (String) get(15);
+        return (String) get(16);
     }
 
     /**
@@ -285,7 +303,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
 
      */
     public void setCreatedOn(Timestamp value) {
-        set(16, value);
+        set(17, value);
     }
 
     /**
@@ -294,7 +312,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
 
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(16);
+        return (Timestamp) get(17);
     }
 
     /**
@@ -303,7 +321,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * changes have been made to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(17, value);
+        set(18, value);
     }
 
     /**
@@ -312,7 +330,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * changes have been made to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(17);
+        return (Timestamp) get(18);
     }
 
     /**
@@ -320,7 +338,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * more information about this dataset.
      */
     public void setContact(String value) {
-        set(18, value);
+        set(19, value);
     }
 
     /**
@@ -328,7 +346,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * more information about this dataset.
      */
     public String getContact() {
-        return (String) get(18);
+        return (String) get(19);
     }
 
     // -------------------------------------------------------------------------
@@ -354,7 +372,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
     /**
      * Create a detached, initialised DatasetsRecord
      */
-    public DatasetsRecord(Integer id, Integer experimentId, Integer datasettypeId, String name, String description, Date dateStart, Date dateEnd, String sourceFile, String datatype, DublinCore dublinCore, String version, Integer createdBy, Integer datasetStateId, Integer licenseId, Boolean isExternal, String hyperlink, Timestamp createdOn, Timestamp updatedOn, String contact) {
+    public DatasetsRecord(Integer id, Integer experimentId, Integer datasettypeId, String name, String description, Date dateStart, Date dateEnd, String sourceFile, String datatype, DublinCore dublinCore, String version, Integer createdBy, Integer datasetStateId, Integer licenseId, Integer studydetailsId, Boolean isExternal, String hyperlink, Timestamp createdOn, Timestamp updatedOn, String contact) {
         super(Datasets.DATASETS);
 
         setId(id);
@@ -371,6 +389,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
         setCreatedBy(createdBy);
         setDatasetStateId(datasetStateId);
         setLicenseId(licenseId);
+        setStudydetailsId(studydetailsId);
         setIsExternal(isExternal);
         setHyperlink(hyperlink);
         setCreatedOn(createdOn);
@@ -400,6 +419,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
             setCreatedBy(value.getCreatedBy());
             setDatasetStateId(value.getDatasetStateId());
             setLicenseId(value.getLicenseId());
+            setStudydetailsId(value.getStudydetailsId());
             setIsExternal(value.getIsExternal());
             setHyperlink(value.getHyperlink());
             setCreatedOn(value.getCreatedOn());

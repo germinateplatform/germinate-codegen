@@ -4,11 +4,13 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import java.io.Serializable;
+
 import jhi.germinate.server.database.codegen.enums.ViewTablePedigreesRelationshipType;
+
+
 import lombok.*;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 // @formatter:off
 /**

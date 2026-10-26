@@ -6,6 +6,7 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 import jhi.germinate.server.database.codegen.enums.ViewTableClimatesDataType;
 import jhi.germinate.server.database.codegen.tables.ViewTableClimates;
+
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -193,17 +194,31 @@ public class ViewTableClimatesRecord extends TableRecordImpl<ViewTableClimatesRe
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_climates.dataset_ids</code>.
+     */
+    public void setDatasetIds(Integer[] value) {
+        set(10, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_climates.dataset_ids</code>.
+     */
+    public Integer[] getDatasetIds() {
+        return (Integer[]) get(10);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_climates.count</code>.
      */
     public void setCount(Long value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_climates.count</code>.
      */
     public Long getCount() {
-        return (Long) get(10);
+        return (Long) get(11);
     }
 
     // -------------------------------------------------------------------------
@@ -220,7 +235,7 @@ public class ViewTableClimatesRecord extends TableRecordImpl<ViewTableClimatesRe
     /**
      * Create a detached, initialised ViewTableClimatesRecord
      */
-    public ViewTableClimatesRecord(Integer climateId, String climateName, String climateNameShort, String climateDescription, ViewTableClimatesDataType dataType, Integer unitId, String unitName, String unitDescription, Long overlays, String unitAbbreviation, Long count) {
+    public ViewTableClimatesRecord(Integer climateId, String climateName, String climateNameShort, String climateDescription, ViewTableClimatesDataType dataType, Integer unitId, String unitName, String unitDescription, Long overlays, String unitAbbreviation, Integer[] datasetIds, Long count) {
         super(ViewTableClimates.VIEW_TABLE_CLIMATES);
 
         setClimateId(climateId);
@@ -233,6 +248,7 @@ public class ViewTableClimatesRecord extends TableRecordImpl<ViewTableClimatesRe
         setUnitDescription(unitDescription);
         setOverlays(overlays);
         setUnitAbbreviation(unitAbbreviation);
+        setDatasetIds(datasetIds);
         setCount(count);
         resetTouchedOnNotNull();
     }
@@ -254,6 +270,7 @@ public class ViewTableClimatesRecord extends TableRecordImpl<ViewTableClimatesRe
             setUnitDescription(value.getUnitDescription());
             setOverlays(value.getOverlays());
             setUnitAbbreviation(value.getUnitAbbreviation());
+            setDatasetIds(value.getDatasetIds());
             setCount(value.getCount());
             resetTouchedOnNotNull();
         }

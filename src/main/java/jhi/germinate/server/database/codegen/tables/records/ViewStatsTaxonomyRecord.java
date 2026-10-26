@@ -5,6 +5,7 @@ package jhi.germinate.server.database.codegen.tables.records;
 
 
 import jhi.germinate.server.database.codegen.tables.ViewStatsTaxonomy;
+
 import org.jooq.impl.TableRecordImpl;
 
 

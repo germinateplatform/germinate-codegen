@@ -4,14 +4,28 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.sql.Timestamp;
+import java.util.Collection;
+
 import jhi.germinate.server.database.binding.IntArrayBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.ViewTableGroupsRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
 
-import java.sql.Timestamp;
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -111,7 +125,7 @@ public class ViewTableGroups extends TableImpl<ViewTableGroupsRecord> {
     }
 
     private ViewTableGroups(Name alias, Table<ViewTableGroupsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_groups` as select `germinate_template_4_25_03_05`.`groups`.`id` AS `group_id`,`germinate_template_4_25_03_05`.`groups`.`name` AS `group_name`,`germinate_template_4_25_03_05`.`groups`.`description` AS `group_description`,`germinate_template_4_25_03_05`.`grouptypes`.`id` AS `group_type_id`,`germinate_template_4_25_03_05`.`grouptypes`.`target_table` AS `group_type`,'' AS `user_name`,`germinate_template_4_25_03_05`.`groups`.`created_by` AS `user_id`,`germinate_template_4_25_03_05`.`groups`.`visibility` AS `group_visibility`,`germinate_template_4_25_03_05`.`groups`.`created_on` AS `created_on`,`germinate_template_4_25_03_05`.`groups`.`updated_on` AS `updated_on`,(select json_arrayagg(`germinate_template_4_25_03_05`.`projectgroups`.`project_id`) from `germinate_template_4_25_03_05`.`projectgroups` where (`germinate_template_4_25_03_05`.`projectgroups`.`group_id` = `germinate_template_4_25_03_05`.`groups`.`id`) group by `germinate_template_4_25_03_05`.`projectgroups`.`group_id`) AS `project_ids`,count(`germinate_template_4_25_03_05`.`groupmembers`.`id`) AS `count` from ((((`germinate_template_4_25_03_05`.`groups` left join `germinate_template_4_25_03_05`.`grouptypes` on((`germinate_template_4_25_03_05`.`groups`.`grouptype_id` = `germinate_template_4_25_03_05`.`grouptypes`.`id`))) left join `germinate_template_4_25_03_05`.`groupmembers` on((`germinate_template_4_25_03_05`.`groupmembers`.`group_id` = `germinate_template_4_25_03_05`.`groups`.`id`))) left join `germinate_template_4_25_03_05`.`projectgroups` on((`germinate_template_4_25_03_05`.`projectgroups`.`group_id` = `germinate_template_4_25_03_05`.`groups`.`id`))) left join `germinate_template_4_25_03_05`.`projects` on((`germinate_template_4_25_03_05`.`projects`.`id` = `germinate_template_4_25_03_05`.`projectgroups`.`project_id`))) group by `germinate_template_4_25_03_05`.`groups`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_groups` as select `germinate_template_5_26_10_09`.`groups`.`id` AS `group_id`,`germinate_template_5_26_10_09`.`groups`.`name` AS `group_name`,`germinate_template_5_26_10_09`.`groups`.`description` AS `group_description`,`germinate_template_5_26_10_09`.`grouptypes`.`id` AS `group_type_id`,`germinate_template_5_26_10_09`.`grouptypes`.`target_table` AS `group_type`,'' AS `user_name`,`germinate_template_5_26_10_09`.`groups`.`created_by` AS `user_id`,`germinate_template_5_26_10_09`.`groups`.`visibility` AS `group_visibility`,`germinate_template_5_26_10_09`.`groups`.`created_on` AS `created_on`,`germinate_template_5_26_10_09`.`groups`.`updated_on` AS `updated_on`,(select json_arrayagg(`germinate_template_5_26_10_09`.`projectgroups`.`project_id`) from `germinate_template_5_26_10_09`.`projectgroups` where (`germinate_template_5_26_10_09`.`projectgroups`.`group_id` = `germinate_template_5_26_10_09`.`groups`.`id`) group by `germinate_template_5_26_10_09`.`projectgroups`.`group_id`) AS `project_ids`,count(`germinate_template_5_26_10_09`.`groupmembers`.`id`) AS `count` from ((((`germinate_template_5_26_10_09`.`groups` left join `germinate_template_5_26_10_09`.`grouptypes` on((`germinate_template_5_26_10_09`.`groups`.`grouptype_id` = `germinate_template_5_26_10_09`.`grouptypes`.`id`))) left join `germinate_template_5_26_10_09`.`groupmembers` on((`germinate_template_5_26_10_09`.`groupmembers`.`group_id` = `germinate_template_5_26_10_09`.`groups`.`id`))) left join `germinate_template_5_26_10_09`.`projectgroups` on((`germinate_template_5_26_10_09`.`projectgroups`.`group_id` = `germinate_template_5_26_10_09`.`groups`.`id`))) left join `germinate_template_5_26_10_09`.`projects` on((`germinate_template_5_26_10_09`.`projects`.`id` = `germinate_template_5_26_10_09`.`projectgroups`.`project_id`))) group by `germinate_template_5_26_10_09`.`groups`.`id`"), where);
     }
 
     /**

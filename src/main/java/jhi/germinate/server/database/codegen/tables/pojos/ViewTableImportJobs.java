@@ -4,13 +4,16 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
-import jhi.germinate.server.database.codegen.enums.*;
-import jhi.germinate.server.database.pojo.ImportJobStats;
-import lombok.*;
-import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.enums.ViewTableImportJobsDatatype;
+import jhi.germinate.server.database.codegen.enums.ViewTableImportJobsStatus;
+import jhi.germinate.server.database.pojo.ImportJobStats;
+
+
+import lombok.*;
+import lombok.experimental.Accessors;
 
 // @formatter:off
 /**
@@ -28,6 +31,8 @@ public class ViewTableImportJobs implements Serializable {
     private Boolean isUpdate;
     private Integer datasetstateId;
     private ViewTableImportJobsDatatype datatype;
+    private Integer userId;
+    private String userName;
     private ViewTableImportJobsStatus status;
     private ImportJobStats stats;
     private Timestamp createdOn;
@@ -39,6 +44,8 @@ public class ViewTableImportJobs implements Serializable {
         this.isUpdate = value.isUpdate;
         this.datasetstateId = value.datasetstateId;
         this.datatype = value.datatype;
+        this.userId = value.userId;
+        this.userName = value.userName;
         this.status = value.status;
         this.stats = value.stats;
         this.createdOn = value.createdOn;
@@ -49,6 +56,8 @@ public class ViewTableImportJobs implements Serializable {
         Boolean isUpdate,
         Integer datasetstateId,
         ViewTableImportJobsDatatype datatype,
+        Integer userId,
+        String userName,
         ViewTableImportJobsStatus status,
         ImportJobStats stats,
         Timestamp createdOn
@@ -57,6 +66,8 @@ public class ViewTableImportJobs implements Serializable {
         this.isUpdate = isUpdate;
         this.datasetstateId = datasetstateId;
         this.datatype = datatype;
+        this.userId = userId;
+        this.userName = userName;
         this.status = status;
         this.stats = stats;
         this.createdOn = createdOn;
@@ -95,6 +106,18 @@ public class ViewTableImportJobs implements Serializable {
         }
         else if (!this.datatype.equals(other.datatype))
             return false;
+        if (this.userId == null) {
+            if (other.userId != null)
+                return false;
+        }
+        else if (!this.userId.equals(other.userId))
+            return false;
+        if (this.userName == null) {
+            if (other.userName != null)
+                return false;
+        }
+        else if (!this.userName.equals(other.userName))
+            return false;
         if (this.status == null) {
             if (other.status != null)
                 return false;
@@ -124,6 +147,8 @@ public class ViewTableImportJobs implements Serializable {
         result = prime * result + ((this.isUpdate == null) ? 0 : this.isUpdate.hashCode());
         result = prime * result + ((this.datasetstateId == null) ? 0 : this.datasetstateId.hashCode());
         result = prime * result + ((this.datatype == null) ? 0 : this.datatype.hashCode());
+        result = prime * result + ((this.userId == null) ? 0 : this.userId.hashCode());
+        result = prime * result + ((this.userName == null) ? 0 : this.userName.hashCode());
         result = prime * result + ((this.status == null) ? 0 : this.status.hashCode());
         result = prime * result + ((this.stats == null) ? 0 : this.stats.hashCode());
         result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
@@ -138,6 +163,8 @@ public class ViewTableImportJobs implements Serializable {
         sb.append(", ").append(isUpdate);
         sb.append(", ").append(datasetstateId);
         sb.append(", ").append(datatype);
+        sb.append(", ").append(userId);
+        sb.append(", ").append(userName);
         sb.append(", ").append(status);
         sb.append(", ").append(stats);
         sb.append(", ").append(createdOn);

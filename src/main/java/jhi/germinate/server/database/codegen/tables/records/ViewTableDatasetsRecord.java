@@ -4,13 +4,17 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import jhi.germinate.server.database.codegen.tables.ViewTableDatasets;
-import jhi.germinate.server.database.codegen.tables.pojos.*;
+import jhi.germinate.server.database.codegen.tables.pojos.ViewTableInstitutions;
+import jhi.germinate.server.database.codegen.tables.pojos.ViewTableLocations;
 import jhi.germinate.server.database.pojo.DublinCore;
+import jhi.germinate.server.database.pojo.StudyDetailsCore;
+
 import org.jooq.impl.TableRecordImpl;
 import org.jooq.types.ULong;
-
-import java.sql.*;
 
 
 // @formatter:off
@@ -185,31 +189,47 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     }
 
     /**
+     * Setter for
+     * <code>germinate_db.view_table_datasets.study_details_core</code>.
+     */
+    public void setStudyDetailsCore(StudyDetailsCore value) {
+        set(10, value);
+    }
+
+    /**
+     * Getter for
+     * <code>germinate_db.view_table_datasets.study_details_core</code>.
+     */
+    public StudyDetailsCore getStudyDetailsCore() {
+        return (StudyDetailsCore) get(10);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_datasets.project_id</code>.
      */
     public void setProjectId(Integer value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.project_id</code>.
      */
     public Integer getProjectId() {
-        return (Integer) get(10);
+        return (Integer) get(11);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.project_name</code>.
      */
     public void setProjectName(String value) {
-        set(11, value);
+        set(12, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.project_name</code>.
      */
     public String getProjectName() {
-        return (String) get(11);
+        return (String) get(12);
     }
 
     /**
@@ -217,7 +237,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * <code>germinate_db.view_table_datasets.project_description</code>.
      */
     public void setProjectDescription(String value) {
-        set(12, value);
+        set(13, value);
     }
 
     /**
@@ -225,7 +245,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * <code>germinate_db.view_table_datasets.project_description</code>.
      */
     public String getProjectDescription() {
-        return (String) get(12);
+        return (String) get(13);
     }
 
     /**
@@ -234,7 +254,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * "raw data", "BLUPs", etc.
      */
     public void setDatatype(String value) {
-        set(13, value);
+        set(14, value);
     }
 
     /**
@@ -243,7 +263,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * "raw data", "BLUPs", etc.
      */
     public String getDatatype() {
-        return (String) get(13);
+        return (String) get(14);
     }
 
     /**
@@ -251,7 +271,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * Defines the datasetstate.
      */
     public void setDatasetState(String value) {
-        set(14, value);
+        set(15, value);
     }
 
     /**
@@ -259,63 +279,63 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * Defines the datasetstate.
      */
     public String getDatasetState() {
-        return (String) get(14);
+        return (String) get(15);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.locations</code>.
      */
     public void setLocations(ViewTableLocations[] value) {
-        set(15, value);
+        set(16, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.locations</code>.
      */
     public ViewTableLocations[] getLocations() {
-        return (ViewTableLocations[]) get(15);
+        return (ViewTableLocations[]) get(16);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.institutions</code>.
      */
     public void setInstitutions(ViewTableInstitutions[] value) {
-        set(16, value);
+        set(17, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.institutions</code>.
      */
     public ViewTableInstitutions[] getInstitutions() {
-        return (ViewTableInstitutions[]) get(16);
+        return (ViewTableInstitutions[]) get(17);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.license_id</code>.
      */
     public void setLicenseId(Integer value) {
-        set(17, value);
+        set(18, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.license_id</code>.
      */
     public Integer getLicenseId() {
-        return (Integer) get(17);
+        return (Integer) get(18);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.license_name</code>.
      */
     public void setLicenseName(String value) {
-        set(18, value);
+        set(19, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.license_name</code>.
      */
     public String getLicenseName() {
-        return (String) get(18);
+        return (String) get(19);
     }
 
     /**
@@ -323,7 +343,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * contact to get more information about this dataset.
      */
     public void setContact(String value) {
-        set(19, value);
+        set(20, value);
     }
 
     /**
@@ -331,7 +351,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * contact to get more information about this dataset.
      */
     public String getContact() {
-        return (String) get(19);
+        return (String) get(20);
     }
 
     /**
@@ -339,7 +359,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * that the dataset was generated.
      */
     public void setStartDate(Date value) {
-        set(20, value);
+        set(21, value);
     }
 
     /**
@@ -347,7 +367,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * that the dataset was generated.
      */
     public Date getStartDate() {
-        return (Date) get(20);
+        return (Date) get(21);
     }
 
     /**
@@ -355,7 +375,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * at which the dataset recording ended.
      */
     public void setEndDate(Date value) {
-        set(21, value);
+        set(22, value);
     }
 
     /**
@@ -363,21 +383,39 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * at which the dataset recording ended.
      */
     public Date getEndDate() {
-        return (Date) get(21);
+        return (Date) get(22);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.dublin_core</code>.
      */
     public void setDublinCore(DublinCore value) {
-        set(22, value);
+        set(23, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.dublin_core</code>.
      */
     public DublinCore getDublinCore() {
-        return (DublinCore) get(22);
+        return (DublinCore) get(23);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_datasets.created_by</code>.
+     * Defines who created the dataset. This is a FK in Gatekeeper users table.
+     * Foreign key to Gatekeeper users (users.id).
+     */
+    public void setCreatedBy(Integer value) {
+        set(24, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_datasets.created_by</code>.
+     * Defines who created the dataset. This is a FK in Gatekeeper users table.
+     * Foreign key to Gatekeeper users (users.id).
+     */
+    public Integer getCreatedBy() {
+        return (Integer) get(24);
     }
 
     /**
@@ -386,7 +424,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
 
      */
     public void setCreatedOn(Timestamp value) {
-        set(23, value);
+        set(25, value);
     }
 
     /**
@@ -395,7 +433,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
 
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(23);
+        return (Timestamp) get(25);
     }
 
     /**
@@ -404,7 +442,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * subsequent changes have been made to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(24, value);
+        set(26, value);
     }
 
     /**
@@ -413,7 +451,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * subsequent changes have been made to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(24);
+        return (Timestamp) get(26);
     }
 
     /**
@@ -422,7 +460,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * number of data objects contained in this dataset.
      */
     public void setDataObjectCount(ULong value) {
-        set(25, value);
+        set(27, value);
     }
 
     /**
@@ -431,7 +469,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * number of data objects contained in this dataset.
      */
     public ULong getDataObjectCount() {
-        return (ULong) get(25);
+        return (ULong) get(27);
     }
 
     /**
@@ -440,7 +478,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * number of individual data points contained in this dataset.
      */
     public void setDataPointCount(ULong value) {
-        set(26, value);
+        set(28, value);
     }
 
     /**
@@ -449,7 +487,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * number of individual data points contained in this dataset.
      */
     public ULong getDataPointCount() {
-        return (ULong) get(26);
+        return (ULong) get(28);
     }
 
     /**
@@ -458,7 +496,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * source and not stored in the database.
      */
     public void setIsExternal(Boolean value) {
-        set(27, value);
+        set(29, value);
     }
 
     /**
@@ -467,21 +505,21 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * source and not stored in the database.
      */
     public Boolean getIsExternal() {
-        return (Boolean) get(27);
+        return (Boolean) get(29);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.publications</code>.
      */
     public void setPublications(Long value) {
-        set(28, value);
+        set(30, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.publications</code>.
      */
     public Long getPublications() {
-        return (Long) get(28);
+        return (Long) get(30);
     }
 
     /**
@@ -489,7 +527,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * <code>germinate_db.view_table_datasets.fileresource_ids</code>.
      */
     public void setFileresourceIds(Integer[] value) {
-        set(29, value);
+        set(31, value);
     }
 
     /**
@@ -497,49 +535,49 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
      * <code>germinate_db.view_table_datasets.fileresource_ids</code>.
      */
     public Integer[] getFileresourceIds() {
-        return (Integer[]) get(29);
+        return (Integer[]) get(31);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.collaborators</code>.
      */
     public void setCollaborators(Long value) {
-        set(30, value);
+        set(32, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.collaborators</code>.
      */
     public Long getCollaborators() {
-        return (Long) get(30);
+        return (Long) get(32);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.attributes</code>.
      */
     public void setAttributes(Long value) {
-        set(31, value);
+        set(33, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.attributes</code>.
      */
     public Long getAttributes() {
-        return (Long) get(31);
+        return (Long) get(33);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_datasets.accepted_by</code>.
      */
     public void setAcceptedBy(Integer[] value) {
-        set(32, value);
+        set(34, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_datasets.accepted_by</code>.
      */
     public Integer[] getAcceptedBy() {
-        return (Integer[]) get(32);
+        return (Integer[]) get(34);
     }
 
     // -------------------------------------------------------------------------
@@ -556,7 +594,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
     /**
      * Create a detached, initialised ViewTableDatasetsRecord
      */
-    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, Integer projectId, String projectName, String projectDescription, String datatype, String datasetState, ViewTableLocations[] locations, ViewTableInstitutions[] institutions, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Timestamp createdOn, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long publications, Integer[] fileresourceIds, Long collaborators, Long attributes, Integer[] acceptedBy) {
+    public ViewTableDatasetsRecord(Integer datasetId, String datasetName, String datasetDescription, String hyperlink, String sourceFile, String version, String datasetType, Integer experimentId, String experimentName, String experimentDescription, StudyDetailsCore studyDetailsCore, Integer projectId, String projectName, String projectDescription, String datatype, String datasetState, ViewTableLocations[] locations, ViewTableInstitutions[] institutions, Integer licenseId, String licenseName, String contact, Date startDate, Date endDate, DublinCore dublinCore, Integer createdBy, Timestamp createdOn, Timestamp updatedOn, ULong dataObjectCount, ULong dataPointCount, Boolean isExternal, Long publications, Integer[] fileresourceIds, Long collaborators, Long attributes, Integer[] acceptedBy) {
         super(ViewTableDatasets.VIEW_TABLE_DATASETS);
 
         setDatasetId(datasetId);
@@ -569,6 +607,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
         setExperimentId(experimentId);
         setExperimentName(experimentName);
         setExperimentDescription(experimentDescription);
+        setStudyDetailsCore(studyDetailsCore);
         setProjectId(projectId);
         setProjectName(projectName);
         setProjectDescription(projectDescription);
@@ -582,6 +621,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
         setStartDate(startDate);
         setEndDate(endDate);
         setDublinCore(dublinCore);
+        setCreatedBy(createdBy);
         setCreatedOn(createdOn);
         setUpdatedOn(updatedOn);
         setDataObjectCount(dataObjectCount);
@@ -612,6 +652,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
             setExperimentId(value.getExperimentId());
             setExperimentName(value.getExperimentName());
             setExperimentDescription(value.getExperimentDescription());
+            setStudyDetailsCore(value.getStudyDetailsCore());
             setProjectId(value.getProjectId());
             setProjectName(value.getProjectName());
             setProjectDescription(value.getProjectDescription());
@@ -625,6 +666,7 @@ public class ViewTableDatasetsRecord extends TableRecordImpl<ViewTableDatasetsRe
             setStartDate(value.getStartDate());
             setEndDate(value.getEndDate());
             setDublinCore(value.getDublinCore());
+            setCreatedBy(value.getCreatedBy());
             setCreatedOn(value.getCreatedOn());
             setUpdatedOn(value.getUpdatedOn());
             setDataObjectCount(value.getDataObjectCount());

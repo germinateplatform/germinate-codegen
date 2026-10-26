@@ -4,14 +4,30 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.tables.records.LinktypesRecord;
-import org.jooq.*;
-import org.jooq.impl.*;
-import org.jooq.impl.Internal;
-
 import java.sql.Timestamp;
 import java.util.Collection;
+
+import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.tables.records.LinktypesRecord;
+
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Identity;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.UniqueKey;
+import org.jooq.impl.DSL;
+import org.jooq.impl.Internal;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -48,8 +64,7 @@ public class Linktypes extends TableImpl<LinktypesRecord> {
 
     /**
      * The column <code>germinate_db.linktypes.description</code>. A description
-     * of the link
-.
+     * of the link.
      */
     public final TableField<LinktypesRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(255), this, "A description of the link\r.");
 

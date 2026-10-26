@@ -4,16 +4,33 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Collection;
+
 import jhi.germinate.server.database.binding.DublinCoreBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.DatasetsRecord;
 import jhi.germinate.server.database.pojo.DublinCore;
-import org.jooq.*;
-import org.jooq.impl.*;
-import org.jooq.impl.Internal;
 
-import java.sql.*;
-import java.util.Collection;
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Identity;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.UniqueKey;
+import org.jooq.impl.DSL;
+import org.jooq.impl.Internal;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -122,6 +139,12 @@ public class Datasets extends TableImpl<DatasetsRecord> {
      * The column <code>germinate_db.datasets.license_id</code>.
      */
     public final TableField<DatasetsRecord, Integer> LICENSE_ID = createField(DSL.name("license_id"), SQLDataType.INTEGER, this, "");
+
+    /**
+     * The column <code>germinate_db.datasets.studydetails_id</code>. Foreign
+     * key to studydetails (studydetails.id).
+     */
+    public final TableField<DatasetsRecord, Integer> STUDYDETAILS_ID = createField(DSL.name("studydetails_id"), SQLDataType.INTEGER, this, "Foreign key to studydetails (studydetails.id).");
 
     /**
      * The column <code>germinate_db.datasets.is_external</code>. Defines if the

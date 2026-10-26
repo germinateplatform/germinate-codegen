@@ -4,15 +4,35 @@
 package jhi.germinate.server.database.codegen.tables;
 
 
-import jhi.germinate.server.database.binding.*;
-import jhi.germinate.server.database.codegen.GerminateDb;
-import jhi.germinate.server.database.codegen.enums.ViewTableTraitsDataType;
-import jhi.germinate.server.database.codegen.tables.records.ViewTableTraitsRecord;
-import jhi.germinate.server.database.pojo.TraitRestrictions;
-import org.jooq.*;
-import org.jooq.impl.*;
-
 import java.util.Collection;
+
+import jhi.germinate.server.database.binding.IntArrayBinding;
+import jhi.germinate.server.database.binding.OntologyInfoArrayBinding;
+import jhi.germinate.server.database.binding.SynonymBinding;
+import jhi.germinate.server.database.binding.TraitRestrictionBinding;
+import jhi.germinate.server.database.codegen.GerminateDb;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsMethodClass;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsScaleDatatype;
+import jhi.germinate.server.database.codegen.enums.ViewTableTraitsTraitClass;
+import jhi.germinate.server.database.codegen.tables.records.ViewTableTraitsRecord;
+import jhi.germinate.server.database.pojo.OntologyInfo;
+import jhi.germinate.server.database.pojo.TraitRestrictions;
+
+import org.jooq.Condition;
+import org.jooq.Field;
+import org.jooq.Name;
+import org.jooq.PlainSQL;
+import org.jooq.QueryPart;
+import org.jooq.SQL;
+import org.jooq.Schema;
+import org.jooq.Select;
+import org.jooq.Stringly;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.TableOptions;
+import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
+import org.jooq.impl.TableImpl;
 
 
 // @formatter:off
@@ -38,111 +58,158 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     }
 
     /**
-     * The column <code>germinate_db.view_table_traits.trait_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
+     * The column <code>germinate_db.view_table_traits.variable_id</code>.
      */
-    public final TableField<ViewTableTraitsRecord, Integer> TRAIT_ID = createField(DSL.name("trait_id"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Primary id for this table. This uniquely identifies the row.");
+    public final TableField<ViewTableTraitsRecord, Integer> VARIABLE_ID = createField(DSL.name("variable_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>germinate_db.view_table_traits.variable_name</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, String> VARIABLE_NAME = createField(DSL.name("variable_name"), SQLDataType.VARCHAR(255), this, "");
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_traits.variable_description</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, String> VARIABLE_DESCRIPTION = createField(DSL.name("variable_description"), SQLDataType.CLOB, this, "");
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_traits.variable_ontologies</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, OntologyInfo[]> VARIABLE_ONTOLOGIES = createField(DSL.name("variable_ontologies"), SQLDataType.JSON, this, "", new OntologyInfoArrayBinding());
+
+    /**
+     * The column <code>germinate_db.view_table_traits.variable_synonyms</code>.
+     * The synonyms as a json array.
+     */
+    public final TableField<ViewTableTraitsRecord, String[]> VARIABLE_SYNONYMS = createField(DSL.name("variable_synonyms"), SQLDataType.JSON, this, "The synonyms as a json array.", new SynonymBinding());
+
+    /**
+     * The column <code>germinate_db.view_table_traits.trait_id</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, Integer> TRAIT_ID = createField(DSL.name("trait_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>germinate_db.view_table_traits.trait_name</code>.
-     * Phenotype full name.
      */
-    public final TableField<ViewTableTraitsRecord, String> TRAIT_NAME = createField(DSL.name("trait_name"), SQLDataType.VARCHAR(255).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "Phenotype full name.");
-
-    /**
-     * The column <code>germinate_db.view_table_traits.trait_name_short</code>.
-     * Shortened name for the phenotype. This is used in table columns where
-     * space is an issue.
-     */
-    public final TableField<ViewTableTraitsRecord, String> TRAIT_NAME_SHORT = createField(DSL.name("trait_name_short"), SQLDataType.CHAR(10), this, "Shortened name for the phenotype. This is used in table columns where space is an issue.");
+    public final TableField<ViewTableTraitsRecord, String> TRAIT_NAME = createField(DSL.name("trait_name"), SQLDataType.VARCHAR(255), this, "");
 
     /**
      * The column <code>germinate_db.view_table_traits.trait_description</code>.
-     * Full description of the phenotype. This should contain enough infomation
-     * to accurately identify the phenoytpe and how it was recorded.
      */
-    public final TableField<ViewTableTraitsRecord, String> TRAIT_DESCRIPTION = createField(DSL.name("trait_description"), SQLDataType.CLOB, this, "Full description of the phenotype. This should contain enough infomation to accurately identify the phenoytpe and how it was recorded.");
+    public final TableField<ViewTableTraitsRecord, String> TRAIT_DESCRIPTION = createField(DSL.name("trait_description"), SQLDataType.CLOB, this, "");
 
     /**
-     * The column <code>germinate_db.view_table_traits.data_type</code>. Defines
-     * the data type of the phenotype. This can be of numeric, text, date or
-     * categorical types.
+     * The column <code>germinate_db.view_table_traits.trait_ontologies</code>.
      */
-    public final TableField<ViewTableTraitsRecord, ViewTableTraitsDataType> DATA_TYPE = createField(DSL.name("data_type"), SQLDataType.VARCHAR(11).nullable(false).defaultValue(DSL.inline("text", SQLDataType.VARCHAR)).asEnumDataType(ViewTableTraitsDataType.class), this, "Defines the data type of the phenotype. This can be of numeric, text, date or categorical types.");
+    public final TableField<ViewTableTraitsRecord, OntologyInfo[]> TRAIT_ONTOLOGIES = createField(DSL.name("trait_ontologies"), SQLDataType.JSON, this, "", new OntologyInfoArrayBinding());
 
     /**
-     * The column
-     * <code>germinate_db.view_table_traits.trait_restrictions</code>. A json
-     * object describing the restrictions placed on this trait. It is an object
-     * containing a field called "categories" which is an array of arrays, each
-     * describing a categorical scale. Each scale must have the same length as
-     * they describe the same categories just using different terms or numbers.
-     * The other fields are "min" and "max" to specify upper and lower limits
-     * for numeric traits.
+     * The column <code>germinate_db.view_table_traits.method_id</code>.
      */
-    public final TableField<ViewTableTraitsRecord, TraitRestrictions> TRAIT_RESTRICTIONS = createField(DSL.name("trait_restrictions"), SQLDataType.JSON, this, "A json object describing the restrictions placed on this trait. It is an object containing a field called \"categories\" which is an array of arrays, each describing a categorical scale. Each scale must have the same length as they describe the same categories just using different terms or numbers. The other fields are \"min\" and \"max\" to specify upper and lower limits for numeric traits.", new TraitRestrictionBinding());
+    public final TableField<ViewTableTraitsRecord, Integer> METHOD_ID = createField(DSL.name("method_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>germinate_db.view_table_traits.trait_set_size</code>.
-     * The number of individual measurements that should be taken for this
-     * trait.
+     * The column <code>germinate_db.view_table_traits.method_name</code>.
      */
-    public final TableField<ViewTableTraitsRecord, Integer> TRAIT_SET_SIZE = createField(DSL.name("trait_set_size"), SQLDataType.INTEGER, this, "The number of individual measurements that should be taken for this trait.");
+    public final TableField<ViewTableTraitsRecord, String> METHOD_NAME = createField(DSL.name("method_name"), SQLDataType.VARCHAR(255), this, "");
 
     /**
      * The column
-     * <code>germinate_db.view_table_traits.trait_is_timeseries</code>.
-     * Determines whether this trait is a time-series trait or not.
+     * <code>germinate_db.view_table_traits.method_description</code>.
      */
-    public final TableField<ViewTableTraitsRecord, Boolean> TRAIT_IS_TIMESERIES = createField(DSL.name("trait_is_timeseries"), SQLDataType.BOOLEAN.nullable(false).defaultValue(DSL.inline("1", SQLDataType.BOOLEAN)), this, "Determines whether this trait is a time-series trait or not.");
+    public final TableField<ViewTableTraitsRecord, String> METHOD_DESCRIPTION = createField(DSL.name("method_description"), SQLDataType.CLOB, this, "");
 
     /**
-     * The column <code>germinate_db.view_table_traits.category_id</code>.
+     * The column <code>germinate_db.view_table_traits.method_class</code>.
      */
-    public final TableField<ViewTableTraitsRecord, Integer> CATEGORY_ID = createField(DSL.name("category_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+    public final TableField<ViewTableTraitsRecord, ViewTableTraitsMethodClass> METHOD_CLASS = createField(DSL.name("method_class"), SQLDataType.VARCHAR(14).defaultValue(DSL.inline("other", SQLDataType.VARCHAR)).asEnumDataType(ViewTableTraitsMethodClass.class), this, "");
 
     /**
-     * The column <code>germinate_db.view_table_traits.category_name</code>.
+     * The column <code>germinate_db.view_table_traits.method_ontologies</code>.
      */
-    public final TableField<ViewTableTraitsRecord, String> CATEGORY_NAME = createField(DSL.name("category_name"), SQLDataType.VARCHAR(255), this, "");
+    public final TableField<ViewTableTraitsRecord, OntologyInfo[]> METHOD_ONTOLOGIES = createField(DSL.name("method_ontologies"), SQLDataType.JSON, this, "", new OntologyInfoArrayBinding());
+
+    /**
+     * The column <code>germinate_db.view_table_traits.scale_id</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, Integer> SCALE_ID = createField(DSL.name("scale_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>germinate_db.view_table_traits.scale_name</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, String> SCALE_NAME = createField(DSL.name("scale_name"), SQLDataType.VARCHAR(255), this, "");
+
+    /**
+     * The column <code>germinate_db.view_table_traits.scale_description</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, String> SCALE_DESCRIPTION = createField(DSL.name("scale_description"), SQLDataType.CLOB, this, "");
+
+    /**
+     * The column <code>germinate_db.view_table_traits.scale_ontologies</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, OntologyInfo[]> SCALE_ONTOLOGIES = createField(DSL.name("scale_ontologies"), SQLDataType.JSON, this, "", new OntologyInfoArrayBinding());
 
     /**
      * The column
-     * <code>germinate_db.view_table_traits.category_description</code>.
+     * <code>germinate_db.view_table_traits.trait_abbreviation</code>.
      */
-    public final TableField<ViewTableTraitsRecord, String> CATEGORY_DESCRIPTION = createField(DSL.name("category_description"), SQLDataType.CLOB, this, "");
+    public final TableField<ViewTableTraitsRecord, String> TRAIT_ABBREVIATION = createField(DSL.name("trait_abbreviation"), SQLDataType.VARCHAR(255), this, "");
 
     /**
-     * The column <code>germinate_db.view_table_traits.unit_id</code>. Primary
-     * id for this table. This uniquely identifies the row.
+     * The column <code>germinate_db.view_table_traits.trait_class</code>.
      */
-    public final TableField<ViewTableTraitsRecord, Integer> UNIT_ID = createField(DSL.name("unit_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "Primary id for this table. This uniquely identifies the row.");
+    public final TableField<ViewTableTraitsRecord, ViewTableTraitsTraitClass> TRAIT_CLASS = createField(DSL.name("trait_class"), SQLDataType.VARCHAR(14).defaultValue(DSL.inline("other", SQLDataType.VARCHAR)).asEnumDataType(ViewTableTraitsTraitClass.class), this, "");
 
     /**
-     * The column <code>germinate_db.view_table_traits.unit_name</code>. The
-     * name of the unit. This should be the name of the unit in full.
+     * The column <code>germinate_db.view_table_traits.trait_synonyms</code>.
      */
-    public final TableField<ViewTableTraitsRecord, String> UNIT_NAME = createField(DSL.name("unit_name"), SQLDataType.VARCHAR(255).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "The name of the unit. This should be the name of the unit in full.");
+    public final TableField<ViewTableTraitsRecord, String[]> TRAIT_SYNONYMS = createField(DSL.name("trait_synonyms"), SQLDataType.JSON, this, "", new SynonymBinding());
 
     /**
-     * The column <code>germinate_db.view_table_traits.unit_description</code>.
-     * A description of the unit. If the unit is not a standard SI unit then it
-     * is beneficial to have a description which explains what the unit it, how
-     * it is derived and any other information which would help identifiy it.
+     * The column <code>germinate_db.view_table_traits.trait_category_id</code>.
      */
-    public final TableField<ViewTableTraitsRecord, String> UNIT_DESCRIPTION = createField(DSL.name("unit_description"), SQLDataType.CLOB, this, "A description of the unit. If the unit is not a standard SI unit then it is beneficial to have a description which explains what the unit it, how it is derived and any other information which would help identifiy it.");
+    public final TableField<ViewTableTraitsRecord, Integer> TRAIT_CATEGORY_ID = createField(DSL.name("trait_category_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>germinate_db.view_table_traits.unit_abbreviation</code>.
-     * This should be the unit abbreviation.
+     * The column
+     * <code>germinate_db.view_table_traits.trait_category_name</code>.
      */
-    public final TableField<ViewTableTraitsRecord, String> UNIT_ABBREVIATION = createField(DSL.name("unit_abbreviation"), SQLDataType.CHAR(10), this, "This should be the unit abbreviation.");
+    public final TableField<ViewTableTraitsRecord, String> TRAIT_CATEGORY_NAME = createField(DSL.name("trait_category_name"), SQLDataType.VARCHAR(255), this, "");
 
     /**
-     * The column <code>germinate_db.view_table_traits.synonyms</code>. The
-     * synonyms as a json array.
+     * The column
+     * <code>germinate_db.view_table_traits.trait_category_description</code>.
      */
-    public final TableField<ViewTableTraitsRecord, String[]> SYNONYMS = createField(DSL.name("synonyms"), SQLDataType.JSON, this, "The synonyms as a json array.", new SynonymBinding());
+    public final TableField<ViewTableTraitsRecord, String> TRAIT_CATEGORY_DESCRIPTION = createField(DSL.name("trait_category_description"), SQLDataType.CLOB, this, "");
+
+    /**
+     * The column <code>germinate_db.view_table_traits.method_set_size</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, Integer> METHOD_SET_SIZE = createField(DSL.name("method_set_size"), SQLDataType.INTEGER, this, "");
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_traits.method_is_timeseries</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, Boolean> METHOD_IS_TIMESERIES = createField(DSL.name("method_is_timeseries"), SQLDataType.BOOLEAN.defaultValue(DSL.inline("1", SQLDataType.BOOLEAN)), this, "");
+
+    /**
+     * The column <code>germinate_db.view_table_traits.scale_datatype</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, ViewTableTraitsScaleDatatype> SCALE_DATATYPE = createField(DSL.name("scale_datatype"), SQLDataType.VARCHAR(11).asEnumDataType(ViewTableTraitsScaleDatatype.class), this, "");
+
+    /**
+     * The column
+     * <code>germinate_db.view_table_traits.scale_restrictions</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, TraitRestrictions> SCALE_RESTRICTIONS = createField(DSL.name("scale_restrictions"), SQLDataType.JSON, this, "", new TraitRestrictionBinding());
+
+    /**
+     * The column <code>germinate_db.view_table_traits.scale_unit</code>.
+     */
+    public final TableField<ViewTableTraitsRecord, String> SCALE_UNIT = createField(DSL.name("scale_unit"), SQLDataType.VARCHAR(255), this, "");
 
     /**
      * The column <code>germinate_db.view_table_traits.dataset_ids</code>.
@@ -159,7 +226,7 @@ public class ViewTableTraits extends TableImpl<ViewTableTraitsRecord> {
     }
 
     private ViewTableTraits(Name alias, Table<ViewTableTraitsRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_traits` as select distinct `germinate_template_4_25_03_05`.`phenotypes`.`id` AS `trait_id`,`germinate_template_4_25_03_05`.`phenotypes`.`name` AS `trait_name`,`germinate_template_4_25_03_05`.`phenotypes`.`short_name` AS `trait_name_short`,`germinate_template_4_25_03_05`.`phenotypes`.`description` AS `trait_description`,`germinate_template_4_25_03_05`.`phenotypes`.`datatype` AS `data_type`,`germinate_template_4_25_03_05`.`phenotypes`.`restrictions` AS `trait_restrictions`,`germinate_template_4_25_03_05`.`phenotypes`.`setsize` AS `trait_set_size`,`germinate_template_4_25_03_05`.`phenotypes`.`is_timeseries` AS `trait_is_timeseries`,`germinate_template_4_25_03_05`.`phenotypecategories`.`id` AS `category_id`,`germinate_template_4_25_03_05`.`phenotypecategories`.`name` AS `category_name`,`germinate_template_4_25_03_05`.`phenotypecategories`.`description` AS `category_description`,`germinate_template_4_25_03_05`.`units`.`id` AS `unit_id`,`germinate_template_4_25_03_05`.`units`.`unit_name` AS `unit_name`,`germinate_template_4_25_03_05`.`units`.`unit_description` AS `unit_description`,`germinate_template_4_25_03_05`.`units`.`unit_abbreviation` AS `unit_abbreviation`,`germinate_template_4_25_03_05`.`synonyms`.`synonyms` AS `synonyms`,(select cast(concat('[',(select group_concat(distinct `germinate_template_4_25_03_05`.`trialsetup`.`dataset_id` separator ',') from (`germinate_template_4_25_03_05`.`phenotypedata` left join `germinate_template_4_25_03_05`.`trialsetup` on((`germinate_template_4_25_03_05`.`trialsetup`.`id` = `germinate_template_4_25_03_05`.`phenotypedata`.`trialsetup_id`))) where (`germinate_template_4_25_03_05`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_03_05`.`phenotypes`.`id`)),']') as json)) AS `dataset_ids`,(select count(1) from `germinate_template_4_25_03_05`.`phenotypedata` where (`germinate_template_4_25_03_05`.`phenotypedata`.`phenotype_id` = `germinate_template_4_25_03_05`.`phenotypes`.`id`)) AS `count` from (((`germinate_template_4_25_03_05`.`phenotypes` left join `germinate_template_4_25_03_05`.`units` on((`germinate_template_4_25_03_05`.`units`.`id` = `germinate_template_4_25_03_05`.`phenotypes`.`unit_id`))) left join `germinate_template_4_25_03_05`.`phenotypecategories` on((`germinate_template_4_25_03_05`.`phenotypecategories`.`id` = `germinate_template_4_25_03_05`.`phenotypes`.`category_id`))) left join `germinate_template_4_25_03_05`.`synonyms` on(((`germinate_template_4_25_03_05`.`synonyms`.`foreign_id` = `germinate_template_4_25_03_05`.`phenotypes`.`id`) and (`germinate_template_4_25_03_05`.`synonyms`.`synonymtype_id` = 4)))) group by `germinate_template_4_25_03_05`.`phenotypes`.`id`,`germinate_template_4_25_03_05`.`synonyms`.`id`"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_table_traits` as select `germinate_template_5_26_10_09`.`variables`.`id` AS `variable_id`,`germinate_template_5_26_10_09`.`variables`.`name` AS `variable_name`,`germinate_template_5_26_10_09`.`variables`.`description` AS `variable_description`,(select json_arrayagg(json_object('ontologyId',`germinate_template_5_26_10_09`.`variableontologies`.`ontology_id`,'ontologyPuid',`germinate_template_5_26_10_09`.`variableontologies`.`ontology_puid`)) from `germinate_template_5_26_10_09`.`variableontologies` where (`germinate_template_5_26_10_09`.`variableontologies`.`variable_id` = `germinate_template_5_26_10_09`.`variables`.`id`)) AS `variable_ontologies`,`germinate_template_5_26_10_09`.`synonyms`.`synonyms` AS `variable_synonyms`,`germinate_template_5_26_10_09`.`traits`.`id` AS `trait_id`,`germinate_template_5_26_10_09`.`traits`.`name` AS `trait_name`,`germinate_template_5_26_10_09`.`traits`.`description` AS `trait_description`,(select json_arrayagg(json_object('ontologyId',`germinate_template_5_26_10_09`.`traitontologies`.`ontology_id`,'ontologyPuid',`germinate_template_5_26_10_09`.`traitontologies`.`ontology_puid`)) from `germinate_template_5_26_10_09`.`traitontologies` where (`germinate_template_5_26_10_09`.`traitontologies`.`trait_id` = `germinate_template_5_26_10_09`.`traits`.`id`)) AS `trait_ontologies`,`germinate_template_5_26_10_09`.`methods`.`id` AS `method_id`,`germinate_template_5_26_10_09`.`methods`.`name` AS `method_name`,`germinate_template_5_26_10_09`.`methods`.`description` AS `method_description`,`germinate_template_5_26_10_09`.`methods`.`method_class` AS `method_class`,(select json_arrayagg(json_object('ontologyId',`germinate_template_5_26_10_09`.`methodontologies`.`ontology_id`,'ontologyPuid',`germinate_template_5_26_10_09`.`methodontologies`.`ontology_puid`)) from `germinate_template_5_26_10_09`.`methodontologies` where (`germinate_template_5_26_10_09`.`methodontologies`.`method_id` = `germinate_template_5_26_10_09`.`methods`.`id`)) AS `method_ontologies`,`germinate_template_5_26_10_09`.`scales`.`id` AS `scale_id`,`germinate_template_5_26_10_09`.`scales`.`name` AS `scale_name`,`germinate_template_5_26_10_09`.`scales`.`description` AS `scale_description`,(select json_arrayagg(json_object('ontologyId',`germinate_template_5_26_10_09`.`scaleontologies`.`ontology_id`,'ontologyPuid',`germinate_template_5_26_10_09`.`scaleontologies`.`ontology_puid`)) from `germinate_template_5_26_10_09`.`scaleontologies` where (`germinate_template_5_26_10_09`.`scaleontologies`.`scale_id` = `germinate_template_5_26_10_09`.`scales`.`id`)) AS `scale_ontologies`,`germinate_template_5_26_10_09`.`traits`.`abbreviation` AS `trait_abbreviation`,`germinate_template_5_26_10_09`.`traits`.`trait_class` AS `trait_class`,`germinate_template_5_26_10_09`.`traits`.`synonyms` AS `trait_synonyms`,`germinate_template_5_26_10_09`.`traitcategories`.`id` AS `trait_category_id`,`germinate_template_5_26_10_09`.`traitcategories`.`name` AS `trait_category_name`,`germinate_template_5_26_10_09`.`traitcategories`.`description` AS `trait_category_description`,`germinate_template_5_26_10_09`.`methods`.`setsize` AS `method_set_size`,`germinate_template_5_26_10_09`.`methods`.`is_timeseries` AS `method_is_timeseries`,`germinate_template_5_26_10_09`.`scales`.`datatype` AS `scale_datatype`,`germinate_template_5_26_10_09`.`scales`.`restrictions` AS `scale_restrictions`,`germinate_template_5_26_10_09`.`scales`.`unit` AS `scale_unit`,(select cast(concat('[',(select group_concat(distinct `germinate_template_5_26_10_09`.`trialsetup`.`dataset_id` separator ',') from (`germinate_template_5_26_10_09`.`phenotypedata` left join `germinate_template_5_26_10_09`.`trialsetup` on((`germinate_template_5_26_10_09`.`trialsetup`.`id` = `germinate_template_5_26_10_09`.`phenotypedata`.`trialsetup_id`))) where (`germinate_template_5_26_10_09`.`phenotypedata`.`variable_id` = `germinate_template_5_26_10_09`.`variables`.`id`)),']') as json)) AS `dataset_ids`,(select count(1) from `germinate_template_5_26_10_09`.`phenotypedata` where (`germinate_template_5_26_10_09`.`phenotypedata`.`variable_id` = `germinate_template_5_26_10_09`.`variables`.`id`)) AS `count` from (((((`germinate_template_5_26_10_09`.`variables` left join `germinate_template_5_26_10_09`.`traits` on((`germinate_template_5_26_10_09`.`traits`.`id` = `germinate_template_5_26_10_09`.`variables`.`trait_id`))) left join `germinate_template_5_26_10_09`.`scales` on((`germinate_template_5_26_10_09`.`scales`.`id` = `germinate_template_5_26_10_09`.`variables`.`scale_id`))) left join `germinate_template_5_26_10_09`.`methods` on((`germinate_template_5_26_10_09`.`methods`.`id` = `germinate_template_5_26_10_09`.`variables`.`method_id`))) left join `germinate_template_5_26_10_09`.`traitcategories` on((`germinate_template_5_26_10_09`.`traitcategories`.`id` = `germinate_template_5_26_10_09`.`traits`.`traitcategory_id`))) left join `germinate_template_5_26_10_09`.`synonyms` on(((`germinate_template_5_26_10_09`.`synonyms`.`synonymtype_id` = 4) and (`germinate_template_5_26_10_09`.`synonyms`.`foreign_id` = `germinate_template_5_26_10_09`.`variables`.`id`))))"), where);
     }
 
     /**

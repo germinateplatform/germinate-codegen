@@ -4,14 +4,19 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Arrays;
+
 import jhi.germinate.server.database.pojo.DublinCore;
-import lombok.*;
-import lombok.experimental.Accessors;
+import jhi.germinate.server.database.pojo.StudyDetailsCore;
+
 import org.jooq.types.ULong;
 
-import java.io.Serializable;
-import java.sql.*;
-import java.util.Arrays;
+
+import lombok.*;
+import lombok.experimental.Accessors;
 
 // @formatter:off
 /**
@@ -35,6 +40,7 @@ public class ViewTableDatasets implements Serializable {
     private Integer experimentId;
     private String experimentName;
     private String experimentDescription;
+    private StudyDetailsCore studyDetailsCore;
     private Integer projectId;
     private String projectName;
     private String projectDescription;
@@ -48,6 +54,7 @@ public class ViewTableDatasets implements Serializable {
     private Date startDate;
     private Date endDate;
     private DublinCore dublinCore;
+    private Integer createdBy;
     private Timestamp createdOn;
     private Timestamp updatedOn;
     private ULong dataObjectCount;
@@ -72,6 +79,7 @@ public class ViewTableDatasets implements Serializable {
         this.experimentId = value.experimentId;
         this.experimentName = value.experimentName;
         this.experimentDescription = value.experimentDescription;
+        this.studyDetailsCore = value.studyDetailsCore;
         this.projectId = value.projectId;
         this.projectName = value.projectName;
         this.projectDescription = value.projectDescription;
@@ -85,6 +93,7 @@ public class ViewTableDatasets implements Serializable {
         this.startDate = value.startDate;
         this.endDate = value.endDate;
         this.dublinCore = value.dublinCore;
+        this.createdBy = value.createdBy;
         this.createdOn = value.createdOn;
         this.updatedOn = value.updatedOn;
         this.dataObjectCount = value.dataObjectCount;
@@ -108,6 +117,7 @@ public class ViewTableDatasets implements Serializable {
         Integer experimentId,
         String experimentName,
         String experimentDescription,
+        StudyDetailsCore studyDetailsCore,
         Integer projectId,
         String projectName,
         String projectDescription,
@@ -121,6 +131,7 @@ public class ViewTableDatasets implements Serializable {
         Date startDate,
         Date endDate,
         DublinCore dublinCore,
+        Integer createdBy,
         Timestamp createdOn,
         Timestamp updatedOn,
         ULong dataObjectCount,
@@ -142,6 +153,7 @@ public class ViewTableDatasets implements Serializable {
         this.experimentId = experimentId;
         this.experimentName = experimentName;
         this.experimentDescription = experimentDescription;
+        this.studyDetailsCore = studyDetailsCore;
         this.projectId = projectId;
         this.projectName = projectName;
         this.projectDescription = projectDescription;
@@ -155,6 +167,7 @@ public class ViewTableDatasets implements Serializable {
         this.startDate = startDate;
         this.endDate = endDate;
         this.dublinCore = dublinCore;
+        this.createdBy = createdBy;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
         this.dataObjectCount = dataObjectCount;
@@ -236,6 +249,12 @@ public class ViewTableDatasets implements Serializable {
         }
         else if (!this.experimentDescription.equals(other.experimentDescription))
             return false;
+        if (this.studyDetailsCore == null) {
+            if (other.studyDetailsCore != null)
+                return false;
+        }
+        else if (!this.studyDetailsCore.equals(other.studyDetailsCore))
+            return false;
         if (this.projectId == null) {
             if (other.projectId != null)
                 return false;
@@ -314,6 +333,12 @@ public class ViewTableDatasets implements Serializable {
         }
         else if (!this.dublinCore.equals(other.dublinCore))
             return false;
+        if (this.createdBy == null) {
+            if (other.createdBy != null)
+                return false;
+        }
+        else if (!this.createdBy.equals(other.createdBy))
+            return false;
         if (this.createdOn == null) {
             if (other.createdOn != null)
                 return false;
@@ -391,6 +416,7 @@ public class ViewTableDatasets implements Serializable {
         result = prime * result + ((this.experimentId == null) ? 0 : this.experimentId.hashCode());
         result = prime * result + ((this.experimentName == null) ? 0 : this.experimentName.hashCode());
         result = prime * result + ((this.experimentDescription == null) ? 0 : this.experimentDescription.hashCode());
+        result = prime * result + ((this.studyDetailsCore == null) ? 0 : this.studyDetailsCore.hashCode());
         result = prime * result + ((this.projectId == null) ? 0 : this.projectId.hashCode());
         result = prime * result + ((this.projectName == null) ? 0 : this.projectName.hashCode());
         result = prime * result + ((this.projectDescription == null) ? 0 : this.projectDescription.hashCode());
@@ -404,6 +430,7 @@ public class ViewTableDatasets implements Serializable {
         result = prime * result + ((this.startDate == null) ? 0 : this.startDate.hashCode());
         result = prime * result + ((this.endDate == null) ? 0 : this.endDate.hashCode());
         result = prime * result + ((this.dublinCore == null) ? 0 : this.dublinCore.hashCode());
+        result = prime * result + ((this.createdBy == null) ? 0 : this.createdBy.hashCode());
         result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
         result = prime * result + ((this.updatedOn == null) ? 0 : this.updatedOn.hashCode());
         result = prime * result + ((this.dataObjectCount == null) ? 0 : this.dataObjectCount.hashCode());
@@ -431,6 +458,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(experimentId);
         sb.append(", ").append(experimentName);
         sb.append(", ").append(experimentDescription);
+        sb.append(", ").append(studyDetailsCore);
         sb.append(", ").append(projectId);
         sb.append(", ").append(projectName);
         sb.append(", ").append(projectDescription);
@@ -444,6 +472,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(startDate);
         sb.append(", ").append(endDate);
         sb.append(", ").append(dublinCore);
+        sb.append(", ").append(createdBy);
         sb.append(", ").append(createdOn);
         sb.append(", ").append(updatedOn);
         sb.append(", ").append(dataObjectCount);

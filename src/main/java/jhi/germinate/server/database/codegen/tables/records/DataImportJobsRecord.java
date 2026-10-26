@@ -4,13 +4,17 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.enums.*;
+import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.enums.DataImportJobsDatatype;
+import jhi.germinate.server.database.codegen.enums.DataImportJobsStatus;
 import jhi.germinate.server.database.codegen.tables.DataImportJobs;
-import jhi.germinate.server.database.pojo.*;
+import jhi.germinate.server.database.pojo.ImportJobDetails;
+import jhi.germinate.server.database.pojo.ImportJobStats;
+import jhi.germinate.server.database.pojo.ImportResult;
+
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;
-
-import java.sql.Timestamp;
 
 
 // @formatter:off

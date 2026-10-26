@@ -4,12 +4,14 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.enums.*;
+import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.enums.ViewTableImportJobsDatatype;
+import jhi.germinate.server.database.codegen.enums.ViewTableImportJobsStatus;
 import jhi.germinate.server.database.codegen.tables.ViewTableImportJobs;
 import jhi.germinate.server.database.pojo.ImportJobStats;
-import org.jooq.impl.TableRecordImpl;
 
-import java.sql.Timestamp;
+import org.jooq.impl.TableRecordImpl;
 
 
 // @formatter:off
@@ -80,45 +82,73 @@ public class ViewTableImportJobsRecord extends TableRecordImpl<ViewTableImportJo
     }
 
     /**
+     * Setter for <code>germinate_db.view_table_import_jobs.user_id</code>.
+     */
+    public void setUserId(Integer value) {
+        set(4, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_import_jobs.user_id</code>.
+     */
+    public Integer getUserId() {
+        return (Integer) get(4);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_table_import_jobs.user_name</code>.
+     */
+    public void setUserName(String value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_table_import_jobs.user_name</code>.
+     */
+    public String getUserName() {
+        return (String) get(5);
+    }
+
+    /**
      * Setter for <code>germinate_db.view_table_import_jobs.status</code>.
      */
     public void setStatus(ViewTableImportJobsStatus value) {
-        set(4, value);
+        set(6, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_import_jobs.status</code>.
      */
     public ViewTableImportJobsStatus getStatus() {
-        return (ViewTableImportJobsStatus) get(4);
+        return (ViewTableImportJobsStatus) get(6);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_import_jobs.stats</code>.
      */
     public void setStats(ImportJobStats value) {
-        set(5, value);
+        set(7, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_import_jobs.stats</code>.
      */
     public ImportJobStats getStats() {
-        return (ImportJobStats) get(5);
+        return (ImportJobStats) get(7);
     }
 
     /**
      * Setter for <code>germinate_db.view_table_import_jobs.created_on</code>.
      */
     public void setCreatedOn(Timestamp value) {
-        set(6, value);
+        set(8, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_table_import_jobs.created_on</code>.
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(6);
+        return (Timestamp) get(8);
     }
 
     // -------------------------------------------------------------------------
@@ -135,13 +165,15 @@ public class ViewTableImportJobsRecord extends TableRecordImpl<ViewTableImportJo
     /**
      * Create a detached, initialised ViewTableImportJobsRecord
      */
-    public ViewTableImportJobsRecord(Integer id, Boolean isUpdate, Integer datasetstateId, ViewTableImportJobsDatatype datatype, ViewTableImportJobsStatus status, ImportJobStats stats, Timestamp createdOn) {
+    public ViewTableImportJobsRecord(Integer id, Boolean isUpdate, Integer datasetstateId, ViewTableImportJobsDatatype datatype, Integer userId, String userName, ViewTableImportJobsStatus status, ImportJobStats stats, Timestamp createdOn) {
         super(ViewTableImportJobs.VIEW_TABLE_IMPORT_JOBS);
 
         setId(id);
         setIsUpdate(isUpdate);
         setDatasetstateId(datasetstateId);
         setDatatype(datatype);
+        setUserId(userId);
+        setUserName(userName);
         setStatus(status);
         setStats(stats);
         setCreatedOn(createdOn);
@@ -159,6 +191,8 @@ public class ViewTableImportJobsRecord extends TableRecordImpl<ViewTableImportJo
             setIsUpdate(value.getIsUpdate());
             setDatasetstateId(value.getDatasetstateId());
             setDatatype(value.getDatatype());
+            setUserId(value.getUserId());
+            setUserName(value.getUserName());
             setStatus(value.getStatus());
             setStats(value.getStats());
             setCreatedOn(value.getCreatedOn());

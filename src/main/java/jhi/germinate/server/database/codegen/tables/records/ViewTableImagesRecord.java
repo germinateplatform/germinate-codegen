@@ -4,11 +4,13 @@
 package jhi.germinate.server.database.codegen.tables.records;
 
 
-import jhi.germinate.server.database.codegen.tables.ViewTableImages;
-import jhi.germinate.server.database.pojo.*;
-import org.jooq.impl.TableRecordImpl;
-
 import java.sql.Timestamp;
+
+import jhi.germinate.server.database.codegen.tables.ViewTableImages;
+import jhi.germinate.server.database.pojo.Exif;
+import jhi.germinate.server.database.pojo.ImageTag;
+
+import org.jooq.impl.TableRecordImpl;
 
 
 // @formatter:off

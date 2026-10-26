@@ -4,12 +4,15 @@
 package jhi.germinate.server.database.codegen.tables.pojos;
 
 
+import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import jhi.germinate.server.database.pojo.DublinCore;
+
+
 import lombok.*;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.sql.*;
 
 // @formatter:off
 /**
@@ -39,6 +42,7 @@ public class Datasets implements Serializable {
     private Integer createdBy;
     private Integer datasetStateId;
     private Integer licenseId;
+    private Integer studydetailsId;
     private Boolean isExternal;
     private String hyperlink;
     private Timestamp createdOn;
@@ -62,6 +66,7 @@ public class Datasets implements Serializable {
         this.createdBy = value.createdBy;
         this.datasetStateId = value.datasetStateId;
         this.licenseId = value.licenseId;
+        this.studydetailsId = value.studydetailsId;
         this.isExternal = value.isExternal;
         this.hyperlink = value.hyperlink;
         this.createdOn = value.createdOn;
@@ -84,6 +89,7 @@ public class Datasets implements Serializable {
         Integer createdBy,
         Integer datasetStateId,
         Integer licenseId,
+        Integer studydetailsId,
         Boolean isExternal,
         String hyperlink,
         Timestamp createdOn,
@@ -104,6 +110,7 @@ public class Datasets implements Serializable {
         this.createdBy = createdBy;
         this.datasetStateId = datasetStateId;
         this.licenseId = licenseId;
+        this.studydetailsId = studydetailsId;
         this.isExternal = isExternal;
         this.hyperlink = hyperlink;
         this.createdOn = createdOn;
@@ -204,6 +211,12 @@ public class Datasets implements Serializable {
         }
         else if (!this.licenseId.equals(other.licenseId))
             return false;
+        if (this.studydetailsId == null) {
+            if (other.studydetailsId != null)
+                return false;
+        }
+        else if (!this.studydetailsId.equals(other.studydetailsId))
+            return false;
         if (this.isExternal == null) {
             if (other.isExternal != null)
                 return false;
@@ -255,6 +268,7 @@ public class Datasets implements Serializable {
         result = prime * result + ((this.createdBy == null) ? 0 : this.createdBy.hashCode());
         result = prime * result + ((this.datasetStateId == null) ? 0 : this.datasetStateId.hashCode());
         result = prime * result + ((this.licenseId == null) ? 0 : this.licenseId.hashCode());
+        result = prime * result + ((this.studydetailsId == null) ? 0 : this.studydetailsId.hashCode());
         result = prime * result + ((this.isExternal == null) ? 0 : this.isExternal.hashCode());
         result = prime * result + ((this.hyperlink == null) ? 0 : this.hyperlink.hashCode());
         result = prime * result + ((this.createdOn == null) ? 0 : this.createdOn.hashCode());
@@ -281,6 +295,7 @@ public class Datasets implements Serializable {
         sb.append(", ").append(createdBy);
         sb.append(", ").append(datasetStateId);
         sb.append(", ").append(licenseId);
+        sb.append(", ").append(studydetailsId);
         sb.append(", ").append(isExternal);
         sb.append(", ").append(hyperlink);
         sb.append(", ").append(createdOn);
