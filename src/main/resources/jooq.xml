@@ -210,6 +210,11 @@
                     <userType>jhi.germinate.server.database.pojo.TaxonomyProviderInfo[]</userType>
                 </forcedType>
                 <forcedType>
+                    <expression>.*(view_stats_datasets)\.(year)</expression>
+                    <name>INTEGER</name>
+                    <types>.*</types>
+                </forcedType>
+                <forcedType>
                     <expression>.*</expression>
                     <name>BOOLEAN</name>
                     <types>.*tinyint.*</types>
