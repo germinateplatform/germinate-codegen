@@ -100,6 +100,7 @@ import jhi.germinate.server.database.codegen.tables.Usergroupmembers;
 import jhi.germinate.server.database.codegen.tables.Usergroups;
 import jhi.germinate.server.database.codegen.tables.Variableontologies;
 import jhi.germinate.server.database.codegen.tables.Variables;
+import jhi.germinate.server.database.codegen.tables.ViewMcpd;
 import jhi.germinate.server.database.codegen.tables.ViewStatsBiologicalstatus;
 import jhi.germinate.server.database.codegen.tables.ViewStatsCountry;
 import jhi.germinate.server.database.codegen.tables.ViewStatsPdci;
@@ -124,6 +125,7 @@ import jhi.germinate.server.database.codegen.tables.ViewTableLicenseDefinitions;
 import jhi.germinate.server.database.codegen.tables.ViewTableLicenses;
 import jhi.germinate.server.database.codegen.tables.ViewTableLinks;
 import jhi.germinate.server.database.codegen.tables.ViewTableLocations;
+import jhi.germinate.server.database.codegen.tables.ViewTableMapdefinitions;
 import jhi.germinate.server.database.codegen.tables.ViewTableMapoverlays;
 import jhi.germinate.server.database.codegen.tables.ViewTableMaps;
 import jhi.germinate.server.database.codegen.tables.ViewTableNews;
@@ -268,6 +270,7 @@ public class GerminateDb extends SchemaImpl {
             Usergroups.USERGROUPS,
             Variableontologies.VARIABLEONTOLOGIES,
             Variables.VARIABLES,
+            ViewMcpd.VIEW_MCPD,
             ViewStatsBiologicalstatus.VIEW_STATS_BIOLOGICALSTATUS,
             ViewStatsCountry.VIEW_STATS_COUNTRY,
             ViewStatsPdci.VIEW_STATS_PDCI,
@@ -292,6 +295,7 @@ public class GerminateDb extends SchemaImpl {
             ViewTableLicenses.VIEW_TABLE_LICENSES,
             ViewTableLinks.VIEW_TABLE_LINKS,
             ViewTableLocations.VIEW_TABLE_LOCATIONS,
+            ViewTableMapdefinitions.VIEW_TABLE_MAPDEFINITIONS,
             ViewTableMapoverlays.VIEW_TABLE_MAPOVERLAYS,
             ViewTableMaps.VIEW_TABLE_MAPS,
             ViewTableNews.VIEW_TABLE_NEWS,
