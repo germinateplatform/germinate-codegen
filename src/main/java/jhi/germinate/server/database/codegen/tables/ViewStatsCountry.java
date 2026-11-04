@@ -54,9 +54,14 @@ public class ViewStatsCountry extends TableImpl<ViewStatsCountryRecord> {
     public final TableField<ViewStatsCountryRecord, String> COUNTRY = createField(DSL.name("country"), SQLDataType.VARCHAR(255).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>germinate_db.view_stats_country.code</code>.
+     * The column <code>germinate_db.view_stats_country.code_2</code>.
      */
-    public final TableField<ViewStatsCountryRecord, String> CODE = createField(DSL.name("code"), SQLDataType.VARCHAR(3).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
+    public final TableField<ViewStatsCountryRecord, String> CODE_2 = createField(DSL.name("code_2"), SQLDataType.VARCHAR(2).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>germinate_db.view_stats_country.code_3</code>.
+     */
+    public final TableField<ViewStatsCountryRecord, String> CODE_3 = createField(DSL.name("code_3"), SQLDataType.VARCHAR(3).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>germinate_db.view_stats_country.count</code>.
@@ -68,7 +73,7 @@ public class ViewStatsCountry extends TableImpl<ViewStatsCountryRecord> {
     }
 
     private ViewStatsCountry(Name alias, Table<ViewStatsCountryRecord> aliased, Field<?>[] parameters, Condition where) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_stats_country` as select ifnull(`germinate_template_5_26_10_09`.`countries`.`country_name`,'UNKNOWN COUNTRY ORIGIN') AS `country`,ifnull(`germinate_template_5_26_10_09`.`countries`.`country_code3`,'UNK') AS `code`,count(1) AS `count` from ((`germinate_template_5_26_10_09`.`germinatebase` left join `germinate_template_5_26_10_09`.`locations` on((`germinate_template_5_26_10_09`.`germinatebase`.`location_id` = `germinate_template_5_26_10_09`.`locations`.`id`))) left join `germinate_template_5_26_10_09`.`countries` on((`germinate_template_5_26_10_09`.`countries`.`id` = `germinate_template_5_26_10_09`.`locations`.`country_id`))) where (`germinate_template_5_26_10_09`.`germinatebase`.`entitytype_id` = 1) group by `germinate_template_5_26_10_09`.`countries`.`id` order by count(1) desc"), where);
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.view("create view `view_stats_country` as select ifnull(`germinate_template_5_26_10_09`.`countries`.`country_name`,'UNKNOWN COUNTRY ORIGIN') AS `country`,ifnull(`germinate_template_5_26_10_09`.`countries`.`country_code2`,'UN') AS `code_2`,ifnull(`germinate_template_5_26_10_09`.`countries`.`country_code3`,'UNK') AS `code_3`,count(1) AS `count` from ((`germinate_template_5_26_10_09`.`germinatebase` left join `germinate_template_5_26_10_09`.`locations` on((`germinate_template_5_26_10_09`.`germinatebase`.`location_id` = `germinate_template_5_26_10_09`.`locations`.`id`))) left join `germinate_template_5_26_10_09`.`countries` on((`germinate_template_5_26_10_09`.`countries`.`id` = `germinate_template_5_26_10_09`.`locations`.`country_id`))) where (`germinate_template_5_26_10_09`.`germinatebase`.`entitytype_id` = 1) group by `germinate_template_5_26_10_09`.`countries`.`id` order by count(1) desc"), where);
     }
 
     /**

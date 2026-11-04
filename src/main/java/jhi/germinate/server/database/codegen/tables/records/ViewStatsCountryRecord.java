@@ -33,31 +33,45 @@ public class ViewStatsCountryRecord extends TableRecordImpl<ViewStatsCountryReco
     }
 
     /**
-     * Setter for <code>germinate_db.view_stats_country.code</code>.
+     * Setter for <code>germinate_db.view_stats_country.code_2</code>.
      */
-    public void setCode(String value) {
+    public void setCode_2(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>germinate_db.view_stats_country.code</code>.
+     * Getter for <code>germinate_db.view_stats_country.code_2</code>.
      */
-    public String getCode() {
+    public String getCode_2() {
         return (String) get(1);
+    }
+
+    /**
+     * Setter for <code>germinate_db.view_stats_country.code_3</code>.
+     */
+    public void setCode_3(String value) {
+        set(2, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.view_stats_country.code_3</code>.
+     */
+    public String getCode_3() {
+        return (String) get(2);
     }
 
     /**
      * Setter for <code>germinate_db.view_stats_country.count</code>.
      */
     public void setCount(Long value) {
-        set(2, value);
+        set(3, value);
     }
 
     /**
      * Getter for <code>germinate_db.view_stats_country.count</code>.
      */
     public Long getCount() {
-        return (Long) get(2);
+        return (Long) get(3);
     }
 
     // -------------------------------------------------------------------------
@@ -74,11 +88,12 @@ public class ViewStatsCountryRecord extends TableRecordImpl<ViewStatsCountryReco
     /**
      * Create a detached, initialised ViewStatsCountryRecord
      */
-    public ViewStatsCountryRecord(String country, String code, Long count) {
+    public ViewStatsCountryRecord(String country, String code_2, String code_3, Long count) {
         super(ViewStatsCountry.VIEW_STATS_COUNTRY);
 
         setCountry(country);
-        setCode(code);
+        setCode_2(code_2);
+        setCode_3(code_3);
         setCount(count);
         resetTouchedOnNotNull();
     }
@@ -91,7 +106,8 @@ public class ViewStatsCountryRecord extends TableRecordImpl<ViewStatsCountryReco
 
         if (value != null) {
             setCountry(value.getCountry());
-            setCode(value.getCode());
+            setCode_2(value.getCode_2());
+            setCode_3(value.getCode_3());
             setCount(value.getCount());
             resetTouchedOnNotNull();
         }

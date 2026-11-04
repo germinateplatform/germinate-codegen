@@ -23,24 +23,28 @@ public class ViewStatsCountry implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String country;
-    private String code;
+    private String code_2;
+    private String code_3;
     private Long count;
 
     public ViewStatsCountry() {}
 
     public ViewStatsCountry(ViewStatsCountry value) {
         this.country = value.country;
-        this.code = value.code;
+        this.code_2 = value.code_2;
+        this.code_3 = value.code_3;
         this.count = value.count;
     }
 
     public ViewStatsCountry(
         String country,
-        String code,
+        String code_2,
+        String code_3,
         Long count
     ) {
         this.country = country;
-        this.code = code;
+        this.code_2 = code_2;
+        this.code_3 = code_3;
         this.count = count;
     }
 
@@ -59,11 +63,17 @@ public class ViewStatsCountry implements Serializable {
         }
         else if (!this.country.equals(other.country))
             return false;
-        if (this.code == null) {
-            if (other.code != null)
+        if (this.code_2 == null) {
+            if (other.code_2 != null)
                 return false;
         }
-        else if (!this.code.equals(other.code))
+        else if (!this.code_2.equals(other.code_2))
+            return false;
+        if (this.code_3 == null) {
+            if (other.code_3 != null)
+                return false;
+        }
+        else if (!this.code_3.equals(other.code_3))
             return false;
         if (this.count == null) {
             if (other.count != null)
@@ -79,7 +89,8 @@ public class ViewStatsCountry implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((this.country == null) ? 0 : this.country.hashCode());
-        result = prime * result + ((this.code == null) ? 0 : this.code.hashCode());
+        result = prime * result + ((this.code_2 == null) ? 0 : this.code_2.hashCode());
+        result = prime * result + ((this.code_3 == null) ? 0 : this.code_3.hashCode());
         result = prime * result + ((this.count == null) ? 0 : this.count.hashCode());
         return result;
     }
@@ -89,7 +100,8 @@ public class ViewStatsCountry implements Serializable {
         StringBuilder sb = new StringBuilder("ViewStatsCountry (");
 
         sb.append(country);
-        sb.append(", ").append(code);
+        sb.append(", ").append(code_2);
+        sb.append(", ").append(code_3);
         sb.append(", ").append(count);
 
         sb.append(")");
