@@ -106,11 +106,29 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
     }
 
     /**
+     * Setter for <code>germinate_db.datasets.tags</code>. Any tags that should
+     * be associated with this dataset. Could be work packages or deliverables
+     * or anything else.
+     */
+    public void setTags(String[] value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>germinate_db.datasets.tags</code>. Any tags that should
+     * be associated with this dataset. Could be work packages or deliverables
+     * or anything else.
+     */
+    public String[] getTags() {
+        return (String[]) get(5);
+    }
+
+    /**
      * Setter for <code>germinate_db.datasets.date_start</code>. Date that the
      * dataset was generated.
      */
     public void setDateStart(Date value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
@@ -118,7 +136,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * dataset was generated.
      */
     public Date getDateStart() {
-        return (Date) get(5);
+        return (Date) get(6);
     }
 
     /**
@@ -126,7 +144,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * dataset recording ended.
      */
     public void setDateEnd(Date value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
@@ -134,21 +152,21 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * dataset recording ended.
      */
     public Date getDateEnd() {
-        return (Date) get(6);
+        return (Date) get(7);
     }
 
     /**
      * Setter for <code>germinate_db.datasets.source_file</code>.
      */
     public void setSourceFile(String value) {
-        set(7, value);
+        set(8, value);
     }
 
     /**
      * Getter for <code>germinate_db.datasets.source_file</code>.
      */
     public String getSourceFile() {
-        return (String) get(7);
+        return (String) get(8);
     }
 
     /**
@@ -157,7 +175,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * "BLUPs", etc.
      */
     public void setDatatype(String value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
@@ -166,21 +184,21 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * "BLUPs", etc.
      */
     public String getDatatype() {
-        return (String) get(8);
+        return (String) get(9);
     }
 
     /**
      * Setter for <code>germinate_db.datasets.dublin_core</code>.
      */
     public void setDublinCore(DublinCore value) {
-        set(9, value);
+        set(10, value);
     }
 
     /**
      * Getter for <code>germinate_db.datasets.dublin_core</code>.
      */
     public DublinCore getDublinCore() {
-        return (DublinCore) get(9);
+        return (DublinCore) get(10);
     }
 
     /**
@@ -188,7 +206,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * this exists.
      */
     public void setVersion(String value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
@@ -196,7 +214,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * this exists.
      */
     public String getVersion() {
-        return (String) get(10);
+        return (String) get(11);
     }
 
     /**
@@ -205,7 +223,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * to Gatekeeper users (users.id).
      */
     public void setCreatedBy(Integer value) {
-        set(11, value);
+        set(12, value);
     }
 
     /**
@@ -214,7 +232,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * to Gatekeeper users (users.id).
      */
     public Integer getCreatedBy() {
-        return (Integer) get(11);
+        return (Integer) get(12);
     }
 
     /**
@@ -222,7 +240,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * key to datasetstates (datasetstates.id).
      */
     public void setDatasetStateId(Integer value) {
-        set(12, value);
+        set(13, value);
     }
 
     /**
@@ -230,21 +248,21 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * key to datasetstates (datasetstates.id).
      */
     public Integer getDatasetStateId() {
-        return (Integer) get(12);
+        return (Integer) get(13);
     }
 
     /**
      * Setter for <code>germinate_db.datasets.license_id</code>.
      */
     public void setLicenseId(Integer value) {
-        set(13, value);
+        set(14, value);
     }
 
     /**
      * Getter for <code>germinate_db.datasets.license_id</code>.
      */
     public Integer getLicenseId() {
-        return (Integer) get(13);
+        return (Integer) get(14);
     }
 
     /**
@@ -252,7 +270,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * key to studydetails (studydetails.id).
      */
     public void setStudydetailsId(Integer value) {
-        set(14, value);
+        set(15, value);
     }
 
     /**
@@ -260,7 +278,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * key to studydetails (studydetails.id).
      */
     public Integer getStudydetailsId() {
-        return (Integer) get(14);
+        return (Integer) get(15);
     }
 
     /**
@@ -269,7 +287,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * stored in the database.
      */
     public void setIsExternal(Boolean value) {
-        set(15, value);
+        set(16, value);
     }
 
     /**
@@ -278,7 +296,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * stored in the database.
      */
     public Boolean getIsExternal() {
-        return (Boolean) get(15);
+        return (Boolean) get(16);
     }
 
     /**
@@ -286,7 +304,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * the external dasets.
      */
     public void setHyperlink(String value) {
-        set(16, value);
+        set(17, value);
     }
 
     /**
@@ -294,7 +312,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * the external dasets.
      */
     public String getHyperlink() {
-        return (String) get(16);
+        return (String) get(17);
     }
 
     /**
@@ -303,7 +321,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
 
      */
     public void setCreatedOn(Timestamp value) {
-        set(17, value);
+        set(18, value);
     }
 
     /**
@@ -312,7 +330,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
 
      */
     public Timestamp getCreatedOn() {
-        return (Timestamp) get(17);
+        return (Timestamp) get(18);
     }
 
     /**
@@ -321,7 +339,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * changes have been made to the underlying record.
      */
     public void setUpdatedOn(Timestamp value) {
-        set(18, value);
+        set(19, value);
     }
 
     /**
@@ -330,7 +348,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * changes have been made to the underlying record.
      */
     public Timestamp getUpdatedOn() {
-        return (Timestamp) get(18);
+        return (Timestamp) get(19);
     }
 
     /**
@@ -338,7 +356,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * more information about this dataset.
      */
     public void setContact(String value) {
-        set(19, value);
+        set(20, value);
     }
 
     /**
@@ -346,7 +364,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
      * more information about this dataset.
      */
     public String getContact() {
-        return (String) get(19);
+        return (String) get(20);
     }
 
     // -------------------------------------------------------------------------
@@ -372,7 +390,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
     /**
      * Create a detached, initialised DatasetsRecord
      */
-    public DatasetsRecord(Integer id, Integer experimentId, Integer datasettypeId, String name, String description, Date dateStart, Date dateEnd, String sourceFile, String datatype, DublinCore dublinCore, String version, Integer createdBy, Integer datasetStateId, Integer licenseId, Integer studydetailsId, Boolean isExternal, String hyperlink, Timestamp createdOn, Timestamp updatedOn, String contact) {
+    public DatasetsRecord(Integer id, Integer experimentId, Integer datasettypeId, String name, String description, String[] tags, Date dateStart, Date dateEnd, String sourceFile, String datatype, DublinCore dublinCore, String version, Integer createdBy, Integer datasetStateId, Integer licenseId, Integer studydetailsId, Boolean isExternal, String hyperlink, Timestamp createdOn, Timestamp updatedOn, String contact) {
         super(Datasets.DATASETS);
 
         setId(id);
@@ -380,6 +398,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
         setDatasettypeId(datasettypeId);
         setName(name);
         setDescription(description);
+        setTags(tags);
         setDateStart(dateStart);
         setDateEnd(dateEnd);
         setSourceFile(sourceFile);
@@ -410,6 +429,7 @@ public class DatasetsRecord extends UpdatableRecordImpl<DatasetsRecord> {
             setDatasettypeId(value.getDatasettypeId());
             setName(value.getName());
             setDescription(value.getDescription());
+            setTags(value.getTags());
             setDateStart(value.getDateStart());
             setDateEnd(value.getDateEnd());
             setSourceFile(value.getSourceFile());

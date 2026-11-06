@@ -7,6 +7,7 @@ package jhi.germinate.server.database.codegen.tables.pojos;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 import jhi.germinate.server.database.pojo.DublinCore;
 
@@ -33,6 +34,7 @@ public class Datasets implements Serializable {
     private Integer datasettypeId;
     private String name;
     private String description;
+    private String[] tags;
     private Date dateStart;
     private Date dateEnd;
     private String sourceFile;
@@ -57,6 +59,7 @@ public class Datasets implements Serializable {
         this.datasettypeId = value.datasettypeId;
         this.name = value.name;
         this.description = value.description;
+        this.tags = value.tags;
         this.dateStart = value.dateStart;
         this.dateEnd = value.dateEnd;
         this.sourceFile = value.sourceFile;
@@ -80,6 +83,7 @@ public class Datasets implements Serializable {
         Integer datasettypeId,
         String name,
         String description,
+        String[] tags,
         Date dateStart,
         Date dateEnd,
         String sourceFile,
@@ -101,6 +105,7 @@ public class Datasets implements Serializable {
         this.datasettypeId = datasettypeId;
         this.name = name;
         this.description = description;
+        this.tags = tags;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.sourceFile = sourceFile;
@@ -156,6 +161,12 @@ public class Datasets implements Serializable {
                 return false;
         }
         else if (!this.description.equals(other.description))
+            return false;
+        if (this.tags == null) {
+            if (other.tags != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.tags, other.tags))
             return false;
         if (this.dateStart == null) {
             if (other.dateStart != null)
@@ -259,6 +270,7 @@ public class Datasets implements Serializable {
         result = prime * result + ((this.datasettypeId == null) ? 0 : this.datasettypeId.hashCode());
         result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
         result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.tags == null) ? 0 : Arrays.deepHashCode(this.tags));
         result = prime * result + ((this.dateStart == null) ? 0 : this.dateStart.hashCode());
         result = prime * result + ((this.dateEnd == null) ? 0 : this.dateEnd.hashCode());
         result = prime * result + ((this.sourceFile == null) ? 0 : this.sourceFile.hashCode());
@@ -286,6 +298,7 @@ public class Datasets implements Serializable {
         sb.append(", ").append(datasettypeId);
         sb.append(", ").append(name);
         sb.append(", ").append(description);
+        sb.append(", ").append(Arrays.deepToString(tags));
         sb.append(", ").append(dateStart);
         sb.append(", ").append(dateEnd);
         sb.append(", ").append(sourceFile);

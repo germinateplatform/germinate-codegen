@@ -36,6 +36,7 @@ public class ViewTableDatasets implements Serializable {
     private String hyperlink;
     private String sourceFile;
     private String version;
+    private String[] datasetTags;
     private String datasetType;
     private Integer experimentId;
     private String experimentName;
@@ -75,6 +76,7 @@ public class ViewTableDatasets implements Serializable {
         this.hyperlink = value.hyperlink;
         this.sourceFile = value.sourceFile;
         this.version = value.version;
+        this.datasetTags = value.datasetTags;
         this.datasetType = value.datasetType;
         this.experimentId = value.experimentId;
         this.experimentName = value.experimentName;
@@ -113,6 +115,7 @@ public class ViewTableDatasets implements Serializable {
         String hyperlink,
         String sourceFile,
         String version,
+        String[] datasetTags,
         String datasetType,
         Integer experimentId,
         String experimentName,
@@ -149,6 +152,7 @@ public class ViewTableDatasets implements Serializable {
         this.hyperlink = hyperlink;
         this.sourceFile = sourceFile;
         this.version = version;
+        this.datasetTags = datasetTags;
         this.datasetType = datasetType;
         this.experimentId = experimentId;
         this.experimentName = experimentName;
@@ -224,6 +228,12 @@ public class ViewTableDatasets implements Serializable {
                 return false;
         }
         else if (!this.version.equals(other.version))
+            return false;
+        if (this.datasetTags == null) {
+            if (other.datasetTags != null)
+                return false;
+        }
+        else if (!Arrays.deepEquals(this.datasetTags, other.datasetTags))
             return false;
         if (this.datasetType == null) {
             if (other.datasetType != null)
@@ -412,6 +422,7 @@ public class ViewTableDatasets implements Serializable {
         result = prime * result + ((this.hyperlink == null) ? 0 : this.hyperlink.hashCode());
         result = prime * result + ((this.sourceFile == null) ? 0 : this.sourceFile.hashCode());
         result = prime * result + ((this.version == null) ? 0 : this.version.hashCode());
+        result = prime * result + ((this.datasetTags == null) ? 0 : Arrays.deepHashCode(this.datasetTags));
         result = prime * result + ((this.datasetType == null) ? 0 : this.datasetType.hashCode());
         result = prime * result + ((this.experimentId == null) ? 0 : this.experimentId.hashCode());
         result = prime * result + ((this.experimentName == null) ? 0 : this.experimentName.hashCode());
@@ -454,6 +465,7 @@ public class ViewTableDatasets implements Serializable {
         sb.append(", ").append(hyperlink);
         sb.append(", ").append(sourceFile);
         sb.append(", ").append(version);
+        sb.append(", ").append(Arrays.deepToString(datasetTags));
         sb.append(", ").append(datasetType);
         sb.append(", ").append(experimentId);
         sb.append(", ").append(experimentName);

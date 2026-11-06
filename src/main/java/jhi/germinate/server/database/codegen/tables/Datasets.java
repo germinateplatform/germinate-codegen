@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.util.Collection;
 
 import jhi.germinate.server.database.binding.DublinCoreBinding;
+import jhi.germinate.server.database.binding.SynonymBinding;
 import jhi.germinate.server.database.codegen.GerminateDb;
 import jhi.germinate.server.database.codegen.tables.records.DatasetsRecord;
 import jhi.germinate.server.database.pojo.DublinCore;
@@ -86,6 +87,13 @@ public class Datasets extends TableImpl<DatasetsRecord> {
      * this dataset.
      */
     public final TableField<DatasetsRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB, this, "The name of this dataset.");
+
+    /**
+     * The column <code>germinate_db.datasets.tags</code>. Any tags that should
+     * be associated with this dataset. Could be work packages or deliverables
+     * or anything else.
+     */
+    public final TableField<DatasetsRecord, String[]> TAGS = createField(DSL.name("tags"), SQLDataType.JSON, this, "Any tags that should be associated with this dataset. Could be work packages or deliverables or anything else.", new SynonymBinding());
 
     /**
      * The column <code>germinate_db.datasets.date_start</code>. Date that the
